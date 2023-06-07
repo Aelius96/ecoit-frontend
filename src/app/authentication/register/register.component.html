@@ -1,0 +1,52 @@
+<div class="contaner">
+  <div class="col-lg-6" id="right-column">
+    <div class="right" style="top: 50%;">
+      <div class="content">
+        <h4>Chào mừng đến với App chat EcoIT</h4>
+        <p>Công ty Cổ phần EcoIT được đăng ký thành lập vào ngày 29/09/2010 là một
+          Công ty tin học chuyên cung cấp phần mềm, dịch vụ, hệ thống và các giải pháp
+          về Công nghệ thông tin được sáng lập và lãnh đạo bởi các chuyên gia quản lý, chuyên
+          gia công nghệ có kinh nghiệm lâu năm trong các lĩnh vực Công nghệ thông tin có cùng ý tưởng đến từ nhiều tổ
+          chức, doanh nghiệp trong các lĩnh vực khác nhau.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="left">
+      <div class="signup">
+        <img src="https://ecoit.asia/wp-content/themes/ecoitTheme/image/logoEcoit.jpg" alt="ecoit" style="width: 40%; height: auto; margin: 20px 0px 10px 0px;" >
+        <h5 class="text" > Đăng ký </h5>
+        <div style="font-size:17px; text-align: center; margin-top: 10px; padding: 0px 40px 0px 40px;">
+          <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+            <div *ngIf="isSignUpFailed" class="error-mess mb-4">{{errorMessage}}</div>
+            <div *ngIf="isSuccessful" class="alert-success mb-4">{{errorMessage}}</div>
+            <div class="input" style="padding-bottom: 40px;">
+              <div class="col-md-6" style="padding-left: 0px; width: 100%;" >
+                <input type="text"  placeholder="Họ"  >
+              </div>
+              <div class="col-md-6" style="padding-right: 0px; width: 100%;">
+                <input type="text"  placeholder="Tên" >
+              </div>
+            </div>
+            <div class="input">
+              <input type="text" [(ngModel)]="form.username" name="username" placeholder="Tài khoản" required>
+            </div>
+            <div class="input" >
+              <input type="text" [(ngModel)]="form.email" name="email"  placeholder="Email" required>
+            </div>
+            <div class="input" >
+              <input type="password" [(ngModel)]="form.password" name="password"  placeholder="Mật khẩu" required>
+            </div>
+
+            <button type="submit" class="btn btn-success">ĐĂNG KÝ</button>
+            <span>Bạn đã có tài khoản?</span>
+            <a href="/login" style="color: rgb(67, 156, 16);">Đăng nhập</a>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

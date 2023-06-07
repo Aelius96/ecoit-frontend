@@ -1,0 +1,91 @@
+.toolbar{
+  height: 65px;
+  background-color: white;
+  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
+  border-top: 1px solid #eff2f5;
+}
+.header-menu{
+  padding: 10px 15px 0px 12px;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+.h5{
+  font-weight: bolder;
+  font-size: 18px;
+  color: black;
+  padding-right: 10px;
+}
+.menu-item{
+  padding-left: 20px;
+  margin-top: 8px;
+}
+.custom-select{
+  width: 60px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.item-blog{
+  margin-top: 30px;
+}
+.form-control{
+  height: 30px;
+  font-size: 15px;
+  margin-top:7px;
+}
+.inputt{
+  margin-left: 0px;
+  height: 30px;
+  margin-top:7px;
+}
+.fa-lg:hover{
+  color: blue;
+
+}
+/*  */
+.icon{
+
+ position: static;
+  margin-left: 10px;
+  padding: 5px 10px 5px 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  
+}
+.icon-edit{
+  background-color: #e0da25;
+}
+.icon-remove{
+  background-color: blue;
+}
+.icon-history{
+ background-color: black;
+}
+.icon-item{
+  color: #eff2f5;
+}
+.icon-item:hover{
+  color: black;
+}
+.status{
+  padding: 3px 8px 3px 8px;
+  border-radius: 5px;
+  color: white;
+  margin-right: 5px;
+}
+.status_user{
+  background-color: rgb(15, 156, 15);
+}
+.status_mod{
+  background-color: rgb(189, 152, 2);
+}
+.status_admin{
+  background-color: red;
+}
+.detail{
+  box-sizing: border-box;
+}
+
+/* 
+ */

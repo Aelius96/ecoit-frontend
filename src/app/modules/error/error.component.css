@@ -1,0 +1,36 @@
+
+.title{
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000;
+    font-weight: bold;
+  }
+
+.list{
+    padding: 5px 5px 5px 5px;
+    color: #50b848;
+    font-weight: bold;
+}
+p{
+    margin-bottom: 20px;
+}
+.color-gree{
+ text-align: justify;
+ padding: 0px 0px 0px 0px;
+ margin-bottom: 10px;
+}
+.hover_style_link{
+  color: #50b848;
+}
+.my-4{
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  float: left;
+}
+
+.mt-0{
+  color: #50b848;
+  font-weight: bold;
+}
+.media{
+  padding: 10px 0px 10px 0px;
+}

@@ -1,0 +1,27 @@
+
+.text-headeradmin{
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 5px ;
+  background-color: rgba(199, 200, 201, 0.82);
+  color: #34831a;
+}
+.header-left-headeradmin{
+  font-size: 20px;
+  color: black;
+}
+
+.head-menu-headeradmin{
+  margin-left: 10px;
+  justify-content: center;
+}
+
+.button-headeradmin{
+  padding:0px 15px ;
+;
+  margin-right: 80px;
+  font-size: 15px;
+}
+.item-btn-headeradmin{
+  font-size: 15px;
+}

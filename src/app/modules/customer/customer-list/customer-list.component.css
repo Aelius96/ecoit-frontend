@@ -1,0 +1,55 @@
+.chuyenmuc{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  color: #50b848;
+}
+#gachchan{
+  width: 100px;
+  margin-top: 20px;
+  border-top: 1px solid rgb(0, 0, 0);
+}
+
+.iconn{
+  font-size: 25px;
+  color: aliceblue;
+}
+.pricing-table__inner{
+  padding: 0px 0px 0px 0px;
+  width: 100%;
+ height: 100%;
+}
+.pricing-table__title{
+  letter-spacing: -.4px;
+  align-content: center;
+  color: rgb(0, 0, 0);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 18px;
+}
+.pricing-table__footer{
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 90%;
+  
+}
+
+.pricing-table__footer .quantam{
+  justify-items: center;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.quantam:hover{
+  text-decoration:none;
+  color: #000000;
+}
+
+.quantam{
+ color:  #50b848;
+}

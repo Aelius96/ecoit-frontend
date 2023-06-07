@@ -1,0 +1,25 @@
+#aa{
+    background-color: #50b848;
+  }
+#gachchan.gioithieu{
+    border-top: 1px solid #50b848;
+    width: 100px;
+    margin-top: 20px; 
+  }
+.chuyenmuc{
+    color: #50b848;
+    font-weight: bold;
+    text-align: center;
+  }
+
+.list{
+    padding: 5px 5px 5px 5px;
+    color: #50b848;
+    font-weight: bold;
+}
+.hrr{
+    background-color: #50b848;
+}
+p{
+    margin-bottom: 20px;
+}

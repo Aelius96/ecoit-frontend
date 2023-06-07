@@ -1,0 +1,69 @@
+<div class="toolbar">
+  <div class="d-flex  justify-content-between header-menu ">
+    <div class="left-d-flex">
+      <div class="d-flex">
+        <a class="control" style="width: 80px" routerLink="../customer"  routerLinkActive="active"><span  class="spann">Mục tiêu /</span></a>
+        <a class="control"  style="width: 80px" routerLink="../image-gallery" routerLinkActive="active"  ><span style="font-weight: bold;" class="spann">Tiêu biểu</span></a>
+
+        <input type="text " class="form-control "  placeholder="Viết gì đó ...">
+        <div class="input-group-append inputt" >
+          <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="right-d-flex">
+      <div class="d-flex  flex-wrap">
+        <div class="menu-item ">
+          <div class="d-flex">
+            <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
+            <select class="custom-select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+            </select>
+          </div>
+        </div>
+        <div class="menu-item">
+          <!--          (click)="addTypicalNum()"-->
+          <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="flexiable-slider-wrapper section-space--mt_60" style="margin-top: 50px; padding-bottom: 30px; ">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 wow move-up">
+        <div class="flexible-image-slider-wrap">
+          <div class="swiper-container auto--per-flexible__container__aegency image">
+            <div class="swiper-wrapper ">
+
+              <div class="item-image">
+                <img class="img-fluid" src="https://ecoit.asia/wp-content/uploads/2019/08/quanlithitrg.jpg" alt="" />
+                <div class="overlay">Quản lí thị trường</div>
+              </div>
+
+              <div class="item-image">
+                <img class="img-fluid" src="https://ecoit.asia/wp-content/uploads/2019/08/vpbank.jpg" alt="">
+                <div class="overlay">VpBank</div>
+              </div>
+              <div class="item-image">
+                <img class="img-fluid" src="https://ecoit.asia/wp-content/uploads/2019/08/tainguyenmoitrg.jpg" alt="">
+                <div class="overlay"><span>Tài nguyên môi trường</span></div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

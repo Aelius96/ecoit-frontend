@@ -1,0 +1,78 @@
+.toolbar{
+    height: 65px;
+    background-color: white;
+    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
+    border-top: 1px solid #eff2f5;
+  }
+  .header-menu{
+    padding: 10px 15px 0px 12px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .spann{
+    height: 30px;
+    font-size: 16px;
+  
+  }
+  .control{
+    margin-top:7px;
+    color: black;
+  }
+  .control:hover{
+    text-decoration: none;
+  }
+  .menu-item{
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+  .custom-select{
+    width: 60px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-control{
+    padding-left: 20px;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    margin-top:7px;
+  }
+  .inputt{
+    margin-left: 0px;
+    height: 30px;
+    margin-top:7px;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+
+  /*  */
+ 
+  .image{
+    box-shadow: 1px 1px 30px 5px rgba(82, 63, 105, 0.132);
+    border: 1px solid #8484842c;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .img-fluid:hover{
+  }
+  .overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgba(86, 197, 52, 0.821); /* Black see-through */
+    color: #f1f1f1; 
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    align-items: center;
+  }
+.item-image:hover .overlay{
+    opacity: 1;
+    text-align: center;
+}

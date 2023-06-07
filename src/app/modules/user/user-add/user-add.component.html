@@ -1,0 +1,101 @@
+<form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+  <div class="toolbar">
+    <div class="d-flex  justify-content-between header-menu ">
+      <div class="left-d-flex">
+        <div class="d-flex">
+          <h5 class="h5" style="width:auto">Thêm mới</h5>
+
+        </div>
+      </div>
+      <div class="right-d-flex">
+        <div class="d-flex  flex-wrap">
+
+          <div class="menu-item">
+            <a (click)="goToUserList()" class="ht-btn-custom"  >   <span aria-hidden="true" style="font-size: 30px; font-weight: bold; color: black; margin-right: 30px;">&times;</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="isSignUpFailed" class="error-mess mb-4">{{errorMessage}}</div>
+  <div *ngIf="isSuccessful" class="alert-success mb-4">{{errorMessage}}</div>
+  <div class="user-content col-lg-12 ">
+    <div class="row " style="justify-content: center;">
+      <div class="col-md-4">
+        <div class="options">
+          <div class="title">Họ</div>
+          <input type="text" [(ngModel)]="user.firstName" name="firstName"  placeholder="Họ">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="options">
+          <div class="title">Tên</div>
+          <input type="text" [(ngModel)]="user.lastName" name="lastName"  placeholder="Tên">
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="options">
+          <div class="title">Tài khoản</div>
+          <input type="text" [(ngModel)] = "user.username" name="username" placeholder="Tài khoản" required>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <!-- Email input  -->
+        <div class="options">
+          <div class="title">Email</div>
+          <input type="email"  [(ngModel)] = "user.email" name="email" placeholder="Email" required>
+        </div>
+      </div>
+      <div class="col-md-8" *ngIf="id; else elseBlock">
+        <div class="col-md-6">
+          <div class="options">
+            <div class="title">Mật khẩu</div>
+            <input type="password"  [(ngModel)] = "user.password" name="password" placeholder="Vì lý do bảo mật nên mật khẩu sẽ không hiện" disabled>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="options">
+            <div class="title">Đặt lại mật khẩu</div>
+            <button type="button"  class="btn"><i class="far fa-history"></i></button>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="options">
+            <div class="title">Vai trò</div>
+            <div class="roles-box">
+              <label>
+                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="ROLE_ADMIN"> Quản trị viên
+              </label>
+              <label>
+                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="ROLE_MOD"> Điều hành
+              </label>
+              <label>
+                <input type="radio" [(ngModel)]="user.roles" name="roles" value="ROLE_USER"> Người dùng
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <ng-template #elseBlock>
+          <div class="options col-md-8">
+            <div class="title">Mật khẩu</div>
+            <input type="password" [(ngModel)] = "user.password" name="password" placeholder="Mật khẩu" required>
+          </div>
+        </ng-template>
+      </div>
+
+      <div class="col-md-12" style="text-align: center; padding-top: 30px;">
+        <div class="user-footer">
+          <button class="save-btn" type="submit" name="created"><i class="fas fa-save"></i> Lưu</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>

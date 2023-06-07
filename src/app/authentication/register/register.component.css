@@ -1,0 +1,51 @@
+.col-lg-6{
+  padding: 10px 10px 10px 10px;
+  height: 100vh;
+}
+#right-column{
+  background-image: linear-gradient(to right , #222a44 , #405082 , #4d6199, #405082, #222a44);
+}
+h4{
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.content{
+  height: 50%;
+  color: white;
+}
+.right{
+
+  padding: 20px 20px 20px 20px ;
+}
+.left{
+  padding: 20px 20px 20px 20px ;
+}
+.signup{
+  text-align: center;
+}
+input{
+  width: 100%;
+  height: auto;
+  color: black;
+}
+.input{
+  width: 100%;
+  height: auto;
+  padding: 20px 10px 20px 10px;
+  text-align: center;
+}
+.button{
+  padding: 20px 10px 20px 10px;
+}
+
+.text{
+  text-align: center;
+  color: #50b848;
+  font-weight: bolder;
+}
+/* .col-md-6{
+
+    width:100%;
+} */

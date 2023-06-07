@@ -1,0 +1,83 @@
+<app-header></app-header>
+
+<!--====================  header area ====================-->
+
+<!--====================  End of header area  ====================-->
+<div class="row">
+  <div class="col-md-12">
+    <div id="content-wrapper" class="is-vc">
+      <div class="sliderHomes" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="item active">
+            <a href="#">
+              <img width="1520" height="250"
+                   src="https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2.jpg"
+                   class="fuild-img wp-post-image" alt="" loading="lazy" srcset="https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2.jpg 1455w,
+                  https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2-768x132.jpg 768w,
+                  https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2-700x120.jpg 700w"
+                   sizes="(max-width: 1455px) 100vw, 1455px">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="my-4">
+    <div class="wdc-heading style-1 text-left">
+      <h2 class="chuyenmuc">TUYỂN DỤNG</h2>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<div class="site-wrapper-reveal">
+
+  <!--====================   Blog Area Start ====================-->
+  <div class="blog-pages-wrapper section-space--ptb_100">
+    <div class="container">
+        <div class="col-md-9">
+          <div class="main-blog-wrap">
+            <!--======= Single Blog Item Start ========-->
+            <div *ngFor="let recruit of recruits" class="single-blog-item post-list-wrapper xs-list-blog-item border-bottom wow move-up">
+              <!-- Post Feature Start -->
+              <div class="post-feature blog-thumbnail">
+                <a href="blog-post-layout-one.html">
+                  <img class="img-fluid" src="assets/images/blog/mockups_white_matte_apple_watch_freebie-270x200.jpg" alt="Blog Images">
+                </a>
+              </div>
+              <!-- Post Feature End -->
+
+              <!-- Post info Start -->
+              <div class="post-info lg-blog-post-info">
+
+                <h5 class="post-title font-weight--light mt-10">
+                  <a href="blog-post-layout-one.html">{{recruit.title}}</a>
+                </h5>
+
+                <div class="post-excerpt mb-30">
+                  <p>{{recruit.excerpt}}</p>
+                </div>
+
+                <div class="post-meta">
+                  <div class="post-date">
+                    <span class="far fa-calendar meta-icon"></span>
+                    {{recruit.createdDate}}
+                  </div>
+                </div>
+
+              </div>
+              <!-- Post info End -->
+            </div>
+            <!--===== Single Blog Item End =========-->
+          </div>
+        </div>
+        <app-side-bar></app-side-bar>
+
+      </div>
+  </div>
+  <!--====================  Blog Area End  ====================-->
+</div>
+<app-footer></app-footer>
+

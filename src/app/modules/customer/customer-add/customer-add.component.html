@@ -1,0 +1,69 @@
+<form class="formcustomeradd" (ngSubmit)="onSubmit()">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="contact-inner">
+                    <span class="title-span"><strong>Khách Hàng</strong></span>
+                    <input type="text" [(ngModel)] = "customer.name" name="name">
+                </div>
+                <div class="contact-inner ">
+                    <span class="title-span"><strong>Mô Tả</strong></span>
+                    <textarea id="" cols="30" rows="10" [(ngModel)] = "customer.description" name="description"></textarea>
+                </div>
+                <div class="contact-inner">
+                    <span class="title-span"><strong>Sản Phẩm</strong></span>
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let pro of products">
+                            <div class="form-check">
+                              <input type="checkbox" [value]="pro.selected" [checked]="pro.selected" (change)="onCheckChange($event, pro)" class="custom-control-input" id="customCheck{{pro.id}}">
+                              <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{pro.id}}">{{pro.name}}</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item" >
+                            <div class="form-check">
+                                <input type="checkbox" class="custom-control-input" id="customCheck2" >
+                                <label  class=" font-italic custom-control-label" for="customCheck2" style="font-weight: normal;">EcoOCR</label>
+                            </div>
+                        </li>
+                    </ul>
+                    <span>Không tìm thấy sản phẩm mong muốn ?</span><a (click)="addMoreProduct()"><span style="color: #3cb638;">Thêm mới</span></a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="contact-inner ">
+                    <span class="title-span"><strong>Ảnh bìa</strong></span>
+                    <div class="image">
+                        <img  src="{{image}}" alt="" appHideMissing>
+                    </div>
+                    <input type="file" value="select" (change)="onChange($event)">
+                </div>
+                <div class="contact-inner">
+                    <span class="title-span"><strong>Biểu tượng</strong></span>
+
+                        <div class="container-fluid">
+                            <div class="row icon">
+                                <div class="col-md-4">
+                                    <div class="box-icon"  [ngStyle]="{'background': customer.bgIColor}">
+                                        <span><i class="{{customer.icon}}" style="padding-top: 23px;"></i></span>
+                                        <input type="color"  [(ngModel)]="customer.bgIColor" name="bgIColor" class="change-color" value="#009cff">
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="input-icon">
+                                        <input type="text" [(ngModel)]="customer.icon" name="icon"   class="input-text" placeholder="Nhập mã biểu tượng">
+                                        <p>*Mã phải bắt đầu bằng: <strong>fa</strong>, <strong>far</strong> hoặc <strong>fas</strong></p>
+                                        <p>*Vd: <strong>fa fa-university</strong></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="submit-button">
+                    <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
+                    <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToCustomerList()" >Hủy</button>
+                  </div>
+            </div>
+        </div>
+    </div>
+</form>

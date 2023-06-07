@@ -1,0 +1,87 @@
+<div class="toolbar">
+    <div class="d-flex  justify-content-between header-menu ">
+      <div class="left-d-flex">
+        <div class="d-flex">
+          <h5 class="h5" style="width:auto">Tài khoản</h5>
+          <input type="text " class="form-control "  placeholder="Viết gì đó ...">
+          <div class="input-group-append inputt" >
+            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+
+          </div>
+        </div>
+      </div>
+      <div class="right-d-flex">
+        <div class="d-flex  flex-wrap">
+          <div class="menu-item ">
+            <div class="d-flex">
+              <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
+              <select class="custom-select">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+              </select>
+            </div>
+          </div>
+          <div class="menu-item">
+            <a routerLink="add"  class="ht-btn-custom"   title="Thêm mới"><i class="fas fa-file-plus fa-lg"></i></a>
+            <a style="padding-left: 20px;" title="Nhật kí" routerLink="../history" routerLinkActive="active">
+              <i class="fas fa-history fa-lg">
+              </i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="section-space--ptb_90">
+  <div class="container">
+    <div class="detail">
+      <div class="user">
+        <div class="header-user">
+          <span class="status status_user">User</span>
+          <span class="status status_mod">Mod</span>
+          <span class="status status_admin">Admin</span>
+        </div>
+        <hr>
+
+        <table class="table table-striped" id="myTable">
+          <thead>
+            <tr>
+              <td>Tên đăng nhập</td>
+              <td>Họ</td>
+              <td>Tên</td>
+              <td>Email</td>
+              <td>Status</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <th scope="row">{{user.username}}</th>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.email}}</td>
+              <td>
+                <span style="color: #31A24C">
+                    <i class="fas fa-circle fa-xs"></i>
+                  </span>
+                <span class="ml-1">Hoạt động</span>
+              </td>
+              <td>
+                <span  class="icon status_admin icon-edit" ><a  class="icon-item" (click)="updateUser(user.id)"><i class="fas fa-pen"></i></a></span>
+                <span class="icon icon-remove" >
+                  <a class="icon-item" (click)="deleteUser(user.id)" ><i class="fas fa-trash-alt remove"></i></a>
+                </span>
+                <span class="icon icon-history"  >
+                  <a class="icon-item" > <i class="fa fa-info fas" style="color: aliceblue;"></i></a>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

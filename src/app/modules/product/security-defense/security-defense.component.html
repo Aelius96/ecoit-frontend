@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+
+<img style="width: 100%;" src="https://ecoit.asia/wp-content/uploads/2019/08/Kh%E1%BB%91i-kh-Qu%E1%BB%91c-ph%C3%B2ng.jpg" alt="khach-hang-chinh-phu">
+
+<div class="preview-item-area section-space--pb_120" id="section-demos" style="padding-bottom: 50px;">
+    <div class="container-fluid container-fluid--cp-150">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title text-center section-space--mb_50">
+                    <h2 style="margin-top: 30px; font-size: 30px;" class="chuyenmuc" >KHỐI KHÁCH HÀNG AN NINH – QUỐC PHÒNG</h2>
+                <hr id="gachchan" class="gioithieu">
+                </div>
+            </div>
+        </div>
+        <div style="background-color: #ffffff04; margin: 0 auto; text-align: center; padding-bottom: 0px; " class="pricing-table-content-area bg-gray-2 section-space--pb_90">
+            <div class="container">
+                <div class="row pricing-table-one" >
+                    <!-- 1 -->
+                    <div *ngFor="let icon of icons" class="col-12 col-md-6 col-lg-6 col-xl-3 pricing-table pricing-table--popular  wow move-up" style="background-color: rgba(189, 191, 187, 0);">
+                        <div class="pricing-table__innerrr" >
+                            <div class="post-item"  >
+                                <a href="{{icon.link}}" >
+                                    <div class="imgicon" >
+                                        <img src="{{icon.imageUrl}}" 
+                                        class="large wp-post-image" alt="" loading="lazy" 
+                                        ><br><b>{{icon.title}}</b>
+                                        <span class="ap-xnam"><p>{{icon.content}}</p>
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 7 -->
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12" >
+            <div class="service-link"><a id="aa" class="wpb_color-gree" href="/lien-he">ĐĂNG KÝ TƯ VẤN</a></div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+

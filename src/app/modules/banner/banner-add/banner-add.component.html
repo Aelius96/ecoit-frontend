@@ -1,0 +1,47 @@
+
+
+<div class="toolbar">
+    <div class="d-flex  justify-content-between header-menu ">
+      <div class="left-d-flex">
+        <div class="d-flex">
+          <h5 class="h5" style="width:auto">Thêm mới</h5>
+          
+        </div>
+      </div>
+      <div class="right-d-flex">
+        <div class="d-flex  flex-wrap">
+          
+          <div class="menu-item">
+            <a href="admin/banner"  class="ht-btn-custom"  >   <span aria-hidden="true" style="font-size: 30px; font-weight: bold; color: black; margin-right: 30px;">&times;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <form action="">
+    <div class="container">
+      <div class="row" style="justify-content: center;">
+        <div class="col-md-8" style="text-align: center; padding-top: 0px;">
+            <div class="update_box">
+                <span><strong></strong></span>
+                <div class="image">
+                  <img  src="{{url}}" alt="" appHideMissing>
+                </div>
+                <input type="file" value="select" (change)="imageChange($event)">
+              </div>
+            <div style="padding-bottom: 10px;">
+                <input type="text" placeholder="*target">
+            </div>
+            <div class="submit-button">
+                <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
+                <button type="button" class="btn btn-secondary btn-lg btnn cancel"  >Hủy</button>
+              </div>
+            
+        </div>
+  
+        </div>
+      </div>
+  </form>
+

@@ -1,0 +1,128 @@
+.toolbar{
+    height: 65px;
+    background-color: white;
+    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
+    border-top: 1px solid #eff2f5;
+  }
+  .header-menu{
+    padding: 10px 15px 0px 12px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+  }
+  .h5{
+    font-weight: bolder;
+    font-size: 18px;
+    color: black;
+    padding-right: 10px;
+  }
+  .menu-item{
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+  .custom-select{
+    width: 60px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .item-blog{
+    margin-top: 30px;
+  }
+  .form-control{
+    height: 30px;
+    font-size: 15px;
+    margin-top:7px;
+  }
+  .inputt{
+    margin-left: 0px;
+    height: 30px;
+    margin-top:7px;
+  }
+  .fa-lg:hover{
+    color: blue;
+  
+  }
+  
+
+  /* The Close Button */
+
+  .user-content{
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+
+ 
+  .save-btn{
+    border: none;
+    cursor: pointer;
+    color: #51c045;
+    margin: 0 30px;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+
+  .save-btn:hover{
+    background-color: #51c045;
+    color: #fff;
+  }
+  label{
+    color: #1a1a1a;
+  }
+  .cancel{
+    background-color: #cccccc;
+  
+  }
+  .cancel:hover{
+    background-color: rgba(43, 43, 63, 0.85);
+    color: #eff2f5;
+  }
+  .btnn {
+    margin-right: 15px;
+  
+  }
+
+  .update_box{
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0px 5px 0px
+  }
+  .update_box .image{
+    position: relative;
+    height: 300px;
+    width: 100%;
+  }
+  .update_box .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .update_box img{
+    width: 100%;
+    object-fit: cover;
+  }
+input{
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #50B848;
+  }
+
+  .cancel{
+    background-color: #d2d3d4;
+    color: #252525;
+  
+  }
+  .cancel:hover{
+    background-color: rgba(43, 43, 63, 0.85);
+    color: rgb(244, 246, 247);
+  }
+  .btnn {
+    margin-right: 15px;
+  
+  }
+  a:focus{
+    text-decoration: none;
+  }
+  

@@ -1,0 +1,86 @@
+<form (ngSubmit)="onSubmit()">
+<div class="number-add" >
+
+    <div class="container " >
+      <div class="row" style="justify-content: center">
+        <div class="col-lg-9" >
+          <div class="contact-inner" >
+            <div class="row" >
+              <div class="col-md-4" >
+                <div class="box">
+                  <div class="box-icon">
+                    <span><i class="{{tNumber.icon}}"></i></span>
+                  </div>
+                  <div class="input" >
+                    <input class="text-input" type="text" [(ngModel)]="tNumber.icon" name="icon" placeholder="Nhập mã biểu tượng ở đây" >
+                    <p style="padding-top: 10px">*Mã bắt đầu bằng: <strong>fa</strong>, <strong>far</strong> hoặc <strong>fas</strong></p>
+                    <p>*vd: <strong>fa fa-university</strong></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="" >
+                  <input class="text-input" type="text" [(ngModel)]="tNumber.num" name="number" placeholder="*Số" >
+                </div>
+                <p style="padding-top: 10px ; margin-bottom: 0px"> <strong>Mô tả</strong> </p>
+                <div>
+                  <textarea [(ngModel)]="tNumber.description" name="description" placeholder="*viết gì đó"></textarea>
+                </div>
+                <div class="submit-button">
+                  <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
+                  <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="rollbackToList()" >Hủy</button>
+                  <!--                <button class="button" type="submit">Lưu</button>-->
+                  <!--                <button class="button" style="background: #ccc" type="button" >Hủy</button>-->
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+</form>
+<!--<div class="number-add" >-->
+
+<!--    <div class="container " >-->
+<!--      <div class="row" style="justify-content: center">-->
+<!--        <div class="col-lg-9" >-->
+<!--          <div class="contact-inner" >-->
+<!--            <div class="row" >-->
+<!--              <div class="col-md-4" >-->
+<!--                <div class="box">-->
+<!--                  <div class="box-icon">-->
+<!--                    <span><i class=""></i></span>-->
+<!--                  </div>-->
+<!--                  <div class="input" >-->
+<!--                    <input class="text-input" type="text"  name="icon" placeholder="Nhập mã biểu tượng ở đây" >-->
+<!--                    <p style="padding-top: 10px">*Mã bắt đầu bằng: <strong>fa</strong>, <strong>far</strong> hoặc <strong>fas</strong></p>-->
+<!--                    <p>*vd: <strong>fa fa-university</strong></p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-md-8">-->
+<!--                <div class="" >-->
+<!--                  <input class="text-input" type="text"  name="icon" placeholder="*Số" >-->
+<!--                </div>-->
+<!--                <p style="padding-top: 10px ; margin-bottom: 0px"> <strong>Mô tả</strong> </p>-->
+<!--                <div>-->
+<!--                  <textarea  name="description" placeholder="*viết gì đó"></textarea>-->
+<!--                </div>-->
+<!--                <div class="submit-button">-->
+<!--                  <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>-->
+<!--                  <button type="button" class="btn btn-secondary btn-lg btnn cancel">Hủy</button>-->
+<!--                  &lt;!&ndash;                <button class="button" type="submit">Lưu</button>&ndash;&gt;-->
+<!--                  &lt;!&ndash;                <button class="button" style="background: #ccc" type="button" >Hủy</button>&ndash;&gt;-->
+<!--                </div>-->
+
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--</div>-->

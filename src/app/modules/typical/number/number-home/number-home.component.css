@@ -1,0 +1,26 @@
+.chuyenmuc{
+  text-align: center ;
+  font-size: 30px;
+  margin-top: 20px;
+  font-family: Verdana;
+  font-weight: bold;
+  color: #50b848;
+}
+#gachchan{
+  width: 100px;
+  margin-top: 20px;
+  border-top: 1px solid rgb(0, 0, 0);
+}
+.chuyenmucso{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+}
+.counter-number{
+  text-align: center;
+  font-size: 25px;
+}
+.fa{
+  font-size: 30px;
+}

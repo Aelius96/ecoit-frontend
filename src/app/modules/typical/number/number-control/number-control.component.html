@@ -1,0 +1,63 @@
+<div class="toolbar">
+  <div class="d-flex  justify-content-between header-menu ">
+    <div class="left-d-flex"><h5 class="h55"> Bảng Tiêu Biểu</h5></div>
+    <div class="right-d-flex">
+      <div class="d-flex  flex-wrap">
+        <div class="menu-item ">
+           <div class="d-flex">
+             <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
+             <select class="custom-select">
+               <option>1</option>
+               <option>2</option>
+             </select>
+           </div>
+        </div>
+        <div class="menu-item">
+            <a class="ht-btn-custom" (click)="addTypicalNum()"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-conten">
+          <h3 class="text-title"> NHỮNG CON SỐ TIÊU BIỂU</h3>
+          <hr class="hr">
+        </div>
+      </div>
+    </div>
+
+    <div *ngFor="let num of number" class="number-icon">
+
+        <div class="col-md-3" style="margin-bottom:20px" >
+          <div class="card" style=" border: 1px solid rgb(255,255,255); box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.06)">
+            <div class="action-box">
+              <div >
+                <!--ví dụ về button sửa-->
+                <button (click)="updateTypicalNum(num.id)"  style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
+              </div>
+              <div >
+                <button (click)="deleteTypicalNum(num.id)" style="background-color: rgb(255,0,0)" class="btnn" ><i class="far fa-times"></i> </button>
+              </div>
+            </div>
+
+            <div  class="content-box ">
+              <h4  class="box-icon itemm" >
+                <i class="{{num.icon}}">
+                </i>
+              </h4>
+              <div class="counter-number itemm">+{{num.num}}</div>
+              <h5 class="chuyenmuc itemm">{{num.description}}</h5>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
