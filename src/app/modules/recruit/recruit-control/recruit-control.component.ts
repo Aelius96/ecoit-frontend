@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Recruit} from "../../../core/model/recuit/recuit";
+import {Recruit} from "../../../core/model/recruit/recruit";
 import {Router} from "@angular/router";
 import {RecruitService} from "../../../services/recruit/recruit.service";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
@@ -40,7 +40,7 @@ export class RecruitControlComponent implements OnInit{
 
     if(option){
       this.recruitService.deleteRecruitNews(id).subscribe(data=>{
-        this.recruitService.listAll();
+        this.listAll();
       })
     }
   }

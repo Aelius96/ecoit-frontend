@@ -78,6 +78,7 @@ import { CusTypicalControlComponent } from './modules/typical/customer/cus-typic
 import { NewsDetailComponent } from './modules/news/news-detail/news-detail.component';
 import {AppPageSizeComponent} from "./modules/shared/app-page-size/app-page-size.component";
 import {NgxPaginationModule} from "ngx-pagination";
+import { CustomerDetailComponent } from './modules/customer/customer-detail/customer-detail.component';
 
 
 @NgModule({
@@ -144,6 +145,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     CusTypicalControlComponent,
     NewsDetailComponent,
     AppPageSizeComponent,
+    CustomerDetailComponent,
   ],
   imports: [
     BrowserModule,

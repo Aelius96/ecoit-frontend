@@ -3,7 +3,7 @@ import {Constant} from "../../core/config/constant";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Domain} from "../../core/domain/domain";
-import {Recruit} from "../../core/model/recuit/recuit";
+import {Recruit} from "../../core/model/recruit/recruit";
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class RecruitService{
     return this.http.post<Recruit>(`${this.baseUrl}/add`,recruit)
   }
   public getRecruitId(id: number): Observable<Recruit>{
-    return this.http.get<Recruit>(`${this.baseUrl}/recruit/${id}`);
+    return this.http.get<Recruit>(`${this.baseUrl}/${id}`);
   }
   public updateRecruitNews(id: number,recruit: FormData): Observable<Object>{
     return this.http.post<Recruit>(`${this.baseUrl}/update/${id}`,recruit)
