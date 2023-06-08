@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {News} from "../../../core/model/news/news";
 import {NewsService} from "../../../services/news/news.service";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-news-control',
@@ -14,13 +15,18 @@ export class NewsControlComponent implements OnInit{
   newsList: News[]=[];
   role:string;
   currentIndex = -1;
-
   page = 1;
   count = 0;
-  pageSize = 3;
-  pageSizes = [3, 6, 9];
+  pageSize = 5;
+  pageSizes = [5, 10, 25];
   totalPages: number;
   searchInput= '';
+
+  paging = {
+    page: 1,
+    size: 10,
+    totalRecord: 0
+  }
 
   constructor(private router:Router, private newsService: NewsService,
               private tokenStorageService: TokenStorageService) {}
@@ -31,6 +37,7 @@ export class NewsControlComponent implements OnInit{
 
       const user = this.tokenStorageService.getUser();
       this.role =user.roles;
+
       this.getListAllWithPage();
   }
 
@@ -58,7 +65,7 @@ export class NewsControlComponent implements OnInit{
       .subscribe(
         response => {
           this.newsList = response.content;
-          this.count = response.totalItems;
+          this.paging.totalRecord = response.totalElements;
           this.totalPages = response.totalPages;
           console.log(response);
         },
@@ -72,21 +79,23 @@ export class NewsControlComponent implements OnInit{
     this.getListAllWithPage();
   }
   handlePageChange(event: number): void {
+    console.log(event);
     this.page = event;
     this.getListAllWithPage();
   }
 
   handlePageSizeChange(event: any): void {
-    this.pageSize = event.target.value;
+    this.pageSize = event;
     this.page = 1;
+    console.log(event, this.pageSize)
     this.getListAllWithPage();
   }
 
-  listAll(){
-    this.newsService.listAll().subscribe(data =>{
-       this.newsList =data;
-    })
-  }
+  // listAll(){
+  //   this.newsService.listAll().subscribe(data =>{
+  //      this.newsList =data;
+  //   })
+  // }
 
   updateNews(id: number){
     return this.router.navigate([`/admin/news/edit`,id]);

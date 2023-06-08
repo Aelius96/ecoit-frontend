@@ -16,6 +16,11 @@ export class NewsListComponent implements OnInit{
   pageSize = 9;
   searchInput = '';
   private totalPages: number;
+  paging = {
+    page: 1,
+    size: 10,
+    totalRecord: 0
+  }
 
 
   constructor(private newsService: NewsService) {
@@ -25,11 +30,11 @@ export class NewsListComponent implements OnInit{
     this.getListAllWithPage();
   }
 
-  public listAll(){
-    this.newsService.listAll().subscribe(data =>{
-      this.newsList = data;
-    })
-  }
+  // public listAll(){
+  //   this.newsService.listAll().subscribe(data =>{
+  //     this.newsList = data;
+  //   })
+  // }
 
   getRequestParams(page: number): any {
     let params: any = {};
@@ -40,12 +45,12 @@ export class NewsListComponent implements OnInit{
 
   getListAllWithPage(): void {
     const params = this.getRequestParams(this.page);
-
-    this.newsService.listAllWithPage(params)
+    this.newsService.listAllWithPageHome(params)
       .subscribe(
         response => {
           this.newsList = response.content;
-          this.count = response.totalItems;
+          this.paging.totalRecord = response.totalElements;
+
           console.log(response);
         },
         error => {

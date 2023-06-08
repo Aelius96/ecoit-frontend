@@ -16,15 +16,18 @@ private baseUrl = `${Constant.BASE_URL}`;
   }
 
   listAllWithPage(params: any): Observable<any>{
-    return this.http.get(`${this.baseUrl}/news`,{params})
+    return this.http.get(`${this.baseUrl}/news/`,{params})
   }
   listAllWithPageHome(params: any): Observable<any>{
-    return this.http.get(`${this.baseUrl}/news/home`,{params})
+    return this.http.get(`${this.baseUrl}/home/news`,{params})
   }
   public listAll(): Observable<News[]>{
-    return this.http.get<News[]>(`${this.baseUrl}/news`);
+    return this.http.get<News[]>(`${this.baseUrl}/home/news/show`);
   }
 
+  public getNewsByUrl(url: any): Observable<News>{
+    return this.http.get<News>(`${this.baseUrl}/home/news/${url}`);
+  }
 
   createNews(news: FormData): Observable<Object>{
     return this.http.post(`${this.baseUrl}/news/add`, news);

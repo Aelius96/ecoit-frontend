@@ -25,6 +25,7 @@ import {RegisterComponent} from "./authentication/register/register.component";
 import {AdminComponent} from "./modules/admin/admin/admin.component";
 import {NumberAddComponent} from "./modules/typical/number/number-add/number-add.component";
 import {AuthenticateService} from "./authentication/authenticate.service";
+import {NewsDetailComponent} from "./modules/news/news-detail/news-detail.component";
 
 
 
@@ -49,6 +50,7 @@ const routes: Routes =[
   {path: '404' , component:ErrorComponent},
 
   {path:'news',component:NewsListComponent},
+  {path:'news/:url', component: NewsDetailComponent},
   {path:'recruit',component: RecruitListComponent},
   {path:'post', component: PostListComponent},
   {path:'blog', component: BlogListComponent},

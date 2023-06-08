@@ -77,54 +77,29 @@
                     })
                   });
                 </script>
-
                 <div class="col-xs-12" >
                   <div class="service-link"><a id="aa" class="wpb_color-gree" href="/recruit">TÌM HIỂU THÊM</a></div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-12" >
+              <div class="col-lg-4" >
                 <div class="nav">
-                  <div class="payment-process-step__content float-md-left">
-                    <div class="payment-process__inner">
-                      <li>
-                        <div class="disp-inflex" style="padding-top: 2px">
-                          <div class="anhtintuc post-thumb" style="float: left;width: 30%;">
-                            <a href="https://ecoit.asia/chuc-mung-ngay-doanh-nhan-viet-nam/" title="CHÚC MỪNG NGÀY DOANH NHÂN VIỆT NAM">
-                              <img width="250" height="194" src="https://ecoit.asia/wp-content/uploads/2022/10/333-250x194.jpg" class="mr-3 post-smaill img-thumbnail wp-post-image" alt="" loading="lazy"></a>
+                  <div class=" float-md-left">
+                    <div class="recruit">
+                      <ul *ngFor="let news of newsList ; let i =  index" >
+                        <li *ngIf="i<3">
+                          <div class="disp-inflex" style="padding-top: 2px">
+                            <div class="anhtintuc" >
+                              <a href="{{news.url}}" title="{{news.title}}" style="height: 100%;">
+                                <img  src="{{news.newsImage.pathUrl}}" class="image" alt="" loading="lazy"></a>
+                            </div>
+                            <div class="blog-inner" style="display: inline-block;width: 70%;">
+                              <a href="{{news.url}}" id="text">{{news.title}}</a>
+                              <p>{{news.description}}</p>
+                            </div>
                           </div>
-                          <div class="blog-inner" style="display: inline-block;width: 70%;">
-                            <a href="https://ecoit.asia/chuc-mung-ngay-doanh-nhan-viet-nam/" id="text">CHÚC MỪNG NGÀY DOANH NHÂN VIỆT NAM</a>
-                            <p>Nhân dịp 18 năm ngày Doanh nhân Việt Nam 13/10/2022, Công ty Cổ phần EcoIT xin được gửi lời chúc mừng tốt đẹp nhất tới tất cả Doanh nhân Việt…</p>
-                          </div>
-                        </div>
-                        <hr >
-
-                      <li>
-                        <div class="disp-inflex" style="padding-top: 2px">
-                          <div class="anhtintuc post-thumb" style="float: left;width: 30%;">
-                            <a href="https://ecoit.asia/cua-lo-doan-ket-yeu-thuong-va-gan-bo/" title="CỬA LÒ – ĐOÀN KẾT, YÊU THƯƠNG VÀ GẮN BÓ">
-                              <img width="250" height="200" src="https://ecoit.asia/wp-content/uploads/2022/07/Background1-250x200.jpg" class="mr-3 post-smaill img-thumbnail wp-post-image" alt="" loading="lazy"></a>
-                          </div>
-                          <div class="blog-inner" style="display: inline-block;width: 70%;">
-                            <a href="https://ecoit.asia/cua-lo-doan-ket-yeu-thuong-va-gan-bo/" id="text">CỬA LÒ – ĐOÀN KẾT, YÊU THƯƠNG VÀ GẮN BÓ</a>
-                            <p>Gác lại những ngày nắng nóng oi ả của mùa hè, để hạ nhiệt cho anh/chị/em Cán bộ nhân viên cũng như tạo nên không khí vui tươi, giải toả…</p>
-                          </div>
-                        </div>
-                        <hr >
-                      </li>
-                      <li>
-                        <div class="disp-inflex" style="padding-top: 2px">
-                          <div class="anhtintuc post-thumb" style="float: left;width: 30%;">
-                            <a href="https://ecoit.asia/ecoit-ky-thoa-thuan-hop-tac-trien-khai-dich-vu-luu-tru-so-hoa-du-lieu-trong-he-thong-cua-trung-tam-du-lieu-quoc-gia-ve-dan-cu/" title="EcoIT ký thoả thuận hợp tác triển khai dịch vụ lưu trữ, số hoá dữ liệu trong hệ thống của Trung tâm Dữ liệu Quốc gia về dân cư">
-                              <img width="250" height="200" src="https://ecoit.asia/wp-content/uploads/2021/12/Tong-Giam-Doc-Nguyen-Dinh-Hai-Cong-ty-Co-phan-EcoIT-ky-thoa-thuan-hop-tac-250x200.jpg" class="mr-3 post-smaill img-thumbnail wp-post-image" alt="" loading="lazy">                                  </a>
-                          </div>
-                          <div class="blog-inner" style="display: inline-block;width: 70%;">
-                            <a href="https://ecoit.asia/ecoit-ky-thoa-thuan-hop-tac-trien-khai-dich-vu-luu-tru-so-hoa-du-lieu-trong-he-thong-cua-trung-tam-du-lieu-quoc-gia-ve-dan-cu/" id="text">EcoIT ký thoả thuận hợp tác triển khai dịch vụ lưu trữ, số hoá dữ liệu trong hệ thống của Trung tâm Dữ liệu Quốc gia về dân cư</a>
-                            <p>Chiều 1/12, tại Hà Nội, ECOIT tham gia ký kết hợp tác với Trung tâm nghiên cứu, ứng dụng dữ liệu dân cư và căn cước công dân (thuộc Trung…</p>
-                          </div>
-                        </div>
-                        <hr>
-                      </li>
+                          <hr >
+                        </li>
+                      </ul>
                       <div class="payment-process-btn mb-30" style="margin: 20px 0 20px 0px;">
                         <div class="col-xs-12" >
                           <div class="service-link"><a id="aa" class="wpb_color-gree" href="/news">TÌM HIỂU THÊM</a></div>

@@ -18,11 +18,16 @@
         <div class="menu-item ">
           <div class="d-flex">
             <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <select (change)="handlePageSizeChange($event)" class="custom-select">
-              <option *ngFor="let size of pageSizes" [ngValue]="size">
-                {{ size }}
-              </option>
-            </select>
+<!--            <select (change)="handlePageSizeChange($event)" class="custom-select">-->
+<!--              <option *ngFor="let size of pageSizes" [ngValue]="size">-->
+<!--                {{ size }}-->
+<!--              </option>-->
+<!--            </select>-->
+              <app-page-size
+                (pageSizeChange)="handlePageSizeChange($event)"
+                [totalRecords]="paging.totalRecord"
+                [(pageSize)]="paging.size"></app-page-size>
+
           </div>
         </div>
         <div class="menu-item">
@@ -42,7 +47,10 @@
   <div class="container">
     <div class="item-blog">
       <div class="row">
-        <div class="col-lg-12" *ngFor="let news of newsList| paginate : {itemsPerPage: pageSize,currentPage: page, totalItems: count};let i = index">
+        <div class="col-lg-12" *ngFor="let news of newsList |  paginate: { id: 'news',
+                                                      itemsPerPage: pageSize,
+                                                      currentPage: page,
+                                                      totalItems: paging.totalRecord } ;let i = index">
           <div class="card">
             <div class="card-header">
               <div class="row ">
@@ -79,9 +87,14 @@
           </div>
         </div>
         <div class="col-md-12">
-          <pagination-controls
-            (pageChange)="handlePageChange($event)"
-          ></pagination-controls>
+          <div class="row">
+            <div class="col-md-6">
+              <pagination-controls
+
+                [id]="'news'" (pageChange)="handlePageChange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import {AuthService} from "../../../services/auth/auth.service";
 import {User} from "../../../core/model/user/user";
 import {UserService} from "../../../services/user/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 
 
 @Component({
@@ -15,16 +16,21 @@ export class UserAddComponent implements OnInit{
 
   user : User = new User();
   id: any;
+  roll: any;
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = "";
   type: any;
-  constructor(private authService: AuthService,private userService: UserService,private router: Router,private route:ActivatedRoute) {
+
+  constructor(private authService: AuthService,private userService: UserService
+              ,private tokenStorageService: TokenStorageService
+              ,private router: Router,private route:ActivatedRoute) {
   }
 
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+
     if(this.id){
       this.userService.getUserById(this.id).subscribe(data => {
         this.user = data;

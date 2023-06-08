@@ -1,5 +1,5 @@
 <div class="site-wrapper-reveal">
-  <div class="digital-store-hero-area position-relative section-space--pb_120">
+  <div class=" position-relative section-space--pb_70">
     <div class="container">
       <div class="container-fluid container-fluid--cp-150">
         <div class="row">
@@ -10,23 +10,22 @@
             </div>
           </div>
         </div>
-        <div style="background-color: #39814100; margin: 0 auto; text-align: center; padding-bottom: 0px; " class="pricing-table-content-area bg-gray-2 section-space--pb_90">
+        <div style="background-color: #39814100; margin: 20px 0px 0px 0px; text-align: center; padding-bottom: 0px; " class="pricing-table-content-area bg-gray-2 section-space--pb_90">
           <div class="container">
             <div class="row pricing-table-one">
               <!-- chính phủ -->
-              <div *ngFor ="let cus of customer" class="col-12 col-md-6 col-lg-6 col-xl-3 pricing-table pricing-table--popular  wow move-up">
-                <div class="pricing-table__inner">
-                  <div class="pricing-table__header">
-                    <div class="box-icon" [style.background-color]="cus.backgroundColor">
-                      <span class="iconn"><i [class]="cus.cusIcon"></i></span> </div>
+              <div *ngFor="let cus of customer" class="col-md-3" >
+                <div class="box">
+                  <div class="box-icon" [ngStyle]="{'background': cus.bgIColor}">
+                    <span><i class="{{cus.icon}}"></i></span>
                   </div>
                   <div class="box-content">
-                    <h5 class="pricing-table__title">{{cus.cusTitle}}</h5>
-                    <div style="xvertical-align: inherit;">
-                      {{cus.cusDescription}}&nbsp;</div>
-                  </div>
-                  <div class="pricing-table__footer">
-                    <a href="/{{cus.url}}" class="quantam" style="font-size: larger;">QUAN TÂM　⇨</a>
+                    <h5 class="__title">{{cus.name}}</h5>
+                    <div style="vertical-align: inherit;"><span>{{cus.description}}</span>
+                    </div>
+                    <div class="pricing-table__footer">
+                      <a href="/{{cus.url}}" class="quantam" style="font-size: larger;">QUAN TÂM　⇨</a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -35,6 +34,8 @@
         </div>
       </div>
     </div>
+
+
     <!-- <div class="wavify-wrapper">
       <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <defs></defs>
@@ -42,4 +43,4 @@
     </div> -->
   </div>
 </div>
-<app-news-control></app-news-control>
+

@@ -75,8 +75,9 @@ import { BannerAddComponent } from './modules/banner/banner-add/banner-add.compo
 import { BannerControlComponent } from './modules/banner/banner-control/banner-control.component';
 import { CusTypicalAddComponent } from './modules/typical/customer/cus-typical-add/cus-typical-add.component';
 import { CusTypicalControlComponent } from './modules/typical/customer/cus-typical-control/cus-typical-control.component';
-import {NgxPaginationModule} from "ngx-pagination";
 import { NewsDetailComponent } from './modules/news/news-detail/news-detail.component';
+import {AppPageSizeComponent} from "./modules/shared/app-page-size/app-page-size.component";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -142,19 +143,19 @@ import { NewsDetailComponent } from './modules/news/news-detail/news-detail.comp
     CusTypicalAddComponent,
     CusTypicalControlComponent,
     NewsDetailComponent,
-
+    AppPageSizeComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        CKEditorModule,
-        HttpClientModule,
-        CommonModule,
-        ReactiveFormsModule,
-        NgOptimizedImage,
-        NgxPaginationModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    CKEditorModule,
+    HttpClientModule,
+    CommonModule,
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    NgxPaginationModule,
+  ],
   providers: [authInterceptorProviders],
 
   bootstrap: [AppComponent]

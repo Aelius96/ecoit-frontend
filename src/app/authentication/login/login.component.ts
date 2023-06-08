@@ -40,7 +40,7 @@ export class LoginComponent {
         this.reloadPage();
       },
       err => {
-        this.errorMessage = err.error.message;
+        this.errorMessage = "Đăng Nhập Thất Bại";
         this.isLoginFailed = true;
       });
   }
