@@ -4,6 +4,7 @@ import {User} from "../../../core/model/user/user";
 import {UserService} from "../../../services/user/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
+import {Product} from "../../../core/model/product/product";
 
 
 @Component({
@@ -38,7 +39,9 @@ export class UserAddComponent implements OnInit{
     }
   }
 
-
+  onCheckChange(event: any, user: User){
+    user.active = event.currentTarget.checked;
+  }
   goToUserList(){
     return this.router.navigate([`admin/user`])
   }
