@@ -10,6 +10,9 @@
   justify-content: center;
   align-content: center;
 }
+.left-d-flex{
+  margin-top: 7px;
+}
 .product-thumb-image{
   width: 170px;
   height: 100px;
@@ -21,16 +24,12 @@
 }
 .spann{
   color: #333333;
-  font-size: 15px;
+  font-size: 16px;
 }
-.spann:hover{
-  font-weight: bolder;
-  font-size: 20px;
-  color: black;
-}
+
 .menu-item{
-  padding-left: 20px;
-  margin-top: 8px;
+  margin-left: 18px;
+  margin-top: 5px;
 }
 .custom-select{
   width: 60px;
@@ -49,7 +48,7 @@
 .inputt{
   margin-left: 0px;
   height: 30px;
-  margin-top:7px;
+  margin-top:0px;
 }
 .action-box {
   position: absolute;
