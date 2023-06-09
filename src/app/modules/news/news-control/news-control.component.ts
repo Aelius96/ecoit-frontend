@@ -15,16 +15,13 @@ export class NewsControlComponent implements OnInit{
   newsList: News[]=[];
   role:string;
   currentIndex = -1;
-  page = 1;
-  count = 0;
-  pageSize = 5;
   pageSizes = [5, 10, 25];
   totalPages: number;
   searchInput= '';
 
   paging = {
     page: 1,
-    size: 10,
+    size: 5,
     totalRecord: 0
   }
 
@@ -59,7 +56,7 @@ export class NewsControlComponent implements OnInit{
   }
 
   getListAllWithPage(): void {
-    const params = this.getRequestParams(this.page, this.pageSize, this.searchInput);
+    const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
 
     this.newsService.listAllWithPage(params)
       .subscribe(
@@ -75,19 +72,19 @@ export class NewsControlComponent implements OnInit{
   }
 
   searchTitleAndDescription(): void {
-    this.page = 1;
+    this.paging.page = 1;
     this.getListAllWithPage();
   }
   handlePageChange(event: number): void {
     console.log(event);
-    this.page = event;
+    this.paging.page = event;
     this.getListAllWithPage();
   }
 
   handlePageSizeChange(event: any): void {
-    this.pageSize = event;
-    this.page = 1;
-    console.log(event, this.pageSize)
+    this.paging.size = event;
+    this.paging.page = 1;
+    console.log(event, this.paging.size)
     this.getListAllWithPage();
   }
 
