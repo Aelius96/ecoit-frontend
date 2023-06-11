@@ -71,7 +71,7 @@
                 <input type="checkbox" [(ngModel)]="user.active" [checked]="user.active" (change)="onCheckChange($event, user)" >
 
               </div>
-            </li>
+<!--            </li>-->
 <!--            <li class="list-group-item" *ngFor="let u of user">-->
 <!--              <div class="form-check">-->
 <!--                <input type="checkbox" [value]="u.selected" [checked]="u.selected" (change)="onCheckChange($event, u)" class="custom-control-input" id="customCheck{{u.id}}">-->
@@ -81,20 +81,26 @@
           </ul>
         </div>
         <div class="col-md-12">
-          <div class="options">
             <div class="title">Vai trò</div>
             <div class="roles-box">
-              <label>
-                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="admin"> Quản trị viên
-              </label>
-              <label>
-                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="mod"> Điều hành
-              </label>
-              <label>
-                <input type="radio" [(ngModel)]="user.roles" name="roles" > Người dùng
-              </label>
+              <ul class="list-group">
+                <li class="list-group-item" *ngFor="let r of role">
+                  <div class="form-check">
+                    <input type="checkbox" [value]="r.selected" [checked]="r.selected" (change)="onRoleChange($event, r)" class="custom-control-input" id="customCheck{{r.id}}">
+                    <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{r.id}}">{{r.name}}</label>
+                  </div>
+                </li>
+              </ul>
+<!--              <label>-->
+<!--                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="admin"> Quản trị viên-->
+<!--              </label>-->
+<!--              <label>-->
+<!--                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="mod"> Điều hành-->
+<!--              </label>-->
+<!--              <label>-->
+<!--                <input type="radio" [(ngModel)]="user.roles" name="roles" > Người dùng-->
+<!--              </label>-->
             </div>
-          </div>
         </div>
 
       </div>
