@@ -19,7 +19,7 @@ export class ProductControlComponent implements OnInit{
   }
     getProductList(){
     this.productService.getProductList().subscribe(data =>{
-      this.products = data;
+    return  this.products = data;
       }
     )
     }

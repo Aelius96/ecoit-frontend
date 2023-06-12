@@ -10,7 +10,15 @@
     justify-content: center;
     align-content: center;
   }
-
+.input-button{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+}
   .spann{
     color: #0d0d0d;
     font-size: 20px;
@@ -41,6 +49,7 @@
     margin-left: 0px;
     height: 30px;
     margin-top:7px;
+    display: flex;
   }
   .action-box {
     position: absolute;
