@@ -11,3 +11,10 @@
   font-weight: bold;
   color: #50b848;
 }
+a{
+  color: #50b848;
+}
+a:hover{
+  text-decoration: none;
+  color: black;
+}
