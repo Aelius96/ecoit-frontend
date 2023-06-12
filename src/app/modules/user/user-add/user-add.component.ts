@@ -126,4 +126,8 @@ export class UserAddComponent implements OnInit{
     }
   }
 
+  changePassword(id:number) {
+    return this.router.navigate([`admin/user/changePassword`])
+  }
+
 }

@@ -43,9 +43,10 @@
   color: black;
 }
 
-.wp-post-image{
+.post-image{
   width: 70%;
   height: 60%;
+  margin-bottom: 15px;
 }
 .product-item{
  background-color: #ffffff04; 

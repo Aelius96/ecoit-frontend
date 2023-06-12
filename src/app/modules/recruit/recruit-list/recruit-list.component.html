@@ -40,11 +40,11 @@
         <div class="col-md-9">
           <div class="main-blog-wrap">
             <!--======= Single Blog Item Start ========-->
-            <div *ngFor="let recruit of recruits" class="single-blog-item post-list-wrapper xs-list-blog-item border-bottom wow move-up">
+            <div *ngFor="let recruit of recruitList" class="single-blog-item post-list-wrapper xs-list-blog-item border-bottom wow move-up">
               <!-- Post Feature Start -->
               <div class="post-feature blog-thumbnail">
                 <a href="blog-post-layout-one.html">
-                  <img class="img-fluid" src="assets/images/blog/mockups_white_matte_apple_watch_freebie-270x200.jpg" alt="Blog Images">
+                  <img class="img-fluid" src="{{recruit.thumb.pathUrl}}" alt="Blog Images">
                 </a>
               </div>
               <!-- Post Feature End -->
@@ -57,13 +57,13 @@
                 </h5>
 
                 <div class="post-excerpt mb-30">
-                  <p>{{recruit.excerpt}}</p>
+                  <p>{{recruit.description}}</p>
                 </div>
 
                 <div class="post-meta">
                   <div class="post-date">
                     <span class="far fa-calendar meta-icon"></span>
-                    {{recruit.createdDate}}
+                    {{recruit.createDate}}
                   </div>
                 </div>
 

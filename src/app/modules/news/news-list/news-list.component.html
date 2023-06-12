@@ -38,37 +38,73 @@
             <!--======= Single Blog Item Start ========-->
 
             <!-- Post Feature Start -->
-            <div class="col-md-12" style="margin-bottom: 20px;">
+            <div class="col-md-12" style="margin-bottom: 20px;"  >
+              <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 40px;" >
+              <div class="carousel-inner" >
+                <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let news of newsList ;let s = index">
               <div class="col-md-6 first-blog">
                 <a href="#">
-                  <img class="img-fluid" src="assets/images/blog/mockups_white_matte_apple_watch_freebie-770x420.jpg"
+                  <img class="img-fluid" src="{{news.newsImage.pathUrl}}"
                        alt="Blog Images">
                 </a>
               </div>
-              <!-- Post Feature End -->
-              <!-- Post info Start -->
               <div class="col-md-6">
                 <div class="post-info lg-blog-post-info">
 
                   <h4 class="post-title font-weight--light">
-                    <a href="#">Specialized Design Tools for 2019</a>
+                    <a href="#">{{news.title}}</a>
                   </h4>
 
                   <div class="post-excerpt mt-15">
-                    <p>As a result, along with the larger corporate-backed applications, we have a huge host of small
-                      tools and libraries, each designed to solve a particular problem or preserve a certain set of
-                      possibilities. A couple of these projects have become institutions: Modernizr, keeping the
-                      technical …</p>
+                    <p>{{news.description}}</p>
                   </div>
 
-                  <div class="post-read-more mt-20">
-                    <a href="#" class="ht-btn ht-btn-sm">
-                      <span class="btn-text">Read more </span>
+                  <div class="post-read-more mt-20" >
+                    <a href="#" class=" ht-btn-sm" style="background-color: rgb(57, 182, 61);">
+                      <span class="btn-text" >Xem thêm </span>
                     </a>
                   </div>
                 </div>
               </div>
+              </div>
+              </div>
+              <script>
+                $(document).ready(function(){
+                  $('.carousel').carousel({
+                    interval: 100
+                  })
+                });
+              </script>
             </div>
+
+
+            <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 40px;" >
+                  
+              <div class="carousel-inner" >
+                
+                <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let recruit of recruitList ; let s = index ">
+                  <div *ngIf="s<=4">
+                  <img style="font-weight: 400; width: 100%; height: 250px;" src="{{recruit.thumb.pathUrl}}"  alt="" loading="lazy">
+                
+                  <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;" >
+                    <h6 class="post-title" >
+                      <a href="{{recruit.url}}" tabindex="-1" class="h7tttd">{{recruit.title}}</a>
+                    </h6>
+                    <div class="post-excerpt" >
+                      <p class="ptdtt">{{recruit.description}}</p>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <script>
+              $(document).ready(function(){
+                $('.carousel').carousel({
+                  interval: 100
+                })
+              });
+            </script> -->
 
             <!-- Post info End -->
             <!--===== Single Blog Item End ========= -->

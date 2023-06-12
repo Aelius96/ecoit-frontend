@@ -14,7 +14,6 @@ import { RecruitService } from 'src/app/services/recruit/recruit.service';
 export class RecruitNewsComponent implements OnInit{
   recruitList: Recruit[]=[];
   newsList: News[]=[];
-  role: string;
   constructor(private router:Router, private newsService: NewsService,
               private tokenStorageService: TokenStorageService,
               private RecruitService: RecruitService) {}
@@ -30,20 +29,10 @@ export class RecruitNewsComponent implements OnInit{
     this.newsService.listAll().subscribe(data=>
     {return this.newsList =data})
   }
-
-
   getListAllwithPageRecruit():void{
     this.RecruitService.listAll().subscribe(data=>
       {return this.recruitList=data})
   }
 
-  // async getListAllwithPageRecruit(): Promise<any> {
-  //   try {
-  //     const data = await this.RecruitService.listAll().toPromise();
-  //     this.recruitList = data;
-  //     return data;
-  //   } catch(error) {
-  //     console.log('Error:', error);
-  //     throw error;
-  //   }
+
   }
