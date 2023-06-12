@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {News} from "../../../../core/model/news/news";
 import {Router} from "@angular/router";
 import {NewsService} from "../../../../services/news/news.service";
@@ -11,18 +11,17 @@ import { RecruitService } from 'src/app/services/recruit/recruit.service';
   templateUrl: './recruit-news.component.html',
   styleUrls: ['./recruit-news.component.css']
 })
-export class RecruitNewsComponent {
-
-  recruitList : Recruit [] = [];
+export class RecruitNewsComponent implements OnInit{
+  recruitList: Recruit[]=[];
   newsList: News[]=[];
   role: string;
   constructor(private router:Router, private newsService: NewsService,
-              private tokenStorageService: TokenStorageService ,
-              private recruitService:RecruitService,) {}
+              private tokenStorageService: TokenStorageService,
+              private RecruitService: RecruitService) {}
 
   ngOnInit(): void {
     this.getListAllWithPage();
-    this.getListAll_recuit();
+    this.getListAllwithPageRecruit()
 
   }
 
@@ -32,11 +31,19 @@ export class RecruitNewsComponent {
     {return this.newsList =data})
   }
 
-  getListAll_recuit(){
-    this.recruitService.listAll().subscribe(data=>{
-      return this.recruitList = data;
-    })
+
+  getListAllwithPageRecruit():void{
+    this.RecruitService.listAll().subscribe(data=>
+      {return this.recruitList=data})
   }
 
-
-}
+  // async getListAllwithPageRecruit(): Promise<any> {
+  //   try {
+  //     const data = await this.RecruitService.listAll().toPromise();
+  //     this.recruitList = data;
+  //     return data;
+  //   } catch(error) {
+  //     console.log('Error:', error);
+  //     throw error;
+  //   }
+  }
