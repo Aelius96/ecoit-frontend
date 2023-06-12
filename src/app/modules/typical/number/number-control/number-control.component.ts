@@ -38,7 +38,7 @@ getAllNumber(){
 
    if(option){
       this.numberService.deleteNumber(id).subscribe(data=>{
-        this.numberService.getAllNumber();
+        this.getAllNumber();
       })
    }
  }

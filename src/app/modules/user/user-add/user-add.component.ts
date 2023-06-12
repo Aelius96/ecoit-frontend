@@ -41,9 +41,6 @@ export class UserAddComponent implements OnInit{
     }
   }
 
-  onCheckChange(event: any, user: User){
-    user.active = event.currentTarget.checked;
-  }
 
   getUserById(id: number) {
     this.userService.getUserById(id).subscribe(data => {
@@ -56,8 +53,8 @@ export class UserAddComponent implements OnInit{
   getRoleUpdate(user: User){
     this.roleService.listRole().subscribe(data => {
       this.role = data;
-      if(user.roles != null){
-        const sid = user.roles.map(item => item.id);
+      if(user.role != null){
+        const sid = user.role.map(item => item.id);
         for (let i=0; i<sid.length; i++){
           this.role.find( e => {
             if(e.id === sid[i]) e.selected = true;
@@ -67,9 +64,15 @@ export class UserAddComponent implements OnInit{
     })
   }
 
+  onRoleChange(event: any, role: Role){
+    role.selected = event.currentTarget.checked;
+  }
+
+
   goToUserList(){
     return this.router.navigate([`admin/user`])
   }
+
   prepareFormData(user: User, role: Role[]): FormData {
     const  formData = new FormData();
     formData.append(
@@ -98,9 +101,11 @@ export class UserAddComponent implements OnInit{
     })
   }
 
-  onRoleChange(event: any, role: Role){
-    role.selected = event.currentTarget.checked;
+
+  onCheckChange(event: any, user: User){
+    user.active = event.currentTarget.checked;
   }
+
 
   onSubmit() {
 
