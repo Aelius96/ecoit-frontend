@@ -18,7 +18,7 @@ export class NewsListComponent implements OnInit{
   private totalPages: number;
   paging = {
     page: 1,
-    size: 10,
+    size: 9,
     totalRecord: 0
   }
 
@@ -44,7 +44,7 @@ export class NewsListComponent implements OnInit{
   }
 
   getListAllWithPage(): void {
-    const params = this.getRequestParams(this.page);
+    const params = this.getRequestParams(this.paging.page);
     this.newsService.listAllWithPageHome(params)
       .subscribe(
         response => {
