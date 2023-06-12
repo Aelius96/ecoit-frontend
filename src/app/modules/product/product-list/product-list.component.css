@@ -1,13 +1,9 @@
-.wpb_color-gree{
-  padding: 13px 19px 13px 19px;
-  background-color:  #50b848;
-  color: white;
-}
+
 .imgicon{
   color: black;
   text-align: center;
 }
-.chuyenmuc{
+.title{
   text-align: center ;
   font-size: 30px;
   margin-top: 20px;
@@ -18,7 +14,7 @@
 #gachchan{
   width: 100px;
   margin-top: 20px;
-  border-top: 1px solid rgb(0, 0, 0);
+  border-top: 1px solid rgb(48, 171, 62);
 }
 .col-xs-12{
   text-align: center;
@@ -28,7 +24,9 @@
   width: 100%;
 
 }
-.wpb_color-gree{
+
+
+.color-gree{
   padding: 13px 19px 13px 19px;
   background-color:  #50b848;
   color: white;
@@ -48,6 +46,12 @@
 .wp-post-image{
   width: 70%;
   height: 60%;
+}
+.product-item{
+ background-color: #ffffff04; 
+ margin: 0 auto; 
+ text-align: center;
+  padding-bottom: 0px; 
 }
 
 .pricing-table__title{

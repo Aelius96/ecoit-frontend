@@ -11,7 +11,12 @@
   margin-top: 20px;
   border-top: 1px solid rgb(0, 0, 0);
 }
-
+.table-content{
+  background-color: #39814100; 
+  margin: 70px 0px 0px 0px; 
+  text-align: center;
+   padding-bottom: 0px; 
+}
 .iconn{
   font-size: 25px;
   color: aliceblue;
@@ -30,8 +35,7 @@
 .box-footer{
 
 
-  margin-top: 10px;
-  bottom: 5px;
+  bottom: 2px;
   position: absolute;
   width: 78%;
   display: flex;

@@ -1,73 +1,40 @@
-<div class="preview-staps-way" id="tdttt">
+<div style="margin-top: 50px;" id="tdttt">
   <div class="payment-staps-way-wrap section-space--pb_120">
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12" style=" padding-top: 10px;" >
-          <div class="section-title text section-title section-space--mb_60 wow move-up ">
-            <div class="section-title text-center section-space--mb_50 ">
+          <div class="ssection-space--mb_20 ">
+            <div class="text-center  ">
               <h2 class="chuyenmuc" style="text-align: center;">TUYỂN DỤNG - TIN TỨC</h2>
               <hr id="gachchan" class="gioithieu">
             </div>
           </div>
         </div>
       </div>
-      <div class="row-news" >
+      <div class="row " >
         <div class="col-lg-12">
-          <div class="payment-process-step__one wow move-up">
+          
             <div class="row align-items-center justify-content-center ">
-              <div class="col-lg-4 col-md-12" >
-                <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 40px;">
-                  <!-- Indicators -->
-                  <ol class="carousel-indicators">
-                  </ol>
-                  <!-- Wrapper for slides -->
+              <div class="col-lg-4 " >
+                <!-- slide -->
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 40px;" >
+                  
                   <div class="carousel-inner" >
-                    <!-- -->
-                    <div class="item active" >
-                      <img style="font-weight: 400; width: 100%; height: 250px;" src="https://ecoit.asia/wp-content/uploads/2020/05/images.jpg" class="mr-3 blog-thumbnail img-thumbnail wp-post-image" alt="" loading="lazy">
-                      <div class="carousel-caption">
-                        <div></div>
-                      </div>
+                    
+                    <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let recruit of recruitList ; let s = index ">
+                      <div *ngIf="s<4">
+                      <img style="font-weight: 400; width: 100%; height: 250px;" src="{{recruit.thumb.pathUrl}}"  alt="" loading="lazy">
+                    
                       <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;" >
                         <h6 class="post-title" >
-                          <a href="https://ecoit.asia/ecoit-tuyen-dung-nhan-vien-kinh-doanh-4-2021/" tabindex="-1" class="h7tttd">ECOIT TUYỂN DỤNG NHÂN VIÊN KINH DOANH</a>
+                          <a href="{{recruit.url}}" tabindex="-1" class="h7tttd">{{recruit.title}}</a>
                         </h6>
                         <div class="post-excerpt" >
-                          <p class="ptdtt">1. MÔ TẢ CÔNG VIỆC&nbsp; – Tư vấn cho khách hàng về các dự án CNTT/ phần mềm mảng Ngân hàng/Chính Phủ/Doanh nghiệp…. đảm bảo đạt được các mục tiêu về kinh doanh. – Tư vấn, tìm hiểu nhu cầu…</p>
+                          <p class="ptdtt">{{recruit.description}}</p>
                         </div>
                       </div>
                     </div>
-                    <!--  -->
-                    <div class="item" >
-                      <img style="font-weight: 400; width: 100%; height: 250px;" src="https://ecoit.asia/wp-content/uploads/2021/07/TKPM.png" class="mr-3 blog-thumbnail img-thumbnail wp-post-image" alt="" loading="lazy">
-                      <div class="carousel-caption">
-                        <div></div>
-                      </div>
-                      <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;" >
-                        <h6 class="post-title" >
-                          <a href="https://ecoit.asia/tuyen-dung-nhan-vien-trien-khai-phan-mem/" tabindex="-1" class="h7tttd">TUYỂN DỤNG NHÂN VIÊN TRIỂN KHAI PHẦN MỀM</a>
-                        </h6>
-                        <div class="post-excerpt" >
-                          <p class="ptdtt">ECOIT tìm kiếm 01 ứng viên vị trí nhân viên triển khai phần mềm với mức đãi ngộ hấp dẫn.</p></div>
-                      </div>
                     </div>
-                    <!--  -->
-                    <div class="item" >
-                      <img style="font-weight: 400; width:100%; height: 250px;" src="https://ecoit.asia/wp-content/uploads/2020/05/hinh-anh-ve-tuyen-dung_012647551-600x250.png" class="mr-3 blog-thumbnail img-thumbnail wp-post-image" alt="" loading="lazy">
-                      <div class="carousel-caption">
-                        <div></div>
-                      </div>
-                      <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;" >
-                        <h6 class="post-title" >
-                          <a href="https://ecoit.asia/ecoit-tuyen-dung-vi-tri-giam-doc-dieu-hanh-4-2021/" tabindex="-1" class="h7tttd">ECOIT TUYỂN DỤNG VỊ TRÍ GIÁM ĐỐC ĐIỀU HÀNH – URGENT</a>
-                        </h6>
-                        <div class="post-excerpt" >
-                          <p class="ptdtt">1.MÔ TẢ CÔNG VIỆC – Định hướng chiến lược, xây dựng kế hoạch phát triển chung cho toàn Công ty. – Đề xuất hướng phát triển, mục tiêu và chiến lược. – Điều hành hoạt động Công ty. – Xây…
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <!--  -->
                   </div>
                 </div>
                 <script>
@@ -83,10 +50,10 @@
               </div>
               <div class="col-lg-4" >
                 <div class="nav">
-                  <div class=" float-md-left">
+                  <div class="float-md-left">
                     <div class="recruit">
-                      <ul *ngFor="let news of newsList ; let i =  index" >
-                        <li *ngIf="i<3">
+                      <ul *ngFor="let news of newsList ; let n =  index" >
+                        <li *ngIf="n<3">
                           <div class="disp-inflex" style="padding-top: 2px">
                             <div class="anhtintuc" >
                               <a href="{{news.url}}" title="{{news.title}}" style="height: 100%;">
@@ -100,7 +67,7 @@
                           <hr >
                         </li>
                       </ul>
-                      <div class="payment-process-btn mb-30" style="margin: 20px 0 20px 0px;">
+                      <div  style="margin: 50px 0 20px 0px;">
                         <div class="col-xs-12" >
                           <div class="service-link"><a id="aa" class="wpb_color-gree" href="/news">TÌM HIỂU THÊM</a></div>
                         </div>
@@ -110,7 +77,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          
         </div>
       </div>
     </div>
