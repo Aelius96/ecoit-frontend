@@ -34,9 +34,9 @@
       </div>
     </div>
 
-    <div *ngFor="let num of number" class="number-icon">
-
-        <div class="col-md-3" style="margin-bottom:20px" >
+    <div class="number-icon">
+      <div class="row">
+        <div class="col-md-3" style="margin-bottom:20px" *ngFor="let num of number" >
           <div class="card" style=" border: 1px solid rgb(255,255,255); box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.06)">
             <div class="action-box">
               <div >
@@ -47,17 +47,17 @@
                 <button (click)="deleteTypicalNum(num.id)" style="background-color: rgb(255,0,0)" class="btnn" ><i class="far fa-times"></i> </button>
               </div>
             </div>
-
             <div  class="content-box ">
               <h4  class="box-icon itemm" >
                 <i class="{{num.icon}}">
                 </i>
               </h4>
               <div class="counter-number itemm">+{{num.num}}</div>
-              <h5 class="chuyenmuc itemm">{{num.description}}</h5>
+              <h5 class="itemm">{{num.description}}</h5>
             </div>
           </div>
       </div>
+    </div>
     </div>
   </div>
 </div>

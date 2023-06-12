@@ -11,13 +11,13 @@
     <div  class="product-item">
       <div class="container" style="padding-left: 100px; padding-right: 100px;">
         <div  class="row pricing-table-one">
-          <div *ngFor="let p of productList" class="col-xl-3 pricing-table " style="background-color: rgba(189, 191, 187, 0);">
-            <div *ngIf = "p.id<=7">
-              <div class="pricing-table__innerrr" >
+          <div *ngFor="let p of productList ; let i =index" class="col-xl-3 pricing-table " style="background-color: rgba(189, 191, 187, 0);">
+            <div *ngIf = "i <7">
+              <div class="pricing-table__innerrr">
                 <div class="post-item" >
                   <a href="/eco-ecm/" style="text-align: center;" class="item">
                     <div class="imgicon">
-                      <img  src="{{p.thumb.pathUrl}}" class=" wp-post-image" alt="" loading="lazy"><br><b>{{p.name}}</b>
+                      <img  src="{{p.thumb.pathUrl}}" class="post-image" alt="" loading="lazy" ><br><b>{{p.name}}</b>
                       <span class="ap-xnam"><p>{{p.description}}</p></span>
                     </div>
                   </a>
