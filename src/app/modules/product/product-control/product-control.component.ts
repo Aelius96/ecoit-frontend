@@ -14,16 +14,16 @@ export class ProductControlComponent implements OnInit{
   url: string;
   constructor(private router:Router,private productService : ProductService) {
   }
-
+  ngOnInit(): void {
+    this.getProductList();
+  }
     getProductList(){
     this.productService.getProductList().subscribe(data =>{
       this.products = data;
       }
     )
     }
-    ngOnInit(): void {
-    this.getProductList();
-    }
+
 
 
 
