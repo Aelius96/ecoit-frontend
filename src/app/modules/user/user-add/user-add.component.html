@@ -60,7 +60,7 @@
         <div class="col-md-2">
           <div class="options">
             <div class="title">Đặt lại mật khẩu</div>
-            <button type="button"  class="btn"><i class="far fa-history"></i></button>
+            <button type="button" (click)="changePassword(user.id)"  class="btn"><i class="far fa-history"></i></button>
           </div>
         </div>
         <div class="col-md-12">
@@ -89,6 +89,7 @@
                     <input type="checkbox" [value]="r.selected" [checked]="r.selected"
                            (change)="onRoleChange($event, r)" class="custom-control-input" id="customCheck{{r.id}}">
                     <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{r.id}}">{{r.name}}</label>
+
                   </div>
                 </li>
               </ul>
