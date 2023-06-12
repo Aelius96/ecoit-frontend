@@ -115,7 +115,7 @@ export class UserAddComponent implements OnInit{
           console.log(this.user);
         },
         err =>{
-          this.errorMessage = err.error.message;
+          this.errorMessage = "Đăng ký thất bại!!";
           this.isSignUpFailed = true;
         })
     }
