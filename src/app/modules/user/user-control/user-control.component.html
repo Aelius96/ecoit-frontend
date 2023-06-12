@@ -58,27 +58,37 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of users">
-              <th scope="row">{{user.username}}</th>
-              <td>{{user.firstName}}</td>
-              <td>{{user.lastName}}</td>
-              <td>{{user.email}}</td>
-              <td>
+
+              <tr *ngFor="let user of users">
+                <th scope="row">{{user.username}}</th>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td *ngIf="user.active == true; else notWorking">
                 <span style="color: #31A24C">
                     <i class="fas fa-circle fa-xs"></i>
                   </span>
-                <span class="ml-1">Hoạt động</span>
-              </td>
-              <td>
-                <span  class="icon status_admin icon-edit" ><a  class="icon-item" (click)="updateUser(user.id)"><i class="fas fa-pen"></i></a></span>
-                <span class="icon icon-remove" >
+                  <span class="ml-1">Hoạt động</span>
+                </td>
+                <ng-template #notWorking>
+                  <td>
+                  <span style="color: #d11616">
+                      <i class="fas fa-circle fa-xs"></i>
+                    </span>
+                    <span class="ml-1"> Không hoạt động</span>
+                  </td>
+                </ng-template>
+                <td>
+                  <span  class="icon status_admin icon-edit" ><a  class="icon-item" (click)="updateUser(user.id)"><i class="fas fa-pen"></i></a></span>
+                  <span class="icon icon-remove" >
                   <a class="icon-item" (click)="deleteUser(user.id)" ><i class="fas fa-trash-alt remove"></i></a>
                 </span>
-                <span class="icon icon-history"  >
+                  <span class="icon icon-history"  >
                   <a class="icon-item" > <i class="fa fa-info fas" style="color: aliceblue;"></i></a>
                 </span>
-              </td>
-            </tr>
+                </td>
+              </tr>
+
           </tbody>
         </table>
       </div>
