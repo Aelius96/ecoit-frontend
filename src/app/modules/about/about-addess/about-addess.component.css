@@ -1,0 +1,20 @@
+.about-adress{
+    margin: 40px 40px;
+}
+
+.cancel{
+    background-color: #cccccc;
+  
+  }
+  .cancel:hover{
+    color: white;
+    background-color: rgba(43, 43, 63, 0.85);
+  }
+  .btnn {
+    margin-right: 15px;
+    width: 20%;
+  }
+input:focus{
+  color: black;
+  border: 1px rgb(222, 251, 206);
+}
