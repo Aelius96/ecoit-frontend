@@ -5,6 +5,7 @@ import {  NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap/modal/modal-ref';
 import {UserService} from "../../../services/user/user.service";
 import {Router} from "@angular/router";
+import {Role} from "../../../core/model/role/role";
 
 
 
@@ -18,6 +19,7 @@ export class UserControlComponent implements OnInit{
 
   users: User[]=[];
 
+
   constructor(private userService: UserService,private router:Router ) { }
 
   ngOnInit(): void {
@@ -30,6 +32,13 @@ export class UserControlComponent implements OnInit{
       this.users = data;
     })
   }
+  //
+  // showUserRole(user: User){
+  //   const sid = user.role?.map(item => item.id);
+  //   for(let i = 0; i<sid.length;i++){
+  //
+  // }
+
 
   updateUser(id:number){
     return this.router.navigate([`admin/user/update/${id}`])
