@@ -81,8 +81,8 @@
                   </td>
                 </ng-template>
                 <td>
-                  <span *ngFor="let role of user.role">
-                    {{role.name}},
+                  <span *ngIf="user.role">
+                    <app-tag-role *ngFor="let role of user.role" [codeRole]="role.name"></app-tag-role>
                   </span>
                 </td>
                 <!-- chỉnh css cho list user-->
