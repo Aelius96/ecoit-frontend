@@ -80,7 +80,11 @@
                     <span class="ml-1"> Không hoạt động</span>
                   </td>
                 </ng-template>
-                <td *ngFor="let role of user.role">{{role.name}}</td>
+                <td>
+                  <span *ngFor="let role of user.role">
+                    {{role.name}},
+                  </span>
+                </td>
                 <!-- chỉnh css cho list user-->
                 <td>
                   <span  class="icon status_admin icon-edit" ><a  class="icon-item" (click)="updateUser(user.id)"><i class="fas fa-pen"></i></a></span>
