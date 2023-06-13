@@ -4,8 +4,7 @@ import {User} from "../../../core/model/user/user";
 import {UserService} from "../../../services/user/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
-import {Product} from "../../../core/model/product/product";
-import {Customer} from "../../../core/model/customer/customer";
+
 import {Role} from "../../../core/model/role/role";
 import {RoleService} from "../../../services/role/role.service";
 
