@@ -98,3 +98,10 @@ a{
 a:hover{
   text-decoration: none;
 }
+
+.myPagination /deep/ .ngx-pagination .current{
+  background: red;
+}
+.myPagination /deep/ .ngx-pagination .pagination-previous{
+  background: red;
+}

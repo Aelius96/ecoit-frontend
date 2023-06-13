@@ -1,0 +1,15 @@
+.status{
+  padding: 3px 8px 3px 8px;
+  border-radius: 5px;
+  color: white;
+  margin: 5px;
+}
+.status_user{
+  background-color: rgb(15, 156, 15);
+}
+.status_mod{
+  background-color: rgb(189, 152, 2);
+}
+.status_admin{
+  background-color: red;
+}

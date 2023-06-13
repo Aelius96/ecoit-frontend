@@ -20,7 +20,7 @@ export class RecruitNewsComponent implements OnInit{
 
   ngOnInit(): void {
     this.getListAllWithPage();
-    this.getListAllwithPageRecruit()
+    this.getListAllWithPageRecruit()
 
   }
 
@@ -29,7 +29,7 @@ export class RecruitNewsComponent implements OnInit{
     this.newsService.listAll().subscribe(data=>
     {return this.newsList =data})
   }
-  getListAllwithPageRecruit():void{
+  getListAllWithPageRecruit():void{
     this.RecruitService.listAll().subscribe(data=>
       {return this.recruitList=data})
   }
