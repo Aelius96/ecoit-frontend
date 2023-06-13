@@ -79,14 +79,12 @@ import { NewsDetailComponent } from './modules/news/news-detail/news-detail.comp
 import {AppPageSizeComponent} from "./modules/shared/app-page-size/app-page-size.component";
 import {NgxPaginationModule} from "ngx-pagination";
 import { CustomerDetailComponent } from './modules/customer/customer-detail/customer-detail.component';
-
 import { ProductDetailComponent } from './modules/product/product-detail/product-detail.component';
 import { ShowUserrolePipe } from './modules/user/user-control/show-userrole.pipe';
 import { AboutControlComponent } from './modules/about/about-control/about-control.component';
 import { AboutAddessComponent } from './modules/about/about-addess/about-addess.component';
 import { AlbumsControlComponent } from './modules/typical/albums/albums-control/albums-control.component';
 import { AlbumsDetailComponent } from './modules/typical/albums/albums-detail/albums-detail.component';
-
 
 
 @NgModule({
