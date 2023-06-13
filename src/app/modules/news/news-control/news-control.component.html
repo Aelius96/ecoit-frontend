@@ -2,7 +2,7 @@
   <div class="d-flex  justify-content-between header-menu ">
     <div class="left-d-flex">
       <div class="d-flex">
-         <a style="width: 70px " routerLink="../news"  routerLinkActive="active"><span  class="spann tt" style="font-weight: bold">Tin tức /</span></a> 
+         <a style="width: 70px " routerLink="../news"  routerLinkActive="active"><span  class="spann tt" style="font-weight: bold">Tin tức /</span></a>
         <a style="width: 100px" routerLink="../recruit" routerLinkActive="active"  ><span  class="spann td">Tuyển dụng</span></a>
         <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
           <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Viết gì đó ...">
@@ -76,6 +76,7 @@
                 </div>
               </div>
               <h5 class="tittle-blog">
+
                 <a class="btn-link" data-toggle="collapse"  href="#demo{{news.id}}" >  {{news.title}} 
                   <span>
                     <i class="fas fa-plus-circle" ></i>
@@ -85,6 +86,7 @@
               </h5>
               <div id="demo{{news.id}}" class="collapse" data-parent="#accordion" style="">
                 <div class="card-body" [innerHTML]="news.content">
+
                 </div>
               </div>
                 <!-- <div id="demo{{news.id}}" class="collapse" [innerHTML]="news.content">
@@ -108,7 +110,6 @@
 
                 [id]="'news'" (pageChange)="handlePageChange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
             </div>
-
           </div>
         </div>
       </div>
