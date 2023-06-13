@@ -1,0 +1,71 @@
+
+
+
+<div class="about-page">
+    <div class="container">
+        <div class="row" style="justify-content: center;">
+            <div class="col-lg-10">
+                
+                        <form >
+                            <div class="contact-page-wrapper">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="contact-inner">
+                                            <span><strong>HOTLINE</strong></span>
+                                            <input type="text" name="phone" id="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="contact-inner">
+                                            <span><strong>EMAIL</strong></span>
+                                            <input type="email" name="email" id="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="contact-inner">
+                                            <span><strong>FAX</strong></span>
+                                            <input type="text" name="fax" id="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="contact-inner">
+                                            <span><strong>LINK</strong></span>
+                                            <input type="text" name="videoLINK" id="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span><strong>ĐỊA CHỈ</strong></span>
+                                        <div class="contact-inner">
+                                            <button class="btn" routerLink="adress">
+                                                <i class="fa fa-plus"></i>
+                                                <span>Thêm địa chỉ</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="contact-inner">
+                                            <span><strong>MÔ TẢ</strong></span>
+                                            <div class="ckeditorContaniner" id="editor">
+                                                <ckeditor [(ngModel)]="aboutList.description" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
+                                            </div>
+                                        </div>   
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="contact-inner">
+                                            <span><strong>VÀI NÉT VỀ CHÚNG TÔI</strong></span>
+                                            <div class="ckeditorContaniner" id="editor">
+                                                <ckeditor [(ngModel)]="aboutList.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
+                                            </div>
+                                        </div>   
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn" style="width: 100px;">Lưu</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    
+            </div>
+        </div>
+    </div>
+</div>
