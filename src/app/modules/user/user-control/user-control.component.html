@@ -53,7 +53,9 @@
               <td>Họ</td>
               <td>Tên</td>
               <td>Email</td>
-              <td>Status</td>
+              <td>Trạng thái</td>
+              <td>Quyền</td>
+
               <td></td>
             </tr>
           </thead>
@@ -64,7 +66,7 @@
                 <td>{{user.firstName}}</td>
                 <td>{{user.lastName}}</td>
                 <td>{{user.email}}</td>
-                <td *ngIf="user.active == true; else notWorking">
+                <td *ngIf="user.active; else notWorking">
                 <span style="color: #31A24C">
                     <i class="fas fa-circle fa-xs"></i>
                   </span>
@@ -78,6 +80,8 @@
                     <span class="ml-1"> Không hoạt động</span>
                   </td>
                 </ng-template>
+                <td *ngFor="let role of user.role">{{role.name}}</td>
+                <!-- chỉnh css cho list user-->
                 <td>
                   <span  class="icon status_admin icon-edit" ><a  class="icon-item" (click)="updateUser(user.id)"><i class="fas fa-pen"></i></a></span>
                   <span class="icon icon-remove" >
