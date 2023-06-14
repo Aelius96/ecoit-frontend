@@ -24,7 +24,9 @@ export class RecruitControlComponent implements OnInit{
     size: 5,
     totalRecord: 0
   }
-  constructor(private router: Router, private recruitService:RecruitService, private tokenStorageService:TokenStorageService
+  constructor(private router: Router, 
+              private recruitService:RecruitService,
+              private tokenStorageService:TokenStorageService
   ) {}
 
   ngOnInit(): void {

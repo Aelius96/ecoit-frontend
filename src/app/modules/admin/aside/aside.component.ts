@@ -41,7 +41,7 @@ export class AsideComponent {
     {
       id:3,
       tittle:'Blog',
-      a: 'blogs',
+      a: 'blog',
       icon:'far fa-rss-square'
     },
     {

@@ -1,4 +1,4 @@
-<form >
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
@@ -11,22 +11,22 @@
         </div>
         <div class="update_box">
           <span><strong>Mô tả</strong></span>
-          <input type="text" ng-Model="blog.description" name="description">
+          <input type="text" [(ngModel)]="blogList.description" name="description">
         </div>
         <div class="submit-button">
           <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
-          <button type="button" class="btn btn-secondary btn-lg btnn cancel"  >Hủy</button>
+          <button (click)="goToBlogList()" type="button" class="btn btn-secondary btn-lg btnn cancel"  >Hủy</button>
         </div>
       </div>
       <div class="col-lg-8">
         <div class="update_box">
           <span><strong>Tiêu đề</strong></span>
-          <input type="text" name="title" ng-Model="blog.title" required>
+          <input type="text" name="title" [(ngModel)]="blogList.title" required>
         </div>
         <div class="update_box">
           <span><strong>Nội dung</strong></span>
           <div class="ckeditorContaniner" id="editor">
-            <ckeditor [(ngModel)]="blog.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
+            <ckeditor [(ngModel)]="blogList.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
           </div>
         </div>
       </div>

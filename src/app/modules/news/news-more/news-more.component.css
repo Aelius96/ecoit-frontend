@@ -1,0 +1,33 @@
+.image{
+    width: 100%;
+}
+img{
+    width: 100%;
+}
+.title{
+    border-bottom: 2px solid rgba(82, 82, 82, 0.66);
+    padding: 5px;
+}
+.title-more{
+    padding: 0px 0px 0px 10px;
+    font-weight: bolder;
+    color: black;
+    font-family: 'Times New Roman';
+    font-size: 25px;
+}
+.content{
+    padding: 20px ;
+}
+.item{
+    margin-bottom: 10px;
+}
+.title-content{
+    width: 100%;
+    text-align: left;
+    color: #56c050;
+    position: relative;
+    overflow-wrap: break-word;
+    white-space: normal;
+    font-size: 18px;
+    font-weight: bold;
+}

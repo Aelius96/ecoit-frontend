@@ -25,7 +25,8 @@ export class NewsControlComponent implements OnInit{
     totalRecord: 0
   }
 
-  constructor(private router:Router, private newsService: NewsService,
+  constructor(private router:Router, 
+              private newsService: NewsService,
               private tokenStorageService: TokenStorageService) {}
 
 
