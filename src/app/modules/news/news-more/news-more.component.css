@@ -35,3 +35,10 @@ img{
     font-size: 18px;
     font-weight: bold;
 }
+.title-content:hover{
+    color: #000;
+}
+.aa:hover{
+    color: black;
+    text-decoration: none;
+}
