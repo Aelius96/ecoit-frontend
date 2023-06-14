@@ -14,8 +14,8 @@ import { RecruitService } from 'src/app/services/recruit/recruit.service';
 export class RecruitNewsComponent implements OnInit{
   recruitList: Recruit[]=[];
   newsList: News[]=[];
-  constructor(private router:Router, private newsService: NewsService,
-              private tokenStorageService: TokenStorageService,
+  constructor( private newsService: NewsService,
+            
               private RecruitService: RecruitService) {}
 
   ngOnInit(): void {
