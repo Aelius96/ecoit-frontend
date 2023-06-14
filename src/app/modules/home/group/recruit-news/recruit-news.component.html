@@ -22,7 +22,7 @@
                   <div class="carousel-inner" >
                     
                     <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let recruit of recruitList ; let s = index ">
-                      <div *ngIf="s<=4">
+                      <div *ngIf="s<3">
                       <img style="font-weight: 400; width: 100%; height: 250px;" src="{{recruit.thumb.pathUrl}}"  alt="" loading="lazy">
                     
                       <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;" >
@@ -40,7 +40,7 @@
                 <script>
                   $(document).ready(function(){
                     $('.carousel').carousel({
-                      interval: 100 // Điều chỉnh thời gian chuyển đổi slide
+                      interval: 10 
                     })
                   });
                 </script>

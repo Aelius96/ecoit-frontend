@@ -9,28 +9,16 @@ import { NewsService } from 'src/app/services/news/news.service';
 })
 export class NewsMoreComponent implements OnInit {
 
-  // blogList: Blog[]=[]
-  // constructor(private blogService: BlogService) {
-  // }
-  // ngOnInit(): void {
-  //   this.getlistAll()
-  // }
-
-  // getlistAll(){
-  //   this.blogService.listAll().subscribe(data=>{
-  //    return this.blogList=data;
-  //   })
-  // }
-
-  news : News[]=[]
+  newsList : News[]=[]
+  
   constructor ( private newsService: NewsService){}
   ngOnInit(): void {
-   
+    this.getListAll()
   }
 
  getListAll(){
   this.newsService.listAll().subscribe(data=>{
-    return this.news=data;
+    return this.newsList=data;
   })
  }
 
