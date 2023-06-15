@@ -1,8 +1,8 @@
 .status{
-  padding: 3px 8px 3px 8px;
+  padding: 2px 5px 2px 5px;
   border-radius: 5px;
   color: white;
-  margin: 5px;
+  margin: 0.8px;
 }
 .status_user{
   background-color: rgb(15, 156, 15);
