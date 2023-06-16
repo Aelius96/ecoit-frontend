@@ -8,4 +8,5 @@ export class Blog{
   cdate: any;
   thumb: any;
   link: any;
+  
 }

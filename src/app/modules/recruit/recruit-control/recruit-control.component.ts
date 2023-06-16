@@ -15,13 +15,13 @@ export class RecruitControlComponent implements OnInit{
   role: string;
 
   currentIndex = -1;
-  pageSizes = [5, 10, 25];
+  pageSizes = [3, 6, 9];
   totalPages: number;
   searchInput= '';
 
   paging = {
     page: 1,
-    size: 5,
+    size: 3,
     totalRecord: 0
   }
   constructor(private router: Router, 

@@ -22,7 +22,6 @@ export class NewsListComponent implements OnInit{
     totalRecord: 0
   }
 
-
   constructor(private newsService: NewsService) {
   }
 

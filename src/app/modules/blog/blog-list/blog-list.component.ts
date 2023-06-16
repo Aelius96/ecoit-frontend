@@ -10,16 +10,40 @@ import { BlogService } from 'src/app/services/blog/blog.service';
 export class BlogListComponent implements OnInit {
  
   blogList: Blog[]=[]
-  constructor(private blogService: BlogService) {
-  }
+  page =1;
+  count=0;
+  pageSize= 9;
+  searchInput = '';
+  private totalPages: number;
+  paging={page:1 , size:9 , totalRecord:0}
+
+  constructor(private blogService: BlogService) {}
+  
   ngOnInit(): void {
-    this.getlistAll()
+    this.getlistAllwithpage()
+  }
+  getRequestParam(page:number){
+    let params: any={};
+    if (page){
+      params[`pageNo`]=page-1;
+    }
   }
 
-  getlistAll(){
-    this.blogService.listAll().subscribe(data=>{
-     return this.blogList=data;
-    })
+  getlistAllwithpage():void{
+    const param = this.getRequestParam(this.paging.page);
+    this.blogService.listAllWithPageHome(param).subscribe(response=>{
+        this.blogList = response.content;
+        this.paging.totalRecord=response.totalElements;
+        console.log(response)
+    },
+    error=>{
+      console.log(error)
+    } )
+
   }
+  handlePagechange(event:number){
+    this.page= event;
+    this.getlistAllwithpage();
+   }
 
 }

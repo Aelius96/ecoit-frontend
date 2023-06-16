@@ -40,7 +40,7 @@
               <div class="carousel-inner" >
                 <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let news of newsList ;let s = index">
               <div class="col-md-6 first-blog">
-                <a href="#">
+                <a href="/news/{{news.url}}">
                   <img class="img-fluid" src="{{news.newsImage.pathUrl}}"
                        alt=" Images">
                 </a>
@@ -49,7 +49,7 @@
                 <div class="post-info lg-blog-post-info">
 
                   <h4 class="post-title font-weight--light">
-                    <a href="#">{{news.title}}</a>
+                    <a href="/news/{{news.url}}">{{news.title}}</a>
                   </h4>
 
                   <div class="post-excerpt mt-15">

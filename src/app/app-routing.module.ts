@@ -26,6 +26,7 @@ import {AdminComponent} from "./modules/admin/admin/admin.component";
 import {NumberAddComponent} from "./modules/typical/number/number-add/number-add.component";
 import {AuthenticateService} from "./authentication/authenticate.service";
 import {NewsDetailComponent} from "./modules/news/news-detail/news-detail.component";
+import { RecruitDetailComponent } from "./modules/recruit/recruit-detail/recruit-detail.component";
 
 
 
@@ -43,16 +44,19 @@ const routes: Routes =[
   {path: 've-chung-toi' , component:AboutUsComponent},
   {path: 'ho-so-nang-luc' , component: CapacityProfileComponent},
   {path: 'khach-hang-tieu-bieu' , component: TypicalCustomersComponent},
-
   //
   {path: 'lien-he' , component: ContactComponent},
 
   {path: '404' , component:ErrorComponent},
-
+//news
   {path:'news',component:NewsListComponent},
   {path:'news/:url', component: NewsDetailComponent},
+  //recruit
   {path:'recruit',component: RecruitListComponent},
+  {path:'recruit/:url' , component:RecruitDetailComponent},
+  //
   {path:'post', component: PostListComponent},
+  //blog
   {path:'blog', component: BlogListComponent},
 
 //

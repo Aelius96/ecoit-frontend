@@ -1,0 +1,86 @@
+<app-header></app-header>
+
+<img width="100%" height="250"
+                   src="https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2.jpg"
+                   class="fuild-img wp-post-image" alt="" loading="lazy" >
+
+<div class="site-wrapper-reveal">
+
+  <div class="blog-pages-wrapper section-space--ptb_20">
+    <div class="container">
+
+      <div class="col-md-9">
+        <div class="main-blog-wrap">
+          <div class="single-blog-item">
+            <div class="post-info lg-blog-post-info  wow move-up">
+              <h4 class="post-title font-weight--light">
+                <p class="tieude" >{{blogList.title}}</p>
+              </h4>
+
+              <div class="post-meta mt-20">
+                <div class="post-date">
+                  <span class="far fa-calendar meta-icon"></span>
+                  {{blogList.cdate}}
+                </div>
+                <div class="social-networks">
+                  <div class="inner">
+                  
+                  </div>
+                </div>
+              </div>
+
+              <div class="post-excerpt mt-15">
+                <div class="content" [innerHTML]="content">
+
+                </div>
+                <div class="entry-post-share-wrap  border-bottom">
+                  <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                  
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                      <div id="entry-post-share" class="entry-post-share">
+                        
+                  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="entry-author">
+                  <div class="author-info">
+                 
+                  </div>
+                </div>
+
+              </div>
+              
+              <!-- blog morre  -->
+              
+            
+            </div>
+          
+          </div>
+       
+        </div>
+      </div>
+      <app-side-bar></app-side-bar>
+
+
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<app-footer></app-footer>
+
+
+
+
+
+
+

@@ -37,10 +37,14 @@
         <div class="col-md-9">
           <div class="main-blog-wrap">
             <!--======= Single Blog Item Start ========-->
-            <div *ngFor="let recruit of recruitList" class="single-blog-item post-list-wrapper xs-list-blog-item border-bottom wow move-up">
+            <div *ngFor="let recruit of recruitList  | paginate: { id: 'news',
+                                                      itemsPerPage: paging.size,
+                                                       currentPage: paging.page,
+                                                      totalItems: paging.totalRecord } ;let i = index" 
+                class="single-blog-item post-list-wrapper xs-list-blog-item border-bottom wow move-up">
               <!-- Post Feature Start -->
               <div class="post-feature blog-thumbnail">
-                <a href="blog-post-layout-one.html">
+                <a href="/recruit/{{recruit.url}}">
                   <img class="img-fluid" src="{{recruit.thumb.pathUrl}}" alt="Blog Images">
                 </a>
               </div>
@@ -50,7 +54,7 @@
               <div class="post-info lg-blog-post-info">
 
                 <h5 class="post-title font-weight--light mt-10">
-                  <a href="blog-post-layout-one.html">{{recruit.title}}</a>
+                  <a href="/recruit/{{recruit.url}}">{{recruit.title}}</a>
                 </h5>
 
                 <div class="post-excerpt mb-30">
@@ -66,6 +70,19 @@
 
               </div>
               <!-- Post info End -->
+            </div>
+            <div class="col-lg-12 wow move-up">
+              <div class="ht-pagination mt-30 pagination justify-content-center">
+                <div class="pagination-wrapper">
+
+                  <ul class="page-pagination">
+                    <pagination-controls
+
+                      [id]="'recruit'" (pageChange)="handlePagechange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
+                  </ul>
+
+                </div>
+              </div>
             </div>
             <!--===== Single Blog Item End =========-->
           </div>

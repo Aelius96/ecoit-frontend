@@ -89,6 +89,9 @@ import { AlbumsDetailComponent } from './modules/typical/albums/albums-detail/al
 import { TagRoleComponent } from './modules/user/tag-role/tag-role.component';
 
 import { NewsMoreComponent } from './modules/news/news-more/news-more.component';
+import { RecruitDetailComponent } from './modules/recruit/recruit-detail/recruit-detail.component';
+import { RecruitMoreComponent } from './modules/recruit/recruit-more/recruit-more.component';
+import { BlogDetailComponent } from './modules/blog/blog-detail/blog-detail.component';
 
 
 
@@ -166,6 +169,9 @@ import { NewsMoreComponent } from './modules/news/news-more/news-more.component'
     AlbumsDetailComponent,
     TagRoleComponent,
     NewsMoreComponent,
+      RecruitDetailComponent,
+      RecruitMoreComponent,
+      BlogDetailComponent,
  
   ],
   imports: [
