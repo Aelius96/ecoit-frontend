@@ -1,24 +1,21 @@
 <app-header></app-header>
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-12">
     <div id="content-wrapper" class="is-vc">
       <div class="sliderHomes" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="item active">
-            <a href="#">
-              <img width="1520" height="250"
+            <a href="#"> -->
+              <img style="width: 100%; height: 250;"
                    src="https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2.jpg"
-                   class="fuild-img wp-post-image" alt="" loading="lazy" srcset="https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2.jpg 1455w,
-                  https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2-768x132.jpg 768w,
-                  https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2-700x120.jpg 700w"
-                   sizes="(max-width: 1455px) 100vw, 1455px">
-            </a>
+                   class="fuild-img wp-post-image" alt="" loading="lazy" >
+            <!-- </a>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="col-md-12">
   <div class="my-4">
     <div class="wdc-heading style-1 text-left">
@@ -38,36 +35,43 @@
             <!--======= Single Blog Item Start ========-->
 
             <!-- Post Feature Start -->
-            <div class="col-md-12" style="margin-bottom: 20px;">
+            <div class="col-md-12" style="margin-bottom: 20px;"  >
+              <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 40px;" >
+              <div class="carousel-inner" >
+                <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let blog of blogList ;let s = index">
               <div class="col-md-6 first-blog">
                 <a href="#">
-                  <img class="img-fluid" src="assets/images/blog/mockups_white_matte_apple_watch_freebie-770x420.jpg"
-                       alt="Blog Images">
+                  <img class="img-fluid" src="{{blog.thumb.pathUrl}}"
+                       alt=" Images">
                 </a>
               </div>
-              <!-- Post Feature End -->
-              <!-- Post info Start -->
               <div class="col-md-6">
                 <div class="post-info lg-blog-post-info">
 
                   <h4 class="post-title font-weight--light">
-                    <a href="#">Specialized Design Tools for 2019</a>
+                    <a href="#">{{blog.title}}</a>
                   </h4>
 
                   <div class="post-excerpt mt-15">
-                    <p>As a result, along with the larger corporate-backed applications, we have a huge host of small
-                      tools and libraries, each designed to solve a particular problem or preserve a certain set of
-                      possibilities. A couple of these projects have become institutions: Modernizr, keeping the
-                      technical …</p>
+                    <p>{{blog.description}}</p>
                   </div>
 
-                  <div class="post-read-more mt-20">
-                    <a href="#" class="ht-btn ht-btn-sm">
-                      <span class="btn-text">Read more </span>
+                  <div class="post-read-more mt-20" >
+                    <a href="#" class=" ht-btn-sm" style="background-color: rgb(57, 182, 61);">
+                      <span class="btn-text" >Xem thêm </span>
                     </a>
                   </div>
                 </div>
               </div>
+              </div>
+              </div>
+              <script>
+                $(document).ready(function(){
+                  $('.carousel').carousel({
+                    interval: 10
+                  })
+                });
+              </script>
             </div>
 
             <!-- Post info End -->
@@ -79,13 +83,13 @@
             <div class="blog-pages-wrapper section-space--ptb_100">
               <div class="container">
                 <div class="row">
-                  <div *ngFor="let blog of blogs" class="col-lg-4 col-md-6  mb-30 wow move-up">
+                  <div *ngFor="let blog of blogList" class="col-lg-4 ">
                     <!--======= Single Blog Item Start ========-->
                     <div class="single-blog-item blog-grid">
                       <!-- Post Feature Start -->
-                      <div class="post-feature blog-thumbnail">
-                        <a href="blog-post-layout-one.html">
-                          <img class="img-fluid" src="{{blog.imageUrl}}" alt="Blog Images">
+                      <div class="post-feature blog-thumbnail" style="height: 50%; width: 100%;">
+                        <a href="blog-post-layout-one.html" style="height: 100%; width: 100%;">
+                          <img class="img-fluid" src="{{blog.thumb.pathUrl}}" alt="Blog Images" style="height: 100%; width: 100%;">
                         </a>
                       </div>
                       <!-- Post Feature End -->
@@ -96,7 +100,7 @@
                           <a href="#">{{blog.title}}</a>
                         </h5>
                         <div class="post-excerpt mt-15">
-                          <p>{{blog.excerpt}}</p>
+                          <p>{{blog.description}}</p>
                         </div>
 
                       </div>

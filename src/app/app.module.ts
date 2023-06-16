@@ -85,7 +85,11 @@ import { AboutControlComponent } from './modules/about/about-control/about-contr
 import { AboutAddessComponent } from './modules/about/about-addess/about-addess.component';
 import { AlbumsControlComponent } from './modules/typical/albums/albums-control/albums-control.component';
 import { AlbumsDetailComponent } from './modules/typical/albums/albums-detail/albums-detail.component';
+
 import { TagRoleComponent } from './modules/user/tag-role/tag-role.component';
+
+import { NewsMoreComponent } from './modules/news/news-more/news-more.component';
+
 
 
 
@@ -161,7 +165,8 @@ import { TagRoleComponent } from './modules/user/tag-role/tag-role.component';
     AlbumsControlComponent,
     AlbumsDetailComponent,
     TagRoleComponent,
-
+    NewsMoreComponent,
+ 
   ],
   imports: [
     BrowserModule,

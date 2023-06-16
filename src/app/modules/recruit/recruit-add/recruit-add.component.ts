@@ -62,7 +62,7 @@ export class RecruitAddComponent implements OnInit{
     )
   }
 
-  addDataForm(id:any){
+ addDataForm(id:any){
     const recruitFormData =this.prepareFormData(this.recruit);
     this.recruitService.updateRecruitNews(id, recruitFormData).subscribe(data => {
       this.gotoRecruitList();

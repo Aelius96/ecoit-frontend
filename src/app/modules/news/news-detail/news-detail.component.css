@@ -1,0 +1,12 @@
+.post-title{
+   
+    font-weight: bolder;
+    font-size: 25px;
+    
+}
+.tieude:hover{
+ text-decoration: none;
+}
+.tieude{
+    color: rgb(77, 199, 55);
+}
