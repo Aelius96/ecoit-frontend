@@ -36,3 +36,7 @@
 a{
   color: #50B848;
 }
+a:hover{
+  text-decoration: none;
+  color: black;
+}

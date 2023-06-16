@@ -21,7 +21,6 @@ export class RecruitListComponent implements OnInit {
   constructor(private recruitService:RecruitService) { }
 
 
-
   ngOnInit(): void {
     this.getAllListwithPage()
   }

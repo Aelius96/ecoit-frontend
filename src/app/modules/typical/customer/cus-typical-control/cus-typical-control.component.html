@@ -33,27 +33,27 @@
   </div>
 </div>
 
-<div class="flexiable-slider-wrapper section-space--mt_60" style="margin-top: 50px; padding-bottom: 30px; ">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12 wow move-up">
-        <div class="flexible-image-slider-wrap">
-          <div class="swiper-container auto--per-flexible__container__aegency image">
-            <div  class="swiper-wrapper "*ngFor="let cusTyp of cusTypical|  paginate: { id: 'cusTypical',
+<div class="cus-typical" >
+  <div class="container">
+  <div class="row " style=" background-color: gainsboro; padding: 30px; margin-bottom: 20px; ">
+     <div   class="item col-md-4 " *ngFor="let cusTyp of cusTypical|  paginate: { id: 'cusTypical',
                                                       itemsPerPage: paging.size,
                                                       currentPage: paging.page,
                                                       totalItems: paging.totalRecord } ;let i = index">
-              <div class="item-image">
-                <img class="img-fluid" src="{{cusTyp.image.pathUrl}}" alt="" id="{{cusTyp.id}}"/>
-                <div class="overlay">{{cusTyp.name}}</div>
-              </div>
-            </div>
-
+      <div class="item-image">
+          <img class="img" src="{{cusTyp.image.pathUrl}}" alt="" id="{{cusTyp.id}}"/>
+          <div class="d-flex btnn" >
+            <!--ví dụ về button sửa-->
+            <button  style="background-color: #50b848" class="edit"  ><i class="far fa-pen"></i> </button>
+            <button  style="background-color: rgb(255,0,0)" class="dele" ><i class="far fa-times"></i> </button>
           </div>
-        </div>
+          <div class="text">{{cusTyp.name}}</div>
+
       </div>
     </div>
   </div>
+  </div>  
+
   <div *ngIf="paging.totalRecord>0" class="col-md-12">
     <div class="row">
       <div class="col-md-6">
