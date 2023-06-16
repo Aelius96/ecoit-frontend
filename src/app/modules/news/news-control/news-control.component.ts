@@ -14,7 +14,7 @@ export class NewsControlComponent implements OnInit{
 
   newsList: News[]=[];
   role:string;
-  currentIndex = -1;
+
   pageSizes = [5, 10, 25];
   totalPages: number;
   searchInput= '';

@@ -88,6 +88,7 @@ import { AlbumsDetailComponent } from './modules/typical/albums/albums-detail/al
 import { TagRoleComponent } from './modules/user/tag-role/tag-role.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -160,6 +161,7 @@ import { TagRoleComponent } from './modules/user/tag-role/tag-role.component';
     AlbumsControlComponent,
     AlbumsDetailComponent,
     TagRoleComponent,
+
   ],
   imports: [
     BrowserModule,
