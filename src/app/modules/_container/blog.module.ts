@@ -7,7 +7,7 @@ import {BlogAddComponent} from "../blog/blog-add/blog-add.component";
 
 const routes: Routes = [
   {path:'' , component: BlogControlComponent},
-  {path: 'new', component: BlogAddComponent},
+  {path: 'add', component: BlogAddComponent},
   {path:'update/:id' , component: BlogAddComponent},
 
 ]

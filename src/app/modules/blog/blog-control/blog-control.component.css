@@ -53,31 +53,27 @@
   height: 100px;
 }
 .tittle-blog{
-  font-family: Rubik;
+  font-family: initial;
+    margin-bottom: 0px;
 }
 
 /*-------------------------------------------------------------*/
-a.btn-link{
+.btn-link{
   width: 100%;
   text-align: left;
   color: #6d70a6;
-  padding: 20px 30px;
   position: relative;
   overflow-wrap: break-word;
   white-space: normal;
   font-size: 18px;
-  line-height: 1.2;
-  font-weight: 600;
+  font-weight: bold;
 }
-a.btn-link span {
+.btn-link span {
   position: absolute;
   right: 35px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-a.btn-link span:hover, a.btn-link span:focus{
+
+.btn-link:hover{
   text-decoration: none;
-  color: #5945e6;
 }
-

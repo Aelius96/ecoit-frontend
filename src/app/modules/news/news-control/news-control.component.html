@@ -69,7 +69,7 @@
                     {{news.date}}
                 </div>
                 <div class="action-box ">
-                  <!--                 ví dụ về button sửa-->
+                  <!--        ví dụ về button sửa-->
                   <button (click)="updateNews(news.id)"  style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
 
                   <button *ngIf="role.includes('ROLE_ADMIN')" (click)="deleteNews(news.id)"  style="background-color: red" class="btnn" ><i class="far fa-times"></i> </button>
