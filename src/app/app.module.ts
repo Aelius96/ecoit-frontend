@@ -92,6 +92,7 @@ import { NewsMoreComponent } from './modules/news/news-more/news-more.component'
 import { RecruitDetailComponent } from './modules/recruit/recruit-detail/recruit-detail.component';
 import { RecruitMoreComponent } from './modules/recruit/recruit-more/recruit-more.component';
 import { BlogDetailComponent } from './modules/blog/blog-detail/blog-detail.component';
+import { BlogMoreComponent } from './modules/blog/blog-more/blog-more.component';
 
 
 
@@ -172,6 +173,7 @@ import { BlogDetailComponent } from './modules/blog/blog-detail/blog-detail.comp
       RecruitDetailComponent,
       RecruitMoreComponent,
       BlogDetailComponent,
+      BlogMoreComponent,
  
   ],
   imports: [

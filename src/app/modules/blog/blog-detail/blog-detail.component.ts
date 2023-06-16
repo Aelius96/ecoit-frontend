@@ -11,7 +11,6 @@ import { BlogService } from 'src/app/services/blog/blog.service';
 })
 export class BlogDetailComponent {
 
-
   url: any;
   content:any;
   roll:any;
@@ -27,13 +26,11 @@ export class BlogDetailComponent {
   }
 
   getList(){
-    // this.url= this.route.snapshot.params['url'];
-    // this.recruitService.getRecruitUrl(this.url).subscribe(data=>{
-    //   this.recruit=data;
-    //   document.title = this.recruit.title;
-    //   this.content = this.sanitizer.bypassSecurityTrustHtml(this.recruit.content);
-    // })
+   this.url = this.route.snapshot.params['url'];
+   this.blogService.getBlogbyUrl(this.url).subscribe(data=>{
+    this.blogList = data;
+    document.title  = this.blogList.title;
+    this.content = this.sanitizer.bypassSecurityTrustHtml(this.blogList.content)
+   })
   }
-
-
 }

@@ -27,6 +27,7 @@ import {NumberAddComponent} from "./modules/typical/number/number-add/number-add
 import {AuthenticateService} from "./authentication/authenticate.service";
 import {NewsDetailComponent} from "./modules/news/news-detail/news-detail.component";
 import { RecruitDetailComponent } from "./modules/recruit/recruit-detail/recruit-detail.component";
+import { BlogDetailComponent } from "./modules/blog/blog-detail/blog-detail.component";
 
 
 
@@ -58,7 +59,7 @@ const routes: Routes =[
   {path:'post', component: PostListComponent},
   //blog
   {path:'blog', component: BlogListComponent},
-
+  {path:'blog/:url', component:BlogDetailComponent},
 //
   {path: 'login' , component: LoginComponent},
   {path: 'register', component:RegisterComponent},

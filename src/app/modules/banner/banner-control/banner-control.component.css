@@ -73,12 +73,15 @@ img{
 .action-box {
     position: absolute;
     display: flex;
-    
-    right: 0;
+    right: 10px;
     color: #fff;
   }
   .btnn{
     border: 0px;
     width: 30px;
     height: 70px;
+  }
+
+  .product-thumb-image{
+    width: 70%;
   }
