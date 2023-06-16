@@ -18,6 +18,7 @@ const routes: Routes =[
     {path: 'news' , title:'Admin-Tin tức', loadChildren:()=> import('./news.modules').then(m=>m.NewsModules)},
     {path: 'recruit' , title:'Admin-Tuyển dụng', loadChildren:()=> import('./recruit.module').then(m=>m.RecruitModule)},
     {path: 'customer' , title:'Admin-Khách Hàng' , loadChildren:()=>import('./customer.module').then(m=>m.CustomerModule)},
+
     {path: 'image-gallery', title:'Admin-khách hàng tiêu biểu', loadChildren:()=>import('./gallery.module').then(m=>m.GalleryModule) },
     {path: 'user', title:'Admin-tài khoản', loadChildren:()=>import('./user.module').then(m=>m.UserModule )  },
     {path:'history' , title: 'Admin-Lịch sử sử đổi' , component: HistoryListComponent},
@@ -26,7 +27,7 @@ const routes: Routes =[
     {path:'slide', title:'Admin-Trình chiếu' , loadChildren:()=>import('./sliders.module').then(m=>m.SlidersModule)},
     {path:'banner' , title: 'Admin-Trình chiếu' , loadChildren:()=>import('./banner.module').then(m=>m.BannerModule)},
     {path:'about' , title:'Admin-về chúng tôi', loadChildren:()=>import('./about.module').then(m=>m.AboutModule)},
-    {path:'albums' , title:'Amin-kho ảnh' ,  loadChildren:()=>import('./albums.module').then(m=>m.AlbumsModule)} 
+    {path:'albums' , title:'Amin-kho ảnh' ,  loadChildren:()=>import('./albums.module').then(m=>m.AlbumsModule)}
 
   ]},
 ]

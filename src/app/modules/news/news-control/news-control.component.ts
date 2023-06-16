@@ -24,7 +24,7 @@ export class NewsControlComponent implements OnInit{
     totalRecord: 0
   }
 
-  constructor(private router:Router, 
+  constructor(private router:Router,
               private newsService: NewsService,
               private tokenStorageService: TokenStorageService) {}
 
@@ -64,7 +64,7 @@ export class NewsControlComponent implements OnInit{
           this.newsList = response.content;
           this.paging.totalRecord = response.totalElements;
           this.totalPages = response.totalPages;
-          console.log(response);
+
         },
         error => {
           console.log(error);

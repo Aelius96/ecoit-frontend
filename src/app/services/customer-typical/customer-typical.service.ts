@@ -17,9 +17,9 @@ export class CustomerTypicalService {
   listAllWithPage(params: any): Observable<any>{
     return this.http.get(`${this.baseUrl}/customer/cus-typical`,{params})
   }
-  // listAllWithPageHome(params: any): Observable<any>{
-  //   return this.http.get(`${this.baseUrl}/home/news`,{params})
-  // }
+  listAllWithPageHome(params: any): Observable<any>{
+    return this.http.get(`${this.baseUrl}/home/customer/cus-typical`,{params})
+  }
   // public listAll(): Observable<CusTypical[]>{
   //   return this.http.get<CusTypical[]>(`${this.baseUrl}/home/news/show`);
   // }

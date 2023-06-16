@@ -18,7 +18,7 @@ export class CusTypicalControlComponent implements OnInit{
 
   paging = {
     page: 1,
-    size: 20,
+    size: 3,
     totalRecord: 0
   }
   constructor(private cusTypicalService:CustomerTypicalService, private tokenStorageService: TokenStorageService) {
