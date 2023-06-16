@@ -15,13 +15,12 @@ export class NewsControlComponent implements OnInit{
   newsList: News[]=[];
   role:string;
 
-  pageSizes = [5, 10, 25];
   totalPages: number;
   searchInput= '';
 
   paging = {
     page: 1,
-    size: 5,
+    size: 3,
     totalRecord: 0
   }
 
