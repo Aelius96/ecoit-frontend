@@ -92,6 +92,7 @@ import { NewsMoreComponent } from './modules/news/news-more/news-more.component'
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -163,9 +164,7 @@ import { NewsMoreComponent } from './modules/news/news-more/news-more.component'
     AboutAddessComponent,
     AlbumsControlComponent,
     AlbumsDetailComponent,
-
     TagRoleComponent,
-
     NewsMoreComponent,
  
   ],
