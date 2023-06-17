@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from "../../../../services/token-storage/token-storage.service";
 import {CustomerTypicalService} from "../../../../services/customer-typical/customer-typical.service";
 import {CusTypical} from "../cus-typical";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cus-typical-control',
@@ -18,10 +19,11 @@ export class CusTypicalControlComponent implements OnInit{
 
   paging = {
     page: 1,
-    size: 3,
+    size: 6,
     totalRecord: 0
   }
-  constructor(private cusTypicalService:CustomerTypicalService, private tokenStorageService: TokenStorageService) {
+  constructor(private cusTypicalService:CustomerTypicalService, private tokenStorageService: TokenStorageService ,
+                private router:Router,) {
   }
 
   ngOnInit(): void {
@@ -90,5 +92,11 @@ export class CusTypicalControlComponent implements OnInit{
       })
     }
   }
+
+  // customer/cus-typical
+  // customer/cus-typical/update/${id}
+  updateTC(id : number){
+      this.router.navigate([`admin/customer/cus-typical/update/${id}`]);
+ }
 }
 

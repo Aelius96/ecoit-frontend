@@ -49,5 +49,6 @@ export class RecruitListComponent implements OnInit {
     this.getAllListwithPage();
    }
 
+
 } 
 
