@@ -5,6 +5,7 @@ import {DashboardComponent} from "../admin/dashboard/dashboard.component";
 import {AdminComponent} from "../admin/admin/admin.component";
 import { UserControlComponent } from "../user/user-control/user-control.component";
 import { HistoryListComponent } from "../admin/history/history-list/history-list.component";
+import { Number } from '../typical/number/number';
 
 
 const routes: Routes =[
@@ -12,7 +13,8 @@ const routes: Routes =[
   {path:'' , title:'Admin-Ecoit' , component: AdminComponent,
 
   children:[
-    {path: 'dashboard' , component: DashboardComponent},
+    {path: 'dashboard' , title:'Admin-Ecoit' , loadChildren:()=>import('./number.module').then(m=>m.NumberModule)},
+
     {path: 'post' , title:'Admin-Tin tức', loadChildren:()=> import('./post.module').then(m=>m.PostModule)},
     {path: 'blog' , title:'Admin-Blog', loadChildren:()=> import('./blog.module').then(m=>m.BlogModule)},
     {path: 'news' , title:'Admin-Tin tức', loadChildren:()=> import('./news.modules').then(m=>m.NewsModules)},

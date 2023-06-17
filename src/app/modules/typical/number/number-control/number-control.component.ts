@@ -28,10 +28,10 @@ getAllNumber(){
 }
 
   addTypicalNum(){
-    this.router.navigate(['/number/add']);
+    this.router.navigate(['/dashboard/add']);
   }
   updateTypicalNum(id : number){
-   this.router.navigate([`/number/edit/${id}`]);
+   this.router.navigate([`admin/dashboard/edit/${id}`]);
 }
  deleteTypicalNum(id: number){
    let option = confirm("Dữ liệu sẽ bị xóa . Bạn có mốn tiếp tục ");

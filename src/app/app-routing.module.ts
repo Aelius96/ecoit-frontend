@@ -65,8 +65,8 @@ const routes: Routes =[
   {path: 'register', component:RegisterComponent},
 
 
-  {path: 'number/add' , component: NumberAddComponent},
-  {path: 'number/edit/:id' , component:NumberAddComponent},
+  // {path: 'number/add' , component: NumberAddComponent},
+  // {path: 'number/edit/:id' , component:NumberAddComponent},
   { path:'admin',redirectTo:'/admin/dashboard',pathMatch:'full'},
 
   {path:'admin', canActivate:[AuthenticateService]
