@@ -5,11 +5,11 @@
   margin: 0.8px;
 }
 .status_user{
-  background-color: rgb(15, 156, 15);
+  background-color: rgba(15, 156, 15, 0.655);
 }
 .status_mod{
-  background-color: rgb(189, 152, 2);
+  background-color: rgba(189, 152, 2, 0.663);
 }
 .status_admin{
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.67);
 }

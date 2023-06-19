@@ -47,8 +47,9 @@ a:hover{
 }
 
 .cus-typical{
-  margin: 80px 50px; 
-  padding: 0px 30px 30px 30px; 
+  height: 179vh;
+  background-color: rgba(220, 220, 220, 0.485);
+  padding: 120px 80px 30px 80px; 
 }
 .item{
   margin-bottom: 20px ;

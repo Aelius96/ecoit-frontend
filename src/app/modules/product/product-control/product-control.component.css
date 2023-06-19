@@ -51,19 +51,40 @@
     margin-top:7px;
     display: flex;
   }
-  .action-box {
-    position: absolute;
-    display: flex;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    color: #fff;
-    align-items: center;
+  
+.action-box {
+  padding-left: 0px;
+  display: flex;
+  right: 0;
+  color: #fff;
+}
+  .card{
+    border-radius: 10px;
+  }
+  img{
+    border-radius: 10px;
   }
   .btnn{
     border: 0px;
-    width: 50px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff00;
+    color: rgb(66, 62, 94);
+  }
+  .edit{
+   
+    border-radius: 10px;
+  }
+  .dele{
+    border-radius: 10px;
+  }
+  .edit:hover{
+    background-color: rgb(103, 190, 74);
+    color: white;
+  }
+  .dele:hover{
+    background-color: rgb(240, 56, 56);
+    color: white;
   }
   .tittle-blog{
     font-family: Rubik;
