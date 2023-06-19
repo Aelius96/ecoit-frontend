@@ -54,7 +54,7 @@
   
 }
 .icon-edit{
-  background-color: #31e025;
+  background-color: #3366FF;
 }
 .icon-remove{
   background-color: rgb(255, 0, 30);
@@ -78,6 +78,19 @@
 .detail{
   box-sizing: border-box;
 }
-
+.i{
+  color: #ffffff;
+}
+.user{
+  padding: 10px;
+  background-color: #3a63dc;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+}
+.table{
+  font-family: auto;
+  font-size: 20px;
+}
 /* 
  */

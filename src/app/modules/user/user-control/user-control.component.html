@@ -38,13 +38,14 @@
 <div class="" style="padding: 90px;">
   <div class="container">
     <div class="detail">
-      <div class="user">
+      
         <div class="header-user">
           <!-- <span class="status status_user">User</span>
           <span class="status status_mod">Mod</span>
           <span class="status status_admin">Admin</span> -->
+          <p class="user" >Người Dùng</p>
         </div>
-        <hr>
+        <hr style="margin-top:0px;">
 
         <table class="table table-striped" id="myTable">
           <thead>
@@ -86,13 +87,13 @@
                   </span>
                 </td>
                 <!-- chỉnh css cho list user-->
-                <td>
-                  <span  class="icon status_admin icon-edit" ><a  class="icon-item" (click)="updateUser(user.id)"><i class="fas fa-pen"></i></a></span>
+                <td style="text-align: end;">
+                  <span  class="icon status_admin icon-edit" ><a  class="icon-item" (click)="updateUser(user.id)"><i class="fas fa-pen i"></i></a></span>
                   <span class="icon icon-remove" >
-                  <a class="icon-item" (click)="deleteUser(user.id)" ><i class="fas fa-trash-alt remove"></i></a>
+                  <a class="icon-item" (click)="deleteUser(user.id)" ><i class="fas fa-trash-alt remove i"></i></a>
                 </span>
                   <span class="icon icon-history"  >
-                  <a class="icon-item" > <i class="fa fa-info fas" style="color: aliceblue;"></i></a>
+                  <a class="icon-item" > <i class="fa fa-info fas i" ></i></a>
                 </span>
                 </td>
               </tr>
@@ -100,6 +101,6 @@
           </tbody>
         </table>
       </div>
-    </div>
+    
   </div>
 </div>
