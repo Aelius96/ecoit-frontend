@@ -3,10 +3,12 @@
     <div class="left-d-flex">
       <div class="d-flex">
         <h5 class="h5">Blog</h5>
-        <input type="text " class="form-control "  placeholder="Viết gì đó ...">
-        <div class="input-group-append inputt" >
-          <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-        </div>
+        <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
+          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " style="height: 30px; width: 60%;">
+          <div class="input-group-append inputt" >
+            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+          </div>
+        </form>
       </div>
     </div>
     <div class="right-d-flex">
@@ -14,13 +16,9 @@
         <div class="menu-item ">
           <div class="d-flex">
             <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <select class="custom-select">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-             
-            </select>
+                <app-page-size (pageSizeChange)="handlePageSize($event)" [totalRecords]="paging.totalRecord" [(pageSize)]="paging.size">
+
+                </app-page-size>
           </div>
         </div>
         <div class="menu-item">
@@ -39,40 +37,43 @@
       <div class="row">
         <div class="col-lg-12" *ngFor="let blog of blogList" style="margin-bottom: 15px;">
           <div class="card">
-            <div class="card-header">
               <div class="row ">
                 <div class="col-md-2">
-                  <img style="width: 170px; height: 90px" src="{{blog.thumb.pathUrl}}" alt="">
+                  <img style="width: 100%; height: 100%" src="{{blog.thumb.pathUrl}}" alt="">
                 </div>
                 <div class="col-md-7">
+                  <h5 class="tittle-blog">
+                    <a class="btn-link" data-toggle="collapse"  href="#demo{{blog.id}}" style="text-transform: uppercase;"> {{blog.title}} 
+                    </a>
+                  </h5>
                   <p>
                     {{ blog.description}}
                   </p>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2" style="padding-top:10px; text-align: center;">
                    {{ blog.cdate }}
                 </div>
-                <div class="action-box ">
+                <div class="action-box col-md-1 ">
                     <!--                 ví dụ về button sửa-->
-                    <button (click)="updateBlog(blog.id)"  style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
+                    <button (click)="updateBlog(blog.id)"   class="btnn edit"  ><i class="far fa-pen"></i> </button>
 
-                    <button (click)=" deleteBlog(blog.id) " style="background-color: red" class="btnn" ><i class="far fa-times"></i> </button>
+                    <button (click)=" deleteBlog(blog.id) "  class="btnn dele" ><i class="far fa-times"></i> </button>
                 </div>
-              </div>
-              <h5 class="tittle-blog">
-                <a class="btn-link" data-toggle="collapse"  href="#demo{{blog.id}}" style="text-transform: uppercase;"> {{blog.title}} 
-                  <span>
-                    <i class="fas fa-plus-circle" ></i>
-             
-                  </span>
-                </a>
-              </h5>
-              <div id="demo{{blog.id}}" class="collapse" data-parent="#accordion" style="">
-                <div class="card-body" [innerHTML]="blog.content">
+              
+              <div class="col-md-9">
+                <div id="demo{{blog.id}}" class="collapse" data-parent="#accordion" >
+                  <div class="card-body" [innerHTML]="blog.content">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div *ngIf="paging.totalRecord > 0 " class="col-md-4">
+          <pagination-controls  previousLabel ="<"
+          nextLabel =">" 
+          [id]="'blog'" (pageChange)="handlePage($event)" [maxSize]="paging.totalRecord">  
+          </pagination-controls>
         </div>
       </div>
     </div>

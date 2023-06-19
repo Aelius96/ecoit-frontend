@@ -21,7 +21,7 @@ export class NewsControlComponent implements OnInit{
 
   paging = {
     page: 1,
-    size: 3,
+    size: 5,
     totalRecord: 0
   }
 
@@ -35,7 +35,6 @@ export class NewsControlComponent implements OnInit{
 
       const user = this.tokenStorageService.getUser();
       this.role =user.roles;
-
       this.getListAllWithPage();
   }
 
@@ -81,14 +80,12 @@ export class NewsControlComponent implements OnInit{
     this.paging.page = event;
     this.getListAllWithPage();
   }
-
   handlePageSizeChange(event: any): void {
     this.paging.size = event;
     this.paging.page = 1;
     console.log(event, this.paging.size)
     this.getListAllWithPage();
   }
-
   // listAll(){
   //   this.newsService.listAll().subscribe(data =>{
   //      this.newsList =data;
@@ -97,11 +94,7 @@ export class NewsControlComponent implements OnInit{
 
   updateNews(id: number){
     return this.router.navigate([`/admin/news/edit`,id]);
-
   }
-
-
-
   deleteNews(id: number){
     let option = confirm("Dữ liệu sẽ bị xóa . Bạn có mốn tiếp tục ");
 

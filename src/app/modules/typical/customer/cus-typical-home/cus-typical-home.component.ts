@@ -15,11 +15,13 @@ export class CusTypicalHomeComponent implements OnInit {
   constructor(private cusTypicalService:CustomerTypicalService, ) {
 }
   ngOnInit(): void {
-   
+   this.getAllList();
   }
 
 getAllList():void{
-  this.cusTypicalService.listAllWithPageHome
+  this.cusTypicalService.listAll().subscribe(data=>{
+   return this.cusTypical=data;
+  })
 }
 
 // nums: Number[] = [];

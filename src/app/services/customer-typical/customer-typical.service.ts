@@ -23,6 +23,9 @@ export class CustomerTypicalService {
   // public listAll(): Observable<CusTypical[]>{
   //   return this.http.get<CusTypical[]>(`${this.baseUrl}/home/news/show`);
   // }
+  public listAll(): Observable<CusTypical[]>{
+    return this.http.get<CusTypical[]>(`${this.baseUrl}/home/customer/cus-typical/show`)
+  }
 
   public getTCByUrl(url: any): Observable<CusTypical>{
     return this.http.get<CusTypical>(`${this.baseUrl}/customer/cus-typical/${url}`);
