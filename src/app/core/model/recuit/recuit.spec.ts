@@ -1,6 +1,6 @@
-import {Recruit} from "./recruit";
+import {Recruit} from "./recuit";
 
-describe('Recuit', () => {
+describe('Recruit', () => {
   it('should create an instance', () => {
     expect(new Recruit()).toBeTruthy();
   });

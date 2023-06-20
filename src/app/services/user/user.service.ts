@@ -19,8 +19,8 @@ export class UserService {
     return this.http.get<User>(`${this.baseUrl}/${id}`);
   }
 
-  updateUser(id: number, formData: FormData):Observable<Object>{
-    return this.http.post(`${this.baseUrl}/update/${id}`,formData);
+  public updateUser(id:number, user: User): Observable<User>{
+    return this.http.post<User>(`${this.baseUrl}/update/${id}`,user)
   }
 
   public deleteUser(id: number): Observable<void> {

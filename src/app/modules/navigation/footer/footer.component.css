@@ -20,7 +20,10 @@
     font-family: Verdana;
     font-weight: bold;
 }
+.hrr{
+    background-color: #d5cccc;
 
+}
 .list{
     padding-bottom: 1px;
     text-align: justify;

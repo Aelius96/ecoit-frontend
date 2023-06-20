@@ -14,8 +14,7 @@ const routes: Routes = [
   {path:'update/:id' , component: CustomerAddComponent},
 
   {path:'cus-typical',title:'Admin-Khách Hàng Tiêu Biểu', component:CusTypicalControlComponent},
-  {path:'cus-typical/add', component:CusTypicalAddComponent},
-  {path:'cus-typical/update/:id' , component: CusTypicalAddComponent}
+  {path:'cus-typical/add', component:CusTypicalAddComponent}
 ]
 
 @NgModule({

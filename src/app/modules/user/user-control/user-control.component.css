@@ -54,10 +54,10 @@
   
 }
 .icon-edit{
-  background-color: #3366FF;
+  background-color: #e0da25;
 }
 .icon-remove{
-  background-color: rgb(255, 0, 30);
+  background-color: blue;
 }
 .icon-history{
  background-color: black;
@@ -74,23 +74,18 @@
   color: white;
   margin-right: 5px;
 }
-
+.status_user{
+  background-color: rgb(15, 156, 15);
+}
+.status_mod{
+  background-color: rgb(189, 152, 2);
+}
+.status_admin{
+  background-color: red;
+}
 .detail{
   box-sizing: border-box;
 }
-.i{
-  color: #ffffff;
-}
-.user{
-  padding: 10px;
-  background-color: #3a63dc;
-  font-weight: bold;
-  color: white;
-  font-size: 16px;
-}
-.table{
-  font-family: auto;
-  font-size: 20px;
-}
+
 /* 
  */

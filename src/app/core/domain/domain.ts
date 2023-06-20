@@ -1,6 +1,6 @@
 export class Domain {
   public static ABOUT = `about-us`;
-  public static BLOG = `blog`;
+  public static BLOG = `blogs`;
   public static CUSTOMER = `customer`;
   public static GALLERY = `tImage`;
   public static NAVIGATION = `nav`;

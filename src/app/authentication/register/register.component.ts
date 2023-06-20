@@ -17,7 +17,7 @@ export class RegisterComponent {
 
   onSubmit() {
     this.authService.register(this.form).subscribe(data =>{
-        console.log(this.form);
+        console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         this.errorMessage = "Đăng ký thành công!!"

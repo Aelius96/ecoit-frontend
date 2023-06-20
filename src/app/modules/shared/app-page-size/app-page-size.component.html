@@ -2,8 +2,8 @@
 <!--  <div class="box-left">-->
 <!--    <span>Hiển thị</span>-->
 <!--  </div>-->
-  <div class="box-middle"> 
-    <select class="form-control  " name="pageSize" (change)="changePageSize()"
+  <div class="box-middle">
+    <select class="form-control" name="pageSize" (change)="changePageSize()"
             #pageSizeModel="ngModel" [(ngModel)]="pageSize">
       <option *ngFor="let item of pageSizeOptions" [value]="item">{{item}}</option>
       <option *ngIf="totalRecords" [value]="totalRecords">Tất cả</option>

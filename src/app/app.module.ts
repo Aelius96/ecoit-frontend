@@ -78,25 +78,6 @@ import { CusTypicalControlComponent } from './modules/typical/customer/cus-typic
 import { NewsDetailComponent } from './modules/news/news-detail/news-detail.component';
 import {AppPageSizeComponent} from "./modules/shared/app-page-size/app-page-size.component";
 import {NgxPaginationModule} from "ngx-pagination";
-import { CustomerDetailComponent } from './modules/customer/customer-detail/customer-detail.component';
-import { ProductDetailComponent } from './modules/product/product-detail/product-detail.component';
-
-import { AboutControlComponent } from './modules/about/about-control/about-control.component';
-import { AboutAddessComponent } from './modules/about/about-addess/about-addess.component';
-import { AlbumsControlComponent } from './modules/typical/albums/albums-control/albums-control.component';
-import { AlbumsDetailComponent } from './modules/typical/albums/albums-detail/albums-detail.component';
-
-import { TagRoleComponent } from './modules/user/tag-role/tag-role.component';
-
-import { NewsMoreComponent } from './modules/news/news-more/news-more.component';
-import { RecruitDetailComponent } from './modules/recruit/recruit-detail/recruit-detail.component';
-import { RecruitMoreComponent } from './modules/recruit/recruit-more/recruit-more.component';
-import { BlogDetailComponent } from './modules/blog/blog-detail/blog-detail.component';
-import { BlogMoreComponent } from './modules/blog/blog-more/blog-more.component';
-import { ListContactComponent } from './modules/typical/list/list-contact/list-contact.component';
-import { ListControlComponent } from './modules/typical/list/list-control/list-control.component';
-import { ListCommentComponent } from './modules/typical/list/list-comment/list-comment.component';
-
 
 
 @NgModule({
@@ -163,23 +144,6 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
     CusTypicalControlComponent,
     NewsDetailComponent,
     AppPageSizeComponent,
-    CustomerDetailComponent,
-    ProductDetailComponent,
-
-    AboutControlComponent,
-    AboutAddessComponent,
-    AlbumsControlComponent,
-    AlbumsDetailComponent,
-    TagRoleComponent,
-    NewsMoreComponent,
-      RecruitDetailComponent,
-      RecruitMoreComponent,
-      BlogDetailComponent,
-      BlogMoreComponent,
-      ListContactComponent,
-      ListControlComponent,
-      ListCommentComponent,
- 
   ],
   imports: [
     BrowserModule,
@@ -191,7 +155,6 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
     ReactiveFormsModule,
     NgOptimizedImage,
     NgxPaginationModule,
-    
   ],
   providers: [authInterceptorProviders],
 

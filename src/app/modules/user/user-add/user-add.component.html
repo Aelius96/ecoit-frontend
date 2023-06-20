@@ -51,57 +51,37 @@
         </div>
       </div>
       <div class="col-md-8" *ngIf="id; else elseBlock">
-
+        <div class="col-md-6">
+          <div class="options">
+            <div class="title">Mật khẩu</div>
+            <input type="password"  [(ngModel)] = "user.password" name="password" placeholder="Vì lý do bảo mật nên mật khẩu sẽ không hiện" disabled>
+          </div>
+        </div>
         <div class="col-md-2">
           <div class="options">
             <div class="title">Đặt lại mật khẩu</div>
-            <button type="button" (click)="changePassword(user.id)"  class="btn"><i class="far fa-history"></i></button>
+            <button type="button"  class="btn"><i class="far fa-history"></i></button>
           </div>
         </div>
         <div class="col-md-12">
-          <ul class="list-group">
-            <li class="list-group-item" >
-              <div class="form-check">
-                <input type="checkbox" name="active" [(ngModel)]="user.active" [checked]="user.active" (change)="onCheckChange($event, user)" >
-                <strong>   Trạng Thái hoạt động</strong>
-              </div>
-<!--            </li>-->
-<!--            <li class="list-group-item" *ngFor="let u of user">-->
-<!--              <div class="form-check">-->
-<!--                <input type="checkbox" [value]="u.selected" [checked]="u.selected" (change)="onCheckChange($event, u)" class="custom-control-input" id="customCheck{{u.id}}">-->
-<!--                <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{u.id}}"></label>-->
-<!--              </div>-->
-<!--            </li>-->
-          </ul>
-        </div>
-        <div class="col-md-12">
+          <div class="options">
             <div class="title">Vai trò</div>
             <div class="roles-box">
-              <ul class="list-group">
-                <li class="list-group-item" *ngFor="let r of role">
-                  <div class="form-check">
-                    <input type="checkbox" [value]="r.selected" [checked]="r.selected"
-                           (change)="onRoleChange($event, r)" class="custom-control-input" id="customCheck{{r.id}}">
-                    <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{r.id}}">{{r.name}}</label>
-
-                  </div>
-                </li>
-              </ul>
-<!--              <label>-->
-<!--                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="admin"> Quản trị viên-->
-<!--              </label>-->
-<!--              <label>-->
-<!--                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="mod"> Điều hành-->
-<!--              </label>-->
-<!--              <label>-->
-<!--                <input type="radio" [(ngModel)]="user.roles" name="roles" > Người dùng-->
-<!--              </label>-->
+              <label>
+                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="admin"> Quản trị viên
+              </label>
+              <label>
+                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="mod"> Điều hành
+              </label>
+              <label>
+                <input type="radio" [(ngModel)]="user.roles" name="roles" > Người dùng
+              </label>
             </div>
+          </div>
         </div>
-
       </div>
 
-      <div class="col-md-12">
+      <div class="col-md-8">
         <ng-template #elseBlock>
           <div class="options col-md-8">
             <div class="title">Mật khẩu</div>
@@ -109,6 +89,7 @@
           </div>
         </ng-template>
       </div>
+
       <div class="col-md-12" style="text-align: center; padding-top: 30px;">
         <div class="user-footer">
           <button class="save-btn" type="submit" name="created"><i class="fas fa-save"></i> Lưu</button>

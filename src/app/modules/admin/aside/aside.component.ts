@@ -1,7 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from "../../../services/user/user.service";
-import {User} from "../../../core/model/user/user";
-import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-aside',
@@ -9,21 +6,6 @@ import {TokenStorageService} from "../../../services/token-storage/token-storage
   styleUrls: ['./aside.component.css']
 })
 export class AsideComponent {
-  //  user: User[] = [];
-  //  role :any;
-  // constructor(private userService:UserService,private tokenStorageService: TokenStorageService) {
-  // }
-  //
-  // ngOnInit(): void {
-  //   this.role = this.tokenStorageService.getToken().roles;
-  //   this.getAllUser();
-  // }
-  //
-  // getAllUser(){
-  //   return this.userService.getAllUser().subscribe(data =>{
-  //     this.user = data;
-  //   })
-  // }
 
   aside =[
     {
@@ -41,7 +23,7 @@ export class AsideComponent {
     {
       id:3,
       tittle:'Blog',
-      a: 'blog',
+      a: 'blogs',
       icon:'far fa-rss-square'
     },
     {
@@ -70,19 +52,11 @@ export class AsideComponent {
     },
     {
       id:8,
-      tittle: 'Danh sách',
-      a: 'list',
-      icon:'fas fa-clipboard-list',
-    },
-    {
-      id:9,
       tittle: 'Tài khoản',
       a: 'user',
-      icon:'far fa-user',
+      icon:'far fa-user'
     }
 
   ]
-
-
 
 }

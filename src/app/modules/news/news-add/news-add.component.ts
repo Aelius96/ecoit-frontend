@@ -4,7 +4,6 @@ import {News} from "../../../core/model/news/news";
 import {NewsService} from "../../../services/news/news.service";
 import {HttpClient} from "@angular/common/http";
 import {Constant} from "../../../core/config/constant";
-
 @Component({
   selector: 'app-news-add',
   templateUrl: './news-add.component.html',

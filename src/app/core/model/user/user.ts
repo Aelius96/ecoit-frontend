@@ -1,4 +1,3 @@
-import {Role} from "../role/role";
 
 export class User {
   id: any;
@@ -8,7 +7,7 @@ export class User {
   firstName:any;
   lastName:any;
   active:any;
-  role?:Role[];
+  roles:any;
   token: string;
 
 

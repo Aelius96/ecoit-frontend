@@ -23,20 +23,3 @@
   color: #50B848;
 }
 
-.ht-btn-sm{
-  font-size: 15px;
-  font-weight: 500;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: transparent;
-  padding: 10px 36px;
-  text-align: center;
-  color: white;
-}
-a{
-  color: #50B848;
-}
-a:hover{
-  text-decoration: none;
-  color: black;
-}

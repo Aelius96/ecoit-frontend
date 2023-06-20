@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
+<form >
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
@@ -11,7 +11,7 @@
         </div>
         <div class="update_box">
           <span><strong>Mô tả</strong></span>
-          <input type="text" [(ngModel)]="recruit.description" name="description">
+          <input type="text" ng-Model="recruit.description" name="description">
         </div>
         <div class="update_box">
           <span><strong>Thẻ</strong></span>
@@ -21,13 +21,13 @@
         </div>
         <div class="submit-button">
           <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
-          <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="gotoRecruitList()" >Hủy</button>
+          <button type="button" class="btn btn-secondary btn-lg btnn cancel" >Hủy</button>
         </div>
       </div>
       <div class="col-lg-8">
         <div class="update_box">
           <span><strong>Tiêu đề</strong></span>
-          <input type="text" name="title" [(ngModel)]="recruit.title" required>
+          <input type="text" name="title" ng-Model="recruit.title" required>
         </div>
         <div class="update_box">
           <span><strong>Nội dung</strong></span>

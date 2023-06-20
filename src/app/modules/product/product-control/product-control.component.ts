@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {Product} from "../../../core/model/product/product";
 import {ProductService} from "../../../services/product/product.service";
-import { Role } from '../../../core/model/role/role';
 
 
 @Component({
@@ -11,20 +10,21 @@ import { Role } from '../../../core/model/role/role';
   styleUrls: ['./product-control.component.css']
 })
 export class ProductControlComponent implements OnInit{
-  
   products: Product[] = [];
   url: string;
   constructor(private router:Router,private productService : ProductService) {
   }
-  ngOnInit(): void {
-    this.getProductList();
-  }
+
     getProductList(){
     this.productService.getProductList().subscribe(data =>{
-    return  this.products = data;
+      this.products = data;
       }
     )
     }
+    ngOnInit(): void {
+    this.getProductList();
+    }
+
 
 
     updateProduct(id: number){
