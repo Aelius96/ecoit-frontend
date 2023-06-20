@@ -43,11 +43,11 @@
           <div class="card">
               <div class="row ">
                 <div class="col-md-2">
-                  <img style="width: 100%; height: 100%" src="{{blog.thumb.pathUrl}}" alt="">
+                  <img style="width: 100%; height: 100%" src="{{blog.image.pathUrl}}" alt="">
                 </div>
                 <div class="col-md-7">
                   <h5 class="tittle-blog">
-                    <a class="btn-link" data-toggle="collapse"  href="#demo{{blog.id}}" style="text-transform: uppercase;"> {{blog.title}} 
+                    <a class="btn-link" data-toggle="collapse"  href="#demo{{blog.id}}" style="text-transform: uppercase;"> {{blog.title}}
                     </a>
                   </h5>
                   <p>
@@ -63,7 +63,7 @@
 
                     <button (click)=" deleteBlog(blog.id) "  class="btnn dele" ><i class="far fa-times"></i> </button>
                 </div>
-              
+
               <div class="col-md-9">
                 <div id="demo{{blog.id}}" class="collapse" data-parent="#accordion" >
                   <div class="card-body" [innerHTML]="blog.content">
@@ -75,8 +75,8 @@
         </div>
         <div *ngIf="paging.totalRecord > 0 " class="col-md-4">
           <pagination-controls  previousLabel ="<"
-          nextLabel =">" 
-          [id]="'blog'" (pageChange)="handlePage($event)" [maxSize]="paging.totalRecord">  
+          nextLabel =">"
+          [id]="'blog'" (pageChange)="handlePage($event)" [maxSize]="paging.totalRecord">
           </pagination-controls>
         </div>
       </div>

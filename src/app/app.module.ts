@@ -99,6 +99,9 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
 
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -179,7 +182,8 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
       ListContactComponent,
       ListControlComponent,
       ListCommentComponent,
- 
+
+
   ],
   imports: [
     BrowserModule,
@@ -191,7 +195,7 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
     ReactiveFormsModule,
     NgOptimizedImage,
     NgxPaginationModule,
-    
+
   ],
   providers: [authInterceptorProviders],
 

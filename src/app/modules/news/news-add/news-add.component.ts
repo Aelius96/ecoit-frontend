@@ -26,7 +26,7 @@ export class NewsAddComponent implements OnInit{
     if(this.id){
       this.newsService.getNewsById(this.id).subscribe(data =>{
         this.news = data;
-        this.url = this.news.newsImage.pathUrl;
+        this.url = this.news.image.pathUrl;
       });
     }
     this.ckeConfig = {

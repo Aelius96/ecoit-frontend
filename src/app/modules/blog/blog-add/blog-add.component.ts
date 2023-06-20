@@ -28,7 +28,7 @@ constructor(private router:Router,
     if(this.id){
       this.blogService.getBlogsById(this.id).subscribe(data => {
         this.blogList = data;
-        this.url = this.blogList.thumb.pathUrl;
+        this.url = this.blogList.image.pathUrl;
       })
     }
     this.ckeConfig = {
@@ -74,7 +74,7 @@ constructor(private router:Router,
     this.blogService.updateBlog(id, blogFormData).subscribe(data =>{
       this.goToBlogList();
     });
-    
+
   }
 
   onSubmit(){
