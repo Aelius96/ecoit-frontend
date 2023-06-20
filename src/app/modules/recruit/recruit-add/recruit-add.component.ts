@@ -30,7 +30,7 @@ export class RecruitAddComponent implements OnInit{
     if(this.id){
       this.recruitService.getRecruitId(this.id).subscribe(data=>{
         this.recruit = data;
-        this.url = this.recruit.thumb.pathUrl;
+        this.url = this.recruit.image.pathUrl;
       })
     }
     this.ckeConfig = {

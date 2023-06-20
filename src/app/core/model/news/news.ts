@@ -1,6 +1,6 @@
 export class News {
   id: number
-  newsImage: any;
+  image: any;
   title: string;
   content: string;
   date: any;

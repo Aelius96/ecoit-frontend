@@ -3,7 +3,7 @@
               <img style="width: 100%; height: 250;"
                    src="https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2.jpg"
                    class="fuild-img wp-post-image" alt="" loading="lazy" >
- 
+
 <div class="col-md-12">
   <div class="my-4">
     <div class="wdc-heading style-1 text-left">
@@ -29,7 +29,7 @@
                 <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let blog of blogList ;let s = index">
               <div class="col-md-6 first-blog">
                 <a href="/blog/{{blog.link}}">
-                  <img class="img-fluid" src="{{blog.thumb.pathUrl}}"
+                  <img class="img-fluid" src="{{blog.image.pathUrl}}"
                        alt=" Images">
                 </a>
               </div>
@@ -72,7 +72,7 @@
                       <!-- Post Feature Start -->
                       <div class="post-feature blog-thumbnail" style="height: 50%; width: 100%;">
                         <a href="blog-post-layout-one.html" style="height: 100%; width: 100%;">
-                          <img class="img-fluid" src="{{blog.thumb.pathUrl}}" alt="Blog Images" style="height: 100%; width: 100%;">
+                          <img class="img-fluid" src="{{blog.image.pathUrl}}" alt="Blog Images" style="height: 100%; width: 100%;">
                         </a>
                       </div>
                       <!-- Post Feature End -->
