@@ -29,7 +29,8 @@ const routes: Routes =[
     {path:'slide', title:'Admin-Trình chiếu' , loadChildren:()=>import('./sliders.module').then(m=>m.SlidersModule)},
     {path:'banner' , title: 'Admin-Trình chiếu' , loadChildren:()=>import('./banner.module').then(m=>m.BannerModule)},
     {path:'about' , title:'Admin-về chúng tôi', loadChildren:()=>import('./about.module').then(m=>m.AboutModule)},
-    {path:'albums' , title:'Amin-kho ảnh' ,  loadChildren:()=>import('./albums.module').then(m=>m.AlbumsModule)}
+    {path:'albums' , title:'Amin-kho ảnh' ,  loadChildren:()=>import('./albums.module').then(m=>m.AlbumsModule)},
+    {path:'list' , title:'Admin-Danh sách' ,  loadChildren:()=>import('./list.module').then(m=>m.ListModule)},
 
   ]},
 ]

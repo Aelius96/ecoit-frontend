@@ -22,7 +22,7 @@
                   <div class="carousel-inner" >
                     
                     <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let recruit of recruitList ; let s = index ">
-                      <div *ngIf="s<3">
+                      <div *ngIf="s<4">
                       <img style="font-weight: 400; width: 100%; height: 250px;" src="{{recruit.thumb.pathUrl}}"  alt="" loading="lazy">
                     
                       <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;" >
@@ -52,19 +52,19 @@
                 <div class="nav">
                   <div class="float-md-left">
                     <div class="recruit">
-                      <ul *ngFor="let news of newsList ; let n =  index" >
-                        <li *ngIf="n<3">
-                          <div class="disp-inflex" style="padding-top: 2px">
+                      <ul >
+                        <li *ngFor="let news of newsList ; let n =  index" >
+                          <div  *ngIf="n<3"  style="padding-top: 2px">
                             <div class="anhtintuc" >
-                              <a href="{{news.url}}" title="{{news.title}}" style="height: 100%;">
+                              <a href="/news/{{news.url}}" title="{{news.title}}" style="height: 100%;">
                                 <img  src="{{news.newsImage.pathUrl}}" class="image" alt="" loading="lazy"></a>
                             </div>
                             <div class="blog-inner" style="display: inline-block;width: 70%;">
-                              <a href="{{news.url}}" id="text">{{news.title}}</a>
+                              <a href="/news.{{news.url}}" id="text">{{news.title}}</a>
                               <p>{{news.description}}</p>
                             </div>
+                            <hr >
                           </div>
-                          <hr >
                         </li>
                       </ul>
                       <div  style="margin: 50px 0 20px 0px;">

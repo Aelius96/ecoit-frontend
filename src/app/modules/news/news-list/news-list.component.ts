@@ -15,7 +15,7 @@ export class NewsListComponent implements OnInit{
   count = 0;
   pageSize = 9;
   searchInput = '';
-  private totalPages: number;
+  totalPages: number;
   paging = {
     page: 1,
     size: 9,

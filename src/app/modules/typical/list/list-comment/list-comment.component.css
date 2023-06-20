@@ -1,0 +1,99 @@
+.toolbar{
+    height: 65px;
+    background-color: white;
+    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
+    border-top: 1px solid #eff2f5;
+  }
+  .header-menu{
+    padding: 10px 15px 0px 12px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+  }
+  .h5{
+    font-weight: bolder;
+    font-size: 18px;
+    color: black;
+    width: 100%;
+    margin-right: 10px;
+
+  }
+  .menu-item{
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+  .custom-select{
+    width: 60px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .item-blog{
+    margin-top: 30px;
+  }
+  .form-control{
+    height: 30px;
+    font-size: 15px;
+    margin-top:7px;
+  }
+  .inputt{
+    margin-left: 0px;
+    height: 30px;
+    margin-top:7px;
+  }
+.input-group-text{
+    margin-right: 10px;
+}
+
+
+.item-select{
+  margin-top: 7px;
+}
+.custom-select{
+  width: 60px;
+  text-align: center;
+  
+  font-size: 15px;
+}
+  /*  */
+  
+.icon{
+    position: static;
+     
+     margin-left: 10px;
+     padding: 5px 10px 5px 10px;
+     font-size: 15px;
+     border-radius: 10px;
+   }
+  
+   .icon-item{
+     color: #eff2f5;
+   }
+   .icon-item:hover{
+     color: black;
+   }
+  
+  
+   .detail{
+    display: grid;
+    grid-gap: 20px;
+    border: 1px rgb(146, 146, 146);
+   
+   }
+   .table{
+    box-shadow: 1px 1px 30px 5px rgba(82, 63, 105, 0.132);
+    border: 1px solid #84848486;
+   }
+   td{
+    text-align: center;
+   }
+   .checkbox{
+    right: 350px;
+    position: absolute;
+   }
+   .btn-link{
+    color: black;
+   }
+   .btn-link:hover{
+    text-decoration: none;
+   }

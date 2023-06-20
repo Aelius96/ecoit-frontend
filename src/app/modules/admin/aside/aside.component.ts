@@ -70,6 +70,12 @@ export class AsideComponent {
     },
     {
       id:8,
+      tittle: 'Danh sách',
+      a: 'list',
+      icon:'fas fa-clipboard-list',
+    },
+    {
+      id:9,
       tittle: 'Tài khoản',
       a: 'user',
       icon:'far fa-user',

@@ -93,7 +93,9 @@ import { RecruitDetailComponent } from './modules/recruit/recruit-detail/recruit
 import { RecruitMoreComponent } from './modules/recruit/recruit-more/recruit-more.component';
 import { BlogDetailComponent } from './modules/blog/blog-detail/blog-detail.component';
 import { BlogMoreComponent } from './modules/blog/blog-more/blog-more.component';
-
+import { ListContactComponent } from './modules/typical/list/list-contact/list-contact.component';
+import { ListControlComponent } from './modules/typical/list/list-control/list-control.component';
+import { ListCommentComponent } from './modules/typical/list/list-comment/list-comment.component';
 
 
 
@@ -174,6 +176,9 @@ import { BlogMoreComponent } from './modules/blog/blog-more/blog-more.component'
       RecruitMoreComponent,
       BlogDetailComponent,
       BlogMoreComponent,
+      ListContactComponent,
+      ListControlComponent,
+      ListCommentComponent,
  
   ],
   imports: [
@@ -186,6 +191,7 @@ import { BlogMoreComponent } from './modules/blog/blog-more/blog-more.component'
     ReactiveFormsModule,
     NgOptimizedImage,
     NgxPaginationModule,
+    
   ],
   providers: [authInterceptorProviders],
 

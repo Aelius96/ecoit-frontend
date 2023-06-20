@@ -88,7 +88,9 @@ img{
 .tittle-blog{
   font-family: initial;
 }
-
+.ht-btn-custom{
+  margin-top: 2px;
+}
 
 /*-------------------------------------------------------------*/
 .btn-link{
