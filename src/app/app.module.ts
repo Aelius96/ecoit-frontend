@@ -96,6 +96,7 @@ import { BlogMoreComponent } from './modules/blog/blog-more/blog-more.component'
 import { ListContactComponent } from './modules/typical/list/list-contact/list-contact.component';
 import { ListControlComponent } from './modules/typical/list/list-control/list-control.component';
 import { ListCommentComponent } from './modules/typical/list/list-comment/list-comment.component';
+import { CommentListComponent } from './modules/typical/comment/comment-list/comment-list.component';
 
 
 
@@ -179,6 +180,7 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
       ListContactComponent,
       ListControlComponent,
       ListCommentComponent,
+      CommentListComponent,
  
   ],
   imports: [
