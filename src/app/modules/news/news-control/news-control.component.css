@@ -10,6 +10,9 @@
   justify-content: center;
   align-content: center;
 }
+.left-d-flex{
+  margin-top: 7px;
+}
 .product-thumb-image{
   width: 170px;
   height: 100px;
@@ -21,16 +24,12 @@
 }
 .spann{
   color: #333333;
-  font-size: 15px;
+  font-size: 16px;
 }
-.spann:hover{
-  font-weight: bolder;
-  font-size: 20px;
-  color: black;
-}
+
 .menu-item{
-  padding-left: 20px;
-  margin-top: 8px;
+  margin-left: 18px;
+  margin-top: 5px;
 }
 .custom-select{
   width: 60px;
@@ -49,46 +48,67 @@
 .inputt{
   margin-left: 0px;
   height: 30px;
-  margin-top:7px;
+  margin-top:0px;
 }
 .action-box {
-  position: absolute;
+  padding-left: 0px;
   display: flex;
-  top: 0;
-  bottom: 0;
   right: 0;
   color: #fff;
 }
+.card{
+  border-radius: 10px;
+}
+img{
+  border-radius: 10px;
+}
 .btnn{
   border: 0px;
-  width: 50px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff00;
+  color: rgb(66, 62, 94);
 }
+.edit{
+ 
+  border-radius: 10px;
+}
+.dele{
+  border-radius: 10px;
+}
+.edit:hover{
+  background-color: rgb(103, 190, 74);
+  color: white;
+}
+.dele:hover{
+  background-color: rgb(240, 56, 56);
+  color: white;
+}
+
 .tittle-blog{
-  font-family: Rubik;
+  font-family: initial;
+}
+.ht-btn-custom{
+  margin-top: 2px;
 }
 
 /*-------------------------------------------------------------*/
-a.btn-link{
+.btn-link{
   width: 100%;
   text-align: left;
-  color: #6d70a6;
-  padding: 20px 30px;
+  color: #2a2834;
   position: relative;
   overflow-wrap: break-word;
   white-space: normal;
   font-size: 18px;
-  line-height: 1.2;
-  font-weight: 600;
+  font-weight: bold;
 }
-a.btn-link span {
+.btn-link span {
   position: absolute;
   right: 35px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-a.btn-link span:hover, a.btn-link span:focus{
+ span:hover .btn-link span:focus{
   text-decoration: none;
   color: #5945e6;
 }
@@ -99,3 +119,4 @@ a{
 a:hover{
   text-decoration: none;
 }
+

@@ -2,12 +2,14 @@
   <div class="d-flex  justify-content-between header-menu ">
     <div class="left-d-flex">
       <div class="d-flex">
-        <a style="width: 80px" routerLink="../news"  routerLinkActive="active"><span  class="spann tt">Tin tức</span></a> <span style=" font-weight: bolder;font-size: 25px;height: 40px">|</span>
-        <a style="width: 120px" routerLink="../recruit" routerLinkActive="active"  ><span  class="spann td">Tuyển dụng</span></a>
-        <input type="text " class="form-control "  placeholder="Viết gì đó ...">
-        <div class="input-group-append inputt" >
-          <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-        </div>
+        <a style="width: 60px " routerLink="../news"  routerLinkActive="active"><span  class="spann " >Tin tức</span></a>
+        <a style="width: 115px" routerLink="../recruit" routerLinkActive="active"  ><span style="font-weight: bold"  class="spann ">/ Tuyển dụng</span></a>
+        <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
+          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Viết gì đó ...">
+          <div class="input-group-append inputt" >
+            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+          </div>
+        </form>
       </div>
     </div>
     <div class="right-d-flex">
@@ -15,64 +17,79 @@
         <div class="menu-item ">
           <div class="d-flex">
             <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <select class="custom-select">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-            </select>
+            <!--            <select (change)="handlePageSizeChange($event)" class="custom-select">-->
+            <!--              <option *ngFor="let size of pageSizes" [ngValue]="size">-->
+            <!--                {{ size }}-->
+            <!--              </option>-->
+            <!--            </select>-->
+            <app-page-size
+              (pageSizeChange)="handlePageSizeChange($event)"
+              [totalRecords]="paging.totalRecord"
+              [(pageSize)]="paging.size"></app-page-size>
+
           </div>
         </div>
         <div class="menu-item">
-          <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+          <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i style="font-size: 18px; " class="fas fa-file-plus fa-lg"></i></a>
         </div>
       </div>
     </div>
 
   </div>
 </div>
-
-
 <div class="d-flex flex-column ">
   <div class="container">
     <div class="item-blog">
       <div class="row">
-        <div class="col-lg-12" *ngFor="let recruit of recruitNewsList">
+
+        <div class="col-lg-12" *ngFor="let recruit of recruitNewsList|  paginate: { id: 'recruit',
+                                                      itemsPerPage: paging.size,
+                                                      currentPage: paging.page,
+                                                      totalItems: paging.totalRecord } ;let i = index" style="margin-bottom: 20px;">
+
           <div class="card">
-            <div class="card-header">
+            
               <div class="row ">
                 <div class="col-md-2">
-                  <img style="width: 100%; height: 90px" src="{{recruit.thumb.pathUrl}}" alt="">
+                  <img style="width: 100%; height: 100%" src="{{recruit.thumb.pathUrl}}" alt="">
                 </div>
                 <div class="col-md-7">
+                  <h5 class="tittle-blog">
+                    <a class="btn-link" data-toggle="collapse"  href="#demo{{recruit.id}}" > {{recruit.title}} 
+                      
+                    </a>
+                  </h5>
                   <p>
                     {{recruit.description}}
                   </p>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2" style="padding-top:10px; text-align: center;">
                   {{recruit.createDate}}
                 </div>
-                <div class="action-box ">
+                <div class="action-box  col-md-1">
                   <!--                 ví dụ về button sửa-->
-                  <button (click)="updateRecruitNews(recruit.id)"  style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
+                  <button (click)="updateRecruitNews(recruit.id)"   class="btnn edit"  ><i class="far fa-pen"></i> </button>
 
-                  <button *ngIf="role.includes('ROLE_ADMIN')" (click)="deleteRecruitNews(recruit.id)" style="background-color: red" class="btnn" ><i class="far fa-times"></i> </button>
+                  <button *ngIf="role.includes('ROLE_ADMIN')" (click)="deleteRecruitNews(recruit.id)"  class="btnn dele" ><i class="far fa-times"></i> </button>
                 </div>
               </div>
-              <h5 class="tittle-blog">
-                <a class="btn-link">{{recruit.title}}
-                  <span>
-                    <i class="fas fa-plus-circle"></i>
-                    <i class="fas fa-minus-circle"></i>
-                  </span>
-                </a>
-              </h5>
-            </div>
+              <div class="col-md-9">
+                <div id="demo{{recruit.id}}" class="collapse" data-parent="#accordion" style="">
+                  <div class="card-body" [innerHTML]="recruit.content">
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
-        <div class="col-lg-12">
+        <div  class="col-md-12">
+          <div class="row">
+            <div class="col-md-6">
+              <pagination-controls
+
+                [id]="'recruit'" (pageChange)="handlePageChange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -2,10 +2,10 @@
   <div class="d-flex  justify-content-between header-menu ">
     <div class="left-d-flex">
       <div class="d-flex">
-        <a style="width: 80px ; margin-top: 5px;" routerLink="../news"  routerLinkActive="active"><span  class="spann tt">Tin tức</span></a> <span style=" font-weight: bolder;font-size: 25px;height: 40px">|</span>
-        <a style="width: 120px" routerLink="../recruit" routerLinkActive="active"  ><span  class="spann td">Tuyển dụng</span></a>
-        <form (ngSubmit)="searchTitleAndDescription()">
-          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Viết gì đó ...">
+         <a style="width: 70px " routerLink="../news"  routerLinkActive="active"><span  class="spann tt" style="font-weight: bold">Tin tức /</span></a>
+        <a style="width: 100px" routerLink="../recruit" routerLinkActive="active"  ><span  class="spann td">Tuyển dụng</span></a>
+        <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
+          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm ">
           <div class="input-group-append inputt" >
             <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
@@ -18,11 +18,7 @@
         <div class="menu-item ">
           <div class="d-flex">
             <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-<!--            <select (change)="handlePageSizeChange($event)" class="custom-select">-->
-<!--              <option *ngFor="let size of pageSizes" [ngValue]="size">-->
-<!--                {{ size }}-->
-<!--              </option>-->
-<!--            </select>-->
+
               <app-page-size
                 (pageSizeChange)="handlePageSizeChange($event)"
                 [totalRecords]="paging.totalRecord"
@@ -32,7 +28,7 @@
         </div>
         <div class="menu-item">
           <!--          (click)="addTypicalNum()"-->
-          <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+          <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i style="font-size: 18px" class="fas fa-file-plus fa-lg"></i></a>
         </div>
 
       </div>
@@ -47,53 +43,58 @@
   <div class="container">
     <div class="item-blog">
       <div class="row">
-        <div class="col-lg-12" *ngFor="let news of newsList |  paginate: { id: 'news',
-                                                      itemsPerPage: pageSize,
-                                                      currentPage: page,
+        <div class="col-lg-12" style="margin-bottom: 20px;" *ngFor="let news of newsList |  paginate: { id: 'news',
+                                                      itemsPerPage: paging.size,
+                                                      currentPage: paging.page,
                                                       totalItems: paging.totalRecord } ;let i = index">
           <div class="card">
-            <div class="card-header">
               <div class="row ">
-                <div class="col-md-2">
+                <div class="col-md-2" >
                   <div class="product-thumb-image">
-                    <img style="width: 100%; height: 90px" src="{{news.newsImage.pathUrl}}" alt="News Image">
+                    <img style="width: 100%; height: 100%" src="{{news.newsImage.pathUrl}}" alt="News Image">
                   </div>
 
                 </div>
                 <div class="col-md-7">
+                  <h5 class="tittle-blog">
+                    <a class="btn-link" data-toggle="collapse"  href="#demo{{news.id}}" >  {{news.title}}
+                      <!-- <span>
+                        <i class="fas fa-plus-circle" ></i>
+                      </span> -->
+                    </a>
+                  </h5>
                   <p>
                     {{news.description}}
                   </p>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2" style="padding-top:10px; text-align: center;">
                     {{news.date}}
                 </div>
-                <div class="action-box ">
-                  <!--                 ví dụ về button sửa-->
-                  <button (click)="updateNews(news.id)"  style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
+                <div class="action-box col-md-1">
+                  <!--        ví dụ về button sửa-->
+                  <button (click)="updateNews(news.id)"  class="btnn edit"  ><i class="far fa-pen"></i> </button>
 
-                  <button *ngIf="role.includes('ROLE_ADMIN')" (click)="deleteNews(news.id)"  style="background-color: red" class="btnn" ><i class="far fa-times"></i> </button>
+                  <button *ngIf="role.includes('ROLE_ADMIN')" (click)="deleteNews(news.id)"   class="btnn dele" ><i class="far fa-times"></i> </button>
                 </div>
               </div>
-              <h5 class="tittle-blog">
-                <a class="btn-link">{{news.title}}
-                  <span>
-                    <i class="fas fa-plus-circle"></i>
-                    <i class="fas fa-minus-circle"></i>
-                  </span>
-                </a>
-              </h5>
+              <div class="col-md-9">
+              <div id="demo{{news.id}}" class="collapse" data-parent="#accordion" style="">
+                <div class="card-body" [innerHTML]="news.content">
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-12">
+        <div *ngIf="paging.totalRecord>0" class="col-md-12">
           <div class="row">
             <div class="col-md-6">
               <pagination-controls
-
-                [id]="'news'" (pageChange)="handlePageChange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
+                previousLabel="<"
+                nextLabel=">"
+                [id]="'news'" 
+                (pageChange)="handlePageChange($event)" 
+                [maxSize]="paging.totalRecord"></pagination-controls>
             </div>
-
           </div>
         </div>
       </div>

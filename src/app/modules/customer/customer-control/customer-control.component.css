@@ -46,7 +46,9 @@
   height: 30px;
   margin-top:7px;
 }
-
+.ht-btn-custom{
+  margin-top: 2px;
+}
 /*-------------------------------------------------------------*/
 .box-icon{
   background-color: #009dff;

@@ -10,7 +10,15 @@
     justify-content: center;
     align-content: center;
   }
-
+.input-button{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+}
   .spann{
     color: #0d0d0d;
     font-size: 20px;
@@ -41,20 +49,42 @@
     margin-left: 0px;
     height: 30px;
     margin-top:7px;
-  }
-  .action-box {
-    position: absolute;
     display: flex;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    color: #fff;
-    align-items: center;
+  }
+  
+.action-box {
+  padding-left: 0px;
+  display: flex;
+  right: 0;
+  color: #fff;
+}
+  .card{
+    border-radius: 10px;
+  }
+  img{
+    border-radius: 10px;
   }
   .btnn{
     border: 0px;
-    width: 50px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff00;
+    color: rgb(66, 62, 94);
+  }
+  .edit{
+   
+    border-radius: 10px;
+  }
+  .dele{
+    border-radius: 10px;
+  }
+  .edit:hover{
+    background-color: rgb(103, 190, 74);
+    color: white;
+  }
+  .dele:hover{
+    background-color: rgb(240, 56, 56);
+    color: white;
   }
   .tittle-blog{
     font-family: Rubik;
@@ -69,6 +99,9 @@
   }
   .description{
   margin-top: 20px;
+  }
+  .ht-btn-custom{
+    margin-top: 2px;
   }
   /*-------------------------------------------------------------*/
   a.btn-link{

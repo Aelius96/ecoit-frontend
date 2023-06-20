@@ -15,13 +15,12 @@ export class NewsListComponent implements OnInit{
   count = 0;
   pageSize = 9;
   searchInput = '';
-  private totalPages: number;
+  totalPages: number;
   paging = {
     page: 1,
-    size: 10,
+    size: 9,
     totalRecord: 0
   }
-
 
   constructor(private newsService: NewsService) {
   }
@@ -44,7 +43,7 @@ export class NewsListComponent implements OnInit{
   }
 
   getListAllWithPage(): void {
-    const params = this.getRequestParams(this.page);
+    const params = this.getRequestParams(this.paging.page);
     this.newsService.listAllWithPageHome(params)
       .subscribe(
         response => {

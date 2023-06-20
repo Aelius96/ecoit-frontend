@@ -73,8 +73,7 @@ img{
 .action-box {
     position: absolute;
     display: flex;
-    
-    right: 0;
+    right: 10px;
     color: #fff;
   }
   .btnn{
@@ -82,3 +81,4 @@ img{
     width: 30px;
     height: 70px;
   }
+

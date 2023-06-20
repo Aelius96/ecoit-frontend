@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Recruit} from "../../../core/model/recuit/recuit";
+import {Recruit} from "../../../core/model/recruit/recruit";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RecruitService} from "../../../services/recruit/recruit.service";
 import {Constant} from "../../../core/config/constant";
@@ -11,7 +11,7 @@ import {Constant} from "../../../core/config/constant";
 })
 export class RecruitAddComponent implements OnInit{
 
-  recruit: Recruit = new Recruit()
+  recruit: Recruit = new Recruit();
   fileToUpload:string [] = [];
   id: any;
   url: any;
@@ -37,6 +37,9 @@ export class RecruitAddComponent implements OnInit{
       extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
       height: 330,
+      // Configure your file manager integration. This example uses CKFinder 3 for PHP.
+      // filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
+      // filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
       filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
       filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
 
@@ -59,7 +62,7 @@ export class RecruitAddComponent implements OnInit{
     )
   }
 
-  addDataForm(id:any){
+ addDataForm(id:any){
     const recruitFormData =this.prepareFormData(this.recruit);
     this.recruitService.updateRecruitNews(id, recruitFormData).subscribe(data => {
       this.gotoRecruitList();
@@ -77,7 +80,7 @@ export class RecruitAddComponent implements OnInit{
     );
     for (let i=0 ; i< this.fileToUpload.length; i++){
       formData.append(
-        'imageFile',
+        'thumb',
         this.fileToUpload[i]
       )
     }

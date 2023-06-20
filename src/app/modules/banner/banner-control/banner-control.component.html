@@ -4,23 +4,23 @@
         <div class="d-flex" >
           <a class="control" style="width: 100px" routerLink="../slide"  routerLinkActive="active"><span class="spann">Trình chiếu</span></a>
           <a class="control"   routerLink="../banner" routerLinkActive="active"  ><span class="spann" style="font-weight: bolder;">/Banner</span></a>
-          
+
         </div>
       </div>
       <div class="right-d-flex">
         <div class="d-flex  flex-wrap">
           <div class="menu-item ">
-            
+
           </div>
           <div class="menu-item">
             <!--  (click)="addTypicalNum()"-->
-            <a class="ht-btn-custom" routerLink="new"  title="Thêm tin mới"><i style="font-size: 25px;" class="fas fa-file-plus fa-lg"></i></a>
+            <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i style="font-size: 25px;" class="fas fa-file-plus fa-lg"></i></a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
 
   <div class="banner-page">
     <div class="container">
@@ -28,35 +28,26 @@
             <table class="table">
                 <thead>
                     <th>Ảnh</th>
-                    <th>Phạm vi</th>
+                    <th style="text-align: center;">Phạm vi</th>
                     <th></th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
+                        <td style="width: 70%; ">
                             <div class="single-product-wrap">
                                 <div class="product-thumbnail">
-                                  <div class="product-thumb-image">
+                                
                                     <img class="img-fluid" src="./assets/images/imgex.png "alt="Blog Images" appHideMissing>
-                                  </div>
-                                  <div class="product-actions">
-                                    <span class="product-name">banner.name</span>
-                                    <a  class="p-action-btn hint--black hint--rounded hint--bounce hint--top-left" aria-label="Xóa">
-                                      <i class="fal fa-trash-alt"></i>
-                                    </a>
-                                    <a  class="p-action-btn hint--black hint--rounded hint--bounce hint--top-left" aria-label="Tải xuống">
-                                      <i class="fal fa-download"></i>
-                                    </a>
-                                  </div>
+                                 
                                 </div>
                               </div>
                         </td>
-                        <td>banner.target</td>
+                        <td style="width: 20%; text-align: center;">banner.target</td>
                         <td>
                             <div class="action-box ">
                                 <!--                 ví dụ về button sửa-->
                                 <button   style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
-            
+
                                 <button  style="background-color: red" class="btnn" ><i class="far fa-times"></i> </button>
                             </div>
                         </td>

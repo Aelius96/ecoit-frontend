@@ -1,5 +1,5 @@
 
-<div class="aside " style="height: 100vh;">
+<div class="aside " >
   <div class="logo-aside"  >
     <a href="#" target="_blank" class="align-items-center">
       <img  alt="Logo" src="assets/images/diacau.png" class="logo" style="text-align: center">
@@ -7,15 +7,18 @@
   </div>
   <div class="d-flex flex-column item-aside">
     <div class="menu-item-aside" *ngFor ="let asides of aside">
-      <!--        1-->
-      <div title="{{asides.tittle}}" class="title-menu-aside">
-        <a  routerLink="{{asides.a}}" routerLinkActive="active" class="a">
+
+        <!--        1-->
+        <div title="{{asides.tittle}}" class="title-menu-aside">
+          <a  routerLink="{{asides.a}}" routerLinkActive="active" class="a">
           <span class="menu-iconn item-iconn">
             <i class="{{asides.icon}}">
             </i>
           </span>
-        </a>
-      </div>
+          </a>
+        </div>
+
+
     </div>
   </div>
 

@@ -35,16 +35,17 @@
     </div>
 </div>
 
-<div class="section-space--ptb_90">
+<div class="" style="padding: 90px;">
   <div class="container">
     <div class="detail">
-      <div class="user">
+      
         <div class="header-user">
-          <span class="status status_user">User</span>
+          <!-- <span class="status status_user">User</span>
           <span class="status status_mod">Mod</span>
-          <span class="status status_admin">Admin</span>
+          <span class="status status_admin">Admin</span> -->
+          <p class="user" >Người Dùng</p>
         </div>
-        <hr>
+        <hr style="margin-top:0px;">
 
         <table class="table table-striped" id="myTable">
           <thead>
@@ -53,35 +54,53 @@
               <td>Họ</td>
               <td>Tên</td>
               <td>Email</td>
-              <td>Status</td>
+              <td>Trạng thái</td>
+              <td>Quyền</td>
+
               <td></td>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of users">
-              <th scope="row">{{user.username}}</th>
-              <td>{{user.firstName}}</td>
-              <td>{{user.lastName}}</td>
-              <td>{{user.email}}</td>
-              <td>
+
+              <tr *ngFor="let user of users">
+                <th scope="row">{{user.username}}</th>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td *ngIf="user.active; else notWorking">
                 <span style="color: #31A24C">
                     <i class="fas fa-circle fa-xs"></i>
                   </span>
-                <span class="ml-1">Hoạt động</span>
-              </td>
-              <td>
-                <span  class="icon status_admin icon-edit" ><a  class="icon-item" (click)="updateUser(user.id)"><i class="fas fa-pen"></i></a></span>
-                <span class="icon icon-remove" >
-                  <a class="icon-item" (click)="deleteUser(user.id)" ><i class="fas fa-trash-alt remove"></i></a>
+                  <span class="ml-1">Hoạt động</span>
+                </td>
+                <ng-template #notWorking>
+                  <td>
+                  <span style="color: #d11616">
+                      <i class="fas fa-circle fa-xs"></i>
+                    </span>
+                    <span class="ml-1"> Không hoạt động</span>
+                  </td>
+                </ng-template>
+                <td>
+                  <span *ngIf="user.role">
+                    <app-tag-role *ngFor="let role of user.role" [codeRole]="role.name"></app-tag-role>
+                  </span>
+                </td>
+                <!-- chỉnh css cho list user-->
+                <td style="text-align: end;">
+                  <span  class="icon status_admin icon-edit" ><a  class="icon-item" (click)="updateUser(user.id)"><i class="fas fa-pen i"></i></a></span>
+                  <span class="icon icon-remove" >
+                  <a class="icon-item" (click)="deleteUser(user.id)" ><i class="fas fa-trash-alt remove i"></i></a>
                 </span>
-                <span class="icon icon-history"  >
-                  <a class="icon-item" > <i class="fa fa-info fas" style="color: aliceblue;"></i></a>
+                  <span class="icon icon-history"  >
+                  <a class="icon-item" > <i class="fa fa-info fas i" ></i></a>
                 </span>
-              </td>
-            </tr>
+                </td>
+              </tr>
+
           </tbody>
         </table>
       </div>
-    </div>
+    
   </div>
 </div>

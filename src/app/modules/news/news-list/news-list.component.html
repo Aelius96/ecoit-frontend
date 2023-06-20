@@ -1,24 +1,9 @@
 <app-header></app-header>
-<div class="row">
-  <div class="col-md-12">
-    <div id="content-wrapper" class="is-vc">
-      <div class="sliderHomes" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="item active">
-            <a href="#">
-              <img width="1520" height="250"
+
+              <img width="100%" height="250"
                    src="https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2.jpg"
-                   class="fuild-img wp-post-image" alt="" loading="lazy" srcset="https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2.jpg 1455w,
-                  https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2-768x132.jpg 768w,
-                  https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2-700x120.jpg 700w"
-                   sizes="(max-width: 1455px) 100vw, 1455px">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                   class="fuild-img wp-post-image" alt="" loading="lazy" >
+      
 <div class="col-md-12">
   <div class="my-4">
     <div class="wdc-heading style-1 text-left">
@@ -38,49 +23,52 @@
             <!--======= Single Blog Item Start ========-->
 
             <!-- Post Feature Start -->
-            <div class="col-md-12" style="margin-bottom: 20px;">
+            <div class="col-md-12" style="margin-bottom: 20px;"  >
+              <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 40px;" >
+              <div class="carousel-inner" >
+                <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let news of newsList ;let s = index">
               <div class="col-md-6 first-blog">
-                <a href="#">
-                  <img class="img-fluid" src="assets/images/blog/mockups_white_matte_apple_watch_freebie-770x420.jpg"
-                       alt="Blog Images">
+                <a href="/news/{{news.url}}">
+                  <img class="img-fluid" src="{{news.newsImage.pathUrl}}"
+                       alt=" Images">
                 </a>
               </div>
-              <!-- Post Feature End -->
-              <!-- Post info Start -->
               <div class="col-md-6">
                 <div class="post-info lg-blog-post-info">
 
                   <h4 class="post-title font-weight--light">
-                    <a href="#">Specialized Design Tools for 2019</a>
+                    <a href="/news/{{news.url}}">{{news.title}}</a>
                   </h4>
 
                   <div class="post-excerpt mt-15">
-                    <p>As a result, along with the larger corporate-backed applications, we have a huge host of small
-                      tools and libraries, each designed to solve a particular problem or preserve a certain set of
-                      possibilities. A couple of these projects have become institutions: Modernizr, keeping the
-                      technical …</p>
+                    <p>{{news.description}}</p>
                   </div>
 
-                  <div class="post-read-more mt-20">
-                    <a href="#" class="ht-btn ht-btn-sm">
-                      <span class="btn-text">Read more </span>
+                  <div class="post-read-more mt-20" >
+                    <a href="/news/{{news.url}}" class=" ht-btn-sm" style="background-color: rgb(57, 182, 61);">
+                      <span class="btn-text" >Xem thêm </span>
                     </a>
                   </div>
                 </div>
               </div>
+              </div>
+              </div>
+              <script>
+                $(document).ready(function(){
+                  $('.carousel').carousel({
+                    interval: 100
+                  })
+                });
+              </script>
             </div>
 
-            <!-- Post info End -->
-            <!--===== Single Blog Item End ========= -->
-            <!--1-->
-            <!--====================  Blog Area Start ====================-->
-            <div class="blog-pages-wrapper section-space--ptb_100">
+<!--  -->
+            <div style="padding: 50px 0px 50px 0px;">
               <div class="container">
                 <div class="row">
-                  <div
-                    *ngFor="let news of newsList | paginate: { id: 'news',
-                                                      itemsPerPage: pageSize,
-                                                       currentPage: page,
+                  <div *ngFor="let news of newsList | paginate: { id: 'news',
+                                                      itemsPerPage: paging.size,
+                                                       currentPage: paging.page,
                                                       totalItems: paging.totalRecord } ;let i = index"
                     class="col-lg-4 col-md-6  mb-30 wow move-up">
                     <!--======= Single Blog Item Start ========-->
@@ -108,16 +96,16 @@
                     <!--===== Single Blog Item End =========-->
 
                   </div>
-                  <div class="col-lg-12 wow move-up">
-                    <div class="ht-pagination mt-30 pagination justify-content-center">
-                      <div class="pagination-wrapper">
-
-                        <ul class="page-pagination">
+                  <div class="col-lg-12 " *ngIf="paging.totalRecord >0">
+                    <div class="mt-30 row justify-content-center">
+                      <div class="col-md-6">
                           <pagination-controls
-
-                            [id]="'news'" (pageChange)="handlePageChange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
-                        </ul>
-
+                            previousLabel="<"
+                            nextLabel=">"
+                            [id]="'news'" 
+                            (pageChange)="handlePageChange($event)"
+                             [maxSize]="paging.totalRecord"></pagination-controls>
+                      
                       </div>
                     </div>
                   </div>
