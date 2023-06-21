@@ -37,7 +37,7 @@
         <div class="col-md-9">
           <div class="main-blog-wrap">
             <!--======= Single Blog Item Start ========-->
-            <div *ngFor="let recruit of recruitList  | paginate: { id: 'news',
+            <div *ngFor="let recruit of recruitList  | paginate: { id: 'recruit',
                                                       itemsPerPage: paging.size,
                                                        currentPage: paging.page,
                                                       totalItems: paging.totalRecord } ;let i = index"
@@ -60,14 +60,7 @@
                 <div class="post-excerpt mb-30">
                   <p>{{recruit.description}}</p>
                 </div>
-
-                <div class="post-meta">
-                  <div class="post-date">
-                    <span class="far fa-calendar meta-icon"></span>
-                    {{recruit.createDate}}
-                  </div>
-                </div>
-
+                  <a href="/recruit/{{recruit.url}}" style="float:right;">xem chi tiết</a>
               </div>
               <!-- Post info End -->
             </div>

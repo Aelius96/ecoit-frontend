@@ -15,10 +15,10 @@ export class NewsControlComponent implements OnInit{
   newsList: News[]=[];
   role:string;
   currentIndex = -1;
-  // pageSizes = [3, 6, 9];
+ 
   totalPages: number;
   searchInput= '';
-
+  
   paging = {
     page: 1,
     size: 5,
@@ -86,11 +86,6 @@ export class NewsControlComponent implements OnInit{
     console.log(event, this.paging.size)
     this.getListAllWithPage();
   }
-  // listAll(){
-  //   this.newsService.listAll().subscribe(data =>{
-  //      this.newsList =data;
-  //   })
-  // }
 
   updateNews(id: number){
     return this.router.navigate([`/admin/news/edit`,id]);

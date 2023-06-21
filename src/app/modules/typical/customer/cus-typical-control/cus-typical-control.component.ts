@@ -26,6 +26,10 @@ export class CusTypicalControlComponent implements OnInit{
                 private router:Router,) {
   }
 
+  ExStyle = {
+    'border-top-left-radius': '10px'
+  }
+  
   ngOnInit(): void {
     const user = this.tokenStorageService.getUser();
     this.role =user.roles;

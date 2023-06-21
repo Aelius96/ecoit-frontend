@@ -5,6 +5,6 @@ export class Recruit {
   title: any;
   description: any
   content: any;
-  createDate: any;
+  date: any;
   url: any;
 }

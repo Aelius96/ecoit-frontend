@@ -10,42 +10,18 @@
         </div>
       </div>
     </div>
-    <div  class="row">
-      <div  class="col-lg-12 wow move-up">
-        <div class="flexible-image-slider-wrap" >
-          <div class="swiper-container auto--per-flexible__container__aegency" >
-            <div class="swiper-wrapper autoplay" >
-              <!-- <ng-image-slider></ng-image-slider> -->
-              <!-- *ngFor="let ct of cusTypical "  -->
-
-              <div  > 
-                <img class="img-fluid" src="https://ecoit.asia/wp-content/uploads/2020/06/ac94e72749ffb4a1edee.jpg" alt="" />
+    <div  class="row"> 
+      <div  class="col-lg-12 wow move-up" >
+          <div class="cus-typical"  >
+            <marquee  scrollamount="10" direction="left" loop="100">
+              <div class="item" *ngFor="let ct of cusTypical " >
+              <img class="img-fluid" src="{{ct.image.pathUrl}}" alt="" />
               </div>
-              <div  > 
-                <img class="img-fluid" src="https://ecoit.asia/wp-content/uploads/2020/06/ac94e72749ffb4a1edee.jpg" alt="" />
-              </div>
-              <div  > 
-                <img class="img-fluid" src="https://ecoit.asia/wp-content/uploads/2020/06/ac94e72749ffb4a1edee.jpg" alt="" />
-              </div>
-              <div  > 
-                <img class="img-fluid" src="https://ecoit.asia/wp-content/uploads/2020/06/ac94e72749ffb4a1edee.jpg" alt="" />
-              </div>
-              <div  > 
-                <img class="img-fluid" src="https://ecoit.asia/wp-content/uploads/2020/06/ac94e72749ffb4a1edee.jpg" alt="" />
-              </div>
-              <div  > 
-                <img class="img-fluid" src="https://ecoit.asia/wp-content/uploads/2020/06/ac94e72749ffb4a1edee.jpg" alt="" />
-              </div>
-              <div  > 
-                <img class="img-fluid" src="https://ecoit.asia/wp-content/uploads/2020/06/ac94e72749ffb4a1edee.jpg" alt="" />
-              </div>
-              
-            </div>
-          </div>
+             </marquee>
         </div>
       </div>
     </div>
   </div>
-
 </div>
+
 
