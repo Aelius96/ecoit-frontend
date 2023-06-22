@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Nav} from "../../../../core/model/nav/nav";
 import {NavService} from "../../../../services/nav/nav.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navigator-add',
@@ -14,13 +15,25 @@ export class NavigatorAddComponent implements OnInit{
   isSignUpFailed = false;
   errorMessage = "";
   nav: Nav = new Nav();
-  constructor(private navService : NavService) {}
+  isChild: any;
+  navGroup: Nav[] = [];
+  constructor(private navService : NavService,private router:Router) {}
 
 
   ngOnInit(): void {
   }
 
   addNav(){
+    this.navService.addNav(this.nav).subscribe(data =>{
+      this.goToNavList();
+    })
+  }
+  goToNavList(){
+    this.router.navigate(['/admin/nav']);
+  }
 
+  onSubmit(){
+
+      this.addNav();
   }
 }

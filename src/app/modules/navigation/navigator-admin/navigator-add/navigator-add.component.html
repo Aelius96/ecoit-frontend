@@ -6,58 +6,59 @@
       <div class="left-d-flex">
         <div class="d-flex">
           <h5 class="h5" style="width:auto">Thêm mới</h5>
-          
+
         </div>
       </div>
       <div class="right-d-flex">
         <div class="d-flex  flex-wrap">
-          
+
           <div class="menu-item">
             <a routerLink="../" class="ht-btn-custom"  ><span aria-hidden="true" style="font-size: 30px; font-weight: bold; color: black; margin-right: 30px;">&times;</span>
             </a>
-           
+
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  <form action="">
+
+  <form (ngSubmit)="onSubmit()">
     <div class="user-content col-lg-12 ">
       <div class="row " style="justify-content: center;">
         <div class="col-md-4" style="margin-bottom: 20px;">
           <div class="options">
             <div class="title">Tên</div>
-            <input type="text" class="form-control" >
-            
+            <input type="text" name="name"  [(ngModel)] = "nav.name"  placeholder="">
           </div>
           <span>VD: Khách hàng Chính Phủ</span>
         </div>
         <div class="col-md-4">
           <div class="options">
             <div class="title">Đường dẫn</div>
-            <input type="text" class="form-control">
+            <input type="text" name="url" [(ngModel)] = "nav.url"  placeholder="">
           </div>
           <span>VD: /khach-hang-chinh-phu</span>
         </div>
         <div class="col-md-8">
           <div class="options">
             <div class="title">Nhóm</div>
-            <select name="" id="">
-              <option value="">--Chọn--</option>
-              <option value="">SẢN PHẨM</option>
-              <option value="">GIỚI THIỆU</option>
-            </select>
+
+
+              <select name="parentId" [(ngModel)]="nav.parentId">
+                <option [selected]="true" [value]="0">--Chọn--</option>
+                <option *ngFor="let opt of navGroup" [value]="opt.id">{{opt.name}}</option>
+              </select>
+
           </div>
         </div>
- 
+
         <div class="col-md-12" style="text-align: center; padding-top: 30px;">
             <div class="submit-button">
                 <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
-                <button type="button" class="btn btn-secondary btn-lg btnn cancel"  >Hủy</button>
+                <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToNavList()" >Hủy</button>
               </div>
         </div>
-  
+
         </div>
       </div>
   </form>
