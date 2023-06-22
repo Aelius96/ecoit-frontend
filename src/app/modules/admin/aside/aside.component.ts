@@ -65,7 +65,7 @@ export class AsideComponent {
     {
       id:7,
       tittle:'Điều hướng',
-      a: 'navigator',
+      a: 'nav',
       icon:'far fa-bars'
     },
     {

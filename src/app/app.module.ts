@@ -19,7 +19,7 @@ import {TypicalCustomersComponent} from './modules/introduce/typical-customers/t
 import {ContactComponent} from './modules/contact/contact.component';
 
 import {ErrorComponent} from './modules/error/error.component';
-
+import { ToastContainerComponent } from './modules/toast/toast-container/toast-container.component';
 
 import {BlogListComponent} from "./modules/blog/blog-list/blog-list.component";
 import {NewsListComponent} from "./modules/news/news-list/news-list.component";
@@ -184,7 +184,7 @@ import { CommentListComponent } from './modules/typical/comment/comment-list/com
       ListControlComponent,
       ListCommentComponent,
       CommentListComponent,
-
+    ToastContainerComponent
   ],
   imports: [
     BrowserModule,

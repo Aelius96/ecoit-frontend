@@ -64,7 +64,7 @@
                   </p>
                 </div>
                 <div class="col-md-2" style="padding-top:10px; text-align: center;">
-                  {{recruit.createDate}}
+                  {{recruit.date}}
                 </div>
                 <div class="action-box  col-md-1">
                   <!--                 ví dụ về button sửa-->
@@ -86,7 +86,6 @@
           <div class="row">
             <div class="col-md-6">
               <pagination-controls
-
                 [id]="'recruit'" (pageChange)="handlePageChange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
             </div>
           </div>
