@@ -15,10 +15,14 @@
   </div>
   <div class="dropdown " >
     <button class="btn btn-primary dropdown-toggle button-headeradmin" type="button" data-toggle="dropdown">Menu</button>
-    <ul class="dropdown-menu" >
-      <li class="dropdown-item item-btn-headeradmin" routerLink="about" routerLinkActive="active">Về chúng tôi</li>
-      <li class="dropdown-item item-btn-headeradmin" routerLink="albums" routerLinkActive="active">Kho ảnh</li>
-      <li class="dropdown-item item-btn-headeradmin border-top-drak" (click)="logout()" >Đăng xuất</li>
+    <ul class="dropdown-menu" style="position: absolute;
+    will-change: transform;
+    top: 0px;
+    left: -70px;
+    transform: translate3d(-4px, 51px, 0px);" >
+      <li class="dropdown-item item-btn-headeradmin" ><a class="drop"  routerLink="about">Về chúng tôi</a> </li>
+      <li class="dropdown-item item-btn-headeradmin" > <a class="drop" routerLink="albums" >Kho ảnh</a> </li>
+      <li class="dropdown-item item-btn-headeradmin border-top-drak" > <a class="drop"  (click)="logout()" > Đăng xuất</a></li>
     </ul>
   </div>
 </div>

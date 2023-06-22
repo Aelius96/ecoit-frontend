@@ -14,11 +14,9 @@ export class NewsControlComponent implements OnInit{
 
   newsList: News[]=[];
   role:string;
-  currentIndex = -1;
-  // pageSizes = [3, 6, 9];
-  totalPages: number;
-  searchInput= '';
 
+  searchInput= '';
+  
   paging = {
     page: 1,
     size: 5,
@@ -28,8 +26,6 @@ export class NewsControlComponent implements OnInit{
   constructor(private router:Router,
               private newsService: NewsService,
               private tokenStorageService: TokenStorageService) {}
-
-
 
   ngOnInit(): void {
 
@@ -57,13 +53,11 @@ export class NewsControlComponent implements OnInit{
 
   getListAllWithPage(): void {
     const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
-
     this.newsService.listAllWithPage(params)
       .subscribe(
         response => {
           this.newsList = response.content;
           this.paging.totalRecord = response.totalElements;
-          this.totalPages = response.totalPages;
 
         },
         error => {
@@ -86,11 +80,6 @@ export class NewsControlComponent implements OnInit{
     console.log(event, this.paging.size)
     this.getListAllWithPage();
   }
-  // listAll(){
-  //   this.newsService.listAll().subscribe(data =>{
-  //      this.newsList =data;
-  //   })
-  // }
 
   updateNews(id: number){
     return this.router.navigate([`/admin/news/edit`,id]);
@@ -104,10 +93,4 @@ export class NewsControlComponent implements OnInit{
       })
     }
   }
-
-
-
-
-
-
 }

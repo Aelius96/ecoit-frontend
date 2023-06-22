@@ -12,7 +12,16 @@ import {TokenStorageService} from "../../../../services/token-storage/token-stor
 export class NumberControlComponent implements OnInit{
   number: Number[] =[];
   role: any;
- constructor( private numberService: NumberService,private tokenStorage:TokenStorageService,  private router:Router) {
+  searchInput='';
+  paging = {
+    page: 1,
+    size: 5,
+    totalRecord: 0
+  }
+
+ constructor( private numberService: NumberService,
+  private tokenStorage:TokenStorageService, 
+   private router:Router) {
  }
   ngOnInit(): void {
     const user = this.tokenStorage.getUser();
@@ -20,11 +29,48 @@ export class NumberControlComponent implements OnInit{
     this.getAllNumber();
 
  }
+ getRequestParams(page:number , pageSize:number, search : string):any{
+    let params:any ={};
+    if (page) {
+      params[`pageNo`] = page-1;
+    }
+
+    if (pageSize) {
+      params[`pageSize`] = pageSize;
+    }
+
+    if(search){
+      params[`search`] = search;
+    }
+    return params;
+ }
 
 getAllNumber(){
-   this.numberService.getAllNumber().subscribe(data =>{
-     this.number = data;
-   })
+  const params = this.getRequestParams(this.paging.page, this.paging.size , this.searchInput)
+  this.numberService.getListAllPage(params).subscribe(data=>{
+        this.number = data.content;
+        this.paging.totalRecord= data.totalElements;
+  },
+   error=>{
+    console.error(error)
+  })
+}
+
+
+search(): void {
+  this.paging.page = 1;
+  this.getAllNumber();
+}
+handlePageChange(event: number): void {
+  console.log(event);
+  this.paging.page = event;
+  this.getAllNumber();
+}
+handlePageSizeChange(event: any): void {
+  this.paging.size = event;
+  this.paging.page = 1;
+  console.log(event, this.paging.size)
+  this.getAllNumber();
 }
 
   addTypicalNum(){

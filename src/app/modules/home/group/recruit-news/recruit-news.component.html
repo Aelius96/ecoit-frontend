@@ -25,12 +25,7 @@
 
                       <div *ngIf="s<4">
                       <img style="font-weight: 400; width: 100%; height: 250px;" src="{{recruit.image.pathUrl}}"  alt="" loading="lazy">
-
-
-                      <div *ngIf="s<3">
-                      <img style="font-weight: 400; width: 100%; height: 250px;" src="{{recruit.image.pathUrl}}"  alt="" loading="lazy">
-
-
+                    
                       <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;" >
                         <h6 class="post-title" >
                           <a href="{{recruit.url}}" tabindex="-1" class="h7tttd">{{recruit.title}}</a>
@@ -65,18 +60,16 @@
 
                               <a href="/news/{{news.url}}" title="{{news.title}}" style="height: 100%;">
                                 <img  src="{{news.image.pathUrl}}" class="image" alt="" loading="lazy"></a>
-
-                              <a href="{{news.url}}" title="{{news.title}}" style="height: 100%;">
-                                <img  src="{{news.image.pathUrl}}" class="image" alt="" loading="lazy"></a>
-
                             </div>
                             <div class="blog-inner" style="display: inline-block;width: 70%;">
                               <a href="/news.{{news.url}}" id="text">{{news.title}}</a>
                               <p>{{news.description}}</p>
                             </div>
-                            <hr >
+                            
                           </div>
+                          <hr >
                         </li>
+                        
                       </ul>
                       <div  style="margin: 50px 0 20px 0px;">
                         <div class="col-xs-12" >

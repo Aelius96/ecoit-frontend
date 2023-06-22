@@ -5,7 +5,8 @@ import {  NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap/modal/modal-ref';
 import {UserService} from "../../../services/user/user.service";
 import {Router} from "@angular/router";
-import {Role} from "../../../core/model/role/role";
+import { Role } from '../../../core/model/role/role';
+import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 
 
 
@@ -18,28 +19,74 @@ import {Role} from "../../../core/model/role/role";
 export class UserControlComponent implements OnInit{
 
   users: User[]=[];
+  role : string;
+  currentIndex:number;
+   // pageSizes = [3, 6, 9];
 
+  searchInput='';
+  paging={
+    page:1,
+    size:5,
+    totalRecord:0
+  }
 
-  constructor(private userService: UserService,private router:Router ) { }
+  constructor(private userService: UserService,
+    private router:Router,
+    private totkenstorageService : TokenStorageService ) { }
 
   ngOnInit(): void {
   this.getAllUser();
   }
 
 
-  getAllUser(){
-    this.userService.getAllUser().subscribe(data =>{
-      this.users = data;
-    })
+  getrequestparams(page:number , pageSize:number , search:string){
+        let params: any = {};
+
+    if (page) {
+      params[`pageNo`] = page-1;
+    }
+
+    if (pageSize) {
+      params[`pageSize`] = pageSize;
+    }
+
+    if(search){
+      params[`search`] = search;
+    }
+    return params;
   }
-  //
-  // showUserRole(user: User){
-  //   const sid = user.role?.map(item => item.id);
-  //   for(let i = 0; i<sid.length;i++){
-  //
-  // }
 
 
+  getAllUser(){
+    const params = this.getrequestparams(this.paging.page, this.paging.size , this.searchInput)
+    this.userService.getListAllwithpageUser(params).subscribe(data=>{
+      this.users = data.content;
+      this.paging.totalRecord = data.totalElements;
+      
+      console.log(data)
+    }, 
+    error=>{
+      console.log(error);
+    } 
+    )
+  }
+
+search():void{
+  this.paging.page =1;
+  this.getAllUser();
+}
+
+handlepagechange(event:number):void{
+  console.log(event);
+  this.paging.page = event;
+  this.getAllUser();
+}
+
+handlepagesizechange(event:any ):void{
+  this.paging.size = event;
+  this.paging.size =1 ;
+  this.getAllUser()
+}
   updateUser(id:number){
     return this.router.navigate([`admin/user/update/${id}`])
   }
