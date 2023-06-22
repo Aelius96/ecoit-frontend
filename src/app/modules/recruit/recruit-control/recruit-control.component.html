@@ -5,7 +5,7 @@
         <a style="width: 60px " routerLink="../news"  routerLinkActive="active"><span  class="spann " >Tin tức</span></a>
         <a style="width: 115px" routerLink="../recruit" routerLinkActive="active"  ><span style="font-weight: bold"  class="spann ">/ Tuyển dụng</span></a>
         <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
-          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Viết gì đó ...">
+          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm">
           <div class="input-group-append inputt" >
             <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
@@ -17,11 +17,6 @@
         <div class="menu-item ">
           <div class="d-flex">
             <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <!--            <select (change)="handlePageSizeChange($event)" class="custom-select">-->
-            <!--              <option *ngFor="let size of pageSizes" [ngValue]="size">-->
-            <!--                {{ size }}-->
-            <!--              </option>-->
-            <!--            </select>-->
             <app-page-size
               (pageSizeChange)="handlePageSizeChange($event)"
               [totalRecords]="paging.totalRecord"

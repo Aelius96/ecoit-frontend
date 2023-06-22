@@ -6,7 +6,7 @@
         <a class="control"  style="width: 80px" routerLink="../cus-typical" routerLinkActive="active"  ><span style="font-weight: bold;" class="spann">Tiêu biểu</span></a>
 
         <form (ngSubmit)="searchTitleAndDescription()" class="d-flex" style="margin:  7px;">
-          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Viết gì đó ...">
+          <input style="width: 70%;" type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm">
           <div class="input-group-append inputt" >
             <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
@@ -26,7 +26,7 @@
         </div>
         <div class="menu-item">
           <!--          (click)="addTypicalNum()"-->
-          <a style="margin-top: 3px;" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+          <a style="margin-top: 3px; color: black;" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
         </div>
       </div>
     </div>

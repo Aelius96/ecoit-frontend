@@ -92,7 +92,8 @@ export class CustomerAddComponent {
     this.customerService.addCustomer(customerFormData).subscribe(data =>{
       this.submitFail = false;
       this.goToCustomerList();
-    },err =>{
+    },   
+      err =>{
       this.submitFail = true;
       this.errorMessage = err.error.message;
     })

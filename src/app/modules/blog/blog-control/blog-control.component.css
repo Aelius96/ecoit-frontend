@@ -20,6 +20,7 @@
 
 .ht-btn-custom{
   margin-top:2px;
+  color: #121213;
 }
 
 .menu-item{
@@ -87,7 +88,10 @@ img{
   font-family: initial;
     margin-bottom: 0px;
 }
-
+input:focus{
+  color:  black;
+  border: 1px solid black;
+}
 /*-------------------------------------------------------------*/
 .btn-link{
   width: 100%;

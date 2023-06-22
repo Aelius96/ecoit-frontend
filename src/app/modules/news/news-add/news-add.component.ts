@@ -43,7 +43,7 @@ export class NewsAddComponent implements OnInit{
   }
   onSubmit(){
     if(this.id){
-      this.addDataToForm(this.id);
+      this.updateDataToForm(this.id);
     }else{
       this.saveNews();
     }
@@ -61,7 +61,7 @@ export class NewsAddComponent implements OnInit{
     this.router.navigate(['/admin/news']);
   }
 
-  addDataToForm(id: any){
+  updateDataToForm(id: any){
     const newsFormData = this.prepareFormData(this.news);
     this.newsService.updateNews(id, newsFormData).subscribe(data =>{
       this.goToNewsList();

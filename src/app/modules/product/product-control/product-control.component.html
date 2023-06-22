@@ -3,10 +3,12 @@
       <div class="left-d-flex">
         <div class="d-flex">
           <span  class="spann tt">Sản phẩm</span>
-          <input type="text " class="form-control "  placeholder="Viết gì đó ...">
-          <div class="inputt" >
-            <button type="submit" class="input-button"><i class="fa fa-search"></i></button>
-          </div>
+          <form (ngSubmit)="search()" class="d-flex">
+            <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm ">
+            <div class="input-group-append inputt" >
+              <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+            </div>
+          </form>
         </div>
       </div>
       <div class="right-d-flex">
@@ -14,13 +16,10 @@
           <div class="menu-item ">
             <div class="d-flex">
               <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-              <select class="custom-select">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
+               <app-page-size (pageSizeChange)="handlePageSizeChange($event)"
+                            [totalRecords]="paging.totalRecord"
+                            [(pageSize)]="paging.size"
+                              ></app-page-size>
             </div>
           </div>
           <div class="menu-item">
@@ -34,7 +33,12 @@
     </div>
   </div>
 
-<div *ngFor="let pro of products" class="d-flex flex-column ">
+<div *ngFor="let pro of products | paginate:{
+                                  id: 'product',
+                                  itemsPerPage:paging.size,
+                                  currentPage:paging.page,
+                                  totalItems: paging.totalRecord
+                                    }" class="d-flex flex-column">
   <div class="container">
     <div class="item-blog">
       <div class="row">
@@ -69,6 +73,18 @@
         </div>
 
       </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="paging.totalRecord >0" style="margin-top: 20px;" >
+    <div class="col-lg-12" style="text-align: center;">
+      <pagination-controls  previousLabel="<"
+      nextLabel=">"
+      [id]="'product'"
+      (pageChange)="handlePageChange($event)"
+      [maxSize]=" paging.totalRecord"
+      >
+      </pagination-controls>
     </div>
   </div>
 

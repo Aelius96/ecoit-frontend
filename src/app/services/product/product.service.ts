@@ -13,8 +13,11 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
+  listAllwithpage(params:any):Observable<any>{
+    return this.http.get(`${this.baseUrl}/product`,{params})
+  }
   getProductList(): Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.baseUrl}/product`);
+    return this.http.get<Product[]>(`${this.baseUrl}/home/product`);
   }
   searchProductList(param: HttpParams): Observable<any>{
     return this.http.get(`${this.baseUrl}/product/search`, {params: param});
