@@ -7,4 +7,5 @@ export class Recruit {
   date: any;
   description: string;
   url: string;
+
 }

@@ -17,11 +17,17 @@
 }
 
 .button-headeradmin{
-  padding:0px 15px ;
-;
+  padding:0px 5px ;
+  height: 40px;
   margin-right: 80px;
   font-size: 15px;
 }
 .item-btn-headeradmin{
   font-size: 15px;
+}
+.item-btn-headeradmin:hover{
+  background-color: gainsboro;
+}
+.drop:hover{
+  background-color: gainsboro;
 }

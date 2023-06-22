@@ -73,7 +73,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="paging.totalRecord > 0 " class="col-md-4">
+        <div  *ngIf="paging.totalRecord > 0 " class="col-md-12"  >
           <pagination-controls  previousLabel ="<"
           nextLabel =">"
           [id]="'blog'" (pageChange)="handlePage($event)" [maxSize]="paging.totalRecord">

@@ -3,11 +3,12 @@
       <div class="left-d-flex">
         <div class="d-flex">
           <h5 class="h5" style="width:auto">Tài khoản</h5>
-          <input type="text " class="form-control "  placeholder="Viết gì đó ...">
-          <div class="input-group-append inputt" >
-            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-
-          </div>
+          <form (ngSubmit)="search()" class="d-flex">
+            <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm">
+            <div class="input-group-append inputt" >
+              <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+            </div>
+          </form>
         </div>
       </div>
       <div class="right-d-flex">
@@ -15,15 +16,14 @@
           <div class="menu-item ">
             <div class="d-flex">
               <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-              <select class="custom-select">
-                <option>5</option>
-                <option>10</option>
-                <option>15</option>
-                <option>20</option>
-              </select>
+              <app-page-size 
+                (pageSizeChange)="handlepagesizechange($event)"
+                [totalRecords]="paging.totalRecord"
+                [(pageSize)]="paging.size "
+              ></app-page-size>
             </div>
           </div>
-          <div class="menu-item">
+          <div class="menu-item" style="margin-top: 10px;">
             <a routerLink="add"  class="ht-btn-custom"   title="Thêm mới"><i class="fas fa-file-plus fa-lg"></i></a>
             <a style="margin-left: 20px;" title="Nhật kí" routerLink="../history" routerLinkActive="active">
               <i class="fas fa-history fa-lg">
@@ -40,9 +40,6 @@
     <div class="detail">
       
         <div class="header-user">
-          <!-- <span class="status status_user">User</span>
-          <span class="status status_mod">Mod</span>
-          <span class="status status_admin">Admin</span> -->
           <p class="user" >Người Dùng</p>
         </div>
         <hr style="margin-top:0px;">
@@ -60,10 +57,13 @@
               <td></td>
             </tr>
           </thead>
-          <tbody>
-
-              <tr *ngFor="let user of users">
-                <th scope="row">{{user.username}}</th>
+          <tbody   *ngFor="let user of users  | paginate:{
+            id:'user',
+            itemsPerPage: paging.size,
+            currentPage: paging.page,
+            totalItems: paging.totalRecord }" >
+              <tr  >
+                <th scope="row" >{{user.username}}</th>
                 <td>{{user.firstName}}</td>
                 <td>{{user.lastName}}</td>
                 <td>{{user.email}}</td>
@@ -100,6 +100,17 @@
 
           </tbody>
         </table>
+      </div>
+      <div class="row" style="margin-top: 10px;">
+          <div class="col-md-3" *ngIf="paging.totalRecord>0" >
+            <pagination-controls 
+                [id]="'user'"
+                previousLabel="<"
+                nextLabel=">"
+                (pageChange)="handlepagechange($event)"
+                [maxSize]="paging.totalRecord"
+            ></pagination-controls>
+          </div>
       </div>
     
   </div>

@@ -1,3 +1,4 @@
+
 import {Component, OnInit} from '@angular/core';
 import {Recruit} from "../../../core/model/recruit/recruit";
 import {Router} from "@angular/router";
@@ -85,14 +86,7 @@ export class RecruitControlComponent implements OnInit{
     console.log(event, this.paging.size)
     this.getListAllWithPage();
   }
-
-
-  listAll(){
-    this.recruitService.listAll().subscribe(data=>{
-      return this.recruitNewsList = data;
-    })
-  }
-
+  
   updateRecruitNews(id: Number){
     return this.router.navigate([`/admin/recruit/update/${id}`])
   }

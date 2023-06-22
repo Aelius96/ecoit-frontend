@@ -10,13 +10,13 @@ import { Params } from '@angular/router';
 })
 export class RecruitListComponent implements OnInit {
  
-  recruitList: Recruit[]=[];
+  recruitList: Recruit [] = [];
   page = 1;
  count = 0;
- pageSize= 9;
+ pageSize= 5;
  searchInput = '';
- private totalPages: number;
- paging={page:1, size:9, totalRecord:0}
+totalPages: number;
+ paging={page:1, size:5, totalRecord:0}
 
   constructor(private recruitService:RecruitService) { }
 

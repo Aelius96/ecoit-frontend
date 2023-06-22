@@ -24,20 +24,5 @@ getAllList():void{
   })
 }
 
-// nums: Number[] = [];
 
-// constructor(private numberService: NumberService) { }
-
-// ngOnInit() {
-//   this.getAllNumber();
-// }
-
-// public getAllNumber(): void {
-//   this.numberService.getAllNumber().subscribe(
-//     (response:Number[]) => {
-//       this.nums = response;
-//       console.log(this.nums);
-//     }
-//   );
-// }
 }

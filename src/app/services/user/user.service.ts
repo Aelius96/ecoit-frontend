@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, ObservedValueOf} from "rxjs";
 import {User} from "../../core/model/user/user";
 import {Constant} from "../../core/config/constant";
 
@@ -10,10 +10,14 @@ import {Constant} from "../../core/config/constant";
 export class UserService {
   private baseUrl =`${Constant.BASE_URL}/user`
   constructor(private http:HttpClient) { }
-
-  public getAllUser():Observable<User[]>{
-    return this.http.get<User[]>(`${this.baseUrl}`);
+   
+  getListAllwithpageUser(params:any):Observable<any>{
+    return this.http.get(`${this.baseUrl}` , {params})
   }
+
+  // public getAllUser():Observable<User[]>{
+  //   return this.http.get<User[]>(`${this.baseUrl}`);
+  // }
 
   public getUserById(id:number):Observable<User>{
     return this.http.get<User>(`${this.baseUrl}/${id}`);

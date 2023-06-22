@@ -6,10 +6,11 @@
         <div class="menu-item ">
            <div class="d-flex">
              <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-             <select class="custom-select">
-               <option>1</option>
-               <option>2</option>
-             </select>
+               <app-page-size 
+                  (pageSizeChange)="handlePageSizeChange($event)"
+                  [totalRecords]="paging.totalRecord"
+                  [(pageSize)]="paging.size"
+               ></app-page-size>
            </div>
         </div>
         <div class="menu-item">
@@ -36,7 +37,12 @@
 
     <div class="number-icon">
       <div class="row">
-        <div class="col-md-3" style="margin-bottom:20px" *ngFor="let num of number" >
+        <div class="col-md-3" style="margin-bottom:20px" *ngFor="let num of number | paginate:{
+                                                                        id:'number',
+                                                                        itemsPerPage: paging.size,
+                                                                        currentPage: paging.page,
+                                                                        totalItems: paging.totalRecord                
+        }" >
           <div class="card" style=" border: 1px solid rgb(255, 255, 255); box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.06)">
             <div class="action-box">
               <div >
@@ -56,6 +62,15 @@
               <h5 class="itemm">{{num.description}}</h5>
             </div>
           </div>
+      </div>
+      <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-top: 20px;">
+          <pagination-controls 
+          [id]="'number'"
+              previousLabel="<"
+              nextLabel=">"
+              (pageChange)="handlePageChange($event)"
+              [maxSize]="paging.totalRecord"
+          ></pagination-controls>
       </div>
     </div>
     </div>

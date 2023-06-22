@@ -13,6 +13,10 @@ export class NumberService {
   constructor(private httpclient: HttpClient) {
   }
 
+  getListAllPage(params:any):Observable<any>{
+    return this.httpclient.get(`${this.baseUrl}/number`, {params})
+  }
+
   getAllNumber(): Observable<Number[]>{
     return this.httpclient.get<Number[]>(`${this.baseUrl}/number`);
   }

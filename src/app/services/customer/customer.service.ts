@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Constant} from "../../core/config/constant";
 import {Observable} from "rxjs";
 import {Customer} from "../../core/model/customer/customer";
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,12 @@ export class CustomerService {
   private baseUrl =`${Constant.BASE_URL}`;
   constructor(private http:HttpClient) {}
 
+  listAllWithPage(params:any):Observable<any>{
+    return this.http.get(`${this.baseUrl}/customer`, {params})
+  }
+
   public getAllCustomer():Observable<Customer[]>{
-    return this.http.get<Customer[]>(`${this.baseUrl}/customer`)
+    return this.http.get<Customer[]>(`${this.baseUrl}/home/customer`)
   }
 
   public addCustomer(formData: FormData): Observable<Object>{

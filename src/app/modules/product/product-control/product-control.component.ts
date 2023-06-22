@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {Product} from "../../../core/model/product/product";
 import {ProductService} from "../../../services/product/product.service";
 import { Role } from '../../../core/model/role/role';
+import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 
 
 @Component({
@@ -14,19 +15,72 @@ export class ProductControlComponent implements OnInit{
   
   products: Product[] = [];
   url: string;
-  constructor(private router:Router,private productService : ProductService) {
+  currentIndex = -1;
+  totalPages: number;
+  searchInput= '';
+  
+  paging = {
+    page: 1,
+    size: 5,
+    totalRecord: 0
+  }
+
+  constructor(private router:Router,
+    private productService : ProductService,
+    private tokenstorageService: TokenStorageService,) {
   }
   ngOnInit(): void {
-    this.getProductList();
+    this.getProductListAllwithPage();
   }
-    getProductList(){
-    this.productService.getProductList().subscribe(data =>{
-    return  this.products = data;
-      }
-    )
+
+  getRequestParams(page: number, pageSize: number,search:string): any {
+    let params: any = {};
+
+    if (page) {
+      params[`pageNo`] = page-1;
     }
 
+    if (pageSize) {
+      params[`pageSize`] = pageSize;
+    }
 
+    if(search){
+      params[`search`] = search;
+    }
+    return params;
+  }
+
+    getProductListAllwithPage(){
+   const params = this.getRequestParams(this.paging.page , this.paging.size , this.searchInput)
+      this.productService.listAllwithpage(params).subscribe(data=>{
+        this.products = data.content;
+        this.paging.totalRecord = data.totalElements;
+        this.totalPages = data.totalPages;
+      } ,
+      error => {
+        console.log(error);
+      }
+      )
+
+    }
+
+    search():void{
+      this.paging.page=1;
+      this.getProductListAllwithPage()
+    }
+
+    handlePageChange(event: number): void {
+      console.log(event);
+      this.paging.page = event;
+      this.getProductListAllwithPage();
+    }
+    handlePageSizeChange(event: any): void {
+      this.paging.size = event;
+      this.paging.page = 1;
+      console.log(event, this.paging.size)
+      this.getProductListAllwithPage();
+    }
+  
     updateProduct(id: number){
       return this.router.navigate(['admin/product/update', id]);
 
@@ -36,16 +90,13 @@ export class ProductControlComponent implements OnInit{
     return this.router.navigate([`admin/product/add`]);
     }
 
-
   deleteProduct(id: number){
     let option = confirm("Bạn có chắc chắn xóa khách hàng này?");
 
     if(option){
       this.productService.deleteProduct(id).subscribe(data =>{
-        this.getProductList();
+        this.getProductListAllwithPage();
       })
     }
   }
-
-
 }

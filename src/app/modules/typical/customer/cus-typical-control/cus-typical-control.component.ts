@@ -19,13 +19,17 @@ export class CusTypicalControlComponent implements OnInit{
 
   paging = {
     page: 1,
-    size: 6,
+    size: 5,
     totalRecord: 0
   }
   constructor(private cusTypicalService:CustomerTypicalService, private tokenStorageService: TokenStorageService ,
                 private router:Router,) {
   }
 
+  ExStyle = {
+    'border-top-left-radius': '10px'
+  }
+  
   ngOnInit(): void {
     const user = this.tokenStorageService.getUser();
     this.role =user.roles;

@@ -14,8 +14,8 @@
 
             <div class="row pricing-table-one">
               <!-- chính phủ -->
-              <div *ngFor="let cus of customer" class="col-md-3" >
-                <div class="box">
+              <div *ngFor="let cus of customer ; let i = index" class="col-md-3" >
+                <div class="box" *ngIf="i<4" >
                   <div class="box-icon" [ngStyle]="{'background': cus.bgIColor}">
                     <span><i class="{{cus.icon}}"></i></span>
                   </div>

@@ -1,3 +1,4 @@
+<div ng-app="requried"   ng-controller="RegisterCtrl">
 <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="was-validated">
 <div class="number-add" >
 
@@ -12,9 +13,13 @@
                     <span><i class="{{tNumber.icon}}"></i></span>
                   </div>
                   <div class="input" >
-                    <label for="icon" class="form-label"></label>
-                    <input class="text-input" type="text" [(ngModel)]="tNumber.icon" name="icon" placeholder=" Nhập mã " required >
+                    <label for="icon" class="form-label required" ></label>
+                    <input class="text-input" type="text" [(ngModel)]="tNumber.icon" name="icon" placeholder="Nhập mã " required >
                     
+                    <!-- <i class="fa fa-check text-success" ng-show="form.icon.$dirty && form.icon.$valid"></i>
+                    <div ng-show="form.icon.$dirty && form.icon.$invalid" class="text-danger"><i class="fa fa-times text-danger"></i>
+                    <span ng-show="form.icon.$error.required">Không được bỏ trống</span>
+                    </div> -->
                     <p style="padding-top: 10px"><span style="color: red;">*</span> Mã bắt đầu bằng: <strong>fa</strong>, <strong>far</strong> hoặc <strong>fas</strong></p>
                     <p><span style="color: red;">*</span> vd: <strong>fa fa-university</strong></p>
                   </div>
@@ -44,6 +49,7 @@
 
 </div>
 </form>
+</div>
 <!-- 
 <form action="/action_page.php" class="was-validated">
   <div class="mb-3 mt-3">
