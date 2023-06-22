@@ -77,7 +77,8 @@
   </div>
 
   <div class="row" *ngIf="paging.totalRecord >0" style="margin-top: 20px;" >
-    <div class="col-lg-12" style="text-align: center;">
+    <div class="col-lg-12" >
+      <div class="container">
       <pagination-controls  previousLabel="<"
       nextLabel=">"
       [id]="'product'"
@@ -86,6 +87,7 @@
       >
       </pagination-controls>
     </div>
+  </div>
   </div>
 
 

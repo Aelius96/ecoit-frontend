@@ -43,6 +43,10 @@
   color: blue;
 
 }
+input:focus{
+  color:#000000;
+  border: 1px solid black;
+}
 /*  */
 .icon{
 
@@ -93,6 +97,16 @@
 .table{
   font-family: auto;
   font-size: 20px;
+}
+td,th{
+  text-align: center;
+}
+a{
+  color: #000000;
+}
+input{
+  height: 30px;
+  margin-top: 7px;
 }
 /* 
  */

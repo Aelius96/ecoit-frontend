@@ -57,7 +57,6 @@ getAllNumber(){
 }
 
 
-
 search(): void {
   this.paging.page = 1;
   this.getAllNumber();
