@@ -8,12 +8,12 @@ import { NavigatorAddComponent } from "../navigation/navigator-admin/navigator-a
 
 const routes: Routes = [
     {path:'' , component: NavigatorControlComponent},
-    {path: 'new', component: NavigatorAddComponent},
+    {path: 'add', component: NavigatorAddComponent},
     {path:'update/:id' , component: NavigatorAddComponent},
 
-  
+
   ]
-  
+
   @NgModule({
     declarations:[],
     imports:[

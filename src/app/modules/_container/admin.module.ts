@@ -25,7 +25,7 @@ const routes: Routes =[
     {path: 'user', title:'Admin-tài khoản', loadChildren:()=>import('./user.module').then(m=>m.UserModule )  },
     {path:'history' , title: 'Admin-Lịch sử sử đổi' , component: HistoryListComponent},
     {path: 'product' , title: 'Admin-Sản phẩm' , loadChildren:()=>import('./product.module').then(m=>m.ProductModule) },
-    {path: 'navigator' , title: 'Admin-Điều hướng' , loadChildren:()=>import('./navigator.module').then(m=>m.NavigatorModule) },
+    {path: 'nav' , title: 'Admin-Điều hướng' , loadChildren:()=>import('./navigator.module').then(m=>m.NavigatorModule) },
     {path:'slide', title:'Admin-Trình chiếu' , loadChildren:()=>import('./sliders.module').then(m=>m.SlidersModule)},
     {path:'banner' , title: 'Admin-Trình chiếu' , loadChildren:()=>import('./banner.module').then(m=>m.BannerModule)},
     {path:'about' , title:'Admin-về chúng tôi', loadChildren:()=>import('./about.module').then(m=>m.AboutModule)},

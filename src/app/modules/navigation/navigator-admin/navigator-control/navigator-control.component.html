@@ -24,36 +24,53 @@
             </div>
           </div>
           <div class="menu-item">
-            <a class="ht-btn-custom" routerLink="new"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+            <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
           </div>
-  
+
         </div>
       </div>
-  
+
     </div>
   </div>
-  
-  
+
   <!--  -->
   <div class="d-flex flex-column flex-column-fluid">
-  
+
       <div class="navi-page">
         <div class="container">
             <div id="accordion">
               <ul>
-                <li >
+                <li *ngFor="let nav1 of navigation">
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
-                      <a class="has-child collapsed " data-toggle="collapse" href="#collapse"></a>
-                      <input #checkboxes type="checkbox" >
-                      <span class="slacttar px-2 ml-2" >navi.name</span>
+                      <a class="has-child collapsed {{nav1.navChild.length > 0 ? 'active' : ''}}" data-toggle="collapse" href="#collapse{{nav1.id}}"></a>
+                      <input #checkboxes type="checkbox" [value]="nav1.selected" (change)="onCheckChange($event, nav1)">
+                      <span class="slacttar px-2 ml-2" id="{{nav1.id}}" (click)="actionTarget($event)">{{nav1.name}}</span>
                     </div>
-                    <a href="./admin/navigator" >nav1.url</a>
+                    <a href="/{{nav1.url}}" target="_blank">/{{nav1.url}}</a>
                   </div>
+
+                  <div id="collapse{{nav1.id}}" class="link-child collapse" data-parent="#accordion">
+                    <ul class="ml-4">
+                      <li *ngFor="let nav2 of nav1.navChild" class="d-flex justify-content-between align-items-center">
+                        <div style="width: 500px">
+                          <input #checkboxes type="checkbox" [value]="nav2.selected" (change)="onCheckChange($event, nav2)">
+                          <span class="slacttar ml-2" id="{{nav2.id}}" (click)="actionTarget($event)">{{nav2.name}}</span>
+                        </div>
+                        <span style="width: 400px">{{nav2.url}}</span>
+                      </li>
+                      <li>
+                        <a type="button" class="ht-btn-custom" >
+                          <i class="far fa-plus-circle mr-1"></i>
+                          <span id="{{nav1.id}}">Thêm...</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
                 </li>
               </ul>
             </div>
           </div>
         </div>
   </div>
-  

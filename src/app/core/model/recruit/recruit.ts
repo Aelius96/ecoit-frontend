@@ -1,10 +1,11 @@
 
 export class Recruit {
-  id: any;
+  id: number
   image: any;
-  title: any;
-  description: any
-  content: any;
+  title: string;
+  content: string;
   date: any;
-  url: any;
+  description: string;
+  url: string;
+
 }

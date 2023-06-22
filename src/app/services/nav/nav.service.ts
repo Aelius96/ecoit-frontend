@@ -5,6 +5,7 @@ import {Nav} from "../../core/model/nav/nav";
 import {Constant} from "../../core/config/constant";
 import {Number} from "../../modules/typical/number/number";
 import {Params} from "@angular/router";
+import {Obj} from "@popperjs/core";
 
 @Injectable({
   providedIn: 'root'
@@ -22,15 +23,15 @@ export class NavService {
     return this.http.get<Nav>(`${this.baseUrl}/nav`,{params});
   }
 
-  public addNav(params: any): Observable<Nav> {
-    return this.http.post(`${this.baseUrl}/nav/create`, {params});
+  public addNav(nav: Nav): Observable<Nav> {
+    return this.http.post<Nav>(`${this.baseUrl}/nav/add`,nav);
   }
 
   public updateNav(params: any): Observable<Object> {
     return this.http.post(`${this.baseUrl}/nav/update`, {params});
   }
 
-  public deleteNumber(params: any): Observable<void> {
+  public deleteNav(params: any): Observable<void> {
     return this.http.get<void>(`${this.baseUrl}/number/delete`,{params});
   }
 }

@@ -3,5 +3,7 @@ export class Nav {
   name: string;
   url :string;
   parentId: number;
+  navChild: any;
+  selected: false;
   active: boolean;
 }
