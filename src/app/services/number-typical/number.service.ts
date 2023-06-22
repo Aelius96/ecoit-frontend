@@ -18,7 +18,7 @@ export class NumberService {
   }
 
   getAllNumber(): Observable<Number[]>{
-    return this.httpclient.get<Number[]>(`${this.baseUrl}/number`);
+    return this.httpclient.get<Number[]>(`${this.baseUrl}/home/number`);
   }
 
   public getNumberById(id: number): Observable<Number> {

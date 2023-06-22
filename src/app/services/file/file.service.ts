@@ -15,8 +15,8 @@ export class FileService {
     return this.http.post(`${this.baseUrl}/downloadFile`,file, {observe: "response", responseType: "blob"});
   }
 
-  deleteFile(file: File): Observable<Object>{
-    return this.http.post(`${this.baseUrl}/deleteFile`, file);
+  deleteFile(id:number ): Observable<Object>{
+    return this.http.post(`${this.baseUrl}/deleteFile`, id);
   }
 
   getFileById(id: number): Observable<any>{
@@ -27,12 +27,12 @@ export class FileService {
     return this.http.get(`${this.baseUrl}/image/all`);
   }
 
-  showImage(file: File): Observable<Object>{
+  updateImage(file: File): Observable<Object>{
     return this.http.post(`${this.baseUrl}/image/update`, file);
   }
 
-  pageableList(param: Params): Observable<any>{
-    return this.http.get(`${this.baseUrl}/image`, {params: param});
+  getlistallwithpage(params: any): Observable<any>{
+    return this.http.get(`${this.baseUrl}/image`, {params});
   }
 
 }

@@ -97,6 +97,7 @@ import { ListContactComponent } from './modules/typical/list/list-contact/list-c
 import { ListControlComponent } from './modules/typical/list/list-control/list-control.component';
 import { ListCommentComponent } from './modules/typical/list/list-comment/list-comment.component';
 import { CommentListComponent } from './modules/typical/comment/comment-list/comment-list.component';
+import { AppPageSizeImageComponent } from './modules/shared/app-page-size-image/app-page-size-image.component';
 
 
 
@@ -184,7 +185,10 @@ import { CommentListComponent } from './modules/typical/comment/comment-list/com
       ListControlComponent,
       ListCommentComponent,
       CommentListComponent,
-    ToastContainerComponent
+    ToastContainerComponent,
+      AppPageSizeImageComponent,
+
+
   ],
   imports: [
     BrowserModule,
