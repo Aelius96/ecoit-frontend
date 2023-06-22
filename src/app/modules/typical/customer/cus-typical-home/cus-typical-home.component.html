@@ -14,10 +14,12 @@
       <div  class="col-lg-12 wow move-up" >
           <div class="cus-typical"  >
             <marquee  scrollamount="10" direction="left" loop="100">
-              <div class="item" *ngFor="let ct of cusTypical " >
+              <div class="item" *ngFor="let ct of cusTypical ;let i = index" >
+                <div *ngIf="i<8">
               <img class="img-fluid" src="{{ct.image.pathUrl}}" alt="" />
               </div>
-             </marquee>
+              </div>
+            </marquee>
         </div>
       </div>
     </div>

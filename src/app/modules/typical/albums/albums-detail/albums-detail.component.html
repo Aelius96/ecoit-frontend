@@ -2,9 +2,9 @@
     <div class="d-flex  justify-content-between header-menu ">
       <div class="left-d-flex">
         <div class="d-flex">
-            <a class="control" style="width: 80px" routerLink="../"  routerLinkActive="active"><span style="font-weight: bold;" class="spann">Kho Ảnh /</span></a>
-          <a class="control"  style="width: 120px ;padding-right: 10px;" href="./admin/image-gallery" routerLinkActive="active"  ><span class="spann">Ảnh Hoạt Động</span></a>
-        </div>
+            <a class="control" style="width: 80px" routerLink="../" ><span style="font-weight: bold;" class="spann">Kho Ảnh /</span></a>
+          <a class="control"  style="width: 120px ;padding-right: 10px;"  href="./admin/image-gallery"   ><span class="spann">Ảnh Hoạt Động</span></a>
+       </div>    <!--   -->
       </div>
       <div class="right-d-flex">
         <div class="d-flex  flex-wrap">
@@ -12,10 +12,8 @@
             <div class="d-flex">
               <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
               <select class="custom-select">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+                <option *ngFor="let ps of pageSizes" [ngValue]="ps">{{ps}}</option>
+               
               </select>
             </div>
           </div>
@@ -29,30 +27,14 @@
           <div class="tab-pane" id="grid">
             <div class="row" style="margin-left: 0px; margin-right: 0px;">
               <div class="col-lg-12">
-              <div class="col-lg-8">
-                <div class="product-thumbnail__container">
-                      <div class="col-md-3">
+                <div class="col-lg-8">
+                  <div class="row">
+                    <div class="col-md-3" *ngFor="let img of image">
                       <div class="product-thumb-image" >
-                        <img class="img-fluid" src="assets/images/imgex.png"  >
+                        <img class="img-fluid" src="{{img.pathUrl}}" alt="{{img.name}}" >
                       </div>
                     </div>
-                    <div class="col-md-3">
-                      <div class="product-thumb-image" >
-                        <img class="img-fluid" src="assets/images/imgex.png"  >
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="product-thumb-image" >
-                        <img class="img-fluid" src="assets/images/imgex.png"  >
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="product-thumb-image" >
-                        <img class="img-fluid" src="assets/images/imgex.png"  >
-                      </div>
-                    </div>
-                      
-                </div>
+                  </div>
               </div>
               <div class="col-lg-4 info-img">
                 <div class="box">
@@ -88,7 +70,7 @@
                   <!-- </div> -->
                   <div class="content-btn" >
                     <button class="btn"  style="margin-right: 10px;">Tải xuống </button>
-                    <button class="btn" style="margin-right: 10px;">Xóa</button> 
+                    <button  class="btn" style="margin-right: 10px;">Xóa</button> 
                     <button class="btn">Thêm ảnh </button>
                   </div>
         

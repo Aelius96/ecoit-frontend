@@ -12,6 +12,10 @@
       </div>
       <div class="right-d-flex">
         <div class="d-flex  flex-wrap">
+          <div class="menu-item d-flex" ng>
+            <i class="fas fa-trash-alt " style="margin-right: 10px;font-size: 18px ;"></i>
+           <i class="	fas fa-edit" style="font-size: 18px ;"> </i>
+          </div>
           <div class="menu-item ">
             <div class="d-flex">
               <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
@@ -26,12 +30,12 @@
           <div class="menu-item">
             <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
           </div>
-
         </div>
       </div>
 
     </div>
   </div>
+
 
   <!--  -->
   <div class="d-flex flex-column flex-column-fluid">
@@ -40,16 +44,18 @@
         <div class="container">
             <div id="accordion">
               <ul>
+                <!-- tesst vis dụ tick checkbox -->
+                <!--  -->
                 <li *ngFor="let nav1 of navigation">
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
                       <a class="has-child collapsed {{nav1.navChild.length > 0 ? 'active' : ''}}" data-toggle="collapse" href="#collapse{{nav1.id}}"></a>
-                      <input #checkboxes type="checkbox" [value]="nav1.selected" (change)="onCheckChange($event, nav1)">
+                      <input #checkboxes  type="checkbox" [value]="nav1.selected" (change)="onCheckChange($event, nav1)">
                       <span class="slacttar px-2 ml-2" id="{{nav1.id}}" (click)="actionTarget($event)">{{nav1.name}}</span>
                     </div>
                     <a href="/{{nav1.url}}" target="_blank">/{{nav1.url}}</a>
                   </div>
-
+                  
                   <div id="collapse{{nav1.id}}" class="link-child collapse" data-parent="#accordion">
                     <ul class="ml-4">
                       <li *ngFor="let nav2 of nav1.navChild" class="d-flex justify-content-between align-items-center">
@@ -74,3 +80,4 @@
           </div>
         </div>
   </div>
+
