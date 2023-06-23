@@ -89,9 +89,10 @@ export class NewsControlComponent implements OnInit{
     let option = confirm("Dữ liệu sẽ bị xóa . Bạn có mốn tiếp tục ");
 
     if(option){
-      this.newsService.deleteNews(id).subscribe(data=>{
+      this.newsService.deleteNews(id).subscribe(()=>{
         this.getListAllWithPage();
       })
     }
   }
+  
 }

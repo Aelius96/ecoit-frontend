@@ -21,8 +21,13 @@
     color: black;
     
   }
+  .ht-btn-custom{
+    margin-top:2px;
+    color: #121213;
+  }
+  
   .menu-item{
-    padding-left: 20px;
+    margin-left: 15px;
     margin-top: 8px;
   }
   .custom-select{
@@ -53,13 +58,10 @@
     margin-top: 50px;
   }
 
-  .view-control{
-    background-color: #45b741c7;
-  }
 
   .item{
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 5px;
+    border: 0.5px solid gainsboro;
   }
 
 

@@ -11,12 +11,16 @@ export class FileService {
 
   private baseUrl = `${Constant.BASE_URL}/s/file`
   constructor(private http:HttpClient) { }
+  // downloadFile( id:number): Observable<Object>{
+  //   return this.http.post(`${this.baseUrl}/image/download/${id}`, {observe: "response", responseType: "blob"});
+  // }
+
   downloadFile(file: File): Observable<Object>{
     return this.http.post(`${this.baseUrl}/downloadFile`,file, {observe: "response", responseType: "blob"});
   }
 
-  deleteFile(id:number ): Observable<Object>{
-    return this.http.post(`${this.baseUrl}/deleteFile`, id);
+  deleteFile(file:File ): Observable<object>{
+    return this.http.post<object>(`${this.baseUrl}/deleteFile`, file);
   }
 
   getFileById(id: number): Observable<any>{

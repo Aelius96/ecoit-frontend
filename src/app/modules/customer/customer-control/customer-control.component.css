@@ -23,8 +23,13 @@
 .control:hover{
   text-decoration: none;
 }
+.ht-btn-custom{
+  margin-top:2px;
+  color: #121213;
+}
+
 .menu-item{
-  padding-left: 20px;
+  margin-left: 15px;
   margin-top: 8px;
 }
 .custom-select{

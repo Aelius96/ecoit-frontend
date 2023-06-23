@@ -1,8 +1,6 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {RouterModule, Routes} from "@angular/router";
-import {BlogControlComponent} from "../blog/blog-control/blog-control.component";
-import {BlogAddComponent} from "../blog/blog-add/blog-add.component";
 import {GalleryControlComponent} from "../typical/gallery/gallery-control/gallery-control.component";
 import {GalleryAddComponent} from "../typical/gallery/gallery-add/gallery-add.component";
 
