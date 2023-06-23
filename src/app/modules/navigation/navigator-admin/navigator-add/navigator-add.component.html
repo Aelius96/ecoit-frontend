@@ -13,7 +13,7 @@
         <div class="d-flex  flex-wrap">
 
           <div class="menu-item">
-            <a routerLink="../" class="ht-btn-custom"  ><span aria-hidden="true" style="font-size: 30px; font-weight: bold; color: black; margin-right: 30px;">&times;</span>
+            <a (click)="goToNavList()" class="ht-btn-custom"  ><span aria-hidden="true" style="font-size: 30px; font-weight: bold; color: black; margin-right: 30px;">&times;</span>
             </a>
 
           </div>
@@ -43,12 +43,13 @@
           <div class="options">
             <div class="title">Nhóm</div>
 
-
+            <input *ngIf="isChild" name="parentId" [(ngModel)]="nav.parentId" [value]="nav.parentId" disabled>
+            <div *ngIf="isChild == false">
               <select name="parentId" [(ngModel)]="nav.parentId">
                 <option [selected]="true" [value]="0">--Chọn--</option>
                 <option *ngFor="let opt of navGroup" [value]="opt.id">{{opt.name}}</option>
               </select>
-
+            </div>
           </div>
         </div>
 

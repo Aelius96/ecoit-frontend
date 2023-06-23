@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Nav} from "../../../../core/model/nav/nav";
 import {NavService} from "../../../../services/nav/nav.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-navigator-add',
@@ -15,14 +16,35 @@ export class NavigatorAddComponent implements OnInit{
   isSignUpFailed = false;
   errorMessage = "";
   nav: Nav = new Nav();
-  isChild: any;
+  isChild= false;
   navGroup: Nav[] = [];
-  constructor(private navService : NavService,private router:Router) {}
+  constructor(private navService : NavService,private router:Router, private route:ActivatedRoute) {}
 
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    if(this.id){
+      this.navService.getNavById(this.id).subscribe(data =>{
+        this.nav = data;
+        this.listAll();
+      })
+    }
   }
-
+  listAll(){
+    this.navService.listAll().subscribe(data=>{
+      this.navGroup = data;
+    })
+  }
+  updateNav(id: any) {
+    this.navService.updateNav(id,this.nav).subscribe(
+      data=>{
+        this.goToNavList();
+      },
+      (error:HttpErrorResponse) =>{
+        alert(error.message);
+      }
+    )
+  }
   addNav(){
     this.navService.addNav(this.nav).subscribe(data =>{
       this.goToNavList();
@@ -33,7 +55,12 @@ export class NavigatorAddComponent implements OnInit{
   }
 
   onSubmit(){
-
+    if(this.id){
+      this.updateNav(this.id);
+    }else{
       this.addNav();
+    }
+
+
   }
 }
