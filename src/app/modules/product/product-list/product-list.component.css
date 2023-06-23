@@ -36,7 +36,7 @@
  
 }
 .post-item{
-  width: 150px;
+  
   height: auto;
 }
 .ap-xnam{
@@ -45,7 +45,6 @@
 
 .post-image{
   width: 70%;
-  height: 60%;
   margin-bottom: 15px;
 }
 .product-item{
@@ -66,7 +65,7 @@
   font-size: 18px;
 }
 
-.pricing-table__innerrr::before{
+.post-item::before{
   content: "";
   position: absolute;
   top: 0;
@@ -79,8 +78,9 @@
   z-index: -1;
 }
 
-.pricing-table__innerrr:hover:before {
-  width: 70%;
+.post-item:hover:before {
+  width: 100%;
   left: 0;
   right: 0;
 }
+.pricing-table{}
