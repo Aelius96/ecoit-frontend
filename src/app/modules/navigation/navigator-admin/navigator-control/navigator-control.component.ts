@@ -9,6 +9,7 @@ import {ToastService} from "../../../toast/toast.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NavigatorAddComponent} from "../navigator-add/navigator-add.component";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-navigator-control',
@@ -81,11 +82,10 @@ export class NavigatorControlComponent {
   listAll(){
     this.navService.listAll().subscribe(data=>{
       this.navigation = data;
-      console.log(this.navigation)
     })
   }
 
-  updateNavigation(id: Number){
+  updateNavigation(id: any){
     return this.router.navigate([`/admin/nav/update/${id}`])
   }
 

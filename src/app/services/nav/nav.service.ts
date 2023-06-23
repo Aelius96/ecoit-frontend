@@ -19,16 +19,16 @@ export class NavService {
     return this.http.get<Nav[]>(`${this.baseUrl}/nav`)
   }
 
-  public getNavById(params: any): Observable<Nav> {
-    return this.http.get<Nav>(`${this.baseUrl}/nav`,{params});
+  public getNavById(id: number): Observable<Nav> {
+    return this.http.get<Nav>(`${this.baseUrl}/nav/${id}`);
   }
 
   public addNav(nav: Nav): Observable<Nav> {
     return this.http.post<Nav>(`${this.baseUrl}/nav/add`,nav);
   }
 
-  public updateNav(params: any): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/nav/update`, {params});
+  public updateNav(id: number,nav: Nav): Observable<Nav> {
+    return this.http.post<Nav>(`${this.baseUrl}/nav/update/${id}`, nav);
   }
 
   public deleteNav(params: any): Observable<void> {

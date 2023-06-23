@@ -3,7 +3,10 @@ import { Router } from '@angular/router';
 import { Image } from 'src/app/core/model/image/image';
 import { File } from 'src/app/services/file/file';
 import { FileService } from 'src/app/services/file/file.service';
+
+
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
+
 
 @Component({
   selector: 'app-albums-detail',
@@ -15,10 +18,17 @@ export class AlbumsDetailComponent implements OnInit {
 
   image: Image[]=[];
   role:string;
+
+  url:any;
+  totalPages: number;
+  public pageSizes = [16, 32, 44];
+  img_detail= {
+
   
   totalPages: number;
   
   target= {
+
     url: '',
     id: 1,
     name: '',
@@ -32,11 +42,12 @@ export class AlbumsDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
- 
+
    this.getListWithPage()
   }
 
-  constructor( private imageService: FileService ,  ){}
+  constructor( private imageService: FileService   ){}
+
 
   getRequestParams(page:number , pageSize:any ):any{
     let params:any ={};
@@ -47,7 +58,7 @@ export class AlbumsDetailComponent implements OnInit {
     if (pageSize) {
       params[`pageSize`] = pageSize;
     }
-    
+
   }
   getListWithPage():void{
     const params = this.getRequestParams(this.paging.page , this.paging.size)
@@ -75,10 +86,8 @@ export class AlbumsDetailComponent implements OnInit {
     if(option){
       this.imageService.deleteFile(id).subscribe(data=>
         {this.getListWithPage()})
-      
     }
   }
-
   pick(e:any){
     this.target.url = e.target.src;
     this.target.id= e.target.id;

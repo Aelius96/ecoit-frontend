@@ -11,11 +11,13 @@
           <div class="menu-item ">
             <div class="d-flex">
               <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
+
                <app-page-size 
                   (pageSizeChange)="handlePageSizeChange($event)"
                   [totalRecords]="paging.totalRecord"
                   [(pageSize)]="paging.size"
                ></app-page-size>
+
             </div>
           </div>
         </div>
@@ -30,12 +32,14 @@
               <div class="col-lg-12">
                 <div class="col-lg-8">
                   <div class="row">
+
                     <div class="col-md-3" *ngFor="let img of image | paginate: { id: 'album',
                     itemsPerPage: paging.size,
                     currentPage: paging.page,
                     totalItems: paging.totalRecord }  ">
                       <div class="product-thumb-image" (click)="pick($event)" >
                         <img class="img-fluid" src="{{img.pathUrl}}" alt="{{img.name}}" id="{{img.id}}" appHideMissing >
+
                       </div>
                     </div>
                   </div>

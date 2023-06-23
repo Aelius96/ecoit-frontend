@@ -16,7 +16,7 @@ export class NewsControlComponent implements OnInit{
   role:string;
 
   searchInput= '';
-  
+
   paging = {
     page: 1,
     size: 5,
@@ -84,6 +84,7 @@ export class NewsControlComponent implements OnInit{
   updateNews(id: number){
     return this.router.navigate([`/admin/news/edit`,id]);
   }
+
   deleteNews(id: number){
     let option = confirm("Dữ liệu sẽ bị xóa . Bạn có mốn tiếp tục ");
 
