@@ -42,6 +42,7 @@
 
       <div class="navi-page">
         <div class="container">
+          <div class="faq-wrapper">
             <div id="accordion">
               <ul>
                 <!-- tesst vis dụ tick checkbox -->
@@ -52,7 +53,7 @@
                       <a class="has-child collapsed {{nav1.navChild.length > 0 ? 'active' : ''}}" data-toggle="collapse" href="#collapse{{nav1.id}}"></a>
                       <input #checkboxes  type="checkbox" [value]="nav1.selected" (change)="onCheckChange($event, nav1)">
                       <span class="slacttar px-2 ml-2" id="{{nav1.id}}" (click)="actionTarget($event)">{{nav1.name}}</span>
-                      <i class="fas fa-trash-alt " style="margin-right: 10px;font-size: 18px ;"></i>
+                      <i class="fas fa-trash-alt " style="margin-right: 10px;font-size: 18px ;" (click)="deleteNavigation(nav1.id)"></i>
                       <i class="	fas fa-edit" style="font-size: 18px ;"(click)="updateNavigation(nav1.id)"> </i>
                     </div>
                     <a href="/{{nav1.url}}" target="_blank">{{nav1.url}}</a>
@@ -79,6 +80,7 @@
                 </li>
               </ul>
             </div>
+          </div>
           </div>
         </div>
   </div>
