@@ -61,13 +61,14 @@
     position: static;
      
      margin-left: 10px;
-     padding: 5px 10px 5px 10px;
+    
      font-size: 15px;
      border-radius: 10px;
    }
   
    .icon-item{
      color: #eff2f5;
+     margin-right: 10px;
    }
    .icon-item:hover{
      color: black;

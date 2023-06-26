@@ -8,4 +8,5 @@ export class Comment {
     userId :any;
     commentChild:any;
     post:any;
+    
 }
