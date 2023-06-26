@@ -54,7 +54,7 @@ export class NewsAddComponent implements OnInit{
     this.newsService.createNews(newsFormData).subscribe(data =>{
         this.goToNewsList();
       },
-      error => console.log(error));
+      error => console.log(error.error));
   }
 
   goToNewsList(){

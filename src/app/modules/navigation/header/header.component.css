@@ -64,3 +64,40 @@ a:hover{
 }
 
 
+.menu-primary > li > a{
+  position: relative;
+  color: #fff;
+  padding: 0 10px;
+  margin: 0 5px;
+}
+
+.menu-primary > li > a:after{
+  position: absolute;
+  content: '';
+  left: 50%;
+  right: 50%;
+  opacity: 0;
+  bottom: -6px;
+  border-bottom: 3px solid #50b848
+}
+.menu-primary > li.active > a:after,
+.menu-primary > li:hover > a:after{
+  opacity: 1;
+  left: 0;
+  right: 0;
+}
+.navigation-menu > ul > li.has-children > a:after{
+  content: " ";
+}
+.submenu{
+  width: 330px;
+  top: 30px;
+}
+.submenu li a{
+  font-size: 14px;
+  color: #50B848;
+}
+.submenu li:hover a{
+  background: #50B848;
+  color: #fff;
+}

@@ -29,6 +29,7 @@ export class NavigatorAddComponent implements OnInit{
         this.listAll();
       })
     }
+    this.listAll();
   }
   listAll(){
     this.navService.listAll().subscribe(data=>{

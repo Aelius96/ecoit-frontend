@@ -22,11 +22,7 @@ export class AlbumsDetailComponent implements OnInit {
   url:any;
   totalPages: number;
   public pageSizes = [16, 32, 44];
-  img_detail= {
 
-  
-  totalPages: number;
-  
   target= {
 
     url: '',
@@ -54,7 +50,7 @@ export class AlbumsDetailComponent implements OnInit {
     if(page){
       params[`pageNo`] = page-1
     }
-   
+
     if (pageSize) {
       params[`pageSize`] = pageSize;
     }
@@ -66,7 +62,7 @@ export class AlbumsDetailComponent implements OnInit {
       this.image = data.content;
       this.paging.totalRecord = data.totalElements;
 
-    }, error=>{console.log(error);} 
+    }, error=>{console.log(error);}
     )
   }
   handlepagechange(event : number):void{
@@ -92,7 +88,7 @@ export class AlbumsDetailComponent implements OnInit {
     this.target.url = e.target.src;
     this.target.id= e.target.id;
     this.target.name=e.target.alt;
-    
+
   }
 
 }
