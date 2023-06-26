@@ -27,8 +27,13 @@
     width: 80%;
   }
 
+  .ht-btn-custom{
+    margin-top:2px;
+    color: #121213;
+  }
+  
   .menu-item{
-    padding-left: 20px;
+    margin-left: 15px;
     margin-top: 8px;
   }
   .custom-select{
@@ -39,6 +44,7 @@
   }
   .item-blog{
     margin-top: 30px;
+    text-align: center;
   }
   .form-control{
     height: 30px;
@@ -94,16 +100,14 @@
     font-weight: bolder;
     color: #5bb342;
     text-align: center;
-    margin-top: 50px;
+   
 
   }
   
-  .description{
-  margin-top: 50px;
+  .pro_description{
+ margin: auto;
   }
-  .ht-btn-custom{
-    margin-top: 2px;
-  }
+
   /*-------------------------------------------------------------*/
   a.btn-link{
     width: 100%;
@@ -129,3 +133,6 @@
     color: #5945e6;
   }
 
+.pro_name{
+  margin: auto;
+}

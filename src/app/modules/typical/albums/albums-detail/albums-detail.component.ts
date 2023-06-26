@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { Image } from 'src/app/core/model/image/image';
 import { File } from 'src/app/services/file/file';
 import { FileService } from 'src/app/services/file/file.service';
+import * as fileSaver from 'file-saver';
+import { mergeMap } from 'rxjs';
 
-
-import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 
 
 @Component({
@@ -76,14 +76,29 @@ export class AlbumsDetailComponent implements OnInit {
     console.log(event, this.paging.size)
     this.getListWithPage();
   }
-  deleteFile(id: number){
+  deleteFile(e: any){
     let option = confirm("Dữ liệu sẽ bị xóa. Bạn có mốn tiếp tục ");
 
     if(option){
-      this.imageService.deleteFile(id).subscribe(data=>
-        {this.getListWithPage()})
+      this.imageService.getFileById(e).subscribe(dt1=>{
+        this.imageService.deleteFile(dt1).subscribe(()=>{
+          this.getListWithPage()
+        }
+        )
+      })
     }
   }
+
+  downloadimg(e:any){
+    this.imageService.getFileById(e).subscribe(data =>{
+      this.imageService.downloadFile(data).subscribe((data2:any) =>{
+        let blob = new Blob([data2.body] , {type:data2.body.type})
+        fileSaver.saveAs(blob , data.name );
+      })
+    })
+   
+  }
+
   pick(e:any){
     this.target.url = e.target.src;
     this.target.id= e.target.id;

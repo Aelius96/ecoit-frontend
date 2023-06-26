@@ -6,8 +6,8 @@ import { CommonModule } from "@angular/common";
 
 
 const routes: Routes = [
-    {path:'' , component: AlbumsControlComponent},
-    {path:'detail', component:AlbumsDetailComponent}
+    {path:'', component:AlbumsDetailComponent}
+    
   
   ]
   

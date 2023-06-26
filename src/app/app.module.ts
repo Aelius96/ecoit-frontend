@@ -96,8 +96,8 @@ import { BlogMoreComponent } from './modules/blog/blog-more/blog-more.component'
 import { ListContactComponent } from './modules/typical/list/list-contact/list-contact.component';
 import { ListControlComponent } from './modules/typical/list/list-control/list-control.component';
 import { ListCommentComponent } from './modules/typical/list/list-comment/list-comment.component';
-import { CommentListComponent } from './modules/typical/comment/comment-list/comment-list.component';
 import { AppPageSizeImageComponent } from './modules/shared/app-page-size-image/app-page-size-image.component';
+import { CommentListComponent } from './modules/comment/comment-list/comment-list.component';
 
 
 

@@ -18,6 +18,12 @@
     margin-top: 5px;
     width: 80%;
   }
+  .search{
+    margin-left: 10px;
+    height: 30px;
+    margin-top: 7px;
+    width: 100px;
+  }
 
   .menu-item{
     padding-left: 20px;
@@ -37,7 +43,7 @@
     font-size: 15px;
     margin-top:7px;
   }
-  .inputt{
+  .input-group-append{
     margin-left: 0px;
     height: 30px;
     margin-top:7px;

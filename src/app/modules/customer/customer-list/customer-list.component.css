@@ -33,9 +33,7 @@
   font-size: 18px;
 }
 .box-footer{
-
-
-  bottom: 2px;
+  bottom: 10px;
   position: absolute;
   width: 78%;
   display: flex;

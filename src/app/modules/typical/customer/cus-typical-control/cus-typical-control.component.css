@@ -47,8 +47,7 @@ a:hover{
 }
 
 .cus-typical{
-  height: 179vh;
-  background-color: rgba(220, 220, 220, 0.485);
+  /* background-color: rgba(220, 220, 220, 0.485); */
   padding: 120px 80px 30px 80px; 
 }
 .item{
@@ -65,10 +64,11 @@ a:hover{
   transition: .5s ease;
   backface-visibility: hidden;
   border-radius: 10px;
+  border: 0.5px solid #275e1a;
 }
 
 .text {
-  background-color: #2ccb3781;
+  background-color: #2ccb379f;
   color: white;
   font-size: 16px;
   padding: 5px 8px;

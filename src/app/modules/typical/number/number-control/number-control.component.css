@@ -15,8 +15,14 @@
   font-size: 18px;
   color: black;
 }
+
+.ht-btn-custom{
+  margin-top:2px;
+  color: #121213;
+}
+
 .menu-item{
-  padding-left: 20px;
+  margin-left: 15px;
   margin-top: 8px;
 }
 .custom-select{
@@ -32,6 +38,7 @@
 .text-title{
   color: #50b848;
   font-family: vi;
+  font-size: 30px;
 }
 .hr{
   width: 150px;
