@@ -15,6 +15,10 @@ export class NavService {
   private baseUrl = `${Constant.BASE_URL}`
   constructor(private http: HttpClient) { }
 
+  listAllWithPage(params: any): Observable<any>{
+    return this.http.get(`${this.baseUrl}/nav`,{params})
+  }
+
   listAll(): Observable<Nav[]>{
     return this.http.get<Nav[]>(`${this.baseUrl}/nav`)
   }

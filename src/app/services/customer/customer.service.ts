@@ -34,5 +34,7 @@ export class CustomerService {
   getCusById(id: number): Observable<Customer>{
     return this.http.get<Customer>(`${this.baseUrl}/customer/${id}`);
   }
-
+  getCusByUrl(url: string): Observable<Customer>{
+    return this.http.get<Customer>(`${this.baseUrl}/customer/home/${url}`);
+  }
 }

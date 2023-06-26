@@ -100,56 +100,56 @@ export class NavigatorControlComponent {
   }
 
 
-  // getRequestParams(page: number, pageSize: number,search:string): any {
-  //   let params: any = {};
-  //
-  //   if (page) {
-  //     params[`pageNo`] = page-1;
-  //   }
-  //
-  //   if (pageSize) {
-  //     params[`pageSize`] = pageSize;
-  //   }
-  //
-  //   if(search){
-  //     params[`search`] = search;
-  //   }
-  //   return params;
-  // }
-  //
-  // getListAllWithPage(): void {
-  //   const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
-  //
-  //   this.navService.listAllWithPage(params)
-  //     .subscribe(
-  //       response => {
-  //         this.navigation = response.content;
-  //         this.paging.totalRecord = response.totalElements;
-  //         this.totalPages = response.totalPages;
-  //         console.log(response);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  // }
-  //
-  //
-  // searchTitleAndDescription(): void {
-  //   this.paging.page = 1;
-  //   this.getListAllWithPage();
-  // }
-  // handlePageChange(event: number): void {
-  //   console.log(event);
-  //   this.paging.page = event;
-  //   this.getListAllWithPage();
-  // }
-  //
-  // handlePageSizeChange(event: any): void {
-  //   this.paging.size = event;
-  //   this.paging.page = 1;
-  //   console.log(event, this.paging.size)
-  //   this.getListAllWithPage();
-  // }
+  getRequestParams(page: number, pageSize: number,search:string): any {
+    let params: any = {};
+
+    if (page) {
+      params[`pageNo`] = page-1;
+    }
+
+    if (pageSize) {
+      params[`pageSize`] = pageSize;
+    }
+
+    if(search){
+      params[`search`] = search;
+    }
+    return params;
+  }
+
+  getListAllWithPage(): void {
+    const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
+
+    this.navService.listAllWithPage(params)
+      .subscribe(
+        response => {
+          this.navigation = response.content;
+          this.paging.totalRecord = response.totalElements;
+          this.totalPages = response.totalPages;
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+
+  searchTitleAndDescription(): void {
+    this.paging.page = 1;
+    this.getListAllWithPage();
+  }
+  handlePageChange(event: number): void {
+    console.log(event);
+    this.paging.page = event;
+    this.getListAllWithPage();
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.paging.size = event;
+    this.paging.page = 1;
+    console.log(event, this.paging.size)
+    this.getListAllWithPage();
+  }
 
 
 }

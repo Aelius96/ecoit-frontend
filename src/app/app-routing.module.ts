@@ -28,6 +28,8 @@ import {AuthenticateService} from "./authentication/authenticate.service";
 import {NewsDetailComponent} from "./modules/news/news-detail/news-detail.component";
 import { RecruitDetailComponent } from "./modules/recruit/recruit-detail/recruit-detail.component";
 import { BlogDetailComponent } from "./modules/blog/blog-detail/blog-detail.component";
+import {CustomerDetailComponent} from "./modules/customer/customer-detail/customer-detail.component";
+import {ProductDetailComponent} from "./modules/product/product-detail/product-detail.component";
 
 
 
@@ -36,22 +38,21 @@ const routes: Routes =[
   {path:'trang-chu', component: HomeMainComponent},
   //sản phẩm
   //{ path: 'khach-hang-chinh-phu' , component:CustomerProductComponent },
-  { path: 'khach-hang-chinh-phu' , component:GovernmentComponent },
-  {path: 'khach-hang-tai-chinh-ngan-hang' , component:BankingComponent},
-  {path: 'khach-hang-doanh-nghiep' , component: BusinessComponent},
-  {path: 'khach-hang-an-ninh-quoc-phong', component: SecurityDefenseComponent},
+  { path: 'khach-hang/:url' , component:CustomerDetailComponent },
+
+  {path: 'san-pham/:url', component: ProductDetailComponent},
 
   // giới thiệu
   {path: 've-chung-toi' , component:AboutUsComponent},
   {path: 'ho-so-nang-luc' , component: CapacityProfileComponent},
-  {path: 'khach-hang-tieu-bieu' , component: TypicalCustomersComponent},
+  {path: 'khach-han`g-tieu-bieu' , component: TypicalCustomersComponent},
   //
   {path: 'lien-he' , component: ContactComponent},
 
   {path: '404' , component:ErrorComponent},
 //news
-  {path:'news',component:NewsListComponent},
-  {path:'news/:url', component: NewsDetailComponent},
+  {path:'tin-tuc',component:NewsListComponent},
+  {path:'tin-tuc/:url', component: NewsDetailComponent},
   //recruit
   {path:'recruit',component: RecruitListComponent},
   {path:'recruit/:url' , component:RecruitDetailComponent},
