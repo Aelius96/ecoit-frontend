@@ -40,3 +40,11 @@ a:hover{
   text-decoration: none;
   color: black;
 }
+.blog-thumbnail{
+  height: 50%;
+}
+.img-fluid{
+  height: 100%;
+  width: 100%;
+}
+
