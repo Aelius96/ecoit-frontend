@@ -23,8 +23,8 @@
     color: #0d0d0d;
     font-size: 20px;
     font-weight: bold;
-    margin-top: 5px;
-    width: 80%;
+    margin-top: 7px;
+    width: 40%;
   }
 
   .ht-btn-custom{
@@ -57,7 +57,11 @@
     margin-top:7px;
     display: flex;
   }
-  
+  .search{
+    width: 60%;
+    height: 30px;
+    margin-top: 7px;
+  }
 .action-box {
   padding-left: 0px;
   display: flex;

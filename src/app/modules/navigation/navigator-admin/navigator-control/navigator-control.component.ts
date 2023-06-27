@@ -23,28 +23,40 @@ export class NavigatorControlComponent {
   removeSelectNav: Nav[] = [];
   role: string;
   selects: any;
+  id:any;
   currentIndex = -1;
   totalPages: number;
   searchInput= '';
+  pageSize =[20,30,40]
 
   paging = {
     page: 1,
-    size: 5,
+    size: 20,
     totalRecord: 0
   }
 
   actionT = false;
   actionId: any;
-  modalRef?: NgbModalRef;
+  // modalRef?: NgbModalRef; //tùy chọn có hoặc ko
 
   constructor(private router: Router,
               private navService:NavService,
               private renderer: Renderer2,
               private toast: ToastService,
               private modalService: NgbModal
-  ) {}
+  ) {
+    this.renderer.listen('window', 'click' , (e:Event)=>{
+      if(e.target !== this.actionId){
+        this.actionT = false;
+        document.getElementById(`${this.actionId}`)?.classList.toggle('target');
+
+      }
+    })
+  }
 
   ngOnInit(): void {
+    window.sessionStorage.removeItem("navGroup");
+    window.sessionStorage.removeItem("navId")
     this.listAll();
   }
 
@@ -84,6 +96,11 @@ export class NavigatorControlComponent {
       this.navigation = data;
     })
   }
+  // getAllNavGroup(){
+  //   this.navService.listAll().subscribe( res=>{
+  //     this.navigation = res
+  //   })
+  // }
 
   updateNavigation(id: any){
     return this.router.navigate([`/admin/nav/update/${id}`])
@@ -151,5 +168,17 @@ export class NavigatorControlComponent {
     this.getListAllWithPage();
   }
 
+prepareformData(formdata: any){
+  const formData = new FormData;
+  formData.append('id',
+  new Blob ([JSON.stringify(formdata)], {type:'application/json'}))
+  return formData;
+}
 
+
+clearnAll(){
+  this.removeSelectNav = this.selectNavList.filter(item => item.selected);
+  const formData = this.prepareformData(this.removeSelectNav.map(res=>res.id));
+      this.navService.deleteNav
+}
 }

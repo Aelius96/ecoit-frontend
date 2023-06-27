@@ -38,4 +38,6 @@ export class NavService {
   public deleteNav(id: number): Observable<void> {
     return this.http.get<void>(`${this.baseUrl}/nav/delete/${id}`);
   }
+
+
 }

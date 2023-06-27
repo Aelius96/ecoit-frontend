@@ -4,7 +4,7 @@
         <div class="d-flex">
           <span  class="spann tt">Sản phẩm</span>
           <form (ngSubmit)="search()" class="d-flex">
-            <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm ">
+            <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " class="search">
             <div class="input-group-append inputt" >
               <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
             </div>
@@ -76,7 +76,7 @@
     </div>
   </div>
 
-  <div class="row" *ngIf="paging.totalRecord >0" style="margin-top: 20px;" >
+  <div class="row" *ngIf="paging.totalRecord >0" style="margin-top: 20px; width: 100%;" >
     <div class="col-lg-12" >
       <div class="container">
       <pagination-controls  previousLabel="<"

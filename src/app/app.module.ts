@@ -98,6 +98,7 @@ import { ListControlComponent } from './modules/typical/list/list-control/list-c
 import { ListCommentComponent } from './modules/typical/list/list-comment/list-comment.component';
 import { AppPageSizeImageComponent } from './modules/shared/app-page-size-image/app-page-size-image.component';
 import { CommentListComponent } from './modules/comment/comment-list/comment-list.component';
+import { ProductMoreComponent } from './modules/product/product-more/product-more.component';
 
 
 
@@ -187,6 +188,7 @@ import { CommentListComponent } from './modules/comment/comment-list/comment-lis
       CommentListComponent,
     ToastContainerComponent,
       AppPageSizeImageComponent,
+      ProductMoreComponent,
 
 
   ],
