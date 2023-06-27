@@ -104,6 +104,7 @@
 
 .slacttar {
   cursor: default;
+
 }
 
 .slacttar.target {
@@ -112,4 +113,30 @@
 .nav1{
   padding-right: 10px;
   padding-left: 10px;
+}
+.selected-number{
+  height: 25px;
+  width: 29px;
+  color: #495057;
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  text-align: center;
+  padding-top: 2px;
+}
+.event{
+  height: 25px;
+  width: 29px;
+  color: #495057;
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+.selected{
+  margin: 8px -10px 0px 5px;
+}
+.ht-btn-custom{
+  color: #0d0d0d;
+  margin-top: 3px;
 }

@@ -12,13 +12,27 @@
       </div>
       <div class="right-d-flex">
         <div class="d-flex  flex-wrap">
-          <div class="menu-item d-flex" >
-            <!-- <i class="fas fa-trash-alt " style="margin-right: 10px;font-size: 18px ;"></i>
-           <i class="	fas fa-edit" style="font-size: 18px ;"> </i> -->
+          <div class="menu-item d-flex">
+            <!-- <i class="fas fa-trash-alt " (click)="deleteNavigation(actionId)" style="margin-right: 10px;font-size: 18px ;"></i>
+           <i class="	fas fa-edit" (click)="updateNavigation(actionId)" style="font-size: 18px ;"> </i> -->
+          </div>
+          <div class="d-flex selected" *ngIf="selects">
+            <span style="margin-right: 6px; margin-top: 2px;">Đã chọn </span>
+            <div class="selected-number">{{selects}}</div>
+            <div class="menu-link">
+              <a class="selected-number "  title="Xóa"> 
+                <i class="far fa-trash-alt fa-lg"></i>
+              </a>
+            </div>
+            <div class="menu-link" >
+              <a class="selected-number" title="Hủy" (click)="uncheckAll()">
+                <i class="far fa-times fa-lg"></i>
+              </a>
+            </div>
           </div>
           <div class="menu-item ">
             <div class="d-flex">
-              <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
+              <span class="mt-1 mr-1">Số mục mỗi trang:</span>
               <select class="custom-select">
                 <option>1</option>
                 <option>2</option>
@@ -27,6 +41,8 @@
               </select>
             </div>
           </div>
+          
+          
           <div class="menu-item">
             <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
           </div>
@@ -54,10 +70,14 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div>
                       <a class="has-child collapsed {{nav1.navChild.length > 0 ? 'active' : ''}}" data-toggle="collapse" href="#collapse{{nav1.id}}"></a>
-                      <input #checkboxes  type="checkbox" [value]="nav1.selected" (change)="onCheckChange($event, nav1)">
+                      <input  #checkboxes type="checkbox" [value]="nav1.selected" (change)="onCheckChange($event, nav1)">
                       <span class="slacttar px-2 ml-2 mr-3" id="{{nav1.id}}" (click)="actionTarget($event)">{{nav1.name}}</span>
+                      <i class="	fas fa-edit" style="font-size: 12px ;"(click)="updateNavigation(nav1.id)"> </i>
+                      <!-- <span *ngIf="nav1.id ;  else prompt">
                       <i class="fas fa-trash-alt " style="margin-right: 15px;font-size: 14px ;" (click)="deleteNavigation(nav1.id)"></i>
                       <i class="	fas fa-edit" style="font-size: 14px ;"(click)="updateNavigation(nav1.id)"> </i>
+                      </span>
+                        <ng-template #prompt></ng-template> -->
                     </div>
                     <a href="/{{nav1.url}}" target="_blank">{{nav1.url}}</a>
                   </div>
@@ -67,9 +87,9 @@
                       <li *ngFor="let nav2 of nav1.navChild " class="d-flex justify-content-between align-items-center">
                         <div style="width: 500px">
                           <input #checkboxes type="checkbox" [value]="nav2.selected" (change)="onCheckChange($event, nav2)">
-                          <span class="slacttar ml-2 mr-3 " id="{{nav2.id}}" (click)="actionTarget($event)">{{nav2.name}}</span>
-                          <i class="fas fa-trash-alt " style="margin-right: 15px;font-size: 14px ;"  (click)="deleteNavigation(nav2.id)"></i>
-                          <i class="	fas fa-edit" style="font-size: 14px ;" (click)="updateNavigation(nav2.id)"> </i>
+                          <span  class="slacttar ml-2 mr-3 " id="{{nav2.id}}" (click)="actionTarget($event)">{{nav2.name}}</span>
+                          <!-- <i class="fas fa-trash-alt " style="margin-right: 15px;font-size: 14px ;"  (click)="deleteNavigation(nav2.id)"></i> -->
+                          <i class="	fas fa-edit" style="font-size: 12px ;" (click)="updateNavigation(nav2.id)"> </i>
                         </div>
                         <a href="/{{nav2.url}}" target="_blank">{{nav2.url}}</a>
                       </li>

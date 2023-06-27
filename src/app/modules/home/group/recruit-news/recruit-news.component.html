@@ -6,7 +6,7 @@
           <div class="ssection-space--mb_20 ">
             <div class="text-center  ">
               <h2 class="title"style="text-align: center;">TUYỂN DỤNG - TIN TỨC</h2>
-              <hr id="gachchan" class="gioithieu">
+              <hr class="gachchan" >
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
                     <div class="recruit">
                       <ul >
                         <li *ngFor="let news of newsList ; let n =  index" >
-                          <div  *ngIf="n<3"  style="padding-top: 2px">
+                          <div class="d-flex flex-row"  *ngIf="n<3"  style="padding-top: 2px">
                             <div class="anhtintuc" >
 
                               <a href="/tin-tuc/{{news.url}}" title="{{news.title}}" style="height: 100%;">
@@ -67,7 +67,7 @@
                             </div>
                             
                           </div>
-                          <hr >
+                          <hr>
                         </li>
                         
                       </ul>
