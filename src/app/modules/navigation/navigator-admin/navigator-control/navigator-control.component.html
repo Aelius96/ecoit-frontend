@@ -73,6 +73,7 @@
                       <input  #checkboxes type="checkbox" [value]="nav1.selected" (change)="onCheckChange($event, nav1)">
                       <span class="slacttar px-2 ml-2 mr-3" id="{{nav1.id}}" (click)="actionTarget($event)">{{nav1.name}}</span>
                       <i class="	fas fa-edit" style="font-size: 12px ;"(click)="updateNavigation(nav1.id)"> </i>
+                      <i class="fas fa-trash-alt " style="font-size: 12px ;" (click)="deleteNavigation(nav1.id)"></i>
                       <!-- <span *ngIf="nav1.id ;  else prompt">
                       <i class="fas fa-trash-alt " style="margin-right: 15px;font-size: 14px ;" (click)="deleteNavigation(nav1.id)"></i>
                       <i class="	fas fa-edit" style="font-size: 14px ;"(click)="updateNavigation(nav1.id)"> </i>
@@ -88,7 +89,7 @@
                         <div style="width: 500px">
                           <input #checkboxes type="checkbox" [value]="nav2.selected" (change)="onCheckChange($event, nav2)">
                           <span  class="slacttar ml-2 mr-3 " id="{{nav2.id}}" (click)="actionTarget($event)">{{nav2.name}}</span>
-                          <!-- <i class="fas fa-trash-alt " style="margin-right: 15px;font-size: 14px ;"  (click)="deleteNavigation(nav2.id)"></i> -->
+                          <i class="fas fa-trash-alt " style="margin-right: 15px;font-size: 14px ;"  (click)="deleteNavigation(nav2.id)"></i>
                           <i class="	fas fa-edit" style="font-size: 12px ;" (click)="updateNavigation(nav2.id)"> </i>
                         </div>
                         <a href="/{{nav2.url}}" target="_blank">{{nav2.url}}</a>
