@@ -20,7 +20,6 @@ export class UserControlComponent implements OnInit{
 
   users: User[]=[];
   role : string;
-  currentIndex:number;
    // pageSizes = [3, 6, 9];
 
   searchInput='';
@@ -35,6 +34,7 @@ export class UserControlComponent implements OnInit{
     private totkenstorageService : TokenStorageService ) { }
 
   ngOnInit(): void {
+   
   this.getAllUser();
   }
 
@@ -84,8 +84,9 @@ handlepagechange(event:number):void{
 
 handlepagesizechange(event:any ):void{
   this.paging.size = event;
-  this.paging.size =1 ;
-  this.getAllUser()
+  this.paging.page =1 ;
+  this.getAllUser();
+  console.log(this.paging.size)
 }
   updateUser(id:number){
     return this.router.navigate([`admin/user/update/${id}`])
