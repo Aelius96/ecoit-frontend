@@ -48,7 +48,7 @@ const routes: Routes =[
   {path: 'gioi-thieu/khach-hang-tieu-bieu' , component: TypicalCustomersComponent},
   //
   {path: 'lien-he' , component: ContactComponent},
-
+  { path: '**', redirectTo: '/404' },
   {path: '404' , component:ErrorComponent},
 //news
   {path:'tin-tuc',component:NewsListComponent},
