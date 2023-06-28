@@ -9,17 +9,17 @@ export class SideBarComponent {
   informations = [
     {
       id:1,
-      href:'/ve-chung-toi',
+      href:'gioi-thieu/ve-chung-toi',
       title:'Về Chúng Tôi'
     },
     {
       id:2,
-      href:'/ho-so-nang-luc',
+      href:'gioi-thieu/ho-so-nang-luc',
       title:'Hồ Sơ Năng Lực'
     },
     {
       id:3,
-      href:'/khach-hang-tieu-bieu',
+      href:'gioi-thieu/khach-hang-tieu-bieu',
       title:'Khách Hàng Tiêu Biểu'
     },
   ]

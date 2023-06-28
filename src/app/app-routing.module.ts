@@ -43,9 +43,9 @@ const routes: Routes =[
   {path: 'san-pham/:url', component: ProductDetailComponent},
 
   // giới thiệu
-  {path: 've-chung-toi' , component:AboutUsComponent},
-  {path: 'ho-so-nang-luc' , component: CapacityProfileComponent},
-  {path: 'khach-hang-tieu-bieu' , component: TypicalCustomersComponent},
+  {path: 'gioi-thieu/ve-chung-toi' , component:AboutUsComponent},
+  {path: 'gioi-thieu/ho-so-nang-luc' , component: CapacityProfileComponent},
+  {path: 'gioi-thieu/khach-hang-tieu-bieu' , component: TypicalCustomersComponent},
   //
   {path: 'lien-he' , component: ContactComponent},
 
