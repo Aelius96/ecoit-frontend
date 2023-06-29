@@ -28,7 +28,7 @@
               <div class="carousel-inner" >
                 <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let blog of blogList ;let s = index">
               <div class="col-md-6 first-blog">
-                <a href="/blog/{{blog.link}}">
+                <a href="/blog/{{blog.url}}">
                   <img class="img-fluid" src="{{blog.image.pathUrl}}"
                        alt=" Images">
                 </a>
@@ -37,7 +37,7 @@
                 <div class="post-info lg-blog-post-info">
 
                   <h4 class="post-title font-weight--light">
-                    <a href="/blog/{{blog.link}}">{{blog.title}}</a>
+                    <a href="/blog/{{blog.url}}">{{blog.title}}</a>
                   </h4>
 
                   <div class="post-excerpt mt-15">
@@ -80,16 +80,16 @@
                       <!-- Post info Start -->
                       <div class="post-info lg-blog-post-info">
                         <h5 class="post-title font-weight--bold">
-                          <a href="/blog/{{blog.link}}">{{blog.title}}</a>
+                          <a href="/blog/{{blog.url}}">{{blog.title}}</a>
                         </h5>
                         <div class="post-excerpt mt-15">
                           <p>{{blog.description}}</p>
                         </div>
 
                       </div>
-                      
+
                     </div>
-                    
+
                   </div>
 
                   <div class="col-lg-12 wow move-up">

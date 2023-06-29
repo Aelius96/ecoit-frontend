@@ -8,10 +8,10 @@ import { SliderAddComponent } from '../sliders/slider-add/slider-add.component';
 
 const routes: Routes = [
     {path:'' , component: SliderControlComponent},
-    {path: 'new', component: SliderAddComponent},
+    {path: 'add', component: SliderAddComponent},
     {path:'update/:id' , component: SliderAddComponent},
   ]
-  
+
   @NgModule({
     declarations:[],
     imports:[
@@ -20,6 +20,6 @@ const routes: Routes = [
     ],
     exports: [RouterModule]
   })
-  
-  
+
+
   export class SlidersModule {}

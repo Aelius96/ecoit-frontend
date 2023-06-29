@@ -98,7 +98,10 @@ import { ListControlComponent } from './modules/typical/list/list-control/list-c
 import { ListCommentComponent } from './modules/typical/list/list-comment/list-comment.component';
 import { AppPageSizeImageComponent } from './modules/shared/app-page-size-image/app-page-size-image.component';
 import { CommentListComponent } from './modules/comment/comment-list/comment-list.component';
+import {SlickCarouselModule} from "ngx-slick-carousel";
+import {NgxInputTagModule} from "@ngx-lite/input-tag";
 import { ProductMoreComponent } from './modules/product/product-more/product-more.component';
+
 
 
 
@@ -186,24 +189,26 @@ import { ProductMoreComponent } from './modules/product/product-more/product-mor
       ListControlComponent,
       ListCommentComponent,
       CommentListComponent,
-    ToastContainerComponent,
+      ToastContainerComponent,
       AppPageSizeImageComponent,
       ProductMoreComponent,
 
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    CKEditorModule,
-    HttpClientModule,
-    CommonModule,
-    ReactiveFormsModule,
-    NgOptimizedImage,
-    NgxPaginationModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        CKEditorModule,
+        HttpClientModule,
+        CommonModule,
+        ReactiveFormsModule,
+        NgOptimizedImage,
+        NgxPaginationModule,
+        SlickCarouselModule,
+        NgxInputTagModule.forRoot(),
 
-  ],
+    ],
   providers: [authInterceptorProviders],
 
   bootstrap: [AppComponent]
