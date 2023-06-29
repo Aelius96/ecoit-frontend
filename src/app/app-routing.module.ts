@@ -45,7 +45,7 @@ const routes: Routes =[
   // giới thiệu
   {path: 've-chung-toi' , component:AboutUsComponent},
   {path: 'ho-so-nang-luc' , component: CapacityProfileComponent},
-  {path: 'khach-han`g-tieu-bieu' , component: TypicalCustomersComponent},
+  {path: 'khach-hang-tieu-bieu' , component: TypicalCustomersComponent},
   //
   {path: 'lien-he' , component: ContactComponent},
 
@@ -54,10 +54,10 @@ const routes: Routes =[
   {path:'tin-tuc',component:NewsListComponent},
   {path:'tin-tuc/:url', component: NewsDetailComponent},
   //recruit
-  {path:'recruit',component: RecruitListComponent},
-  {path:'recruit/:url' , component:RecruitDetailComponent},
+  {path:'tuyen-dung',component: RecruitListComponent},
+  {path:'tuyen-dung/:url' , component:RecruitDetailComponent},
   //
-  {path:'post', component: PostListComponent},
+  // {path:'post', component: PostListComponent},
   //blog
   {path:'blog', component: BlogListComponent},
   {path:'blog/:url', component:BlogDetailComponent},
