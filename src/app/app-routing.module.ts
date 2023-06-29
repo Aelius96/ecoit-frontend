@@ -54,7 +54,7 @@ const routes: Routes =[
   {path:'tuyen-dung',component: RecruitListComponent},
   {path:'tuyen-dung/:url' , component:RecruitDetailComponent},
   //
-  {path:'post', component: PostListComponent},
+  // {path:'post', component: PostListComponent},
   //blog
   {path:'blog', component: BlogListComponent},
   {path:'blog/:url', component:BlogDetailComponent},

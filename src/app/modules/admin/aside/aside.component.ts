@@ -59,7 +59,7 @@ export class AsideComponent {
     {
       id:6,
       tittle:'Trình chiếu',
-      a: 'slide',
+      a: 'sliders',
       icon:'far fa-columns'
     },
     {

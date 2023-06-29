@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="">
+    <form (submit)="onSubmit()">
         <div class="row">
             <div class="col-lg-8">
                 <div class="update_box">
@@ -13,14 +13,14 @@
             <div class="col-lg-4">
                 <div class="update_box">
                     <h3 style="color: #37bd3e; margin-top: 0px;">Thông tin</h3>
-                    <input type="text"  name="" placeholder="liên kết">
+                    <input type="text"  name="url" [(ngModel)]="slider.url" placeholder="liên kết">
 
                 </div>
                 <div class="submit-button">
                     <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
-                    <a href="admin/slide" ><button type="button" class="btn btn-secondary btn-lg btnn cancel"  >Hủy</button></a>
+                  <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToSliderList()" >Hủy</button>
                   </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>

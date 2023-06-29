@@ -98,8 +98,10 @@ import { ListControlComponent } from './modules/typical/list/list-control/list-c
 import { ListCommentComponent } from './modules/typical/list/list-comment/list-comment.component';
 import { AppPageSizeImageComponent } from './modules/shared/app-page-size-image/app-page-size-image.component';
 import { CommentListComponent } from './modules/comment/comment-list/comment-list.component';
+
 import { ProductMoreComponent } from './modules/product/product-more/product-more.component';
 import { NgxInputTagModule } from '@ngx-lite/input-tag';
+
 
 
 
@@ -186,7 +188,7 @@ import { NgxInputTagModule } from '@ngx-lite/input-tag';
       ListControlComponent,
       ListCommentComponent,
       CommentListComponent,
-    ToastContainerComponent,
+      ToastContainerComponent,
       AppPageSizeImageComponent,
       ProductMoreComponent,
 
@@ -204,7 +206,7 @@ import { NgxInputTagModule } from '@ngx-lite/input-tag';
     NgxPaginationModule,
     NgxInputTagModule.forRoot(),
 
-  ],
+    ],
   providers: [authInterceptorProviders],
 
   bootstrap: [AppComponent]

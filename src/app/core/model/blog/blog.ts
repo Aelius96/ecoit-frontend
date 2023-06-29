@@ -7,5 +7,5 @@ export class Blog{
   content: any;
   cdate: any;
   image: any;
-  link: any;
+  url: any;
 }
