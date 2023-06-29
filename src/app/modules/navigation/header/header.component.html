@@ -71,17 +71,16 @@
 
 
                     <!-- navigation menu -->
-                    <div class="header__navigation preview-menu d-none d-xl-block" >
-                        <div class="header__navigation--four" style="margin-right: 50px">
-                            <nav class="navigation-menu navigation-menu--onepage navigation-menu--text_white" style="padding-top: 0px">
+                    
+                            <nav class="navigation-menu navigation-menu--onepage navigation-menu--text_white" style="top: 75px; position: absolute; right: 30px;">
                                 <ul class="menu-primary text-uppercase">
-                                  <li class="menu-item"><a href="/trang-chu">TRANG CHỦ</a></li>
+                                  <!-- <li class="menu-item"><a href="/trang-chu">TRANG CHỦ</a></li> -->
                                   <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu"
                                       id="child-li">
                                     <a href="{{nav.url}}" routerLinkActive="active">{{nav.name}}</a>
-                                    <ul *ngIf="nav.navChild.length > 0" class="submenu p-2">
+                                    <ul *ngIf="nav.navChild.length > 0" class="submenu" style="border-bottom: 0px solid " >
                                       <li *ngFor="let nav1 of nav.navChild">
-                                        <a href="/{{nav.url}}/{{nav1.url}}" routerLinkActive="active" class="px-3 py-2">{{nav1.name}}</a>
+                                        <a href="/{{nav.url}}/{{nav1.url}}" routerLinkActive="active" class="nav1" >{{nav1.name}}</a>
                                       </li>
                                     </ul>
                                   </li>
@@ -122,8 +121,7 @@
 
                                 </ul>
                             </nav>
-                        </div>
-                    </div>
+                       
 
                 </div>
             </div>
@@ -131,79 +129,4 @@
     </div>
 </div>
 <!-- slide -->
-
-<!--====================  mobile menu overlay ====================-->
-    <!--====================  mobile menu overlay ====================-->
-    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
-        <div class="mobile-menu-overlay__inner">
-            <div class="mobile-menu-overlay__header">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 col-8">
-                            <!-- logo -->
-                            <div class="logo">
-
-                                <a class="wdc-logo" href="https://ecoit.asia" title="Ecoit">
-                                    <img  class="logo-standart" src="https://ecoit.asia/wp-content/themes/ecoitTheme/image/logoEcoit.jpg"
-                                    alt="EcoIT" style="height: 40%;width: 40%;">
-                                </a>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-4">
-                            <!-- mobile menu content -->
-                            <div class="mobile-menu-content text-right">
-                                <span class="mobile-navigation-close-icon" id="mobile-menu-close-trigger"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mobile-menu-overlay__body">
-                <nav class="offcanvas-navigation offcanvas-navigation--onepage">
-                    <ul>
-                        <li id="trangchu"><a title="trang chủ" href="https://ecoit.asia/"><span>TRANG CHỦ</span></a></li>
-                         <li id="sanpham" class="has-children">
-                            <a title="sản phẩm" href="https://ecoit.asia/giai-phap/">SẢN PHẨM</a>
-                            <ul class="sub-menu">
-                                <li class="has-children">
-
-                                        <li>
-                                            <ul>
-                                                <li id="khcp"><a title="khối khách hàng chính phủ" href="https://ecoit.asia/khach-hang-chinh-phu/"><span >KHỐI KHÁCH HÀNG CHÍNH PHỦ</span></a></li>
-                                                <li id="khtcnh"><a title="khối khách hàng tài chính ngân hàng" href="https://ecoit.asia/khach-hang-tai-chinh-ngan-hang/"><span >KHỐI KHÁCH HÀNG TÀI CHÍNH NGÂN HÀNG </span></a></li>
-                                                <li id="khdn"><a title="khối khách hàng doanh nghiệp " href="https://ecoit.asia/khach-hang-doanh-nghiep/"><span >KHỐI KHÁCH HÀNG DOANH NGHIỆP</span></a></li>
-                                                <li id="khanqp"><a title="khối khách hàng an ninh quốc phòng" href="https://ecoit.asia/khach-hang-an-ninh-quoc-phong/"><span >KHỐI KHÁCH HÀNG AN NINH QUỐC PHÒNG</span></a></li>
-                                            </ul>
-                                        </li>
-
-                            </ul>
-
-                        <li id="gioithieu" class="has-children">
-                            <a title="giới thiệu" href="https://ecoit.asia/giai-phap/"><span >GIỚI THIỆU</span></a>
-
-                            <ul class="sub-menu">
-                                <li class="has-children">
-
-                                    <li>
-                                        <ul>
-                                            <li id="vechungtoi"><a title="VỀ CHÚNG TÔI" href="https://ecoit.asia/ve-chung-toi/" >VỀ CHÚNG TÔI</a></li>
-                                            <li id="hosonangluc" ><a title="HỒ SƠ NĂNG LỰC" href="https://ecoit.asia/ho-so-nang-luc/" >HỒ SƠ NĂNG LỰC</a></li>
-                                            <li id="khachhangtieubieu" ><a title="KHÁCH HÀNG TIÊU BIỂU" href="https://ecoit.asia/khach-hang/" >KHÁCH HÀNG TIÊU BIỂU</a></li>
-                                        </ul>
-                                    </li>
-
-                            </ul>
-                        </li>
-                        <li  id="tintuc" ><a title="TIN TỨC" href="https://ecoit.asia/tin-tuc/" ><span >TIN TỨC</span></a></li>
-                        <li  id="tuyendung" ><a title="TUYỂN DỤNG" href="https://ecoit.asia/tuyen-dung/" ><span >TUYỂN DỤNG</span></a></li>
-                        <li  id="blog" ><a title="Blog" href="https://ecoit.asia/blog1/" ><span >BLOG </span></a></li>
-
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
-<!--====================  End of mobile menu overlay  ====================-->
-
 

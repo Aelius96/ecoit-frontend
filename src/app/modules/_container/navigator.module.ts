@@ -10,8 +10,6 @@ const routes: Routes = [
     {path:'' , component: NavigatorControlComponent},
     {path: 'add', component: NavigatorAddComponent},
     {path:'update/:id' , component: NavigatorAddComponent},
-
-
   ]
 
   @NgModule({

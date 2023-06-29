@@ -28,8 +28,8 @@ const routes: Routes =[
     {path: 'nav' , title: 'Admin-Điều hướng' , loadChildren:()=>import('./navigator.module').then(m=>m.NavigatorModule) },
     {path:'sliders', title:'Admin-Trình chiếu' , loadChildren:()=>import('./sliders.module').then(m=>m.SlidersModule)},
     {path:'banner' , title: 'Admin-Trình chiếu' , loadChildren:()=>import('./banner.module').then(m=>m.BannerModule)},
-    {path:'about' , title:'Admin-về chúng tôi', loadChildren:()=>import('./about.module').then(m=>m.AboutModule)},
-    {path:'albums' , title:'Amin-kho ảnh' ,  loadChildren:()=>import('./albums.module').then(m=>m.AlbumsModule)},
+    {path:'about' , title:'Admin-Về chúng tôi', loadChildren:()=>import('./about.module').then(m=>m.AboutModule)},
+    {path:'albums' , title:'Amin-Kho ảnh' ,  loadChildren:()=>import('./albums.module').then(m=>m.AlbumsModule)},
     {path:'list' , title:'Admin-Danh sách' ,  loadChildren:()=>import('./list.module').then(m=>m.ListModule)},
 
   ]},

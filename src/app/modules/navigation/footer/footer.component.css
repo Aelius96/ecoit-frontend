@@ -29,8 +29,9 @@
 }
 #text{
     color: #bababa;
-    font-size: 12px;
+    font-size: 16px;
     padding-left: 10px;
+    margin-top: auto;
 }
 @media (min-width: 992px){
 .col-md-3 {
@@ -55,4 +56,7 @@
     background-color: #303030;
     padding-top: 50px;
 
+}
+.info-contact{
+    color: #bababa;
 }

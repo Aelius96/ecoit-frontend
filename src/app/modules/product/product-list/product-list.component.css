@@ -24,7 +24,10 @@
   width: 100%;
 
 }
-
+.color-gree:hover{
+  text-decoration: none;
+  color: black;
+}
 
 .color-gree{
   padding: 13px 19px 13px 19px;
