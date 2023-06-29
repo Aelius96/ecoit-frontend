@@ -101,7 +101,7 @@ import { CommentListComponent } from './modules/comment/comment-list/comment-lis
 
 import { ProductMoreComponent } from './modules/product/product-more/product-more.component';
 import { NgxInputTagModule } from '@ngx-lite/input-tag';
-
+import {SlickCarouselModule} from "ngx-slick-carousel";
 
 
 
@@ -204,6 +204,7 @@ import { NgxInputTagModule } from '@ngx-lite/input-tag';
     ReactiveFormsModule,
     NgOptimizedImage,
     NgxPaginationModule,
+    SlickCarouselModule,
     NgxInputTagModule.forRoot(),
 
     ],
