@@ -39,4 +39,8 @@ export class FileService {
     return this.http.get(`${this.baseUrl}/image`, {params});
   }
 
+  getListAll():Observable<any>{
+    return this.http.get(`${this.baseUrl}/image/all`)
+  }
+  
 }

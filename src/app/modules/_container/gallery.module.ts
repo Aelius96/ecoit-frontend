@@ -7,7 +7,7 @@ import {GalleryAddComponent} from "../typical/gallery/gallery-add/gallery-add.co
 
 const routes: Routes = [
   {path:'' , component: GalleryControlComponent},
-  {path: 'new', component: GalleryAddComponent},
+  {path: 'add', component: GalleryAddComponent},
   {path:'update/:id' , component: GalleryAddComponent},
 
 ]

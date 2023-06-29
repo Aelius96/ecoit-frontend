@@ -39,7 +39,7 @@
  
 }
 .post-item{
-  
+  margin-bottom: 30px;
   height: auto;
 }
 .ap-xnam{
@@ -87,3 +87,11 @@
   right: 0;
 }
 .pricing-table{}
+.item:hover{
+text-decoration: none;
+}
+.pro-list{
+  background-color: rgba(189, 191, 187, 0); 
+  width: 20%;
+  display: inline-block;
+}

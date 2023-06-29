@@ -5,6 +5,7 @@ import { File } from 'src/app/services/file/file';
 import { FileService } from 'src/app/services/file/file.service';
 import * as fileSaver from 'file-saver';
 import { mergeMap } from 'rxjs';
+import { GalleryService } from 'src/app/services/gallery/gallery.service';
 
 
 
@@ -15,37 +16,41 @@ import { mergeMap } from 'rxjs';
 })
 export class AlbumsDetailComponent implements OnInit {
 
-
   image: Image[]=[];
   role:string;
-
+  addSuccess = false;
   url:any;
-  totalPages: number;
+  Message = null;
   public pageSizes = [16, 32, 44];
 
   target= {
-
     url: '',
     id: 1,
     name: '',
     target: '',
     action: ''
   }
+
   paging = {
     page: 1,
     size: 16,
     totalRecord: 0
   }
 
+  constructor( private imageService: FileService  ,
+                  private router: Router ,
+                  private galleryService: GalleryService){}
+
+
   ngOnInit(): void {
+    if(this.image.length>0){
+      this.image = [];
+    }
 
-   this.getListWithPage()
-  }
-
-  constructor( private imageService: FileService   ){}
-
-
-  getRequestParams(page:number , pageSize:any ):any{
+    this.getListWithPage()
+   }
+ 
+  getRequestParams(page:number , pageSize:number ){
     let params:any ={};
     if(page){
       params[`pageNo`] = page-1
@@ -62,7 +67,9 @@ export class AlbumsDetailComponent implements OnInit {
       this.image = data.content;
       this.paging.totalRecord = data.totalElements;
 
-    }, error=>{console.log(error);}
+      console.log(data)
+    }, 
+    error=>{console.log(error);}
     )
   }
   handlepagechange(event : number):void{
@@ -77,8 +84,8 @@ export class AlbumsDetailComponent implements OnInit {
     this.getListWithPage();
   }
   deleteFile(e: any){
-    let option = confirm("Dữ liệu sẽ bị xóa. Bạn có mốn tiếp tục ");
 
+    let option = confirm("Dữ liệu sẽ bị xóa. Bạn có mốn tiếp tục ");
     if(option){
       this.imageService.getFileById(e).subscribe(dt1=>{
         this.imageService.deleteFile(dt1).subscribe(()=>{
@@ -103,7 +110,37 @@ export class AlbumsDetailComponent implements OnInit {
     this.target.url = e.target.src;
     this.target.id= e.target.id;
     this.target.name=e.target.alt;
+  }
+
+  listAllimgtogallery(){
+    const params = this.getRequestParams(this.paging.page , this.paging.size)
+    this.imageService.getlistallwithpage(params).subscribe(data =>{
+      this.image = data;
+      this.target.url = this.image[0].pathUrl;
+      this.target.name = this.image[0].name;
+      this.target.target = this.image[0].target;
+    })
+  }
+  
+  gotogallerytList(){
+    this.router.navigate(['/admin/gallery'])
+  }
+  addimagetogallery(id:any){
+    this.galleryService.addimageById(id).subscribe( ()=>{
+      this.addSuccess = true;
+     
+      // @ts-ignore
+      this.Message = "Đã được thêm ";
+       this.gotogallerytList()
+      this.listAllimgtogallery()
+
+    } , error=>{
+      this.addSuccess = false;
+      this.Message= error.error.message;
+    } )
 
   }
+
+
 
 }

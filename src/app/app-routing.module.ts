@@ -46,10 +46,7 @@ const routes: Routes =[
   {path: 'gioi-thieu/ve-chung-toi' , component:AboutUsComponent},
   {path: 'gioi-thieu/ho-so-nang-luc' , component: CapacityProfileComponent},
   {path: 'gioi-thieu/khach-hang-tieu-bieu' , component: TypicalCustomersComponent},
-  //
-  {path: 'lien-he' , component: ContactComponent},
-  { path: '**', redirectTo: '/404' },
-  {path: '404' , component:ErrorComponent},
+
 //news
   {path:'tin-tuc',component:NewsListComponent},
   {path:'tin-tuc/:url', component: NewsDetailComponent},
@@ -73,6 +70,10 @@ const routes: Routes =[
   {path:'admin', canActivate:[AuthenticateService]
     ,loadChildren:() => import('./modules/_container/admin.module').then(m => m.AdminModule) },
 
+      //
+  {path: 'lien-he' , component: ContactComponent},
+  { path: '**', redirectTo: '/404' },
+  {path: '404' , component:ErrorComponent},
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

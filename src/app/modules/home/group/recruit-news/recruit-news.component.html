@@ -49,13 +49,13 @@
                   <div class="service-link"><a  class="wpb_color-gree" href="/tuyen-dung">TÌM HIỂU THÊM</a></div>
                 </div>
               </div>
-              <div class="col-lg-4" >
+              <div class="col-lg-4" style="top:0px">
                 <div class="nav">
                   <div class="float-md-left">
                     <div class="recruit">
                       <ul >
                         <li *ngFor="let news of newsList ; let n =  index" >
-                          <div class="d-flex flex-row"  *ngIf="n<3"  style="padding-top: 2px">
+                          <div class="d-flex flex-row listnew"  *ngIf="n<3"  >
                             <div class="anhtintuc" >
 
                               <a href="/tin-tuc/{{news.url}}" title="{{news.title}}" style="height: 100%;">
@@ -65,9 +65,7 @@
                               <a href="/tin-tuc/{{news.url}}" id="text">{{news.title}}</a>
                               <p>{{news.description}}</p>
                             </div>
-                            
                           </div>
-                          <hr>
                         </li>
                         
                       </ul>

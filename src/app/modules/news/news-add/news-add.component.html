@@ -15,9 +15,10 @@
         </div>
         <div class="update_box">
           <span><strong>Thẻ</strong></span>
-          <select >
-            <option>--Loại--</option>
-          </select>
+          <form [formGroup]="form" >
+            <ngx-input-tag formControlName="tags" [tagSuggestions]="tagSuggestions"></ngx-input-tag>
+           
+          </form>
         </div>
         <div class="submit-button">
           <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>

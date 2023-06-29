@@ -3,7 +3,7 @@
     <div class="left-d-flex">
       <div class="d-flex">
           <a class="control" style="width: 80px" routerLink="../albums"  routerLinkActive="active"><span class="spann">Kho Ảnh /</span></a>
-        <a class="control"  style="width: 120px ;padding-right: 10px;" routerLink="../image-gallery" routerLinkActive="active"  ><span class="spann" style="font-weight: bolder;">Ảnh Hoạt Động</span></a>
+        <a class="control"  style="width: 120px ;padding-right: 10px;" routerLink="../tImage" routerLinkActive="active"  ><span class="spann" style="font-weight: bolder;">Ảnh Hoạt Động</span></a>
        
       </div>
     </div>
@@ -20,9 +20,8 @@
           </div>
         </div>
         <div class="menu-item">
-          <a class="ht-btn-custom" routerLink="new"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+          <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
         </div>
-
       </div>
     </div>
   </div>
@@ -32,65 +31,47 @@
 <div class="gallery">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8" style="padding-top: 10px;">
+      <div class="col-lg-8" style="padding-top: 10px; padding-right: 40px;">
         <div class="row">
-          <div class="col-md-3">
-            <div class="item-image">
-              <img src="./assets/images/placeholder.png" alt="" style="height: 100%; width: 100%;">
+          <div class="col-md-3" *ngFor="let img of galleryList">
+            <div class="item-image" (click)="pick($event)">
+              <img src="{{img.image.pathUrl}}" alt="" style="height: 100%; width: 100%; border-radius: inherit;">
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="item-image">
-              <img src="./assets/images/placeholder.png" alt="" style="height: 100%; width: 100%;">
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="item-image">
-              <img src="./assets/images/placeholder.png" alt="" style="height: 100%; width: 100%;">
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="item-image">
-              <img src="./assets/images/placeholder.png" alt="" style="height: 100%; width: 100%;">
-            </div>
-          </div>
+          
         </div>
       </div>
       <div class="col-lg-4 info-img" >
         <div class="box">
           <div class="img-box">
-            <img class="img-fluid" src="./assets/images/imgex.png" alt="Images" >
+            <img class="img-fluid" src="{{target.url}}" alt="Images" >
           </div>
           <div class="content-box">
             <span><strong>Tên: </strong></span>
-            <span> ... </span>
+            <span>{{target.caption}} </span>
             
           </div>
           <div class="content-box">
             <span><strong>Đầu đề: </strong></span>
-            <span>... </span>
+            <span>{{target.caption}}</span>
           </div>
           <div class="content-box">
             <span><strong>Mô tả: </strong></span>
-            <span>... </span>
+            <span>{{target.url}}</span>
           </div>
           <div class="content-box">
             <span><strong>Trạng thái:  </strong></span>
-            
               <span style="color: #50b848">
                 <i class="fa fa-dot-circle fa-xs"></i>
               </span>
-               <!-- hoạt động và ẩn  -->
-            
+               <!-- hoạt động và ẩn -->
           </div>
           <div class="content-btn" >
             <button class="btn"  style="margin-right: 10px;">Ẩn/Hiển</button>
-            <button class="btn" style="margin-right: 10px;">Sửa</button> 
-            <button class="btn">Xóa</button>
+            <button class="btn" style="margin-right: 10px;" (click)="updategallery(target.id)"  >Sửa</button> 
+            <button class="btn" (click)="deleteimg(target.id)">Xóa</button>
           </div>
-
         </div>
-        
       </div>
     </div>
   </div>

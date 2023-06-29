@@ -10,10 +10,11 @@
     </div>
     <div  class="product-item">
       <div class="container" style="padding-left: 100px; padding-right: 100px; padding-bottom: 30px;">
-        <div  class="row ">
-          <div *ngFor="let p of productList ; let i =index" class="col-xl-2" style="background-color: rgba(189, 191, 187, 0);">
+        <div  class=" ">
+
+          <div *ngFor="let p of productList ; let i =index" class="pro-list" >
             <div *ngIf = "i <7">
-              <div class="pricing-table">
+              
                 <div class="post-item" >
                   <a href="/san-pham/{{p.url}}" style="text-align: center;" class="item">
                     <div class="imgicon">
@@ -22,7 +23,7 @@
                     </div>
                   </a>
                 </div>
-              </div>
+              
             </div>
           </div>
         </div>

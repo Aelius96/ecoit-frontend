@@ -23,6 +23,7 @@
     "@ckeditor/ckeditor5-build-classic": "^37.1.0",
     "@ckeditor/ckeditor5-build-inline": "^37.1.0",
     "@ng-bootstrap/ng-bootstrap": "^14.2.0",
+    "@ngx-lite/input-tag": "^14.0.0",
     "@popperjs/core": "^2.11.7",
     "@types/ckeditor": "^4.9.10",
     "@types/file-saver": "^2.0.5",

@@ -33,15 +33,16 @@
     </div>
   </div>
 
-<div *ngFor="let pro of products | paginate:{
+<div style="margin-top: 30px;">  
+  <div *ngFor="let pro of products | paginate:{
                                   id: 'product',
                                   itemsPerPage:paging.size,
                                   currentPage:paging.page,
                                   totalItems: paging.totalRecord
-                                    }" class="d-flex flex-column">
-  <div class="container">
-    <div class="item-blog">
-      <div class="row">
+                                    }" class="d-flex flex-column  item-blog">
+  <div class="container" >
+    <!-- <div class="item-blog"> -->
+      <div class="row" style="max-width: 1000px;">
         <div class="col-lg-12" >
           <div class="card" style="">
               <div class="row ">
@@ -55,7 +56,7 @@
                   </div>
                 </div>
                 <div class="col-md-6 pro_description">
-                  <div class="" >
+                  <div style="text-align: center;" >
                     <div>{{pro.description}}</div>
                   </div>
 
@@ -73,7 +74,7 @@
         </div>
 
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 
   <div class="row" *ngIf="paging.totalRecord >0" style="margin-top: 20px; width: 100%;" >
@@ -90,5 +91,5 @@
   </div>
   </div>
 
-
+</div>
 

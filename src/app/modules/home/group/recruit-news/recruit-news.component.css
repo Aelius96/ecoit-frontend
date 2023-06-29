@@ -63,3 +63,9 @@
 .disp-inflex{
 
 }
+
+.listnew {
+  margin-bottom: 10px;
+border-bottom: 1px solid gainsboro;
+padding-bottom: 10px;
+}

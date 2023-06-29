@@ -99,7 +99,7 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
 import { AppPageSizeImageComponent } from './modules/shared/app-page-size-image/app-page-size-image.component';
 import { CommentListComponent } from './modules/comment/comment-list/comment-list.component';
 import { ProductMoreComponent } from './modules/product/product-more/product-more.component';
-
+import { NgxInputTagModule } from '@ngx-lite/input-tag';
 
 
 
@@ -202,6 +202,7 @@ import { ProductMoreComponent } from './modules/product/product-more/product-mor
     ReactiveFormsModule,
     NgOptimizedImage,
     NgxPaginationModule,
+    NgxInputTagModule.forRoot(),
 
   ],
   providers: [authInterceptorProviders],
