@@ -1,11 +1,11 @@
 
-	<div class="row comment" *ngFor="let cmt of commentList ; let i = index">
+	<div class="row comment">
 		<div class="col-md-2">
 			<div class="info-comment">
 				<div class="img-comment d-flex flex-column">
 					<img src="./assets/images/avt.jpg" alt="">
 					<span class="be-comment-name">
-						{{cmt.userId}}
+						cmt.userId
 						</span>
 				</div>
 			</div>
@@ -13,7 +13,7 @@
 		<div class="col-md-10">
 			<div class=" row" >
 				<div class="content-comment col-9">
-					<span>{{cmt.content}}</span>
+					<span>cmt.content</span>
 					<p>
 						<a  class="btn-link" data-toggle="collapse"  href="#demo" > Trả lời</a>
 					</p>
@@ -23,12 +23,12 @@
 					  </div> -->
 				</div>
 				<div class="col-3" style="word-wrap: normal;">
-					<p>{{cmt.date}}</p>
+					<p>cmt.date</p>
 				</div>
 			</div>
 			
 		</div>
-		<h1 class="comments-title">Bình Luận ({{i}})</h1>
+		<h1 class="comments-title">Bình Luận </h1>
 	</div>
 	
 
