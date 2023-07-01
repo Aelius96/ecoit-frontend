@@ -34,9 +34,16 @@ update(id:number , gallery: FormData):Observable<Object>{
   return this.http.post(`${this.baseURL}/${this.domain}/update/${id}` , gallery )
 }
 
-
 addgallery(formData: FormData): Observable<Object>{
   return this.http.post(`${this.baseURL}/${this.domain}/add`, formData);
+}
+
+hide(id: number): Observable<Object>{
+  return this.http.get(`${this.baseURL}/${this.domain}/hide/${id}`);
+}
+
+show(id: number): Observable<Object>{
+  return this.http.get(`${this.baseURL}/${this.domain}/show/${id}`);
 }
 
 }

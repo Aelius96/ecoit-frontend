@@ -37,12 +37,13 @@
 
 }
 .logo-aside{
-  padding-bottom: 20px;
+  
   background-color: #50b848;
 }
 .item-aside{
-  bottom: 0px;
-
+  padding-top: 30px;
+  max-height: 750px;
+  overflow: auto;
   background-color: #50b848;
 }
 .aside-more{
@@ -58,6 +59,8 @@
   height: 100%;
   /* position: fixed;
   left: 0; */
+}
+.menu-item-aside{
 
 }
 .far{

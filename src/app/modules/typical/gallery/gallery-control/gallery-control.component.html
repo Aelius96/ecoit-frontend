@@ -34,7 +34,7 @@
       <div class="col-lg-8" style="padding-top: 10px; padding-right: 40px;">
         <div class="row">
           <div class="col-md-3" *ngFor="let img of galleryList">
-            <div class="item-image" (click)="pick($event)">
+            <div class="item-image" (click)="pick(img)">
               <img src="{{img.image.pathUrl}}" alt="" style="height: 100%; width: 100%; border-radius: inherit;">
             </div>
           </div>
@@ -48,7 +48,7 @@
           </div>
           <div class="content-box">
             <span><strong>Tên: </strong></span>
-            <span>{{target.caption}} </span>
+            <span>{{target.name}} </span>
             
           </div>
           <div class="content-box">
@@ -56,18 +56,34 @@
             <span>{{target.caption}}</span>
           </div>
           <div class="content-box">
-            <span><strong>Mô tả: </strong></span>
-            <span>{{target.url}}</span>
+            <span><strong>Url: </strong></span>
+            <span style="word-break: break-all;" >{{target.url}}</span>
           </div>
           <div class="content-box">
             <span><strong>Trạng thái:  </strong></span>
+              <span *ngIf="target.active ; else hide ">
               <span style="color: #50b848">
                 <i class="fa fa-dot-circle fa-xs"></i>
               </span>
-               <!-- hoạt động và ẩn -->
+              <span style="margin-left: 5px;">Hoạt động</span>
+            </span>
+            <ng-template #hide >
+              <span style="color: #adb848">
+                <i class="fa fa-dot-circle fa-xs"></i>
+              </span>
+              <span style="margin-left: 5px;"> Tạm ẩn</span>
+            </ng-template>
           </div>
-          <div class="content-btn" >
-            <button class="btn"  style="margin-right: 10px;">Ẩn/Hiển</button>
+          <div class="content-btn action-box">
+            
+            <button class="btn bg-success" (click)="hideimg(target.id)" *ngIf="target.active; else elseButton">
+              <i class="far fa-eye-slash">Ẩn</i>
+            </button>
+            <ng-template #elseButton>
+              <button  class="btn bg-warning" (click)="showimg(target.id)">
+                <i class="far fa-eye"> Hiện</i>
+              </button>
+            </ng-template>
             <button class="btn" style="margin-right: 10px;" (click)="updategallery(target.id)"  >Sửa</button> 
             <button class="btn" (click)="deleteimg(target.id)">Xóa</button>
           </div>

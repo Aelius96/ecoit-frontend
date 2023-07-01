@@ -83,11 +83,12 @@ export class AlbumsDetailComponent implements OnInit {
     console.log(event, this.paging.size)
     this.getListWithPage();
   }
-  deleteFile(e: any){
+  
+  deleteFile(id: number){
 
     let option = confirm("Dữ liệu sẽ bị xóa. Bạn có mốn tiếp tục ");
     if(option){
-      this.imageService.getFileById(e).subscribe(dt1=>{
+      this.imageService.getFileById(id).subscribe(dt1=>{
         this.imageService.deleteFile(dt1).subscribe(()=>{
           this.getListWithPage()
         }
@@ -95,6 +96,7 @@ export class AlbumsDetailComponent implements OnInit {
       })
     }
   }
+
 
   downloadimg(e:any){
     this.imageService.getFileById(e).subscribe(data =>{
@@ -131,8 +133,10 @@ export class AlbumsDetailComponent implements OnInit {
      
       // @ts-ignore
       this.Message = "Đã được thêm ";
+
        this.gotogallerytList()
       this.listAllimgtogallery()
+      console.log(this.addSuccess)
 
     } , error=>{
       this.addSuccess = false;

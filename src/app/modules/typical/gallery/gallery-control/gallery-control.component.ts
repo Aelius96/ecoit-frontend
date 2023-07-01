@@ -17,7 +17,7 @@ export class GalleryControlComponent implements OnInit{
     url: '',
     id: 1,
     name: '',
-    active: '',
+    active:'',
     caption: '',
     description: ''
   };
@@ -57,6 +57,13 @@ getListAllWithpage():void{
    } )
 }
 
+getListAll():void{
+  this.galleryService.getListAll().subscribe(res=>{
+    this.galleryList= res;
+
+  })
+}
+
 
 handlepagechange(event : number):void{
   console.log(event);
@@ -71,13 +78,14 @@ handlePageSizeChange(event: any): void {
 }
 
 pick(e:any){
-  this.target.url = e.target.src;
-  this.target.id= e.target.id;
-  this.target.caption=e.target.alt;  
+  this.target.url = e.image.pathUrl;
+  this.target.name = e.image.name;
+  this.target.id= e.id;
+  this.target.caption=e.caption;  
   // this.target.id = e.id;
   this.target.active = e.active;
   this.target.description = e.description;
-  this.target.name = e.target.image 
+ 
 }
 
 updategallery(id:number){
@@ -93,5 +101,24 @@ deleteimg(id:number){
   }
 }
 
+// getGallery(){
+  
+//   this.galleryService.getListAll().subscribe(data => {
+//     this.galleryList = data
+//     this.pick(this.galleryList[0]);
+//   });
+// }
+
+hideimg(id: number){
+  this.galleryService.hide(id).subscribe(() =>{
+    this.getListAllWithpage();
+  })
+}
+
+showimg(id: number){
+  this.galleryService.show(id).subscribe(() =>{
+    this.getListAllWithpage();
+  })
+}
 
 }
