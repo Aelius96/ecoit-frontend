@@ -13,8 +13,8 @@ export class GalleryService {
 
   constructor ( private http : HttpClient) {  }
   private baseURL = `${Constant.BASE_URL}`;
-  private domain = `${Domain.GALLERY}`
-
+  private domain = `${Domain.GALLERY}` 
+  // tImage
   getAllListChangePage(param: Params):Observable<any>{
     return this.http.get(`${this.baseURL}/${this.domain}`, {params: param});
   }
@@ -26,6 +26,10 @@ addimageById(id:number):Observable<Gallery>{
   return this.http.get<Gallery>(`${this.baseURL}/${this.domain}/addimage/${id}` )
 }
 
+getfindbyId(id:number):Observable<Gallery>{
+  return this.http.get<Gallery>(`${this.baseURL}/${this.domain}/${id}`)
+}
+
 delete(id:number):Observable<any>{
   return this.http.get(`${this.baseURL}/${this.domain}/delete/${id}`)
 }
@@ -33,7 +37,7 @@ delete(id:number):Observable<any>{
 update(id:number , gallery: FormData):Observable<Object>{
   return this.http.post(`${this.baseURL}/${this.domain}/update/${id}` , gallery )
 }
-
+// add
 addgallery(formData: FormData): Observable<Object>{
   return this.http.post(`${this.baseURL}/${this.domain}/add`, formData);
 }

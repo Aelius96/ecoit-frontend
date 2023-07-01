@@ -15,7 +15,7 @@ export class GalleryControlComponent implements OnInit{
    
   target = {
     url: '',
-    id: 1,
+    id: 0,
     name: '',
     active:'',
     caption: '',
@@ -89,7 +89,7 @@ pick(e:any){
 }
 
 updategallery(id:number){
-  return this.router.navigate([`admin/tImage/update` , id])
+  return this.router.navigate([`admin/tImage/update/${id}` ])
 }
 
 deleteimg(id:number){

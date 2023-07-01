@@ -22,7 +22,7 @@ constructor(private router: Router ,
 ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     if(this.id){
-      this.galleryService.addimageById(this.id).subscribe(data=>{
+      this.galleryService.getfindbyId(this.id).subscribe(data=>{
         this.gallery = data;
         this.url = this.gallery.image.pathUrl;
       })

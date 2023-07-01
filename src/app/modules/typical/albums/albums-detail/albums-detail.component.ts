@@ -6,6 +6,7 @@ import { FileService } from 'src/app/services/file/file.service';
 import * as fileSaver from 'file-saver';
 import { mergeMap } from 'rxjs';
 import { GalleryService } from 'src/app/services/gallery/gallery.service';
+import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 
 
 
@@ -20,6 +21,7 @@ export class AlbumsDetailComponent implements OnInit {
   role:string;
   addSuccess = false;
   url:any;
+  totalPages: number;
   Message = null;
   public pageSizes = [16, 32, 44];
 
@@ -39,13 +41,16 @@ export class AlbumsDetailComponent implements OnInit {
 
   constructor( private imageService: FileService  ,
                   private router: Router ,
-                  private galleryService: GalleryService){}
+                  private galleryService: GalleryService ,
+                 private tokenStorageService : TokenStorageService){}
 
 
   ngOnInit(): void {
     if(this.image.length>0){
       this.image = [];
     }
+    const user = this.tokenStorageService.getUser();
+    this.role =user.roles;
 
     this.getListWithPage()
    }
@@ -59,19 +64,20 @@ export class AlbumsDetailComponent implements OnInit {
     if (pageSize) {
       params[`pageSize`] = pageSize;
     }
-
   }
+
   getListWithPage():void{
     const params = this.getRequestParams(this.paging.page , this.paging.size)
     this.imageService.getlistallwithpage(params).subscribe(data=>{
       this.image = data.content;
       this.paging.totalRecord = data.totalElements;
-
+      this.totalPages = data.totalPages;
       console.log(data)
     }, 
     error=>{console.log(error);}
     )
   }
+
   handlepagechange(event : number):void{
     console.log(event);
     this.paging.page =event;
@@ -125,18 +131,19 @@ export class AlbumsDetailComponent implements OnInit {
   }
   
   gotogallerytList(){
-    this.router.navigate(['/admin/gallery'])
+    this.router.navigate(['/admin/tImage'])
   }
   addimagetogallery(id:any){
     this.galleryService.addimageById(id).subscribe( ()=>{
       this.addSuccess = true;
      
       // @ts-ignore
-      this.Message = "Đã được thêm ";
+     
 
        this.gotogallerytList()
       this.listAllimgtogallery()
       console.log(this.addSuccess)
+      alert('Đã thêm ảnh ')
 
     } , error=>{
       this.addSuccess = false;

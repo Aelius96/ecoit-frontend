@@ -36,6 +36,7 @@
           <div class="col-md-3" *ngFor="let img of galleryList">
             <div class="item-image" (click)="pick(img)">
               <img src="{{img.image.pathUrl}}" alt="" style="height: 100%; width: 100%; border-radius: inherit;">
+              
             </div>
           </div>
           
@@ -53,7 +54,7 @@
           </div>
           <div class="content-box">
             <span><strong>Đầu đề: </strong></span>
-            <span>{{target.caption}}</span>
+            <span>{{target.caption}} </span>
           </div>
           <div class="content-box">
             <span><strong>Url: </strong></span>
@@ -71,7 +72,7 @@
               <span style="color: #adb848">
                 <i class="fa fa-dot-circle fa-xs"></i>
               </span>
-              <span style="margin-left: 5px;"> Tạm ẩn</span>
+              <span style="margin-left: 5px;">Tạm ẩn</span>
             </ng-template>
           </div>
           <div class="content-btn action-box">

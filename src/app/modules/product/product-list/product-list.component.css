@@ -39,9 +39,14 @@
  
 }
 .post-item{
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   height: auto;
 }
+
+.pro-list:hover{
+  background-color: #daf9dec9 ;
+}
+
 .ap-xnam{
   color: black;
 }
@@ -68,7 +73,7 @@
   font-size: 18px;
 }
 
-.post-item::before{
+/* .post-item::before{
   content: "";
   position: absolute;
   top: 0;
@@ -79,13 +84,9 @@
   background-color: #b4dab9;
   transition: .05s;
   z-index: -1;
-}
+} */
 
-.post-item:hover:before {
-  width: 100%;
-  left: 0;
-  right: 0;
-}
+
 .pricing-table{}
 .item:hover{
 text-decoration: none;
@@ -94,4 +95,5 @@ text-decoration: none;
   background-color: rgba(189, 191, 187, 0); 
   width: 20%;
   display: inline-block;
+  margin-bottom: 20px;
 }

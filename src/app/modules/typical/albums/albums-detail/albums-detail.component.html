@@ -12,11 +12,11 @@
             <div class="d-flex">
               <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
 
-               <app-page-size 
+               <app-app-page-size-image
                   (pageSizeChange)="handlePageSizeChange($event)"
                   [totalRecords]="paging.totalRecord"
                   [(pageSize)]="paging.size" > 
-              </app-page-size>
+              </app-app-page-size-image>
 
             </div>
           </div>
@@ -65,7 +65,6 @@
                         <span > Hoạt động</span>
                       
                   </div>
-                  
                   <div class="content-btn" >
                     <button (click)="downloadimg(target.id)" class="btn"  style="margin-right: 10px;">Tải xuống </button>
                     <button  class="btn" (click)="deleteFile(target.id)" style="margin-right: 10px;">Xóa {{target.id}}</button> 

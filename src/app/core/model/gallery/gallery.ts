@@ -4,5 +4,4 @@ export class Gallery {
     description: any;
     image: any;
     active: any;
-    
 }

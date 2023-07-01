@@ -17,6 +17,10 @@
     }
   }
 
+  .header__logo{
+    margin-left: 60px;
+  }
+
 .title_header{
   padding-top: 10px;
   font-size: 15px;
@@ -56,6 +60,15 @@
      color: rgb(240, 255, 245);
 }
 
+.advise-contact{
+  vertical-align: inherit; 
+   background-color: #50b848;
+    color: white ;
+     padding: 12px 16px; 
+     font-family: 'Tahoma' ,'sans-serif';
+      font-size: 12px ;
+       font-weight: 700; 
+}
 
 #timkiem{
   margin-top: 5px;
