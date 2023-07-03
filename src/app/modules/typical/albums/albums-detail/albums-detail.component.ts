@@ -23,7 +23,7 @@ export class AlbumsDetailComponent implements OnInit {
   url:any;
   totalPages: number;
   Message = null;
-  public pageSizes = [16, 32, 44];
+  // public pageSizes = [16, 32, 44];
 
   target= {
     url: '',
@@ -49,6 +49,7 @@ export class AlbumsDetailComponent implements OnInit {
     if(this.image.length>0){
       this.image = [];
     }
+
     const user = this.tokenStorageService.getUser();
     this.role =user.roles;
 
@@ -89,22 +90,26 @@ export class AlbumsDetailComponent implements OnInit {
     console.log(event, this.paging.size)
     this.getListWithPage();
   }
-  
-  deleteFile(id: number){
 
+ 
+
+  deleteFile(id: number){
     let option = confirm("Dữ liệu sẽ bị xóa. Bạn có mốn tiếp tục ");
     if(option){
       this.imageService.getFileById(id).subscribe(dt1=>{
-        this.imageService.deleteFile(dt1).subscribe(()=>{
-          this.getListWithPage()
+        this.imageService.deleteFile(dt1).subscribe((dt2:any)=>{
+          
+          const jsonData = JSON.stringify(dt2); // Chuyển đổi dt2 thành dl kiểu JSON
+          this.getListWithPage();
+          console.log(jsonData); 
         }
         )
-      })
-    }
+      }) }
   }
 
 
-  downloadimg(e:any){
+  downloadimg(e:any){ 
+    
     this.imageService.getFileById(e).subscribe(data =>{
       this.imageService.downloadFile(data).subscribe((data2:any) =>{
         let blob = new Blob([data2.body] , {type:data2.body.type})
@@ -137,9 +142,6 @@ export class AlbumsDetailComponent implements OnInit {
     this.galleryService.addimageById(id).subscribe( ()=>{
       this.addSuccess = true;
      
-      // @ts-ignore
-     
-
        this.gotogallerytList()
       this.listAllimgtogallery()
       console.log(this.addSuccess)

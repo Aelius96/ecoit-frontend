@@ -15,7 +15,7 @@ export class NumberControlComponent implements OnInit{
   searchInput='';
   paging = {
     page: 1,
-    size: 5,
+    size: 4,
     totalRecord: 0
   }
 
