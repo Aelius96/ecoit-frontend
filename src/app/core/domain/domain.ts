@@ -9,4 +9,6 @@ export class Domain {
   public static PRODUCT = `product`;
   public static RECRUIT = `recruit`;
   public static SLIDERS = `sliders`;
+  public static POST = `bpost`;
+  public static CATEGORY = `category`;
 }

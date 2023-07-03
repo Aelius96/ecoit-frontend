@@ -1,7 +1,7 @@
 export class Product {
   id: any;
-  thumb: any;
-  name: any;
+  image: any;
+  title: string;
   description: any
   content: any;
   url: any;

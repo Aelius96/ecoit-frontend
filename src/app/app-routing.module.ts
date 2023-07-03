@@ -3,10 +3,6 @@ import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {HomeMainComponent} from "./modules/home/home-main/home-main.component";
 
-import { BankingComponent } from "./modules/product/banking/banking.component";
-import { GovernmentComponent } from "./modules/product/government/government.component";
-import { BusinessComponent } from "./modules/product/business/business.component";
-import { SecurityDefenseComponent } from "./modules/product/security-defense/security-defense.component";
 import { AboutUsComponent } from "./modules/introduce/about-us/about-us.component";
 import { CapacityProfileComponent } from "./modules/introduce/capacity-profile/capacity-profile.component";
 import { TypicalCustomersComponent } from "./modules/introduce/typical-customers/typical-customers.component";
@@ -16,14 +12,10 @@ import { ErrorComponent } from "./modules/error/error.component";
 
 import {NewsListComponent} from "./modules/news/news-list/news-list.component";
 import {RecruitListComponent} from "./modules/recruit/recruit-list/recruit-list.component";
-import {PostListComponent} from "./modules/post/post-list/post-list.component";
 import {BlogListComponent} from "./modules/blog/blog-list/blog-list.component";
-import {CustomerProductComponent} from "./modules/group/customer-product/customer-product.component";
 
 import {LoginComponent} from "./authentication/login/login.component";
 import {RegisterComponent} from "./authentication/register/register.component";
-import {AdminComponent} from "./modules/admin/admin/admin.component";
-import {NumberAddComponent} from "./modules/typical/number/number-add/number-add.component";
 import {AuthenticateService} from "./authentication/authenticate.service";
 import {NewsDetailComponent} from "./modules/news/news-detail/news-detail.component";
 import { RecruitDetailComponent } from "./modules/recruit/recruit-detail/recruit-detail.component";
