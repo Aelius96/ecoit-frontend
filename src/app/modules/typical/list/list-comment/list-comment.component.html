@@ -46,7 +46,8 @@
           <table class="table table-striped" id="myTable">
             <thead>
               <tr style="font-weight: bold;">
-                  <td>Tên</td>
+                  <td style=" width: 10%">Tên Mục</td>
+                  <td style="width: 15%;" >Tên Người Gửi</td>
                   <td>Nội Dung</td>
                   <td>Thời gian</td>
                   <td>Lọc</td>
@@ -56,26 +57,37 @@
             <tbody>
               <tr >
                 <td scope="row">ten</td>
-                  <td><a class="btn-link" data-toggle="collapse"  href="#demo" style="width: 80px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> 
-                    Đây là một đoạn văn quá dài để hiển thị nội dung.
+                  <td>ten</td>
+                  <td>
+                    <a class="btn-link" data-toggle="collapse"  href="#reply" > 
+                    <a data-toggle="collapse"  href="#reply"></a> Đây là một đoạn văn quá dài để hiển thị nội dung.
                   </a></td>
                   <td>thoigian</td>
                   <td>lọc</td>
                   <td> <span class="icon icon-remove" >
                     <a class="icon-item"  > <i class="fas fa-trash-alt remove i"></i></a> 
-                    <a class="icon-item"> <i class='fas fa-vote-yea' style="font-size: 17px;"></i></a></span></td>
+                    <a class="icon-item"> <i class='fas fa-vote-yea' style="font-size: 17px;"></i></a>
+                    <!-- <img class="reply" src="assets/images/imgreply.jpg" alt="" > -->
+                  </span>
+
+                  </td>
               </tr>
               <tr>
-                <td></td>
-                <td style="display: flex; justify-content: center;">
-                  <div id="demo" class="collapse" data-parent="#accordion"  style=" word-wrap: break-word; width: 180px;">
-                    <div  [innerHTML]="" style=""> Đây là một đoạn văn quá dài để hiển thị nội dung  Đây là một đoạn văn quá dài để hiển thị nội dung  Đây là một đoạn văn quá dài để hiển thị nội dung
+             
+                <td colspan="7">
+                  <!-- <div id="demo" class="collapse" data-parent="#accordion" >
+                    <div style="text-align:start;"   [innerHTML]="" > Đây là một đoạn văn quá dài để hiển thị nội dung  là một đoạn văn quá dài để hiển thị nội dung
+                    </div>
+                  </div> -->
+                  <div id="reply" class="collapse" data-parent="#accordion" >
+                    <div style="text-align:start;"   [innerHTML]="" > Đây là một đoạn văn quá dài để hiển thị nội dung  là một đoạn văn quá dài để hiển thị nội dung
+                    </div>
+                    <div  style="text-align:start;">Phần trả lời:  </div>
+                    <div style="text-align:start;" > <textarea name="" id="" cols="60" rows="3"></textarea> <button class="btn">Gửi</button>
                     </div>
                   </div>
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
+              
               </tr>
             </tbody>
           </table>

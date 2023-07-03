@@ -4,9 +4,10 @@
 			<div class="info-comment">
 				<div class="img-comment d-flex flex-column">
 					<img src="./assets/images/avt.jpg" alt="">
-					<span class="be-comment-name">
-						cmt.userId
+					<span >
+						cmt.user
 						</span>
+						<span>cmt.date</span>
 				</div>
 			</div>
 		</div>
@@ -17,21 +18,29 @@
 					<p>
 						<a  class="btn-link" data-toggle="collapse"  href="#demo" > Trả lời</a>
 					</p>
-					<!-- <div id="demo" class="collapse reply" data-parent="#accordion"  style=" word-wrap: break-word; ">
-						<div  [innerHTML]="" style=""> hiển thị nội dung
+					<div id="demo" class="collapse " data-parent="#accordion"  style=" word-wrap: break-word; ">
+						<div class="d-flex flex-column" style="margin-bottom: 20px;">
+							<div class="reply-content"  [innerHTML]="" style=""> hiển thị nội dung trả lời 
+							</div>
+							<a style="text-align: end;" href="">Chỉnh sửa</a>
 						</div>
-					  </div> -->
+						<div class="reply-submit" > 
+							<textarea name="replyt"id="" cols="30" rows="10" placeholder="Bạn nhập bình luận tại đây"></textarea>
+							<button class="btn">Gửi</button>
+						</div>
+					  </div>
 				</div>
 				<div class="col-3" style="word-wrap: normal;">
-					<p>cmt.date</p>
+					
 				</div>
 			</div>
 			
 		</div>
-		<h1 class="comments-title">Bình Luận </h1>
+		<h1 class="comments-title">Bình Luận (số bình luận ) </h1>
 	</div>
 	
 
+	
 	<form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate class="form-block" style="margin-top: 20px;">
 		<div class="row">
 			<div class="col-md-12 ">
