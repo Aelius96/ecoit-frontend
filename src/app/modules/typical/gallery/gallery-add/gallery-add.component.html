@@ -1,6 +1,6 @@
-<div class="galley-add">
-    <form >
-        <div class="container" > 
+
+      <form (ngSubmit)="onSubmit() "  enctype="multipart/form-data" novalidate  >
+        <div class="container" style="margin-top: 100px;"> 
             <div class="row" style="justify-content: center">
                 <div class="col-lg-9" >
                   <div class="contact-inner" >
@@ -15,17 +15,16 @@
                       </div>
                       <div class="col-md-8">
                         <div class="" style="margin-bottom: 20px;" >
-                          <input class="text-input" type="text"  placeholder="*Tên" >
+                          <input class="text-input" type="text"  placeholder="*Tên"   name="caption" [(ngModel)]="gallery.caption" >
                         </div>
                         <div>
-                          <textarea placeholder="*Chi tiết"></textarea>
+                          <textarea placeholder="*Chi tiết" name="description"  [(ngModel)]="gallery.description"></textarea>
                         </div>
                         <div class="submit-button">
                           <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
-                          <button type="button" class="btn btn-secondary btn-lg btnn cancel" >Hủy</button>
+                          <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="gotoGalleryControl()">Hủy</button>
           
                         </div>
-          
                       </div>
                     </div>
                   </div>
@@ -33,4 +32,4 @@
               </div>
         </div>
     </form>
-</div>
+

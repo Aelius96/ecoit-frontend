@@ -100,5 +100,7 @@
   
   .page-albums{
    background-color: rgba(220, 220, 220, 0.604);
-    padding: 50px;
+   padding-top: 50px;
+   max-height: 720px;
+   overflow: auto;
   }

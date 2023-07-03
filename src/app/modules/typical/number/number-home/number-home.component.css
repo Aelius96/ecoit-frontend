@@ -24,6 +24,12 @@
 .fa{
   font-size: 30px;
 }
+
 .num-counter{
   font-weight: bolder;
+}
+
+.preview-item-area{
+  background: #50b848 url(https://ecoit.com.vn/wp-content/themes/ecoitTheme/image/bg_tieubieu.png);
+  padding-bottom: 30px;
 }

@@ -3,7 +3,7 @@
       <div class="left-d-flex">
         <div class="d-flex">
             <a class="control" style="width: 80px" routerLink="../" ><span style="font-weight: bold;" class="spann">Kho Ảnh /</span></a>
-          <a class="control"  style="width: 120px ;padding-right: 10px;"  href="admin/image-gallery"   ><span class="spann">Ảnh Hoạt Động</span></a>
+          <a class="control"  style="width: 120px ;padding-right: 10px;"  href="admin/tImage"   ><span class="spann">Ảnh Hoạt Động</span></a>
        </div>    <!--   -->
       </div>
       <div class="right-d-flex">
@@ -11,12 +11,15 @@
           <div class="menu-item ">
             <div class="d-flex">
               <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-
-               <app-page-size 
+              <app-app-page-size-image
+              (pageSizeChange)="handlePageSizeChange($event)"
+              [totalRecords]="paging.totalRecord"
+              [(pageSize)]="paging.size"></app-app-page-size-image>
+               <!-- <app-app-page-size-image
                   (pageSizeChange)="handlePageSizeChange($event)"
                   [totalRecords]="paging.totalRecord"
                   [(pageSize)]="paging.size" > 
-              </app-page-size>
+              </app-app-page-size-image> -->
 
             </div>
           </div>
@@ -30,16 +33,17 @@
               
                 <div class="col-lg-8" >
                   <div class="row">
-                    <div class="col-md-3" style="margin-bottom: 30px;" *ngFor="let img of image | paginate: { id: 'album',
+                    <div class="col-md-3" style="margin-bottom: 30px;" *ngFor="let img of image |  paginate: {
+                       id: 'album',
                     itemsPerPage: paging.size,
                     currentPage: paging.page,
-                    totalItems: paging.totalRecord }  ">
+                    totalItems: paging.totalRecord } ; ">
                       <div class="product-thumb-image" (click)="pick($event)" >
                         <img class="img-fluid" src="{{img.pathUrl}}" alt="{{img.name}}" id="{{img.id}}" appHideMissing >
-
+                        
                       </div>
                     </div>
-                  </div>
+                </div>
               </div>
               <div class="col-lg-4 info-img">
                 <div class="box">
@@ -52,8 +56,8 @@
                     
                   </div>
                   <div class="content-box">
-                    <span><strong>Sử dụng: </strong></span>
-                    <span>{{target.target}} </span>
+                    <span style="width: 100%; display: inline-block; word-wrap: break-word;" ><strong>Url: </strong> {{target.url}} </span>
+                    
                   </div>
                   <div class="content-box">
                     <span><strong>Trạng thái: </strong></span>
@@ -64,16 +68,29 @@
                         <span > Hoạt động</span>
                       
                   </div>
-                  
                   <div class="content-btn" >
                     <button (click)="downloadimg(target.id)" class="btn"  style="margin-right: 10px;">Tải xuống </button>
-                    <button  class="btn" (click)="deleteFile(target.id)" style="margin-right: 10px;">Xóa</button> 
-                    <button class="btn">Thêm ảnh </button>
+                    <button  class="btn" (click)="deleteFile(target.id)" style="margin-right: 10px;">Xóa {{target.id}}</button> 
+                    <button class="btn" (click)="addimagetogallery(target.id)">Thêm ảnh </button>
                   </div>
                 </div>
-                </div>
               </div>
+
+
+             
+                <div class="col-md-12" *ngIf="paging.totalRecord>0">
+                  <pagination-controls 
+                  previousLabel="<" 
+                  nextLabel=">"
+                  [id]="'album'"
+                  (pageChange)="handlepagechange($event)"
+                  [maxSize]="paging.totalRecord"
+                  ></pagination-controls>
+                </div>
+             
+            </div>
            
           </div>
       
   </div>
+ 

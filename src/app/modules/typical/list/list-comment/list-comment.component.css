@@ -93,8 +93,19 @@
     position: absolute;
    }
    .btn-link{
-    color: black;
+    width: 90%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
    }
    .btn-link:hover{
     text-decoration: none;
+   }
+   .reply{
+    max-width: 21px;
+   }
+   .btn{
+    position: absolute;
+    max-height: 65px;
+    height: 100%;
    }

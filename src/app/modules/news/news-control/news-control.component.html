@@ -49,17 +49,17 @@
                                                       currentPage: paging.page,
                                                       totalItems: paging.totalRecord } ;">
           <div class="card">
-              <div class="row ">
-                <div class="col-md-2" >
+              <div class="row " style="height: 100%;">
+                <div class="col-md-2" style="height: 100%;" >
                   <div class="product-thumb-image">
-                    <img style="width: 100%; height: 100%" src="{{news.image.pathUrl}}" alt="News Image">
+                    <img  src="{{news.image.pathUrl}}" alt="News Image">
                   </div>
 
                 </div>
-                <div class="col-md-7">
-                  <h5 class="tittle-blog">
-                    <a class="btn-link" data-toggle="collapse"  href="#demo{{news.id}}" >  {{news.title}}
-
+                <div class="col-md-7" style="margin: auto;" >
+                  <h5 class="tittle-blog"> 
+                <a class="btn-link"   >  {{news.title}}
+                                 <!-- data-toggle="collapse"  href="#demo{{news.id}}" -->
                     </a>
                   </h5>
                   <p>
@@ -67,7 +67,7 @@
                   </p>
 
                 </div>
-                <div class="col-md-2" style="padding-top:10px; text-align: center;">
+                <div class="col-md-2" style="margin: auto; text-align: center;">
                     {{news.date}}
                 </div>
                 <div class="action-box col-md-1">

@@ -15,12 +15,12 @@
           <div class="cus-typical"  >
             <marquee  scrollamount="10" direction="left" loop="100">
               <div class="item" *ngFor="let ct of cusTypical ;let i = index" >
-                <div *ngIf="i<8">
+              <div style="height: 150px"  *ngIf="i<8">
               <img class="img-fluid" src="{{ct.image.pathUrl}}" alt="" />
               </div>
               </div>
             </marquee>
-        </div>
+          </div>
       </div>
     </div>
   </div>

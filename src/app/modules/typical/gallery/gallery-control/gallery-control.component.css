@@ -51,7 +51,10 @@ font-size: 15px;
   padding: 10px 10px 10px 10px;
 }
 .btn{
- width: 30%;
+  width: 30%;
+}
+.btn + .btn{
+  margin-left: 10px;
 }
 .content-box{
  margin: 5px 0px 5px 5px;
@@ -60,4 +63,14 @@ font-size: 15px;
 .content-btn{
   display: flex; 
     justify-content: center;
+
 } 
+.item-image{
+  height: 120px;
+  margin-bottom: 20px;
+  border: 2px solid #1c5a24;
+  border-radius: 10px;
+}
+.img-fluid{
+  border-radius: inherit;
+}

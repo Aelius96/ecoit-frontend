@@ -19,8 +19,8 @@ export class FileService {
     return this.http.post(`${this.baseUrl}/downloadFile`,file, {observe: "response", responseType: "blob"});
   }
 
-  deleteFile(file:File ): Observable<object>{
-    return this.http.post<object>(`${this.baseUrl}/deleteFile`, file);
+  deleteFile(file:File ){
+    return this.http.post(`${this.baseUrl}/deleteFile`, file);
   }
 
   getFileById(id: number): Observable<any>{
@@ -39,4 +39,8 @@ export class FileService {
     return this.http.get(`${this.baseUrl}/image`, {params});
   }
 
+  getListAll():Observable<any>{
+    return this.http.get(`${this.baseUrl}/image/all`)
+  }
+  
 }

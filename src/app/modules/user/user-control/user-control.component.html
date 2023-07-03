@@ -19,8 +19,7 @@
               <app-page-size 
                 (pageSizeChange)="handlepagesizechange($event)"
                 [totalRecords]="paging.totalRecord"
-                [(pageSize)]="paging.size "
-              ></app-page-size>
+                [(pageSize)]="paging.size "  ></app-page-size>
             </div>
           </div>
           <div class="menu-item" style="margin-top: 10px;">
@@ -61,7 +60,7 @@
             id:'user',
             itemsPerPage: paging.size,
             currentPage: paging.page,
-            totalItems: paging.totalRecord }" >
+            totalItems: paging.totalRecord};" >
               <tr  >
                 <th scope="row" >{{user.username}}</th>
                 <td>{{user.firstName}}</td>
@@ -101,8 +100,8 @@
           </tbody>
         </table>
       </div>
-      <div class="row" style="margin-top: 10px;">
-          <div class="col-md-3" *ngIf="paging.totalRecord>0" >
+      <div class="row" style="margin-top: 10px;" *ngIf="paging.totalRecord>0">
+          <div class="col-md-3"  >
             <pagination-controls 
                 [id]="'user'"
                 previousLabel="<"

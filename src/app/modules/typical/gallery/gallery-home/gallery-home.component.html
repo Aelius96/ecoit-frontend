@@ -22,39 +22,10 @@
       </div> -->
 
       <!-- 1 -->
-      <div class="item active">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2020/06/ac94e72749ffb4a1edee.jpg"
-             alt="" loading="lazy">
-        
-      </div>
-      <!-- 2 -->
-      <div class="item">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2020/06/65e6aa534a29b777ee38.jpg"
-              alt="" loading="lazy"  >
-       
-      </div>
-      <!-- 3 -->
-      <div class="item">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2020/06/9de89d7f7d05805bd9142-1.jpg"
-              alt="" loading="lazy"  >
-        
-      </div>
-      <!-- 4 -->
-      <div class="item">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2019/08/D09_9989-min-min.jpg"
-              alt="" loading="lazy"
-             >
-      </div>
-      <!-- 5 -->
-      <div class="item">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2019/08/5D3_7794-min.jpg"
-              alt="" loading="lazy" >
-      </div>
-      <!-- 6 -->
-      <div class="item">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2019/08/D09_9935-min.jpg"
-             alt="" loading="lazy"  >
-      
+      <!--  <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let recruit of recruitList ; let s = index "> -->
+      <div class="item " [class]=" i==0 ? 'active ' : '' "  *ngFor="let img of gallery ; let i = index" >
+        <img style="width: 100%; height: 600px;" src="{{img.image.pathUrl}}"
+             alt="Image" loading="lazy">
       </div>
       <!-- 7 -->
       

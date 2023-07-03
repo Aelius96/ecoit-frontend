@@ -1,3 +1,5 @@
+import { Tag } from "../tag/tag";
+
 export class News {
   id: number
   image: any;
@@ -6,4 +8,5 @@ export class News {
   date: any;
   description: string;
   url: string;
+  tag? : Tag[];
 }

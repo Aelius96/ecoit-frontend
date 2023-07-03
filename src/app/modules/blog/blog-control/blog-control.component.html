@@ -41,21 +41,21 @@
                                         currentPage: paging.page,
                                         totalItems: paging.totalRecord }" style="margin-bottom: 15px;">
           <div class="card">
-              <div class="row ">
-                <div class="col-md-2">
+              <div class="row " style="height: 100%;">
+                <div class="col-md-2" style="height: 100%;">
                   <img style="width: 100%; height: 100%" src="{{blog.image.pathUrl}}" alt="">
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-7" style=" margin: auto; ">
                   <h5 class="tittle-blog">
-                    <a class="btn-link" data-toggle="collapse"  href="#demo{{blog.id}}" style="text-transform: uppercase;"> {{blog.title}}
+                    <a class="btn-link" data-toggle="collapse"  href="#demo{{blog.id}}" style="text-transform: uppercase;">{{blog.title}}
                     </a>
                   </h5>
                   <p>
-                    {{ blog.description}}
+                    {{blog.description}}
                   </p>
                 </div>
-                <div class="col-md-2" style="padding-top:10px; text-align: center;">
-                   {{ blog.cdate }}
+                <div class="col-md-2" style="margin: auto; text-align: center;">
+                   {{blog.cdate}}
                 </div>
                 <div class="action-box col-md-1 ">
                     <!--                 ví dụ về button sửa-->

@@ -4,6 +4,8 @@ import {News} from "../../../core/model/news/news";
 import {NewsService} from "../../../services/news/news.service";
 import {HttpClient} from "@angular/common/http";
 import {Constant} from "../../../core/config/constant";
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-news-add',
@@ -18,10 +20,18 @@ export class NewsAddComponent implements OnInit{
   ckeConfig: any;
   baseUrl = `${Constant.BASE_URL}`;
   message = '';
-  constructor(private router:Router, private route:ActivatedRoute, private newsService: NewsService,private http:HttpClient) {
+  constructor(private router:Router, private route:ActivatedRoute, private newsService: NewsService,private http:HttpClient , 
+                            private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
+// ví dụ thẻ tag
+    this.form = this.formBuilder.group({
+      tags: [['dog', 'cat', 'bird']]
+    });
+   this.value = this.form.controls['tags'].valueChanges
+  //  ===========
+    
     this.id = this.route.snapshot.params['id'];
     if(this.id){
       this.newsService.getNewsById(this.id).subscribe(data =>{
@@ -42,6 +52,8 @@ export class NewsAddComponent implements OnInit{
     };
   }
   onSubmit(){
+    console.log(this.form.value);
+
     if(this.id){
       this.updateDataToForm(this.id);
     }else{
@@ -98,6 +110,11 @@ export class NewsAddComponent implements OnInit{
     }
   }
 
+
+//-------- thẻ tag-----------
+form: FormGroup;
+  value: Observable<number>;
+  tagSuggestions = ['google', 'apple', 'microsoft'];
 
 
 

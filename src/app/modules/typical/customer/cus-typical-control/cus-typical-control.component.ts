@@ -13,7 +13,7 @@ export class CusTypicalControlComponent implements OnInit{
 
   cusTypical: CusTypical[] = [];
   role: string;
-  pageSizes = [5, 10, 25];
+  // pageSizes = [5, 10, 25];
   totalPages: number;
   searchInput= '';
 

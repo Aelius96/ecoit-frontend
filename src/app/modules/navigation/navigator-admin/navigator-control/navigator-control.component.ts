@@ -27,11 +27,11 @@ export class NavigatorControlComponent {
   currentIndex = -1;
   totalPages: number;
   searchInput= '';
-  pageSize =[20,30,40]
+  //pageSize =[20,30,40]
 
   paging = {
     page: 1,
-    size: 20,
+    size: 16,
     totalRecord: 0
   }
 

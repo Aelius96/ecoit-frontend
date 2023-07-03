@@ -33,12 +33,9 @@
           <div class="menu-item ">
             <div class="d-flex">
               <span class="mt-1 mr-1">Số mục mỗi trang:</span>
-              <select class="custom-select">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+                 <app-app-page-size-image  (pageSizeChange)="handlePageChange($event)"  
+                                          [totalRecords]="paging.totalRecord" 
+                                          [(pageSize)]="paging.size"></app-app-page-size-image>
             </div>
           </div>
           
@@ -57,7 +54,6 @@
 
       <div class="navi-page">
         <div class="container">
-          <div class="faq-wrapper">
             <div id="accordion">
               <ul>
                 <!-- tesst vis dụ tick checkbox -->
@@ -106,8 +102,16 @@
                 </li>
               </ul>
             </div>
+            <div class="row">
+              <div class="col-12" *ngIf="paging.totalRecord > 0 ">
+                <pagination-controls previousLabel="<" 
+                nextLabel=">"
+                [id]="'nav'" (pageChange)="handlePageChange($event)"
+                ></pagination-controls>
+              </div>
+            </div>
           </div>
-          </div>
-        </div>
+      </div>
+
   </div>
 

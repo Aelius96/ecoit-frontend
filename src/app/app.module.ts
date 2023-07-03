@@ -96,8 +96,6 @@ import { ListControlComponent } from './modules/typical/list/list-control/list-c
 import { ListCommentComponent } from './modules/typical/list/list-comment/list-comment.component';
 import { AppPageSizeImageComponent } from './modules/shared/app-page-size-image/app-page-size-image.component';
 import { CommentListComponent } from './modules/comment/comment-list/comment-list.component';
-import {SlickCarouselModule} from "ngx-slick-carousel";
-import {NgxInputTagModule} from "@ngx-lite/input-tag";
 import { ProductMoreComponent } from './modules/product/product-more/product-more.component';
 
 import { PostControlComponent } from './modules/post/post-control/post-control.component';
@@ -107,6 +105,14 @@ import { PostDetailComponent } from './modules/post/post-detail/post-detail.comp
 import {MatSelectModule} from "@angular/material/select";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {MatListModule} from "@angular/material/list";
+
+
+import { ProductMoreComponent } from './modules/product/product-more/product-more.component';
+import { NgxInputTagModule } from '@ngx-lite/input-tag';
+import {SlickCarouselModule} from "ngx-slick-carousel";
+
+
+
 
 
 
@@ -214,6 +220,22 @@ import {MatListModule} from "@angular/material/list";
     NoopAnimationsModule,
     MatListModule,
   ],
+
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    CKEditorModule,
+    HttpClientModule,
+    CommonModule,
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    NgxPaginationModule,
+    SlickCarouselModule,
+    NgxInputTagModule.forRoot(),
+
+    ],
+
   providers: [authInterceptorProviders],
 
   bootstrap: [AppComponent]

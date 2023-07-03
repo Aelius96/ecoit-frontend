@@ -54,9 +54,14 @@
 }
 .card{
   border-radius: 10px;
+  max-height: 92px;
+  height: 100%;
 }
+
 img{
   border-radius: 10px;
+  height: 100%;
+  width: 100%;
 }
 .btnn{
   border: 0px;
@@ -84,9 +89,16 @@ img{
 .tittle-blog{
   /* font-family: Rubik; */
   font-family: initial;
+  margin: auto;
 }
 
-
+.description{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /*-------------------------------------------------------------*/
 .btn-link{
   width: 100%;

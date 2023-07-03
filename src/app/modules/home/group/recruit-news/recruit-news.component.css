@@ -13,7 +13,13 @@
   
 }
 .ptdtt{
-  padding-bottom: 20px;
+  width: 100%; 
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;  /* số dòng hiển thị */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .wpb_color-gree{
   padding: 13px 19px 13px 19px;
@@ -24,12 +30,18 @@
   text-decoration: none;
   color: black;
 }
+.h7tttd:hover{
+  text-decoration: none;
+  color: black;
+}
 .h7tttd{
+  font-size: 16px;
   padding-top: 10px;
   padding-bottom: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
   color: #50b848;
+  
 }
 #text{
   text-transform: uppercase;
@@ -62,4 +74,10 @@
 }
 .disp-inflex{
 
+}
+
+.listnew {
+  margin-bottom: 10px;
+border-bottom: 1px solid gainsboro;
+padding-bottom: 10px;
 }

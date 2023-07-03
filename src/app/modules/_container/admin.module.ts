@@ -20,8 +20,12 @@ const routes: Routes =[
     {path: 'news' , title:'Admin-Tin tức', loadChildren:()=> import('./news.modules').then(m=>m.NewsModules)},
     {path: 'recruit' , title:'Admin-Tuyển dụng', loadChildren:()=> import('./recruit.module').then(m=>m.RecruitModule)},
     {path: 'customer' , title:'Admin-Khách Hàng' , loadChildren:()=>import('./customer.module').then(m=>m.CustomerModule)},
+
     {path: 'bpost' , title:'Admin-Bài Viết' , loadChildren:()=>import('./post.module').then(m=>m.PostModule)},
     {path: 'image-gallery', title:'Admin-khách hàng tiêu biểu', loadChildren:()=>import('./gallery.module').then(m=>m.GalleryModule) },
+
+    {path: 'tImage', title:'Admin-khách hàng tiêu biểu', loadChildren:()=>import('./gallery.module').then(m=>m.GalleryModule) },
+
     {path: 'user', title:'Admin-tài khoản', loadChildren:()=>import('./user.module').then(m=>m.UserModule )  },
     {path:'history' , title: 'Admin-Lịch sử sử đổi' , component: HistoryListComponent},
     {path: 'product' , title: 'Admin-Sản phẩm' , loadChildren:()=>import('./product.module').then(m=>m.ProductModule) },
