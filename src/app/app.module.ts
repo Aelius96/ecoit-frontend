@@ -9,9 +9,7 @@ import {HomeMainComponent} from './modules/home/home-main/home-main.component';
 import {LoginComponent} from "./authentication/login/login.component";
 import {FooterComponent} from './modules/navigation/footer/footer.component';
 import {HeaderComponent} from './modules/navigation/header/header.component';
-import {BankingComponent} from './modules/product/banking/banking.component';
-import {BusinessComponent} from './modules/product/business/business.component';
-import {GovernmentComponent} from './modules/product/government/government.component';
+
 import {SecurityDefenseComponent} from './modules/product/security-defense/security-defense.component';
 import {AboutUsComponent} from './modules/introduce/about-us/about-us.component';
 import {CapacityProfileComponent} from './modules/introduce/capacity-profile/capacity-profile.component';
@@ -24,7 +22,7 @@ import { ToastContainerComponent } from './modules/toast/toast-container/toast-c
 import {BlogListComponent} from "./modules/blog/blog-list/blog-list.component";
 import {NewsListComponent} from "./modules/news/news-list/news-list.component";
 import {RecruitListComponent} from "./modules/recruit/recruit-list/recruit-list.component";
-import {PostListComponent} from "./modules/post/post-list/post-list.component";
+
 import {SideBarComponent} from './modules/navigation/side-bar/side-bar.component';
 import {CustomerListComponent} from './modules/customer/customer-list/customer-list.component';
 import {AboutHomeComponent} from './modules/about/about-home/about-home.component';
@@ -42,7 +40,7 @@ import {HeaderAdminComponent} from './modules/admin/header-admin/header-admin.co
 import {AsideComponent} from './modules/admin/aside/aside.component';
 import {DashboardComponent} from './modules/admin/dashboard/dashboard.component';
 import {NumberControlComponent} from './modules/typical/number/number-control/number-control.component';
-import {PostControlComponent} from './modules/post/post-control/post-control.component';
+
 import {NumberAddComponent} from './modules/typical/number/number-add/number-add.component';
 import {BlogControlComponent} from './modules/blog/blog-control/blog-control.component';
 import {BlogAddComponent} from './modules/blog/blog-add/blog-add.component';
@@ -102,9 +100,13 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
 import {NgxInputTagModule} from "@ngx-lite/input-tag";
 import { ProductMoreComponent } from './modules/product/product-more/product-more.component';
 
-
-
-
+import { PostControlComponent } from './modules/post/post-control/post-control.component';
+import { PostAddComponent } from './modules/post/post-add/post-add.component';
+import { PostListComponent } from './modules/post/post-list/post-list.component';
+import { PostDetailComponent } from './modules/post/post-detail/post-detail.component';
+import {MatSelectModule} from "@angular/material/select";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {MatListModule} from "@angular/material/list";
 
 
 
@@ -114,9 +116,6 @@ import { ProductMoreComponent } from './modules/product/product-more/product-mor
     HomeMainComponent,
     FooterComponent,
     HeaderComponent,
-    BankingComponent,
-    BusinessComponent,
-    GovernmentComponent,
     SecurityDefenseComponent,
     AboutUsComponent,
     CapacityProfileComponent,
@@ -126,7 +125,6 @@ import { ProductMoreComponent } from './modules/product/product-more/product-mor
     BlogListComponent,
     NewsListComponent,
     RecruitListComponent,
-    PostListComponent,
     SideBarComponent,
     CustomerListComponent,
     AboutHomeComponent,
@@ -143,7 +141,6 @@ import { ProductMoreComponent } from './modules/product/product-more/product-mor
     AsideComponent,
     DashboardComponent,
     NumberControlComponent,
-    PostControlComponent,
     NumberAddComponent,
     BlogControlComponent,
     BlogAddComponent,
@@ -193,22 +190,30 @@ import { ProductMoreComponent } from './modules/product/product-more/product-mor
       AppPageSizeImageComponent,
       ProductMoreComponent,
 
+      PostControlComponent,
+        PostAddComponent,
+        PostListComponent,
+        PostDetailComponent,
+
 
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        CKEditorModule,
-        HttpClientModule,
-        CommonModule,
-        ReactiveFormsModule,
-        NgOptimizedImage,
-        NgxPaginationModule,
-        SlickCarouselModule,
-        NgxInputTagModule.forRoot(),
-
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    CKEditorModule,
+    HttpClientModule,
+    CommonModule,
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    NgxPaginationModule,
+    SlickCarouselModule,
+    NgxInputTagModule.forRoot(),
+    MatSelectModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatListModule,
+  ],
   providers: [authInterceptorProviders],
 
   bootstrap: [AppComponent]

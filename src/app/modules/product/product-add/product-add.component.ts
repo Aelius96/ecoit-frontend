@@ -24,7 +24,7 @@ export class ProductAddComponent implements OnInit{
     if(this.id){
       this.productService.getProductById(this.id).subscribe(data =>{
         this.products = data;
-        this.url = this.products.thumb.pathUrl;
+        this.url = this.products.image?.pathUrl;
       })
     }
     this.ckeConfig = {

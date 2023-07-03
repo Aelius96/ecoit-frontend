@@ -1,0 +1,56 @@
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="update_box">
+          <span><strong>Ảnh bìa</strong></span>
+          <div class="image">
+            <img src="{{url}}" alt="" appHideMissing>
+          </div>
+          <input type="file" value="select" (change)="thumbnailChange($event)">
+        </div>
+        <div class="update_box">
+          <span><strong>Mô tả</strong></span>
+          <input type="text" [(ngModel)]="post.description" name="description">
+        </div>
+        <div class="update_box">
+          <span><strong>Chuyên mục</strong></span>
+          <select [(ngModel)] = "post.category" name="category">
+            <option *ngFor="let cate of categories" [ngValue] = "cate" >{{cate.typeName}}</option>
+          </select>
+        </div>
+        <div class="update_box">
+          <span><strong>Thẻ tag</strong></span>
+          <ngx-input-tag formControlName="tags" [tagSuggestions]="tagSuggestions"></ngx-input-tag>
+        </div>
+
+        <div class="submit-button">
+          <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
+          <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToPostList()"  >Hủy</button>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="update_box">
+          <span><strong>Tiêu đề</strong></span>
+          <input type="text" name="title" [(ngModel)]="post.title" required>
+        </div>
+        <div class="update_box">
+          <span><strong>Nội dung</strong></span>
+          <div class="ckeditorContaniner" id="editor">
+            <ckeditor [(ngModel)]="post.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<!--<script>-->
+<!--  InlineEditor-->
+<!--    .create( document.querySelector( '#editor' ) )-->
+<!--    .catch( error => {-->
+<!--      console.error( error );-->
+<!--    } );-->
+<!--</script>-->
+

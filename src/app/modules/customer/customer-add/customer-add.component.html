@@ -16,7 +16,7 @@
                         <li class="list-group-item" *ngFor="let pro of products">
                             <div class="form-check">
                               <input type="checkbox" [value]="pro.selected" [checked]="pro.selected" (change)="onCheckChange($event, pro)" class="custom-control-input" id="customCheck{{pro.id}}">
-                              <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{pro.id}}">{{pro.name}}</label>
+                              <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{pro.id}}">{{pro.title}}</label>
                             </div>
                         </li>
                     </ul>

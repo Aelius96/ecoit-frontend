@@ -58,7 +58,6 @@ export class NewsControlComponent implements OnInit{
         response => {
           this.newsList = response.content;
           this.paging.totalRecord = response.totalElements;
-
         },
         error => {
           console.log(error);
@@ -94,5 +93,5 @@ export class NewsControlComponent implements OnInit{
       })
     }
   }
-  
+
 }

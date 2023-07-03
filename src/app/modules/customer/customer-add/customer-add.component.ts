@@ -37,6 +37,7 @@ export class CustomerAddComponent {
     }else{
       this.getProducts();
     }
+    console.log(this.customer);
   }
 
   getCustomById(id: number) {
@@ -92,7 +93,8 @@ export class CustomerAddComponent {
     this.customerService.addCustomer(customerFormData).subscribe(data =>{
       this.submitFail = false;
       this.goToCustomerList();
-    },   
+
+    },
       err =>{
       this.submitFail = true;
       this.errorMessage = err.error.message;
