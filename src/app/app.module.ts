@@ -102,12 +102,7 @@ import { PostControlComponent } from './modules/post/post-control/post-control.c
 import { PostAddComponent } from './modules/post/post-add/post-add.component';
 import { PostListComponent } from './modules/post/post-list/post-list.component';
 import { PostDetailComponent } from './modules/post/post-detail/post-detail.component';
-import {MatSelectModule} from "@angular/material/select";
-import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {MatListModule} from "@angular/material/list";
 
-
-import { ProductMoreComponent } from './modules/product/product-more/product-more.component';
 import { NgxInputTagModule } from '@ngx-lite/input-tag';
 import {SlickCarouselModule} from "ngx-slick-carousel";
 
@@ -215,26 +210,9 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
     NgxPaginationModule,
     SlickCarouselModule,
     NgxInputTagModule.forRoot(),
-    MatSelectModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    MatListModule,
+
   ],
 
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    CKEditorModule,
-    HttpClientModule,
-    CommonModule,
-    ReactiveFormsModule,
-    NgOptimizedImage,
-    NgxPaginationModule,
-    SlickCarouselModule,
-    NgxInputTagModule.forRoot(),
-
-    ],
 
   providers: [authInterceptorProviders],
 

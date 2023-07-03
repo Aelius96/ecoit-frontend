@@ -86,14 +86,12 @@ export class AsideComponent {
       tittle: 'Bài viết',
       a: 'bpost',
       icon:'far fa-newspaper',
-    }
-
+    },
+    {
       tittle: '',
       a: '',
       icon:' ',
     },
-  
-
   ]
 
 
