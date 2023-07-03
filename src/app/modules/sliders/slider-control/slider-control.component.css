@@ -126,3 +126,9 @@ margin-right: 10px;
   max-width: 750px;
   margin-left: 20px;
 }
+.slideitem{
+  max-height: 140px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}

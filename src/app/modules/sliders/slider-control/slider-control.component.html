@@ -94,7 +94,7 @@
   
                     <div class="action-box">
                       <button class="btn bg-success" *ngIf="target.active; else elseButton" (click)="hideImage(target.id)">
-                        <!-- <i class="far fa-eye-slash"></i> --> <span>chưa liên hệ</span>
+                        <i class="far fa-eye-slash"></i> 
                       </button>
                       <ng-template #elseButton>
                         <button class="btn bg-warning" (click)="show(target.id)">
