@@ -63,10 +63,10 @@
                   <td>{{item.dates}}</td>
                   <td>
                     <!-- <input type="checkbox" id="status" name="status" [(ngModel)]="item.status"> -->
-                    <button class="btn" style="height: 32px; background-color: #50b848;" 
+                    <button class="btn btn-notcontact" 
                     *ngIf="item.status ; else dalienhe" (click)="Notcontact(item.id)" >Chưa Liên Hệ</button>
                       <ng-template #dalienhe>
-                        <button class="btn" style="height: 32px; background-color: #6e706d;" (click)="Contacted(item.id)" >Đã Liên Hệ</button>
+                        <button class="btn btn-contacted" (click)="Contacted(item.id)" >Đã Liên Hệ</button>
                       </ng-template>
                     
                   </td>
