@@ -18,13 +18,13 @@ export class CommentService {
   getListCommentHome():Observable<any>{
     return this.http.get(`${this.baseUrl}/comment/home`);
   }
-  getListAll():Observable<any>{
-    return this.http.get(`${this.baseUrl}/comment/all`)
+  getListAll():Observable<Comment[]>{
+    return this.http.get<Comment[]>(`${this.baseUrl}/comment/all`)
   }
   DisableComment():Observable<any>{
     return this.http.get(`${this.baseUrl}/comment/disable`)
   }
-  creatComment(creatcomment: any){
+  creatComment(creatcomment: any):Observable<Object>{
     return this.http.post(`${this.baseUrl}/comment/create` , creatcomment)
   }
 

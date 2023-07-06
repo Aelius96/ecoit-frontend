@@ -21,10 +21,11 @@ export class AlbumsDetailComponent implements OnInit {
   role:string;
   addSuccess = false;
   url:any;
-  totalPages: number;
-  Message = null;
-  // public pageSizes = [16, 32, 44];
 
+  Message = null;
+
+  totalPages: any;
+  pageSizes = [16, 32, 44];
   target= {
     url: '',
     id: 1,
@@ -33,11 +34,14 @@ export class AlbumsDetailComponent implements OnInit {
     action: ''
   }
 
+  pagesize = [16,32,48]
+
   paging = {
     page: 1,
     size: 16,
-    totalRecord: 0
+    totalRecord: 0 
   }
+
 
   constructor( private imageService: FileService  ,
                   private router: Router ,
@@ -56,7 +60,7 @@ export class AlbumsDetailComponent implements OnInit {
     this.getListWithPage()
    }
  
-  getRequestParams(page:number , pageSize:number ){
+  getRequestParams(page:number , pageSize:number ):any{
     let params:any ={};
     if(page){
       params[`pageNo`] = page-1
@@ -65,6 +69,7 @@ export class AlbumsDetailComponent implements OnInit {
     if (pageSize) {
       params[`pageSize`] = pageSize;
     }
+    return params;
   }
 
   getListWithPage():void{
@@ -72,16 +77,16 @@ export class AlbumsDetailComponent implements OnInit {
     this.imageService.getlistallwithpage(params).subscribe(data=>{
       this.image = data.content;
       this.paging.totalRecord = data.totalElements;
-      this.totalPages = data.totalPages;
+    
       console.log(data)
     }, 
     error=>{console.log(error);}
     )
   }
 
-  handlepagechange(event : number):void{
+  handlePageChange(event: number): void {
     console.log(event);
-    this.paging.page =event;
+    this.paging.page = event;
     this.getListWithPage();
   }
   handlePageSizeChange(event: any): void {

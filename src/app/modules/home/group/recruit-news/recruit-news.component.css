@@ -75,7 +75,14 @@
 .disp-inflex{
 
 }
-
+.des-news{
+  width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .listnew {
   margin-bottom: 10px;
 border-bottom: 1px solid gainsboro;

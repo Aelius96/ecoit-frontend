@@ -9,7 +9,6 @@ import {HomeMainComponent} from './modules/home/home-main/home-main.component';
 import {LoginComponent} from "./authentication/login/login.component";
 import {FooterComponent} from './modules/navigation/footer/footer.component';
 import {HeaderComponent} from './modules/navigation/header/header.component';
-
 import {SecurityDefenseComponent} from './modules/product/security-defense/security-defense.component';
 import {AboutUsComponent} from './modules/introduce/about-us/about-us.component';
 import {CapacityProfileComponent} from './modules/introduce/capacity-profile/capacity-profile.component';
@@ -106,6 +105,8 @@ import { PostDetailComponent } from './modules/post/post-detail/post-detail.comp
 import { NgxInputTagModule } from '@ngx-lite/input-tag';
 import {SlickCarouselModule} from "ngx-slick-carousel";
 
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { CommentFormComponent } from './modules/comment/comment-form/comment-form.component';
 
 
 
@@ -190,11 +191,11 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
       ToastContainerComponent,
       AppPageSizeImageComponent,
       ProductMoreComponent,
-
       PostControlComponent,
         PostAddComponent,
         PostListComponent,
         PostDetailComponent,
+        CommentFormComponent,
 
 
   ],
@@ -210,6 +211,7 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
     NgxPaginationModule,
     SlickCarouselModule,
     NgxInputTagModule.forRoot(),
+    NgxIntlTelInputModule,
 
   ],
 

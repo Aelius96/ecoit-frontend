@@ -1,7 +1,4 @@
-.col-lg-6{
-    height: 100vh;
-    width: 100vw;
-}
+
 .trai_dau{
     text-align: left;
     width: 50%;
@@ -22,22 +19,29 @@
     text-align: left;
     padding-top: 20px ;
 }
-.input{
-    width: 100%;
+.input-info{
+    height: 30px;
+    border: 1px solid;
     border-radius: 5px;
     border-color: #50b848;
     line-height: normal;
     color: black;
 }
+.input-info:focus{
+    border-color: #50b848;
+    color: black;
+}
 label{
     font-weight: normal;
     color: darkgray;
+    width: 50%;
 }
-button{
+
+.input-info__textarea{
+    max-height: 70px;
+    border: 1px solid;
     border-radius: 5px;
-    background-color: #50b848;
-    border: 0px;
-    width: 70px ;
-    height: 40px;
-    color: aliceblue;
+    border-color: #50b848;
+    line-height: normal;
+    color: black;
 }

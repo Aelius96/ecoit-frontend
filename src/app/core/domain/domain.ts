@@ -2,6 +2,7 @@ export class Domain {
   public static ABOUT = `about-us`;
   public static BLOG = `blog`;
   public static CUSTOMER = `customer`;
+  public static CONTACT = `contact`;
   public static GALLERY = `tImage`;
   public static NAVIGATION = `nav`;
   public static NUMBER = `number`;

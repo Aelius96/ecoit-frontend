@@ -12,11 +12,11 @@
         <div class="menu-item ">
           <div class="d-flex">
             <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <select class="custom-select">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+              <app-app-page-size-image 
+              (pageSizeChange)="handlePageSizeChange($event)"
+              [totalRecords]="paging.totalRecord"
+              [(pageSize)]="paging.size"
+               ></app-app-page-size-image>
           </div>
         </div>
         <div class="menu-item">
@@ -33,13 +33,17 @@
     <div class="row">
       <div class="col-lg-8" style="padding-top: 10px; padding-right: 40px;">
         <div class="row">
-          <div class="col-md-3" *ngFor="let img of galleryList">
+          <div class="col-md-3" *ngFor="let img of galleryList | paginate:{
+                                                  id:'gallery',
+                                                  itemsPerPage: paging.size,
+                                                  currentPage: paging.page,
+                                                  totalItems: paging.totalRecord }">
             <div class="item-image" (click)="pick(img)">
               <img src="{{img.image.pathUrl}}" alt="" style="height: 100%; width: 100%; border-radius: inherit;">
               
             </div>
           </div>
-          
+
         </div>
       </div>
       <div class="col-lg-4 info-img" >
@@ -76,7 +80,6 @@
             </ng-template>
           </div>
           <div class="content-btn action-box">
-            
             <button class="btn bg-success" (click)="hideimg(target.id)" *ngIf="target.active; else elseButton">
               <i class="far fa-eye-slash">Ẩn</i>
             </button>

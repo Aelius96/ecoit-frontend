@@ -13,53 +13,18 @@ import { Recruit } from '../../../core/model/recruit/recruit';
 export class CommentListComponent implements OnInit {
 
   commentList: Comment[]=[];
-  comment : Comment = new Comment();
-  id:any
- 
 
-constructor(private route:ActivatedRoute , 
-            private commentService: CommentService){}
+constructor(   private commentService: CommentService){}
 
   ngOnInit(): void {
-   
-   
-    if(this.id){
-      this.commentService.getCommentbyId(this.id).subscribe(data =>{
-        this.comment = data;
-        this.getListAll();
-      })
-    }
+   this.getListAll();
+ 
   }
-
-  prepareFormData( comment: Comment ):FormData {
-    const formdata =  new FormData();
-    formdata.append(
-      'comment', 
-      new Blob([JSON.stringify(comment)], {type:'application/json'})
-    )
-    return formdata
-  }
-  
- sendComment(id:any){
-  this.commentService.getCommentbyId(id).subscribe(res=>{
-    this.commentService.creatComment(res).subscribe(()=>{
-        
-    }, error => {
-      console.log(error)
-    })
-  }, errorid=>{
-    console.log(errorid)
-  })
-  }
-
-  onSubmit(){
-      this.sendComment(this.id);
-  }
-
   // hiển thị 
-  getListAll(){
+  getListAll():void{
     this.commentService.getListAll().subscribe(dt=>{
-      this.commentList=dt
+      this.commentList=dt;
+      console.log(dt)
     })
   }
  }

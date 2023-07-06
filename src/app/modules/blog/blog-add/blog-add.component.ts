@@ -49,6 +49,7 @@ constructor(private router:Router,
       const blogFormData = this.prepareFormData(this.blogList);
      this.blogService.createBlog(blogFormData).subscribe(data=>{
       this.goToBlogList();
+      
      },
      error => console.log(error)  );
   }
