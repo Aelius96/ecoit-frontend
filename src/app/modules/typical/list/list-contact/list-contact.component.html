@@ -3,31 +3,35 @@
       <div class="left-d-flex">
         <div class="d-flex">
           <h5 class="h5" >Người liên hệ</h5>
-          <input type="text " class="form-control "  placeholder="Tìm kiếm" style="height: 30px; width: 110px;">
-          <div class="input-group-append inputt" >
-            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-            <div class="item-select">
-                <select class="custom-select" style="width: 120px ; height: 30px;"  >
-                  <option >Trạng thái</option>
-                  <option>Đã liên hệ</option>
-                  <option>Chưa liên hệ</option>
-                </select>
-              </div>
+          <form (ngSubmit)="search()" class="d-flex">
+            <input class="search" type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm ">
+            <div class="input-group-append inputt" >
+              <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+            </div>
+          </form>
+          <input type="date" id="date" class="search" name="date">
+          <div class="item-select">
+            <select class="custom-select" style="width: 120px ; height: 30px;" >
+              <option >Trạng thái</option>
+              <option>Đã liên hệ</option>
+              <option>Chưa liên hệ</option>
+            </select>
           </div>
         </div>
       </div>
+
+
       <div class="right-d-flex">
         <div class="d-flex  flex-wrap">
           <div class="menu-item ">
             <div class="d-flex">
               <span class="fw-semibold mr-1" style="margin-top: 5px;">Số mục mỗi trang:</span>
-              <select class="custom-select">
-                <option>5</option>
-                <option>10</option>
-                <option>15</option>
-              </select>
+              <app-page-size (pageSizeChange)="handlePageSizeChange($event)"
+              [totalRecords]="paging.totalRecord"
+              [(pageSize)]="paging.size"
+              ></app-page-size>
               <a routerLink="../">
-                <i class="fa fa-arrow-circle-o-left" style="font-size: 28px; margin: 3px 0px 0px 8px; color: black;"></i>
+                <i class="fa fa-arrow-circle-o-left" style="font-size: 24px; margin: 1px 0px 0px 8px; color: black;"></i>
               </a>
             </div>
           </div>
@@ -52,8 +56,12 @@
                   <td></td>
               </tr>
             </thead>
-            <tbody *ngFor="let item of contactList">
-              <tr (click)="pick(item)" >
+            <tbody *ngFor="let item of contactList  | paginate:{
+              id:'contact',
+              itemsPerPage: paging.size,
+              currentPage: paging.page,
+              totalItems: paging.totalRecord }  " >
+              <tr >
                 <td scope="row">{{item.name}}</td>
                   <td>{{item.phone}}</td>
                   <td> <a href="mailto:{{item.email}}">{{item.email}}</a> </td>
@@ -81,7 +89,20 @@
                 </td>
               </tr>
             </tbody>
+
           </table>
+          <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-bottom: 10px;">
+            <div class="row">
+              <div class="col-md-6">
+                <pagination-controls
+                  previousLabel="<"
+                  nextLabel=">"
+                  [id]="'contact'"
+                  (pageChange)="handlepagechange($event)"
+                  [maxSize]="paging.totalRecord"></pagination-controls>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
 </div>

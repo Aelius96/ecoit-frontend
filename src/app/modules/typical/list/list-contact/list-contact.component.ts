@@ -10,60 +10,93 @@ import { ContactService } from 'src/app/services/contact/contact.service';
 export class ListContactComponent {
 
   contactList: Contact[]=[]
- 
-  contacTarget={
-     id:1,
-     name:'',
-     phone:'',
-     email:'',
-     content:'',
-     status:'',
+  searchInput= '';
 
+  paging = {
+    page: 1,
+    size: 5,
+    totalRecord: 0 
   }
 
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-    this.getAllContact();
+    this.getAllContactPagesize();
   }
 
-  public getAllContact(): void {
-    this.contactService.listAllContact().subscribe(res=>{
-      this.contactList = res;
-      
+
+  getRequestParams(page: number, pageSize: number,search:string): any {
+    let params: any = {};
+
+    if (page) {
+      params[`pageNo`] = page-1;
+    }
+
+    if (pageSize) {
+      params[`pageSize`] = pageSize;
+    }
+
+    if(search){
+      params[`search`] = search;
+    }
+    return params;
+  }
+
+
+   getAllContactPagesize(): void {
+  const params = this.getRequestParams(this.paging.page, this.paging.size , this.searchInput)
+    this.contactService.listAllsizePage(params).subscribe(res=>{
+      this.contactList=res.content;
+      this.paging.totalRecord = res.totalElements;
       console.log(res)
-    });
+    }, 
+    error => {
+      console.log(error);
+    }
+    )
   }
 
   Delete(id:number){
      let  cf = confirm("Xóa người liên hệ");
      if(cf){
       this.contactService.Delete(id).subscribe(dt=>{
-        this.getAllContact();
+        this.getAllContactPagesize();
       })
      }
   }
 
-pick(e:any){
-  this.contacTarget.id = e.id;
-  this.contacTarget.name=e.name;
-  this.contacTarget.content = e.content;
-  this.contacTarget.status= e.status;
-  this.contacTarget.email=e.email;
-}
 
 Contacted(id:number){
   this.contactService.Contacted(id).subscribe(()=>{
-    this.getAllContact();
+    this.getAllContactPagesize();
     console.log("dalienhe" ,id)
   })
 }
 
 Notcontact(id:number){
   this.contactService.NotContact(id).subscribe(()=>{
-    this.getAllContact();
+    this.getAllContactPagesize();
     console.log("chualienhe", id)
   })
 }
+
+search():void{
+  this.paging.page = 1;
+  this.getAllContactPagesize()
+}
+
+handlepagechange(event : number):void{
+  console.log(event);
+  this.paging.page =event;
+  this.getAllContactPagesize();
+}
+handlePageSizeChange(event: any): void {
+  this.paging.size = event;
+  this.paging.page = 1;
+  console.log(event, this.paging.size)
+  this.getAllContactPagesize();
+}
+
+
 
 }

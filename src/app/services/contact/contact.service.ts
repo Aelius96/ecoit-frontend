@@ -15,6 +15,10 @@ export class ContactService {
   constructor(private http: HttpClient) {
   }
 
+  listAllsizePage(params:any):Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}/${this.domain}/number` , {params})
+  }
+  
   listAllContact():Observable<Contact[]>{
     return this.http.get<Contact[]>(`${this.baseUrl}/${this.domain}/users`)
   }

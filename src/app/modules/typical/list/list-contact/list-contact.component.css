@@ -177,3 +177,8 @@
     width: 100%;
      background-color: #6e706d;
   }
+  .search{
+    height: 30px;
+    margin-top: 7px;
+    max-width: 110px;
+  }
