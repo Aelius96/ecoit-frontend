@@ -22,7 +22,7 @@ constructor(   private commentService: CommentService){}
   }
   // hiển thị 
   getListAll():void{
-    this.commentService.getListAll().subscribe(dt=>{
+    this.commentService.getListCommentHome().subscribe(dt=>{
       this.commentList=dt;
       console.log(dt)
     })

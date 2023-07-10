@@ -23,10 +23,9 @@ constructor(private route:ActivatedRoute ,
   }
 
  sendComment(){
-
   this.commentService.creatComment(this.comment).subscribe(res=>{
     this.router.navigate(['./'])
-    // alert('Bình luận thành công')
+    alert('Bình luận thành công')
     console.log(res)
   },
   error=>{console.log(error)} 

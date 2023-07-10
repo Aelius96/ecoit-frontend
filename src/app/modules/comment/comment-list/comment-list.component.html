@@ -1,5 +1,5 @@
 
-	<div class="row comment" *ngFor="let cmt of commentList ; count as total ">
+	<div class="row comment" *ngFor="let cmt of commentList ; let total = count  ">
 		<div class="col-md-2">
 			<div class="info-comment">
 				<div class="img-comment d-flex flex-column">

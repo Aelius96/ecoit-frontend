@@ -15,6 +15,11 @@ export class ListContactComponent {
     startTime: '' ,
     endTime:'' ,  
   }
+
+  Filter ={
+    
+  }
+
   paging = {
     page: 1,
     size: 5,
