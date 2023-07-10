@@ -41,7 +41,7 @@
                 <script>
                   $(document).ready(function(){
                     $('.carousel').carousel({
-                      interval: 10
+                      interval: 5
                     })
                   });
                 </script>
@@ -63,11 +63,10 @@
                             </div>
                             <div class="blog-inner" style="display: inline-block;width: 70%;">
                               <a href="/tin-tuc/{{news.url}}" id="text">{{news.title}}</a>
-                              <p>{{news.description}}</p>
+                              <p class="des-news">{{news.description}}</p>
                             </div>
                           </div>
                         </li>
-                        
                       </ul>
                       <div  style="margin: 50px 0 20px 0px;">
                         <div class="col-xs-12" >

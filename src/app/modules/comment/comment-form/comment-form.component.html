@@ -1,0 +1,22 @@
+
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate class="form-block" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-md-12 ">
+            <span class="title">Tên</span>
+            <span style="color: red; "  class="title">*</span> <br>
+            <div class="form-group fl_icon">
+                <div class="icon"><i class="fa fa-user"></i></div>
+                <input class="form-input" name="name" type="text" [(ngModel)]="comment.userId" required>
+            </div>
+        </div>
+        <div class="col-md-12">		
+            <span  class="title">Nội Dung</span>
+            <span style="color: red; "  class="title">*</span> <br>							
+            <div class="form-group" style="border: none;">
+                <textarea name="content" id="" class="input" cols="30" rows="10" [(ngModel)]="comment.content" required ></textarea>
+            </div>
+        </div>
+        <!-- <a class="btn pull-right" style=" color: #ffffff;">Gửi</a> -->
+        <button class="btn-success btn " type="submit">Bình Luận</button>
+    </div>
+</form>

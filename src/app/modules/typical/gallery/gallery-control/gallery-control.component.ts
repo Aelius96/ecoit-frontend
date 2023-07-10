@@ -27,6 +27,7 @@ export class GalleryControlComponent implements OnInit{
     size: 16,
     totalRecord: 0 
   }
+
  constructor(private router : Router,
               private galleryService: GalleryService,
               ){}
@@ -52,7 +53,6 @@ getListAllWithpage():void{
      this.galleryList = res.content;
      this.paging.totalRecord = res.totalElements;
      console.log(res)
-
    }, error =>{console.log(error);
    } )
 }
@@ -60,7 +60,6 @@ getListAllWithpage():void{
 getListAll():void{
   this.galleryService.getListAll().subscribe(res=>{
     this.galleryList= res;
-
   })
 }
 

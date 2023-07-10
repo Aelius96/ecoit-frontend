@@ -1,96 +1,79 @@
 <div class="toolbar">
-    <div class="d-flex  justify-content-between header-menu ">
-      <div class="left-d-flex">
-        <div class="d-flex">
-            <a class="control" style="width: 80px" routerLink="../" ><span style="font-weight: bold;" class="spann">Kho Ảnh /</span></a>
-          <a class="control"  style="width: 120px ;padding-right: 10px;"  href="admin/tImage"   ><span class="spann">Ảnh Hoạt Động</span></a>
-       </div>    <!--   -->
-      </div>
-      <div class="right-d-flex">
-        <div class="d-flex  flex-wrap">
-          <div class="menu-item ">
-            <div class="d-flex">
-              <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-              <app-app-page-size-image
-              (pageSizeChange)="handlePageSizeChange($event)"
-              [totalRecords]="paging.totalRecord"
-              [(pageSize)]="paging.size"></app-app-page-size-image>
-               <!-- <app-app-page-size-image
-                  (pageSizeChange)="handlePageSizeChange($event)"
-                  [totalRecords]="paging.totalRecord"
-                  [(pageSize)]="paging.size" > 
-              </app-app-page-size-image> -->
+  <div class="d-flex  justify-content-between header-menu ">
+    <div class="left-d-flex">
+      <div class="d-flex">
+          <a class="control" style="width: 80px" routerLink="../" ><span style="font-weight: bold;" class="spann">Kho Ảnh /</span></a>
+        <a class="control"  style="width: 120px ;padding-right: 10px;"  href="admin/tImage"   ><span class="spann">Ảnh Hoạt Động</span></a>
+     </div>    <!--   -->
+    </div>
+    <div class="right-d-flex">
+      <div class="d-flex  flex-wrap">
+        <div class="menu-item ">
+          <div class="d-flex">
+            <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
 
-            </div>
+             <app-app-page-size-image
+                (pageSizeChange)="handlePageSizeChange($event)"
+                [totalRecords]="paging.totalRecord"
+                [(pageSize)]="paging.size" > 
+            </app-app-page-size-image>
+
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="d-flex flex-column flex-column-fluid page-albums">
-          <div>
-            <div class="row" style="margin-left: 0px; margin-right: 0px;">
-              
-                <div class="col-lg-8" >
-                  <div class="row">
-                    <div class="col-md-3" style="margin-bottom: 30px;" *ngFor="let img of image |  paginate: {
-                       id: 'album',
-                    itemsPerPage: paging.size,
-                    currentPage: paging.page,
-                    totalItems: paging.totalRecord } ; ">
-                      <div class="product-thumb-image" (click)="pick($event)" >
-                        <img class="img-fluid" src="{{img.pathUrl}}" alt="{{img.name}}" id="{{img.id}}" appHideMissing >
-                        
-                      </div>
+</div>
+<div class="d-flex flex-column flex-column-fluid page-albums">
+        <div>
+          <div class="row" style="margin-left: 0px; margin-right: 0px;">
+            
+              <div class="col-lg-8" >
+                <div class="row">
+                  <div class="col-md-3" style="margin-bottom: 30px;" *ngFor="let img of image |  paginate: {
+                     id: 'album',
+                  itemsPerPage: paging.size,
+                  currentPage: paging.page,
+                  totalItems: paging.totalRecord }  ">
+                    <div class="product-thumb-image" (click)="pick($event)" >
+                      <img class="img-fluid" src="{{img.pathUrl}}" alt="{{img.name}}" id="{{img.id}}" appHideMissing >
+                      
                     </div>
-                </div>
+                  </div>
               </div>
-              <div class="col-lg-4 info-img">
-                <div class="box">
-                  <div class="img-box" >
-                    <img class="img-fluid" src="{{target.url}}" alt="Images" appHideMissing >
-                  </div>
-                  <div class="content-box">
-                    <span><strong>Tên: </strong></span>
-                    <span>{{target.name}}</span>
-                    
-                  </div>
-                  <div class="content-box">
-                    <span style="width: 100%; display: inline-block; word-wrap: break-word;" ><strong>Url: </strong> {{target.url}} </span>
-                    
-                  </div>
-                  <div class="content-box">
-                    <span><strong>Trạng thái: </strong></span>
-                      
-                        <span style="color: #50b848">
-                          <i class="fa fa-dot-circle fa-xs"></i>
-                        </span>
-                        <span > Hoạt động</span>
-                      
-                  </div>
-                  <div class="content-btn" >
-                    <button (click)="downloadimg(target.id)" class="btn"  style="margin-right: 10px;">Tải xuống </button>
-                    <button  class="btn" (click)="deleteFile(target.id)" style="margin-right: 10px;">Xóa {{target.id}}</button> 
-                    <button class="btn" (click)="addimagetogallery(target.id)">Thêm ảnh </button>
-                  </div>
-                </div>
-              </div>
-
-
-             
-                <div class="col-md-12" *ngIf="paging.totalRecord>0">
-                  <pagination-controls 
-                  previousLabel="<" 
-                  nextLabel=">"
-                  [id]="'album'"
-                  (pageChange)="handlepagechange($event)"
-                  [maxSize]="paging.totalRecord"
-                  ></pagination-controls>
-                </div>
-             
             </div>
-           
-          </div>
-      
-  </div>
- 
+            <div class="col-lg-4 info-img">
+              <div class="box">
+                <div class="img-box" >
+                  <img class="img-fluid" src="{{target.url}}" alt="Images" appHideMissing >
+                </div>
+                <div class="content-box">
+                  <span><strong>Tên: </strong></span>
+                  <span>{{target.name}}</span>
+                  
+                </div>
+                <div class="content-box">
+                  <span style="width: 100%; display: inline-block; word-wrap: break-word;" ><strong>Url: </strong> {{target.url}} </span>
+                  
+                </div>
+                <div class="content-box">
+                  <span><strong>Trạng thái: </strong></span>
+                    
+                      <span style="color: #50b848">
+                        <i class="fa fa-dot-circle fa-xs"></i>
+                      </span>
+                      <span > Hoạt động</span>
+                    
+                </div>
+                <div class="content-btn" >
+                  <button (click)="downloadimg(target.id)" class="btn"  style="margin-right: 10px;">Tải xuống </button>
+                  <button  class="btn" (click)="deleteFile(target.id)" style="margin-right: 10px;">Xóa {{target.id}}</button> 
+                  <button class="btn" (click)="addimagetogallery(target.id)">Thêm ảnh </button>
+                </div>
+              </div>
+              </div>
+            </div>
+         
+        </div>
+    
+</div>

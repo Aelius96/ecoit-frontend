@@ -22,7 +22,7 @@ export class SliderControlComponent {
 
   slideConfig: any;
 
-  constructor(private sliderService: SliderService, private tokenStorageService: TokenStorageService, private router: Router) { }
+  constructor(private sliderService: SliderService, private router: Router) { }
 
   ngOnInit(): void {
     this.getSlider();
@@ -54,6 +54,7 @@ export class SliderControlComponent {
     return this.router.navigate(['admin/sliders/update', id]);
   }
 
+  
   hideImage(id: number){
     this.sliderService.hideSlider(id).subscribe(() =>{
       this.getSlider();

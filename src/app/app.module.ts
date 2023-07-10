@@ -9,7 +9,6 @@ import {HomeMainComponent} from './modules/home/home-main/home-main.component';
 import {LoginComponent} from "./authentication/login/login.component";
 import {FooterComponent} from './modules/navigation/footer/footer.component';
 import {HeaderComponent} from './modules/navigation/header/header.component';
-
 import {SecurityDefenseComponent} from './modules/product/security-defense/security-defense.component';
 import {AboutUsComponent} from './modules/introduce/about-us/about-us.component';
 import {CapacityProfileComponent} from './modules/introduce/capacity-profile/capacity-profile.component';
@@ -102,6 +101,7 @@ import { PostControlComponent } from './modules/post/post-control/post-control.c
 import { PostAddComponent } from './modules/post/post-add/post-add.component';
 import { PostListComponent } from './modules/post/post-list/post-list.component';
 import { PostDetailComponent } from './modules/post/post-detail/post-detail.component';
+
 import {MatSelectModule} from "@angular/material/select";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {MatListModule} from "@angular/material/list";
@@ -111,9 +111,12 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {TagInputModule} from "ngx-chips";
 
+
 import { NgxInputTagModule } from '@ngx-lite/input-tag';
 import {SlickCarouselModule} from "ngx-slick-carousel";
 
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { CommentFormComponent } from './modules/comment/comment-form/comment-form.component';
 
 
 
@@ -198,11 +201,11 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
       ToastContainerComponent,
       AppPageSizeImageComponent,
       ProductMoreComponent,
-
       PostControlComponent,
         PostAddComponent,
         PostListComponent,
         PostDetailComponent,
+        CommentFormComponent,
 
 
 
@@ -221,6 +224,7 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
     NgxPaginationModule,
     SlickCarouselModule,
     NgxInputTagModule.forRoot(),
+
     MatSelectModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
@@ -231,8 +235,11 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
     MatAutocompleteModule,
     MatFormFieldModule,
     TagInputModule
+    NgxIntlTelInputModule,
 
   ],
+
+
 
   providers: [authInterceptorProviders],
 

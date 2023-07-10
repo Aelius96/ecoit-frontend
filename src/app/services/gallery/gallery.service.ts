@@ -15,8 +15,8 @@ export class GalleryService {
   private baseURL = `${Constant.BASE_URL}`;
   private domain = `${Domain.GALLERY}` 
   // tImage
-  getAllListChangePage(param: Params):Observable<any>{
-    return this.http.get(`${this.baseURL}/${this.domain}`, {params: param});
+  getAllListChangePage(params: Params):Observable<any>{
+    return this.http.get(`${this.baseURL}/${this.domain}/`, {params});
   }
 
   getListAll():Observable<Gallery[]>{

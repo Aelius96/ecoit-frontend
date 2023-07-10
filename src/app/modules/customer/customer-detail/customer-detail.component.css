@@ -15,36 +15,60 @@
   background-color:  #50b848;
   color: white;
 }
+.wpb_color-gree:hover{
+  color: black;
+  text-decoration: none;
+}
+
+
 .col-xs-12{
   text-align: center;
 }
+.pricing-table-one{
+  margin: 0px 40px 0px 40px;
+}
+.item-cus{}
 
+.post-item{}
 
-
-
-.pricing-table__innerrr::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 0;
-  height: 100%;
-  background-color: #b4dab9;
-  transition: .05s;
-  z-index: -1;
+.product-item{
+  background-color: #ffffff04; 
+  margin: 0 auto; 
+  text-align: center;
+   padding-bottom: 0px; 
+ }
+ .pro-list:hover{
+  background-color: #daf9dec9 ;
+}
+.pro-list{
+  background-color: rgba(189, 191, 187, 0); 
+  width: 20%;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.post-item{
+  margin-bottom: 10px;
+  height: auto;
 }
 
-.pricing-table__innerrr:hover:before {
-  width: 100%;
-  left: 0;
-  right: 0;
-}
-.col-xs-12{
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 100%;
+.item:hover{
+  text-decoration: none;
+  }
 
-}
+  .imgicon{
+    color: black;
+    text-align: center;
+  }
+
+  .post-image{
+    width: 70%;
+    margin-bottom: 15px;
+  }
+  .ap-xnam{
+    color: black;
+  }
+  
+  .service-link:hover{
+    color: black;
+    text-decoration: none;
+  }

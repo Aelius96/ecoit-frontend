@@ -56,7 +56,9 @@
     
     font-size: 15px;
   }
-
+.mt-90{
+  margin-top: 90px;
+}
   /*  */
   
 .icon{
@@ -161,4 +163,22 @@
   .signal{
     float: right;
     text-align: end;
+  }
+  .btn{
+    max-width: 112px ;
+  }
+  .btn-notcontact{
+    height: 32px;
+    width: 100%;
+    background-color: #50b848;
+  }
+  .btn-contacted{
+    height: 32px; 
+    width: 100%;
+     background-color: #6e706d;
+  }
+  .search{
+    height: 30px;
+    margin-top: 7px;
+    max-width: 110px;
   }

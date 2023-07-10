@@ -35,7 +35,7 @@ export class FileService {
     return this.http.post(`${this.baseUrl}/image/update`, file);
   }
 
-  getlistallwithpage(params: any): Observable<any>{
+  getlistallwithpage(params: Params): Observable<any>{
     return this.http.get(`${this.baseUrl}/image`, {params});
   }
 

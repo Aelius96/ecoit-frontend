@@ -126,5 +126,32 @@
   });
 </script>
 
+<script>
+  function validateForm() {
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var email = document.getElementById("email").value;
+    var content = document.getElementById("content").value;
+    
+    if (username === "") {
+      alert("Vui lòng nhập tên người liên hệ!");
+      return false;
+    }
+    if (phone === "") {
+      alert("Vui lòng nhập số điẹn thoại!");
+      return false;
+    }
+    if (email === "") {
+      alert("Vui lòng nhập địa chỉ email!");
+      return false;
+    }
+    if (content === "") {
+      alert("Vui lòng nhập nội dung!");
+      return false;
+    }
+  }
+</script>
+
+
 </body>
 </html>
