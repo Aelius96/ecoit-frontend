@@ -4,7 +4,7 @@
         <div class="dau" style="margin: 10px 0px 0px 0px; padding-bottom: 10px;">
                 <div class="header position-relative" style="height: 100px;">
                     <!-- brand logo -->
-                    <div class="header__logo" style="">
+                    <div class="header__logo" >
                         <a class="wdc-logo" href="/trang-chu" title="Ecoit">
       
                             <img  class="img" src="https://ecoit.asia/wp-content/themes/ecoitTheme/image/logoEcoit.jpg" 
@@ -38,7 +38,7 @@
           Vui lòng điền thông tin theo mẫu form dưới đây để bộ phận Tư vấn khách hàng của EcoIT có thể hỗ trợ quý khách hàng sớm nhất.
         </div>
         <div class="info">
-          <form  (ngSubmit)="onSubmit()"  enctype="multipart/form-data"  novalidate action="" >
+          <form  (ngSubmit)="onSubmit()"  #f="ngForm"  enctype="multipart/form-data"  novalidate action="" >
             <label for="name">
               <span>Tên</span>
               <span style="color: red;">*</span> <br>
@@ -47,7 +47,10 @@
             <label for="phone">
               <span>Số điện thoại</span>
               <span style="color: red;">*</span> <br>
-              <input class="input-info w-100" type="tel" id="phone" name="phone"  [(ngModel)]="contact.phone"  required >
+              <input  class="input-info w-100" [(ngModel)]="contact.phone"  (keypress)="numberOnly($event)" type="text" id="phone" name="phone" required="phone">
+              <!-- <ngx-intl-tel-input></ngx-intl-tel-input> -->
+              <!-- <input class="input-info w-100" type="tel" id="phone" name="phone"  [(ngModel)]="contact.phone"  required > -->
+              <!-- <input type="tel" class="input-info w-100" id="phone" name="phone" [(ngModel)]="contact.phone" pattern="[0-9]{10}" required> -->
             </label> <br>
             <label for="email">
               <span>Email</span> 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CountryISO, PhoneNumberFormat, SearchCountryField } from 'ngx-intl-tel-input';
+import { CountryISO, PhoneNumberFormat,SearchCountryField } from 'ngx-intl-tel-input';
 import { Contact } from 'src/app/core/model/contact/contact';
 import { ContactService } from 'src/app/services/contact/contact.service';
 
@@ -14,7 +14,7 @@ export class ContactComponent  implements OnInit {
   contact: Contact=new Contact();
   
   constructor( private contactService: ContactService,
-           private router: Router ){}
+           private router: Router ){  }
   
   ngOnInit(): void {
   }
@@ -31,6 +31,16 @@ export class ContactComponent  implements OnInit {
       }, 
       er=>{console.log(er)}
       )
+  }
+
+
+  numberOnly(event:any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+
   }
 
 }

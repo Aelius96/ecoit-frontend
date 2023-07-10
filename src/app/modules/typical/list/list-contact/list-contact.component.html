@@ -4,14 +4,22 @@
         <div class="d-flex">
           <h5 class="h5" >Người liên hệ</h5>
           <form (ngSubmit)="search()" class="d-flex">
-            <input class="search" type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm ">
+            <input class="search input-search" type="text" [(ngModel)]="searchInput.input" name="searchInput.input" placeholder="Tìm kiếm ">
             <div class="input-group-append inputt" >
               <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
             </div>
           </form>
-          <input type="date" id="date" class="search" name="date">
-          <div class="item-select">
-            <select class="custom-select" style="width: 120px ; height: 30px;" >
+          <!-- <form (ngSubmit)="search()" class="d-flex">
+            <input type="date" id="startTime" class="search input-search" name="searchInput.startTime" [(ngModel)]="searchInput.startTime">
+            <input type="date" id="endTime" class="search input-search" name="searchInput.endTime" [(ngModel)]="searchInput.endTime">
+            <div class="input-group-append inputt" >
+              <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+            </div>
+          </form> -->
+          
+          
+          <div class="item-select ">
+            <select class="custom-select input-search"  >
               <option >Trạng thái</option>
               <option>Đã liên hệ</option>
               <option>Chưa liên hệ</option>
@@ -25,7 +33,7 @@
         <div class="d-flex  flex-wrap">
           <div class="menu-item ">
             <div class="d-flex">
-              <span class="fw-semibold mr-1" style="margin-top: 5px;">Số mục mỗi trang:</span>
+              <span class="fw-semibold mr-1" style="margin-top: 2px;" >Số mục mỗi trang:</span>
               <app-page-size (pageSizeChange)="handlePageSizeChange($event)"
               [totalRecords]="paging.totalRecord"
               [(pageSize)]="paging.size"

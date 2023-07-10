@@ -6,5 +6,4 @@ export class Contact {
     content:any;
     dates:any;
     status:any;
-    
 }

@@ -85,6 +85,14 @@ img{
   background-color: rgb(240, 56, 56);
   color: white;
 }
+.des-blog{
+   
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .tittle-blog{
   font-family: initial;

@@ -116,7 +116,11 @@ import { NgxInputTagModule } from '@ngx-lite/input-tag';
 import {SlickCarouselModule} from "ngx-slick-carousel";
 
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+
+
 import { CommentFormComponent } from './modules/comment/comment-form/comment-form.component';
+
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -236,6 +240,8 @@ import { CommentFormComponent } from './modules/comment/comment-form/comment-for
     MatFormFieldModule,
     TagInputModule,
     NgxIntlTelInputModule,
+    MatButtonModule,
+    BrowserAnimationsModule
 
   ],
 

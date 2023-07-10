@@ -23,8 +23,7 @@ export class RecruitNewsComponent implements OnInit{
   constructor( private newsService: NewsService,
             
               private RecruitService: RecruitService,
-              private route : ActivatedRoute,
-              private sanitizer: DomSanitizer) {}
+             ) {}
 
   ngOnInit(): void {
     this.getListAllWithPage();
@@ -45,7 +44,7 @@ export class RecruitNewsComponent implements OnInit{
 
   // getListNews(){
   //   this.url = this.route.snapshot.params['url'];
-  //   this.newsService.getNewsByUrl(this.url).subscribe(data => {
+  //   this.newsService.getNewsByUrl(this.url).subscribe(data =>{
   //     this.NewsDetail = data;
   //     document.title = this.NewsDetail.title;
   //     this.content = this.sanitizer.bypassSecurityTrustHtml(this.NewsDetail.content);

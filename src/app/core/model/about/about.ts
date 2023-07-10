@@ -1,6 +1,6 @@
 
 export class About {
-    id: any;
+    id: number;
     content: any;
     description: any;
     videoLINK: any;

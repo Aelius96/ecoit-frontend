@@ -10,13 +10,19 @@ import { ContactService } from 'src/app/services/contact/contact.service';
 export class ListContactComponent {
 
   contactList: Contact[]=[]
-  searchInput= '';
-
+  searchInput= {
+    input: '',
+    startTime: '' ,
+    endTime:'' ,  
+  }
   paging = {
     page: 1,
     size: 5,
     totalRecord: 0 
-  }
+}
+
+  startTime: '';
+  endTime: '';
 
   constructor(private contactService: ContactService) { }
 
@@ -24,8 +30,7 @@ export class ListContactComponent {
     this.getAllContactPagesize();
   }
 
-
-  getRequestParams(page: number, pageSize: number,search:string): any {
+  getRequestParams(page: number, pageSize: number,searchinput:string  ): any {
     let params: any = {};
 
     if (page) {
@@ -36,16 +41,15 @@ export class ListContactComponent {
       params[`pageSize`] = pageSize;
     }
 
-    if(search){
-      params[`search`] = search;
+    if(searchinput){
+      params[`search`] = searchinput;
     }
     return params;
   }
 
-
-   getAllContactPagesize(): void {
-  const params = this.getRequestParams(this.paging.page, this.paging.size , this.searchInput)
-    this.contactService.listAllsizePage(params).subscribe(res=>{
+  getAllContactPagesize(): void {
+  const params = this.getRequestParams(this.paging.page, this.paging.size , this.searchInput.input )
+    this.contactService.listAllsizePage(params ).subscribe(res=>{
       this.contactList=res.content;
       this.paging.totalRecord = res.totalElements;
       console.log(res)
@@ -64,7 +68,6 @@ export class ListContactComponent {
       })
      }
   }
-
 
 Contacted(id:number){
   this.contactService.Contacted(id).subscribe(()=>{
@@ -96,7 +99,4 @@ handlePageSizeChange(event: any): void {
   console.log(event, this.paging.size)
   this.getAllContactPagesize();
 }
-
-
-
 }
