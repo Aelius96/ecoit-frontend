@@ -44,7 +44,7 @@
 .item-aside{
   padding-top: 30px;
   max-height: 750px;
-  overflow: auto;
+  overflow: none;
   background-color: #50b848;
 }
 .aside-more{

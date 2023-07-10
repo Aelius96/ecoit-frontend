@@ -104,6 +104,9 @@ img{
     font-size: 13px;
     
 }
+.btn{
+margin-left: 15px;
+}
 .btn-link:hover{
     text-decoration: none;
   
