@@ -234,7 +234,7 @@ import { CommentFormComponent } from './modules/comment/comment-form/comment-for
     AsyncPipe,
     MatAutocompleteModule,
     MatFormFieldModule,
-    TagInputModule
+    TagInputModule,
     NgxIntlTelInputModule,
 
   ],
