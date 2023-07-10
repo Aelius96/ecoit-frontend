@@ -61,7 +61,7 @@ import {HistoryListComponent} from './modules/admin/history/history-list/history
 import {HttpClientModule} from "@angular/common/http";
 import {RegisterComponent} from './authentication/register/register.component';
 import {authInterceptorProviders} from "./authentication/helper/auth.interceptor";
-import {CommonModule, NgOptimizedImage} from "@angular/common";
+import {AsyncPipe, CommonModule, NgOptimizedImage} from "@angular/common";
 import { NavigatorControlComponent } from './modules/navigation/navigator-admin/navigator-control/navigator-control.component';
 import { NavigatorAddComponent } from './modules/navigation/navigator-admin/navigator-add/navigator-add.component';
 import { ProductControlComponent } from './modules/product/product-control/product-control.component';
@@ -101,6 +101,16 @@ import { PostControlComponent } from './modules/post/post-control/post-control.c
 import { PostAddComponent } from './modules/post/post-add/post-add.component';
 import { PostListComponent } from './modules/post/post-list/post-list.component';
 import { PostDetailComponent } from './modules/post/post-detail/post-detail.component';
+
+import {MatSelectModule} from "@angular/material/select";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {MatListModule} from "@angular/material/list";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatIconModule} from "@angular/material/icon";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {TagInputModule} from "ngx-chips";
+
 
 import { NgxInputTagModule } from '@ngx-lite/input-tag';
 import {SlickCarouselModule} from "ngx-slick-carousel";
@@ -198,6 +208,9 @@ import { CommentFormComponent } from './modules/comment/comment-form/comment-for
         CommentFormComponent,
 
 
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -211,9 +224,21 @@ import { CommentFormComponent } from './modules/comment/comment-form/comment-for
     NgxPaginationModule,
     SlickCarouselModule,
     NgxInputTagModule.forRoot(),
+
+    MatSelectModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatListModule,
+    MatChipsModule,
+    MatIconModule,
+    AsyncPipe,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    TagInputModule
     NgxIntlTelInputModule,
 
   ],
+
 
 
   providers: [authInterceptorProviders],

@@ -39,4 +39,8 @@ export class SliderService {
   showSlider(id: number): Observable<Object>{
     return this.http.get(`${this.baseURL}/sliders/show/${id}`);
   }
+
+  deleteSlider(id: number): Observable<Object>{
+    return this.http.get(`${this.baseURL}/sliders/status/${id}`);
+  }
 }

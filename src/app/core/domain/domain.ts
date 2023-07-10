@@ -12,4 +12,5 @@ export class Domain {
   public static SLIDERS = `sliders`;
   public static POST = `bpost`;
   public static CATEGORY = `category`;
+  public static HASHTAG = `hashtag`;
 }

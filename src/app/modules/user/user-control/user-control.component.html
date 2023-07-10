@@ -16,7 +16,7 @@
           <div class="menu-item ">
             <div class="d-flex">
               <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-              <app-page-size 
+              <app-page-size
                 (pageSizeChange)="handlepagesizechange($event)"
                 [totalRecords]="paging.totalRecord"
                 [(pageSize)]="paging.size "  ></app-page-size>
@@ -37,7 +37,7 @@
 <div class="" style="padding: 90px;">
   <div class="container">
     <div class="detail">
-      
+
         <div class="header-user">
           <p class="user" >Người Dùng</p>
         </div>
@@ -100,9 +100,10 @@
           </tbody>
         </table>
       </div>
+
       <div class="row" style="margin-top: 10px;" *ngIf="paging.totalRecord>0">
           <div class="col-md-3"  >
-            <pagination-controls 
+            <pagination-controls
                 [id]="'user'"
                 previousLabel="<"
                 nextLabel=">"
@@ -111,6 +112,6 @@
             ></pagination-controls>
           </div>
       </div>
-    
+
   </div>
 </div>

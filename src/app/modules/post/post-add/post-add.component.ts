@@ -1,17 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {News} from "../../../core/model/news/news";
+import {Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
 import {Constant} from "../../../core/config/constant";
 import {ActivatedRoute, Router} from "@angular/router";
-import {NewsService} from "../../../services/news/news.service";
-import {HttpClient} from "@angular/common/http";
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import {Category} from "../../../core/model/category/category";
 import {CategoryService} from "../../../services/category/category.service";
-import {Product} from "../../../core/model/product/product";
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {Observable} from "rxjs";
+import {FormBuilder, FormControl, FormGroup, Validator, Validators} from "@angular/forms";
+import {map, Observable, startWith} from "rxjs";
 import {Hashtag} from "../../../core/model/hashtag/hashtag";
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+
+import {HashtagService} from "../../../services/hashtag/hashtag.service";
+import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
+import {LiveAnnouncer} from "@angular/cdk/a11y";
+import {MatChipInputEvent} from "@angular/material/chips";
+
+export interface Fruit {
+  name: string;
+}
 
 @Component({
   selector: 'app-post-add',
@@ -20,37 +26,103 @@ import {Hashtag} from "../../../core/model/hashtag/hashtag";
 })
 export class PostAddComponent implements OnInit{
   post: Post= new Post();
+  hashtag: Hashtag;
   categories: Category[] = [];
   hashtagList: Hashtag[] = [];
   fileToUpload:string [] = [];
   url: any;
   id: any;
-
   ckeConfig: any;
   baseUrl = `${Constant.BASE_URL}`;
   message = '';
 
-  form: FormGroup;
-  value: Observable<number>;
-  tagSuggestions = ['google', 'apple', 'microsoft'];
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  hashtagCtrl = new FormControl('');
+  filteredHashtag: Observable<Hashtag[]>;
+
   constructor(private router:Router,
               private route:ActivatedRoute,
               private postService: PostService,
               private categoryService:CategoryService,
-              private formBuilder: FormBuilder) {
+              private hashtagService: HashtagService) {
+
+    this.filteredHashtag = this.hashtagCtrl.valueChanges.pipe(
+      startWith(null),
+      map((hashtag: string | null) => (hashtag ? this.filterHashtags(hashtag) : this.hashtagList.slice())),
+    );
   }
 
+  //hashtag
+
+  @ViewChild('hashtagInput') hashtagInput: ElementRef<HTMLInputElement>;
+
+  announcer = inject(LiveAnnouncer);
+
+  addHashtag(event: MatChipInputEvent): void {
+
+    const value = (event.value || '').trim();
+
+    // Add the hashtag only if it doesn't already exist in the list
+    if (value) {
+      if(!this.hashtagList.map(h=>h.name).includes(value)){
+        const hashTagNew = new Hashtag();
+        hashTagNew.name = event.value;
+        this.post.hashtags.push(hashTagNew);
+        this.hashtagList.push(hashTagNew);
+      }else{
+        this.hashtagList.forEach(existHashTag =>{
+          if(value == existHashTag.name){
+            this.post.hashtags.push(existHashTag)
+          }
+        })
+      }
+    }
+
+    // Reset the input value
+    event.chipInput!.clear();
+
+    this.hashtagCtrl.setValue(event.value);
+
+    console.log(value);
+  }
+
+  remove(hashtag: Hashtag): void {
+    const index = this.post.hashtags.map(h => h.name).indexOf(hashtag.name);
+
+    if (index >= 0) {
+      this.post.hashtags.splice(index, 1);
+
+      this.announcer.announce(`Removed ${hashtag.name}`);
+    }
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.hashtagList.map(hashtag => hashtag.name).push(event.option.viewValue);
+    this.hashtagInput.nativeElement.value = '';
+    this.hashtagCtrl.setValue(null);
+  }
+
+  filterHashtags(value: string): Hashtag[] {
+    const filterValue = value.toLowerCase();
+    return this.hashtagList.filter(hashtag => hashtag.name.toLowerCase().includes(filterValue));
+  }
+
+
+
   ngOnInit() {
+
+
     this.id = this.route.snapshot.params['id'];
     if(this.id){
       this.postService.getPostById(this.id).subscribe(data =>{
         this.post = data;
         this.url = this.post.image?.pathUrl;
-
+        this.listAllHashTag();
       });
     }
 
     this.listAllCategory();
+
     this.ckeConfig = {
       extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
@@ -63,12 +135,9 @@ export class PostAddComponent implements OnInit{
 
     };
 
-    this.form = this.formBuilder.group({
-      tags: [['dog', 'cat', 'bird']]
-    });
-
-    this.value = this.form.controls['tags'].valueChanges;
   }
+
+
   onSubmit(){
     if(this.id){
       this.updateDataToForm(this.id);
@@ -77,6 +146,9 @@ export class PostAddComponent implements OnInit{
     }
   }
 
+  onModelChange(event: any){
+    this.post.category = event;
+  }
 
   savePost(){
     const postFormData = this.prepareFormData(this.post);
@@ -105,7 +177,11 @@ export class PostAddComponent implements OnInit{
       this.categories = data;
     })
   }
-
+  listAllHashTag(){
+    this.hashtagService.listAllHashtag().subscribe(data =>{
+      this.hashtagList = data;
+    })
+  }
   prepareFormData(post: Post): FormData {
     const formData = new FormData();
     formData.append(
@@ -120,6 +196,7 @@ export class PostAddComponent implements OnInit{
         // this.fileToUpload[i].name
       )
     }
+    console.log(formData)
     return formData;
   }
 
@@ -135,5 +212,5 @@ export class PostAddComponent implements OnInit{
     }
   }
 
-  //add tag
+
 }
