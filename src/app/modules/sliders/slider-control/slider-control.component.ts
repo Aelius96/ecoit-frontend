@@ -25,7 +25,7 @@ export class SliderControlComponent {
   constructor(private sliderService: SliderService, private tokenStorageService: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getCustomer();
+    this.getSlider();
 
     this.slideConfig = {
       infinite: true,
@@ -35,7 +35,7 @@ export class SliderControlComponent {
     };
   }
 
-  getCustomer(){
+  getSlider(){
     this.sliderService.getSliders().subscribe(data => {
       this.sliders = data
       this.choose(this.sliders[0]);
@@ -56,15 +56,24 @@ export class SliderControlComponent {
 
   hideImage(id: number){
     this.sliderService.hideSlider(id).subscribe(() =>{
-      this.getCustomer();
+      this.getSlider();
     })
   }
 
   show(id: number){
     this.sliderService.showSlider(id).subscribe(() =>{
-      this.getCustomer();
+      this.getSlider();
     })
   }
 
-  
+  deleteImage(id: number){
+    let option = confirm("Dữ liệu sẽ bị xóa . Bạn có mốn tiếp tục ");
+
+    if(option){
+      this.sliderService.deleteSlider(id).subscribe(()=>{
+        this.getSlider();
+      })
+    }
+  }
+
 }

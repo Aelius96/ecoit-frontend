@@ -119,7 +119,7 @@
     ora "5.4.1"
     rxjs "7.8.1"
 
-"@angular/animations@^15.0.0", "@angular/animations@^16.0.0", "@angular/animations@^16.0.0 || ^17.0.0", "@angular/animations@16.0.0":
+"@angular/animations@^15.0.0", "@angular/animations@^16.0.0", "@angular/animations@^16.0.0 || ^17.0.0", "@angular/animations@>=10.1.5", "@angular/animations@16.0.0":
   version "16.0.0"
   resolved "https://registry.npmjs.org/@angular/animations/-/animations-16.0.0.tgz"
   integrity sha512-Xx4Ffdo3sweg24MDVAXbDfxqkNPEuRgqOC1+f9171kf+w7cBEr4Bmy37DP7YkJceaU0xJH9imcx4708KeIjqkQ==
@@ -159,7 +159,7 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/common@^14.2.12", "@angular/common@^15.0.0", "@angular/common@^16.0.0", "@angular/common@^16.0.0 || ^17.0.0", "@angular/common@>=13.0.0", "@angular/common@>=5.0.0", "@angular/common@16.0.0":
+"@angular/common@^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/common@^14.2.12", "@angular/common@^15.0.0", "@angular/common@^16.0.0", "@angular/common@^16.0.0 || ^17.0.0", "@angular/common@>=10.1.5", "@angular/common@>=13.0.0", "@angular/common@>=5.0.0", "@angular/common@16.0.0":
   version "16.0.0"
   resolved "https://registry.npmjs.org/@angular/common/-/common-16.0.0.tgz"
   integrity sha512-at3/xCevf2t9swX2P7K7gaSBuQPy7ZJsf37qQkYIuczzfij69r7s9NjYeA74/q3EWG9Yl2DCrhYoCW7ViXQINQ==
@@ -180,21 +180,21 @@
     tslib "^2.3.0"
     yargs "^17.2.1"
 
-"@angular/compiler@^16.0.0", "@angular/compiler@16.0.0", "@angular/compiler@16.0.3":
+"@angular/compiler@^16.0.0", "@angular/compiler@>=10.1.5", "@angular/compiler@16.0.0", "@angular/compiler@16.0.3":
   version "16.0.0"
   resolved "https://registry.npmjs.org/@angular/compiler/-/compiler-16.0.0.tgz"
   integrity sha512-xtg+KRvSeB9DUzMDtvlaRGKv+Y0MERsz+JOoqV9H4606ThNz5h8ih6fEhVKYqG100o7GhdJaVFO+vlr2/edUHA==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/core@^14.2.12", "@angular/core@^15.0.0", "@angular/core@^16.0.0", "@angular/core@^16.0.0 || ^17.0.0", "@angular/core@>=13.0.0", "@angular/core@>=5.0.0", "@angular/core@16.0.0":
+"@angular/core@^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/core@^14.2.12", "@angular/core@^15.0.0", "@angular/core@^16.0.0", "@angular/core@^16.0.0 || ^17.0.0", "@angular/core@>=10.1.5", "@angular/core@>=13.0.0", "@angular/core@>=5.0.0", "@angular/core@16.0.0":
   version "16.0.0"
   resolved "https://registry.npmjs.org/@angular/core/-/core-16.0.0.tgz"
   integrity sha512-scppDxtXubum6ZiGu3ogmReBtMuA5XXk5FL3YKLb3c9O7q9Z5PC8KNQ6SsaOwEb6oW+0BWXMV698p/zmd0J4tA==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/forms@^14.2.12", "@angular/forms@^15.0.0", "@angular/forms@^16.0.0", "@angular/forms@^16.0.0 || ^17.0.0", "@angular/forms@>=13.0.0", "@angular/forms@>=5.0.0":
+"@angular/forms@^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/forms@^14.2.12", "@angular/forms@^15.0.0", "@angular/forms@^16.0.0", "@angular/forms@^16.0.0 || ^17.0.0", "@angular/forms@>=10.1.5", "@angular/forms@>=13.0.0", "@angular/forms@>=5.0.0":
   version "16.0.0"
   resolved "https://registry.npmjs.org/@angular/forms/-/forms-16.0.0.tgz"
   integrity sha512-avpreXyDYWf44RNM5hfi5cTXXiNwcajBURP5rLap8RPMSUi2ePlJsmi0O+3+GduNZFbtnRXIpKTj3W+GeNa0PA==
@@ -1950,7 +1950,7 @@
     "@material/feature-targeting" "15.0.0-canary.b994146f6.0"
     "@material/rtl" "15.0.0-canary.b994146f6.0"
 
-"@material/form-field@15.0.0-canary.b994146f6.0":
+"@material/form-field@^15.0.0-canary.b994146f6.0", "@material/form-field@15.0.0-canary.b994146f6.0":
   version "15.0.0-canary.b994146f6.0"
   resolved "https://registry.npmjs.org/@material/form-field/-/form-field-15.0.0-canary.b994146f6.0.tgz"
   integrity sha512-Tg1SQQaopvXMyDEYxGTWnhCWQmNcWVIoKMLmle9P/gi2p8ulcj0iOCPYf+3ECqUBVozOmTPKlYOOiRwtKStAeA==
@@ -5560,11 +5560,26 @@ ng2-ckeditor@^1.3.7:
   dependencies:
     tslib "^2.3.0"
 
+ng2-material-dropdown@>=1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/ng2-material-dropdown/-/ng2-material-dropdown-1.0.0.tgz"
+  integrity sha512-waKgEkKQwGZT0dqRAd3ZW+wueYs5Xw9owiPBSMdg5jru5DcKDpUqFaADMqqI7HPuzJCxNJSln6nXX1tMYDbXGA==
+  dependencies:
+    tslib "^2.0.0"
+
 ngx-bootstrap@^10.2.0:
   version "10.2.0"
   resolved "https://registry.npmjs.org/ngx-bootstrap/-/ngx-bootstrap-10.2.0.tgz"
   integrity sha512-bn5wdvH6QQ2JGu4TgUbozdULBFMxZNPNTgO7dRiosx9FRrFvKcgxkGSgU/xoj+4kP1vgh8zwzaiDfvH/Bfb+Aw==
   dependencies:
+    tslib "^2.3.0"
+
+ngx-chips@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/ngx-chips/-/ngx-chips-3.0.0.tgz"
+  integrity sha512-hBJg4m9kCtCfersQef7vr2Ve6j9ntFSoB5ktF8MyOQnpONAriIp46c3Tb2wdf/lMEB2Xmc45snfJKnxKh3zimg==
+  dependencies:
+    ng2-material-dropdown ">=1.0.0"
     tslib "^2.3.0"
 
 ngx-pagination@^6.0.3:

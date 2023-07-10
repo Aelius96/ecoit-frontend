@@ -80,7 +80,7 @@ export class RecruitAddComponent implements OnInit{
     );
     for (let i=0 ; i< this.fileToUpload.length; i++){
       formData.append(
-        'file',
+        'thumb',
         this.fileToUpload[i]
       )
     }

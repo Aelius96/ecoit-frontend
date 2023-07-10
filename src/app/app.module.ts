@@ -62,7 +62,7 @@ import {HistoryListComponent} from './modules/admin/history/history-list/history
 import {HttpClientModule} from "@angular/common/http";
 import {RegisterComponent} from './authentication/register/register.component';
 import {authInterceptorProviders} from "./authentication/helper/auth.interceptor";
-import {CommonModule, NgOptimizedImage} from "@angular/common";
+import {AsyncPipe, CommonModule, NgOptimizedImage} from "@angular/common";
 import { NavigatorControlComponent } from './modules/navigation/navigator-admin/navigator-control/navigator-control.component';
 import { NavigatorAddComponent } from './modules/navigation/navigator-admin/navigator-add/navigator-add.component';
 import { ProductControlComponent } from './modules/product/product-control/product-control.component';
@@ -105,9 +105,12 @@ import { PostDetailComponent } from './modules/post/post-detail/post-detail.comp
 import {MatSelectModule} from "@angular/material/select";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {MatListModule} from "@angular/material/list";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatIconModule} from "@angular/material/icon";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {TagInputModule} from "ngx-chips";
 
-
-import { ProductMoreComponent } from './modules/product/product-more/product-more.component';
 import { NgxInputTagModule } from '@ngx-lite/input-tag';
 import {SlickCarouselModule} from "ngx-slick-carousel";
 
@@ -202,6 +205,9 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
         PostDetailComponent,
 
 
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -219,22 +225,14 @@ import {SlickCarouselModule} from "ngx-slick-carousel";
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MatListModule,
+    MatChipsModule,
+    MatIconModule,
+    AsyncPipe,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    TagInputModule
+
   ],
-
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    CKEditorModule,
-    HttpClientModule,
-    CommonModule,
-    ReactiveFormsModule,
-    NgOptimizedImage,
-    NgxPaginationModule,
-    SlickCarouselModule,
-    NgxInputTagModule.forRoot(),
-
-    ],
 
   providers: [authInterceptorProviders],
 

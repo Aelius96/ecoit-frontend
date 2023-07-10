@@ -36,3 +36,11 @@
   margin-right: 15px;
 
 }
+
+.example-chip-list {
+  width: 100%;
+}
+
+.changeBGC{
+  background-color: #0d8abc;
+}
