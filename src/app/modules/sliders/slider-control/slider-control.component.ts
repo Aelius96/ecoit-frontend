@@ -43,18 +43,18 @@ export class SliderControlComponent {
   }
 
   choose(e: any){
-    this.target.name = e.name;
-    this.target.url = e.pathUrl;
-    this.target.link = e.url;
-    this.target.id = e.id;
-    this.target.active = e.active;
+    this.target.name = e?.name;
+    this.target.url = e?.pathUrl;
+    this.target.link = e?.url;
+    this.target.id = e?.id;
+    this.target.active = e?.active;
   }
 
   updateSlider(id: number){
     return this.router.navigate(['admin/sliders/update', id]);
   }
 
-  
+
   hideImage(id: number){
     this.sliderService.hideSlider(id).subscribe(() =>{
       this.getSlider();

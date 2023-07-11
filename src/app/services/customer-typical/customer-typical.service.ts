@@ -4,6 +4,7 @@ import {Constant} from "../../core/config/constant";
 import {Observable} from "rxjs";
 import {News} from "../../core/model/news/news";
 import {CusTypical} from "../../modules/typical/customer/cus-typical";
+import {Domain} from "../../core/domain/domain";
 
 @Injectable({
   providedIn: 'root'
@@ -11,40 +12,40 @@ import {CusTypical} from "../../modules/typical/customer/cus-typical";
 export class CustomerTypicalService {
 
   baseUrl = `${Constant.BASE_URL}`
-
+  domain = `${Domain.CUSTOMER}`
   constructor(private http:HttpClient) { }
 
   listAllWithPage(params: any): Observable<any>{
-    return this.http.get(`${this.baseUrl}/customer/cus-typical`,{params})
+    return this.http.get(`${this.baseUrl}/${this.domain}/cus-typical`,{params})
   }
   listAllWithPageHome(params: any): Observable<any>{
-    return this.http.get(`${this.baseUrl}/home/customer/cus-typical`,{params})
+    return this.http.get(`${this.baseUrl}/${this.domain}/cus-typical/home`,{params})
   }
   // public listAll(): Observable<CusTypical[]>{
   //   return this.http.get<CusTypical[]>(`${this.baseUrl}/home/news/show`);
   // }
   public listAll(): Observable<CusTypical[]>{
-    return this.http.get<CusTypical[]>(`${this.baseUrl}/home/customer/cus-typical/show`)
+    return this.http.get<CusTypical[]>(`${this.baseUrl}/${this.domain}/cus-typical/home/show`)
   }
 
   public getTCByUrl(url: any): Observable<CusTypical>{
-    return this.http.get<CusTypical>(`${this.baseUrl}/customer/cus-typical/${url}`);
+    return this.http.get<CusTypical>(`${this.baseUrl}/${this.domain}/cus-typical/${url}`);
   }
 
   addTC(cusTypical: FormData): Observable<Object>{
-    return this.http.post(`${this.baseUrl}/customer/cus-typical/add`, cusTypical);
+    return this.http.post(`${this.baseUrl}/${this.domain}/cus-typical/add`, cusTypical);
   }
 
   public getTCById(id: number): Observable<CusTypical>{
-    return this.http.get<CusTypical>(`${this.baseUrl}/customer/cus-typical/${id}`);
+    return this.http.get<CusTypical>(`${this.baseUrl}/${this.domain}/cus-typical/${id}`);
   }
 
   updateTC(id: number, cusTypical: FormData):Observable<Object>{
-    return this.http.post(`${this.baseUrl}/customer/cus-typical/update/${id}`,cusTypical);
+    return this.http.post(`${this.baseUrl}/${this.domain}/cus-typical/update/${id}`,cusTypical);
   }
 
   deleteTC(id: number): Observable<Object>{
-    return this.http.get(`${this.baseUrl}/customer/cus-typical/delete/${id}`);
+    return this.http.get(`${this.baseUrl}/${this.domain}/cus-typical/delete/${id}`);
   }
 
 }

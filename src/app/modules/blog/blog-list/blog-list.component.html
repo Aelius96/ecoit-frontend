@@ -26,10 +26,10 @@
             <div class="col-md-12" style="margin-bottom: 20px;"  >
               <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 40px;" >
               <div class="carousel-inner" >
-                <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let blog of blogList ;let s = index">
+                <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let post of postList ;let s = index">
               <div class="col-md-6 first-blog">
-                <a href="/blog/{{blog.url}}">
-                  <img class="img-fluid" src="{{blog.image.pathUrl}}"
+                <a href="/blog/{{post.url}}">
+                  <img class="img-fluid" src="{{post.image.pathUrl}}"
                        alt=" Images">
                 </a>
               </div>
@@ -37,11 +37,11 @@
                 <div class="post-info lg-blog-post-info">
 
                   <h4 class="post-title font-weight--light">
-                    <a href="/blog/{{blog.url}}">{{blog.title}}</a>
+                    <a href="/blog/{{post.url}}">{{post.title}}</a>
                   </h4>
 
                   <div class="post-excerpt mt-15">
-                    <p>{{blog.description}}</p>
+                    <p>{{post.description}}</p>
                   </div>
 
                   <div class="post-read-more mt-20" >
@@ -66,13 +66,16 @@
             <div class="blog-pages-wrapper section-space--ptb_100">
               <div class="container">
                 <div class="row">
-                  <div *ngFor="let blog of blogList " class="col-lg-4 mb-20">
+                  <div *ngFor="let post of postList| paginate: { id: 'blog',
+                                                      itemsPerPage: paging.size,
+                                                       currentPage: paging.page,
+                                                      totalItems: paging.totalRecord } ;let i = index " class="col-lg-4 mb-20">
                     <!--======= Single Blog Item Start ========-->
                     <div class="single-blog-item blog-grid">
                       <!-- Post Feature Start -->
                       <div class="post-feature blog-thumbnail" style="height: 50%; width: 100%;">
                         <a href="blog-post-layout-one.html" style="height: 100%; width: 100%;">
-                          <img class="img-fluid" src="{{blog.image.pathUrl}}" alt="Blog Images" style="height: 100%; width: 100%;">
+                          <img class="img-fluid" src="{{post.image?.pathUrl}}" alt="Blog Images" style="height: 100%; width: 100%;">
                         </a>
                       </div>
                       <!-- Post Feature End -->
@@ -80,10 +83,10 @@
                       <!-- Post info Start -->
                       <div class="post-info lg-blog-post-info">
                         <h5 class="post-title font-weight--bold">
-                          <a href="/blog/{{blog.url}}">{{blog.title}}</a>
+                          <a href="/blog/{{post.url}}">{{post.title}}</a>
                         </h5>
                         <div class="post-excerpt mt-15">
-                          <p>{{blog.description}}</p>
+                          <p>{{post.description}}</p>
                         </div>
 
                       </div>
@@ -92,12 +95,18 @@
 
                   </div>
 
-                  <div class="col-lg-12 wow move-up">
-                    <div class="ht-pagination mt-30 pagination justify-content-center">
-                      <div class="pagination-wrapper">
+                  <div class="col-lg-12 " *ngIf="paging.totalRecord >0">
+                    <div class="mt-30 row justify-content-center">
 
-                      </div>
+                      <pagination-controls
+                        previousLabel="<"
+                        nextLabel=">"
+                        [id]="'blog'"
+                        (pageChange)="handlePageChangeTest($event)"
+                        [maxSize]="paging.totalRecord"></pagination-controls>
+
                     </div>
+
                   </div>
 
                 </div>
