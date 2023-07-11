@@ -12,7 +12,7 @@ export class Post {
   url: string;
   banner: any;
   category: Category;
-  hashtags: Hashtag[];
+  hashtags: Hashtag[] = [];
 
 
 }

@@ -34,7 +34,7 @@ export class PostService {
     return this.http.get<Post>(`${this.baseUrl}/${this.domain}/home/${url}`);
   }
 
-  createPost(post: FormData): Observable<Object>{
+  public createPost(post: FormData): Observable<Object>{
     return this.http.post(`${this.baseUrl}/${this.domain}/add`, post);
   }
 

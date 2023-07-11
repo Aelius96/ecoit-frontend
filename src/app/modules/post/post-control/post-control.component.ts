@@ -29,6 +29,7 @@ export class PostControlComponent implements OnInit{
   ngOnInit(): void {
     // this.listAll();
     this.getListAllWithPage();
+
   }
 
   getRequestParams(page: number, pageSize: number,search:string): any {
@@ -55,6 +56,7 @@ export class PostControlComponent implements OnInit{
         data => {
           this.postList = data.content;
           this.paging.totalRecord = data.totalElements;
+          console.log(this.postList);
         },
         error => {
           console.log(error);
