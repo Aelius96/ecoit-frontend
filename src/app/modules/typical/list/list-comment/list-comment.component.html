@@ -54,16 +54,16 @@
                   <td> </td>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor="let cmt of comment ">
               <tr >
-                <td scope="row">ten</td>
-                  <td>ten</td>
+                <td scope="row">{{cmt.postId}}</td>
+                  <td>{{cmt.userId}}</td>
                   <td>
-                    <a class="btn-link" data-toggle="collapse"  href="#reply" > 
-                    <a data-toggle="collapse"  href="#reply"></a> Đây là một đoạn văn quá dài để hiển thị nội dung.
+                    <a class="btn-link" data-toggle="collapse"  href="#reply{{cmt.id}}" style="width: 80px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" > 
+                    {{cmt.content}}
                   </a></td>
-                  <td>thoigian</td>
-                  <td>lọc</td>
+                  <td>{{cmt.date}}</td>
+                  <td>{{cmt.postId}}</td>
                   <td> <span class="icon icon-remove" >
                     <a class="icon-item"  > <i class="fas fa-trash-alt remove i"></i></a> 
                     <a class="icon-item"> <i class='fas fa-vote-yea' style="font-size: 17px;"></i></a>
@@ -73,14 +73,13 @@
                   </td>
               </tr>
               <tr>
-             
                 <td colspan="7">
                   <!-- <div id="demo" class="collapse" data-parent="#accordion" >
                     <div style="text-align:start;"   [innerHTML]="" > Đây là một đoạn văn quá dài để hiển thị nội dung  là một đoạn văn quá dài để hiển thị nội dung
                     </div>
                   </div> -->
-                  <div id="reply" class="collapse" data-parent="#accordion" >
-                    <div style="text-align:start;"   [innerHTML]="" > Đây là một đoạn văn quá dài để hiển thị nội dung  là một đoạn văn quá dài để hiển thị nội dung
+                  <div id="reply{{cmt.id}}" class="collapse" data-parent="#accordion" >
+                    <div style="text-align:start;"   [innerHTML]="cmt.content" >
                     </div>
                     <div  style="text-align:start;">Phần trả lời:  </div>
                     <div style="text-align:start;" > <textarea name="" id="" cols="60" rows="3"></textarea> <button class="btn">Gửi</button>

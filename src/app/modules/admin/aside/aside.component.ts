@@ -88,7 +88,12 @@ export class AsideComponent {
       icon:'far fa-newspaper',
     }
     ,
-
+    {
+      id:11,
+      tittle:'Chuyên mục',
+      a:'category',
+      icon:'fa fa-th-large',
+    }
 
   ]
 

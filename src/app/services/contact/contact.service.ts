@@ -43,6 +43,11 @@ ListsearchByTime(params: any): Observable<any> {
     return this.http.get(`${this.baseUrl}/${this.domain}/hide/${id}`)
   }
   
-
+  getpending():Observable<Contact[]>{
+    return this.http.get<Contact[]>(`${this.baseUrl}/${this.domain}/pending`)
+  }
+  getprocess():Observable<Contact[]>{
+    return this.http.get<Contact[]>(`${this.baseUrl}/${this.domain}/process`)
+  }
 
 }
