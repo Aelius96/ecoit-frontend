@@ -37,15 +37,15 @@
         <div class="col-md-9">
           <div class="main-blog-wrap">
             <!--======= Single Blog Item Start ========-->
-            <div *ngFor="let recruit of recruitList  | paginate: { id: 'recruit',
+            <div *ngFor="let post of postList  | paginate: { id: 'recruit',
                                                       itemsPerPage: paging.size,
                                                        currentPage: paging.page,
                                                       totalItems: paging.totalRecord } ;let i = index"
                 class="single-blog-item post-list-wrapper xs-list-blog-item border-bottom wow move-up">
               <!-- Post Feature Start -->
               <div class="post-feature blog-thumbnail">
-                <a href="/tuyen-dung/{{recruit.url}}">
-                  <img class="img-fluid" src="{{recruit.image.pathUrl}}" alt="Blog Images">
+                <a href="/tuyen-dung/{{post.url}}">
+                  <img class="img-fluid" src="{{post.image.pathUrl}}" alt="Blog Images">
                 </a>
               </div>
               <!-- Post Feature End -->
@@ -54,22 +54,22 @@
               <div class="post-info lg-blog-post-info">
 
                 <h5 class="post-title font-weight--light mt-10">
-                  <a href="/tuyen-dung/{{recruit.url}}">{{recruit.title}}</a>
+                  <a href="/tuyen-dung/{{post.url}}">{{post.title}}</a>
                 </h5>
 
                 <div class="post-excerpt mb-30">
-                  <p>{{recruit.description}}</p>
+                  <p>{{post.description}}</p>
                 </div>
 
 
                 <div class="post-meta">
                   <div class="post-date">
                     <span class="far fa-calendar meta-icon"></span>
-                    {{recruit.date}}
+                    {{post.date}}
                   </div>
                 </div>
 
-                  <a href="/tuyen-dung/{{recruit.url}}" style="float:right;">xem chi tiết</a>
+                  <a href="/tuyen-dung/{{post.url}}" style="float:right;">xem chi tiết</a>
 
               </div>
               <!-- Post info End -->
@@ -81,7 +81,7 @@
                   <ul class="page-pagination">
                     <pagination-controls
 
-                      [id]="'recruit'" (pageChange)="handlePagechange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
+                      [id]="'recruit'" (pageChange)="handlePageChangeTest($event)" [maxSize]="paging.totalRecord"></pagination-controls>
                   </ul>
 
                 </div>

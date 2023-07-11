@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { News } from 'src/app/core/model/news/news';
 import { NewsService } from 'src/app/services/news/news.service';
+import {Post} from "../../../core/model/post/post";
+import {PostService} from "../../../services/post/post.service";
 
 @Component({
   selector: 'app-footer',
@@ -9,16 +11,16 @@ import { NewsService } from 'src/app/services/news/news.service';
 })
 export class FooterComponent implements OnInit {
 
-newList: News[]=[]
-constructor(private newService: NewsService) {
-  
+postList: Post[]=[]
+constructor(private postService: PostService) {
+
 }
   ngOnInit(): void {
-    this.getListNews()
+    this.getList()
   }
-getListNews():void{
-  this.newService.listAll().subscribe(data=>{
-    return this.newList =data
+  getList():void{
+    this.postService.listAll().subscribe(data=>{
+      this.postList =data;
   })
 }
 

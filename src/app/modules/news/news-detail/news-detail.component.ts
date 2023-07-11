@@ -3,6 +3,8 @@ import {News} from "../../../core/model/news/news";
 import {NewsService} from "../../../services/news/news.service";
 import {ActivatedRoute} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";
+import {PostService} from "../../../services/post/post.service";
+import {Post} from "../../../core/model/post/post";
 
 @Component({
   selector: 'app-news-detail',
@@ -15,19 +17,32 @@ export class NewsDetailComponent implements OnInit{
   content:any;
   roll: any;
   news :News = new News();
+  post :Post = new Post();
 
-  constructor(private newsService: NewsService, private route: ActivatedRoute,private sanitizer : DomSanitizer ) {}
+
+  constructor(private newsService: NewsService,private postService: PostService, private route: ActivatedRoute,private sanitizer : DomSanitizer ) {}
 
   ngOnInit(): void {
     this.getList();
   }
+  //news
+  // getList(){
+  //   this.url = this.route.snapshot.params['url'];
+  //   this.newsService.getNewsByUrl(this.url).subscribe(data => {
+  //     this.news = data;
+  //     document.title = this.news.title;
+  //     this.content = this.sanitizer.bypassSecurityTrustHtml(this.news.content);
+  //   })
+  // }
 
+
+  //post
   getList(){
     this.url = this.route.snapshot.params['url'];
-    this.newsService.getNewsByUrl(this.url).subscribe(data => {
-      this.news = data;
-      document.title = this.news.title;
-      this.content = this.sanitizer.bypassSecurityTrustHtml(this.news.content);
+    this.postService.getPostByUrl(this.url).subscribe(data => {
+      this.post = data;
+      document.title = this.post.title;
+      this.content = this.sanitizer.bypassSecurityTrustHtml(this.post.content);
     })
   }
 

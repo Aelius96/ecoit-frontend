@@ -20,7 +20,7 @@ export class PostService {
     return this.http.get(`${this.baseUrl}/${this.domain}`,{params})
   }
   listAllWithPageHome(params: any): Observable<any>{
-    return this.http.get(`${this.baseUrl}/home/${this.domain}`,{params})
+    return this.http.get(`${this.baseUrl}/${this.domain}/filter`,{params})
   }
   // public listAll(): Observable<Post[]>{
   //   return this.http.get<Post[]>(`${this.baseUrl}/home/${this.domain}/show`);
@@ -31,7 +31,7 @@ export class PostService {
 
 
   public getPostByUrl(url: any): Observable<Post>{
-    return this.http.get<Post>(`${this.baseUrl}/home/${this.domain}/${url}`);
+    return this.http.get<Post>(`${this.baseUrl}/${this.domain}/home/${url}`);
   }
 
   createPost(post: FormData): Observable<Object>{

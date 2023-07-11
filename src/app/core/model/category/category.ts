@@ -1,5 +1,5 @@
 export class Category {
-  id: any;
-  typeName: any;
+  id: number;
+  typeName: string;
   selected = false;
 }
