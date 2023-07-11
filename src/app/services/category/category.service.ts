@@ -17,6 +17,18 @@ export class CategoryService {
 
   public listAllCategory(): Observable<Category[]>{
     return this.http.get<Category[]>(`${this.baseUrl}/${this.domain}/list`);
+
   }
 
+  AddCategory( formdata: any ):Observable<Object>{
+    return this.http.post(`${this.baseUrl}/${this.domain}/create` , formdata)
+  }
+
+  DeleteCate(id:number):Observable<Object>{
+    return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}` )
+  }
+
+  GetCategory():Observable<any>{
+    return this.http.get(`${this.baseUrl}/${this.domain}/get`)
+  }
 }

@@ -30,6 +30,7 @@ const routes: Routes =[
     {path:'about' , title:'Admin-Về chúng tôi', loadChildren:()=>import('./about.module').then(m=>m.AboutModule)},
     {path:'albums' , title:'Amin-Kho ảnh' ,  loadChildren:()=>import('./albums.module').then(m=>m.AlbumsModule)},
     {path:'list' , title:'Admin-Danh sách' ,  loadChildren:()=>import('./list.module').then(m=>m.ListModule)},
+    {path:'category', title:'Admin-Chuyên mục' , loadChildren:()=>import('./category.module').then(m=>m.CategoryModule)},
 
   ]},
 ]

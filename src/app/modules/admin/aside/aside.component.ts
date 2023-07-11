@@ -93,7 +93,8 @@ export class AsideComponent {
       tittle:'Chuyên mục',
       a:'category',
       icon:'fa fa-th-large',
-    }
+    },
+    
 
   ]
 

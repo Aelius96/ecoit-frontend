@@ -1,0 +1,39 @@
+.toolbar{
+    height: 65px;
+    background-color: white;
+    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
+    border-top: 1px solid #eff2f5;
+  }
+  .header-menu{
+     padding: 10px 15px 0px 12px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+  }
+  .title-cate{
+    font-weight: bolder;
+    font-size: 18px;
+    color: black;
+  }
+  
+  .ht-btn-custom{
+    margin-top:2px;
+    color: #121213;
+  }
+  
+  .menu-item{
+    margin-left: 15px;
+    margin-top: 8px;
+  }
+  /* ===== */
+.table{
+  font-family: auto;
+  font-size: 20px;
+}
+td,th{
+  text-align: center;
+}
+  .container{
+    display: flex;
+    justify-content: center;
+  }

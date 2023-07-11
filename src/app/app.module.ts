@@ -121,7 +121,9 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { CommentFormComponent } from './modules/comment/comment-form/comment-form.component';
 
 import {MatButtonModule} from '@angular/material/button';
-
+import { CategoryControlComponent } from './modules/category/category-control/category-control.component';
+import { CategoryAddComponent } from './modules/category/category-add/category-add.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -210,6 +212,8 @@ import {MatButtonModule} from '@angular/material/button';
         PostListComponent,
         PostDetailComponent,
         CommentFormComponent,
+        CategoryControlComponent,
+        CategoryAddComponent,
 
 
 
@@ -241,7 +245,7 @@ import {MatButtonModule} from '@angular/material/button';
     TagInputModule,
     NgxIntlTelInputModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    MatDialogModule,
 
   ],
 

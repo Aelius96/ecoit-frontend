@@ -1,0 +1,59 @@
+<div class="toolbar">
+    <div class="d-flex  justify-content-between header-menu ">
+      <div class="left-d-flex"><h5 class="title-cate">Chuyên Mục</h5></div>
+      <div class="right-d-flex">
+        <div class="d-flex  flex-wrap">
+          <div class="menu-item ">
+            <div class="d-flex">
+              <span class="mr-1">Số mục mỗi trang:</span>
+                  <!-- <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord" [(pageSize)]="paging.size">
+                    
+                  </app-page-size> -->
+                  
+            </div>
+          </div>
+          <div class="menu-item">
+            <a class="ht-btn-custom" (click)="openDialog()" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="category section-space--mt_120">
+    <div class="container">
+      <table class="table table-striped" id="myTable">
+        <thead>
+          <tr>
+            <td>Tên Chuyên Mục</td>
+            <td>Họ</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody >
+            <tr  >
+              <th scope="row" >user.username}}</th>
+              <td>user.firstName}}</td>
+              <td>user.lastName}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+
+<!-- <ol>
+  <li>
+    <mat-form-field>
+      <mat-label>What's your name?</mat-label>
+      <input matInput [(ngModel)]="name">
+    </mat-form-field>
+  </li>
+  <li>
+    <button mat-raised-button (click)="openDialog()">Pick one</button>
+  </li>
+  <li *ngIf="animal">
+    You chose: <em>{{animal}}</em>
+  </li>
+</ol> -->

@@ -110,7 +110,7 @@ export class NavigatorControlComponent {
     let option = confirm("Dữ liệu sẽ bị xóa . Bạn có mốn tiếp tục ");
 
     if(option){
-      this.navService.deleteNav(id).subscribe(data=>{
+      this.navService.deleteNav(id).subscribe(()=>{
         this.listAll();
       })
     }

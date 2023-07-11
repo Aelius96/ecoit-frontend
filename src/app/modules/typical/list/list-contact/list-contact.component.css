@@ -92,9 +92,12 @@
     border: 1px solid #84848486;
    }
    td{
-    text-align: center;
+    vertical-align: middle;
+    
    }
-
+/* .title-contact td{
+  text-align: center;
+} */
    
   /* Rounded sliders */
 
