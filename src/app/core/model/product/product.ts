@@ -1,3 +1,5 @@
+import {Hashtag} from "../hashtag/hashtag";
+
 export class Product {
   id: any;
   image: any;
@@ -6,4 +8,5 @@ export class Product {
   content: any;
   url: any;
   selected = false;
+  hashtags: Hashtag[] = [];
 }

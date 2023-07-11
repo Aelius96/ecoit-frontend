@@ -1,7 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
 import {Product} from "../../../core/model/product/product";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../../services/product/product.service";
+import {map, Observable, startWith} from "rxjs";
+import {LiveAnnouncer} from "@angular/cdk/a11y";
+import {MatChipInputEvent} from "@angular/material/chips";
+import {Hashtag} from "../../../core/model/hashtag/hashtag";
+import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
+import {PostService} from "../../../services/post/post.service";
+import {COMMA, ENTER} from "@angular/cdk/keycodes";
+import {FormControl} from "@angular/forms";
+import {HashtagService} from "../../../services/hashtag/hashtag.service";
 
 @Component({
   selector: 'app-product-add',
@@ -14,9 +23,76 @@ export class ProductAddComponent implements OnInit{
   url: any;
   id: any;
   products: Product = new Product();
+  hashtagList : Hashtag[] = [];
   ckeConfig: any;
 
-  constructor(private router:Router,private productService :ProductService,private route: ActivatedRoute) {
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  hashtagCtrl = new FormControl('');
+  filteredHashtag: Observable<Hashtag[]>;
+
+  constructor(private router:Router,
+              private productService :ProductService,
+              private hashtagService : HashtagService,
+              private postService :PostService,
+              private route: ActivatedRoute) {
+    this.filteredHashtag = this.hashtagCtrl.valueChanges.pipe(
+      startWith(null),
+      map((hashtag: string | null) => (hashtag ? this.filterHashtags(hashtag) : this.hashtagList.slice())),
+    );
+  }
+
+  // hashtag
+  @ViewChild('hashtagInputP') hashtagInput: ElementRef<HTMLInputElement>;
+
+  announcer = inject(LiveAnnouncer);
+
+  addHashtag(event: MatChipInputEvent): void {
+
+    const value = (event.value || '').trim();
+
+    // Add the hashtag only if it doesn't already exist in the list
+    if (value) {
+      if(!this.hashtagList.map(h=>h.name).includes(value)){
+        const hashTagNew = new Hashtag();
+        hashTagNew.name = value;
+        this.products.hashtags.push(hashTagNew);
+        this.hashtagList.push(hashTagNew);
+      }else{
+        this.hashtagList.forEach(existHashTag =>{
+          if(value == existHashTag.name){
+            this.products.hashtags.push(existHashTag)
+          }
+        })
+      }
+    }
+
+    // Reset the input value
+    event.chipInput!.clear();
+
+    this.hashtagCtrl.setValue(event.value);
+
+    console.log(value);
+  }
+
+  remove(hashtag: Hashtag): void {
+    const index = this.products.hashtags.map(h => h.name).indexOf(hashtag.name);
+
+    if (index >= 0) {
+      this.products.hashtags.splice(index, 1);
+
+      this.announcer.announce(`Removed ${hashtag.name}`);
+    }
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.hashtagList.map(hashtag => hashtag.name).push(event.option.viewValue);
+    this.hashtagInput.nativeElement.value = '';
+    this.hashtagCtrl.setValue(null);
+  }
+
+  filterHashtags(value: string): Hashtag[] {
+    const filterValue = value.toLowerCase();
+    return this.hashtagList.filter(hashtag => hashtag.name.toLowerCase().includes(filterValue));
   }
 
   ngOnInit(): void {
@@ -25,6 +101,7 @@ export class ProductAddComponent implements OnInit{
       this.productService.getProductById(this.id).subscribe(data =>{
         this.products = data;
         this.url = this.products.image?.pathUrl;
+        this.listAllHashTag();
       })
     }
     this.ckeConfig = {
@@ -50,6 +127,12 @@ export class ProductAddComponent implements OnInit{
     reader.onload = (_event) =>{
       this.url= reader.result;
     }
+  }
+
+  listAllHashTag(){
+    this.hashtagService.listAllHashtag().subscribe(data =>{
+      this.hashtagList = data;
+    })
   }
 
   backToProductList(){

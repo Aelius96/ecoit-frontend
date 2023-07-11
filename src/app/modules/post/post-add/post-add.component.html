@@ -30,7 +30,7 @@
               </button>
             </mat-chip-row>
           </mat-chip-grid>
-          <input placeholder="New Fruit..." #hashtagInput [formControl]="hashtagCtrl"
+          <input placeholder="New Hashtag..." #hashtagInput [formControl]="hashtagCtrl"
                  [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                  (matChipInputTokenEnd)="addHashtag($event)"/>

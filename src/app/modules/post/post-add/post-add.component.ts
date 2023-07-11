@@ -5,7 +5,7 @@ import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import {Category} from "../../../core/model/category/category";
 import {CategoryService} from "../../../services/category/category.service";
-import {FormBuilder, FormControl, FormGroup, Validator, Validators} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 import {map, Observable, startWith} from "rxjs";
 import {Hashtag} from "../../../core/model/hashtag/hashtag";
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
@@ -26,7 +26,6 @@ export interface Fruit {
 })
 export class PostAddComponent implements OnInit{
   post: Post= new Post();
-  hashtag: Hashtag;
   categories: Category[] = [];
   hashtagList: Hashtag[] = [];
   fileToUpload:string [] = [];
@@ -53,7 +52,6 @@ export class PostAddComponent implements OnInit{
   }
 
   //hashtag
-
   @ViewChild('hashtagInput') hashtagInput: ElementRef<HTMLInputElement>;
 
   announcer = inject(LiveAnnouncer);
@@ -66,7 +64,9 @@ export class PostAddComponent implements OnInit{
     if (value) {
       if(!this.hashtagList.map(h=>h.name).includes(value)){
         const hashTagNew = new Hashtag();
-        hashTagNew.name = event.value;
+        hashTagNew.name = value;
+        console.log(hashTagNew);
+        console.log(value);
         this.post.hashtags.push(hashTagNew);
         this.hashtagList.push(hashTagNew);
       }else{
@@ -82,8 +82,6 @@ export class PostAddComponent implements OnInit{
     event.chipInput!.clear();
 
     this.hashtagCtrl.setValue(event.value);
-
-    console.log(value);
   }
 
   remove(hashtag: Hashtag): void {
@@ -110,8 +108,6 @@ export class PostAddComponent implements OnInit{
 
 
   ngOnInit() {
-
-
     this.id = this.route.snapshot.params['id'];
     if(this.id){
       this.postService.getPostById(this.id).subscribe(data =>{
@@ -167,7 +163,6 @@ export class PostAddComponent implements OnInit{
   updateDataToForm(id: any){
     const postFormData = this.prepareFormData(this.post);
     this.postService.updatePost(id, postFormData).subscribe(data =>{
-
       this.goToPostList();
     });
   }
