@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {NavService} from "../../../services/nav/nav.service";
 import {Nav} from "../../../core/model/nav/nav";
+import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -9,12 +11,19 @@ import {Nav} from "../../../core/model/nav/nav";
 })
 export class HeaderComponent {
 
-
   navParent: Nav[] = [];
-
-  constructor(private navService: NavService) { }
+  isToken = false;
+  roles: string[] = [];
+  constructor(private navService: NavService,private tokenStorageService: TokenStorageService, private router:Router) { }
 
   ngOnInit(): void {
+
+    if(this.tokenStorageService.getToken()) {
+
+      this.isToken = true;
+      this.roles = this.tokenStorageService.getToken().roles;
+
+    }
     this.getAllNav();
     // this.getAbout();
   }
@@ -32,6 +41,16 @@ export class HeaderComponent {
   //     }
   //   })
   // }
+
+  reloadPage(): void {
+    this.router.navigate(['trang-chu']);
+  }
+
+  logout() {
+    this.tokenStorageService.signOut();
+    window.location.reload();
+  }
+
   search() {
 
   }

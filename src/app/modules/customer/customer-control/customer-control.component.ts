@@ -19,7 +19,7 @@ export class CustomerControlComponent implements OnInit{
   paging={
     page: 1,
     size:4,
-    totalRecord: 0 
+    totalRecord: 0
   }
 
   constructor(private customerService: CustomerService,
@@ -28,9 +28,8 @@ export class CustomerControlComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    const user = this.totkenstorageService.getUser();
-    this.role = user.roles
-    this.  getlistallwithPage();
+
+    this.getlistallwithPage();
   }
 
   getRequestparams(page: number , pageSize: number, search: string):any{
@@ -54,7 +53,7 @@ export class CustomerControlComponent implements OnInit{
       this.customerService.listAllWithPage(params).subscribe(data=>{
         this.customer = data.content;
         this.paging.totalRecord = data.totalElements;
-      
+
       },
       error=>{
         console.error(error)

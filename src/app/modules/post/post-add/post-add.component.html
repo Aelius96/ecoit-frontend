@@ -19,27 +19,30 @@
             <option *ngFor="let cate of categories" [ngValue]= "cate">{{cate.typeName}}</option>
           </select>
         </div>
+        <div class="update_box">
+          <span><strong>Thẻ tag</strong></span>
+        </div>
+          <mat-form-field class="example-chip-list">
+            <mat-chip-grid  #chipGrid aria-label="Tag selection">
+              <mat-chip-row style="background-color: #1fe741" *ngFor="let hashtag of post.hashtags" (removed)="remove(hashtag)" >
+                {{hashtag.name}}
+                <button matChipRemove [attr.aria-label]="'remove ' + hashtag.name">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            </mat-chip-grid>
+            <input placeholder="New Hashtag..." #hashtagInput [formControl]="hashtagCtrl"
+                   [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   (matChipInputTokenEnd)="addHashtag($event)"/>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+              <mat-option  *ngFor="let hashtag of filteredHashtag | async" [value]="hashtag.name">
+                {{hashtag.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
 
-        <span><strong>Thẻ tag</strong></span>
-        <mat-form-field class="example-chip-list">
-          <mat-chip-grid #chipGrid aria-label="Fruit selection">
-            <mat-chip-row *ngFor="let hashtag of post.hashtags" (removed)="remove(hashtag)" >
-              {{hashtag.name}}
-              <button matChipRemove [attr.aria-label]="'remove ' + hashtag.name">
-                <mat-icon>cancel</mat-icon>
-              </button>
-            </mat-chip-row>
-          </mat-chip-grid>
-          <input placeholder="New Hashtag..." #hashtagInput [formControl]="hashtagCtrl"
-                 [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
-                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                 (matChipInputTokenEnd)="addHashtag($event)"/>
-          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-            <mat-option *ngFor="let hashtag of filteredHashtag | async" [value]="hashtag.name">
-              {{hashtag.name}}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
+
 
         <div class="submit-button">
           <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>

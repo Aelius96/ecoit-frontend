@@ -42,7 +42,7 @@ export class CustomerAddComponent {
   getCustomById(id: number) {
     this.customerService.getCusById(id).subscribe(data => {
       this.customer = data;
-      this.image = this.customer.thumb.pathUrl;
+      this.image = this.customer.thumb?.pathUrl;
       this.getProductUpdate(this.customer);
     });
   }
