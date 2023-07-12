@@ -16,7 +16,7 @@
             <span style="margin-right: 6px; margin-top: 2px;">Đã chọn </span>
             <div class="selected-number">{{selects}}</div>
             <div class="menu-link">
-              <a class="selected-number "  title="Xóa"> 
+              <a class="selected-number " (click)="clearnAll()"  title="Xóa"> 
                 <i class="far fa-trash-alt fa-lg"></i>
               </a>
             </div>
@@ -111,7 +111,7 @@
               <tr>
                 <th>Tên</th>
                 <th>Liên Kết</th>
-                <th>Chức Năng</th>
+                <th></th>
               </tr>
             </thead>
               <tbody *ngFor="let nav1 of navigation|  paginate: {

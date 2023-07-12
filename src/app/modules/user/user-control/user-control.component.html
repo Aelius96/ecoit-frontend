@@ -41,12 +41,11 @@
         <div class="header-user">
           <p class="user" >Người Dùng</p>
         </div>
-        <hr style="margin-top:0px;">
-
+        
         <table class="table table-striped" id="myTable">
           <thead>
             <tr>
-              <td>Tên đăng nhập</td>
+              <td  >Tên đăng nhập</td>
               <td>Họ</td>
               <td>Tên</td>
               <td>Email</td>
@@ -62,7 +61,7 @@
             currentPage: paging.page,
             totalItems: paging.totalRecord};" >
               <tr  >
-                <th scope="row" >{{user.username}}</th>
+                <td scope="row" >{{user.username}}</td>
                 <td>{{user.firstName}}</td>
                 <td>{{user.lastName}}</td>
                 <td>{{user.email}}</td>
@@ -86,7 +85,7 @@
                   </span>
                 </td>
                 <!-- chỉnh css cho list user-->
-                <td style="text-align: end;">
+                <td style="text-align: center;">
                   <span  class="icon status_admin icon-edit" ><a  class="icon-item" (click)="updateUser(user.id)"><i class="fas fa-pen i"></i></a></span>
                   <span class="icon icon-remove" >
                   <a class="icon-item" (click)="deleteUser(user.id)" ><i class="fas fa-trash-alt remove i"></i></a>

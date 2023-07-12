@@ -34,54 +34,6 @@ export class AsideComponent {
     },
     {
       id:2,
-      tittle:'Tin tức - Tuyển dụng',
-      a: 'news',
-      icon:'far fa-newspaper'
-    },
-    {
-      id:3,
-      tittle:'Blog',
-      a: 'blog',
-      icon:'far fa-rss-square'
-    },
-    {
-      id:4,
-      tittle:'Khách hàng',
-      a: 'customer',
-      icon:'far fa-handshake'
-    },
-    {
-      id:5,
-      tittle:'sản phầm',
-      a: 'product',
-      icon:'far fa-box'
-    },
-    {
-      id:6,
-      tittle:'Trình chiếu',
-      a: 'sliders',
-      icon:'far fa-columns'
-    },
-    {
-      id:7,
-      tittle:'Điều hướng',
-      a: 'nav',
-      icon:'far fa-bars'
-    },
-    {
-      id:8,
-      tittle: 'Danh sách',
-      a: 'list',
-      icon:'fas fa-clipboard-list',
-    },
-    {
-      id:9,
-      tittle: 'Tài khoản',
-      a: 'user',
-      icon:'far fa-user',
-    },
-    {
-      id:10,
 
       tittle: 'Bài viết',
       a: 'bpost',
@@ -89,7 +41,44 @@ export class AsideComponent {
     }
     ,
     {
-      id:11,
+      id:3,
+      tittle:'Khách hàng',
+      a: 'customer',
+      icon:'far fa-handshake'
+    },
+    {
+      id:4,
+      tittle:'sản phầm',
+      a: 'product',
+      icon:'far fa-box'
+    },
+    {
+      id:5,
+      tittle:'Trình chiếu',
+      a: 'sliders',
+      icon:'far fa-columns'
+    },
+    {
+      id:6,
+      tittle:'Điều hướng',
+      a: 'nav',
+      icon:'far fa-bars'
+    },
+    {
+      id:7,
+      tittle: 'Danh sách',
+      a: 'list',
+      icon:'fas fa-clipboard-list',
+    },
+    {
+      id:8,
+      tittle: 'Tài khoản',
+      a: 'user',
+      icon:'far fa-user',
+    },
+ 
+    {
+      id:9,
       tittle:'Chuyên mục',
       a:'category',
       icon:'fa fa-th-large',

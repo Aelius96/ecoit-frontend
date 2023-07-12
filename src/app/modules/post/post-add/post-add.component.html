@@ -16,7 +16,7 @@
         <div class="update_box">
           <span><strong>Chuyên mục</strong></span>
           <select [(ngModel)] = "post.category" name="category">
-            <option *ngFor="let cate of categories" [ngValue]= "cate">{{cate.typeName}}</option>
+            <option *ngFor="let cate of categories" [ngValue]= "cate">{{cate.type_name}}</option>
           </select>
         </div>
         <div class="update_box">

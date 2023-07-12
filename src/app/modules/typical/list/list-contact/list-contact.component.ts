@@ -11,7 +11,7 @@ import { ContactService } from 'src/app/services/contact/contact.service';
 export class ListContactComponent {
 
   contactList: Contact[]=[]
-  isFilter = false;
+   
   searchInput= {
     input: '',
     startTime: '' ,
@@ -65,7 +65,7 @@ export class ListContactComponent {
   Delete(id:number){
      let  cf = confirm("Xóa người liên hệ");
      if(cf){
-      this.contactService.Delete(id).subscribe(dt=>{
+      this.contactService.Delete(id).subscribe(()=>{
         this.getAllContactPagesize();
       })
      }
