@@ -121,6 +121,7 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { CommentFormComponent } from './modules/comment/comment-form/comment-form.component';
 
 import {MatButtonModule} from '@angular/material/button';
+import { LoginUserComponent } from './authentication/login-user/login-user.component';
 
 
 
@@ -210,6 +211,7 @@ import {MatButtonModule} from '@angular/material/button';
         PostListComponent,
         PostDetailComponent,
         CommentFormComponent,
+        LoginUserComponent,
 
 
 

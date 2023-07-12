@@ -13,10 +13,14 @@ export class AuthService {
   constructor(private httpclient: HttpClient) { }
 
   login(user: User): Observable<User> {
-    return this.httpclient.post<User>(`${this.baseURL}/login`, user);
+    return this.httpclient.post<User>(`${this.baseURL}/admin/login`, user);
   }
 
   register(user: User): Observable<Object>{
     return this.httpclient.post(`${this.baseURL}/register`, user);
+  }
+
+  loginUser(user: User): Observable<User> {
+    return this.httpclient.post<User>(`${this.baseURL}/login`, user);
   }
 }

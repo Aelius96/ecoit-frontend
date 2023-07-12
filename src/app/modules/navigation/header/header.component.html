@@ -61,6 +61,26 @@
                                                     <span class="advise-contact">LIÊN HỆ TƯ VẤN</span>
                                                 </span>
                                             </a>
+
+                                            <button *ngIf="isToken; else dangnhap">
+                                              <span class="">
+                                                <span (click)="logout()">ĐĂNG XUẤT</span>
+                                              </span>
+                                            </button>
+                                            <ng-template #dangnhap>
+                                              <a href="/login">
+                                              <span class="">
+                                                <span>ĐĂNG NHẬP</span>
+                                              </span>
+                                              </a>
+                                            </ng-template>
+                                            /
+                                            <a href="/register">
+                                              <span class="">
+                                                <span>ĐĂNG KÝ</span>
+                                              </span>
+                                            </a>
+
                                         </div>
                                     </div>
 
@@ -71,7 +91,7 @@
 
 
                     <!-- navigation menu -->
-                    
+
                             <div class="navigation-menu navigation-menu--onepage navigation-menu--text_white" style="top: 75px; position: absolute; right: 52px;">
                                 <ul class="menu-primary text-uppercase">
                                   <!-- <li class="menu-item"><a href="/trang-chu">TRANG CHỦ</a></li> -->
@@ -121,7 +141,7 @@
 
                                 </ul>
                             </div>
-                       
+
 
                 </div>
             </div>

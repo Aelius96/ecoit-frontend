@@ -42,6 +42,6 @@ export class ProductService {
   }
 
   deleteProduct(id: number): Observable<Object>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}`);
+    return this.http.get(`${this.baseUrl}/${this.domain}/disable/${id}`);
   }
 }

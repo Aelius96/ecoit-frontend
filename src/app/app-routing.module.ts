@@ -22,6 +22,7 @@ import { RecruitDetailComponent } from "./modules/recruit/recruit-detail/recruit
 import { BlogDetailComponent } from "./modules/blog/blog-detail/blog-detail.component";
 import {CustomerDetailComponent} from "./modules/customer/customer-detail/customer-detail.component";
 import {ProductDetailComponent} from "./modules/product/product-detail/product-detail.component";
+import {LoginUserComponent} from "./authentication/login-user/login-user.component";
 
 
 
@@ -51,7 +52,8 @@ const routes: Routes =[
   {path:'blog', component: BlogListComponent},
   {path:'blog/:url', component:BlogDetailComponent},
 //
-  {path: 'login' , component: LoginComponent},
+  {path: 'admin/login' , component: LoginComponent},
+  {path: 'login', component: LoginUserComponent} ,
   {path: 'register', component:RegisterComponent},
 
 
