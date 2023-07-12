@@ -1,0 +1,18 @@
+
+.cancel{
+    background-color: #cccccc;
+  
+  }
+  .cancel:hover{
+    background-color: rgba(43, 43, 63, 0.85);
+    color: aliceblue;
+  }
+  .btnn {
+    margin-right: 15px;
+  
+  }
+
+  .category-add{
+    text-align: center;
+  }
+  

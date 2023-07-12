@@ -9,7 +9,6 @@ const routes: Routes = [
   {path:'' , component: BlogControlComponent},
   {path: 'add', component: BlogAddComponent},
   {path:'update/:id' , component: BlogAddComponent},
-
 ]
 
 @NgModule({

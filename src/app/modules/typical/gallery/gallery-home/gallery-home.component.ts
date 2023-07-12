@@ -15,13 +15,6 @@ export class GalleryHomeComponent implements OnInit{
   ngOnInit(): void {
     this.getListAll()
   }
-  
-// recruitList: Recruit[]=[]
-// constructor(private recruitService: RecruitService){}
-//   ngOnInit(): void {
-//     this.getListAll()
-//   }
-
   getListAll(){
     this.galleryService.getListAll().subscribe(data=>{
 

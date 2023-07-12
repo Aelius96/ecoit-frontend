@@ -17,13 +17,12 @@
             </div>
           </form> -->
           
-          
           <div class="item-select ">
-            <select class="custom-select input-search"  >
-              <option >Trạng thái</option>
-              <option>Đã liên hệ</option>
-              <option>Chưa liên hệ</option>
-            </select>
+            <button class="btn btn-success search mr-1 " (click)="Pending()">Chưa Liên Hệ</button>
+            <button class="btn search mr-1" (click)="Process()">Đã Liên Hệ</button>
+            <a  (click)="getAllContactPagesize()">
+              <img src="./assets/images/reload.png" alt="" class="img-reload">
+            </a>
           </div>
         </div>
       </div>
@@ -54,8 +53,8 @@
       <div class="detail">
           <table class="table table-striped" id="myTable">
             <thead>
-              <tr style="font-weight: bold;">
-                  <td>Tên</td>
+              <tr style="font-weight: bold;" class="title-contact">
+                  <td >Tên</td>
                   <td>SĐT</td>
                   <td>Email</td>
                   <td>Nội Dung</td>

@@ -17,15 +17,13 @@ export class CommentListComponent implements OnInit {
 constructor(   private commentService: CommentService){}
 
   ngOnInit(): void {
-   this.getListAll();
- 
+   this.getListAll()
   }
   // hiển thị 
   getListAll():void{
-    this.commentService.getListAll().subscribe(dt=>{
-      this.commentList=dt;
-      console.log(dt)
-    })
+      this.commentService.getListAll().subscribe(res=>{
+        return this.commentList=res;
+      })
   }
  }
 

@@ -23,7 +23,6 @@ export class ContactComponent  implements OnInit {
     this.SendContact()
    }
   
-
   SendContact(){
       this.contactService.AddContact(this.contact).subscribe(()=>{
         this.router.navigate(['./']);

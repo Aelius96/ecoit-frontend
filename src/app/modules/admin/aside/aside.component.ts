@@ -87,12 +87,14 @@ export class AsideComponent {
       a: 'bpost',
       icon:'far fa-newspaper',
     }
-    ,{
-      tittle: '',
-      a: '',
-      icon:' ',
+    ,
+    {
+      id:11,
+      tittle:'Chuyên mục',
+      a:'category',
+      icon:'fa fa-th-large',
     },
-
+    
 
   ]
 

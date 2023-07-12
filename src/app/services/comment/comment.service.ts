@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Constant } from 'src/app/core/config/constant';
@@ -12,7 +12,7 @@ export class CommentService {
   private baseUrl = `${Constant.BASE_URL}`;
   constructor( private http: HttpClient ) { }
 
-  getCommentbyId(params: any):Observable<any>{
+  getCommentbyId( params: any):Observable<any>{
     return this.http.get(`${this.baseUrl}/comment/get` , {params})
   }
   getListCommentHome():Observable<any>{
@@ -32,7 +32,8 @@ export class CommentService {
   //   return this.http.post<Nav>(`${this.baseUrl}/nav/add`,nav);
   // }
 
-  deleteComment(){
-    return this.http.get(`${this.baseUrl}/comment/delete`)
+
+  deleteComment(id:any){
+    return this.http.get(`${this.baseUrl}/comment/delete` , id )
   }
 }

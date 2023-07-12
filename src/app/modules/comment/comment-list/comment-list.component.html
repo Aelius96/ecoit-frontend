@@ -1,5 +1,5 @@
 
-	<div class="row comment" *ngFor="let cmt of commentList ; count as total ">
+	<div class="row comment" *ngFor="let cmt of commentList ; let total = count  ">
 		<div class="col-md-2">
 			<div class="info-comment">
 				<div class="img-comment d-flex flex-column">
@@ -16,11 +16,12 @@
 				<div class="content-comment col-9">
 					<span>{{cmt.content}}</span>
 					<p>
-						<a  class="btn-link" data-toggle="collapse"  href="#demo" > Trả lời</a>
+						<a  class="btn-link" data-toggle="collapse"  href="#{{cmt.id}}" > Trả lời</a>
 					</p>
-					<div id="demo" class="collapse " data-parent="#accordion"  style=" word-wrap: break-word; ">
-						<div class="d-flex flex-column" style="margin-bottom: 20px;">
-							<div class="reply-content"  [innerHTML]="" style=""> hiển thị nội dung trả lời 
+					<div id="{{cmt.id}}" class="collapse " data-parent="#accordion"  style=" word-wrap: break-word; ">
+						<div class="d-flex flex-column" style="margin-bottom: 20px;" >
+							<div class="reply-content"   style=""> {{cmt.content}}
+								 
 							</div>
 							<a style="text-align: end;" href="">Chỉnh sửa</a>
 						</div>
@@ -42,3 +43,4 @@
 	
 
 
+<!--  -->

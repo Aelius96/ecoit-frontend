@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Contact } from 'src/app/core/model/contact/contact';
 import { ContactService } from 'src/app/services/contact/contact.service';
@@ -10,19 +11,20 @@ import { ContactService } from 'src/app/services/contact/contact.service';
 export class ListContactComponent {
 
   contactList: Contact[]=[]
+  isFilter = false;
   searchInput= {
     input: '',
     startTime: '' ,
     endTime:'' ,  
   }
+
+
+
   paging = {
     page: 1,
     size: 5,
     totalRecord: 0 
 }
-
-  startTime: '';
-  endTime: '';
 
   constructor(private contactService: ContactService) { }
 
@@ -98,5 +100,23 @@ handlePageSizeChange(event: any): void {
   this.paging.page = 1;
   console.log(event, this.paging.size)
   this.getAllContactPagesize();
+}
+
+// ======  lọc
+// chưa liên hệ
+Pending(){
+  this.contactService.getpending().subscribe(res=>{
+     this.contactList=res
+  } , error=>{
+    console.log(error)
+  })
+}
+// đã liên hệ
+Process(){
+  this.contactService.getprocess().subscribe(res=>{
+    this.contactList=res
+ } , error=>{
+   console.log(error)
+ })
 }
 }

@@ -1,0 +1,10 @@
+<div class="category-add contact-inner">
+    <label for="name">Tên Chuyên Mục <br>
+        <input type="text" name="name" id="name" [(ngModel)]="Category.typeName" required>
+    </label>
+  
+    <div class="submit-button">
+        <button type="submit" (click)="AddCategory()" class="btn btn-primary btn-lg btnn">Lưu</button>
+        <button type="button" class="btn btn-secondary btn-lg btnn cancel"  (click)="cancle()" >Hủy</button>
+      </div>
+</div>

@@ -42,12 +42,12 @@
             <label for="name">
               <span>Tên</span>
               <span style="color: red;">*</span> <br>
-              <input class="input-info w-100" type="text" name="name" id="name" [(ngModel)]="contact.name" required="name"  >
+              <input class="input-info w-100" type="text" name="name" id="name" [(ngModel)]="contact.name" required >
             </label> <br>
             <label for="phone">
               <span>Số điện thoại</span>
               <span style="color: red;">*</span> <br>
-              <input  class="input-info w-100" [(ngModel)]="contact.phone"  (keypress)="numberOnly($event)" type="text" id="phone" name="phone" required="phone">
+              <input  class="input-info w-100" [(ngModel)]="contact.phone"  (keypress)="numberOnly($event)" type="text" id="phone" name="phone" required>
               <!-- <ngx-intl-tel-input></ngx-intl-tel-input> -->
               <!-- <input class="input-info w-100" type="tel" id="phone" name="phone"  [(ngModel)]="contact.phone"  required > -->
               <!-- <input type="tel" class="input-info w-100" id="phone" name="phone" [(ngModel)]="contact.phone" pattern="[0-9]{10}" required> -->
@@ -55,7 +55,7 @@
             <label for="email">
               <span>Email</span> 
               <span style="color: red;">*</span>  <br>
-              <input class="input-info w-100" type="email" name="email" id="email" [(ngModel)]="contact.email" required="email" >
+              <input class="input-info w-100" type="email" name="email" id="email" [(ngModel)]="contact.email" required >
             </label> <br>
             <label for="content">
               <span>Nội dung</span> <br>

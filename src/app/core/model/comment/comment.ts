@@ -6,7 +6,7 @@ export class Comment {
     parentId:any;
     status:any;
     userId :any;
-    commentChild:any;
-    post:any;
+    // commentChild:any;
+    postId:any;
     
 }
