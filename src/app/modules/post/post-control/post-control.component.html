@@ -2,15 +2,16 @@
   <div class="d-flex  justify-content-between header-menu ">
     <div class="left-d-flex">
       <div class="d-flex">
-        <a style="width: 70px " routerLink="../news"  routerLinkActive="active"><span  class="spann tt" style="font-weight: bold">Tin tức /</span></a>
-        <a style="width: 100px" routerLink="../recruit" routerLinkActive="active"  ><span  class="spann td">Tuyển dụng</span></a>
+        <a style="    margin-top: 3px;  margin-right: 10px; " routerLink="../bpost"  routerLinkActive="active">
+          <span  class="spann tt" style="font-weight: bold">Bài Viết</span>
+        </a>
+        
         <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
-          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm ">
+          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " style="width: 100px;">
           <div class="input-group-append inputt" >
             <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
         </form>
-
       </div>
     </div>
     <div class="right-d-flex">
@@ -78,7 +79,7 @@
               </div>
             </div>
             <div class="col-md-9">
-              <div id="demo{{post.id}}" class="collapse" data-parent="#accordion" style="">
+              <div id="demo{{post.id}}" class="collapse" data-parent="#accordion">
                 <div class="card-body" [innerHTML]="post.content">
                 </div>
               </div>

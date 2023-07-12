@@ -15,7 +15,7 @@ export class ContactComponent  implements OnInit {
   
   constructor( private contactService: ContactService,
            private router: Router ){  }
-  
+
   ngOnInit(): void {
   }
 
@@ -27,16 +27,19 @@ export class ContactComponent  implements OnInit {
       this.contactService.AddContact(this.contact).subscribe(()=>{
         this.router.navigate(['./']);
         alert('Gửi thành công')
-      }, 
-      er=>{console.log(er)}
+      }
       )
   }
-
 
   numberOnly(event:any): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       return false;
+    }
+    const input = event.target ; // Lấy đối tượng input
+    if (input.value.length >= 10) {
+      // alert('')
+    return false;
     }
     return true;
 

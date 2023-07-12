@@ -1,7 +1,7 @@
 export class Contact {
     id: number;
     name:any;
-    phone:any;
+    phone:number;
     email:any;
     content:any;
     dates:any;

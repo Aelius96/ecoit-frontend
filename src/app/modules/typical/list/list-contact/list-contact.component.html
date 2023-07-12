@@ -51,9 +51,55 @@
 <div class="mt-90">
     <div class="container">
       <div class="detail">
-          <table class="table table-striped" id="myTable">
+        <table class="customers">
+          <thead>
+          <tr>
+            <th>Tên</th>
+            <th>SĐT</th>
+            <th>Email</th>
+            <th>Nội Dung</th>
+            <th>Thời gian</th>
+            <th>Trạng thái</th>
+            <th></th>
+          </tr>
+        </thead>
+          <tbody *ngFor="let item of contactList  | paginate:{
+            id:'contact',
+            itemsPerPage: paging.size,
+            currentPage: paging.page,
+            totalItems: paging.totalRecord }  " >
+          <tr>
+            <td scope="row">{{item.name}}</td>
+            <td>{{item.phone}}</td>
+            <td> <a href="mailto:{{item.email}}">{{item.email}}</a> </td>
+            <td><a class="btn-link" data-toggle="collapse" href="#collapseExample{{item.id}}" role="button" aria-expanded="" aria-controls="collapseExample" style="width: 80px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> 
+                    {{item.content}}
+                  </a></td>
+            <td>{{item.dates}}</td>
+            <td>
+              <button class="btn btn-notcontact" 
+              *ngIf="item.status ; else dalienhe" (click)="Notcontact(item.id)" >Chưa Liên Hệ</button>
+                <ng-template #dalienhe>
+                  <button class="btn btn-contacted" (click)="Contacted(item.id)" >Đã Liên Hệ</button>
+                </ng-template>
+              
+            </td>
+            <td style="text-align: center;"> <i  class="fa fa-remove" (click)="Delete(item.id)" style="cursor: pointer;" ></i> </td>
+          </tr>
+          <tr>
+            <td colspan="7">
+              <div id="collapseExample{{item.id}}" class="collapse" >
+                <div style="text-align:start;" [innerHTML]="item.content">
+                </div>
+              </div>
+            </td>
+          </tr>
+          
+        </tbody>
+        </table>
+          <!-- <table class="table table-striped" id="myTable">
             <thead>
-              <tr style="font-weight: bold;" class="title-contact">
+              <tr style="font-weight: bold;" >
                   <td >Tên</td>
                   <td>SĐT</td>
                   <td>Email</td>
@@ -77,7 +123,7 @@
                   </a></td>
                   <td>{{item.dates}}</td>
                   <td>
-                    <!-- <input type="checkbox" id="status" name="status" [(ngModel)]="item.status"> -->
+                   
                     <button class="btn btn-notcontact" 
                     *ngIf="item.status ; else dalienhe" (click)="Notcontact(item.id)" >Chưa Liên Hệ</button>
                       <ng-template #dalienhe>
@@ -97,7 +143,8 @@
               </tr>
             </tbody>
 
-          </table>
+          </table> -->
+          
           <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-bottom: 10px;">
             <div class="row">
               <div class="col-md-6">
@@ -113,6 +160,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 

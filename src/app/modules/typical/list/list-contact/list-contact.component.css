@@ -87,14 +87,28 @@
     border: 1px rgb(146, 146, 146);
    
    }
-   .table{
-    box-shadow: 1px 1px 30px 5px rgba(82, 63, 105, 0.132);
-    border: 1px solid #84848486;
-   }
-   td{
-    vertical-align: middle;
-    
-   }
+/* table */
+.customers{
+  
+}
+  .customers td, .customers th {
+    border: 0.8px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .customers tr:hover {background-color: #ddd;}
+  
+  .customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #5945e6;
+    color: white;
+  }
+  
 /* .title-contact td{
   text-align: center;
 } */

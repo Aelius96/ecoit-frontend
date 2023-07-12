@@ -177,8 +177,12 @@ prepareformData(formdata: any){
 
 
 clearnAll(){
-  this.removeSelectNav = this.selectNavList.filter(item => item.selected);
-  const formData = this.prepareformData(this.removeSelectNav.map(res=>res.id));
-      this.navService.deleteNav
+  // this.removeSelectNav = this.selectNavList.filter(item => item.selected);
+  // const formData = this.prepareformData(this.removeSelectNav.map(res=>res.id));
+  //     this.navService.deleteNav
+      // (formData).subscribe(() => {
+      //   this.selects = null;
+      //   this.selectNavList = [];
+      //   this.getAllNav();
 }
 }
