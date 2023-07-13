@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
+import { Category } from 'src/app/core/model/category/category';
 
 
 @Component({
@@ -12,6 +13,7 @@ import {PostService} from "../../../services/post/post.service";
 })
 export class PostControlComponent implements OnInit{
   postList: Post[]=[];
+ 
   role:string;
 
   searchInput= '';

@@ -20,13 +20,18 @@ export class CategoryService {
 
   }
 
-  AddCategory( formdata: any ):Observable<Object>{
-    return this.http.post(`${this.baseUrl}/${this.domain}/create` , formdata)
+  AddCategory( category: Category ):Observable<Object>{
+    return this.http.post(`${this.baseUrl}/${this.domain}/create` , category)
   }
 
   DeleteCate(id:number):Observable<Object>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}` )
+    return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}`)
   }
+
+  UpdateCate(id:number):Observable<Object>{
+    return this.http.get(`${this.baseUrl}/${this.domain}/update/${id}`)
+  }
+ 
 
   GetCategory():Observable<any>{
     return this.http.get(`${this.baseUrl}/${this.domain}/get`)

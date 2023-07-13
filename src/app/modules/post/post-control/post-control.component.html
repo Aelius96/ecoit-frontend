@@ -48,8 +48,8 @@
                                                       id: 'post',
                                                       itemsPerPage: paging.size,
                                                       currentPage: paging.page,
-                                                      totalItems: paging.totalRecord }">
-          <div class="card">
+                                                      totalItems: paging.totalRecord  }   ;  ">
+          <div class="card" >
             <div class="row ">
               <div class="col-md-2" >
                 <div class="product-thumb-image">
@@ -57,7 +57,7 @@
                 </div>
 
               </div>
-              <div class="col-md-7">
+              <div class="col-md-6">
                 <h5 class="tittle-blog">
                   <a class="btn-link" data-toggle="collapse"  href="#demo{{post.id}}" >
                     {{post.title}}
@@ -68,6 +68,7 @@
                 </p>
 <!--                <p *ngFor="let cate of post.category">{{cate.typeName}}</p>-->
               </div>
+             
               <div class="col-md-2" style="padding-top:10px; text-align: center;">
                 {{post.date}}
               </div>

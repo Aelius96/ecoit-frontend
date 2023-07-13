@@ -116,3 +116,14 @@ a:hover{
   background: #50B848;
   color: #fff;
 }
+/*  */
+.fa-home{
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+.dropleft{
+  position: absolute;
+  right: 20px;
+  top: 25px;
+}

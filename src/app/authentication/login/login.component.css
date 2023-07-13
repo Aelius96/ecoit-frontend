@@ -1,6 +1,5 @@
 .col-lg-4 {
   padding: 0px 0px 0px 0px;
-
 }
 .col-lg-8 {
   padding: 0px 0px 0px 0px;
@@ -8,7 +7,9 @@
 .login{
   text-align: center;
 }
-
+img{
+  height: 100vh;
+}
 .input{
   width: 100%;
   height: auto;

@@ -44,7 +44,6 @@
   
   }
   
-
   /* The Close Button */
   .close-btn {
     color: #fff;
@@ -61,17 +60,9 @@
   /* ------ Add-more ------------------------ */
   .user-content{
     width: 100%;
-    margin-top: 30px;
+    margin-top: 70px;
   }
   
-  .Set-pop{
-    height: 450px;
-    overflow-y: auto;
-    padding: 10px 30px;
-  }
-  ::-webkit-scrollbar {
-    display: none;
-  }
   .options{
     display: flex;
     flex-direction: column;
@@ -88,46 +79,11 @@
     background: #f2f2f2;
     color: black;
   }
-  .options .btn{
-    height: 40px;
-    line-height: 40px;
-  }
-  .roles-box{
-    display: flex;
-    justify-content: space-between;
-    color: #fff;
-  }
-  .options label{
-    margin: 0;
-  }
-  .options span{
-    clear: none;
-    position: absolute;
-    right: 60px;
-    font-size: 14px;
-    color: #f00;
-  }
-  
+
   .user-footer{
     justify-content: flex-start;
   }
-  .save-btn{
-    border: none;
-    cursor: pointer;
-    color: #51c045;
-    margin: 0 30px;
-    font-size: 20px;
-    padding: 10px 15px;
-    border-radius: 5px;
-  }
 
-  .save-btn:hover{
-    background-color: #51c045;
-    color: #fff;
-  }
-  label{
-    color: #1a1a1a;
-  }
   .cancel{
     background-color: #cccccc;
   
@@ -141,4 +97,11 @@
   }
 .form-control:focus{
   color: black;
+}
+
+option , select{
+  color: black;
+}
+select:focus {
+  border: 0px ;
 }
