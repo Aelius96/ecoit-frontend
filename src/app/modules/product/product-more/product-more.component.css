@@ -43,6 +43,9 @@ img{
     color: black;
     text-decoration: none;
 }
+.pro-more{
+    display: flex;
+ flex-direction: column;
+}
 
 
-  

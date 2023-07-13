@@ -36,14 +36,17 @@
   </div>
 </div>
 
+<div class="section-space--mt_50">
+  <p class="text-title">KHÁCH HÀNG MỤC TIÊU</p>
+  <hr class="hr">
+</div>
 
 
-<div class="customer-control" >
-  <div >
-    <div>
+<div class=" section-space--mt_100" >
+  
       <div class="container">
-        <div class="contact-inner" >
-          <div class="row" style="padding-left: 50px; padding-right: 50px"  >
+        <div class="" >
+          <div class="row">
             <div *ngFor="let cus of customer | paginate:{
                                           id: 'customer',
                                           itemsPerPage: paging.size,
@@ -80,6 +83,5 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    
 </div>

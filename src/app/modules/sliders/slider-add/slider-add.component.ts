@@ -50,7 +50,7 @@ export class SliderAddComponent {
     });
   }
 
-  updateSlider(id: any){
+  updateSlider(id: number){
     const productFormData = this.prepareFormData(this.slider);
     this.sliderService.update(id, productFormData).subscribe(data =>{
       this.goToSliderList();

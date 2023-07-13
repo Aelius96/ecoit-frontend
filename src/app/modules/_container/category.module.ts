@@ -8,7 +8,7 @@ import { CategoryAddComponent } from '../category/category-add/category-add.comp
 const routes: Routes=[
 {path:'' , component:CategoryControlComponent },
 {path:'add' , component:CategoryAddComponent},
-
+{path:'update/:id', component:CategoryAddComponent}
 ]
 
 @NgModule({

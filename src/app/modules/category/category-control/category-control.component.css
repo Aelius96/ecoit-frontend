@@ -26,9 +26,10 @@
     margin-top: 8px;
   }
   /* ===== */
-.table{
+/* .table{
   font-family: auto;
   font-size: 20px;
+  max-width: 500px;
 }
 td,th{
   text-align: center;
@@ -37,3 +38,68 @@ td,th{
     display: flex;
     justify-content: center;
   }
+  .icon-navi{
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .icon-navi + .icon-navi{
+    margin-left: 10px;
+  } */
+
+  /* == */
+
+  .title-conten{
+    text-align: center;
+    padding: 40px 0px 20px 0px;
+  }
+  .text-title{
+    color: #50b848;
+    font-family: vi;
+    font-size: 30px;
+  }
+  .hr{
+    width: 150px;
+    background-color: #50b848;
+    font-weight: bolder;
+  }
+  
+  .action-box {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    color: #fff;
+    font-size: 18px;
+  }
+  .number-icon{
+    margin-top: 50px;
+  
+  }
+  .btnn{
+    border: 0px ;
+    width: 27px;
+  }
+  .btnn:hover{
+    color: black;
+  }
+  .content-box{
+    font-weight: bolder;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+  
+  }
+  .itemm{
+    padding-bottom: 15px;
+    color: #50b848;
+    font-size: 25px;
+    text-transform: capitalize;
+  }
+  
+
+.number-item{
+  display: inline-block;
+  width: 20%;
+  margin: 0px 20px 20px 0px;
+}

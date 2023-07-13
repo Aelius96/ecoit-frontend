@@ -32,7 +32,6 @@ const routes: Routes =[
   //sản phẩm
   //{ path: 'khach-hang-chinh-phu' , component:CustomerProductComponent },
   { path: 'khach-hang/:url' , component:CustomerDetailComponent },
-
   {path: 'san-pham/:url', component: ProductDetailComponent},
 
   // giới thiệu

@@ -33,9 +33,14 @@
   </div>
 </div>
 
-<div class="cus-typical" >
+<div class="section-space--mt_50">
+  <p class="text-title">KHÁCH HÀNG TIÊU BIỂU</p>
+  <hr class="hr">
+</div>
+
+<div class="section-space--mt_50" >
   <div class="container">
-  <div class="row " style=" padding: 30px; margin-bottom: 50px; ">
+  <div class="row " style=" padding: 30px; ">
      <div   class="item col-md-2 " *ngFor="let cusTyp of cusTypical|  paginate: { id: 'cusTypical',
                                                       itemsPerPage: paging.size,
                                                       currentPage: paging.page,
@@ -53,15 +58,13 @@
   </div>
   </div>  
 
-  <div *ngIf="paging.totalRecord>0" class="col-md-12">
-    <div class="row">
-      <div class="col-md-6">
+  <div *ngIf="paging.totalRecord>0" class="col-md-4 text-center">
+    
         <pagination-controls
           previousLabel="<"
           nextLabel=">"
           [id]="'cusTypical'" (pageChange)="handlePageChange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
-      </div>
-    </div>
+     
   </div>
 </div>
 
