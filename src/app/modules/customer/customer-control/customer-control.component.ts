@@ -18,7 +18,7 @@ export class CustomerControlComponent implements OnInit{
   searchInput= '';
   paging={
     page: 1,
-    size:4,
+    size:5,
     totalRecord: 0
   }
 

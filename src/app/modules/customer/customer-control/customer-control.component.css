@@ -53,6 +53,17 @@
 }
 .ht-btn-custom{
   margin-top: 2px;
+
+}
+/* ==  tiêu đề*/
+.text-title{
+  color: #50b848;
+  font-family: vi;
+  font-size: 30px;
+  text-align: center;
+}
+.hr{
+  width: 150px;
 }
 /*-------------------------------------------------------------*/
 .box-icon{
@@ -92,11 +103,7 @@
   background: #f00;
   border-radius: 50%;
 }
-.customer-control{
-  padding-bottom: 10px;
-  padding-top: 120px;
-  height: 100vh;
-}
+
 .text-input{
   border: 2px solid #50b848;
   color: black;

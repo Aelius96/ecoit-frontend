@@ -21,7 +21,7 @@
   </div>
 
 
-<div class="category section-space--mt_120">
+<!-- <div class="category section-space--mt_100">
     <div class="container">
       <table class="table table-striped" id="myTable">
         <thead>
@@ -47,5 +47,75 @@
         </tbody>
       </table>
     </div>
+</div> -->
+
+<div class="number-icon container">
+  <div class="" style="max-width: 1150px;" >
+    <div class="number-item"  *ngFor="let ct of category ; let t = count" >
+      <div class="card" style=" border: 1px solid rgb(255, 255, 255); box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.06)">
+        <div class="action-box">
+          <div >
+           
+            <button (click)="Update(ct.id)" style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
+          </div>
+          <div >
+            <button (click)="Delete(ct.id)" style="background-color: rgb(255,0,0)" class="btnn" ><i class="far fa-times"></i> </button>
+          </div>
+        </div>
+        <div  class="content-box ">
+          <h4  class="box-icon itemm" >
+            <i class="far fa-newspaper">
+            </i>
+          </h4>
+          <div class="counter-number itemm">{{ct.typeName}}</div>
+          <h5 class="itemm">{{t}}</h5>
+        </div>
+      </div>
+  </div>
+</div>
 </div>
 
+
+
+<!-- 
+    <div class="number-icon">
+      <div class="row">
+        <div class="col-md-3" style="margin-bottom:20px" *ngFor="let num of number | paginate:{
+                                                                        id:'number',
+                                                                        itemsPerPage: paging.size,
+                                                                        currentPage: paging.page,
+                                                                        totalItems: paging.totalRecord  }" >
+          <div class="card" style=" border: 1px solid rgb(255, 255, 255); box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.06)">
+            <div class="action-box">
+              <div >
+               
+                <button (click)="updateTypicalNum(num.id)"  style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
+              </div>
+              <div >
+                <button (click)="deleteTypicalNum(num.id)" style="background-color: rgb(255,0,0)" class="btnn" ><i class="far fa-times"></i> </button>
+              </div>
+            </div>
+            <div  class="content-box ">
+              <h4  class="box-icon itemm" >
+                <i class="{{num.icon}}">
+                </i>
+              </h4>
+              <div class="counter-number itemm">+{{num.num}}</div>
+              <h5 class="itemm">{{num.description}}</h5>
+            </div>
+          </div>
+      </div>
+      <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-top: 20px;">
+          <pagination-controls 
+          [id]="'number'"
+              previousLabel="<"
+              nextLabel=">"
+              (pageChange)="handlePageChange($event)"
+              [maxSize]="paging.totalRecord"
+          ></pagination-controls>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+ -->
