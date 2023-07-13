@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommentService } from '../../../services/comment/comment.service';
 import { Comment } from 'src/app/core/model/comment/comment';
 import { ActivatedRoute, Router } from '@angular/router';
+import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
+import {Post} from "../../../core/model/post/post";
+import {PostService} from "../../../services/post/post.service";
 
 @Component({
   selector: 'app-comment-form',
@@ -12,24 +15,45 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CommentFormComponent {
 
   comment : Comment = new Comment();
-  id:number;
- 
-constructor(private route:ActivatedRoute , 
+  username:string;
+  userId: number;
+  url: string;
+
+constructor(private route:ActivatedRoute ,
             private commentService: CommentService ,
+            private postService: PostService,
+            private tokenStorageService: TokenStorageService,
             private router : Router){}
 
   ngOnInit(): void {
- 
+    if(this.tokenStorageService.getToken()){
+      this.username = this.tokenStorageService.getUser().username;
+      this.userId = this.tokenStorageService.getUser().id;
+      this.comment.userId = this.userId;
+      this.getPost();
+
+
+    }
+
   }
 
  sendComment(){
   this.commentService.creatComment(this.comment).subscribe(res=>{
+    // this.comment.userId = this.userId;
+    console.log(res);
     this.router.navigate(['./'])
-    alert('Bình luận thành công')
-    console.log(res)
+    confirm('Bình luận thành công');
+
   },
-  error=>{console.log(error)} 
+  error=>{console.log(error)}
   )
+  }
+  getPost(){
+    this.url = this.route.snapshot.params['url'];
+    this.postService.getPostByUrl(this.url).subscribe(data => {
+      this.comment.post.id = data.id;
+      console.log(this.comment.post.id);
+    })
   }
 
   onSubmit(){

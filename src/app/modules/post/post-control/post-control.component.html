@@ -5,7 +5,7 @@
         <a style="    margin-top: 3px;  margin-right: 10px; " routerLink="../bpost"  routerLinkActive="active">
           <span  class="spann tt" style="font-weight: bold">Bài Viết</span>
         </a>
-        
+
         <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
           <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " style="width: 100px;">
           <div class="input-group-append inputt" >
@@ -19,12 +19,10 @@
         <div class="menu-item ">
           <div class="d-flex">
             <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-
             <app-page-size
               (pageSizeChange)="handlePageSizeChange($event)"
               [totalRecords]="paging.totalRecord"
               [(pageSize)]="paging.size"></app-page-size>
-
           </div>
         </div>
         <div class="menu-item">
@@ -68,7 +66,10 @@
                 </p>
 <!--                <p *ngFor="let cate of post.category">{{cate.typeName}}</p>-->
               </div>
-             
+              <div class="col-md-1" >
+               {{post.category.typeName}}
+              </div>
+
               <div class="col-md-2" style="padding-top:10px; text-align: center;">
                 {{post.date}}
               </div>

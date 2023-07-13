@@ -3,7 +3,7 @@ import {Hashtag} from "../hashtag/hashtag";
 
 
 export class Post {
-  id: any
+  id: any;
   image: any;
   title: string;
   content: string;
@@ -11,7 +11,7 @@ export class Post {
   description: string;
   url: string;
   banner: any;
-  category: Category;
+  category: Category ;
   hashtags: Hashtag[] = [];
 
 

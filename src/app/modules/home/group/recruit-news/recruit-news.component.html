@@ -21,20 +21,19 @@
 
                   <div class="carousel-inner" >
 
-                    <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let recruit of recruitList ; let s = index ">
+                    <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let post of postListRecruit ; let s = index ">
+                      <div>
+                        <img style="font-weight: 400; width: 100%; height: 250px;" src="{{post.image?.pathUrl}}"  alt="" loading="lazy">
 
-                      <div *ngIf="s<4">
-                      <img style="font-weight: 400; width: 100%; height: 250px;" src="{{recruit.image.pathUrl}}"  alt="" loading="lazy">
-                    
-                      <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;" >
-                        <h6 class="post-title">
-                          <a href="/tuyen-dung/{{recruit.url}}" tabindex="-1" class="h7tttd">{{recruit.title}}</a>
-                        </h6>
-                        <div class="post-excerpt">
-                          <p class="ptdtt">{{recruit.description}}</p>
+                        <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;" >
+                          <h6 class="post-title">
+                            <a href="/tuyen-dung/{{post.url}}" tabindex="-1" class="h7tttd">{{post.title}}</a>
+                          </h6>
+                          <div class="post-excerpt">
+                            <p class="ptdtt">{{post.description}}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
                     </div>
                   </div>
                 </div>
@@ -54,16 +53,17 @@
                   <div class="float-md-left">
                     <div class="recruit">
                       <ul >
-                        <li *ngFor="let news of newsList ; let n =  index" >
-                          <div class="d-flex flex-row listnew"  *ngIf="n<3"  >
-                            <div class="anhtintuc" >
-
-                              <a href="/tin-tuc/{{news.url}}" title="{{news.title}}" style="height: 100%;">
-                                <img  src="{{news.image.pathUrl}}" class="image" alt="" loading="lazy"></a>
-                            </div>
-                            <div class="blog-inner" style="display: inline-block;width: 70%;">
-                              <a href="/tin-tuc/{{news.url}}" id="text">{{news.title}}</a>
-                              <p class="des-news">{{news.description}}</p>
+                        <li *ngFor="let post of postListNews " >
+                          <div class="d-flex flex-row listnew"  >
+                            <div>
+                              <div class="anhtintuc" >
+                                <a href="/tin-tuc/{{post.url}}" title="{{post.title}}" style="height: 100%;">
+                                  <img  src="{{post.image.pathUrl}}" class="image" alt="" loading="lazy"></a>
+                              </div>
+                              <div class="blog-inner" style="display: inline-block;width: 70%;">
+                                <a href="/tin-tuc/{{post.url}}" id="text">{{post.title}}</a>
+                                <p class="des-news">{{post.description}}</p>
+                              </div>
                             </div>
                           </div>
                         </li>
@@ -78,7 +78,6 @@
                 </div>
               </div>
             </div>
-
         </div>
       </div>
     </div>

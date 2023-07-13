@@ -6,6 +6,8 @@ import {TokenStorageService} from "../../../../services/token-storage/token-stor
 import { Recruit } from 'src/app/core/model/recruit/recruit';
 import { RecruitService } from 'src/app/services/recruit/recruit.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import {PostService} from "../../../../services/post/post.service";
+import {Post} from "../../../../core/model/post/post";
 
 @Component({
   selector: 'app-recruit-news',
@@ -14,31 +16,67 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class RecruitNewsComponent implements OnInit{
   recruitList: Recruit[]=[];
-  newsList: News[]=[];
+  postListNews: Post[]=[];
+  postListRecruit: Post[]=[];
+  paging = {
+    page: 1,
+    size: 3,
+    totalRecord: 0
+  }
 
+  category: any;
   // url: any;
   // content:any;
   // roll: any;
   // NewsDetail :News = new News();
-  constructor( private newsService: NewsService,
-            
-              private RecruitService: RecruitService,
+  constructor(
+              private postService: PostService,
              ) {}
 
   ngOnInit(): void {
-    this.getListAllWithPage();
-    this.getListAllWithPageRecruit();
-   
+    this.getListAllWithNews();
+    this.getListAllWithRecruit();
   }
 
-  getListAllWithPage(): void {
+  getRequestParams(pageSize: number, category:string): any {
+    let params: any = {};
 
-    this.newsService.listAll().subscribe(data=>
-    {return this.newsList =data})
+
+    if (pageSize) {
+      params[`pageSize`] = pageSize;
+    }
+    if(category){
+      params[`category`] = category;
+    }
+    return params;
   }
-  getListAllWithPageRecruit():void{
-    this.RecruitService.listAll().subscribe(data=>
-      {return this.recruitList=data})
+
+  getListAllWithNews() {
+    const params = this.getRequestParams(this.paging.size,this.category);
+    this.postService.listAllWithPageByNews(params)
+      .subscribe(
+        data => {
+          this.postListNews = data.content;
+          this.paging.totalRecord = data.totalElements;
+          console.log(this.postListNews);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  getListAllWithRecruit() {
+    const params = this.getRequestParams(this.paging.size,this.category);
+    this.postService.listAllWithPageByRecruit(params)
+      .subscribe(
+        data => {
+          this.postListRecruit = data.content;
+          this.paging.totalRecord = data.totalElements;
+          console.log(this.postListRecruit);
+        },
+        error => {
+          console.log(error);
+        });
   }
 
 
