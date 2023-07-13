@@ -10,6 +10,8 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NavigatorAddComponent} from "../navigator-add/navigator-add.component";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";
 import {HttpErrorResponse} from "@angular/common/http";
+import { NestedTreeControl } from '@angular/cdk/tree';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 @Component({
   selector: 'app-navigator-control',
@@ -48,12 +50,34 @@ export class NavigatorControlComponent {
     
   }
 
+// treemat
+
+treeControl = new NestedTreeControl<Nav>(node => node.navChild);
+dataSource = new MatTreeNestedDataSource<Nav>();
+
+
+
+
+listtree(){
+  this.navService.listAll().subscribe(data=>{
+    this.dataSource.data = data
+  })
+}
+
+hasChild(_:number , node: Nav):boolean{
+  return !!node.navChild&&node.navChild.length>0
+}
+
+// ======
+
+
   ngOnInit(): void {
     window.sessionStorage.removeItem("navGroup");
-    window.sessionStorage.removeItem("navId")
+    window.sessionStorage.removeItem("navId");
+    this.listtree();
     this.listAll();
   }
-
+// ========
   onCheckChange(event: any, navigator: Nav){
     this.selectNavList.push(navigator);
     navigator.selected = event.currentTarget.checked;
