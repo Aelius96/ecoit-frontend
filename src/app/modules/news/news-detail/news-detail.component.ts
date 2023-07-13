@@ -16,11 +16,10 @@ export class NewsDetailComponent implements OnInit{
   url: any;
   content:any;
   roll: any;
-  news :News = new News();
   post :Post = new Post();
 
 
-  constructor(private newsService: NewsService,private postService: PostService, private route: ActivatedRoute,private sanitizer : DomSanitizer ) {}
+  constructor(private postService: PostService, private route: ActivatedRoute,private sanitizer : DomSanitizer ) {}
 
   ngOnInit(): void {
     this.getList();

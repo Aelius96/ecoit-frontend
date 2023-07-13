@@ -1,3 +1,5 @@
+import {Post} from "../post/post";
+
 export class Comment {
 
     id:any ;
@@ -7,6 +9,6 @@ export class Comment {
     status:any;
     userId :any;
     // commentChild:any;
-    postId:any;
-    
+    post: Post = new Post();
+
 }

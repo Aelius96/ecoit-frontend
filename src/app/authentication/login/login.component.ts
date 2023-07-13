@@ -30,8 +30,6 @@ export class LoginComponent {
 
   onSubmit(): void{
     this.authService.login(this.form).subscribe(data =>{
-
-
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
         this.isLoggedIn = true;

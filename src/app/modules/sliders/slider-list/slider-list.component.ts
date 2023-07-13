@@ -18,7 +18,6 @@ export class SliderListComponent implements OnInit{
 
   getListAll(){
     this.slideSerice.getListAll().subscribe(data=>{
-
       return this.slider=data;
     })
   }

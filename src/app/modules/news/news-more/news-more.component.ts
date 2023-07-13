@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { News } from 'src/app/core/model/news/news';
 import { NewsService } from 'src/app/services/news/news.service';
+import {PostService} from "../../../services/post/post.service";
+import {Post} from "../../../core/model/post/post";
 
 @Component({
   selector: 'app-news-more',
@@ -9,19 +11,19 @@ import { NewsService } from 'src/app/services/news/news.service';
 })
 export class NewsMoreComponent implements OnInit {
 
-  newsList : News[]=[]
-  
-  constructor ( private newsService: NewsService){}
+  postList : Post[]=[]
+
+  constructor ( private postService: PostService){}
   ngOnInit(): void {
     this.getListAll()
   }
 
  getListAll(){
-  this.newsService.listAll().subscribe(data=>{
-    return this.newsList=data;
+  this.postService.listAll().subscribe(data=>{
+    return this.postList=data;
   })
  }
 
- 
+
 
 }

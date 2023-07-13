@@ -19,8 +19,16 @@ export class PostService {
   listAllWithPage(params: HttpParams): Observable<any>{
     return this.http.get(`${this.baseUrl}/${this.domain}`,{params})
   }
-  listAllWithPageHome(params: any): Observable<any>{
+  listAllWithPageHome(params: HttpParams): Observable<any>{
     return this.http.get(`${this.baseUrl}/${this.domain}/filter`,{params})
+  }
+
+  listAllWithPageByNews(params: HttpParams): Observable<any>{
+    return this.http.get(`${this.baseUrl}/${this.domain}/home/show/news`,{params})
+  }
+
+  listAllWithPageByRecruit(params: HttpParams): Observable<any>{
+    return this.http.get(`${this.baseUrl}/${this.domain}/home/show/recruit`,{params})
   }
   // public listAll(): Observable<Post[]>{
   //   return this.http.get<Post[]>(`${this.baseUrl}/home/${this.domain}/show`);
