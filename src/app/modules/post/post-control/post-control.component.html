@@ -47,7 +47,7 @@
                                                       itemsPerPage: paging.size,
                                                       currentPage: paging.page,
                                                       totalItems: paging.totalRecord  }   ;  ">
-          <div class="card" >
+          <div class="card  " >
             <div class="row ">
               <div class="col-md-2" >
                 <div class="product-thumb-image">
@@ -55,22 +55,22 @@
                 </div>
 
               </div>
-              <div class="col-md-6">
-                <h5 class="tittle-blog">
-                  <a class="btn-link" data-toggle="collapse"  href="#demo{{post.id}}" >
-                    {{post.title}}
+              <div class="col-md-6  m-auto  ">
+               
+                  <a class="btn-link" data-toggle="collapse"   > <!-- href="#demo{{post.id}}"-->
+                    {{post.title}} 
                   </a>
-                </h5>
-                <p>
+              
+                <p class="des-post">
                   {{post.description}}
                 </p>
 <!--                <p *ngFor="let cate of post.category">{{cate.typeName}}</p>-->
               </div>
-              <div class="col-md-1" >
+              <div class="col-md-1 m-auto btn-link tittle" >
                {{post.category.typeName}}
               </div>
 
-              <div class="col-md-2" style="padding-top:10px; text-align: center;">
+              <div class="col-md-2 m-auto  " style="text-align: center;">
                 {{post.date}}
               </div>
               <div class="action-box col-md-1">
@@ -80,12 +80,12 @@
                 <button (click)="deletePost(post.id)"   class="btnn dele" ><i class="far fa-times"></i> </button>
               </div>
             </div>
-            <div class="col-md-9">
+            <!-- <div class="col-md-9">
               <div id="demo{{post.id}}" class="collapse" data-parent="#accordion">
                 <div class="card-body" [innerHTML]="post.content">
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-bottom: 10px;">

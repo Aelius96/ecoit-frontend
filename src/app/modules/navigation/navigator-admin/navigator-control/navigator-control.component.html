@@ -105,45 +105,14 @@
                 ></pagination-controls>
               </div>
             </div>
-
-            <table id="customers">
-              <thead>
-              <tr>
-                <th>Tên</th>
-                <th>Liên Kết</th>
-                <th></th>
-              </tr>
-            </thead>
-              <tbody *ngFor="let nav1 of navigation|  paginate: {
-                id: 'nav',
-                itemsPerPage: paging.size,
-                currentPage: paging.page,
-                totalItems: paging.totalRecord }; " >
-              <tr>
-                <td> <a class="has-child collapsed {{nav1.navChild.length > 0 ? 'active' : ''}}" data-toggle="collapse" href="#collapse{{nav1.id}}"></a>
-                  <!-- <input  #checkboxes type="checkbox" [value]="nav1.selected" (change)="onCheckChange($event, nav1)"> -->
-                  <span class="slacttar px-2 ml-2 mr-3" id="{{nav1.id}}" (click)="actionTarget($event)">{{nav1.name}}</span></td>
-                <td><a href="/{{nav1.url}}" target="_blank" class="url-navi">{{nav1.url}}</a></td>
-                <td> <div class="icon">
-                  <i class="fas fa-edit icon-navi" (click)="updateNavigation(nav1.id)"> </i>
-                  <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav1.id)"></i>
-                </div>
-              </td>
-              </tr>
-              <tr id="collapse{{nav1.id}}" class="link-child collapse " data-parent="#accordion"  *ngFor="let nav2 of nav1.navChild "  >
-            
-                <td><span  class="slacttar ml-2 mr-3 " id="{{nav2.id}}" (click)="actionTarget($event)">{{nav2.name}}</span></td>
-                <td> <a href="/{{nav2.url}}" target="_blank">{{nav2.url}}</a></td>
-                <td>  <div class="">
-                  <i class="	fas fa-edit icon-navi"  (click)="updateNavigation(nav2.id)"> </i>
-                  <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav2.id)"></i>
-                </div></td>
-              </tr>
-            </tbody>
-            </table>
-
           </div>
     </div>
+  </div>
+
+
+
+  <div routerLink="./test">
+    test
   </div>
 
 

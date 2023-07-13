@@ -63,19 +63,19 @@
                                                     <div class="dropdown-menu">
                                                       <button *ngIf="isToken; else dangnhap" style="width: 100%;" >
                                                         <span class="">
-                                                          <span (click)="logout()">ĐĂNG XUẤT</span>
+                                                          <span class="logout" (click)="logout()">ĐĂNG XUẤT</span>
                                                         </span>
                                                       </button>
                                                       <ng-template #dangnhap>
-                                                        <a href="/login">
-                                                        <span class="">
+                                                        <a style="width: 100%; text-align: center;" class="login" href="/login">
+                                                        <span>
                                                           <span>ĐĂNG NHẬP</span>
                                                         </span>
                                                         </a>
                                                       </ng-template>
                                                       
-                                                      <a style="width: 100%; text-align: center;" href="/register">
-                                                        <span class="">
+                                                      <a style="width: 100%; text-align: center;" class="login" href="/register">
+                                                        <span >
                                                           <span>ĐĂNG KÝ</span>
                                                         </span>
                                                       </a>

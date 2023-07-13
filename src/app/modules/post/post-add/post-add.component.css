@@ -23,7 +23,7 @@
 .update_box input{
   padding: 10px;
   width: 100%;
-  border: 2px solid #50B848;
+  border: 1px solid #50B848;
 }
 .cancel{
   background-color: #cccccc;
@@ -48,3 +48,11 @@
   background-color: deepskyblue;
 }
 
+
+select:focus{
+  border: 1px solid #50B848;
+ color: black;
+}
+option{
+  color: black;
+}

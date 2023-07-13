@@ -18,8 +18,6 @@ export class ListContactComponent {
     endTime:'' ,  
   }
 
-
-
   paging = {
     page: 1,
     size: 5,
@@ -28,7 +26,7 @@ export class ListContactComponent {
 
   constructor(private contactService: ContactService) { }
 
-  ngOnInit() {
+  ngOnInit():void {
     this.getAllContactPagesize();
   }
 

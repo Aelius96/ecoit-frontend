@@ -38,10 +38,12 @@ label{
 }
 
 .input-info__textarea{
-    max-height: 70px;
     border: 1px solid;
     border-radius: 5px;
     border-color: #50b848;
     line-height: normal;
     color: black;
+}
+.btn{
+    padding: 0px 25px;
 }

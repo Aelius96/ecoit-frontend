@@ -90,11 +90,20 @@ img{
   color: white;
 }
 
-.tittle-blog{
-  font-family: initial;
-}
+
 .ht-btn-custom{
   margin-top: 2px;
+}
+
+.m-auto{
+  margin: auto;
+}
+.des-post{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /*-------------------------------------------------------------*/
@@ -102,11 +111,10 @@ img{
   width: 100%;
   text-align: left;
   color: #2a2834;
-  position: relative;
-  overflow-wrap: break-word;
-  white-space: normal;
+  font-family: initial;
   font-size: 18px;
   font-weight: bold;
+  text-transform: capitalize;
 }
 .btn-link span {
   position: absolute;

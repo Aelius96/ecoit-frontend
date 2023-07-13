@@ -45,13 +45,7 @@ export class NavigatorControlComponent {
               private toast: ToastService,
               private modalService: NgbModal
   ) {
-    this.renderer.listen('window', 'click' , (e:Event)=>{
-      if(e.target !== this.actionId){
-        this.actionT = false;
-        document.getElementById(`${this.actionId}`)?.classList.toggle('target');
-
-      }
-    })
+    
   }
 
   ngOnInit(): void {
@@ -142,8 +136,9 @@ export class NavigatorControlComponent {
         response => {
           this.navigation = response.content;
           this.paging.totalRecord = response.totalElements;
-          this.totalPages = response.totalPages;
+          // this.totalPages = response.totalPages;
           console.log(response);
+     
         },
         error => {
           console.log(error);

@@ -129,9 +129,9 @@ import { CategoryControlComponent } from './modules/category/category-control/ca
 import { CategoryAddComponent } from './modules/category/category-add/category-add.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavictrolTestComponent } from './modules/navigation/navigator-admin/navictrol-test/navictrol-test.component';
 
-
-
+import {MatTreeModule} from '@angular/material/tree';
 
 
 @NgModule({
@@ -223,6 +223,7 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
         CategoryControlComponent,
         CategoryAddComponent,
+        NavictrolTestComponent,
 
 
 
@@ -257,6 +258,8 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     MatButtonModule,
     MatDialogModule,
     NgbTooltipModule,
+    MatTreeModule,
+ 
   ],
 
 

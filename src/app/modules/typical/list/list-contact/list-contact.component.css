@@ -52,15 +52,6 @@
     display: flex;
 
   }
-.fa-filter{
-  font-size: 20px;
-  padding: 4px 3px;
-  margin-top: 7px;
-  max-height: 30px;
-  background-color: #e9ecef;
-  border: 1px solid gainsboro;
-  border-radius: 3px;
-}
 
 .mt-90{
   margin-top: 90px;
