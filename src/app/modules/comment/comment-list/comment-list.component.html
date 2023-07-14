@@ -1,42 +1,42 @@
 
-	<div class="row comment" *ngFor="let cmt of commentList ; let total = count  ">
-		<div class="col-md-2">
-			<div class="info-comment">
-				<div class="img-comment d-flex flex-column">
-					<img src="./assets/images/avt.jpg" alt="">
-					<span >
-						{{cmt.userId}}
-						</span>
-						<span>{{cmt.date}}</span>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-10">
-			<div class=" row" >
-				<div class="content-comment col-9">
-					<span>{{cmt.content}}</span>
-					<p>
-						<a  class="btn-link" data-toggle="collapse"  href="#{{cmt.id}}" > Trả lời</a>
-					</p>
-					<div id="{{cmt.id}}" class="collapse " data-parent="#accordion"  style=" word-wrap: break-word; ">
-						<div class="d-flex flex-column" style="margin-bottom: 20px;" >
-							<div class="reply-content"   > {{cmt.content}}
+<!--	<div class="row comment" *ngFor="let cmt of commentList ; let total = count  ">-->
+<!--		<div class="col-md-2">-->
+<!--			<div class="info-comment">-->
+<!--				<div class="img-comment d-flex flex-column">-->
+<!--					<img src="./assets/images/avt.jpg" alt="">-->
+<!--					<span >-->
+<!--						{{cmt.user.username}}-->
+<!--						</span>-->
+<!--						<span>{{cmt.date}}</span>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--		<div class="col-md-10">-->
+<!--			<div class=" row" >-->
+<!--				<div class="content-comment col-9">-->
+<!--					<span>{{cmt.content}}</span>-->
+<!--					<p>-->
+<!--						<a  class="btn-link" data-toggle="collapse"  href="#{{cmt.id}}" > Trả lời</a>-->
+<!--					</p>-->
+<!--					<div id="{{cmt.id}}" class="collapse " data-parent="#accordion"  style=" word-wrap: break-word; ">-->
+<!--						<div class="d-flex flex-column" style="margin-bottom: 20px;" >-->
+<!--							<div class="reply-content" *ngIf="cmt.parentId"  >-->
+<!--                {{cmt.content}}-->
+<!--							</div>-->
+<!--							<a style="text-align: end;" href="">Chỉnh sửa</a>-->
+<!--						</div>-->
+<!--						<div class="reply-submit" >-->
+<!--							<textarea name="replyt"id="" cols="30" rows="10" placeholder="Bạn nhập bình luận tại đây"></textarea>-->
+<!--							<button class="btn">Gửi</button>-->
+<!--						</div>-->
+<!--					  </div>-->
+<!--				</div>-->
+<!--				<div class="col-3" style="word-wrap: normal;">-->
 
-							</div>
-							<a style="text-align: end;" href="">Chỉnh sửa</a>
-						</div>
-						<div class="reply-submit" >
-							<textarea name="replyt"id="" cols="30" rows="10" placeholder="Bạn nhập bình luận tại đây"></textarea>
-							<button class="btn">Gửi</button>
-						</div>
-					  </div>
-				</div>
-				<div class="col-3" style="word-wrap: normal;">
-
-				</div>
-			</div>
-		</div>
-	</div>
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
 
 
 

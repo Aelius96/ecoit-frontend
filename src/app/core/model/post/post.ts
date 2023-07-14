@@ -11,7 +11,7 @@ export class Post {
   description: string;
   url: string;
   banner: any;
-  category: Category ;
+  category: Category;
   hashtags: Hashtag[] = [];
 
 

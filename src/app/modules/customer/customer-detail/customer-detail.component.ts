@@ -26,7 +26,7 @@ export class CustomerDetailComponent {
     this.url = this.route.snapshot.params['url'];
     this.customerService.getCusByUrl(this.url).subscribe(data => {
       this.customer = data;
-      this.cover = this.customer.thumb.pathUrl;
+      this.cover = this.customer.banner.pathUrl;
       document.title = "KHỐI " + this.customer.name.toUpperCase();
     })
   }

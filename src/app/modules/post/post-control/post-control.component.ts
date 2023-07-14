@@ -13,7 +13,7 @@ import { Category } from 'src/app/core/model/category/category';
 })
 export class PostControlComponent implements OnInit{
   postList: Post[]=[];
- 
+
   role:string;
 
   searchInput= '';
@@ -23,7 +23,10 @@ export class PostControlComponent implements OnInit{
     size: 5,
     totalRecord: 0
   }
+
   cate = '';
+
+
   constructor(private router:Router,
               private postService: PostService) {}
 
@@ -34,7 +37,10 @@ export class PostControlComponent implements OnInit{
 
   }
 
-  getRequestParams(page: number, pageSize: number,search:string,cate:string): any {
+
+
+  getRequestParams(page: number, pageSize: number,search:string, cate:string): any {
+
     let params: any = {};
 
     if (page) {
@@ -48,6 +54,7 @@ export class PostControlComponent implements OnInit{
     if(search){
       params[`search`] = search;
     }
+
     if(cate){
       params[`cate`] = cate;
     }
