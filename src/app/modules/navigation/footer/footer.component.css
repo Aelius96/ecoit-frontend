@@ -38,15 +38,7 @@
     width: 25%;
 }}
 
-.image_contact{
-    width: 100%;
-    height: 100%;
-}
-.late_contact{
-    padding: 10px 10px 10px 10px;
-    position: relative;
-    color: #bababa;
-}
+
 .hover_style_link{
     color: #d5cccc;
 }
