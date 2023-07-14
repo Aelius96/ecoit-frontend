@@ -75,7 +75,7 @@ hasChild(_:number , node: Nav):boolean{
     window.sessionStorage.removeItem("navGroup");
     window.sessionStorage.removeItem("navId");
     this.listtree();
-    this.listAll();
+    this.getListAllWithPage();
   }
 // ========
   onCheckChange(event: any, navigator: Nav){
@@ -129,7 +129,7 @@ hasChild(_:number , node: Nav):boolean{
 
     if(option){
       this.navService.deleteNav(id).subscribe(()=>{
-        this.listAll();
+        this.getListAllWithPage();
       })
     }
   }

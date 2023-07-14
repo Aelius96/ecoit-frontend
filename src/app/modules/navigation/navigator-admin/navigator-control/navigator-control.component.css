@@ -35,7 +35,21 @@
     height: 30px;
     margin-top:7px;
   }
+  .ht-btn-custom{
+    margin-top: 3px
+    ;
+    color: black;
+  }
+  .menu-link{
+    margin-top: 3px;
 
+  }
+  .menu-link + .menu-link{
+    margin-left: 9px;
+  }
+.selected-number{
+  font-size: 15px;
+}
   /* TRE */
   .example-tree-invisible {
     display: none;
@@ -46,8 +60,21 @@
 
     list-style-type: none;
   }
-  
-  .matree-node{}
+  .mat-tree-node:hover{
+    background-color: #e3e3e3;
+  }
+
+  .mat-tree-node{
+    border-radius: 5px;
+  }
  .mat-tree{
 
  }
+.btn-tree:focus{
+ background-color: white;
+}
+.icon-navi{
+  font-size: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
