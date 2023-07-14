@@ -33,6 +33,7 @@
   padding: 13px 19px 13px 19px;
   background-color:  #50b848;
   color: white;
+  margin-top: 20px;
 }
 .imgicon{
   color: black;
@@ -96,5 +97,4 @@ text-decoration: none;
   background-color: rgba(189, 191, 187, 0); 
   width: 20%;
   display: inline-block;
-  margin-bottom: 20px;
 }
