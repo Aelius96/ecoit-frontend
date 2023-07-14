@@ -57,7 +57,7 @@
             <tbody *ngFor="let cmt of comment ">
               <tr >
                 <td scope="row">{{cmt.post}}</td>
-                  <td>{{cmt.userId}}</td>
+                  <td>{{cmt.user.username}}</td>
                   <td>
                     <a class="btn-link" data-toggle="collapse"  href="#reply{{cmt.id}}" style="width: 80px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" >
                     {{cmt.content}}

@@ -47,7 +47,7 @@ export class NavigatorControlComponent {
               private toast: ToastService,
               private modalService: NgbModal
   ) {
-    
+
   }
 
 // treemat
@@ -72,10 +72,13 @@ hasChild(_:number , node: Nav):boolean{
 
 
   ngOnInit(): void {
+
     window.sessionStorage.removeItem("navGroup");
     window.sessionStorage.removeItem("navId");
     this.listtree();
     this.getListAllWithPage();
+    // this.listAll();
+
   }
 // ========
   onCheckChange(event: any, navigator: Nav){
@@ -162,7 +165,7 @@ hasChild(_:number , node: Nav):boolean{
           this.paging.totalRecord = response.totalElements;
           // this.totalPages = response.totalPages;
           console.log(response);
-     
+
         },
         error => {
           console.log(error);
@@ -204,4 +207,6 @@ clearnAll(){
       //   this.selectNavList = [];
       //   this.getAllNav();
 }
+
+
 }

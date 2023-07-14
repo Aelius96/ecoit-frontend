@@ -41,16 +41,16 @@
                     <div class="col-lg-6 col-md-6">
 
                     </div>
-
-
                   </div>
                 </div>
               </div>
-
+              <strong>Thẻ tag: </strong>
+              <span *ngFor="let p of post.hashtags">
+                <a href="">{{p.name}},</a>
+              </span>
               <app-comment-list></app-comment-list>
                 <app-comment-form></app-comment-form>
               <app-news-more></app-news-more>
-
             </div>
             <!-- Post info End -->
           </div>
@@ -58,8 +58,6 @@
         </div>
       </div>
       <app-side-bar></app-side-bar>
-
-
     </div>
   </div>
   <!--====================  Blog Area End  ====================-->

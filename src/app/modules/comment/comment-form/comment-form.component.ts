@@ -29,10 +29,8 @@ constructor(private route:ActivatedRoute ,
     if(this.tokenStorageService.getToken()){
       this.username = this.tokenStorageService.getUser().username;
       this.userId = this.tokenStorageService.getUser().id;
-      this.comment.userId = this.userId;
+      this.comment.user.id = this.userId;
       this.getPost();
-
-
     }
 
   }
@@ -41,8 +39,10 @@ constructor(private route:ActivatedRoute ,
   this.commentService.creatComment(this.comment).subscribe(res=>{
     // this.comment.userId = this.userId;
     console.log(res);
-    this.router.navigate(['./'])
-    confirm('Bình luận thành công');
+    let option = confirm('Bình luận thành công');
+    if(option){
+      window.location.reload();
+    }
 
   },
   error=>{console.log(error)}
@@ -57,6 +57,8 @@ constructor(private route:ActivatedRoute ,
   }
 
   onSubmit(){
-     this.sendComment()
+     this.sendComment();
+
+
   }
 }

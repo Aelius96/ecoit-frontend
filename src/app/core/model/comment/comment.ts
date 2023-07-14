@@ -1,4 +1,5 @@
 import {Post} from "../post/post";
+import {User} from "../user/user";
 
 export class Comment {
 
@@ -7,7 +8,7 @@ export class Comment {
     date:any;
     parentId:any;
     status:any;
-    userId :any;
+    user: User = new User();
     // commentChild:any;
     post: Post = new Post();
 
