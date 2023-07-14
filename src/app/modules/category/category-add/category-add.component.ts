@@ -12,6 +12,7 @@ import { CategoryService } from 'src/app/services/category/category.service';
 export class CategoryAddComponent implements OnInit {
 
   category: Category = new Category() ;
+  name:string;
   id:number
 
 constructor(

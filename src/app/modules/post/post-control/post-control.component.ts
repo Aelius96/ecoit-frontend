@@ -23,7 +23,7 @@ export class PostControlComponent implements OnInit{
     size: 5,
     totalRecord: 0
   }
-
+  cate = '';
   constructor(private router:Router,
               private postService: PostService) {}
 
@@ -34,7 +34,7 @@ export class PostControlComponent implements OnInit{
 
   }
 
-  getRequestParams(page: number, pageSize: number,search:string): any {
+  getRequestParams(page: number, pageSize: number,search:string,cate:string): any {
     let params: any = {};
 
     if (page) {
@@ -48,11 +48,14 @@ export class PostControlComponent implements OnInit{
     if(search){
       params[`search`] = search;
     }
+    if(cate){
+      params[`cate`] = cate;
+    }
     return params;
   }
 
   getListAllWithPage() {
-    const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
+    const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput, this.cate);
     this.postService.listAllWithPage(params)
       .subscribe(
         data => {
