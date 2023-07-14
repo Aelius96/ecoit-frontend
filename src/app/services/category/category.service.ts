@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Constant} from "../../core/config/constant";
 import {Domain} from "../../core/domain/domain";
-import {Category} from "../../core/model/category/category";
+import { Category } from '../../core/model/category/category';
 import { Params } from '@angular/router';
 import { Obj } from '@popperjs/core';
 
@@ -42,8 +42,8 @@ export class CategoryService {
     return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}`)
   }
 
-  UpdateCate(id:number):Observable<Object>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/update/${id}`)
+  UpdateCate(id:number,category:Category):Observable<Object>{
+    return this.http.post(`${this.baseUrl}/${this.domain}/update/${id}`,category)
   }
  
 

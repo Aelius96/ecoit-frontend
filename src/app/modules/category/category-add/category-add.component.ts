@@ -39,7 +39,7 @@ ngOnInit(): void {
 
 onSubmit(){
   if(this.id){
-    this.update(this.id);
+    this.update(this.id,this.category);
   }else{
     this.AddCategory();
   }
@@ -49,8 +49,8 @@ onSubmit(){
   this.router.navigate(['/admin/category']);
 }
 
-update(id:any){
-  this.categoryService.UpdateCate(id).subscribe(()=>
+update(id:number,category:Category){
+  this.categoryService.UpdateCate(id,category).subscribe(()=>
   {
     this.cancel()
   })
