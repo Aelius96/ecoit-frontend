@@ -1,3 +1,4 @@
+import { Category } from "../category/category";
 import {Post} from "../post/post";
 import {User} from "../user/user";
 
@@ -9,6 +10,7 @@ export class Comment {
     parentId:any;
     status:any;
     user: User = new User();
+    category:Category=new Category();
     // commentChild:any;
     post: Post = new Post();
 
