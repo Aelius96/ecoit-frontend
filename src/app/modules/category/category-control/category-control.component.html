@@ -8,6 +8,9 @@
             <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
         </form>
+        <a  (click)="getListAll()">
+          <img src="./assets/images/reload.png" alt="" class="img-reload">
+        </a>
       </div>
 
       <div class="right-d-flex">
@@ -29,6 +32,9 @@
     </div>
   </div>
 
+
+  <!-- <app-category-add #modal></app-category-add> -->
+
 <div class="section-space--mt_100 container">
   <div class="" style="max-width: 1150px;" >
     <div class="number-item"  *ngFor="let ct of category |  paginate:{
@@ -40,7 +46,7 @@
         <div class="action-box">
           <div >
            
-            <button (click)="Update(ct.id)" style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
+            <button (click)="Update(ct.id)"  style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
           </div>
           <div >
             <button (click)="Delete(ct.id)" style="background-color: rgb(255,0,0)" class="btnn" ><i class="far fa-times"></i> </button>

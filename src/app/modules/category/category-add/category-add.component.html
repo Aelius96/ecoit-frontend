@@ -1,10 +1,10 @@
-<div class="category-add contact-inner ">
-    <form (ngSubmit)="onSubmit()"  enctype="multipart/form-data"  novalidate  >
-    <label for="name">Tên Chuyên Mục <br>
-        <input type="text" name="typeName" id="typeName" [(ngModel)]="category.typeName" required>
+<div class="category-add contact-inner "   #myModal>
+    <form (ngSubmit)="onSubmit()"  enctype="multipart/form-data"  novalidate  class="form-cate-add" >
+    <label for="name" > <p class="cate-name">Tên Chuyên Mục</p>
+        <input class="mt-3" type="text" name="typeName" id="typeName" [(ngModel)]="category.typeName" placeholder="Nhập tên chuyên mục " required>
     </label>
   
-    <div class="submit-button">
+    <div class="submit-button" class="section-space--mt_20" >
         <button type="submit"  class="btn btn-primary btn-lg btnn">Lưu</button>
         <button type="button" class="btn btn-secondary btn-lg btnn cancel"  (click)="cancel()" >Hủy</button>
       </div>

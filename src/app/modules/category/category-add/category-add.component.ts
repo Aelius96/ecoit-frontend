@@ -1,8 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Category } from 'src/app/core/model/category/category';
 import { CategoryService } from 'src/app/services/category/category.service';
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-category-add',
@@ -12,22 +13,26 @@ import { CategoryService } from 'src/app/services/category/category.service';
 export class CategoryAddComponent implements OnInit {
 
   category: Category = new Category() ;
+
   name:string;
   id:number
 
 constructor(
-  // public dialogRef: MatDialogRef<CategoryAddComponent>,
-  // @Inject(MAT_DIALOG_DATA) public data: any,
-
+  private toast:ToastService,
     private categoryService:CategoryService,
     private router:Router,
     private route: ActivatedRoute,
       ) {}
+      //modal
 
-// cancle(): void {
-//   this.dialogRef.close();
-// }
-
+      @ViewChild('myModal', {static: false}) modal: ElementRef;
+      open() {
+        this.modal.nativeElement.style.display = 'block';
+      }
+      close() {
+        this.modal.nativeElement.style.display = 'none';
+      }        
+      
 ngOnInit(): void {
   this.id = this.route.snapshot.params['id'];
   if(this.id){
@@ -42,6 +47,7 @@ onSubmit(){
     this.update(this.id,this.category);
   }else{
     this.AddCategory();
+   
   }
  }
 
@@ -59,8 +65,9 @@ update(id:number,category:Category){
 AddCategory(){
   this.categoryService.AddCategory(this.category).subscribe(()=>{
     alert('Thêm chuyên mục thành công!')
-    this.cancel()
-
+    // this.modal.nativeElement.style.display = 'none';
+    this.cancel();
   })
 }
+
 }

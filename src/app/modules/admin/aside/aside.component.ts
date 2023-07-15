@@ -33,6 +33,12 @@ export class AsideComponent {
       icon:'far fa-home'
     },
     {
+      id:9,
+      tittle:'Chuyên mục',
+      a:'category',
+      icon:'fa fa-th-large',
+    },
+    {
       id:2,
 
       tittle: 'Bài viết',
@@ -77,12 +83,7 @@ export class AsideComponent {
       icon:'far fa-user',
     },
  
-    {
-      id:9,
-      tittle:'Chuyên mục',
-      a:'category',
-      icon:'fa fa-th-large',
-    },
+    
     
 
   ]
