@@ -128,11 +128,8 @@ import { LoginUserComponent } from './authentication/login-user/login-user.compo
 import { CategoryControlComponent } from './modules/category/category-control/category-control.component';
 import { CategoryAddComponent } from './modules/category/category-add/category-add.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavictrolTestComponent } from './modules/navigation/navigator-admin/navictrol-test/navictrol-test.component';
-
+import { NgbTooltipModule  } from '@ng-bootstrap/ng-bootstrap';
 import {MatTreeModule} from '@angular/material/tree';
-
 
 @NgModule({
   declarations: [
@@ -223,7 +220,7 @@ import {MatTreeModule} from '@angular/material/tree';
 
         CategoryControlComponent,
         CategoryAddComponent,
-        NavictrolTestComponent,
+       
 
 
 

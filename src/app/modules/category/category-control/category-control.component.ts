@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CategoryAddComponent } from '../category-add/category-add.component';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { Category } from 'src/app/core/model/category/category';
 import { Params, Router } from '@angular/router';
 import { ContactComponent } from '../../contact/contact.component';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-category-control',
@@ -22,13 +24,23 @@ export class CategoryControlComponent implements OnInit {
     size: 5,
     totalRecord: 0 
  }
-  constructor(  private  categoryService: CategoryService ,
-          private router: Router) {}
+  constructor( private modalService: NgbModal,
+         private  categoryService: CategoryService ,
+          private router: Router , 
+          private toast: ToastService) {}
 
   ngOnInit(): void {
     this.getListAll();
     this.getAllCatePageSize();
   }
+
+  // modal
+  @ViewChild('modal', {static: false}) modal: CategoryAddComponent
+
+  openModal() {
+    this.modal.open();
+  }
+
 
   getPageSizeParams(page: number, pageSize: number,searchinput:string ): any{
     let params: any = {};
@@ -79,10 +91,27 @@ export class CategoryControlComponent implements OnInit {
       })
      }
   }
+  modalRef?: NgbModalRef;
 
   Update(id:number){
     return this.router.navigate([`/admin/category/update/${id}` ])
+    // this.modalRef = this.modalService.open(CategoryAddComponent, {
+    
+    
+    //   backdropClass: "modal-backdrop"
+    // });
+    // this.modalRef.result.then(item => {
+    //   if(item){
+    //     this.toast.show("Cập nhật thành công!", { classname: 'bg-success text-light', delay: 10000 })
+    //     this.getAllCatePageSize();
+    //   }
+    // })
+   
   }
+  
+    // this.openModal()
+    // return this.router.navigate([`/admin/category/update/${id}` ])
+  
 
   search():void{
     this.paging.page = 1;

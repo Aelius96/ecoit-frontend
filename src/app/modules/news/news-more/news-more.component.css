@@ -22,8 +22,8 @@ img{
 .content{
     padding: 20px ;
 }
-.item{
-    margin-bottom: 10px;
+.item + .item{
+  margin-top: 10px;
 }
 .title-content{
     margin-top: auto;
