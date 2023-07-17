@@ -35,9 +35,11 @@ export class NavService {
     return this.http.post<Nav>(`${this.baseUrl}/nav/update/${id}`, nav);
   }
 
-  public deleteNav(id: number): Observable<void> {
-    return this.http.get<void>(`${this.baseUrl}/nav/delete/${id}`);
+  public deleteNav(id: number): Observable<Object> {
+    return this.http.get<Object>(`${this.baseUrl}/nav/delete/${id}`);
   }
-
+  public deleteNavAll(formdata: FormData): Observable<Nav> {
+    return this.http.post<Nav>(`${this.baseUrl}/nav/deleteAll` , formdata);
+  }
 
 }

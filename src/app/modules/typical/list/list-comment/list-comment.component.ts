@@ -10,7 +10,7 @@ import { CommentService } from 'src/app/services/comment/comment.service';
 export class ListCommentComponent implements OnInit {
 
   comment: Comment[]=[]
-  cate = '';
+  
   constructor( private commentservice : CommentService ) {
     
   } 

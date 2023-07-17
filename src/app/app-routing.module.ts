@@ -63,7 +63,7 @@ const routes: Routes =[
   {path:'admin', canActivate:[AuthenticateService]
     ,loadChildren:() => import('./modules/_container/admin.module').then(m => m.AdminModule) },
 
-      // /admin/news
+      // 
   {path: 'lien-he' , component: ContactComponent},
   { path: '**', redirectTo: '/404' },
   {path: '404' , component:ErrorComponent},

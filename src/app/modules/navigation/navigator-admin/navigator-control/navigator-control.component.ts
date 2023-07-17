@@ -197,16 +197,21 @@ prepareformData(formdata: any){
   return formData;
 }
 
-
-clearnAll(){
-  // this.removeSelectNav = this.selectNavList.filter(item => item.selected);
-  // const formData = this.prepareformData(this.removeSelectNav.map(res=>res.id));
-  //     this.navService.deleteNav
-      // (formData).subscribe(() => {
-      //   this.selects = null;
-      //   this.selectNavList = [];
-      //   this.getAllNav();
+getAllnav(){
+  this.navService.listAll().subscribe(res=>{
+    this.navigation=res
+    console.log(res)
+  }, error=>console.log(error))
 }
 
+clearnAll(){
+this.navigation = this.selectNavList.filter(itemnav=>itemnav.selected);
+const formdataNav = this.prepareformData(this.navigation.map(idnav=>idnav.id));
+this.navService.deleteNavAll(formdataNav).subscribe(()=>{
+  this.selects = null;
+  this.selectNavList = [];
+  this.getAllnav()
+})
 
+}
 }
