@@ -10,7 +10,6 @@ export class Comment {
     parentId:any;
     status:any;
     user: User = new User();
-    category:Category=new Category();
     // commentChild:any;
     post: Post = new Post();
 

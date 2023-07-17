@@ -58,7 +58,5 @@ constructor(private route:ActivatedRoute ,
 
   onSubmit(){
      this.sendComment();
-
-
   }
 }
