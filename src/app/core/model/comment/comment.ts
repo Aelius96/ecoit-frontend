@@ -9,7 +9,7 @@ export class Comment {
     parentId:any;
     status:any;
     user: User = new User();
-    // commentChild:any;
+    commentChild:any;
     post: Post = new Post();
 
 }

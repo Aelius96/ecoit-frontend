@@ -12,8 +12,12 @@ export class CommentService {
   private baseUrl = `${Constant.BASE_URL}`;
   constructor( private http: HttpClient ) { }
 
-  getCommentbyId( params: any):Observable<any>{
-    return this.http.get(`${this.baseUrl}/comment/get` , {params})
+  // getCommentChildById( params: any):Observable<any>{
+  //   return this.http.get(`${this.baseUrl}/comment/get` , {params})
+  // }
+
+  getCommentChildByParent():Observable<any>{
+    return this.http.get(`${this.baseUrl}/comment/get` )
   }
   getListCommentHome():Observable<any>{
     return this.http.get(`${this.baseUrl}/comment/home`);
@@ -21,11 +25,18 @@ export class CommentService {
   getListAll():Observable<Comment[]>{
     return this.http.get<Comment[]>(`${this.baseUrl}/comment/all`)
   }
-  DisableComment():Observable<any>{
-    return this.http.get(`${this.baseUrl}/comment/disable`)
+  DisableComment(id : number){
+    return this.http.get(`${this.baseUrl}/comment/disable/${id}`)
   }
   creatComment(creatcomment: any):Observable<Object>{
     return this.http.post(`${this.baseUrl}/comment/create` , creatcomment)
+  }
+  updateComment(id:number, updateComment: any):Observable<Object>{
+    return this.http.post(`${this.baseUrl}/comment/update/{id}` , updateComment)
+  }
+
+  getCommentByPostId(postId : number):Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}/comment/test?postId=${postId}`)
   }
 
   //  public addNav(nav: Nav): Observable<Nav> {
