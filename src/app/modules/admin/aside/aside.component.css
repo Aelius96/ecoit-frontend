@@ -44,12 +44,17 @@
   background-color: #50b848;
 }
 .list-aside{
-  padding-top: 30px;
-  /* height: 100%; */
-  /* max-height: 750px;
-  overflow: none; */
+  padding-top: 0px;
+  /* max-height: 605px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none; */
   background-color: #50b848;
 }
+/* .list-aside::-webkit-scrollbar{
+  width: 0 !important;
+  display: none; 
+} */
 .aside-more{
   justify-content: center;
   background-color: #50b848;

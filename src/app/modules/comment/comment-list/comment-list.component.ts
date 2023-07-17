@@ -34,7 +34,7 @@ constructor(private route:ActivatedRoute,
       this.username = this.tokenStorageService.getUser().username;
       this.userId = this.tokenStorageService.getUser().id;
       this.comment.user.id = this.userId;
-
+      console.log(this.userId)
       this.url = this.route.snapshot.params['url'];
       this.postService.getPostByUrl(this.url).subscribe(data => {
         this.comment.post.id = data.id;
@@ -58,7 +58,7 @@ constructor(private route:ActivatedRoute,
 
   sendChildComment(){
     this.commentService.creatComment(this.comment).subscribe(res=>{
-      let option = confirm('Bình luận thành công');
+      let option = confirm('Bình luận thành công!');
         if(option){
           window.location.reload();
         }

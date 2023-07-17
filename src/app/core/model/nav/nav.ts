@@ -4,6 +4,6 @@ export class Nav {
   url :string;
   parentId: number;
   navChild?: any;
-  selected: false;
+  selected: boolean;
   active: boolean;
 }

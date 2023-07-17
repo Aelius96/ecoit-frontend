@@ -56,11 +56,10 @@ treeControl = new NestedTreeControl<Nav>(node => node.navChild);
 dataSource = new MatTreeNestedDataSource<Nav>();
 
 
-
-
 listtree(){
   this.navService.listAll().subscribe(data=>{
     this.dataSource.data = data
+    console.log(data)
   })
 }
 
@@ -77,7 +76,7 @@ hasChild(_:number , node: Nav):boolean{
     window.sessionStorage.removeItem("navId");
     this.listtree();
     this.getListAllWithPage();
-    // this.listAll();
+    //  this.listAll();
 
   }
 // ========
@@ -132,7 +131,9 @@ hasChild(_:number , node: Nav):boolean{
 
     if(option){
       this.navService.deleteNav(id).subscribe(()=>{
-        this.getListAllWithPage();
+        this.listtree();
+        // this.getListAllWithPage();
+
       })
     }
   }
@@ -162,7 +163,9 @@ hasChild(_:number , node: Nav):boolean{
       .subscribe(
         response => {
           this.navigation = response.content;
+          this.navigation=response;
           this.paging.totalRecord = response.totalElements;
+
           // this.totalPages = response.totalPages;
           console.log(response);
 
@@ -205,13 +208,16 @@ getAllnav(){
 }
 
 clearnAll(){
-this.navigation = this.selectNavList.filter(itemnav=>itemnav.selected);
-const formdataNav = this.prepareformData(this.navigation.map(idnav=>idnav.id));
-this.navService.deleteNavAll(formdataNav).subscribe(()=>{
-  this.selects = null;
-  this.selectNavList = [];
-  this.getAllnav()
-})
-
+  let cf = confirm("Dữ liệu sẽ bị xóa . Bạn có muốn tiếp tục ");
+  if(cf){
+    this.removeSelectNav=this.selectNavList.filter(item=>item.selected);
+    const formdata = this.prepareformData(this.removeSelectNav.map(idnav=>idnav.id));
+    this.navService.deleteNavAll(formdata).subscribe(()=>{
+      this.selects = null;
+      this.selectNavList=[];
+      this.listtree();
+    })
+  }
 }
+
 }

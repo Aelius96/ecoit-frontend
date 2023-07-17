@@ -129,6 +129,12 @@ margin-right: 10px;
 .slideitem{
   max-height: 140px;
   overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   display: flex;
   justify-content: center;
+}
+.slideitem::-webkit-scrollbar { 
+  width: 0 !important;
+  display: none; 
 }

@@ -25,6 +25,7 @@ export class CommentService {
   getListAll():Observable<Comment[]>{
     return this.http.get<Comment[]>(`${this.baseUrl}/comment/all`)
   }
+
   DisableComment(id : number){
     return this.http.get(`${this.baseUrl}/comment/disable/${id}`)
   }
@@ -45,6 +46,6 @@ export class CommentService {
 
 
   deleteComment(id:any){
-    return this.http.get(`${this.baseUrl}/comment/delete` , id )
+    return this.http.get(`${this.baseUrl}/comment/delete/` , id )
   }
 }

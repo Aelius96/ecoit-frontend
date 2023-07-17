@@ -82,9 +82,6 @@ export class AsideComponent {
       a: 'user',
       icon:'far fa-user',
     },
- 
-    
-    
 
   ]
 

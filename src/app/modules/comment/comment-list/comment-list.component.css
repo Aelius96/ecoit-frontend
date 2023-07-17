@@ -1,33 +1,4 @@
 
-.be-comment-block {
-    margin-bottom: 20px;
-    border: 1px solid #edeff2;
-    border-radius: 2px;
-    border:1px solid #ffffff;
-}
-
-.comments-title {
-    font-size: 16px;
-    color: #262626;
-    margin-bottom: 15px;
-    font-family: 'Conv_helveticaneuecyr-bold';
-}
-.be-comment{
-    margin-bottom: 10px;
-}
-.be-img-comment {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.be-ava-comment {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-
 
 .form-group.fl_icon .icon {
     position: absolute;
@@ -86,6 +57,10 @@ textarea:focus{
     font-family: 'Conv_helveticaneuecyr-bold';
 }
 /* ====== */
+.hr{
+    width: 99%;
+    margin: 0px 0px 10px 0px;    
+}
 img{
     width: 70%;
     height: 100%;
@@ -96,9 +71,9 @@ img{
     margin: 0px 20px 0px 20px;
 }
 .comment{
-    border-bottom: 0.3px solid rgba(113, 113, 113, 0.384);
-
+   
 }
+
 .be-comment-name {
     padding-top: 5px;
     font-size: 13px;
@@ -109,7 +84,7 @@ img{
 
 }
 .reply-submit{
-    border-radius: 5px;
+   margin-bottom: 10px;
 }
 
 .reply-content{
@@ -120,8 +95,7 @@ img{
     width: 100%;
 
 }
-
-.reply-content a{
-    position: absolute;
-    left: 400px
+.child-content{
+    width: 100%;
+     word-wrap: break-word;
 }

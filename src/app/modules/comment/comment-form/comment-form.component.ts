@@ -52,7 +52,7 @@ constructor(private route:ActivatedRoute ,
     this.url = this.route.snapshot.params['url'];
     this.postService.getPostByUrl(this.url).subscribe(data => {
       this.comment.post.id = data.id;
-      console.log(this.comment.post.id);
+      // console.log(this.comment.post.id);
     })
   }
 

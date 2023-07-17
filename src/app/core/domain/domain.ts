@@ -14,4 +14,6 @@ export class Domain {
   public static POST = `bpost`;
   public static CATEGORY = `category`;
   public static HASHTAG = `hashtag`;
+  public static NAV = `nav`;
+
 }
