@@ -37,6 +37,9 @@ export class PostService {
     return this.http.get<Post[]>(`${this.baseUrl}/${this.domain}/list`);
   }
 
+  public search(params: HttpParams): Observable<any>{
+    return this.http.get(`${this.baseUrl}/${this.domain}/tim-kiem`,{params})
+  }
 
   public getPostByUrl(url: any): Observable<Post>{
     return this.http.get<Post>(`${this.baseUrl}/${this.domain}/home/${url}`);

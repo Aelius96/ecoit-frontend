@@ -20,7 +20,7 @@
           <div class="update_box">
             <span><strong>Thẻ tag</strong></span>
             <mat-form-field class="example-chip-list">
-              <mat-chip-grid #chipGrid aria-label="Fruit selection">
+              <mat-chip-grid #chipGrids aria-label="Fruit selection">
                 <mat-chip-row *ngFor="let hashtag of products.hashtags" (removed)="remove(hashtag)" >
                   {{hashtag.name}}
                   <button matChipRemove [attr.aria-label]="'remove ' + hashtag.name">
@@ -29,7 +29,7 @@
                 </mat-chip-row>
               </mat-chip-grid>
               <input placeholder="New Tag..." #hashtagInputP [formControl]="hashtagCtrl"
-                     [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+                     [matChipInputFor]="chipGrids" [matAutocomplete]="auto"
                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                      (matChipInputTokenEnd)="addHashtag($event)"/>
               <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">

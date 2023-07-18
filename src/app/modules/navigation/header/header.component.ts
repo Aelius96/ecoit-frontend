@@ -3,6 +3,9 @@ import {NavService} from "../../../services/nav/nav.service";
 import {Nav} from "../../../core/model/nav/nav";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {Router} from "@angular/router";
+import {PostService} from "../../../services/post/post.service";
+import {BehaviorSubject, Observable} from "rxjs";
+import {Post} from "../../../core/model/post/post";
 
 @Component({
   selector: 'app-header',
@@ -14,20 +17,21 @@ export class HeaderComponent {
   navParent: Nav[] = [];
   isToken = false;
   roles: string[] = [];
-  constructor(private navService: NavService,private tokenStorageService: TokenStorageService, private router:Router) { }
+  searchInput: string;
+  postList : Post[] = [];
+  constructor(private navService: NavService,
+              private tokenStorageService: TokenStorageService,
+              private router:Router,
+              private postService: PostService) { }
 
   ngOnInit(): void {
-
-    if(this.tokenStorageService.getToken()) {
-
-      this.isToken = true;
-      this.roles = this.tokenStorageService.getToken().roles;
-
-    }
     this.getAllNav();
     // this.getAbout();
-  }
 
+  }
+  goToSearch():void{
+    this.router.navigate(['/tim-kiem/'+this.searchInput]);
+  }
   getAllNav(){
     this.navService.listAll().subscribe(data => {
       this.navParent = data;
@@ -51,7 +55,5 @@ export class HeaderComponent {
     window.location.reload();
   }
 
-  search() {
 
-  }
 }

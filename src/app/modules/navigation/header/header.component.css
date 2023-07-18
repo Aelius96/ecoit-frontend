@@ -31,7 +31,7 @@
 .submenu{
   padding-top: 0px;
   padding-bottom: 0px;
-  text-align: start 
+  text-align: start
 }
 .item-li{
   color: #50b848;
@@ -61,13 +61,13 @@
 }
 
 .advise-contact{
-  vertical-align: inherit; 
+  vertical-align: inherit;
    background-color: #50b848;
     color: white ;
-     padding: 12px 16px; 
+     padding: 12px 16px;
      font-family: 'Tahoma' ,'sans-serif';
       font-size: 12px ;
-       font-weight: 700; 
+       font-weight: 700;
 }
 .advise-contact:hover{
   color: black;
@@ -129,4 +129,10 @@ a:hover{
 }
 .login:hover{
   background-color: rgb(197, 197, 197);
+}
+
+.custom-input input{
+  border: none;
+  /*position: absolute;*/
+  /*right: 30px;*/
 }

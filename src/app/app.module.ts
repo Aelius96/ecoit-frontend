@@ -130,6 +130,8 @@ import { CategoryAddComponent } from './modules/category/category-add/category-a
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgbTooltipModule  } from '@ng-bootstrap/ng-bootstrap';
 import {MatTreeModule} from '@angular/material/tree';
+import { SearchComponent } from './modules/search/search.component';
+
 
 @NgModule({
   declarations: [
@@ -220,7 +222,9 @@ import {MatTreeModule} from '@angular/material/tree';
 
         CategoryControlComponent,
         CategoryAddComponent,
-       
+        SearchComponent,
+
+
 
 
 
