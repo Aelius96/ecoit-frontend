@@ -40,54 +40,52 @@
 </div>
 
 
-<div class="section-space--ptb_90">
+<div class="mt-5">
     <div class="container">
       <div class="detail">
           <table class="table table-striped" id="myTable">
             <thead>
               <tr style="font-weight: bold;">
-                  <td >Tên Mục</td>
+                  <td >Tên Bài Viết</td>
                   <td  >Tên Người Gửi</td>
                   <td class="w-25">Nội Dung</td>
                   <td>Thời gian</td>
-                  <td>Lọc</td>
                   <td> </td>
               </tr>
             </thead>
-            <tbody *ngFor="let cmt of comment ">
+            <tbody *ngFor="let cmt of commentList ">
               <tr >
-                <td scope="row">{{cmt.parentId}}</td>
+                <td scope="row"></td>
                   <td>{{cmt.user.username}}</td>
                   <td>
                     <a class="btn-link" data-toggle="collapse"  href="#reply{{cmt.id}}" >
-                    {{cmt.content}}
-                  </a></td>
+                      <p>{{cmt.content}}</p>
+                    </a>
+                  </td>
                   <td>{{cmt.date}}</td>
-                  <td>{{cmt.parentId}}</td>
                   <td> <span class="icon icon-remove" >
                     <a class="icon-item"  > <i class="fas fa-trash-alt remove i"></i></a>
                     <a class="icon-item"> <i class='fas fa-vote-yea' style="font-size: 17px;"></i></a>
-                    <!-- <img class="reply" src="assets/images/imgreply.jpg" alt="" > -->
+                    
                   </span>
 
                   </td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td colspan="7">
-                  <!-- <div id="demo" class="collapse" data-parent="#accordion" >
-                    <div style="text-align:start;"   [innerHTML]="" > Đây là một đoạn văn quá dài để hiển thị nội dung  là một đoạn văn quá dài để hiển thị nội dung
-                    </div>
-                  </div> -->
                   <div id="reply{{cmt.id}}" class="collapse" data-parent="#accordion" >
                     <div style="text-align:start;"   [innerHTML]="cmt.content" >
                     </div>
-                    <div  style="text-align:start;">Phần trả lời:  </div>
-                    <div style="text-align:start;" > <textarea name="" id="" cols="60" rows="3"></textarea> <button class="btn">Gửi</button>
+                    <p style="text-align:start;">Nội dung trả lời</p>
+                    <div  style="text-align:start;">Phần trả lời: </div>
+                    
+                    <div style="text-align:start;" > <textarea name="" id="" cols="60" rows="3"></textarea>
+                       <button class="btn">Gửi</button>
                     </div>
+                    
                   </div>
                 </td>
-
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>
