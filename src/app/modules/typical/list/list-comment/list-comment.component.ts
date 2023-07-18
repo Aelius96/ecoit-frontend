@@ -31,16 +31,10 @@ constructor(private route:ActivatedRoute,
       this.userId = this.tokenStorageService.getUser().id;
       this.comment.user.id = this.userId;
       console.log(this.userId)
-      this.url = this.route.snapshot.params['url'];
-      this.postService.getPostByUrl(this.url).subscribe(data => {
-        this.comment.post.id = data.id;
-        this.postId = data.id;
-        this.getAllComment();
-        this.getCommentChildByParent()
-      })
-
+      this.getCommentChildByParent()
       // this.getPost();
     }
+      this.getAllComment()
     }
 
   // hiển thị
@@ -52,17 +46,17 @@ constructor(private route:ActivatedRoute,
   //   }
   // }
 
-  sendChildComment(){
-    this.commentService.creatComment(this.comment).subscribe(res=>{
-      let option = confirm('Bình luận thành công!');
-        if(option){
-          window.location.reload();
-        }
-
-      },
-      error=>{console.log(error)}
-    )
-  }
+  // sendChildComment(){
+  //   this.commentService.creatComment(this.comment).subscribe(res=>{
+  //     let option = confirm('Bình luận thành công!');
+  //       if(option){
+  //         window.location.reload();
+  //       }
+  //
+  //     },
+  //     error=>{console.log(error)}
+  //   )
+  // }
   addParentId(id: number){
     this.comment.parentId = id;
     // console.log(this.comment.parentId);
@@ -77,7 +71,7 @@ constructor(private route:ActivatedRoute,
   // }
   getAllComment(){
     // const params= this.getRequestParams(this.id)
-    this.commentService.getCommentByPostId(this.postId).subscribe(data=>{
+    this.commentService.getParentCommentActive().subscribe(data=>{
         this.commentList = data;
 
       },
@@ -99,6 +93,6 @@ constructor(private route:ActivatedRoute,
 
 
   onSubmit(){
-    this.sendChildComment();
+    // this.sendChildComment();
   }
 }
