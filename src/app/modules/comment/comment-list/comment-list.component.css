@@ -45,12 +45,12 @@ textarea:focus{
     color: #171717;
     border: 1px solid gainsboro;
 }
-.pull-right{
+/* .pull-right{
     margin-left: 16px;
     height: auto;
     background-color: #337ab7;;
 
-}
+} */
 .title{
     font-size: 18px;
 
