@@ -163,11 +163,11 @@
                 <div class="col-md-1 m-auto">
                   <span class="icon" >
   
-                    <a *ngIf="cmt.status ; else hien"  class="icon-item " (click)="Disable(cmt.id)" ><i class="far fa-eye"></i> </a>
+                    <a *ngIf="cmt.status ; else hien"  class="icon-item mr-2 " (click)="Disable(cmt.id)" ><i class="far fa-eye"></i> </a>
                     <ng-template #hien >
-                      <a class="icon-item" (click)="Enable(cmt.id)"> <i class="far fa-eye-slash"></i> </a>
+                      <a class="icon-item mr-2" (click)="Enable(cmt.id)"> <i class="far fa-eye-slash"></i> </a>
                     </ng-template>
-                    <a  class="icon-item" (click)="Delete(cmt.id)"> <i class="fa fa-trash-o" style="font-size:20px"></i></a>
+                    <a  class="icon-item mr-2" (click)="Delete(cmt.id)"> <i class="fa fa-trash-o" style="font-size:20px"></i></a>
                   </span>
                 </div>
               </div>
