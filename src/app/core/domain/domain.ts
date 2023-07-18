@@ -16,5 +16,6 @@ export class Domain {
   public static HASHTAG = `hashtag`;
   public static NAV = `nav`;
   public static COMMENT = `comment`;
+  public static USER = `user`;
 
 }

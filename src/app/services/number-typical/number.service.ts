@@ -33,7 +33,7 @@ export class NumberService {
   }
 
   public editNumber(number:Number, id:number): Observable<Object> {
-    return this.httpclient.post(`${this.baseUrl}/${this.domain}/edit/${id}`, number);
+    return this.httpclient.post(`${this.baseUrl}/${this.domain}/update/${id}`, number);
   }
 
   public deleteNumber(id: number): Observable<void> {
