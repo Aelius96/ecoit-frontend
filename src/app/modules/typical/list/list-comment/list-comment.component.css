@@ -57,44 +57,7 @@
 }
   /*  */
   
-.icon{
-     font-size: 15px;
-   }
-  
-   .icon-item{
-     color: #eff2f5;
-   }
-   .icon-item:hover{
-     color: black;
-   }
-  .icon-item + .icon-item{
-    margin-left: 10px;
-  }
-  
-   .detail{
-    display: grid;
-    grid-gap: 20px;
-    border: 1px rgb(146, 146, 146);
-    max-height: 500px;
-    overflow: auto;
-   }
-   .detail::-webkit-scrollbar{
- width: 0 !important;
- display: none;
-   }
-   .table{
-    box-shadow: 1px 1px 30px 5px rgba(82, 63, 105, 0.132);
-    border: 1px solid #84848486;
-   }
-
-
-   td{
-    text-align: center;
-   }
-   .checkbox{
-    right: 350px;
-    position: absolute;
-   }
+   /* view mới */
    .btn-link{
     width: 100%;
     white-space: nowrap;
@@ -105,19 +68,34 @@
    .btn-link:hover{
     text-decoration: none;
    }
-   .reply{
-    max-width: 21px;
-   }
-   .btn{
-    position: absolute;
-    max-height: 65px;
-    height: 100%;
-   }
-   /* view mới */
-   .col-md-2 , .col-md-4{
+   .col-md-2 , .col-md-3, .col-md-4{
     text-align: center;
    }
-   .card{
+   .card-list{
     max-height: 70px;
     height: 70px;
    }
+.list-cmt{
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  max-height: 480px;
+}
+.list-cmt::-webkit-scrollbar{
+  width: 0px !important;
+  display: none;
+}
+.pos-title{
+  display: block; /* Fallback trong trường hợp trình duyệt không hỗ trợ display dạng box */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  /* xác định hướng của bố cục : dọc*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.w-20{
+  width: 20% !important;
+}
+.far{
+  font-size:18px
+}
