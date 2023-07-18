@@ -11,7 +11,7 @@ import {Post} from "../../../core/model/post/post";
 })
 export class BlogListComponent implements OnInit {
 
-  blogList: Blog[]=[];
+
   postList: Post[]=[];
   page =1;
   count=0;

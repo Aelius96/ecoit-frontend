@@ -35,6 +35,7 @@ export class ProductAddComponent implements OnInit{
               private hashtagService : HashtagService,
               private postService :PostService,
               private route: ActivatedRoute) {
+
     this.filteredHashtag = this.hashtagCtrl.valueChanges.pipe(
       startWith(null),
       map((hashtag: string | null) => (hashtag ? this.filterHashtags(hashtag) : this.hashtagList.slice())),
@@ -55,6 +56,8 @@ export class ProductAddComponent implements OnInit{
       if(!this.hashtagList.map(h=>h.name).includes(value)){
         const hashTagNew = new Hashtag();
         hashTagNew.name = value;
+        console.log(hashTagNew);
+        console.log(value);
         this.products.hashtags.push(hashTagNew);
         this.hashtagList.push(hashTagNew);
       }else{
@@ -65,13 +68,10 @@ export class ProductAddComponent implements OnInit{
         })
       }
     }
-
     // Reset the input value
     event.chipInput!.clear();
 
     this.hashtagCtrl.setValue(event.value);
-
-    console.log(value);
   }
 
   remove(hashtag: Hashtag): void {

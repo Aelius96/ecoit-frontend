@@ -1,0 +1,49 @@
+*{
+  font-family: Verdana;
+}
+.post-title{
+  font-size: 18px;
+  color: #50B848;
+  font-weight: bold;
+}
+
+.post-excerpt{
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 25px;
+  -webkit-line-clamp: 3;
+  height: 75px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.chuyenmuc{
+
+  font-weight: bold;
+  color: #50B848;
+}
+
+.ht-btn-sm{
+  font-size: 15px;
+  font-weight: 500;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: transparent;
+  padding: 10px 36px;
+  text-align: center;
+  color: white;
+}
+a{
+  color: #50B848;
+}
+a:hover{
+  text-decoration: none;
+  color: black;
+}
+.blog-thumbnail{
+  height: 50%;
+}
+.img-fluid{
+  height: 100%;
+  width: 100%;
+}

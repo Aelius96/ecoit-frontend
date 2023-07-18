@@ -36,6 +36,10 @@
 
               <div class="post-excerpt mt-15">
                 <div class="content" [innerHTML]="content"></div>
+                <strong>Thẻ tag: </strong>
+                <span *ngFor="let p of post.hashtags">
+                <a href="">{{p.name}},</a>
+              </span>
                 <div class="entry-post-share-wrap  border-bottom">
                   <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
@@ -44,10 +48,7 @@
                   </div>
                 </div>
               </div>
-              <strong>Thẻ tag: </strong>
-              <span *ngFor="let p of post.hashtags">
-                <a href="">{{p.name}},</a>
-              </span>
+
               <app-comment-list></app-comment-list>
                 <app-comment-form></app-comment-form>
               <app-news-more></app-news-more>

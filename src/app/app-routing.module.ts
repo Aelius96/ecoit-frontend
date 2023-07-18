@@ -23,6 +23,7 @@ import { BlogDetailComponent } from "./modules/blog/blog-detail/blog-detail.comp
 import {CustomerDetailComponent} from "./modules/customer/customer-detail/customer-detail.component";
 import {ProductDetailComponent} from "./modules/product/product-detail/product-detail.component";
 import {LoginUserComponent} from "./authentication/login-user/login-user.component";
+import {SearchComponent} from "./modules/search/search.component";
 
 
 
@@ -54,7 +55,7 @@ const routes: Routes =[
   {path: 'admin/login' , component: LoginComponent},
   {path: 'login', component: LoginUserComponent} ,
   {path: 'register', component:RegisterComponent},
-
+  {path: 'tim-kiem/:searchInput', component:SearchComponent},
   // /admin/dashboard/add
   // {path: 'number/add' , component: NumberAddComponent},
   // {path: 'number/edit/:id' , component:NumberAddComponent},
@@ -67,6 +68,7 @@ const routes: Routes =[
   {path: 'lien-he' , component: ContactComponent},
   { path: '**', redirectTo: '/404' },
   {path: '404' , component:ErrorComponent},
+
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

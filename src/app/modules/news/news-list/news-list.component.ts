@@ -37,43 +37,6 @@ export class NewsListComponent implements OnInit{
 
   }
 
-  // public listAll(){
-  //   this.newsService.listAll().subscribe(data =>{
-  //     this.newsList = data;
-  //   })
-  // }
-
-  // getRequestParams(page: number): any {
-  //   let params: any = {};
-  //   if (page) {
-  //     params[`pageNo`] = page-1;
-  //   }
-  // }
-  //
-  // getListAllWithPage(): void {
-  //   const params = this.getRequestParams(this.paging.page);
-  //   this.newsService.listAllWithPageHome(params)
-  //     .subscribe(
-  //       response => {
-  //         this.newsList = response.content;
-  //         this.paging.totalRecord = response.totalElements;
-  //
-  //         console.log(response);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  // }
-  //
-  //
-  //
-  //
-  // handlePageChange(event: number): void {
-  //   this.page = event;
-  //   this.getListAllWithPage();
-  // }
-
-
   //post
   getRequestParamsTest(page: number, category: string): any {
     let params: any = {};
