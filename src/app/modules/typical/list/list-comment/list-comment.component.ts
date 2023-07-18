@@ -32,46 +32,19 @@ constructor(private route:ActivatedRoute,
       this.comment.user.id = this.userId;
       console.log(this.userId)
       this.getCommentChildByParent()
-      // this.getPost();
+      
     }
 
-      this.getAllComment()
+      this.getAllComment();
+      this.getAllCommentAdmin();
     }
 
-  // hiển thị
-  // getRequestParams(id: number):any{
-  //   let params: any = {};
-  //
-  //   if (id) {
-  //     params[`postId`] = id;
-  //   }
-  // }
-
-  // sendChildComment(){
-  //   this.commentService.creatComment(this.comment).subscribe(res=>{
-  //     let option = confirm('Bình luận thành công!');
-  //       if(option){
-  //         window.location.reload();
-  //       }
-  //
-  //     },
-  //     error=>{console.log(error)}
-  //   )
-  // }
   addParentId(id: number){
     this.comment.parentId = id;
     // console.log(this.comment.parentId);
   }
-  // getPost(){
-  //   this.url = this.route.snapshot.params['url'];
-  //   this.postService.getPostByUrl(this.url).subscribe(data => {
-  //     this.comment.post.id = data.id;
-  //     this.id =  this.comment.post.id
-  //     console.log(this.comment.post.id);
-  //   })
-  // }
+
   getAllComment(){
-    // const params= this.getRequestParams(this.id)
     this.commentService.getParentCommentActive().subscribe(data=>{
         this.commentList = data;
 
@@ -81,8 +54,18 @@ constructor(private route:ActivatedRoute,
       }
     );
   }
+  getAllCommentAdmin(){
+    this.commentService.getParentCmtAdmin().subscribe(data=>{
+        this.commentList = data;
+
+      },
+      error=>{
+        console.error(error)
+      }
+    );
+  }
   getCommentChildByParent(){
-    // const params= this.getRequestParams(this.id)
+    
     this.commentService.getCommentChildByParent().subscribe(data=>{
         this.commentListChild = data;
       },
@@ -92,8 +75,25 @@ constructor(private route:ActivatedRoute,
     );
   }
 
-
-  onSubmit(){
-    // this.sendChildComment();
-  }
+  Disable(id:number){
+    let  cf = confirm("Ẩn bình luận");
+     if(cf){
+    this.commentService.DisableComment(id).subscribe(()=>{
+      this.getAllCommentAdmin();
+    })
+  }}
+  Enable(id:number){
+    let  cf = confirm("Hiện bình luận");
+     if(cf){
+    this.commentService.EnableComment(id).subscribe(()=>{
+      this.getAllCommentAdmin();
+    })
+  }}
+  Delete(id:number){
+    let cf = confirm("Xóa bình luận")
+    if(cf){
+    this.commentService.deleteComment(id).subscribe(()=>{
+      this.getAllCommentAdmin();
+    })
+  }}
 }

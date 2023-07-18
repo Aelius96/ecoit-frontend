@@ -115,7 +115,16 @@
   .btn-link:hover{
     text-decoration: none;
   }
-
+tbody{
+  max-height: 400px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+tbody::-webkit-scrollbar{
+  width: 0px !important;
+  display: none;
+}
   .btn{
     max-width: 112px ;
   }

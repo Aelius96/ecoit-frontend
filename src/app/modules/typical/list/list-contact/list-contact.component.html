@@ -56,12 +56,12 @@
             <th></th>
           </tr>
         </thead>
-          <tbody *ngFor="let item of contactList  | paginate:{
+          <tbody  >
+          <tr *ngFor="let item of contactList  | paginate:{
             id:'contact',
             itemsPerPage: paging.size,
             currentPage: paging.page,
-            totalItems: paging.totalRecord }  " >
-          <tr>
+            totalItems: paging.totalRecord }  "  >
             <td scope="row">{{item.name}}</td>
             <td>{{item.phone}}</td>
             <td> <a href="mailto:{{item.email}}">{{item.email}}</a> </td>

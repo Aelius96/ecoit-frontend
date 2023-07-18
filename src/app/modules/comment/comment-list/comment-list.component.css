@@ -64,6 +64,7 @@ textarea:focus{
 img{
     width: 70%;
     height: 100%;
+    border-radius: 50%;
 }
 .img-comment{
     text-align: center;
