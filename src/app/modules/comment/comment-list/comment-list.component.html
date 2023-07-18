@@ -23,24 +23,23 @@
           	<div *ngFor="let cmtChild of commentListChild" class="d-flex flex-column" style="margin-bottom: 10px; margin-left: 10px; " >
             	<div class="reply-content row  " *ngIf="cmt.id == cmtChild.parentId">
               		<div class="col-md-2">
-						<div class="info-comment">
-							<div class="img-comment d-flex flex-column" style="margin: 0px;">
-								<img src="./assets/images/avt.jpg" alt="">
-								<span >
-									{{cmtChild.user.username}}
-									</span>
-									<span>{{cmtChild.date}}</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-8">
-						<p class="child-content">{{cmtChild.content}}</p>
-					</div>
-					<div class="col-md-2" *ngIf="userId == cmtChild.user.id ">
-						<a  href="" >Chỉnh sửa</a>
-						<a href="">Xóa</a>
-					</div>
-            
+                    <div class="info-comment">
+                      <div class="img-comment d-flex flex-column" style="margin: 0px;">
+                        <img src="./assets/images/avt.jpg" alt="">
+                        <span >
+                          {{cmtChild.user.username}}
+                          </span>
+                          <span>{{cmtChild.date}}</span>
+                      </div>
+						        </div>
+					        </div>
+                  <div class="col-md-8">
+                    <p class="child-content">{{cmtChild.content}}</p>
+                  </div>
+              <div class="col-md-2" *ngIf="userId == cmtChild.user.id ">
+                <a  href="" >Chỉnh sửa</a>
+                <a href="">Xóa</a>
+              </div>
             </div>
 
           	</div>
@@ -57,7 +56,7 @@
 		</div>
 		<hr  class="hr">
 	</div>
-	
+
 </form>
 
 
