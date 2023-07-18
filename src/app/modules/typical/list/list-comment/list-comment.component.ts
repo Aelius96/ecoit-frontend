@@ -34,6 +34,7 @@ constructor(private route:ActivatedRoute,
       this.getCommentChildByParent()
       // this.getPost();
     }
+
       this.getAllComment()
     }
 
