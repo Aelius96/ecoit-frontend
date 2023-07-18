@@ -30,7 +30,12 @@ export class NumberAddComponent implements OnInit{
 
   onSubmit() {
     if (this.id) {
-      this.numService.editNumber(this.tNumber, this.id).subscribe(() => this.rollbackToList())
+      this.numService.editNumber(this.tNumber, this.id).subscribe(
+        () =>{
+          this.rollbackToList()
+        },error => {
+          alert(error)
+        } )
     } else {
       this.numService.addNumber(this.tNumber).subscribe(() => this.rollbackToList())
     }
