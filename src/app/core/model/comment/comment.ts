@@ -12,4 +12,5 @@ export class Comment {
     user: User = new User();
     // commentChild:any;
     post: Post = new Post();
+    cate: Category = new Category();
 }
