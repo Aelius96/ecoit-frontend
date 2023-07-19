@@ -58,14 +58,14 @@
   /*  */
   
    /* view mới */
-   .btn-link{
+   .cmt-content{
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
    }
-   .btn-link:hover{
+
+   .cmt-content:hover{
     text-decoration: none;
    }
    .col-md-2 , .col-md-3, .col-md-4{
@@ -104,6 +104,21 @@ margin-left: 10px;
 }
 /* trả lời */
 
+.delete-cmt{
+  color: rgb(218, 53, 53);
+}
+.delete-cmt:hover{
+  color: #772d2d;
+  text-decoration: underline;
+}
+.dis-enable{
+ color: #3781c2;
+}
+.dis-enable:hover{
+  color: #35638c;
+  text-decoration: underline;
+}
+
 img{
   
   height: 100%;
@@ -126,5 +141,10 @@ img{
 }
 .child-content{
   width: 100%;
-   word-wrap: break-word;
+  display: block; /* Fallback trong trường hợp trình duyệt không hỗ trợ display dạng box */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  /* xác định hướng của bố cục : dọc*/
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

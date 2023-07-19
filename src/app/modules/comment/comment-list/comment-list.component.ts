@@ -105,6 +105,24 @@ constructor(private route:ActivatedRoute,
   onSubmit(){
     this.sendChildComment();
   }
+
+
+  
+  Delete(id:number){
+    let cf = confirm("Xóa bình luận")
+    if(cf){
+    this.commentService.deleteComment(id).subscribe(()=>{
+      this.getAllComment();
+    })
+  }}
+  DeleteChild(id:number){
+    let cf = confirm("Xóa bình luận")
+    if(cf){
+    this.commentService.deleteComment(id).subscribe(()=>{
+    this.getCommentChildByParent()
+    })
+  }}
+
 }
 
 

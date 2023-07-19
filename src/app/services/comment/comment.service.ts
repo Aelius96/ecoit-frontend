@@ -23,6 +23,10 @@ export class CommentService {
     return this.http.get(`${this.baseUrl}/${this.domain}/get` )
   }
 
+  getCommentChildByParentAdmin():Observable<any>{
+    return this.http.get(`${this.baseUrl}/${this.domain}/child` )
+  }
+
   getParentCommentActive():Observable<Comment[]>{
     return this.http.get<Comment[]>(`${this.baseUrl}/${this.domain}/parent` )
   }

@@ -31,29 +31,12 @@ constructor(private route:ActivatedRoute,
       this.userId = this.tokenStorageService.getUser().id;
       this.comment.user.id = this.userId;
       console.log(this.userId)
-      this.getCommentChildByParent()
-      
+      this.getAllCommentAdmin()      
     }
-
-      this.getAllComment();
       this.getAllCommentAdmin();
+      this.getCommentChildAdmin()
     }
 
-  addParentId(id: number){
-    this.comment.parentId = id;
-    // console.log(this.comment.parentId);
-  }
-
-  getAllComment(){
-    this.commentService.getParentCommentActive().subscribe(data=>{
-        this.commentList = data;
-
-      },
-      error=>{
-        console.error(error)
-      }
-    );
-  }
   getAllCommentAdmin(){
     this.commentService.getParentCmtAdmin().subscribe(data=>{
         this.commentList = data;
@@ -64,9 +47,20 @@ constructor(private route:ActivatedRoute,
       }
     );
   }
-  getCommentChildByParent(){
+  // getCommentChildByParent(){
     
-    this.commentService.getCommentChildByParent().subscribe(data=>{
+  //   this.commentService.getCommentChildByParent().subscribe(data=>{
+  //       this.commentListChild = data;
+  //     },
+  //     error=>{
+  //       console.error(error)
+  //     }
+  //   );
+  // }
+
+  getCommentChildAdmin(){
+    
+    this.commentService.getCommentChildByParentAdmin().subscribe(data=>{
         this.commentListChild = data;
       },
       error=>{
@@ -82,6 +76,15 @@ constructor(private route:ActivatedRoute,
       this.getAllCommentAdmin();
     })
   }}
+
+  DisableChild(id:number){
+    let  cf = confirm("Ẩn bình luận");
+     if(cf){
+    this.commentService.DisableComment(id).subscribe(()=>{
+      this.getCommentChildAdmin();
+    })
+  }}
+
   Enable(id:number){
     let  cf = confirm("Hiện bình luận");
      if(cf){
@@ -89,11 +92,27 @@ constructor(private route:ActivatedRoute,
       this.getAllCommentAdmin();
     })
   }}
+
+  EnableChild(id:number){
+    let  cf = confirm("Hiện bình luận");
+     if(cf){
+    this.commentService.EnableComment(id).subscribe(()=>{
+      this.getCommentChildAdmin();
+    })
+  }}
+
   Delete(id:number){
     let cf = confirm("Xóa bình luận")
     if(cf){
     this.commentService.deleteComment(id).subscribe(()=>{
       this.getAllCommentAdmin();
+    })
+  }}
+  DeleteChild(id:number){
+    let cf = confirm("Xóa bình luận")
+    if(cf){
+    this.commentService.deleteComment(id).subscribe(()=>{
+    this.getCommentChildAdmin()
     })
   }}
 }

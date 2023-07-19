@@ -152,7 +152,7 @@
                   </div>
                 </div>
                 <div class="col-md-3 m-auto">
-                  <p class="btn-link">{{cmt.content}}</p>
+                  <p class="cmt-content">{{cmt.content}}</p>
                 </div>
                 <div class="col-md-2 m-auto">
                   <a href="" class="pos-title" >{{cmt.post.title}}</a>
@@ -197,8 +197,18 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-8">
+                      <div class="col-md-7">
                         <p class="child-content">{{cmtChild.content}}</p>
+                      </div>
+                      <div class="col-md-2 d-flex flex-column">
+                        <div *ngIf="userId == cmtChild.user.id ">
+                          <a><span class="dis-enable">Chỉnh sửa</span></a>
+                        </div>
+                        <a *ngIf="cmtChild.status ; else hien"  (click)="DisableChild(cmtChild.id)" ><span class="dis-enable">Ẩn</span> </a>
+                        <ng-template #hien >
+                            <a (click)="EnableChild(cmtChild.id)" > <span class="dis-enable">Hiện</span> </a>
+                        </ng-template>
+                        <a (click)="DeleteChild(cmtChild.id)" ><span class="delete-cmt" >Xóa</span></a>
                       </div>
                     </div>
                   </div>
