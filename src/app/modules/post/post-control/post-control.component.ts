@@ -5,6 +5,8 @@ import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import { Category } from 'src/app/core/model/category/category';
 import {Constant} from "../../../core/config/constant";
+import { HttpParams } from '@angular/common/http';
+import { CategoryService } from 'src/app/services/category/category.service';
 
 
 @Component({
@@ -14,9 +16,11 @@ import {Constant} from "../../../core/config/constant";
 })
 export class PostControlComponent implements OnInit{
   postList: Post[]=[];
+  catelist: Category[]=[];
+  
   baseURL = Constant.BASE_URL;
   role:string;
-
+  Filter:false;
   searchInput= '';
 
   paging = {
@@ -29,16 +33,16 @@ export class PostControlComponent implements OnInit{
 
 
   constructor(private router:Router,
-              private postService: PostService) {}
+              private postService: PostService ,
+              private cateService: CategoryService) {}
 
 
   ngOnInit(): void {
     // this.listAll();
     this.getListAllWithPage();
+    this.listAllCate();
 
   }
-
-
 
   getRequestParams(page: number, pageSize: number,search:string, cate:string): any {
 
@@ -64,6 +68,7 @@ export class PostControlComponent implements OnInit{
 
   getListAllWithPage() {
     const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput, this.cate);
+    
     this.postService.listAllWithPage(params)
       .subscribe(
         data => {
@@ -81,10 +86,18 @@ export class PostControlComponent implements OnInit{
     })
   }
 
+  listAllCate(){
+    this.cateService.listAllCategory().subscribe(res=>{
+      this.catelist =res;
+
+    })
+  }
+
   searchTitleAndDescription(): void {
     this.paging.page = 1;
     this.getListAllWithPage();
   }
+
   handlePageChange(event: number): void {
     console.log(event);
     this.paging.page = event;
@@ -110,5 +123,7 @@ export class PostControlComponent implements OnInit{
       })
     }
   }
+
+
 
 }
