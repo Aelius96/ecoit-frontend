@@ -114,53 +114,107 @@
             </tbody>
           </table>
       </div> -->
-      <div class="row" style="font-weight: bold; color: #1076bc;">
-        <div class="col-md-2">
-          <p>Tên bài viết</p>
-        </div>
-        <div class="col-md-2">
-          <p>Tên tác giả</p>
-        </div>
-        <div class="col-md-4">
-          <p>Nội dung bình luận</p>
-        </div>
-        <div class="col-md-2">
-          <p>Thời gian đăng</p>
-        </div>
-        <div class="col-md-2">
-          <p></p>
-        </div>
+      <div class="row" style="font-weight: bold; color: #1076bc; font-size: 18px;">
+          <div class="col-md-12">
+              <div class="card " style="background-color: #eeeeee; ">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <p>Tên tác giả</p>
+                    </div>
+                    <div class="col-md-3">
+                      <p>Nội dung bình luận</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>Tên bài viết</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>Thời gian đăng</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>Chức năng</p>
+                    </div>
+                  </div>
+              </div>
+          </div>
       </div>
-      <div class="row"  >
-        <div class="col-md-12"  *ngFor="let cmt of commentList " >
-          <div class="card" >
-            <div class="row h-100" >
-              <div class="col-md-2 m-auto">
-                <p>{{cmt.post.title}}</p>
+      <div class="list-cmt">
+        <div class="row">
+          <div class="col-md-12"  *ngFor="let cmt of commentList " >
+            <div class="card card-list" >
+              <div class="row h-100" >
+                <div class="col-md-3 m-auto">
+                  <div class="d-flex ml-3 ">
+                    <img class="mr-2 w-20" src="./assets/images/avt.jpg" alt="">
+                    <div  class="text-left my-auto">
+                      <span> <b> {{cmt.user.username}}</b></span>
+                      <p>{{cmt.user.email}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 m-auto">
+                  <p class="btn-link">{{cmt.content}}</p>
+                </div>
+                <div class="col-md-2 m-auto">
+                  <a href="" class="pos-title" >{{cmt.post.title}}</a>
+                </div>
+                <div class="col-md-2 m-auto">
+                  <p>{{cmt.date}}</p>
+                </div>
+                <div class="col-md-2 m-auto">
+                  <div class="icon" >
+                    <a href="" class="icon-item w-20" data-toggle="collapse"  href="#reply{{cmt.id}}"> 
+                      <img src="./assets/images/repcmt.png" style="width: 24px;" alt="">
+                    </a>
+                    <a *ngIf="cmt.status ; else hien"  class="icon-item " (click)="Disable(cmt.id)" ><i class="far fa-eye"></i> </a>
+                    <ng-template #hien >
+                      <a class="icon-item" (click)="Enable(cmt.id)"> <i class="far fa-eye-slash"></i> </a>
+                    </ng-template>
+                    <a  class="icon-item" (click)="Delete(cmt.id)"> <i class="fa fa-trash-o" style="font-size:22px"></i></a>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-2 m-auto">
-                <p>{{cmt.user.username}}</p>
+            </div>
+            <div class="">
+              <div id="reply{{cmt.id}}" class="collapse card " data-parent="#accordion" > 
+                <span> <b>Nội dung bình luận : </b></span>
+                <div class="text-left container tab" [innerHTML]="cmt.content" >
               </div>
-              <div class="col-md-4 m-auto">
-                <p class="btn-link">{{cmt.content}}</p>
+              
+              <div class="text-left" >  <b>Nội dung trả lời:</b> 
+                <div *ngFor="let cmtChild of commentListChild">
+                  <div style="margin-bottom: 10px;">
+                    <div class="reply-content tab container" *ngIf="cmt.id == cmtChild.parentId">
+                      <div class="col-md-3">
+                        <div class="info-comment">
+                          <div class="img-comment d-flex " style="margin: 0px;">
+                            <img src="./assets/images/avt.jpg" style="width: 30% !important;" alt="">
+                            <div class="my-auto">
+                              <p>
+                                {{cmtChild.user.username}}
+                              </p>
+                              <span>{{cmtChild.date}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        <p class="child-content">{{cmtChild.content}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-2 m-auto">
-                <p>{{cmt.date}}</p>
-              </div>
-              <div class="col-md-2 m-auto">
-                <span class="icon" >
 
-                  <a *ngIf="cmt.status ; else hien"  class="icon-item" (click)="Disable(cmt.id)" ><i class="far fa-eye"></i> </a>
-                  <ng-template #hien >
-                    <a class="icon-item" (click)="Enable(cmt.id)"> <i class="far fa-eye-slash"></i> </a>
-                  </ng-template>
-                  <a  class="icon-item" (click)="Delete(cmt.id)"> <i class="fa fa-trash-o" style="font-size:22px"></i></a>
-                </span>
+              <div class="text-left" > <b>Phần trả lời:</b> </div>
+              <div class="text-left  container d-flex tab">
+                 <textarea name="" id="" cols="60" rows="3"></textarea>
+                 <button class="btn" style="height: 65px;">Gửi</button>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
 
     </div>
-    </div>
+  </div>
