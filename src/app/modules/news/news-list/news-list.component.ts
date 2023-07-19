@@ -3,6 +3,8 @@ import {News} from "../../../core/model/news/news";
 import {NewsService} from "../../../services/news/news.service";
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
+import {Contact} from "../../../core/model/contact/contact";
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-news-list',
@@ -11,6 +13,7 @@ import {PostService} from "../../../services/post/post.service";
 })
 export class NewsListComponent implements OnInit{
 
+  baseURL = Constant.BASE_URL;
   newsList : News[] = [];
 
   postList : Post[] = [];

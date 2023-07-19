@@ -3,6 +3,7 @@ import {TokenStorageService} from "../../../../services/token-storage/token-stor
 import {CustomerTypicalService} from "../../../../services/customer-typical/customer-typical.service";
 import {CusTypical} from "../cus-typical";
 import { Router } from '@angular/router';
+import {Constant} from "../../../../core/config/constant";
 
 @Component({
   selector: 'app-cus-typical-control',
@@ -16,7 +17,7 @@ export class CusTypicalControlComponent implements OnInit{
   // pageSizes = [5, 10, 25];
   totalPages: number;
   searchInput= '';
-
+  baseURL=Constant.BASE_URL;
   paging = {
     page: 1,
     size: 5,
@@ -29,7 +30,7 @@ export class CusTypicalControlComponent implements OnInit{
   ExStyle = {
     'border-top-left-radius': '10px'
   }
-  
+
   ngOnInit(): void {
     const user = this.tokenStorageService.getUser();
     this.role =user.roles;
@@ -99,6 +100,7 @@ export class CusTypicalControlComponent implements OnInit{
 
   // customer/cus-typical
   // customer/cus-typical/update/${id}
+
   updateTC(id : number){
       this.router.navigate([`admin/customer/cus-typical/update/${id}`]);
  }

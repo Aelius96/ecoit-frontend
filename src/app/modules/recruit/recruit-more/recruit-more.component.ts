@@ -3,6 +3,7 @@ import { Post } from 'src/app/core/model/post/post';
 import { Recruit } from 'src/app/core/model/recruit/recruit';
 import { PostService } from 'src/app/services/post/post.service';
 import { RecruitService } from 'src/app/services/recruit/recruit.service';
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-recruit-more',
@@ -26,6 +27,7 @@ export class RecruitMoreComponent implements OnInit {
 //   }
 
 postList : Post[]=[]
+  baseURL = Constant.BASE_URL;
 
 constructor ( private postService: PostService){}
 ngOnInit(): void {

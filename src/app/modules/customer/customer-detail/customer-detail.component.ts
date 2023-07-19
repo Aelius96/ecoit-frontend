@@ -5,6 +5,7 @@ import {ActivatedRoute} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Customer} from "../../../core/model/customer/customer";
 import {CustomerService} from "../../../services/customer/customer.service";
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-customer-detail',
@@ -15,7 +16,8 @@ export class CustomerDetailComponent {
   url: any;
   customer :Customer = new Customer();
   cover:any;
-
+  baseURL = Constant.BASE_URL;
+  bannerURL: any;
   constructor(private customerService: CustomerService, private route: ActivatedRoute,private sanitizer : DomSanitizer ) {}
 
   ngOnInit(): void {
@@ -27,6 +29,7 @@ export class CustomerDetailComponent {
     this.customerService.getCusByUrl(this.url).subscribe(data => {
       this.customer = data;
       this.cover = this.customer.banner.pathUrl;
+      this.bannerURL = this.baseURL + this.cover;
       document.title = "KHỐI " + this.customer.name.toUpperCase();
     })
   }

@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<img src="{{cover}}" style="width: 100%;" height="300" alt="">
+<img src="{{bannerURL}}" style="width: 100%;" height="300" alt="">
 <!-- <img style="width: 100%;" src="{{cover}}" alt=""> -->
 
 <div class="preview-item-area section-space--pb_120" id="section-demos" style="padding-bottom: 50px;">
@@ -22,7 +22,7 @@
                 <div class="post-item" >
                   <a href="/san-pham/{{pro.url}}" style="text-align: center;" class="item">
                     <div class="imgicon">
-                      <img  src="{{pro.image.pathUrl}}" class="post-image" alt="" loading="lazy" ><br><b>{{pro.title}}</b>
+                      <img  src="{{baseURL}}{{pro.image.pathUrl}}" class="post-image" alt="" loading="lazy" ><br><b>{{pro.title}}</b>
                       <span class="ap-xnam"><p title="{{pro.description}}"> {{pro.description}}</p></span>
                     </div>
                   </a>

@@ -5,6 +5,7 @@ import {CustomerService} from "../../../services/customer/customer.service";
 import {Product} from "../../../core/model/product/product";
 import {ProductService} from "../../../services/product/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-customer-add',
@@ -13,7 +14,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class CustomerAddComponent {
   ckeConfig: any;
-
+  baseURL = Constant.BASE_URL
+  bannerURL: any;
   url: any;
   id: any;
   customer: Customer = new Customer();
@@ -43,6 +45,7 @@ export class CustomerAddComponent {
     this.customerService.getCusById(id).subscribe(data => {
       this.customer = data;
       this.image = this.customer.banner?.pathUrl;
+      this.bannerURL = this.baseURL + this.image;
       this.getProductUpdate(this.customer);
     });
   }
@@ -130,7 +133,7 @@ export class CustomerAddComponent {
 
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
-      this.image = reader.result;
+      this.bannerURL = reader.result;
     }
   }
 

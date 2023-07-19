@@ -33,7 +33,7 @@
     </div>
   </div>
 
-<div style="margin-top: 30px;">  
+<div style="margin-top: 30px;">
   <div *ngFor="let pro of products | paginate:{
                                   id: 'product',
                                   itemsPerPage:paging.size,
@@ -47,7 +47,7 @@
           <div class="card" style="">
               <div class="row ">
                 <div class="col-md-2">
-                  <img style="width: 100%; height: 100%" src="{{pro.image?.pathUrl}}" alt="">
+                  <img style="width: 100%; height: 100%" src="{{baseURL}}{{pro.image?.pathUrl}}" alt="">
                 </div>
                 <div class="col-md-3 pro_name">
                   <div class="title-product">

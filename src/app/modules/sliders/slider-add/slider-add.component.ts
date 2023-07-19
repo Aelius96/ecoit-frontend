@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Slider} from "../../../core/model/slider/slider";
 import {SliderService} from "../../../services/slider/slider.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-slider-add',
@@ -9,13 +10,14 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./slider-add.component.css']
 })
 export class SliderAddComponent {
-
+  baseURL = Constant.BASE_URL;
   id: any;
   slider: Slider = new Slider();
   url: any;
   isUpdate= false;
   fileToUpload:string [] = [];
   action = "";
+  imageURL: any;
 
   constructor(private sliderService: SliderService,
               private router: Router,
@@ -36,6 +38,7 @@ export class SliderAddComponent {
     this.sliderService.getById(id).subscribe(data => {
       this.slider = data;
       this.url = this.slider.pathUrl;
+      this.imageURL = this.baseURL + this.url;
     });
   }
 
@@ -97,7 +100,7 @@ export class SliderAddComponent {
     this.fileToUpload=files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) =>{
-      this.url= reader.result;
+      this.imageURL= reader.result;
     }
   }
 }

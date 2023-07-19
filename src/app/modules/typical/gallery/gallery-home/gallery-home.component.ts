@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Gallery } from 'src/app/core/model/gallery/gallery';
 import { GalleryService } from 'src/app/services/gallery/gallery.service';
+import {Constant} from "../../../../core/config/constant";
 
 @Component({
   selector: 'app-gallery-home',
@@ -10,6 +11,7 @@ import { GalleryService } from 'src/app/services/gallery/gallery.service';
 export class GalleryHomeComponent implements OnInit{
 
   gallery: Gallery[] = []
+  baseURL = Constant.BASE_URL;
   constructor (private galleryService:GalleryService,
               ){}
   ngOnInit(): void {

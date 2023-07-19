@@ -15,12 +15,12 @@ import {CustomerTypicalService} from "../../../../services/customer-typical/cust
 export class CusTypicalAddComponent {
   cusTypical: CusTypical= new CusTypical();
   fileToUpload:string [] = [];
-  url: any;
+  urls: any;
   id: any;
   ckeConfig: any;
-  baseUrl = `${Constant.BASE_URL}`;
+  baseURL = Constant.BASE_URL;
   message = '';
-
+  imageURL : any;
   constructor(private router:Router, private route:ActivatedRoute, private cusTypicalService: CustomerTypicalService) {
   }
 
@@ -29,7 +29,8 @@ export class CusTypicalAddComponent {
     if(this.id){
       this.cusTypicalService.getTCById(this.id).subscribe(data =>{
         this.cusTypical = data;
-        this.url = this.cusTypical.image.pathUrl;
+        this.urls = this.cusTypical.image.pathUrl;
+        this.imageURL = this.baseURL + this.urls;
       });
     }
     this.ckeConfig = {
@@ -99,7 +100,7 @@ export class CusTypicalAddComponent {
     this.fileToUpload=files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) =>{
-      this.url= reader.result;
+      this.imageURL= reader.result;
     }
   }
 }

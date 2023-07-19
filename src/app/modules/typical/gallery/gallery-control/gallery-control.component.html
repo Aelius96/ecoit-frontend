@@ -4,7 +4,7 @@
       <div class="d-flex">
           <a class="control" style="width: 80px" routerLink="../albums"  routerLinkActive="active"><span class="spann">Kho Ảnh /</span></a>
         <a class="control"  style="width: 120px ;padding-right: 10px;" routerLink="../tImage" routerLinkActive="active"  ><span class="spann" style="font-weight: bolder;">Ảnh Hoạt Động</span></a>
-       
+
       </div>
     </div>
     <div class="right-d-flex">
@@ -12,7 +12,7 @@
         <div class="menu-item ">
           <div class="d-flex">
             <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-              <app-app-page-size-image 
+              <app-app-page-size-image
               (pageSizeChange)="handlePageSizeChange($event)"
               [totalRecords]="paging.totalRecord"
               [(pageSize)]="paging.size"
@@ -39,8 +39,8 @@
                                                   currentPage: paging.page,
                                                   totalItems: paging.totalRecord }">
             <div class="item-image" (click)="pick(img)">
-              <img src="{{img.image.pathUrl}}" alt="" style="height: 100%; width: 100%; border-radius: inherit;">
-              
+              <img src="{{baseURL}}{{img.image.pathUrl}}" alt="" style="height: 100%; width: 100%; border-radius: inherit;">
+
             </div>
           </div>
 
@@ -54,7 +54,7 @@
           <div class="content-box">
             <span><strong>Tên: </strong></span>
             <span>{{target.name}} </span>
-            
+
           </div>
           <div class="content-box">
             <span><strong>Đầu đề: </strong></span>
@@ -88,7 +88,7 @@
                 <i class="far fa-eye"> Hiện</i>
               </button>
             </ng-template>
-            <button class="btn" style="margin-right: 10px;" (click)="updategallery(target.id)"  >Sửa</button> 
+            <button class="btn" style="margin-right: 10px;" (click)="updategallery(target.id)"  >Sửa</button>
             <button class="btn" (click)="deleteimg(target.id)">Xóa</button>
           </div>
         </div>

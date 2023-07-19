@@ -3,6 +3,7 @@ import { CusTypical } from '../cus-typical';
 import { CustomerTypicalService } from 'src/app/services/customer-typical/customer-typical.service';
 import { Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
+import {Constant} from "../../../../core/config/constant";
 
 @Component({
   selector: 'app-cus-typical-home',
@@ -12,6 +13,7 @@ import { TokenStorageService } from 'src/app/services/token-storage/token-storag
 export class CusTypicalHomeComponent implements OnInit {
 
   cusTypical: CusTypical[] = [];
+  baseURL = Constant.BASE_URL;
   constructor(private cusTypicalService:CustomerTypicalService, ) {
 }
   ngOnInit(): void {
