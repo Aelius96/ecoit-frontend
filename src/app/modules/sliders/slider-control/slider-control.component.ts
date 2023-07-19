@@ -3,6 +3,7 @@ import {Slider} from "../../../core/model/slider/slider";
 import {SliderService} from "../../../services/slider/slider.service";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {Router} from "@angular/router";
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-slider-control',
@@ -21,6 +22,7 @@ export class SliderControlComponent {
   };
 
   slideConfig: any;
+  baseURL = Constant.BASE_URL;
 
   constructor(private sliderService: SliderService, private router: Router) { }
 

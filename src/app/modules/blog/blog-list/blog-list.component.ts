@@ -3,6 +3,7 @@ import { Blog } from 'src/app/core/model/blog/blog';
 import { BlogService } from 'src/app/services/blog/blog.service';
 import {PostService} from "../../../services/post/post.service";
 import {Post} from "../../../core/model/post/post";
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-blog-list',
@@ -11,7 +12,7 @@ import {Post} from "../../../core/model/post/post";
 })
 export class BlogListComponent implements OnInit {
 
-
+  baseURL = Constant.BASE_URL;
   postList: Post[]=[];
   page =1;
   count=0;

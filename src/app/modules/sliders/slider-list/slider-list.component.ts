@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Slider } from 'src/app/core/model/slider/slider';
 import { SliderService } from 'src/app/services/slider/slider.service';
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-slider-list',
@@ -10,6 +11,7 @@ import { SliderService } from 'src/app/services/slider/slider.service';
 export class SliderListComponent implements OnInit{
 
   slider : Slider[]=[]
+  baseURL = Constant.BASE_URL;
 
   constructor(private slideSerice: SliderService){}
   ngOnInit(): void {

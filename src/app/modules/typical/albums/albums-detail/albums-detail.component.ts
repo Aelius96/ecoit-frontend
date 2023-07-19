@@ -7,6 +7,7 @@ import * as fileSaver from 'file-saver';
 import { mergeMap } from 'rxjs';
 import { GalleryService } from 'src/app/services/gallery/gallery.service';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
+import {Constant} from "../../../../core/config/constant";
 
 
 
@@ -39,7 +40,7 @@ export class AlbumsDetailComponent implements OnInit {
   // paging = {
   //   page: 1,
   //   size: 16,
-  //   totalRecord: 0 
+  //   totalRecord: 0
   // }
 
 
@@ -55,10 +56,10 @@ export class AlbumsDetailComponent implements OnInit {
   //     this.image = [];
   //   }
   //   this.url = this.route.snapshot.params['url']
-    
+
   //   this.getListWithPage()
   //  }
- 
+
   // getRequestParams(page:number , pageSize:number ):any{
   //   let params:any ={};
   //   if(page){
@@ -76,9 +77,9 @@ export class AlbumsDetailComponent implements OnInit {
   //   this.imageService.getlistallwithpage(params).subscribe(data=>{
   //     this.image = data.content;
   //     this.paging.totalRecord = data.totalElements;
-    
+
   //     console.log(data)
-  //   }, 
+  //   },
   //   error=>{console.log(error);}
   //   )
   // }
@@ -95,32 +96,32 @@ export class AlbumsDetailComponent implements OnInit {
   //   this.getListWithPage();
   // }
 
- 
+
 
   // deleteFile(id: number){
   //   let option = confirm("Dữ liệu sẽ bị xóa. Bạn có mốn tiếp tục ");
   //   if(option){
   //     this.imageService.getFileById(id).subscribe(dt1=>{
   //       this.imageService.deleteFile(dt1).subscribe((dt2:any)=>{
-          
-  //         const jsonData = JSON.stringify(dt2); 
+
+  //         const jsonData = JSON.stringify(dt2);
   //         this.getListWithPage();
-  //         console.log(jsonData); 
+  //         console.log(jsonData);
   //       }
   //       )
   //     }) }
   // }
 
 
-  // downloadimg(e:any){ 
-    
+  // downloadimg(e:any){
+
   //   this.imageService.getFileById(e).subscribe(data =>{
   //     this.imageService.downloadFile(data).subscribe((data2:any) =>{
   //       let blob = new Blob([data2.body] , {type:data2.body.type})
   //       fileSaver.saveAs(blob , data.name );
   //     })
   //   })
-   
+
   // }
 
   // pick(e:any){
@@ -138,7 +139,7 @@ export class AlbumsDetailComponent implements OnInit {
   //     this.target.target = this.image[0].target;
   //   })
   // }
-  
+
   // gotogallerytList(){
   //   this.router.navigate(['/admin/tImage'])
   // }
@@ -157,7 +158,7 @@ export class AlbumsDetailComponent implements OnInit {
 
   // }
 
-
+  baseURL = Constant.BASE_URL;
   image: Image[]=[];
   role:string;
   addSuccess = false;
@@ -190,12 +191,11 @@ export class AlbumsDetailComponent implements OnInit {
     if(this.image.length>0){
       this.image = [];
     }
-    const user = this.tokenStorageService.getUser();
-    this.role =user.roles;
+
 
     this.getListWithPage()
    }
- 
+
   getRequestParams(page:number , pageSize:number ):any{
     let params:any ={};
     if(page){
@@ -214,7 +214,7 @@ export class AlbumsDetailComponent implements OnInit {
       this.paging.totalRecord = data.totalElements;
       this.totalPages = data.totalPages;
       console.log(data)
-    }, 
+    },
     error=>{console.log(error);}
     )
   }
@@ -230,7 +230,7 @@ export class AlbumsDetailComponent implements OnInit {
     console.log(event, this.paging.size)
     this.getListWithPage();
   }
-  
+
   deleteFile(id: number){
 
     let option = confirm("Dữ liệu sẽ bị xóa. Bạn có mốn tiếp tục ");
@@ -251,7 +251,7 @@ export class AlbumsDetailComponent implements OnInit {
         fileSaver.saveAs(blob , data.name );
       })
     })
-   
+
   }
 
   pick(e:any){
@@ -269,7 +269,7 @@ export class AlbumsDetailComponent implements OnInit {
       this.target.target = this.image[0].target;
     })
   }
-  
+
   gotogallerytList(){
     this.router.navigate(['/admin/tImage'])
   }

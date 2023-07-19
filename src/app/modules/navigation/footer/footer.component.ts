@@ -3,6 +3,7 @@ import { News } from 'src/app/core/model/news/news';
 import { NewsService } from 'src/app/services/news/news.service';
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-footer',
@@ -10,7 +11,7 @@ import {PostService} from "../../../services/post/post.service";
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
+  baseURL = Constant.BASE_URL;
 postList: Post[]=[]
 constructor(private postService: PostService) {
 
@@ -49,7 +50,7 @@ field_activity=[
     id: 6,
     title:'Sản xuất và gia công phần mềm'
   },
-  
+
 
 ]
 
@@ -83,6 +84,7 @@ contact_about=[
   },
 
 ]
+
 
 }
 

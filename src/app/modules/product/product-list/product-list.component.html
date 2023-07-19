@@ -9,6 +9,7 @@
       </div>
     </div>
 
+
     <div class="row">
     <div class="col2 wow move-up" style="padding: 10px" *ngFor="let p of productList ; let i =index" >
      
@@ -16,12 +17,13 @@
         <div class="pro-item text-center">
           <a routerLink="/san-pham/{{p.url}}" routerLinkActive="active" style="padding:  10px 20px" class="pro">
             <div class="image">
-              <img src="{{p.image.pathUrl}}" class="img-fluid" alt="image-product" appHideMissing>
+              <img src="{{baseURL}}{{p.image.pathUrl}}" class="img-fluid" alt="image-product" appHideMissing>
             </div>
             <div class="content">
                 <h6 class=" text-black title" style="font-size: 16px "> {{p.title}}</h6>
                
               <div class="p-des text-black"  title="{{p.description}}">{{p.description}}</div>
+
             </div>
           </a>
         </div>

@@ -4,6 +4,7 @@ import {Product} from "../../../core/model/product/product";
 import {ProductService} from "../../../services/product/product.service";
 import { Role } from '../../../core/model/role/role';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
+import {Constant} from "../../../core/config/constant";
 
 
 @Component({
@@ -12,13 +13,13 @@ import { TokenStorageService } from 'src/app/services/token-storage/token-storag
   styleUrls: ['./product-control.component.css']
 })
 export class ProductControlComponent implements OnInit{
-  
+
   products: Product[] = [];
   url: string;
   currentIndex = -1;
   totalPages: number;
   searchInput= '';
-  
+  baseURL = Constant.BASE_URL;
   paging = {
     page: 1,
     size: 5,
@@ -80,7 +81,7 @@ export class ProductControlComponent implements OnInit{
       console.log(event, this.paging.size)
       this.getProductListAllwithPage();
     }
-  
+
     updateProduct(id: number){
       return this.router.navigate(['admin/product/update', id]);
 

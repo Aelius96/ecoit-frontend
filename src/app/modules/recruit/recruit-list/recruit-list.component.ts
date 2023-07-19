@@ -4,6 +4,7 @@ import { RecruitService } from 'src/app/services/recruit/recruit.service';
 import { Params } from '@angular/router';
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-recruit-list',
@@ -11,7 +12,7 @@ import {PostService} from "../../../services/post/post.service";
   styleUrls: ['./recruit-list.component.css']
 })
 export class RecruitListComponent implements OnInit {
-
+  baseURL = Constant.BASE_URL;
   recruitList: Recruit [] = [];
   page = 1;
  count = 0;

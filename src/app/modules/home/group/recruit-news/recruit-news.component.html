@@ -23,7 +23,7 @@
 
                     <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let post of postListRecruit ; let s = index ">
                       <div>
-                        <img style="font-weight: 400; width: 100%; height: 250px;" src="{{post.image?.pathUrl}}"  alt="" loading="lazy">
+                        <img style="font-weight: 400; width: 100%; height: 250px;" src="{{baseURL}}{{post.image?.pathUrl}}"  alt="" loading="lazy">
 
                         <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;" >
                           <h6 class="post-title">
@@ -58,7 +58,7 @@
                             <div>
                               <div class="anhtintuc" >
                                 <a href="/tin-tuc/{{post.url}}" title="{{post.title}}" style="height: 100%;">
-                                  <img  src="{{post.image.pathUrl}}" class="image" alt="" loading="lazy"></a>
+                                  <img  src="{{baseURL}}{{post.image.pathUrl}}" class="image" alt="" loading="lazy"></a>
                               </div>
                               <div class="blog-inner" style="display: inline-block;width: 70%;">
                                 <a href="/tin-tuc/{{post.url}}" id="text">{{post.title}}</a>

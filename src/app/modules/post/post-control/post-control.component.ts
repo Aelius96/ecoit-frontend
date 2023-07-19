@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import { Category } from 'src/app/core/model/category/category';
+import {Constant} from "../../../core/config/constant";
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Category } from 'src/app/core/model/category/category';
 })
 export class PostControlComponent implements OnInit{
   postList: Post[]=[];
-
+  baseURL = Constant.BASE_URL;
   role:string;
 
   searchInput= '';

@@ -155,7 +155,7 @@
                   <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let post of postList ;let s = index">
                     <div class="col-md-6 first-blog">
                       <a href="/tin-tuc/{{post.url}}">
-                        <img class="img-fluid" src="{{post.image.pathUrl}}"
+                        <img class="img-fluid" src="{{baseURL}}{{post.image.pathUrl}}"
                              alt=" Images">
                       </a>
                     </div>
@@ -200,7 +200,7 @@
                         <!-- Post Feature Start -->
                         <div class="post-feature blog-thumbnail">
                           <a style="height: 100%; width: 100%;" href="/tin-tuc/{{post.url}}">
-                            <img  class="img-fluid" src="{{post.image.pathUrl}}" alt="Blog Images">
+                            <img  class="img-fluid" src="{{baseURL}}{{post.image.pathUrl}}" alt="Blog Images">
                           </a>
                         </div>
                         <!-- Post Feature End -->

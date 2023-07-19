@@ -11,6 +11,7 @@ import {PostService} from "../../../services/post/post.service";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {FormControl} from "@angular/forms";
 import {HashtagService} from "../../../services/hashtag/hashtag.service";
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-product-add',
@@ -25,11 +26,11 @@ export class ProductAddComponent implements OnInit{
   products: Product = new Product();
   hashtagList : Hashtag[] = [];
   ckeConfig: any;
-
+  baseURL = Constant.BASE_URL;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   hashtagCtrl = new FormControl('');
   filteredHashtag: Observable<Hashtag[]>;
-
+  imageURL: any;
   constructor(private router:Router,
               private productService :ProductService,
               private hashtagService : HashtagService,
@@ -101,6 +102,7 @@ export class ProductAddComponent implements OnInit{
       this.productService.getProductById(this.id).subscribe(data =>{
         this.products = data;
         this.url = this.products.image?.pathUrl;
+        this.imageURL = this.baseURL+this.url;
         this.listAllHashTag();
       })
     }
@@ -125,7 +127,7 @@ export class ProductAddComponent implements OnInit{
     this.fileToUpload=files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) =>{
-      this.url= reader.result;
+      this.imageURL= reader.result;
     }
   }
 

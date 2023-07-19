@@ -8,6 +8,7 @@ import { RecruitService } from 'src/app/services/recruit/recruit.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import {PostService} from "../../../../services/post/post.service";
 import {Post} from "../../../../core/model/post/post";
+import {Constant} from "../../../../core/config/constant";
 
 @Component({
   selector: 'app-recruit-news',
@@ -23,7 +24,7 @@ export class RecruitNewsComponent implements OnInit{
     size: 3,
     totalRecord: 0
   }
-
+  baseURL = Constant.BASE_URL;
   category: any;
   // url: any;
   // content:any;
@@ -88,6 +89,7 @@ export class RecruitNewsComponent implements OnInit{
   //     this.content = this.sanitizer.bypassSecurityTrustHtml(this.NewsDetail.content);
   //   })
   // }
+
 
 
 

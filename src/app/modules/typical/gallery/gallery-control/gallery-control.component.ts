@@ -3,6 +3,7 @@ import { Gallery } from 'src/app/core/model/gallery/gallery';
 import { Router } from '@angular/router';
 import { GalleryService } from 'src/app/services/gallery/gallery.service';
 import { Observable } from 'rxjs';
+import {Constant} from "../../../../core/config/constant";
 
 @Component({
   selector: 'app-gallery-control',
@@ -12,7 +13,7 @@ import { Observable } from 'rxjs';
 export class GalleryControlComponent implements OnInit{
 
   galleryList : Gallery[]=[];
-   
+
   target = {
     url: '',
     id: 0,
@@ -25,9 +26,9 @@ export class GalleryControlComponent implements OnInit{
   paging = {
     page: 1,
     size: 16,
-    totalRecord: 0 
+    totalRecord: 0
   }
-
+  baseURL = Constant.BASE_URL;
  constructor(private router : Router,
               private galleryService: GalleryService,
               ){}
@@ -80,11 +81,11 @@ pick(e:any){
   this.target.url = e.image.pathUrl;
   this.target.name = e.image.name;
   this.target.id= e.id;
-  this.target.caption=e.caption;  
+  this.target.caption=e.caption;
   // this.target.id = e.id;
   this.target.active = e.active;
   this.target.description = e.description;
- 
+
 }
 
 updategallery(id:number){
@@ -101,12 +102,13 @@ deleteimg(id:number){
 }
 
 // getGallery(){
-  
+
 //   this.galleryService.getListAll().subscribe(data => {
 //     this.galleryList = data
 //     this.pick(this.galleryList[0]);
 //   });
 // }
+
 
 hideimg(id: number){
   this.galleryService.hide(id).subscribe(() =>{
