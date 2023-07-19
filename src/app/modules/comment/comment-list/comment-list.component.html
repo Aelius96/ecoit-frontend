@@ -39,7 +39,7 @@
 									<p class="child-content">{{cmtChild.content}}</p>
 								</div>
 								<div class="col-md-2" *ngIf="userId == cmtChild.user.id ">
-									<a >Chỉnh sửa</a>
+									<a (click)="Updatecomment()" >Chỉnh sửa</a>
 									<a (click)="DeleteChild(cmtChild.id)">Xóa</a>
 								</div>
 	

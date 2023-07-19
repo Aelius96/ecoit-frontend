@@ -7,8 +7,12 @@
         </a>
 
         <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
-          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " style="width: 100px;">
-          <div class="input-group-append inputt" >
+          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " style="width: 100px; height: 30px;">
+          <select [(ngModel)]="cate" name="cate" style="height: 30px; width: 135px; border: 0.2px solid; " class="ml-2" >
+            <option value="" [selected]="true" >Chuyên mục</option>
+            <option  *ngFor="let ct of catelist"  value= "{{ct.typeName}}" >{{ct.typeName}}</option>
+          </select>
+          <div class="input-group-append inputt ml-2" >
             <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
         </form>
@@ -46,7 +50,7 @@
                                                       id: 'post',
                                                       itemsPerPage: paging.size,
                                                       currentPage: paging.page,
-                                                      totalItems: paging.totalRecord  }   ;  ">
+                                                      totalItems: paging.totalRecord  } ;  ">
           <div class="card  " >
             <div class="row ">
               <div class="col-md-2" >

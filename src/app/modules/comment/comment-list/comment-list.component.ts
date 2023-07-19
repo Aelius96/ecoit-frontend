@@ -123,6 +123,10 @@ constructor(private route:ActivatedRoute,
     })
   }}
 
+  Updatecomment(){
+    
+  }
+
 }
 
 
