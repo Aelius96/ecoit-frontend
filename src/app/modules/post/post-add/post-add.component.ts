@@ -32,9 +32,9 @@ export class PostAddComponent implements OnInit{
   url: any;
   id: any;
   ckeConfig: any;
-  baseUrl = `${Constant.BASE_URL}`;
+  baseUrl = Constant.BASE_URL;
   message = '';
-
+  imageURL: any;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   hashtagCtrl = new FormControl('');
   filteredHashtag: Observable<Hashtag[]>;
@@ -113,6 +113,7 @@ export class PostAddComponent implements OnInit{
       this.postService.getPostById(this.id).subscribe(data =>{
         this.post = data;
         this.url = this.post.image?.pathUrl;
+        this.imageURL = this.baseUrl +this.url;
         this.listAllHashTag();
       });
     }
@@ -124,8 +125,8 @@ export class PostAddComponent implements OnInit{
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
       height: 330,
       // Configure your file manager integration. This example uses CKFinder 3 for PHP.
-      // filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
-      // filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
+      filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
+      filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
       filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
       filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
 
@@ -203,7 +204,7 @@ export class PostAddComponent implements OnInit{
     this.fileToUpload = files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
-      this.url = reader.result;
+      this.imageURL = reader.result;
     }
   }
 

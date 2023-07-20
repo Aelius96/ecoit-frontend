@@ -264,9 +264,9 @@ export class AlbumsDetailComponent implements OnInit {
     const params = this.getRequestParams(this.paging.page , this.paging.size)
     this.imageService.getlistallwithpage(params).subscribe(data =>{
       this.image = data;
-      this.target.url = this.image[0].pathUrl;
-      this.target.name = this.image[0].name;
-      this.target.target = this.image[0].target;
+      this.target.url = this.image[0]?.pathUrl;
+      this.target.name = this.image[0]?.name;
+      this.target.target = this.image[0]?.target;
     })
   }
 

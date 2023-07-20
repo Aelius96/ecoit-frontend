@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CusTypical } from '../../typical/customer/cus-typical';
 import { CustomerTypicalService } from 'src/app/services/customer-typical/customer-typical.service';
+import {Constant} from "../../../core/config/constant";
 
 @Component({
   selector: 'app-typical-customers',
@@ -8,7 +9,7 @@ import { CustomerTypicalService } from 'src/app/services/customer-typical/custom
   styleUrls: ['./typical-customers.component.css']
 })
 export class TypicalCustomersComponent {
-
+  baseURL = Constant.BASE_URL
   cusTypical: CusTypical[] = [];
   constructor(private cusTypicalService:CustomerTypicalService, ) {
 }

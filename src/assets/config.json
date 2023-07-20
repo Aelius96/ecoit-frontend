@@ -1,0 +1,5 @@
+{
+  "BACKEND_URL":"http://172.16.10.161:8080",
+  "AUTHEN_CAS":false,
+  "BASE_URL": "http://localhost:4200"
+}
