@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()">
+
 	<p><strong>Bình Luận</strong></p>
 	<div class="row comment" *ngFor="let cmt of commentList ; let total = count  ">
 		<div>
@@ -18,8 +18,7 @@
 				<div class="content-comment ">
 					<span>{{cmt.content}}</span>
 					<p>
-						<a class="btn-link" (click)="addParentId(cmt.id)" data-toggle="collapse" href="#{{cmt.id}}"> Trả
-							lời</a>
+						<a class="btn-link" (click)="addParentId(cmt.id)" data-toggle="collapse" href="#{{cmt.id}}"> Trả lời</a>
 					</p>
 					<div *ngFor="let cmtChild of commentListChild">
 						<div style="margin-bottom: 10px;">
@@ -39,26 +38,32 @@
 									<p class="child-content">{{cmtChild.content}}</p>
 								</div>
 								<div class="col-md-2" *ngIf="userId == cmtChild.user.id ">
-									<a (click)="Updatecomment()" >Chỉnh sửa</a>
-									<a (click)="DeleteChild(cmtChild.id)">Xóa</a>
+									<a  data-toggle="collapse" href="#{{cmtChild.id}}" >Chỉnh sửa</a>
+									<a (click)="DeleteChild(cmtChild.id)"><span class="delete-cmt">Xóa</span></a>
 								</div>
-	
+								<form (ngSubmit)="updateComment(cmtChild.id,cmtChild)">
+									<div id="{{cmtChild.id}}" class="collapse " data-parent="#accordion">
+										<div class="reply-submit">
+											<textarea  name="contentChild" id="" [(ngModel)]="cmtChild.content"
+												placeholder="Bạn nhập bình luận tại đây"></textarea>
+											<button class="btn-success btn" type="submit">Cập nhật </button>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
-					<div id="{{cmt.id}}" class="collapse " data-parent="#accordion">
-
-						<div class="reply-submit">
-							<textarea name="content" id="" [(ngModel)]="comment.content"
-								placeholder="Bạn nhập bình luận tại đây"></textarea>
-							<button class="btn-success btn" type="submit">Bình luận</button>
+					<form (ngSubmit)="sendChildComment()">
+						<div id="{{cmt.id}}" class="collapse " data-parent="#accordion">
+							<div class="reply-submit">
+								<textarea name="content" id="" [(ngModel)]="comment.content"
+									placeholder="Bạn nhập bình luận tại đây"></textarea>
+								<button class="btn-success btn" type="submit">Bình luận</button>
+							</div>
 						</div>
-
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
 		<hr class="hr">
 	</div>
-
-</form>

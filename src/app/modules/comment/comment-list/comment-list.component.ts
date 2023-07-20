@@ -24,6 +24,8 @@ export class CommentListComponent implements OnInit {
   postId: number;
   url : any;
   parentId: number;
+  id:number;
+ 
 constructor(private route:ActivatedRoute,
             private commentService: CommentService,
             private postService: PostService,
@@ -55,6 +57,8 @@ constructor(private route:ActivatedRoute,
   //     params[`postId`] = id;
   //   }
   // }
+
+
 
   sendChildComment(){
     this.commentService.creatComment(this.comment).subscribe(res=>{
@@ -101,12 +105,6 @@ constructor(private route:ActivatedRoute,
     );
   }
 
-
-  onSubmit(){
-    this.sendChildComment();
-  }
-
-
   
   Delete(id:number){
     let cf = confirm("Xóa bình luận")
@@ -123,10 +121,21 @@ constructor(private route:ActivatedRoute,
     })
   }}
 
-  Updatecomment(){
-    
+
+
+  updateComment(id:number , comment:Comment ){
+    this.commentService.updateComment(id ,comment).subscribe(response=>{
+      let option = confirm('Cập nhật thành công!');
+        if(option){
+          window.location.reload();
+          console.log(response)
+        }
+      },
+      error=>{console.log(error)
+    })
   }
 
+  
 }
 
 

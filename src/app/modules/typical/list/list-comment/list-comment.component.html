@@ -42,78 +42,6 @@
 
 <div class="mt-5">
     <div class="container">
-      <!-- <div class="detail">
-          <table class="table table-striped" id="myTable">
-            <thead>
-              <tr style="font-weight: bold;">
-                  <td >Tên Bài Viết</td>
-                  <td  >Tên Người Gửi</td>
-                  <td class="w-25">Nội Dung</td>
-                  <td>Thời gian</td>
-                  <td> </td>
-              </tr>
-            </thead>
-            <tbody *ngFor="let cmt of commentList ">
-              <tr >
-                <td scope="row">{{cmt.post.title}}</td>
-                  <td>{{cmt.user.username}}</td>
-                  <td>
-                    <a class="btn-link" data-toggle="collapse"  href="#reply{{cmt.id}}" >
-                      {{cmt.content}}
-                    </a>
-                  </td>
-                  <td>{{cmt.date}}</td>
-                  <td> <span class="icon" >
-
-                    <a *ngIf="cmt.status ; else hien"  class="icon-item" (click)="Disable(cmt.id)" ><i class="far fa-eye"></i> </a>
-                    <ng-template #hien >
-                      <a class="icon-item" (click)="Enable(cmt.id)"> <i class="far fa-eye-slash"></i> </a>
-                    </ng-template>
-                    <a  class="icon-item" (click)="Delete(cmt.id)"> <i class="fa fa-trash-o" style="font-size:22px"></i></a>
-                  </span>
-                  </td>
-              </tr>
-              <tr>
-                <td colspan="7">
-                  <div id="reply{{cmt.id}}" class="collapse" data-parent="#accordion" >
-                    <div style="text-align:start;"   [innerHTML]="cmt.content" >
-                    </div>
-                    <div *ngFor="let cmtChild of commentListChild" class="d-flex flex-column" style="margin-bottom: 10px; margin-left: 10px; " >
-                      <div class="reply-content row  " *ngIf="cmt.id == cmtChild.parentId">
-                        <div class="col-md-2">
-                          <div class="info-comment">
-                            <div class="img-comment d-flex flex-column" style="margin: 0px;">
-                              <img src="./assets/images/avt.jpg" alt="">
-                              <span >
-                          {{cmtChild.user.username}}
-                          </span>
-                              <span>{{cmtChild.date}}</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-8">
-                          <p class="child-content">{{cmtChild.content}}</p>
-                        </div>
-                        <div class="col-md-2" *ngIf="userId == cmtChild.user.id ">
-                          <a  href="" >Chỉnh sửa</a>
-                          <a href="">Xóa</a>
-                        </div>
-                      </div>
-
-                    </div>
-                    <p style="text-align:start;">Nội dung trả lời</p>
-                    <div  style="text-align:start;">Phần trả lời: </div>
-
-                    <div style="text-align:start;" > <textarea name="" id="" cols="60" rows="3"></textarea>
-                       <button class="btn">Gửi</button>
-                    </div>
-
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-      </div> -->
       <div class="row" style="font-weight: bold; color: #1076bc; font-size: 18px;">
           <div class="col-md-12">
               <div class="card " style="background-color: #eeeeee; ">
@@ -162,7 +90,7 @@
                 </div>
                 <div class="col-md-2 m-auto">
                   <div class="icon" >
-                    <a href="" class="icon-item w-20" data-toggle="collapse"  href="#reply{{cmt.id}}"> 
+                    <a class="icon-item w-20"  data-toggle="collapse"  href="#reply{{cmt.id}}"> 
                       <img src="./assets/images/repcmt.png" style="width: 24px;" alt="">
                     </a>
                     <a *ngIf="cmt.status ; else hien"  class="icon-item " (click)="Disable(cmt.id)" ><i class="far fa-eye"></i> </a>
@@ -175,56 +103,137 @@
               </div>
             </div>
             <div class="">
+              <!-- ===== -->
               <div id="reply{{cmt.id}}" class="collapse card " data-parent="#accordion" > 
-                <span> <b>Nội dung bình luận : </b></span>
-                <div class="text-left container tab" [innerHTML]="cmt.content" >
-              </div>
-              
-              <div class="text-left" >  <b>Nội dung trả lời:</b> 
-                <div *ngFor="let cmtChild of commentListChild">
-                  <div style="margin-bottom: 10px;">
-                    <div class="reply-content tab container" *ngIf="cmt.id == cmtChild.parentId">
-                      <div class="col-md-3">
-                        <div class="info-comment">
-                          <div class="img-comment d-flex " style="margin: 0px;">
-                            <img src="./assets/images/avt.jpg" style="width: 30% !important;" alt="">
-                            <div class="my-auto">
-                              <p>
-                                {{cmtChild.user.username}}
-                              </p>
-                              <span>{{cmtChild.date}}</span>
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="info-comment mx-auto">
+                      <div class="img-comment d-flex flex-column">
+                        <img class="img-reply" src="./assets/images/avt.jpg" alt="">
+                        <span>
+                          {{cmt.user.username}}
+                        </span>
+                        <span>{{cmt.date}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="content-comment ">
+                      <span>{{cmt.content}}</span>
+                      <p>
+                        <a class="btn-link" (click)="addParentId(cmt.id,cmt.post.id)"  data-toggle="collapse" href="#{{cmt.id}}"> Trả lời</a>
+                      </p>
+                      <div *ngFor="let cmtChild of commentListChild">
+                        <div style="margin-bottom: 10px;">
+                          <div class="reply-content tab container mr-2 " *ngIf="cmt.id == cmtChild.parentId">
+                            <div class="col-md-3">
+                              <div class="info-comment">
+                                <div class="img-comment d-flex " style="margin: 0px;">
+                                  <img src="./assets/images/avt.jpg" style="width: 30% !important;" alt="">
+                                  <div  class="text-left my-auto ml-1">
+                                    <span> <b> {{cmtChild.user.username}}</b></span>
+                                    <p>{{cmtChild.date}}</p>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
+                            <div class="col-md-7">
+                              <p class="child-content">{{cmtChild.content}}</p>
+                            </div>
+                            <div class="col-md-2 d-flex flex-column">
+                              <div *ngIf="userId == cmtChild.user.id ">
+                                <a data-toggle="collapse" href="#{{cmtChild.id}}" >Chỉnh sửa</a>
+                                
+                              </div>
+                              <a *ngIf="cmtChild.status ; else hien"  (click)="DisableChild(cmtChild.id)" ><span class="dis-enable">Ẩn</span> </a>
+                              <ng-template #hien >
+                                  <a (click)="EnableChild(cmtChild.id)" > <span class="dis-enable">Hiện</span> </a>
+                              </ng-template>
+                              <a (click)="DeleteChild(cmtChild.id)" ><span class="delete-cmt" >Xóa</span></a>
+                            </div>
+                            
+                            <form (ngSubmit)="updateComment(cmtChild.id,cmtChild)">
+                              <div  id="{{cmtChild.id}}" class="collapse " data-parent="#accordion"  >
+                                <div class="text-left  d-flex tab"> 
+                                  <textarea name="contentChild" [(ngModel)]="cmtChild.content" id="content" cols="60" rows="3"></textarea>
+                                  <button class="btn" type="submit" style="height: 65px;">Cập nhật</button>
+                                </div>
+                              </div>
+                            </form>
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-7">
-                        <p class="child-content">{{cmtChild.content}}</p>
-                      </div>
-                      <div class="col-md-2 d-flex flex-column">
-                        <div *ngIf="userId == cmtChild.user.id ">
-                          <a><span class="dis-enable">Chỉnh sửa</span></a>
+                      <form (ngSubmit)="RepComment()">
+                        <div id="{{cmt.id}}" class="collapse " data-parent="#accordion">
+                          <div class="reply-submit d-flex ">
+                            <textarea name="content" [(ngModel)]="comment.content" id="" cols="60" rows="3"></textarea>
+                            <button class="btn" type="submit" style="height: 65px;">Gửi</button>
+                            <!-- <textarea name="content" id="" [(ngModel)]="comment.content"
+                              placeholder="Bạn nhập bình luận tại đây"></textarea>
+                            <button class="btn-success btn" type="submit">Bình luận</button> -->
+                          </div>
                         </div>
-                        <a *ngIf="cmtChild.status ; else hien"  (click)="DisableChild(cmtChild.id)" ><span class="dis-enable">Ẩn</span> </a>
-                        <ng-template #hien >
-                            <a (click)="EnableChild(cmtChild.id)" > <span class="dis-enable">Hiện</span> </a>
-                        </ng-template>
-                        <a (click)="DeleteChild(cmtChild.id)" ><span class="delete-cmt" >Xóa</span></a>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div> <b>Nội dung bình luận : </b>
+                  <div class="text-left container tab" [innerHTML]="cmt.content" >
+                </div>
+
+                <div class="text-left" >  <b>Nội dung trả lời:</b> 
+                  <div *ngFor="let cmtChild of commentListChild">
+                    <div style="margin-bottom: 10px;">
+                      <div class="reply-content tab container" *ngIf="cmt.id == cmtChild.parentId">
+                        <div class="col-md-3">
+                          <div class="info-comment">
+                            <div class="img-comment d-flex " style="margin: 0px;">
+                              <img src="./assets/images/avt.jpg" style="width: 30% !important;" alt="">
+                              <div  class="text-left my-auto ml-1">
+                                <span> <b> {{cmtChild.user.username}}</b></span>
+                                <p>{{cmtChild.date}}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-7">
+                          <p class="child-content">{{cmtChild.content}}</p>
+                        </div>
+                        <div class="col-md-2 d-flex flex-column">
+                          <div *ngIf="userId == cmtChild.user.id ">
+                            <a data-toggle="collapse" href="#{{cmtChild.id}}" >Chỉnh sửa</a>
+                            
+                          </div>
+                          <a *ngIf="cmtChild.status ; else hien"  (click)="DisableChild(cmtChild.id)" ><span class="dis-enable">Ẩn</span> </a>
+                          <ng-template #hien >
+                              <a (click)="EnableChild(cmtChild.id)" > <span class="dis-enable">Hiện</span> </a>
+                          </ng-template>
+                          <a (click)="DeleteChild(cmtChild.id)" ><span class="delete-cmt" >Xóa</span></a>
+                        </div>
+                        
+                        <form (ngSubmit)="updateComment(cmtChild.id,cmtChild)">
+                          <div  id="{{cmtChild.id}}" class="collapse " data-parent="#accordion"  >
+                            <div class="text-left  d-flex tab"> 
+                              <textarea name="contentChild" [(ngModel)]="cmtChild.content" id="content" cols="60" rows="3"></textarea>
+                              <button class="btn" type="submit" style="height: 65px;">Cập nhật</button>
+                            </div>
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="text-left" > <b>Phần trả lời:</b> </div>
-              <div class="text-left  container d-flex tab">
-                 <textarea name="" id="" cols="60" rows="3"></textarea>
-                 <button class="btn" style="height: 65px;">Gửi</button>
+                <form (ngSubmit)="RepComment()">
+                  <div class="text-left"><b>Phần trả lời:</b></div>
+                  <div class="text-left  container d-flex tab">
+                    <textarea name="content" [(ngModel)]="comment.content" id="" cols="60" rows="3"></textarea>
+                    <button class="btn" type="submit" style="height: 65px;">Gửi</button>
+                  </div>
+                </form> -->
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-
     </div>
   </div>

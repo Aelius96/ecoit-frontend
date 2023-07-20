@@ -12,7 +12,14 @@ textarea:focus{
     color: #171717;
     border: 1px solid gainsboro;
 }
- */
+.delete-cmt{
+    color: red;
+    cursor: pointer;
+}
+.delete-cmt:hover{
+    text-decoration: underline;
+    color: darkred;
+}
 
 /* ====== */
 .hr{
@@ -30,11 +37,6 @@ img{
     margin: 0px 20px 0px 20px;
 }
 
-.be-comment-name {
-    padding-top: 5px;
-    font-size: 13px;
-
-}
 .btn-link:hover{
     text-decoration: none;
 

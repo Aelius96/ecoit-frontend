@@ -130,14 +130,14 @@ img{
   margin: 0px 20px 0px 20px;
 }
 .tab{
-  width: 80%;
+  
   padding: 5px;
 }
 .reply-content{
   border: 0.3px solid #e8e8e8;
   background-color: #f8f8f8;
   border-radius: 5px;
-
+  max-width: fit-content;
 }
 .child-content{
   width: 100%;
@@ -148,3 +148,52 @@ img{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+/* chi tieest mowsi =====*/
+
+.img-reply{
+  width: 70%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.info-comment{
+  width: 70%;
+
+}
+.btn-update{
+  width: 10%;
+}
+.edit-cmtchild{
+  width: 90%;
+  height: 8em;
+  overflow: auto;
+   resize: vertical;
+   border: 1px solid gainsboro;
+   font-family: "Open Sans",Arial,sans-serif;
+}
+.edit-cmtchild:focus{
+  color: #171717;
+  border: 1px solid gainsboro;
+}
+/* 
+.btn-link:hover{
+  text-decoration: none;
+
+}
+.reply-submit{
+ margin-bottom: 10px;
+}
+
+.reply-content{
+  border: 0.3px solid #e8e8e8;
+  background-color: #f8f8f8;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+
+}
+.child-content{
+  width: 100%;
+   word-wrap: break-word;
+} */
+

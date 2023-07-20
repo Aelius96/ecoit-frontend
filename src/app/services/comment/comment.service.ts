@@ -50,8 +50,8 @@ export class CommentService {
   creatComment(creatcomment: any):Observable<Object>{
     return this.http.post(`${this.baseUrl}/${this.domain}/create` , creatcomment)
   }
-  updateComment(id:number, updateComment: any):Observable<Object>{
-    return this.http.post(`${this.baseUrl}/${this.domain}/update/{id}` , updateComment)
+  updateComment(id:number , comment:Comment):Observable<Object>{
+    return this.http.post(`${this.baseUrl}/${this.domain}/update/${id}` , comment )
   }
 
   getCommentByPostId(postId : number):Observable<any>{
