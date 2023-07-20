@@ -18,6 +18,7 @@ export class CommentFormComponent {
   username:string;
   userId: number;
   url: string;
+  id:number
 
 constructor(private route:ActivatedRoute ,
             private commentService: CommentService ,
@@ -56,7 +57,9 @@ constructor(private route:ActivatedRoute ,
     })
   }
 
-  onSubmit(){
-     this.sendComment();
+
+  onSubmit(){  
+      this.sendComment();
+
   }
 }

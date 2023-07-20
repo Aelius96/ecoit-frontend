@@ -95,17 +95,6 @@ export class CategoryControlComponent implements OnInit {
 
   Update(id:number){
     return this.router.navigate([`/admin/category/update/${id}` ])
-    // this.modalRef = this.modalService.open(CategoryAddComponent, {
-    
-    
-    //   backdropClass: "modal-backdrop"
-    // });
-    // this.modalRef.result.then(item => {
-    //   if(item){
-    //     this.toast.show("Cập nhật thành công!", { classname: 'bg-success text-light', delay: 10000 })
-    //     this.getAllCatePageSize();
-    //   }
-    // })
    
   }
   

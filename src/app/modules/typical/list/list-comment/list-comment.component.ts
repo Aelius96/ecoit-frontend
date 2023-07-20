@@ -4,6 +4,7 @@ import { Comment } from 'src/app/core/model/comment/comment';
 import { CommentService } from 'src/app/services/comment/comment.service';
 import { PostService } from 'src/app/services/post/post.service';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-list-comment',
@@ -17,30 +18,33 @@ export class ListCommentComponent implements OnInit {
   comment: Comment = new Comment();
   username:string;
   userId: number;
-  postId: number;
-  url : any;
   parentId: number;
-constructor(private route:ActivatedRoute,
+  postId :any;
+  postIdByChild: any;
+constructor(
             private commentService: CommentService,
             private postService: PostService,
             private tokenStorageService: TokenStorageService){}
 
   ngOnInit(): void {
+    
     if(this.tokenStorageService.getToken()){
       this.username = this.tokenStorageService.getUser().username;
       this.userId = this.tokenStorageService.getUser().id;
       this.comment.user.id = this.userId;
       console.log(this.userId)
-      this.getAllCommentAdmin()      
+
     }
       this.getAllCommentAdmin();
       this.getCommentChildAdmin()
     }
 
+    // 
   getAllCommentAdmin(){
     this.commentService.getParentCmtAdmin().subscribe(data=>{
         this.commentList = data;
-
+       
+        console.log(this.postId);
       },
       error=>{
         console.error(error)
@@ -57,6 +61,36 @@ constructor(private route:ActivatedRoute,
   //     }
   //   );
   // }
+
+  addParentId(id: number, postId:number){
+    this.comment.parentId = id;
+    this.comment.post.id = postId;
+  }
+
+  // chỉnh sửa
+  updateComment(id:number , comment:Comment ){
+    this.commentService.updateComment(id ,comment).subscribe(response=>{
+      let option = confirm('Cập nhật thành công!');
+        if(option){
+          window.location.reload();
+          console.log(response)
+        }
+      },
+      error=>{console.log(error)
+    })
+  }
+
+
+  RepComment(){
+    this.commentService.creatComment(this.comment).subscribe(respon=>{
+      let cf = confirm('Trả lời thành công')
+        if(cf){
+          window.location.reload();
+          console.log(respon);
+        }
+    }, error=>{console.log(error)}
+    )
+  }
 
   getCommentChildAdmin(){
     

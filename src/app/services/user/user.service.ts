@@ -9,12 +9,12 @@ import {Domain} from "../../core/domain/domain";
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl =`${Constant.BASE_URL}/user`
+  private baseUrl =`${Constant.BASE_URL}`
   private domain = `${Domain.USER}`;
   constructor(private http:HttpClient) { }
 
   getListAllwithpageUser(params:any):Observable<any>{
-    return this.http.get(`${this.baseUrl}` , {params})
+    return this.http.get(`${this.baseUrl}/${this.domain}` , {params})
   }
 
   // public getAllUser():Observable<User[]>{

@@ -25,6 +25,9 @@ img{
 .item + .item{
   margin-top: 10px;
 }
+.item{
+    margin-bottom: 10px;
+}
 .title-content{
     margin-top: auto;
 
