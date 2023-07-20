@@ -113,6 +113,7 @@ constructor(private route:ActivatedRoute,
       this.getAllComment();
     })
   }}
+  
   DeleteChild(id:number){
     let cf = confirm("Xóa bình luận")
     if(cf){

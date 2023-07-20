@@ -163,6 +163,11 @@ img{
 .btn-update{
   width: 10%;
 }
+.btn-edit{
+  border-radius: 5px;
+  border: none;
+}
+
 .edit-cmtchild{
   width: 90%;
   height: 8em;

@@ -120,9 +120,19 @@
                   <div class="col-md-10">
                     <div class="content-comment ">
                       <span>{{cmt.content}}</span>
-                      <p>
-                        <a class="btn-link" (click)="addParentId(cmt.id,cmt.post.id)"  data-toggle="collapse" href="#{{cmt.id}}"> Trả lời</a>
+                      <p  >
+                        <a class="btn-link mr-3 " (click)="addParentId(cmt.id,cmt.post.id)"  data-toggle="collapse" href="#{{cmt.id}}"> Trả lời</a>
+                        <a  data-toggle="collapse" href="#{{cmt.id}}" >Chỉnh sửa</a>
                       </p>
+                      <form (ngSubmit)="updateComment(cmt.id,cmt)">
+                        <div id="{{cmt.id}}" class="collapse " data-parent="#accordion">
+                          <div class="reply-submit d-flex">
+                            <textarea  name="content" id="" [(ngModel)]="cmt.content"
+                              placeholder="Bạn nhập bình luận tại đây" cols="60" rows="3" ></textarea>
+                            <button class="btn-success btn-edit" type="submit">Cập nhật </button>
+                          </div>
+                        </div>
+                      </form>
                       <div *ngFor="let cmtChild of commentListChild">
                         <div style="margin-bottom: 10px;">
                           <div class="reply-content tab container mr-2 " *ngIf="cmt.id == cmtChild.parentId">
