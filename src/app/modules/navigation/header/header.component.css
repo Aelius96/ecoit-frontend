@@ -187,3 +187,6 @@ a:hover{
   flex-wrap: wrap;
   align-content: center;
 }
+#edit-submit {
+	display: none;
+}

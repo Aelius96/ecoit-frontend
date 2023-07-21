@@ -55,6 +55,7 @@ export class SearchComponent implements OnInit
         error => {
           console.log(error);
         });
+      
   }
 
   handlePageChangeTest(event: number): void {
