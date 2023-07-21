@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../../services/post/post.service";
 import {Post} from "../../core/model/post/post";
 import search = CKEDITOR.tools.search;
+import {Constant} from "../../core/config/constant";
 
 @Component({
   selector: 'app-search',
@@ -18,6 +19,7 @@ export class SearchComponent implements OnInit
     size: 9,
     totalRecord: 0
   }
+  baseURL = Constant.BASE_URL;
 
   constructor(private route: ActivatedRoute, private postService: PostService) {
   }

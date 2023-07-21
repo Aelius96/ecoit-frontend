@@ -14,6 +14,8 @@ import {HashtagService} from "../../../services/hashtag/hashtag.service";
 import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatChipInputEvent} from "@angular/material/chips";
+import {FileService} from "../../../services/file/file.service";
+import {File} from "../../../services/file/file";
 
 export interface Fruit {
   name: string;
@@ -43,7 +45,9 @@ export class PostAddComponent implements OnInit{
               private route:ActivatedRoute,
               private postService: PostService,
               private categoryService:CategoryService,
-              private hashtagService: HashtagService) {
+              private hashtagService: HashtagService,
+              private fileService:FileService
+  ) {
 
     this.filteredHashtag = this.hashtagCtrl.valueChanges.pipe(
       startWith(null),
@@ -121,19 +125,47 @@ export class PostAddComponent implements OnInit{
     this.listAllCategory();
 
     this.ckeConfig = {
-      extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
+      extraPlugins: 'uploadimage',
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-      height: 330,
-      // Configure your file manager integration. This example uses CKFinder 3 for PHP.
       filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
       filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
       filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
-      filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
+      filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images'
+
+      // uploadUrl: `${this.baseUrl}/s/file/add?test=`,
+      // filebrowserUploadUrl:`${this.baseUrl}/s/file/add`,
+      // uploadImage: this.addImage.bind(this),
 
     };
 
+
   }
 
+  // onUpload(e:any){
+  //   this.fileService.uploadImage(e).then(r => r.image);
+  // }
+
+
+  // addImage(){
+  //
+  //   this.fileService.addImage(this.prepareImage()).subscribe(data =>{
+  //     },
+  //     error => console.log(error.error));
+  //   console.log(this.post);
+  // }
+  //
+  // prepareImage(): FormData{
+  //   const formData = new FormData();
+  //   for (let i = 0; i < this.fileToUpload.length; i++){
+  //     formData.append(
+  //       'file',
+  //       this.fileToUpload[i]
+  //       // this.fileToUpload[i].name
+  //     )
+  //   }
+  //   console.log(formData)
+  //   return formData;
+  // }
 
   onSubmit(){
     if(this.id){

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit } from '@angular/core';
 import {Blog} from "../../../core/model/blog/blog";
 import {ActivatedRoute, Router} from "@angular/router";
 import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
@@ -49,7 +49,7 @@ constructor(private router:Router,
       const blogFormData = this.prepareFormData(this.blogList);
      this.blogService.createBlog(blogFormData).subscribe(data=>{
       this.goToBlogList();
-      
+
      },
      error => console.log(error)  );
   }
