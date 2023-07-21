@@ -9,38 +9,51 @@ import {Observable} from "rxjs";
 })
 export class FileService {
 
-  private baseUrl = `${Constant.BASE_URL}/s/file`
+  private baseUrl = `${Constant.BASE_URL}`
   constructor(private http:HttpClient) { }
   // downloadFile( id:number): Observable<Object>{
   //   return this.http.post(`${this.baseUrl}/image/download/${id}`, {observe: "response", responseType: "blob"});
   // }
 
   downloadFile(file: File): Observable<Object>{
-    return this.http.post(`${this.baseUrl}/downloadFile`,file, {observe: "response", responseType: "blob"});
+    return this.http.post(`${this.baseUrl}/s/file/downloadFile`,file, {observe: "response", responseType: "blob"});
   }
 
+  addImage(formData: FormData): Observable<any>{
+    return this.http.post(`${this.baseUrl}/s/file/add`,formData);
+
+  }
+
+  // uploadImage(image: File): Promise<any> {
+  //   const formData = new FormData();
+  //   formData.append('test', image);
+  //
+  //   return this.http.post<any>(`${this.baseUrl}/s/file/add`, formData).toPromise();
+  // }
+
+
   deleteFile(file:File ){
-    return this.http.post(`${this.baseUrl}/deleteFile`, file);
+    return this.http.post(`${this.baseUrl}/s/file/deleteFile`, file);
   }
 
   getFileById(id: number): Observable<any>{
-    return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get(`${this.baseUrl}/s/file/${id}`);
   }
 
   getAllImage(): Observable<any>{
-    return this.http.get(`${this.baseUrl}/image/all`);
+    return this.http.get(`${this.baseUrl}/s/file/image/all`);
   }
 
   updateImage(file: File): Observable<Object>{
-    return this.http.post(`${this.baseUrl}/image/update`, file);
+    return this.http.post(`${this.baseUrl}/s/file/image/update`, file);
   }
 
   getlistallwithpage(params: Params): Observable<any>{
-    return this.http.get(`${this.baseUrl}/image`, {params});
+    return this.http.get(`${this.baseUrl}/s/file/image`, {params});
   }
 
   getListAll():Observable<any>{
-    return this.http.get(`${this.baseUrl}/image/all`)
+    return this.http.get(`${this.baseUrl}/s/file/image/all`)
   }
-  
+
 }
