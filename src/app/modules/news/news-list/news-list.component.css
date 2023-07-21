@@ -55,4 +55,6 @@ a:hover{
 }
 svg{
   display: flex;
+  width: 14px;
+  height: 14px;
 }
