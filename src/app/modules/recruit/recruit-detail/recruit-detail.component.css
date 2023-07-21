@@ -10,3 +10,20 @@
 .tieude{
     color: rgb(77, 199, 55);
 }
+.share .icon-share {
+    font-size: 14px;
+    border: 0.5px solid;
+    padding: 3px;
+    margin: 0px 3px;
+    color: rgb(77, 199, 55)
+  }
+  svg{
+    display: flex;
+    width: 14px;
+    height: 14px;
+  }
+
+a:hover{
+    color: black;
+
+}
