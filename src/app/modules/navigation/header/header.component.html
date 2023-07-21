@@ -1,8 +1,8 @@
 <form action="">
   <!--====================  header area ====================-->
-  <div class="header-area--absolute" >
-    <div class="container-fluid ">
-      <div class="row">
+  <div class="header-area header-sticky header-area--absolute is-sticky " >
+    <div class="container-fluid container-fluid--cp-150">
+      <div class="row h-100 mx-5 "  >
         <div class="col-lg-12">
           <div class="header position-relative">
             <!-- brand logo -->
@@ -25,31 +25,33 @@
                   <div class="header__actions">
                     <div class="header__icons-wrapper" id="hidden-icon-wrapper">
                       <div class="header-button button-white">
-                        <ul  class="list-inline">
-                          <li><span class="header-label" style="margin-right: 5px;">
-                                                        <i class="fa fa-phone"> </i>
-                                                    </span>
-                            <span class="header-hightlight " >
-                                                                <span >Hotline </span>
-
-                                                        <strong>
-                                                            <span class="color-gre" style="vertical-align: inherit;">
-                                                                <a style="vertical-align: inherit;"><a style="color: #50B848;" href="tel:(+84) 935 772 929">(+84) 935 772 929</a></a>
-                                                            </span>
-                                                        </strong>
-                                                    </span>
+                        <ul  class="list-inline d-flex">
+                          <li class="d-flex mr-3 " >
+                              <span class="header-label mr-3 d-flex">
+                                <i class="fa fa-phone  " style="font-size: 24px;  "> </i>
+                              </span>
+                              <span class="header-phone d-flex  flex-column">
+                                      <span class="text-uppercase contact-title "  >Hotline </span>
+                                        <strong>
+                                          
+                                            <a style="vertical-align: inherit;"><a class="info"  href="tel:(+84) 935 772 929">(+84) 935 772 929</a></a>
+                                          
+                                        </strong>
+                                </span>
                           </li>
-                          <li><span class="header-label" style="margin-right: 5px;">
-                                                        <i class="fa fa-envelope" ></i>
-                                                    </span>
-                            <span class="header-hightlight" >
-                                                                <span style="vertical-align: inherit;">Email </span>
-                                                        <strong>
-                                                            <span class="color-gre" style="vertical-align: inherit;">
-                                                                <a style="vertical-align: inherit"><a style="color: #50B848;" href="mailto:contact@ecoit.asia">contact@ecoit.asia</a></a>
-                                                            </span>
-                                                        </strong>
-                                                    </span>
+                          <li class="d-flex" >
+                            <span class="header-label mr-3 d-flex " >
+                                <i class="fa fa-envelope " style="font-size: 24px;" ></i>
+                              </span>
+                            <span class="header-email d-flex  flex-column" >
+                                <span class="text-uppercase contact-title" >Email
+                                </span>
+                                <strong>
+                                    
+                                            <a class="info"  href="mailto:contact@ecoit.asia">contact@ecoit.asia</a>
+                                          
+                                  </strong>
+                              </span>
                           </li>
 
                         </ul>
@@ -105,11 +107,11 @@
                     </li>
                   </ul>
                 </li>
-                <li class="" id="timkiem">
+                <li class="" >
                   <i id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="fas fa-search" style="color: #ecf9eb;" ></i>
                   <div class="dropdown-menu dropdown-menu-right custom-input" aria-labelledby="dropdownMenuButton">
                     <input type="text" [(ngModel)]="searchInput" name="searchInput" id = "searchInput">
-                    <input type="submit" (click)="goToSearch()">
+                    <input type="submit" (click)="goToSearch()" style="color: #488a43;">
                   </div>
                 </li>
               </ul>
@@ -121,7 +123,6 @@
       </div>
     </div>
   </div>
-  <!-- slide -->
 
 </form>
 
