@@ -27,11 +27,16 @@
     position: relative;
     color: #d5cccc;
 }
-#text{
+.text-title-news{
     color: #bababa;
-    font-size: 16px;
+    font-size: 13px;
     padding-left: 10px;
     margin-top: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 @media (min-width: 992px){
 .col-md-3 {
@@ -60,4 +65,10 @@
 .text-up{
     text-transform: uppercase;
 
+}
+.anhtintuc{
+    float: left; 
+    width: 30%; 
+    height: 100%;
+    margin: auto;
 }

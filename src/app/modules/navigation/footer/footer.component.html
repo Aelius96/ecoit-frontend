@@ -80,15 +80,15 @@
                             <ul class="media-list" *ngFor="let post of postList ; let i = index">
                                 <li class="media_body " *ngIf="i<3">
                                     <div class="disp-inflex d-flex flex-row" style="padding-top: 2px ">
-                                      <div class="anhtintuc post-thumb" style="float: left;width: 30%; height: 100%;">
+                                      <div class="anhtintuc " >
                                         <a  title="{{post.title}}" style="height: 100%; width: 100%;">
                                           <img  src="{{baseURL}}{{post.image?.pathUrl}}" style="height: 100%; width: 100%;" alt="" loading="lazy"></a>
                                       </div>
                                       <div class="blog-inner" style="display: inline-block;width: 70%; ">
-                                        <a href="/tin-tuc/{{post.url}}" id="text" >{{post.title}}</a>
+                                        <a href="/tin-tuc/{{post.url}}" class="text-title-news" >{{post.title}}</a>
                                         </div>
                                     </div>
-                                    <hr  style="margin-top: 20px;">
+                                    <hr  class="my-3">
                                 </li>
                             </ul>
                         </div>
