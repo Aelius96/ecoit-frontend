@@ -31,7 +31,7 @@ export class ProductAddComponent implements OnInit{
   hashtagCtrl = new FormControl('');
   filteredHashtag: Observable<Hashtag[]>;
   imageURL: any;
-  imgurl_banner:any;
+  // imgurl_banner:any;
   constructor(private router:Router,
               private productService :ProductService,
               private hashtagService : HashtagService,
@@ -132,18 +132,18 @@ export class ProductAddComponent implements OnInit{
     }
   }
 
-  bannerChange(e:any){
-    const files = e.target.files;
-    if (files.length === 0) return;
+  // bannerChange(e:any){
+  //   const files = e.target.files;
+  //   if (files.length === 0) return;
 
-    const reader = new FileReader();
-    this.fileToUpload=files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = (_event) =>{
-      this.imgurl_banner= reader.result;
-    }
+  //   const reader = new FileReader();
+  //   this.fileToUpload=files;
+  //   reader.readAsDataURL(files[0]);
+  //   reader.onload = (_event) =>{
+  //     this.imgurl_banner= reader.result;
+  //   }
 
-  }
+  // }
 
   listAllHashTag(){
     this.hashtagService.listAllHashtag().subscribe(data =>{

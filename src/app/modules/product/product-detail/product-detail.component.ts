@@ -18,8 +18,8 @@ export class ProductDetailComponent {
   imgurl_banner:any;
   product :Product = new Product();
   baseUrl = Constant.BASE_URL;  
-  path :any;
-  banner_path:any;
+  // path :any;
+  // banner_path:any;
   constructor(private productService: ProductService, private route: ActivatedRoute,private sanitizer : DomSanitizer ) {}
 
   ngOnInit(): void {

@@ -67,7 +67,7 @@
 
 /*  */
 .box-icon{
-  background-color: #009dff;
+  /* background-color: #009dff; */
   color: whitesmoke;
   display: inline-block;
   position: absolute;
@@ -80,7 +80,7 @@
   line-height: 100px;
   text-align: center;
   border-radius: 50%;
-  transition: background-color 0.3s ease 0s;
+  /* transition: background-color 0.3s ease 0s; */
 }
 .box-icon:hover{
   background-color: #50b848;
@@ -91,9 +91,6 @@
   border: 1px solid #eee;
   height: 100%;
 }
-
-
-
 .content{
   margin: 10px 0px 50px 0px;
 }
