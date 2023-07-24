@@ -116,9 +116,9 @@
   font-size: 18px;
 }
 .des-cus{
-  bottom: 100px;
+  /* bottom: 100px;
   position: absolute;
-  width: 78%;
+  width: 78%; */
   display: flex;
   justify-content: center;
 }

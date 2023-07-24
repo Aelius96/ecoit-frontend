@@ -31,6 +31,7 @@ export class ProductAddComponent implements OnInit{
   hashtagCtrl = new FormControl('');
   filteredHashtag: Observable<Hashtag[]>;
   imageURL: any;
+  imgurl_banner:any;
   constructor(private router:Router,
               private productService :ProductService,
               private hashtagService : HashtagService,
@@ -129,6 +130,19 @@ export class ProductAddComponent implements OnInit{
     reader.onload = (_event) =>{
       this.imageURL= reader.result;
     }
+  }
+
+  bannerChange(e:any){
+    const files = e.target.files;
+    if (files.length === 0) return;
+
+    const reader = new FileReader();
+    this.fileToUpload=files;
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) =>{
+      this.imgurl_banner= reader.result;
+    }
+
   }
 
   listAllHashTag(){

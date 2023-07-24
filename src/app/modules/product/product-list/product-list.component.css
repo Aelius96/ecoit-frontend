@@ -63,4 +63,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   display: -webkit-box;
+  color: #AAA;
+  text-transform: capitalize;
+  /* aaa */
 }
