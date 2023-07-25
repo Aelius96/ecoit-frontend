@@ -27,7 +27,7 @@
                 <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let post of postList ;let s = index">
               <div class="col-md-6 first-blog">
                 <a href="/blog/{{post.url}}">
-                  <img class="img-fluid" src="{{baseURL}}{{post.image.pathUrl}}"
+                  <img class="img-fluid" src="{{baseURL}}{{post.image?.pathUrl}}"
                        alt=" Images">
                 </a>
               </div>

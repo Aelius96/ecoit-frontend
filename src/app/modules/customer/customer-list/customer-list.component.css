@@ -6,7 +6,8 @@
   font-weight: bold;
   color: #50b848;
 }
-#gachchan{
+.gachchan{
+  color: #50b848;
   width: 100px;
   margin-top: 20px;
   border-top: 1px solid rgb(0, 0, 0);
@@ -33,14 +34,15 @@
   font-size: 18px;
 }
 .box-footer{
-  bottom: 10px;
+  text-align: center;
+  align-items: center;
   position: absolute;
-  width: 78%;
-  display: flex;
+  bottom: 20px;
+  width: 60%;
+
+  /* display: flex;
   justify-content: center;
-  align-content: center;
-
-
+  align-content: center; */
 }
 
 /* .pricing-table__footer{
@@ -67,22 +69,21 @@
 
 /*  */
 .box-icon{
-  /* background-color: #009dff; */
-  color: whitesmoke;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+}
+
+.box-icon_bg{
+  transform: translate(0%, -50%);
   width: 100px;
   height: 100px;
   font-size: 48px;
   line-height: 100px;
   text-align: center;
   border-radius: 50%;
-  /* transition: background-color 0.3s ease 0s; */
 }
-.box-icon:hover{
+
+.box-icon_bg:hover{
   background-color: #50b848;
 }
 .box{
@@ -90,6 +91,7 @@
   border-radius: 5px;
   border: 1px solid #eee;
   height: 100%;
+  min-height: 350px;
 }
 .content{
   margin: 10px 0px 50px 0px;
@@ -99,8 +101,8 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 .__title{
   align-content: center;

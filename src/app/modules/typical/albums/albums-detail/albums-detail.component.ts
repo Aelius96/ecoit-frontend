@@ -165,7 +165,7 @@ export class AlbumsDetailComponent implements OnInit {
   url:any;
   totalPages: number;
   Message = null;
-  public pageSizes = [16, 32, 44];
+  // public pageSizes = [16, 32, 44];
 
   target= {
     url: '',
@@ -188,9 +188,9 @@ export class AlbumsDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(this.image.length>0){
-      this.image = [];
-    }
+    // if(this.image.length>0){
+    //   this.image = [];
+    // }
 
 
     this.getListWithPage()
@@ -220,14 +220,13 @@ export class AlbumsDetailComponent implements OnInit {
   }
 
   handlepagechange(event : number):void{
-    console.log(event);
     this.paging.page =event;
     this.getListWithPage();
   }
   handlePageSizeChange(event: any): void {
     this.paging.size = event;
     this.paging.page = 1;
-    console.log(event, this.paging.size)
+    console.log(event)
     this.getListWithPage();
   }
 
