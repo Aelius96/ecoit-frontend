@@ -31,6 +31,7 @@ export class CustomerDetailComponent {
       this.cover = this.customer.banner.pathUrl;
       this.bannerURL = this.baseURL + this.cover;
       document.title = "KHỐI " + this.customer.name.toUpperCase();
+      console.log(document.title);
     })
   }
 }

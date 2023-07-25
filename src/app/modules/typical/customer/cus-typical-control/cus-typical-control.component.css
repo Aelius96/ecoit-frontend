@@ -76,8 +76,9 @@ a:hover{
 }
 
 .text {
-  background-color: #2ccb379f;
-  color: white;
+  font-weight: bold;
+  color: #FFE67C;
+  background-color: #295f2de3;
   font-size: 16px;
   padding: 5px 8px;
   transition: .5s ease;

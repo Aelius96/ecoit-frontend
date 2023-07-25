@@ -69,6 +69,10 @@
     position: fixed;
   } */
 
+  .nav1{
+    font-size: 13px;
+  }
+
 .title_header{
   padding-top: 10px;
   font-size: 15px;

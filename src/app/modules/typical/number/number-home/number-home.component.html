@@ -13,22 +13,18 @@
         <div class="container">
           <div class="">
             <div  class=" col-md-3 " *ngFor="let number of nums" >
-              
-                
                   <div  class="num-counter ">
                     <div class="box-icon"><span><i class="{{number.icon}}"></i></span></div>
                     <div class="box-inner">
-                      <div class="counter-number" data-to="+50">+{{number.num}}</div>
+                      <app-animated-digit [digit]="number.num" ></app-animated-digit>
                       <h4 class="description">{{number.description}}</h4>
                     </div>
                   </div>
-                
-              
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
+

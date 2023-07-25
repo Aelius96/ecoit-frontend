@@ -2,17 +2,18 @@
   <div class="d-flex  justify-content-between header-menu ">
     <div class="left-d-flex">
       <div class="d-flex">
-        <a style="    margin-top: 3px;  margin-right: 10px; " routerLink="../bpost"  routerLinkActive="active">
-          <span  class="spann tt" style="font-weight: bold">Bài Viết</span>
+        <a style="    margin-top: 3px;  margin-right: 10px; " routerLink="../bpost" routerLinkActive="active">
+          <span class="spann tt" style="font-weight: bold">Bài Viết</span>
         </a>
 
         <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
-          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " style="width: 100px; height: 30px;">
-          <select [(ngModel)]="cate" name="cate" style="height: 30px; width: 135px; border: 0.2px solid; " class="ml-2" >
-            <option value="" [selected]="true" >Chuyên mục</option>
-            <option  *ngFor="let ct of catelist"  value= "{{ct.typeName}}" >{{ct.typeName}}</option>
+          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm "
+            style="width: 100px; height: 30px;">
+          <select [(ngModel)]="cate" name="cate" style="height: 30px; width: 135px; border: 0.2px solid; " class="ml-2">
+            <option value="" [selected]="true">Chuyên mục</option>
+            <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
           </select>
-          <div class="input-group-append inputt ml-2" >
+          <div class="input-group-append inputt ml-2">
             <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
         </form>
@@ -23,15 +24,14 @@
         <div class="menu-item ">
           <div class="d-flex">
             <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <app-page-size
-              (pageSizeChange)="handlePageSizeChange($event)"
-              [totalRecords]="paging.totalRecord"
+            <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
               [(pageSize)]="paging.size"></app-page-size>
           </div>
         </div>
         <div class="menu-item">
           <!--          (click)="addTypicalNum()"-->
-          <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i style="font-size: 18px" class="fas fa-file-plus fa-lg"></i></a>
+          <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i style="font-size: 18px"
+              class="fas fa-file-plus fa-lg"></i></a>
         </div>
 
       </div>
@@ -51,26 +51,26 @@
                                                       itemsPerPage: paging.size,
                                                       currentPage: paging.page,
                                                       totalItems: paging.totalRecord  } ;  ">
-          <div class="card  " >
+          <div class="card  ">
             <div class="row ">
-              <div class="col-md-2" >
+              <div class="col-md-2">
                 <div class="product-thumb-image">
                   <img style="width: 100%; height: 100%" src="{{baseURL}}{{post.image?.pathUrl}}" alt="Post Image">
                 </div>
               </div>
               <div class="col-md-6  m-auto  ">
 
-                  <a class="btn-link" data-toggle="collapse"   > <!-- href="#demo{{post.id}}"-->
-                    {{post.title}}
-                  </a>
+                <a class="btn-link des-post" data-toggle="collapse"> <!-- href="#demo{{post.id}}"-->
+                  {{post.title}}
+                </a>
 
                 <p class="des-post">
                   {{post.description}}
                 </p>
-<!--                <p *ngFor="let cate of post.category">{{cate.typeName}}</p>-->
+                <!--                <p *ngFor="let cate of post.category">{{cate.typeName}}</p>-->
               </div>
-              <div class="col-md-1 m-auto btn-link tittle" >
-               {{post.category.typeName}}
+              <div class="col-md-1 m-auto btn-link ">
+                {{post.category.typeName}}
               </div>
 
               <div class="col-md-2 m-auto  " style="text-align: center;">
@@ -78,9 +78,9 @@
               </div>
               <div class="action-box col-md-1">
                 <!--        ví dụ về button sửa-->
-                <button (click)="updatePost(post.id)"  class="btnn edit"  ><i class="far fa-pen"></i> </button>
+                <button (click)="updatePost(post.id)" class="btnn edit"><i class="far fa-pen"></i> </button>
 
-                <button (click)="deletePost(post.id)"   class="btnn dele" ><i class="far fa-times"></i> </button>
+                <button (click)="deletePost(post.id)" class="btnn dele"><i class="far fa-times"></i> </button>
               </div>
             </div>
             <!-- <div class="col-md-9">
@@ -94,10 +94,8 @@
         <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-bottom: 10px;">
           <div class="row">
             <div class="col-md-6">
-              <pagination-controls
-                previousLabel="<"
-                nextLabel=">"
-                [id]="'post'"
+              <pagination-controls previousLabel="<" 
+                nextLabel=">" [id]="'post'" 
                 (pageChange)="handlePageChange($event)"
                 [maxSize]="paging.totalRecord"></pagination-controls>
             </div>
@@ -107,5 +105,3 @@
     </div>
   </div>
 </div>
-
-

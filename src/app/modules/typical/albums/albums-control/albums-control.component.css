@@ -55,7 +55,10 @@
     font-size: 20px;
     border: 0px;
     text-align: left;
-    color: rgb(96, 96, 96);
+    /* color: rgb(0, 0, 0); */
+    background: gainsboro;
+    border-radius: 5px;
+
   }
   .item{
     width: 20%;

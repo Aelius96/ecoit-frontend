@@ -1,10 +1,13 @@
 <app-header></app-header>
 
 
-<img width="100%" height="250"
-     src="https://ecoit.asia/wp-content/uploads/2019/08/banner-tuyen-dung-2.jpg"
+  <img width="100%" height="250"
+     src="./assets/images/ecoit/banner-tuyen-dung-2.jpg"
      class="fuild-img wp-post-image" alt="" loading="lazy" >
 
+
+  <!-- imgurl_banner:any -->
+  <!-- <img src="{{banner_path}}" style="width: 100%;" height="250" alt="image"> -->
 
 <div class="site-wrapper-reveal">
 
@@ -23,7 +26,7 @@
               </h2>
 
               <div class="post-excerpt mt-15">
-                <div class="content" [innerHTML]="content"></div>
+                <div class="content lh-base " [innerHTML]="content"></div>
                 <strong>Thẻ tag: </strong>
                 <span *ngFor="let p of product.hashtags">
                 <a href="">{{p.name}},</a>

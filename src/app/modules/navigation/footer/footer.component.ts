@@ -82,9 +82,6 @@ contact_about=[
     icon:'fa fa-envelope',
     title:'contact@ecoit.asia'
   },
-
 ]
-
-
 }
 

@@ -20,9 +20,9 @@
                             </div>
                             <div id="icon" class="widget wdc-social-wgt">
                                 <div class="wdc-social">
-                                    <ul class="list-inline" style="color: #ababaa;">
+                                    <ul class="list-inline mt-3 ">
                                         <li>
-                                            <a class="fa fa-facebook" href="https://www.facebook.com/ecoitcorp/" title="Facebook" target="_blank">
+                                            <a class="fa fa-facebook icon-intro " href="https://www.facebook.com/ecoitcorp/" title="Facebook" target="_blank">
                                                <!-- <i class="fa fa-facebook"></i> -->
                                             </a>
                                         </li>
@@ -30,9 +30,9 @@
                                             <a class="fa fa-twitter" style="color: #ababaa;"  href="https://twitter.com" title="Twitter" target="_blank"></a>
                                         </li> -->
                                         <li>
-                                            <a class="fa fa-envelope " style="color: #ababaa;" href="contact@ecoit.asia" title="Email" target="_blank"></a>
+                                            <a class="fa fa-envelope  icon-intro " href="contact@ecoit.asia" title="Email" target="_blank"></a>
                                         <li>
-                                            <a  href="https://www.youtube.com/@ecoittvofficial3472" class="fa fa-youtube" style="color: #ababaa;" title="Youtube" target="_blank">
+                                            <a  href="https://www.youtube.com/@ecoittvofficial3472  " class="fa fa-youtube icon-intro " title="Youtube" target="_blank">
 
                                             </a>
 
@@ -80,15 +80,15 @@
                             <ul class="media-list" *ngFor="let post of postList ; let i = index">
                                 <li class="media_body " *ngIf="i<3">
                                     <div class="disp-inflex d-flex flex-row" style="padding-top: 2px ">
-                                      <div class="anhtintuc post-thumb" style="float: left;width: 30%; height: 100%;">
+                                      <div class="anhtintuc " >
                                         <a  title="{{post.title}}" style="height: 100%; width: 100%;">
                                           <img  src="{{baseURL}}{{post.image?.pathUrl}}" style="height: 100%; width: 100%;" alt="" loading="lazy"></a>
                                       </div>
                                       <div class="blog-inner" style="display: inline-block;width: 70%; ">
-                                        <a href="/tin-tuc/{{post.url}}" id="text" >{{post.title}}</a>
+                                        <a href="/tin-tuc/{{post.url}}" class="text-title-news" >{{post.title}}</a>
                                         </div>
                                     </div>
-                                    <hr  style="margin-top: 20px;">
+                                    <hr  class="my-3">
                                 </li>
                             </ul>
                         </div>

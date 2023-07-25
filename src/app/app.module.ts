@@ -131,6 +131,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { NgbTooltipModule  } from '@ng-bootstrap/ng-bootstrap';
 import {MatTreeModule} from '@angular/material/tree';
 import { SearchComponent } from './modules/search/search.component';
+import { AnimatedDigitComponent } from './_animation/animated-digit/animated-digit.component';
 
 
 @NgModule({
@@ -223,6 +224,7 @@ import { SearchComponent } from './modules/search/search.component';
         CategoryControlComponent,
         CategoryAddComponent,
         SearchComponent,
+        AnimatedDigitComponent,
 
 
 

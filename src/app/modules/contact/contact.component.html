@@ -1,6 +1,6 @@
 <div class="container_lien_he d-flex">
-    <div class="">
-      <div class="contentt" style="padding: 5px 20px 20px 20px;">
+
+      <div class="contentt w-50"  style="padding: 5px 20px 20px 20px;">
         <div class="dau" style="margin: 10px 0px 0px 0px; padding-bottom: 10px;">
                 <div class="header position-relative" >
                     <!-- brand logo -->
@@ -34,9 +34,17 @@
         <div class="than">
           <h5 class="text"> Chào Quý Khách Hàng! </h5>
         </div>
-        <div style="font-size:17px; text-align: left; margin-top: 10px;">
+        <div style="font-size:15px; " class="mt-4 text-left " >
           Vui lòng điền thông tin theo mẫu form dưới đây để bộ phận Tư vấn khách hàng của EcoIT có thể hỗ trợ quý khách hàng sớm nhất.
         </div>
+        <!-- <div class="form">
+          <form action="" id="form1">
+          <input type="text" id="fname" name="fname" placeholder="Họ tên"><br>
+          <input type="text" id="femail" name="femail" placeholder="Địa chỉ Email"><br>
+          <input type="text" id="fcontent" name="fcontent" placeholder="Nội dung yêu cầu"><br>
+          <input type="submit" value="Gửi yêu cầu">
+          </form>
+        </div> -->
         <div class="info">
           <form  (ngSubmit)="onSubmit()"    enctype="multipart/form-data"  novalidate action="" >
             <label for="name">
@@ -48,9 +56,7 @@
               <span>Số điện thoại</span>
               <span style="color: red;">*</span> <br>
               <input  class="input-info w-100" [(ngModel)]="contact.phone"  (keypress)="numberOnly($event)" type="text" id="phone" name="phone" required>
-              <!-- <ngx-intl-tel-input></ngx-intl-tel-input> -->
-              <!-- <input class="input-info w-100" type="tel" id="phone" name="phone"  [(ngModel)]="contact.phone"  required > -->
-              <!-- <input type="tel" class="input-info w-100" id="phone" name="phone" [(ngModel)]="contact.phone" pattern="[0-9]{10}" required> -->
+              
             </label> <br>
             <label for="email">
               <span>Email</span> 
@@ -67,10 +73,11 @@
             </div>
           </form>
         </div>
+        
       </div>
-    </div>
-    
-    <div class="img">
+
+  
+      <div class="img w-50 ">
       <img  src="./assets/images/bglogin.jpg" alt="liên hệ" style=" height: 100vh; width: 100%;">
   </div>
   
