@@ -27,3 +27,6 @@
     text-decoration: none;
     color: black;
   }
+  .lh-base{
+    line-height: 25px;
+  }
