@@ -7,6 +7,7 @@ import { Category } from 'src/app/core/model/category/category';
 import {Constant} from "../../../core/config/constant";
 import { HttpParams } from '@angular/common/http';
 import { CategoryService } from 'src/app/services/category/category.service';
+import {DomSanitizer} from "@angular/platform-browser";
 
 
 @Component({
@@ -17,24 +18,24 @@ import { CategoryService } from 'src/app/services/category/category.service';
 export class PostControlComponent implements OnInit{
   postList: Post[]=[];
   catelist: Category[]=[];
-  
+
   baseURL = Constant.BASE_URL;
   role:string;
   Filter:false;
   searchInput= '';
-
+  imageUrl :any;
   paging = {
     page: 1,
     size: 5,
     totalRecord: 0
   }
-
   cate = '';
 
 
   constructor(private router:Router,
               private postService: PostService ,
-              private cateService: CategoryService) {}
+              private cateService: CategoryService
+  ) {}
 
 
   ngOnInit(): void {
@@ -68,13 +69,12 @@ export class PostControlComponent implements OnInit{
 
   getListAllWithPage() {
     const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput, this.cate);
-    
+
     this.postService.listAllWithPage(params)
       .subscribe(
         data => {
           this.postList = data.content;
           this.paging.totalRecord = data.totalElements;
-          console.log(this.postList);
         },
         error => {
           console.log(error);
