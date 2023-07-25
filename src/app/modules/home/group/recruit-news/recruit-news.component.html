@@ -1,83 +1,84 @@
 <div style="margin-top: 50px;" id="tdttt">
-  <div class="payment-staps-way-wrap section-space--pb_120">
+  <div class="payment-staps-way-wrap section-space--pb_90">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-12" style=" padding-top: 10px;" >
+        <div class="col-lg-12" style=" padding-top: 10px;">
           <div class="ssection-space--mb_20 ">
             <div class="text-center  ">
-              <h2 class="title"style="text-align: center;">TUYỂN DỤNG - TIN TỨC</h2>
-              <hr class="gachchan" >
+              <h2 class="title" style="text-align: center;">TUYỂN DỤNG - TIN TỨC</h2>
+              <hr class="gachchan">
             </div>
           </div>
         </div>
       </div>
-      <div class="row " >
+      <div class="row ">
         <div class="col-lg-12">
 
-            <div class="row align-items-center justify-content-center ">
-              <div class="col-lg-4 " >
-                <!-- slide -->
-                <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 40px;" >
+          <div class="row align-items-center justify-content-center ">
+            <div class="col-lg-4 ">
+              <!-- slide -->
+              <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 40px;">
 
-                  <div class="carousel-inner" >
+                <div class="carousel-inner">
 
-                    <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let post of postListRecruit ; let s = index ">
-                      <div>
-                        <img style="font-weight: 400; width: 100%; height: 250px;" src="{{baseURL}}{{post.image?.pathUrl}}"  alt="" loading="lazy">
+                  <div class="item " [class]="s == 0 ? 'active' : '' "
+                    *ngFor="let post of postListRecruit ; let s = index ">
+                    <div>
+                      <img style="font-weight: 400; width: 100%; height: 250px;"
+                        src="{{baseURL}}{{post.image?.pathUrl}}" alt="" loading="lazy">
 
-                        <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;" >
-                          <h6 class="post-title">
-                            <a href="/tuyen-dung/{{post.url}}" tabindex="-1" class="h7tttd">{{post.title}}</a>
-                          </h6>
-                          <div class="post-excerpt">
-                            <p class="ptdtt">{{post.description}}</p>
-                          </div>
+                      <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;">
+                        <h6 class="post-title">
+                          <a href="/tuyen-dung/{{post.url}}" tabindex="-1" class="h7tttd">{{post.title}}</a>
+                        </h6>
+                        <div class="post-excerpt">
+                          <p class="ptdtt">{{post.description}}</p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <script>
-                  $(document).ready(function(){
-                    $('.carousel').carousel({
-                      interval: 10
-                    })
-                  });
-                </script>
-                <div class="col-xs-12" >
-                  <div class="service-link"><a  class="wpb_color-gree" href="/tuyen-dung">TÌM HIỂU THÊM</a></div>
-                </div>
               </div>
-              <div class="col-lg-4" style="top:0px">
-                <div class="nav">
-                  <div class="float-md-left">
-                    <div class="recruit">
-                      <ul >
-                        <li *ngFor="let post of postListNews " >
-                          <div class="d-flex flex-row listnew"  >
-                            <div>
-                              <div class="anhtintuc" >
-                                <a href="/tin-tuc/{{post.url}}" title="{{post.title}}" style="height: 100%;">
-                                  <img  src="{{baseURL}}{{post.image.pathUrl}}" class="image" alt="" loading="lazy"></a>
-                              </div>
-                              <div class="blog-inner" style="display: inline-block;width: 70%;">
-                                <a href="/tin-tuc/{{post.url}}" class="title-news " >{{post.title}}</a>
-                                <p class="des-news">{{post.description}}</p>
-                              </div>
+              <script>
+                $(document).ready(function () {
+                  $('.carousel').carousel({
+                    interval: 10
+                  })
+                });
+              </script>
+              <div class="col-xs-12">
+                <div class="service-link mb-3 "><a class="wpb_color-gree" href="/tuyen-dung">TÌM HIỂU THÊM</a></div>
+              </div>
+            </div>
+            <div class="col-lg-4" style="top:0px">
+              <div class="nav">
+                <div class="float-md-left">
+                  <div class="recruit">
+                    <ul class="mb-5">
+                      <li *ngFor="let post of postListNews ">
+                        <div class="d-flex flex-row listnew">
+                          <div>
+                            <div class="anhtintuc">
+                              <a href="/tin-tuc/{{post.url}}" title="{{post.title}}" style="height: 100%;">
+                                <img src="{{baseURL}}{{post.image.pathUrl}}" class="image" alt="" loading="lazy"></a>
+                            </div>
+                            <div class="blog-inner" style="display: inline-block;width: 70%;">
+                              <a href="/tin-tuc/{{post.url}}" class="title-news ">{{post.title}}</a>
+                              <p class="des-news">{{post.description}}</p>
                             </div>
                           </div>
-                        </li>
-                      </ul>
-                      <div  style="margin: 50px 0 20px 0px;">
-                        <div class="col-xs-12" >
-                          <div class="service-link"><a id="aa" class="wpb_color-gree" href="/tin-tuc">TÌM HIỂU THÊM</a></div>
                         </div>
+                      </li>
+                    </ul>
+                    <div class="col-xs-12">
+                      <div class="service-link my-3"><a id="aa" class="wpb_color-gree" href="/tin-tuc">TÌM HIỂU THÊM</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </div>

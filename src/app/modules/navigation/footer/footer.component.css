@@ -20,16 +20,28 @@
     font-family: Verdana;
     font-weight: bold;
 }
-
+.icon-intro{
+    font-size: 18px; 
+    color: #ababaa;
+    margin-right: 5px;
+}
+.icon-intro:hover{
+    color: rgb(67, 192, 74);
+    text-decoration: none;
+}
 .list{
     padding-bottom: 1px;
     text-align: justify;
     position: relative;
     color: #d5cccc;
 }
+.list:hover{
+    margin-left: 5px;
+    color: rgb(67, 192, 74);
+}
 .text-title-news{
     color: #bababa;
-    font-size: 13px;
+    font-size: 14px;
     padding-left: 10px;
     margin-top: auto;
     display: -webkit-box;
