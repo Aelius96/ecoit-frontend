@@ -1,7 +1,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="item" [class]=" i==0 ? 'active ' : '' "  *ngFor="let item of slider ; let i = index">
-      <img   src="{{baseURL}}{{item.pathUrl}}"
+      <img   src="{{baseURL}}{{item?.pathUrl}}"
            class="fuild-img " alt="" loading="lazy" style="height: 100%;"  >
       <div class="carousel-caption">
         <div></div>

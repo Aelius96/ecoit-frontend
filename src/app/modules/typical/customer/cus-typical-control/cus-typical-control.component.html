@@ -46,7 +46,7 @@
                                                       currentPage: paging.page,
                                                       totalItems: paging.totalRecord } ;let i = index">
       <div class="item-image">
-          <img class="img" src="{{baseURL}}{{cusTyp.image.pathUrl}}" alt="" id="{{cusTyp.id}}"/>
+          <img class="img" src="{{baseURL}}{{cusTyp.image?.pathUrl}}" alt="" id="{{cusTyp.id}}"/>
           <div class="d-flex btnn" >
             <!--ví dụ về button sửa-->
             <button (click)="updateTC(cusTyp.id)"  style="background-color: #50b848 ; " class="button"  [ngStyle]="ExStyle" ><i class="far fa-pen"></i> </button>

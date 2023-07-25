@@ -41,7 +41,7 @@
                           <!-- <ngx-slick-carousel class="carousel" [config]="slideConfig"> -->
                             <div  *ngFor="let slide of sliders" class="listslide col-md-3">
                               <div class="team-image" (click)="choose(slide)">
-                                <img class="img-fluid" src="{{baseURL}}{{slide.pathUrl}}" id="{{slide.id}}" alt="{{slide.name}}">
+                                <img class="img-fluid" src="{{baseURL}}{{slide?.pathUrl}}" id="{{slide.id}}" alt="{{slide.name}}">
                               </div>
                             </div>
                           </div>

@@ -1,5 +1,6 @@
 import {Category} from "../category/category";
 import {Hashtag} from "../hashtag/hashtag";
+import {Image} from "../image/image";
 
 
 export class Post {
