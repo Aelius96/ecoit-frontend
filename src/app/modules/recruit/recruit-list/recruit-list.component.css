@@ -32,3 +32,6 @@ a:hover{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.img-recruit{
+  max-height: 230px;
+}
