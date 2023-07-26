@@ -199,24 +199,24 @@ export class AlbumsDetailComponent implements OnInit {
   getRequestParams(page:number , pageSize:number ):any{
     let params:any ={};
     if(page){
-      params[`pageNo`] = page-1
+      params[`pageNo`] = page;
     }
 
     if (pageSize) {
       params[`pageSize`] = pageSize;
     }
+    return params;
   }
 
   getListWithPage():void{
-    const params = this.getRequestParams(this.paging.page , this.paging.size)
+    const params = this.getRequestParams(this.paging.page , this.paging.size);
     this.imageService.getlistallwithpage(params).subscribe(data=>{
       this.image = data.content;
       this.paging.totalRecord = data.totalElements;
       this.totalPages = data.totalPages;
       console.log(data)
     },
-    error=>{console.log(error);}
-    )
+    error=>{console.log(error);})
   }
 
   handlepagechange(event : number):void{
@@ -250,7 +250,6 @@ export class AlbumsDetailComponent implements OnInit {
         fileSaver.saveAs(blob , data.name );
       })
     })
-
   }
 
   pick(e:any){

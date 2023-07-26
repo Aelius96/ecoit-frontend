@@ -24,14 +24,6 @@ export class FileService {
 
   }
 
-  // uploadImage(image: File): Promise<any> {
-  //   const formData = new FormData();
-  //   formData.append('test', image);
-  //
-  //   return this.http.post<any>(`${this.baseUrl}/s/file/add`, formData).toPromise();
-  // }
-
-
   deleteFile(file:File ){
     return this.http.post(`${this.baseUrl}/s/file/deleteFile`, file);
   }
@@ -48,8 +40,8 @@ export class FileService {
     return this.http.post(`${this.baseUrl}/s/file/image/update`, file);
   }
 
-  getlistallwithpage(params: Params): Observable<any>{
-    return this.http.get(`${this.baseUrl}/s/file/image`, {params});
+  getlistallwithpage(paramsQuery: Params): Observable<any>{
+    return this.http.get(`${this.baseUrl}/s/file/image`, {params: paramsQuery});
   }
 
   getListAll():Observable<any>{

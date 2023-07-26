@@ -14,46 +14,21 @@ import {Constant} from "../../../core/config/constant";
 export class RecruitListComponent implements OnInit {
   baseURL = Constant.BASE_URL;
   recruitList: Recruit [] = [];
-  page = 1;
- count = 0;
- pageSize= 5;
- searchInput = '';
+  postList: Post[] = [];
+
+
 totalPages: number;
  paging={page:1, size:5, totalRecord:0}
-  postList: Post[] = [];
+
+
  category='recruit';
   constructor(private recruitService:RecruitService,
               private postService:PostService
-  ) { }
-
+  ) {  }
 
   ngOnInit(): void {
     this.getListAllWithPageTest();
   }
-  // getRequestParam(page:number):any{
-  //   let params :any={};
-  //   if (page){
-  //     params[`pageNo`]= page-1;
-  //   }
-  // }
-  //
-  // getAllListwithPage():void{
-  //   const param = this.getRequestParam(this.paging.page);
-  //     this.recruitService.listAllWithPageHome(param).subscribe(response=>{
-  //         this.recruitList=response.content;
-  //         this.paging.totalRecord=response.totalElements;
-  //
-  //         console.log(response)
-  //     },
-  //     error=>{
-  //       console.log(error)
-  //     } )
-  //  }
-  //
-  //  handlePagechange(event:number){
-  //   this.page= event;
-  //   this.getAllListwithPage();
-  //  }
 
   getRequestParamsTest(page: number, category: string): any {
     let params: any = {};
@@ -86,5 +61,27 @@ totalPages: number;
     this.paging.page = event;
     this.getListAllWithPageTest();
   }
-}
 
+
+
+
+
+  // constructor(private postService:PostService) {
+  //   this.onPageChange({ pageIndex: 0, pageSize: this.pageSize });
+  // }
+
+  // listAll():void{
+  //   this.postService.listAll().subscribe(res=>{
+  //     this.postList=res
+  //     console.log(res)
+  //   })
+  // }
+  // items: any[] = [];
+// //   pageSize = 10;
+// pageSizeOptions: number[] = [5, 10, 25, 50];
+// pagedItems: any[] = [];
+//   onPageChange(event: any): void {
+//     const startIndex = event.pageIndex * event.pageSize;
+//     this.pagedItems = this.postList.slice(startIndex, startIndex + event.pageSize);
+//   }
+}

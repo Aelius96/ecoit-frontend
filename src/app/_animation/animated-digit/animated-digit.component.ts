@@ -24,7 +24,7 @@ export class AnimatedDigitComponent implements AfterViewInit {
 
   counterFunc(endValue: number, element: any) {
     const steps = 10;
-    const durationMs = Math.floor((Math.random()*1000)+3000);
+    const durationMs = Math.floor((Math.random()*1000)+2000);
 
     const stepCount = Math.abs(durationMs / steps);
     const valueIncrement = (endValue - 0) / stepCount;

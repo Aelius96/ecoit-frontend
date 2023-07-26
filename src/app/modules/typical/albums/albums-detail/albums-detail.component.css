@@ -102,3 +102,13 @@
    padding-top: 50px;
    overflow: auto;
   }
+  .list-img{
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    max-height: 700px;
+  }
+  .list-img::-webkit-scrollbar{
+    width: 0px !important;
+    display: none;
+  }
