@@ -18,7 +18,7 @@ export class RecruitListComponent implements OnInit {
 
 
 totalPages: number;
- paging={page:1, size:5, totalRecord:0}
+ paging={page:1, size:9, totalRecord:0}
 
 
  category='recruit';
