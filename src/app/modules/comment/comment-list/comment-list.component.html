@@ -20,20 +20,20 @@
 						<div class="col-md-10">
 							<span>{{cmt.content}}</span>
 							<p>
-								<a class="btn-link" (click)="addParentId(cmt.id)" data-toggle="collapse" href="#{{cmt.id}}"> Trả lời</a>
+								<a class="btn-link" (click)="addParentId(cmt.id)" data-toggle="collapse" href="#{{cmt.id}}parent"> Trả lời</a>
 							</p>
 						</div>
 						<div class="col-md-2">
 							<div class="" >
 								<div *ngIf="userId == cmt.user.id ">
-									<a  data-toggle="collapse" href="#{{cmt.id}}" >Chỉnh sửa</a>
+									<a  data-toggle="collapse" href="#{{cmt.id}}editParent" >Chỉnh sửa</a>
 									<a (click)="Delete(cmt.id)"><span class="delete-cmt">Xóa</span></a>
 								</div>
 							  </div>
 						</div>
 					</div>
 					<form (ngSubmit)="updateComment(cmt.id,cmt)">
-						<div id="{{cmt.id}}" class="collapse " data-parent="#accordion">
+						<div id="{{cmt.id}}editParent" class="collapse " data-parent="#accordion">
 							<div class="reply-submit">
 								<textarea  name="content" id="" [(ngModel)]="cmt.content"
 									placeholder="Bạn nhập bình luận tại đây"></textarea>
@@ -60,11 +60,11 @@
 									<p class="child-content">{{cmtChild.content}}</p>
 								</div>
 								<div class="col-md-2" *ngIf="userId == cmtChild.user.id ">
-									<a  data-toggle="collapse" href="#{{cmtChild.id}}" >Chỉnh sửa</a>
+									<a  data-toggle="collapse" href="#{{cmtChild.id}}editChild" >Chỉnh sửa</a>
 									<a (click)="DeleteChild(cmtChild.id)"><span class="delete-cmt">Xóa</span></a>
 								</div>
 								<form (ngSubmit)="updateComment(cmtChild.id,cmtChild)">
-									<div id="{{cmtChild.id}}" class="collapse " data-parent="#accordion">
+									<div id="{{cmtChild.id}}editChild" class="collapse " data-parent="#accordion">
 										<div class="reply-submit">
 											<textarea  name="contentChild" id="" [(ngModel)]="cmtChild.content"
 												placeholder="Bạn nhập bình luận tại đây"></textarea>
@@ -76,7 +76,7 @@
 						</div>
 					</div>
 					<form (ngSubmit)="sendChildComment()">
-						<div id="{{cmt.id}}" class="collapse " data-parent="#accordion">
+						<div id="{{cmt.id}}parent" class="collapse " data-parent="#accordion">
 							<div class="reply-submit">
 								<textarea name="content" id="" [(ngModel)]="comment.content"
 									placeholder="Bạn nhập bình luận tại đây"></textarea>

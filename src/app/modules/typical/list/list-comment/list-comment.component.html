@@ -120,12 +120,14 @@
                   <div class="col-md-10">
                     <div class="content-comment ">
                       <span>{{cmt.content}}</span>
-                      <p  >
-                        <a class="btn-link mr-3 " (click)="addParentId(cmt.id,cmt.post.id)"  data-toggle="collapse" href="#{{cmt.id}}"> Trả lời</a>
-                        <a  data-toggle="collapse" href="#{{cmt.id}}" >Chỉnh sửa</a>
-                      </p>
+                      <div  >
+                        <a class="btn-link mr-3 " (click)="addParentId(cmt.id,cmt.post.id)"  data-toggle="collapse" href="#{{cmt.id}}parent"> Trả lời</a>
+                        <span *ngIf="userId == cmt.user.id " >
+                          <a  data-toggle="collapse" href="#{{cmt.id}}editparent" >Chỉnh sửa</a>
+                        </span>
+                      </div>
                       <form (ngSubmit)="updateComment(cmt.id,cmt)">
-                        <div id="{{cmt.id}}" class="collapse " data-parent="#accordion">
+                        <div id="{{cmt.id}}editparent" class="collapse " data-parent="#accordion">
                           <div class="reply-submit d-flex">
                             <textarea  name="content" id="" [(ngModel)]="cmt.content"
                               placeholder="Bạn nhập bình luận tại đây" cols="60" rows="3" ></textarea>
@@ -152,7 +154,7 @@
                             </div>
                             <div class="col-md-2 d-flex flex-column">
                               <div *ngIf="userId == cmtChild.user.id ">
-                                <a data-toggle="collapse" href="#{{cmtChild.id}}" >Chỉnh sửa</a>
+                                <a data-toggle="collapse" href="#{{cmtChild.id}}editChild" >Chỉnh sửa</a>
                                 
                               </div>
                               <a *ngIf="cmtChild.status ; else hien"  (click)="DisableChild(cmtChild.id)" ><span class="dis-enable">Ẩn</span> </a>
@@ -163,7 +165,7 @@
                             </div>
                             
                             <form (ngSubmit)="updateComment(cmtChild.id,cmtChild)">
-                              <div  id="{{cmtChild.id}}" class="collapse " data-parent="#accordion"  >
+                              <div  id="{{cmtChild.id}}editChild" class="collapse " data-parent="#accordion"  >
                                 <div class="text-left  d-flex tab"> 
                                   <textarea name="contentChild" [(ngModel)]="cmtChild.content" id="content" cols="60" rows="3"></textarea>
                                   <button class="btn" type="submit" style="height: 65px;">Cập nhật</button>
@@ -174,7 +176,7 @@
                         </div>
                       </div>
                       <form (ngSubmit)="RepComment()">
-                        <div id="{{cmt.id}}" class="collapse " data-parent="#accordion">
+                        <div id="{{cmt.id}}parent" class="collapse " data-parent="#accordion">
                           <div class="reply-submit d-flex ">
                             <textarea name="content" [(ngModel)]="comment.content" id="" cols="60" rows="3"></textarea>
                             <button class="btn" type="submit" style="height: 65px;">Gửi</button>
