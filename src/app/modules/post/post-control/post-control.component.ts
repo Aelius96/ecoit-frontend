@@ -8,6 +8,7 @@ import {Constant} from "../../../core/config/constant";
 import { HttpParams } from '@angular/common/http';
 import { CategoryService } from 'src/app/services/category/category.service';
 import {DomSanitizer} from "@angular/platform-browser";
+import {Domain} from "../../../core/domain/domain";
 
 
 @Component({
@@ -20,6 +21,7 @@ export class PostControlComponent implements OnInit{
   catelist: Category[]=[];
 
   baseURL = Constant.BASE_URL;
+  postURL = Domain.POST;
   role:string;
   Filter:false;
   searchInput= '';
