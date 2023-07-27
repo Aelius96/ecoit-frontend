@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {NewsService} from "../../../../services/news/news.service";
 import {HttpClient} from "@angular/common/http";
 import {CustomerTypicalService} from "../../../../services/customer-typical/customer-typical.service";
+import {Domain} from "../../../../core/domain/domain";
 
 @Component({
   selector: 'app-cus-typical-add',
@@ -19,6 +20,7 @@ export class CusTypicalAddComponent {
   id: any;
   ckeConfig: any;
   baseURL = Constant.BASE_URL;
+  cusTyoURL = Domain.CUSTYPICAL;
   message = '';
   imageURL : any;
   constructor(private router:Router, private route:ActivatedRoute, private cusTypicalService: CustomerTypicalService) {
@@ -30,7 +32,7 @@ export class CusTypicalAddComponent {
       this.cusTypicalService.getTCById(this.id).subscribe(data =>{
         this.cusTypical = data;
         this.urls = this.cusTypical.image.pathUrl;
-        this.imageURL = this.baseURL + this.urls;
+        this.imageURL = `${this.baseURL}/${this.cusTyoURL}/image/${this.id}`;
       });
     }
     this.ckeConfig = {

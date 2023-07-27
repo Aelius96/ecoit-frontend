@@ -4,6 +4,7 @@ import {CustomerTypicalService} from "../../../../services/customer-typical/cust
 import {CusTypical} from "../cus-typical";
 import { Router } from '@angular/router';
 import {Constant} from "../../../../core/config/constant";
+import {Domain} from "../../../../core/domain/domain";
 
 @Component({
   selector: 'app-cus-typical-control',
@@ -18,6 +19,8 @@ export class CusTypicalControlComponent implements OnInit{
   totalPages: number;
   searchInput= '';
   baseURL=Constant.BASE_URL;
+  customerURL = Domain.CUSTOMER;
+  typCustomerURL = Domain.CUSTYPICAL;
   paging = {
     page: 1,
     size: 5,
