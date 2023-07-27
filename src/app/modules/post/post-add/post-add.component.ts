@@ -34,7 +34,7 @@ export class PostAddComponent implements OnInit{
   url: any;
   id: any;
   ckeConfig: any;
-  baseUrl = Constant.BASE_URL;
+  baseURL = Constant.BASE_URL;
   message = '';
   imageURL: any;
   separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -117,7 +117,7 @@ export class PostAddComponent implements OnInit{
       this.postService.getPostById(this.id).subscribe(data =>{
         this.post = data;
         this.url = this.post.image?.pathUrl;
-        this.imageURL = this.baseUrl +this.url;
+        this.imageURL = `${this.baseURL}/bpost/image/${this.id}`;
         this.listAllHashTag();
       });
     }

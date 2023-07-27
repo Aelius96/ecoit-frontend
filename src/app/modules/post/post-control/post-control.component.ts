@@ -30,7 +30,7 @@ export class PostControlComponent implements OnInit{
     totalRecord: 0
   }
   cate = '';
-
+  postId: number;
 
   constructor(private router:Router,
               private postService: PostService ,
@@ -80,6 +80,14 @@ export class PostControlComponent implements OnInit{
           console.log(error);
         });
   }
+
+  // getImageByPostId(){
+  //   this.postService.getImageByPostId(this.postId).subscribe(data =>{
+  //     this.image = data.id;
+  //     }
+  //   )
+  // }
+
   listAll(){
     this.postService.listAll().subscribe(data=>{
       this.postList = data;

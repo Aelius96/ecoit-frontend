@@ -34,7 +34,7 @@ export class NewsControlComponent implements OnInit{
       this.getListAllWithPage();
   }
 
-  getRequestParams(page: number, pageSize: number,search:string): any {
+  getParams(page: number, pageSize: number,search:string): any {
     let params: any = {};
 
     if (page) {
@@ -52,7 +52,7 @@ export class NewsControlComponent implements OnInit{
   }
 
   getListAllWithPage(): void {
-    const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
+    const params = this.getParams(this.paging.page, this.paging.size, this.searchInput);
     this.newsService.listAllWithPage(params)
       .subscribe(
         response => {

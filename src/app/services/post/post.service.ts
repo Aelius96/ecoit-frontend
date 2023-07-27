@@ -60,4 +60,8 @@ export class PostService {
   deletePost(id: number): Observable<Object>{
     return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}`);
   }
+
+  getImageByPostId(id: number):Observable<Post>{
+    return this.http.get<Post>(`${this.baseUrl}/${this.domain}/image/${id}`);
+  }
 }
