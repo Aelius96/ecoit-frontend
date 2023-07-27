@@ -32,10 +32,7 @@
   .cancel:hover{
     background-color: rgba(43, 43, 63, 0.85);
   }
-  .btnn {
-    margin-right: 15px;
-  
-  }
+
   textarea:focus{
     border: 1px solid #50B848;
     color: #000000;

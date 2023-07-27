@@ -12,17 +12,10 @@ import {Constant} from "../../../core/config/constant";
   styleUrls: ['./news-list.component.css']
 })
 export class NewsListComponent implements OnInit{
-
   baseURL = Constant.BASE_URL;
-  newsList : News[] = [];
 
   postList : Post[] = [];
 
-  page = 1;
-  count = 0;
-  pageSize = 9;
-  searchInput = '';
-  totalPages: number;
   paging = {
     page: 1,
     size: 9,

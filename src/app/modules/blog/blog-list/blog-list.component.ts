@@ -14,11 +14,7 @@ export class BlogListComponent implements OnInit {
 
   baseURL = Constant.BASE_URL;
   postList: Post[]=[];
-  page =1;
-  count=0;
-  pageSize= 9;
-  searchInput = '';
-  private totalPages: number;
+
   paging={page:1 , size:9 , totalRecord:0}
 
   category= 'blog';
