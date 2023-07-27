@@ -3,6 +3,7 @@ export class Domain {
   public static AUTH = `auth`;
   public static BLOG = `blog`;
   public static CUSTOMER = `customer`;
+  public static CUSTYPICAL = `cus-typical`;
   public static CONTACT = `contact`;
   public static GALLERY = `tImage`;
   public static NAVIGATION = `nav`;

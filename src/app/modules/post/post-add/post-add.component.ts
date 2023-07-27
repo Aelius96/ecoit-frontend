@@ -16,6 +16,7 @@ import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {FileService} from "../../../services/file/file.service";
 import {File} from "../../../services/file/file";
+import {Domain} from "../../../core/domain/domain";
 
 export interface Fruit {
   name: string;
@@ -35,6 +36,7 @@ export class PostAddComponent implements OnInit{
   id: any;
   ckeConfig: any;
   baseURL = Constant.BASE_URL;
+  postURL = Domain.POST;
   message = '';
   imageURL: any;
   separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -117,7 +119,7 @@ export class PostAddComponent implements OnInit{
       this.postService.getPostById(this.id).subscribe(data =>{
         this.post = data;
         this.url = this.post.image?.pathUrl;
-        this.imageURL = `${this.baseURL}/bpost/image/${this.id}`;
+        this.imageURL = `${this.baseURL}/${this.postURL}/image/${this.id}`;
         this.listAllHashTag();
       });
     }
