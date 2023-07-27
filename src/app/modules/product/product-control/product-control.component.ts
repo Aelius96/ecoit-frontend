@@ -5,6 +5,7 @@ import {ProductService} from "../../../services/product/product.service";
 import { Role } from '../../../core/model/role/role';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 import {Constant} from "../../../core/config/constant";
+import {Domain} from "../../../core/domain/domain";
 
 
 @Component({
@@ -20,6 +21,7 @@ export class ProductControlComponent implements OnInit{
   totalPages: number;
   searchInput= '';
   baseURL = Constant.BASE_URL;
+  productURL = Domain.PRODUCT;
   paging = {
     page: 1,
     size: 5,

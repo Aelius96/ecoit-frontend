@@ -12,6 +12,7 @@ import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {FormControl} from "@angular/forms";
 import {HashtagService} from "../../../services/hashtag/hashtag.service";
 import {Constant} from "../../../core/config/constant";
+import {Domain} from "../../../core/domain/domain";
 
 @Component({
   selector: 'app-product-add',
@@ -27,6 +28,7 @@ export class ProductAddComponent implements OnInit{
   hashtagList : Hashtag[] = [];
   ckeConfig: any;
   baseURL = Constant.BASE_URL;
+  productURL = Domain.PRODUCT;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   hashtagCtrl = new FormControl('');
   filteredHashtag: Observable<Hashtag[]>;
@@ -103,7 +105,7 @@ export class ProductAddComponent implements OnInit{
       this.productService.getProductById(this.id).subscribe(data =>{
         this.products = data;
         this.url = this.products.image?.pathUrl;
-        this.imageURL = this.baseURL+this.url;
+        this.imageURL = `${this.baseURL}/${this.productURL}/image/${this.id}`;
         this.listAllHashTag();
       })
     }
