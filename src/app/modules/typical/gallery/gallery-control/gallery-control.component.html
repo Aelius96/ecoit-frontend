@@ -39,7 +39,7 @@
                                                   currentPage: paging.page,
                                                   totalItems: paging.totalRecord }">
             <div class="item-image" (click)="pick(img)">
-              <img src="{{baseURL}}{{img.image?.pathUrl}}" alt="" style="height: 100%; width: 100%; border-radius: inherit;">
+              <img src="{{baseURL}}/{{tImageURL}}/image/{{img.image.name}}" alt="" style="height: 100%; width: 100%; border-radius: inherit;">
 
             </div>
           </div>

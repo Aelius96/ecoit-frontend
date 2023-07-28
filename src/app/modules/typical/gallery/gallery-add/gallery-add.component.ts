@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Gallery } from '../../../../core/model/gallery/gallery';
 import { GalleryService } from 'src/app/services/gallery/gallery.service';
 import {Constant} from "../../../../core/config/constant";
+import {Domain} from "../../../../core/domain/domain";
 
 @Component({
   selector: 'app-gallery-add',
@@ -16,7 +17,8 @@ export class GalleryAddComponent implements OnInit{
   url: any;
   id: any;
   baseURL = Constant.BASE_URL;
-  imageUrl : any;
+  galleryURL = Domain.GALLERY;
+  imageURL: any;
 constructor(private router: Router ,
           private route: ActivatedRoute ,
           private galleryService: GalleryService){}
@@ -27,7 +29,7 @@ ngOnInit(): void {
       this.galleryService.getfindbyId(this.id).subscribe(data=>{
         this.gallery = data;
         this.url = this.gallery.image.pathUrl;
-        this.imageUrl = this.baseURL + this.url;
+        this.imageURL =`${this.baseURL}/${this.galleryURL}/image/${this.gallery.image.name}`
       })
     }
   }
@@ -73,17 +75,14 @@ prepareFormdata(gallery: Gallery):FormData{
 return formData
 }
 
-
-
 imageChange(e: any){
   const files = e.target.files;
   if (files.length === 0) return;
-
   const reader = new FileReader();
   this.fileToUpload=files;
   reader.readAsDataURL(files[0]);
   reader.onload = (_event) =>{
-    this.imageUrl= reader.result;
+    this.imageURL= reader.result;
   }
 }
 

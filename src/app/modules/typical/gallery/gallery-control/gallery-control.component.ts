@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { GalleryService } from 'src/app/services/gallery/gallery.service';
 import { Observable } from 'rxjs';
 import {Constant} from "../../../../core/config/constant";
+import {Domain} from "../../../../core/domain/domain";
 
 @Component({
   selector: 'app-gallery-control',
@@ -108,6 +109,7 @@ deleteimg(id:number){
 //     this.pick(this.galleryList[0]);
 //   });
 // }
+  tImageURL = Domain.GALLERY;
 
 
 hideimg(id: number){
