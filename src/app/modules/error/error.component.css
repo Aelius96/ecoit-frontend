@@ -4,7 +4,6 @@
     color: #000000;
     font-weight: bold;
   }
-
 .list{
     padding: 5px 5px 5px 5px;
     color: #50b848;
@@ -44,7 +43,7 @@ p{
   height: 350px;
 }
 /* ========= */
-/* 
+/*
 .modal-custom{
   z-index: 500;
   position: fixed; 

@@ -5,6 +5,7 @@ import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import {Contact} from "../../../core/model/contact/contact";
 import {Constant} from "../../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-news-list',
@@ -13,7 +14,7 @@ import {Constant} from "../../../core/config/constant";
 })
 export class NewsListComponent implements OnInit{
   baseURL = Constant.BASE_URL;
-
+  postURL = Domain.POST;
   postList : Post[] = [];
 
   paging = {

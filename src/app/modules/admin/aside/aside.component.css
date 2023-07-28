@@ -45,16 +45,16 @@
 }
 .list-aside{
   padding-top: 0px;
-  /* max-height: 605px;
+  max-height: 605px;
   overflow: auto;
   scrollbar-width: none;
-  -ms-overflow-style: none; */
+  -ms-overflow-style: none;
   background-color: #29802a;
 }
-/* .list-aside::-webkit-scrollbar{
+.list-aside::-webkit-scrollbar{
   width: 0 !important;
   display: none; 
-} */
+}
 .aside-more{
   justify-content: center;
   background-color: #50b848;

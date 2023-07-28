@@ -17,6 +17,7 @@ import {Domain} from "../../../core/domain/domain";
   styleUrls: ['./post-control.component.css']
 })
 export class PostControlComponent implements OnInit{
+
   postList: Post[]=[];
   catelist: Category[]=[];
 
@@ -32,7 +33,6 @@ export class PostControlComponent implements OnInit{
     totalRecord: 0
   }
   cate = '';
-  postId: number;
 
   constructor(private router:Router,
               private postService: PostService ,
@@ -64,7 +64,8 @@ export class PostControlComponent implements OnInit{
     }
 
     if(cate){
-      params[`cate`] = cate;
+      // params[`cate`] = cate;
+      params.cate=cate
     }
     return params;
   }

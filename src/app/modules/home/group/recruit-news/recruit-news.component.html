@@ -25,7 +25,7 @@
                     *ngFor="let post of postListRecruit ; let s = index ">
                     <div>
                       <img style="font-weight: 400; width: 100%; height: 250px;"
-                        src="{{baseURL}}{{post.image?.pathUrl}}" alt="" loading="lazy">
+                      src="{{baseURL}}/{{postURL}}/image/{{post.id}}" alt="" loading="lazy">
 
                       <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;">
                         <h6 class="post-title">
@@ -57,16 +57,16 @@
                     <ul class="mb-5">
                       <li *ngFor="let post of postListNews ">
                         <div class="d-flex flex-row listnew">
-                          <div>
+                          
                             <div class="anhtintuc">
-                              <a href="/tin-tuc/{{post.url}}" title="{{post.title}}" style="height: 100%;">
-                                <img src="{{baseURL}}{{post.image?.pathUrl}}" class="image" alt="" loading="lazy"></a>
+                              <a href="/tin-tuc/{{post.url}}" title="{{post.title}}" class="h-100 w-100">
+                                <img src="{{baseURL}}/{{postURL}}/image/{{post.id}}" class="image" alt="" loading="lazy"></a>
                             </div>
                             <div class="blog-inner" style="display: inline-block;width: 70%;">
                               <a href="/tin-tuc/{{post.url}}" class="title-news ">{{post.title}}</a>
                               <p class="des-news">{{post.description}}</p>
                             </div>
-                          </div>
+                          
                         </div>
                       </li>
                     </ul>

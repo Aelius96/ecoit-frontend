@@ -9,6 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import {PostService} from "../../../../services/post/post.service";
 import {Post} from "../../../../core/model/post/post";
 import {Constant} from "../../../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-recruit-news',
@@ -19,6 +20,7 @@ export class RecruitNewsComponent implements OnInit{
   recruitList: Recruit[]=[];
   postListNews: Post[]=[];
   postListRecruit: Post[]=[];
+  postURL = Domain.POST
   paging = {
     page: 1,
     size: 3,
@@ -41,8 +43,6 @@ export class RecruitNewsComponent implements OnInit{
 
   getRequestParams(pageSize: number, category:string): any {
     let params: any = {};
-
-
     if (pageSize) {
       params[`pageSize`] = pageSize;
     }

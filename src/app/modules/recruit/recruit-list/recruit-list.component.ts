@@ -5,6 +5,7 @@ import { Params } from '@angular/router';
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import {Constant} from "../../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-recruit-list',
@@ -13,11 +14,9 @@ import {Constant} from "../../../core/config/constant";
 })
 export class RecruitListComponent implements OnInit {
   baseURL = Constant.BASE_URL;
-  recruitList: Recruit [] = [];
+  postURL = Domain.POST;
   postList: Post[] = [];
 
-
-totalPages: number;
  paging={page:1, size:9, totalRecord:0}
 
 

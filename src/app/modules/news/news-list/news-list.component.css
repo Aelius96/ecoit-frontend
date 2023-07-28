@@ -43,10 +43,7 @@ a:hover{
 .blog-thumbnail{
   height: 50%;
 }
-.img-fluid{
-  height: 100%;
-  width: 100%;
-}
+
 .share .icon-share {
   font-size: 14px;
   border: 0.5px solid;
@@ -64,4 +61,10 @@ svg{
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.img-slide{
+  max-height: 260px;
+}
+.item-news{
+  max-height: 550px;
 }
