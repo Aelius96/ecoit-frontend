@@ -8,6 +8,7 @@ import { mergeMap } from 'rxjs';
 import { GalleryService } from 'src/app/services/gallery/gallery.service';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 import {Constant} from "../../../../core/config/constant";
+import {Domain} from "../../../../core/domain/domain";
 
 
 
@@ -180,6 +181,7 @@ export class AlbumsDetailComponent implements OnInit {
     size: 16,
     totalRecord: 0
   }
+  fileURL = Domain.FILE;
 
   constructor( private imageService: FileService  ,
                   private router: Router ,
@@ -236,13 +238,17 @@ export class AlbumsDetailComponent implements OnInit {
     if(option){
       this.imageService.getFileById(id).subscribe(dt1=>{
         this.imageService.deleteFile(dt1).subscribe(()=>{
-          this.getListWithPage()
-        }
-        )
+          this.getListWithPage();
+        })
       })
+
     }
   }
-
+  pick(e:any){
+    this.target.url = e.target.src;
+    this.target.id= e.target.id;
+    this.target.name=e.target.alt;
+  }
   downloadimg(e:any){
     this.imageService.getFileById(e).subscribe(data =>{
       this.imageService.downloadFile(data).subscribe((data2:any) =>{
@@ -252,11 +258,7 @@ export class AlbumsDetailComponent implements OnInit {
     })
   }
 
-  pick(e:any){
-    this.target.url = e.target.src;
-    this.target.id= e.target.id;
-    this.target.name=e.target.alt;
-  }
+
 
   listAllimgtogallery(){
     const params = this.getRequestParams(this.paging.page , this.paging.size)

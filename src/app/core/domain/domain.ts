@@ -18,5 +18,6 @@ export class Domain {
   public static NAV = `nav`;
   public static COMMENT = `comment`;
   public static USER = `user`;
+  public static FILE = `s/file`
 
 }
