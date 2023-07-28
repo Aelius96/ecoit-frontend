@@ -6,6 +6,7 @@ import {Product} from "../../../core/model/product/product";
 import {ProductService} from "../../../services/product/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-customer-add',
@@ -15,6 +16,7 @@ import {Constant} from "../../../core/config/constant";
 export class CustomerAddComponent {
   ckeConfig: any;
   baseURL = Constant.BASE_URL
+  cusURL = Domain.CUSTOMER
   bannerURL: any;
   url: any;
   id: any;
@@ -45,7 +47,8 @@ export class CustomerAddComponent {
     this.customerService.getCusById(id).subscribe(data => {
       this.customer = data;
       this.image = this.customer.banner?.pathUrl;
-      this.bannerURL = this.baseURL + this.image;
+      // this.bannerURL = this.baseURL + this.image ;
+      this.bannerURL = `${this.baseURL}/${this.cusURL}/image/${this.customer.id}`
       this.getProductUpdate(this.customer);
     });
   }
@@ -154,17 +157,17 @@ export class CustomerAddComponent {
   }
 
 
-  imageChange(e: any){
-    const files = e.target.files;
-    if (files.length === 0) return;
+  // imageChange(e: any){
+  //   const files = e.target.files;
+  //   if (files.length === 0) return;
 
-    const reader = new FileReader();
-    this.fileToUpload=files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = (_event) =>{
-      this.url= reader.result;
-    }
-  }
+  //   const reader = new FileReader();
+  //   this.fileToUpload=files;
+  //   reader.readAsDataURL(files[0]);
+  //   reader.onload = (_event) =>{
+  //     this.imageURL= reader.result;
+  //   }
+  // }
 
 
 }

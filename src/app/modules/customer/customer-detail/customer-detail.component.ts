@@ -6,6 +6,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {Customer} from "../../../core/model/customer/customer";
 import {CustomerService} from "../../../services/customer/customer.service";
 import {Constant} from "../../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-customer-detail',
@@ -16,7 +17,9 @@ export class CustomerDetailComponent {
   url: any;
   customer :Customer = new Customer();
   cover:any;
-  baseURL = Constant.BASE_URL;
+  baseURL = Constant.BASE_URL
+  productURL = Domain.PRODUCT
+  cusURL = Domain.CUSTOMER
   bannerURL: any;
   constructor(private customerService: CustomerService, private route: ActivatedRoute,private sanitizer : DomSanitizer ) {}
 
@@ -29,7 +32,7 @@ export class CustomerDetailComponent {
     this.customerService.getCusByUrl(this.url).subscribe(data => {
       this.customer = data;
       this.cover = this.customer.banner.pathUrl;
-      this.bannerURL = this.baseURL + this.cover;
+      this.bannerURL = `${this.baseURL}/${this.cusURL}/image/${this.customer.id}`
       document.title = "KHỐI " + this.customer.name.toUpperCase();
       console.log(document.title);
     })
