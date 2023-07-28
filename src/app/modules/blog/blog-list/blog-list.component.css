@@ -5,7 +5,14 @@
   font-weight: bold;
   font-family: Verdana;
 }
-
+.image{
+  max-height: 260px;
+  min-height: 210px;
+}
+.hr-title{
+  width: 100px;
+  border-top: 1px solid #50b848;
+}
 .post-excerpt{
   font-size: 14px;
   overflow: hidden;
@@ -21,6 +28,7 @@
   font-weight: bold;
   color: #50B848;
 }
+
 
 .ht-btn-sm{
   font-size: 15px;

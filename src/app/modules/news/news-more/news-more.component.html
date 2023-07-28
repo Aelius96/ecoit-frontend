@@ -10,13 +10,13 @@
         </div>
     </div>
     <div class="content" >
-        <div class="row "  >
+        <div class="row ">
             <div  class="col-12 "  *ngFor=" let post of postList ; let i = index" >
                 <div >
                     <div style="height: 100%;"   class="item" *ngIf="i<4">
-                        <div class="col-md-4" style="height: 100px;"  >
+                        <div class="col-md-4">
                             <div class="image">
-                                <img style="height: 100%; width: 100%;" src="{{baseURL}}/{{postURL}}/image/{{post.id}}" alt="image">
+                                <img  src="{{baseURL}}/{{postURL}}/image/{{post.id}}" alt="image">
                             </div>
                         </div>
                         <div class="col-md-8">
