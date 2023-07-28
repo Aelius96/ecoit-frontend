@@ -102,13 +102,6 @@ deleteimg(id:number){
   }
 }
 
-// getGallery(){
-
-//   this.galleryService.getListAll().subscribe(data => {
-//     this.galleryList = data
-//     this.pick(this.galleryList[0]);
-//   });
-// }
   tImageURL = Domain.GALLERY;
 
 

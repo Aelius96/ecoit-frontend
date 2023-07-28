@@ -40,10 +40,14 @@
                                                   totalItems: paging.totalRecord }">
             <div class="item-image" (click)="pick(img)">
               <img src="{{baseURL}}/{{tImageURL}}/image/{{img.image.name}}" alt="" style="height: 100%; width: 100%; border-radius: inherit;">
-
             </div>
           </div>
-
+        </div>
+        <div class="row mt-5">
+          <div *ngIf="paging.totalRecord>0" class="col-md-12 text-center">
+            <pagination-controls previousLabel="<" nextLabel=">" [id]="'gallery'"
+              (pageChange)="handlepagechange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
+          </div>
         </div>
       </div>
       <div class="col-lg-4 info-img" >
