@@ -2,7 +2,7 @@
 
 <img src="{{bannerURL}}" style="width: 100%;" height="300" alt="">
 <!-- <img style="width: 100%;" src="{{cover}}" alt=""> -->
-
+<!-- src="{{baseURL}}/{{productURL}}/image/{{pro.id}}" -->
 <div class="preview-item-area section-space--pb_120" id="section-demos" style="padding-bottom: 50px;">
   <div class="container-fluid container-fluid--cp-150" style="max-width: 1000px;">
     <div class="row">
@@ -13,26 +13,6 @@
         </div>
       </div>
     </div>
-    <!-- <div  class="product-item">
-      <div class="container" style="padding-left: 100px; padding-right: 100px; padding-bottom: 0px;">
-        <div  class=" ">
-
-          <div *ngFor="let pro of customer.products ; let i=index" class="pro-list" >
-            <div *ngIf = "i <6">
-                <div class="post-item" >
-                  <a href="/san-pham/{{pro.url}}" style="text-align: center;" class="item">
-                    <div class="imgicon">
-                      <img  src="{{baseURL}}{{pro.image.pathUrl}}" class="post-image" alt="" loading="lazy" ><br><b>{{pro.title}}</b>
-                      <span class="ap-xnam"><p title="{{pro.description}}"> {{pro.description}}</p></span>
-                    </div>
-                  </a>
-                </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div class="row">
       <div class="col2 wow move-up" style="padding: 10px" *ngFor="let p of customer.products ; let i =index" >
 
@@ -40,7 +20,7 @@
           <div class="pro-item text-center">
             <a routerLink="/san-pham/{{p.url}}" routerLinkActive="active" style="padding:  10px 20px" class="pro">
               <div class="image">
-                <img src="{{baseURL}}{{p.image?.pathUrl}}" class="img-fluid" alt="image-product" appHideMissing>
+                <img src="{{baseURL}}/{{productURL}}/image/{{p.id}}" class="img-fluid" alt="image-product" appHideMissing>
               </div>
               <div class="content">
                   <h6 class=" text-black title" style="font-size: 16px "> {{p.title}}</h6>
