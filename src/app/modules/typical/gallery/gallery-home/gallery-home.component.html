@@ -5,22 +5,12 @@
     <hr id="gachchan" class="gioithieu">
   </div>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
     <div class="carousel-inner" role="listbox">
-
-      <!-- <div class="item " [ngClass]="key == 0 ? 'active' : '' " *ngFor="let s of spcl ; let key = index">
-        <img width="1163" height="774" src="{{s}}"
-         class="fuild-img wp-post-image" alt="" loading="lazy" sizes="(max-width: 1276px) 100vw, 1276px">
-      </div> -->
-
-      <!-- 1 -->
       <!--  <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let recruit of recruitList ; let s = index "> -->
       <div class="item " [class]=" i==0 ? 'active ' : '' "  *ngFor="let img of gallery ; let i = index" >
-        <img style="width: 100%; height: 600px;" src="{{baseURL}}{{img.image?.pathUrl}}"
+        <img style="width: 100%; height: 600px;" src="{{baseURL}}/{{galleryURL}}/image/{{img.image.name}}"
              alt="Image" loading="lazy">
       </div>
-      <!-- 7 -->
-
     </div>
 
     <!-- trái phải -->

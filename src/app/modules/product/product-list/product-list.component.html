@@ -17,7 +17,7 @@
         <div class="pro-item text-center">
           <a routerLink="/san-pham/{{p.url}}" routerLinkActive="active" style="padding:  10px 20px" class="pro">
             <div class="image">
-              <img src="{{baseURL}}{{p.image?.pathUrl}}" class="img-fluid" alt="image-product" appHideMissing>
+              <img src="{{baseURL}}/{{productURL}}/image/{{p.id}}" class="img-fluid" alt="image-product" appHideMissing>
             </div>
             <div class="content">
                 <h6 class=" text-black title" style="font-size: 16px "> {{p.title}}</h6>
