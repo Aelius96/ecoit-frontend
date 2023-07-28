@@ -33,7 +33,7 @@
 
                         <div class="section-title text-center viewimg">
                           <div class="img-target-box">
-                            <img src="{{baseURL}}{{target.url}}" alt="" style="width: 100%; height: 100%;">
+                            <img src="{{imageURL}}" alt="" style="width: 100%; height: 100%;">
                           </div>
                         </div>
 
@@ -41,7 +41,7 @@
                           <!-- <ngx-slick-carousel class="carousel" [config]="slideConfig"> -->
                             <div  *ngFor="let slide of sliders" class="listslide col-md-3">
                               <div class="team-image" (click)="choose(slide)">
-                                <img class="img-fluid" src="{{baseURL}}{{slide?.pathUrl}}" id="{{slide.id}}" alt="{{slide.name}}">
+                                <img class="img-fluid" src="{{baseURL}}/{{sliderURL}}/image/{{slide.name}}" id="{{slide.id}}" alt="{{slide.name}}">
                               </div>
                             </div>
                           </div>
