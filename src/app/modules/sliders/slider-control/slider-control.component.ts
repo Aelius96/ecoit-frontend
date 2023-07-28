@@ -4,6 +4,7 @@ import {SliderService} from "../../../services/slider/slider.service";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
+import {Domain} from "../../../core/domain/domain";
 
 @Component({
   selector: 'app-slider-control',
@@ -23,7 +24,8 @@ export class SliderControlComponent {
 
   slideConfig: any;
   baseURL = Constant.BASE_URL;
-
+  sliderURL = Domain.SLIDERS;
+   imageURL: any;
   constructor(private sliderService: SliderService, private router: Router) { }
 
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class SliderControlComponent {
   getSlider(){
     this.sliderService.getSliders().subscribe(data => {
       this.sliders = data
+
       this.choose(this.sliders[0]);
     });
   }
@@ -50,6 +53,9 @@ export class SliderControlComponent {
     this.target.link = e?.url;
     this.target.id = e?.id;
     this.target.active = e?.active;
+
+    //get image by target name
+    this.imageURL = `${this.baseURL}/${this.sliderURL}/image/${this.target.name}`
   }
 
   updateSlider(id: number){

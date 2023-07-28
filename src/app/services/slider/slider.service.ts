@@ -45,4 +45,8 @@ export class SliderService {
   deleteSlider(id: number): Observable<Object>{
     return this.http.get(`${this.baseURL}/${this.domain}/status/${id}`);
   }
+
+  getImage(name: string): Observable<Slider>{
+    return this.http.get<Slider>(`${this.baseURL}/${this.domain}/image/${name}`);
+  }
 }

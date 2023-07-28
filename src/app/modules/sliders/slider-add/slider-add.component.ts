@@ -3,6 +3,7 @@ import {Slider} from "../../../core/model/slider/slider";
 import {SliderService} from "../../../services/slider/slider.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
+import {Domain} from "../../../core/domain/domain";
 
 @Component({
   selector: 'app-slider-add',
@@ -18,6 +19,7 @@ export class SliderAddComponent {
   fileToUpload:string [] = [];
   action = "";
   imageURL: any;
+  sliderURL = Domain.SLIDERS;
 
   constructor(private sliderService: SliderService,
               private router: Router,
@@ -38,7 +40,8 @@ export class SliderAddComponent {
     this.sliderService.getById(id).subscribe(data => {
       this.slider = data;
       this.url = this.slider.pathUrl;
-      this.imageURL = this.baseURL + this.url;
+      // this.imageURL = this.baseURL + this.url;
+      this.imageURL = `${this.baseURL}/${this.sliderURL}/image/${this.slider.name}`
     });
   }
 
