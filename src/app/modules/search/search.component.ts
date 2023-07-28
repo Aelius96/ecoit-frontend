@@ -4,6 +4,7 @@ import {PostService} from "../../services/post/post.service";
 import {Post} from "../../core/model/post/post";
 import search = CKEDITOR.tools.search;
 import {Constant} from "../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-search',
@@ -12,6 +13,7 @@ import {Constant} from "../../core/config/constant";
 })
 export class SearchComponent implements OnInit
 {
+  postURL = Domain.POST;
   postList :Post[] = [];
   searchInput = '';
   paging = {
