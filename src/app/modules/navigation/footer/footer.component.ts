@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
   postURL = Domain.POST
   paging = {
     page: 1,
-    size: 3,
+    size: 4,
     totalRecord: 0
   }
   baseURL = Constant.BASE_URL;
