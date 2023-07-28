@@ -84,3 +84,7 @@
     height: 100%;
     margin: auto;
 }
+.image{
+    min-height: 50px;
+    max-height: 60px;
+}

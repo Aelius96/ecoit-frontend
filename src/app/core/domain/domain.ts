@@ -1,5 +1,5 @@
 export class Domain {
-  public static ABOUT = `about-us`;
+  public static ABOUT = `about`;
   public static AUTH = `auth`;
   public static BLOG = `blog`;
   public static CUSTOMER = `customer`;

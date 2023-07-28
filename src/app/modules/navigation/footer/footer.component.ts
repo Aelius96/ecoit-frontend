@@ -4,6 +4,7 @@ import { NewsService } from 'src/app/services/news/news.service';
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import {Constant} from "../../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-footer',
@@ -11,19 +12,48 @@ import {Constant} from "../../../core/config/constant";
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  baseURL = Constant.BASE_URL;
-postList: Post[]=[]
-constructor(private postService: PostService) {
-
-}
-  ngOnInit(): void {
-    this.getList()
+  postListNews: Post[]=[];
+  postURL = Domain.POST
+  paging = {
+    page: 1,
+    size: 3,
+    totalRecord: 0
   }
-  getList():void{
-    this.postService.listAll().subscribe(data=>{
-      this.postList =data;
-  })
-}
+  baseURL = Constant.BASE_URL;
+  category: any;
+  constructor(
+              private postService: PostService,
+             ) {}
+
+  ngOnInit(): void {
+    this.getListAllWithNews();
+  }
+
+  getRequestParams(pageSize: number, category:string): any {
+    let params: any = {};
+    if (pageSize) {
+      params[`pageSize`] = pageSize;
+    }
+    if(category){
+      params[`category`] = category;
+    }
+    return params;
+  }
+
+  getListAllWithNews() {
+    const params = this.getRequestParams(this.paging.size,this.category);
+    this.postService.listAllWithPageByNews(params)
+      .subscribe(
+        data => {
+          this.postListNews = data.content;
+          this.paging.totalRecord = data.totalElements;
+          console.log(this.postListNews);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
 
 field_activity=[
   {

@@ -153,9 +153,9 @@
               <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 40px;" >
                 <div class="carousel-inner" >
                   <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let post of postList ;let s = index">
-                    <div class="col-md-6 first-blog">
-                      <a href="/tin-tuc/{{post.url}}">
-                        <img class="img-fluid" src="{{baseURL}}{{post.image?.pathUrl}}"
+                    <div class="col-md-6 first-blog" >
+                      <a href="/tin-tuc/{{post.url}}" class="w-100">
+                        <img  class="img-fluid img-slide w-100 " src="{{baseURL}}/{{postURL}}/image/{{post.id}}"
                              alt=" Images">
                       </a>
                     </div>
@@ -196,11 +196,11 @@
                                                       totalItems: paging.totalRecord } ;let i = index"
                          class="col-lg-4  mb-30 ">
                       <!--======= Single Blog Item Start ========-->
-                      <div class="single-blog-item blog-grid">
+                      <div class="single-blog-item blog-grid item-news ">
                         <!-- Post Feature Start -->
                         <div class="post-feature blog-thumbnail">
                           <a style="height: 100%; width: 100%;" href="/tin-tuc/{{post.url}}">
-                            <img  class="img-fluid" src="{{baseURL}}{{post.image?.pathUrl}}" alt="Blog Images">
+                            <img class="img-fluid h-100 w-100 " src="{{baseURL}}{{post.image?.pathUrl}}" alt="Blog Images">
                           </a>
                         </div>
                         <!-- Post Feature End -->
@@ -210,7 +210,7 @@
                           <h5 class="post-title font-weight--bold">
                             <a class="p-title" href="/tin-tuc/{{post.url}}">{{post.title}}</a>
                           </h5>
-                          <div class="post-excerpt mt-15">
+                          <div class="post-excerpt my-4">
                             <p>{{post.description}}</p>
                           </div>
                           <div class="share text-right ">

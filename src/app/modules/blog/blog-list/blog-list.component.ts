@@ -4,6 +4,7 @@ import { BlogService } from 'src/app/services/blog/blog.service';
 import {PostService} from "../../../services/post/post.service";
 import {Post} from "../../../core/model/post/post";
 import {Constant} from "../../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-blog-list',
@@ -11,7 +12,7 @@ import {Constant} from "../../../core/config/constant";
   styleUrls: ['./blog-list.component.css']
 })
 export class BlogListComponent implements OnInit {
-
+  postURL = Domain.POST;
   baseURL = Constant.BASE_URL;
   postList: Post[]=[];
 
@@ -19,35 +20,11 @@ export class BlogListComponent implements OnInit {
 
   category= 'blog';
 
-  constructor(private blogService: BlogService,private postService:PostService) {}
+  constructor(private postService:PostService) {}
 
   ngOnInit(): void {
     this.getListAllWithPageTest()
   }
-  // getRequestParam(page:number){
-  //   let params: any={};
-  //   if (page){
-  //     params[`pageNo`]=page-1;
-  //   }
-  // }
-  //
-  // getlistAllwithpage():void{
-  //   const param = this.getRequestParam(this.paging.page);
-  //   this.blogService.listAllWithPageHome(param).subscribe(response=>{
-  //       this.blogList = response.content;
-  //       this.paging.totalRecord=response.totalElements;
-  //       console.log(response)
-  //   },
-  //   error=>{
-  //     console.log(error)
-  //   } )
-  //
-  // }
-  // handlePagechange(event:number){
-  //   this.page= event;
-  //   this.getlistAllwithpage();
-  //  }
-
 
   getRequestParamsTest(page: number, category: string): any {
     let params: any = {};

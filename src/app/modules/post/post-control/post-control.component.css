@@ -19,7 +19,7 @@
 .product-thumb-image img{
   width: 100%;
   max-height: 150px;
-  height: max-content;
+  min-height: 100px;
   object-fit: fill;
 }
 .spann{
@@ -45,7 +45,7 @@
 /* scrollbar */
 .item-blog{
   margin-top: 30px;
-  max-height: 600px;   
+  max-height: 525px;   
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;

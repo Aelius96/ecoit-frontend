@@ -82,22 +82,16 @@
                 <button (click)="deletePost(post.id)" class="btnn dele"><i class="far fa-times"></i> </button>
               </div>
             </div>
-            <!-- <div class="col-md-9">
-              <div id="demo{{post.id}}" class="collapse" data-parent="#accordion">
-                <div class="card-body" [innerHTML]="post.content">
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
-        <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-bottom: 10px;">
-          <div class="row">
-            <div class="col-md-6">
-              <pagination-controls previousLabel="<"
-                nextLabel=">" [id]="'post'"
-                (pageChange)="handlePageChange($event)"
-                [maxSize]="paging.totalRecord"></pagination-controls>
-            </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-bottom: 10px;">
+        <div class="row">
+          <div class="col-md-6">
+            <pagination-controls previousLabel="<" nextLabel=">" [id]="'post'" (pageChange)="handlePageChange($event)"
+              [maxSize]="paging.totalRecord"></pagination-controls>
           </div>
         </div>
       </div>

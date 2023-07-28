@@ -12,11 +12,11 @@
     </div>
     <div class="content" >
         <div class="row" >
-            <div class="item" *ngFor=" let blog of blogList ; let i = index" >
+            <div class="item col-md-12" *ngFor=" let blog of postList ; let i = index" >
                 <div *ngIf="i<4">
                     <div class="col-md-4" >
                         <div class="image">
-                            <img src="{{baseURL}}{{blog.image.pathUrl}}" alt="image">
+                            <img src="{{baseURL}}/{{postURL}}/image/{{blog.id}}" alt="image">
                         </div>
                     </div>
                     <div class="col-md-8">
