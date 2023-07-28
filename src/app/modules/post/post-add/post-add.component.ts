@@ -111,8 +111,6 @@ export class PostAddComponent implements OnInit{
     return this.hashtagList.filter(hashtag => hashtag.name.toLowerCase().includes(filterValue));
   }
 
-
-
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     if(this.id){
@@ -142,32 +140,6 @@ export class PostAddComponent implements OnInit{
 
 
   }
-
-  // onUpload(e:any){
-  //   this.fileService.uploadImage(e).then(r => r.image);
-  // }
-
-
-  // addImage(){
-  //
-  //   this.fileService.addImage(this.prepareImage()).subscribe(data =>{
-  //     },
-  //     error => console.log(error.error));
-  //   console.log(this.post);
-  // }
-  //
-  // prepareImage(): FormData{
-  //   const formData = new FormData();
-  //   for (let i = 0; i < this.fileToUpload.length; i++){
-  //     formData.append(
-  //       'file',
-  //       this.fileToUpload[i]
-  //       // this.fileToUpload[i].name
-  //     )
-  //   }
-  //   console.log(formData)
-  //   return formData;
-  // }
 
   onSubmit(){
     if(this.id){
