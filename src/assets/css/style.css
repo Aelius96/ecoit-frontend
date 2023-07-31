@@ -542,12 +542,12 @@ select {
 
 ::-moz-selection {
   color: #ffffff;
-  background-color: #5945e6;
+  background-color: #50b848 ;
 }
 
 ::selection {
   color: #ffffff;
-  background-color: #5945e6;
+  background-color: #50b848 ;
 }
 
 .faq-banner-area, .saas-feature {
@@ -713,8 +713,8 @@ form input::placeholder, form textarea::placeholder {
 }
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="range"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="time"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="color"]:focus, textarea:focus, select:focus, select:focus, textarea:focus {
-  color: #5945e6;
-  border-color: #5945e6;
+  color: #50b848 ;
+  border-color: #50b848 ;
 }
 
 /* swiper default styles */
