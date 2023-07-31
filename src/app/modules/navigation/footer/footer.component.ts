@@ -85,11 +85,11 @@ field_activity=[
 ]
 
 contact_about=[
-  {
-    id:1,
-    icon:'fa fa-map-marker',
-    title:'Trụ sở chính: Tầng 3 , Khu A-B Khu văn phòng , Imperia Garde, 203 Nguyễn Huy Tưởng , Thanh Xuân , TP Hà Nội'
-  },
+  // {
+  //   id:1,
+  //   icon:'fa fa-map-marker',
+  //   title:'Trụ sở chính: Tầng 3 , Khu A-B Khu văn phòng , Imperia Garde, 203 Nguyễn Huy Tưởng , Thanh Xuân , TP Hà Nội'
+  // },
   {
     id:2,
     icon:'fa fa-map-marker',

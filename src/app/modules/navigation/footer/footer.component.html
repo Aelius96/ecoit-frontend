@@ -1,63 +1,69 @@
-
-<div class="footer-preview  " >
+<div class="footer-preview  ">
     <footer id="footer">
-        <div class="footer-wrapper" >
-            <div class="containerr" >
-                <div class="row" >
-                    <div class="col-md-3 " >
+        <div class="footer-wrapper">
+            <div class="containerr">
+                <div class="row footer">
+                    <div class="col-md-3 ">
                         <div class="footer-container">
                             <div class="text1" style="text-align: center;">
                                 <div>
                                     <p>
-                                        <img alt="EcoIT" src="./assets/images/logoEcoit.jpg" style="width: 145px; position: relative;; ">
+                                        <img alt="EcoIT" src="./assets/images/logoEcoit.jpg"
+                                            style="width: 145px; position: relative;; ">
                                     </p>
-                                    <p style=" text-align: left;">
-                                        EcoIT đang từng bước thiết lập mối quan hệ đối tác, kết nối sản phẩm với các hãng
-                                        công nghệ hàng đầu trên thế giới nhằm cung cấp một hệ sinh thái sản phẩm hoàn thiện
+                                    <p  class="footer-intro">
+                                        EcoIT đang từng bước thiết lập mối quan hệ đối tác, kết nối sản phẩm với các
+                                        hãng
+                                        công nghệ hàng đầu trên thế giới nhằm cung cấp một hệ sinh thái sản phẩm hoàn
+                                        thiện
                                         đến cho khách hàng và cộng đồng người sử dụng.
                                     </p>
                                 </div>
                             </div>
-                            <div id="icon" class="widget wdc-social-wgt">
-                                <div class="wdc-social">
+                            
+                                <div class="mt-4">
                                     <ul class="list-inline mt-3 ">
                                         <li>
-                                            <a class="fa fa-facebook icon-intro " href="https://www.facebook.com/ecoitcorp/" title="Facebook" target="_blank">
-                                               <!-- <i class="fa fa-facebook"></i> -->
+                                            <a class="fa fa-facebook icon-intro "
+                                                href="https://www.facebook.com/ecoitcorp/" title="Facebook"
+                                                target="_blank">
+                                                <!-- <i class="fa fa-facebook"></i> -->
                                             </a>
                                         </li>
                                         <!-- <li>
                                             <a class="fa fa-twitter" style="color: #ababaa;"  href="https://twitter.com" title="Twitter" target="_blank"></a>
                                         </li> -->
                                         <li>
-                                            <a class="fa fa-envelope  icon-intro " href="contact@ecoit.asia" title="Email" target="_blank"></a>
+                                            <a class="fa fa-envelope  icon-intro " href="contact@ecoit.asia"
+                                                title="Email" target="_blank"></a>
                                         <li>
-                                            <a  href="https://www.youtube.com/@ecoittvofficial3472  " class="fa fa-youtube icon-intro " title="Youtube" target="_blank">
+                                            <a href="https://www.youtube.com/@ecoittvofficial3472  "
+                                                class="fa fa-youtube icon-intro " title="Youtube" target="_blank">
 
                                             </a>
 
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            
                         </div>
                     </div>
 
-                    <div class="col-md-3 " >
+                    <div class="col-md-3 ">
                         <div class="footer-container">
                             <div class="text1" style="text-align: justify;">
                                 <div>
-                                    <div class="titlefooter">
-                                        <h6 class="tittlee">
+                                    <div class="">
+                                        <h6 class="titlefooter">
                                             <span class="text-up">các lĩnh vực hoạt động chính</span>
                                         </h6>
                                     </div>
                                     <div>
                                         <ul class="footer_list">
-                                            <li class="list"  *ngFor="let item of field_activity">
+                                            <li class="list" *ngFor="let item of field_activity">
                                                 <i class="far fa-angle-right mr-2"></i>
-                                                <a >{{item.title}}</a>
-                                                <hr class="hrr" >
+                                                <a>{{item.title}}</a>
+                                                <hr class="my-3">
                                             </li>
                                         </ul>
                                     </div>
@@ -66,29 +72,30 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 " >
+                    <div class="col-md-3 ">
                         <div class="footer-container">
                             <div class="text1" style="text-align: justify;">
                                 <div>
-                                    <div class="titlefooter">
-                                        <h6 class="tittlee">
+                                    <div class="">
+                                        <h6 class="titlefooter">
                                             <span class="text-up">tin mới nhất</span>
                                         </h6>
                                     </div>
                                 </div>
                             </div>
                             <ul class="media-list" *ngFor="let post of postListNews ; let i = index">
-                                <li class="media_body " >
+                                <li class="media_body ">
                                     <div class="disp-inflex d-flex flex-row" style="padding-top: 2px ">
-                                      <div class="anhtintuc " >
-                                        <a  title="{{post.title}}" class="w-100 h-100">
-                                          <img  src="{{baseURL}}/{{postURL}}/image/{{post.id}}" class="w-100 image" alt="" loading="lazy"></a>
-                                      </div>
-                                      <div class="blog-inner" style="display: inline-block;width: 70%; ">
-                                        <a href="/tin-tuc/{{post.url}}" class="text-title-news" >{{post.title}}</a>
+                                        <div class="anhtintuc ">
+                                            <a title="{{post.title}}" class="w-100 h-100" href="/tin-tuc/{{post.url}}" target="_blank">
+                                                <img src="{{baseURL}}/{{postURL}}/image/{{post.id}}" class="w-100 image"
+                                                    alt="" loading="lazy"></a>
+                                        </div>
+                                        <div class="blog-inner" style="display: inline-block;width: 70%; ">
+                                            <a href="/tin-tuc/{{post.url}}" class="text-title-news">{{post.title}}</a>
                                         </div>
                                     </div>
-                                    <hr  class="my-3">
+                                    <hr class="my-3">
                                 </li>
                             </ul>
                         </div>
@@ -98,27 +105,36 @@
                         <div class="footer-container">
                             <div class="text1" style="text-align: justify;">
                                 <div>
-                                    <div class="titlefooter">
-                                        <h6 class="tittlee">
+                                    <div class="">
+                                        <h6 class="titlefooter">
                                             <span class="text-up">liên hệ chúng tôi</span>
                                         </h6>
                                     </div>
                                 </div>
                             </div>
-                            <div >
+                            <div>
                                 <ul>
-                                    <li *ngFor="let contact of contact_about" >
-                                        <p style="vertical-align: inherit;" >
+                                    <li>
+                                        <a class="headquarters" href="https://goo.gl/maps/J4QvebAMNZX1Ki4M9"
+                                            target="_blank">
+                                            <i class="fa fa-map-marker"></i>
+                                            <span class="title-contact">Trụ sở chính: Tầng 3 , Khu A-B Khu văn phòng ,
+                                                Imperia Garde, 203 Nguyễn Huy Tưởng , Thanh Xuân , TP Hà Nội</span>
+                                        </a>
+                                    </li>
+                                    <li *ngFor="let contact of contact_about">
+                                        <p >
                                             <i class="{{contact.icon}}"></i>
                                             <span class="title-contact">{{contact.title}}</span>
-
                                         </p>
                                     </li>
                                 </ul>
                                 <div>
-                                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fecoitcorp%2F&tabs&width=340&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                                    width="100%" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                                    allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                                    <iframe
+                                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fecoitcorp%2F&tabs&width=340&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                                        width="100%" height="130" style="border:none;overflow:hidden" scrolling="no"
+                                        frameborder="0" allowfullscreen="true"
+                                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -128,11 +144,12 @@
         </div>
     </footer>
 
-    <div  style="padding: 25px 0px 25px 0px; background-color: #212121 ;color: white;">
+    <div style="padding: 25px 0px 25px 0px; background-color: #212121 ;color: white;">
         <div style="text-align: center;">
             <div style="vertical-align: inherit;">
-                <div style="vertical-align: inherit; line-height: 22px; vertical-align: baseline;">© Bản quyền 2019 | Công ty cổ phần ECOIT </div>
-                </div>
+                <div style="vertical-align: inherit; line-height: 22px; vertical-align: baseline;">© Bản quyền 2019 |
+                    Công ty cổ phần ECOIT </div>
+            </div>
 
         </div>
     </div>
