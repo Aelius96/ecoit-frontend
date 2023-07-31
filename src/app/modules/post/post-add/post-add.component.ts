@@ -18,10 +18,6 @@ import {FileService} from "../../../services/file/file.service";
 import {File} from "../../../services/file/file";
 import {Domain} from "../../../core/domain/domain";
 
-export interface Fruit {
-  name: string;
-}
-
 @Component({
   selector: 'app-post-add',
   templateUrl: './post-add.component.html',
