@@ -7,7 +7,6 @@ import { UserControlComponent } from "../user/user-control/user-control.componen
 import { HistoryListComponent } from "../admin/history/history-list/history-list.component";
 import { Number } from '../typical/number/number';
 
-
 const routes: Routes =[
 
   {path:'' , title:'Admin-Ecoit' , component: AdminComponent,

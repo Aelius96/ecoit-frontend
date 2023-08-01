@@ -1,5 +1,4 @@
 
-
 <div style="border-style: groove; margin-top: 20px; margin-bottom: 30px;" >
     <div class="title">
         <div class="row">
@@ -10,14 +9,14 @@
             </div>
         </div>
     </div>
-    <div class="py-3 px-1" >
-        <div class="row" >
-            <div class="col-md-12" *ngFor=" let blog of postList ; let i = index" >
-                <div *ngIf="i<4">
-                    <div class="item">
-                        <div class="col-md-4" >
+    <div class="content" >
+        <div class="row ">
+            <div  class="col-12 " *ngFor=" let blog of postList ; let i = index" >
+                <div >
+                    <div style="height: 100%;"   class="item" *ngIf="i<4">
+                        <div class="col-md-4">
                             <div class="image">
-                                <img src="{{baseURL}}/{{postURL}}/image/{{blog.id}}" alt="image">
+                                <img  src="{{baseURL}}/{{postURL}}/image/{{blog.id}}" alt="image">
                             </div>
                         </div>
                         <div class="col-md-8">

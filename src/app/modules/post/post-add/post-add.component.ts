@@ -19,10 +19,6 @@ import {FileService} from "../../../services/file/file.service";
 import {Domain} from "../../../core/domain/domain";
 import {HttpHeaders} from "@angular/common/http";
 
-export interface Fruit {
-  name: string;
-}
-
 @Component({
   selector: 'app-post-add',
   templateUrl: './post-add.component.html',
