@@ -115,9 +115,31 @@
   font-size: 18px;
 }
 .des-cus{
-  /* bottom: 100px;
-  position: absolute;
-  width: 78%; */
   display: flex;
   justify-content: center;
+}
+/* animation */
+
+@keyframes bounceIndown { 
+  20% { 
+      opacity: 0; 
+      transform: translateY(-300px); 
+  } 
+  40%{
+    opacity: 0;
+  }
+
+  80% { 
+      transform: translateY(10px); 
+  } 
+  100% {
+      opacity: 1;
+       
+      transform: translateY(0); 
+  } 
+} 
+
+.animation { 
+  animation-name: bounceIndown; 
+  animation-duration: 5s;
 }

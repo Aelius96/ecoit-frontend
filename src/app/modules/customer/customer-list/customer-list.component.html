@@ -1,5 +1,5 @@
 
-<div class="customer-list">
+<div class="section-space--mb_50">
   <div class="container">
     <div class="mt-5">
       <div class="row">
@@ -12,7 +12,14 @@
       </div>
       <div class="table-content">
         <div class="row">
-          <div class="col-md-3 section-space--mt_50" *ngFor="let cus of customer ; let i=index ">
+          <!--     visibility: visible;
+    animation-delay: 0.25s;
+    animation-name: bounceInUp;
+    <div class="wpb_column vc_column_container wow bounceInUp col-md-3 col-sm-6 col-xs-12" data-wow-delay=".25s" style="visibility: visible;animation-delay: 0.25s;animation-name: bounceInUp;">
+                     
+                    </div>
+}-->
+          <div class="col-md-3 section-space--mt_50 animation   " *ngFor="let cus of customer ; let i=index " >
             <div class="box d-flex flex-column " *ngIf="i<4">
               <div class="box-icon h-25 ">
                 <div class="box-icon_bg text-white " [ngStyle]="{'background': cus.bgIColor} ">
