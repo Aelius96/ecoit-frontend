@@ -12,11 +12,10 @@
     color: #bababa;
     padding: 80px 0px 40px 0px;
 }
-.tittlee{
+.titlefooter{
     color: white;
-    font-size: 18px;
-    text-align: justify;
-    margin-bottom: 20px;
+    font-size: 15px;
+    margin-bottom: 30px;
     font-family: Verdana;
     font-weight: bold;
 }
@@ -76,7 +75,6 @@
 }
 .text-up{
     text-transform: uppercase;
-
 }
 .anhtintuc{
     float: left; 
@@ -87,4 +85,19 @@
 .image{
     min-height: 50px;
     max-height: 60px;
+}
+.headquarters{
+    color: #ababaa;
+    text-decoration: none;
+}
+.headquarters:hover{
+    text-decoration: underline;
+}
+.footer{
+    max-width: 1200px;
+    margin: auto;
+}
+.footer-intro{
+    text-align: justify;
+    line-height: 25px;
 }

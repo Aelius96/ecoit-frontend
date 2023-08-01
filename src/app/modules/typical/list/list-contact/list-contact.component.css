@@ -79,9 +79,7 @@
    
    }
 /* table */
-.customers{
-  
-}
+
   .customers td, .customers th {
     border: 0.8px solid #ddd;
     padding: 8px;
@@ -115,13 +113,13 @@
   .btn-link:hover{
     text-decoration: none;
   }
-tbody{
-  max-height: 400px;
+.table-body{
+  max-height: 350px;
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-tbody::-webkit-scrollbar{
+.table-body::-webkit-scrollbar{
   width: 0px !important;
   display: none;
 }
