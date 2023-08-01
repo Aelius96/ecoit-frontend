@@ -36,6 +36,7 @@ svg{
   width: 14px;
   height: 14px;
 }
+
 .p-title{
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -52,3 +53,8 @@ svg{
 .image-search{
   height: 180px;
 }
+
+.item-news{
+  max-height: 550px;
+}
+

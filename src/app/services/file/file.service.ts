@@ -51,4 +51,5 @@ export class FileService {
     return this.http.get(`${this.baseUrl}/s/file/image/all`)
   }
 
+
 }
