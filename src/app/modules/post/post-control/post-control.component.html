@@ -8,8 +8,8 @@
 
         <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
           <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm "
-            style="width: 100px; height: 30px;">
-          <select [(ngModel)]="cate" name="cate" style="height: 30px; width: 135px; border: 0.2px solid; " class="ml-2">
+            style="width: 100px; height: 30px;  " class="searchinput" >
+          <select [(ngModel)]="cate" name="cate" style="height: 30px; width: 135px;" class="ml-2 searchinput" >
             <option value="" [selected]="true">Chuyên mục</option>
             <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
           </select>
