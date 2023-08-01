@@ -15,8 +15,9 @@ import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {FileService} from "../../../services/file/file.service";
-import {File} from "../../../services/file/file";
+
 import {Domain} from "../../../core/domain/domain";
+import {HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-post-add',
@@ -38,7 +39,8 @@ export class PostAddComponent implements OnInit{
   separatorKeysCodes: number[] = [ENTER, COMMA];
   hashtagCtrl = new FormControl('');
   filteredHashtag: Observable<Hashtag[]>;
-
+  selectedFile: File
+  fileName: any;
   constructor(private router:Router,
               private route:ActivatedRoute,
               private postService: PostService,
@@ -107,6 +109,7 @@ export class PostAddComponent implements OnInit{
     return this.hashtagList.filter(hashtag => hashtag.name.toLowerCase().includes(filterValue));
   }
 
+
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     if(this.id){
@@ -121,20 +124,23 @@ export class PostAddComponent implements OnInit{
     this.listAllCategory();
 
     this.ckeConfig = {
-      extraPlugins: 'uploadimage',
+      extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
       filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
       filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
       filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
-      filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images'
-
-      // uploadUrl: `${this.baseUrl}/s/file/add?test=`,
-      // filebrowserUploadUrl:`${this.baseUrl}/s/file/add`,
-      // uploadImage: this.addImage.bind(this),
-
+      filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
+      // uploadUrl:`${this.baseURL}/s/file/add`,
+      // filebrowserUploadUrl:`${this.baseURL}/s/file/add`,
+      // filebrowserBrowseUrl:`${this.baseURL}/s/file/image/all`,
     };
+  }
+  onFileUploadRequest(e :any) {
+    const formData = new FormData();
+    formData.append('file', e.file);
+    this.fileService.addImage(formData).subscribe(res =>{
 
-
+    })
   }
 
   onSubmit(){
@@ -209,6 +215,7 @@ export class PostAddComponent implements OnInit{
       this.imageURL = reader.result;
     }
   }
+
 
 
 }

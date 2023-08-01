@@ -22,7 +22,11 @@ export class HeaderComponent {
   constructor(private navService: NavService,
               private tokenStorageService: TokenStorageService,
               private router:Router,
-              private postService: PostService) { }
+              private postService: PostService) {
+
+    //load lai page khi path parameter thay doi
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit(): void {
     this.getAllNav();
