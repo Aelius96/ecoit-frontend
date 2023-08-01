@@ -45,7 +45,7 @@
 /* scrollbar */
 .item-blog{
   margin-top: 30px;
-  max-height: 525px;   
+  max-height: 600px;   
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -131,10 +131,6 @@ img{
   right: 35px;
 }
 
-span:hover .btn-link span:focus{
-  text-decoration: none;
-  color: #5945e6;
-}
 
 a{
   color: black;
@@ -146,4 +142,8 @@ a:hover{
 input:focus{
   border: 1px solid #111111;
   color: black;
+}
+.searchinput{
+ border-radius: 4px;
+ border: 0.1px solid;
 }

@@ -9,7 +9,7 @@
   <!-- imgurl_banner:any -->
   <!-- <img src="{{banner_path}}" style="width: 100%;" height="250" alt="image"> -->
 
-<div class="site-wrapper-reveal">
+<div class="site-wrapper-reveal mt-5 ">
 
   <!--====================  Blog Area Start ====================-->
   <div class="blog-pages-wrapper section-space--ptb_20">
@@ -25,8 +25,8 @@
                 {{product.title}}
               </h2>
 
-              <div class="post-excerpt mt-15">
-                <div class="content lh-base " [innerHTML]="content"></div>
+              <div class="post-excerpt mt-4">
+                <div class="content lh-base mb-5 " [innerHTML]="content"></div>
                 <strong>Thẻ tag: </strong>
                 <span *ngFor="let p of product.hashtags">
                 <a href="">{{p.name}},</a>
@@ -51,7 +51,7 @@
           <!--===== Single Blog Item End =========-->
         </div>
       </div>
-      <div style="margin-top: 40px;">
+      <div >
       <app-side-bar></app-side-bar>
     </div>
 
