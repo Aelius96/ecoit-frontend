@@ -4,11 +4,12 @@
     font-size: 25px;
     
 }
-.tieude:hover{
- text-decoration: none;
-}
+
 .tieude{
-    color: rgb(77, 199, 55);
+      color:  #50b848 !important;
+      letter-spacing: -.4px;
+      line-height: 1.2;
+      font-weight: 600;
 }
 .share .icon-share {
     font-size: 14px;
