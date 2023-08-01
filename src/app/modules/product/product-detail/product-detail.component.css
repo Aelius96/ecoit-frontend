@@ -18,9 +18,10 @@
     z-index: -1;
   }
   .tieude{
-    font-weight: bolder;
-    color: rgb(75, 196, 59);
-    
+      color:  #50b848 !important;
+      letter-spacing: -.4px;
+      line-height: 1.2;
+      font-weight: 600;    
   }
   .post-item:hover:before {
     width: 100%;
