@@ -33,6 +33,7 @@
 .item-iconn:active {
   transform: translateY(4px);
 }
+
 .menu-iconn{
   display: flex;
   text-align: center;
@@ -45,13 +46,15 @@
 }
 .list-aside{
   padding-top: 0px;
-  max-height: 605px;
+  height: 100%;
+  background-color: #29802a;
+  /* max-height: 605px;
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  background-color: #29802a;
+  background-color: #29802a; */
 }
-.list-aside::-webkit-scrollbar{
+/* .list-aside::-webkit-scrollbar{
   width: 0 !important;
   display: none; 
 }
@@ -61,7 +64,7 @@
   text-align: center;
   font-size: 24px;
   bottom: 2% ; position: fixed ;
-}
+} */
 
 .aside{
   background-color: #29802a;
