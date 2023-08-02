@@ -345,7 +345,7 @@ select {
   outline: none;
   border: 1px solid #f8f8f8;
   border-radius: 5px;
-  background: #f8f8f8 url("../images/icons/selector-icon.png") no-repeat center right 20px;
+  background: #f8f8f8 url("../images/icons/selector-icon.png") no-repeat center right 10px;
   background-color: #f8f8f8;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -539,7 +539,7 @@ select {
     transform: scale(1);
   }
 }
-
+/* trình duyệt Firefox  */
 ::-moz-selection {
   color: #ffffff;
   background-color: #50b848 ;
