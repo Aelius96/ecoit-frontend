@@ -19,9 +19,9 @@
             <div class="d-flex">
               <span class="mr-1">Số mục mỗi trang:</span>
                   <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord" [(pageSize)]="paging.size">
-                    
+
                   </app-page-size>
-                  
+
             </div>
           </div>
           <div class="menu-item">
@@ -35,8 +35,8 @@
 
   <!-- <app-category-add #modal></app-category-add> -->
 
-<div class="section-space--mt_100 container">
-  <div class="" style="max-width: 1150px;" >
+<div class="section-space--mt_100 container ">
+  <div class="section-space--pt_60" style="max-width: 1150px;" >
     <div class="number-item"  *ngFor="let ct of category |  paginate:{
       id:'cate',
       itemsPerPage: paging.size,
@@ -45,7 +45,7 @@
       <div class="card" >
         <div class="action-box">
           <div >
-           
+
             <button (click)="Update(ct.id)"  style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
           </div>
           <div >
@@ -58,13 +58,13 @@
             </i>
           </h4>
           <div class="counter-number itemm">{{ct.typeName}}</div>
-          
+
         </div>
       </div>
   </div>
 </div>
 <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-top: 20px;">
-  <pagination-controls 
+  <pagination-controls
   [id]="'cate'"
       previousLabel="<"
       nextLabel=">"

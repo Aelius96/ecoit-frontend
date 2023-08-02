@@ -1,5 +1,5 @@
 
-<div class="d-flex ">
+<!-- <div class="d-flex ">
   <div class="flex-shrink-1 ">
     <app-aside style=" height: 100%;
     display: inline-flex;"></app-aside>
@@ -11,6 +11,16 @@
     <router-outlet></router-outlet>
   </div>
 
+</div> -->
+
+<div class="d-flex flex-column flex-root  "  >
+  <div class="d-flex flex-row flex-column-fluid  ">
+    <app-aside></app-aside>
+    <app-header-admin></app-header-admin>
+    <div class="wrapper d-flex flex-column "  >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
 
 

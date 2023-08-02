@@ -1,9 +1,4 @@
-.toolbar{
-  height: 65px;
-  background-color: white;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-  border-top: 1px solid #eff2f5;
-}
+
 .header-menu{
   padding: 10px 15px 0px 12px;
   text-align: center;
@@ -93,7 +88,7 @@
   top: -10px;
   right: 0;
   color: #fff;
-  z-index: 1000;
+  z-index: 10;
 }
 .close .x{
   border: 0;
@@ -173,7 +168,7 @@ a:hover{
   object-fit: fill;
 }
 .description{
-  vertical-align: inherit; 
+  vertical-align: inherit;
  padding-top: 10px;
   text-align: center;
 }

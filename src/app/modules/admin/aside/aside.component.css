@@ -41,23 +41,26 @@
 
 }
 .logo-aside{
-  
+
   background-color: #50b848;
 }
+
+
 .list-aside{
   padding-top: 0px;
   height: 100%;
   background-color: #29802a;
+  overflow-y: auto;
   /* max-height: 605px;
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
   background-color: #29802a; */
 }
-/* .list-aside::-webkit-scrollbar{
-  width: 0 !important;
-  display: none; 
+.list-aside::-webkit-scrollbar{
+  display: none;
 }
+/*
 .aside-more{
   justify-content: center;
   background-color: #50b848;
@@ -68,7 +71,15 @@
 
 .aside{
   background-color: #29802a;
-  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 28px 0 rgba(82, 63, 105, 0.05);
   /* position: fixed;
   left: 0; */
 }
