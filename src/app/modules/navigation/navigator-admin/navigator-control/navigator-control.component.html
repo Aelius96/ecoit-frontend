@@ -46,73 +46,7 @@
     </div>
   </div>
 
-
-  <!--  -->
-  <!-- <div class="d-flex flex-column flex-column-fluid">
-
-    <div class="navi-page">
-        <div class="container">
-            <div id="accordion">
-              <ul>
-              
-                <li *ngFor="let nav1 of navigation|  paginate: {
-                                                      id: 'nav',
-                                                      itemsPerPage: paging.size,
-                                                      currentPage: paging.page,
-                                                      totalItems: paging.totalRecord };">
-                  <div class="d-flex justify-content-between ">
-                    <div class="name-navi">
-                      <a class="has-child collapsed {{nav1.navChild.length > 0 ? 'active' : ''}}" data-toggle="collapse" href="#collapse{{nav1.id}}"></a>
-                      <input  #checkboxes type="checkbox" [value]="nav1.selected" (change)="onCheckChange($event, nav1)">
-                      <span class="slacttar px-2 ml-2 mr-3" id="{{nav1.id}}" (click)="actionTarget($event)">{{nav1.name}}</span>
-                      
-                    </div>
-                    <a href="/{{nav1.url}}" target="_blank" class="url-navi">{{nav1.url}}</a>
-                    <div class="icon">
-                      <i class="	fas fa-edit icon-navi" (click)="updateNavigation(nav1.id)"> </i>
-                      <i class="fas fa-trash-alt icon-navi "  (click)="deleteNavigation(nav1.id)"></i>
-                    </div>
-                  </div>
-
-                  <div id="collapse{{nav1.id}}" class="link-child collapse  " data-parent="#accordion">
-                    <ul class="ml-4">
-                      <li *ngFor="let nav2 of nav1.navChild " class="d-flex justify-content-between ">
-                        <div style="width: 500px">
-                          <input #checkboxes type="checkbox" [value]="nav2.selected" (change)="onCheckChange($event, nav2)">
-                          <span  class="slacttar ml-2 mr-3 " id="{{nav2.id}}" (click)="actionTarget($event)">{{nav2.name}}</span>
-                        </div>
-                        <a href="/{{nav2.url}}" target="_blank">{{nav2.url}}</a>
-                        <div class="">
-                          <i class="	fas fa-edit  icon-navi "  (click)="updateNavigation(nav2.id)"> </i>
-                          <i class="fas fa-trash-alt icon-navi "   (click)="deleteNavigation(nav2.id)"></i>
-                        </div>
-                      </li>
-                      <li>
-                        <a type="button" class="ht-btn-custom" >
-                          <i class="far fa-plus-circle mr-1" routerLink="add"></i>
-                          <span id="{{nav1.id}}" routerLink="add">Thêm...</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-
-                </li>
-              </ul>
-            </div>
-            <div class="row">
-              <div class="col-12" *ngIf="paging.totalRecord > 0 ">
-                <pagination-controls previousLabel="<" 
-                nextLabel=">"
-                [id]="'nav'" (pageChange)="handlePageChange($event)"
-                ></pagination-controls>
-              </div>
-            </div>
-          </div>
-    </div>
-  </div> -->
-
-
-  <div class="container  section-space--mt_100">
+  <div class="container  section-space--mt_120">
 
     <div class="row title">
       <button mat-icon-button disabled  ></button>
@@ -141,10 +75,10 @@
               </mat-icon>
             </button>
             <input  #checkboxes type="checkbox" name="foo" [value]="nav.selected" (change)="onCheckChange($event, nav)">
-            <div class="col-4" >  {{ nav.name }}</div>
+            <div class="col-4" > {{ nav.name }}</div>
             <div class="col-4" > <a href="/{{nav.url}}" target="_blank" ></a></div> 
             <div class="col-4" >
-              <i class="	fas fa-edit  icon-navi "  (click)="updateNavigation(nav.id)"  ></i>
+              <i class="fas fa-edit  icon-navi "  (click)="updateNavigation(nav.id)"  ></i>
               <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav.id)"  ></i>
             </div>
           </div>
