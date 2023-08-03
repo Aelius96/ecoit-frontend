@@ -99,7 +99,8 @@
   } 
   
   .page-albums{
-   padding-top: 50px;
+
+   margin-top: 110px;
    overflow: auto;
   }
   .list-img{

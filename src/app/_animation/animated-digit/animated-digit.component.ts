@@ -36,8 +36,7 @@ export class AnimatedDigitComponent implements AfterViewInit {
     const step = () => {
       currentSinValue += sinValueIncrement;
       currentValue += valueIncrement * Math.sin(currentSinValue) ** 2 * 2;
-
-      element.nativeElement.textContent = Math.abs(Math.floor(currentValue)); //Thiết lập nội dung của phần tử DOM (element) thành giá trị tuyệt đối và làm tròn xuống (Math.floor) của currentValue
+      element.nativeElement.textContent = Math.abs(Math.floor(currentValue)); //Thiết lập nội dung của phần tử DOM (bằng textcontent TRả về chuỗi) thành giá trị tuyệt đối và làm tròn xuống (Math.floor) của currentValue
       // Nếu giá trị  currentValue bằng với một giá trị this.digit nào đó, thì thêm dấu "+" vào trước nội dung của phần tử DOM.
       if(Math.abs(Math.floor(currentValue)) === this.digit){
         element.nativeElement.textContent = "+" + element.nativeElement.textContent;

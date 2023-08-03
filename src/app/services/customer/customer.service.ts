@@ -39,4 +39,5 @@ export class CustomerService {
   getCusByUrl(url: string): Observable<Customer>{
     return this.http.get<Customer>(`${this.baseUrl}/${this.domain}/home/${url}`);
   }
+  
 }

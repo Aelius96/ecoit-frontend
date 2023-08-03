@@ -35,6 +35,7 @@ export class LoginComponent {
         this.isLoggedIn = true;
         this.isLoginFailed = false;
         this.roles = this.tokenStorage.getUser().roles;
+        this.errorMessage ="Đăng Nhập Thành Công"
         this.reloadPage();
       },
       err => {
