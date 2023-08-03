@@ -1,3 +1,4 @@
+
 export class Domain {
   public static ABOUT = `about`;
   public static AUTH = `auth`;
@@ -18,6 +19,7 @@ export class Domain {
   public static NAV = `nav`;
   public static COMMENT = `comment`;
   public static USER = `user`;
-  public static FILE = `s/file`
+  public static FILE = `s/file`;
+  public static ADDRESS = `address`;
 
 }

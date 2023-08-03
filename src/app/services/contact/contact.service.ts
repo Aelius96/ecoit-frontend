@@ -13,7 +13,7 @@ export class ContactService {
 
   private baseUrl = `${Constant.BASE_URL}`;
   private domain = `${Domain.CONTACT}` 
-  myForm: any;
+
   constructor(private http: HttpClient) {
   }
 

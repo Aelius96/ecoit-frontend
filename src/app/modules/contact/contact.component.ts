@@ -25,13 +25,14 @@ export class ContactComponent  implements OnInit {
   
   SendContact(){
       this.contactService.AddContact(this.contact).subscribe(()=>{
-        this.router.navigate(['./']);
+        location.reload()
         alert('Gửi thành công')
       }
       )
   }
 
-  numberOnly(event:any): boolean {
+  //mã ACII
+  numberOnly(event:any): boolean { 
     const charCode = (event.which) ? event.which : event.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       return false;

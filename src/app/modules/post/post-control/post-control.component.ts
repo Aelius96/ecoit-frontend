@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import { Category } from 'src/app/core/model/category/category';
@@ -35,6 +35,7 @@ export class PostControlComponent implements OnInit{
   cate = '';
 
   constructor(private router:Router,
+              private route: ActivatedRoute,
               private postService: PostService ,
               private cateService: CategoryService
   ) {}
@@ -52,7 +53,7 @@ export class PostControlComponent implements OnInit{
     let params: any = {};
 
     if (page) {
-      params[`pageNo`] = page-1;
+      params[`pageNo`] = page;
     }
 
     if (pageSize) {
@@ -72,12 +73,14 @@ export class PostControlComponent implements OnInit{
 
   getListAllWithPage() {
     const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput, this.cate);
-
+    let a = this;
     this.postService.listAllWithPage(params)
       .subscribe(
         data => {
           this.postList = data.content;
           this.paging.totalRecord = data.totalElements;
+          // history.pushState(URL `admin/bpost?pageNo=${a.paging.page}&pageSize=${a.paging.size}`)
+         console.log(this.postList)
         },
         error => {
           console.log(error);
@@ -121,8 +124,13 @@ export class PostControlComponent implements OnInit{
     this.getListAllWithPage();
   }
 
-  updatePost(id: number){
-    return this.router.navigate([`/admin/bpost/update`,id]);
+  updatePost(id: number, page: number){
+    this.paging.page = page;
+    console.log(this.paging.page);
+    return this.router.navigate([`/admin/bpost/update`,id],{
+      queryParams:{page: this.paging.page},
+      relativeTo: this.route
+    });
   }
 
   deletePost(id: number){

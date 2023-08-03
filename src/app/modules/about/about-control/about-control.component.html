@@ -2,35 +2,35 @@
 <div class="about-page">
     <div class="container">
         <div class="row" style="justify-content: center;">
-            <div class="col-lg-10">
+            <div class="col-lg-9">
 
-                        <form >
-                            <div class="contact-page-wrapper">
+                        <form (ngSubmit)="onSubmit()"  enctype="multipart/form-data"  novalidate action="" >
+                            <div class="contact-page-wrapper  mx-auto">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="contact-inner">
                                             <span><strong>HOTLINE</strong></span>
-                                            <input type="text" name="phone" id="" required>
+                                            <input type="text" name="phone" id="phone" [(ngModel)]="about.phone" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="contact-inner">
                                             <span><strong>FAX</strong></span>
-                                            <input type="tel" name="fax" id="" required>
+                                            <input type="tel" name="fax" id="fax" [(ngModel)]="about.fax" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="contact-inner">
                                             <span><strong>EMAIL</strong></span>
-                                            <input type="email" name="email" id="" required>
+                                            <input type="email" name="email" id="email" [(ngModel)]="about.email" required>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-lg-6">
+                                    <div class="col-lg-6">
                                         <div class="contact-inner">
-                                            <span><strong>LINK</strong></span>
-                                            <input type="text" name="videoLINK" id="" required>
+                                            <span><strong>LINK VIDEO</strong></span>
+                                            <input type="text" name="videoLINK" id="videoLINK" [(ngModel)]="about.videoLINK">
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <div class="col-md-8">
                                         <span><strong>ĐỊA CHỈ</strong></span>
                                         <div class="contact-inner">
@@ -44,7 +44,7 @@
                                         <div class="contact-inner">
                                             <span><strong>MÔ TẢ</strong></span>
                                             <div class="ckeditorContaniner" id="editor">
-                                                <ckeditor [(ngModel)]="aboutList.description" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
+                                                <ckeditor [(ngModel)]="about.description" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
                                             </div>
                                         </div>
                                     </div>
@@ -52,18 +52,21 @@
                                         <div class="contact-inner">
                                             <span><strong>VÀI NÉT VỀ CHÚNG TÔI</strong></span>
                                             <div class="ckeditorContaniner" id="editor">
-                                                <ckeditor [(ngModel)]="aboutList.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
+                                                <ckeditor [(ngModel)]="about.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn" style="width: 100px;">Lưu</button>
+                                        <div class="my-3 ">{{Notification}}</div>
+                                        <button type="submit" class="btn" style="width: 100px;" >Lưu</button>
+                                        <button type="button" class="btn  cancel ml-4 " style=" width:100px;" routerLink="../">Hủy</button>
                                     </div>
                                 </div>
                             </div>
                         </form>
 
             </div>
+            
         </div>
     </div>
 </div>

@@ -1,12 +1,19 @@
 .about-page{
     padding: 30px 10px;
-    max-height: 787px;
     overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.about-page::-webkit-scrollbar{
+    display: none;
 }
 .btn{
     width: max-content;
 }
 
-
+.cancel{
+    background-color: #cccccc;
+  
+  }
 
 

@@ -79,7 +79,7 @@
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  max-height: 480px;
+  max-height: 500px;
 }
 .list-cmt::-webkit-scrollbar{
   width: 0px !important;

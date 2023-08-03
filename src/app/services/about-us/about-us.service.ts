@@ -13,13 +13,18 @@ export class AboutUsService {
   private domain = `${Domain.ABOUT}`;
   constructor(private http:HttpClient) { }
 
-  createInformation(about: About){
-    return this.http.post( this.baseUrl +this.domain + '/create',about);
+  createInformation(aboutform: About):Observable<Object>{
+    return this.http.post(`${this.baseUrl}/${this.domain}/create`, aboutform);
   }
 
-  getInformation():Observable<About[]>{
-    return this.http.get<About[]>(`${this.baseUrl}/`)
+  getInformation(id:number):Observable<About[]>{
+    return this.http.get<About[]>(`${this.baseUrl}/${this.domain}/get?id=${id}`)
   }
-
+ UpdateInformation( value: About ):Observable<Object>{
+  return this.http.post(this.baseUrl + this.domain + '/update' , value )
+ }
+ getAllInformation():Observable<About>{
+    return this.http.get<About>(`${this.baseUrl}/${this.domain}`)
+ }
 
 }
