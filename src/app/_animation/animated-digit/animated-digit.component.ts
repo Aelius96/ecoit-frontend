@@ -24,7 +24,7 @@ export class AnimatedDigitComponent implements AfterViewInit {
 
   counterFunc(endValue: number, element: any) {
     const steps = 10;
-    const durationMs = Math.floor((Math.random()*1000)+2000);  //thời gian này được chọn ngẫu nhiên trong khoảng từ 2000ms đến 3000ms (2 đến 3 giây).
+    const durationMs = Math.floor((Math.random()*1000)+2500);  //thời gian này được chọn ngẫu nhiên trong khoảng từ 2000ms đến 3000ms (2 đến 3 giây).
 
     const stepCount = Math.abs(durationMs / steps); // Đây là số lượng bước thực hiện trong quá trình diễn ra của hiệu ứng số đếm. 
     const valueIncrement = (endValue - 0) / stepCount; //Đây là giá trị tăng lên của hiệu ứng số đếm sau mỗi bước
