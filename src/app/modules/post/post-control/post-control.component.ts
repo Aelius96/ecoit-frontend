@@ -38,7 +38,8 @@ export class PostControlComponent implements OnInit{
               private route: ActivatedRoute,
               private postService: PostService ,
               private cateService: CategoryService
-  ) {}
+  ) {
+  }
 
 
   ngOnInit(): void {
@@ -73,18 +74,23 @@ export class PostControlComponent implements OnInit{
 
   getListAllWithPage() {
     const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput, this.cate);
-    let a = this;
+
+    // this.router.navigate(['admin/bpost'], { queryParams: params });
+
     this.postService.listAllWithPage(params)
       .subscribe(
         data => {
           this.postList = data.content;
           this.paging.totalRecord = data.totalElements;
+
           // history.pushState(URL `admin/bpost?pageNo=${a.paging.page}&pageSize=${a.paging.size}`)
          console.log(this.postList)
+
         },
         error => {
           console.log(error);
         });
+
   }
 
   // getImageByPostId(){
@@ -113,24 +119,29 @@ export class PostControlComponent implements OnInit{
   }
 
   handlePageChange(event: number): void {
-    console.log(event);
     this.paging.page = event;
     this.getListAllWithPage();
   }
   handlePageSizeChange(event: any): void {
     this.paging.size = event;
     this.paging.page = 1;
-    console.log(event, this.paging.size)
     this.getListAllWithPage();
   }
 
-  updatePost(id: number, page: number){
-    this.paging.page = page;
-    console.log(this.paging.page);
-    return this.router.navigate([`/admin/bpost/update`,id],{
-      queryParams:{page: this.paging.page},
-      relativeTo: this.route
-    });
+  //
+  // updatePost(id: number, page: number){
+  //   this.paging.page = page;
+  //   console.log(this.paging.page);
+  //   return this.router.navigate([`/admin/bpost/update`,id],{
+  //     queryParams:{page: this.paging.page},
+  //     relativeTo: this.route
+  //   });
+
+  updatePost(id: number){
+    // const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput, this.cate);
+    // this.router.navigate([`/admin/bpost/update`,id], { queryParams: params });
+    this.router.navigate([`/admin/bpost/update`,id]);
+
   }
 
   deletePost(id: number){
