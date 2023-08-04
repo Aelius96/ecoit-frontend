@@ -112,19 +112,25 @@
                             </div>
                             <div>
                                 <ul>
-                                    <li>
-                                        <a class="headquarters" href="https://goo.gl/maps/J4QvebAMNZX1Ki4M9"
-                                            target="_blank">
-                                            <i class="fa fa-map-marker"></i>
-                                            <span class="title-contact">Trụ sở chính: Tầng 3 , Khu A-B Khu văn phòng ,
-                                                Imperia Garde, 203 Nguyễn Huy Tưởng , Thanh Xuân , TP Hà Nội</span>
-                                        </a>
-                                    </li>
-                                    <li *ngFor="let contact of contact_about">
+                                    <li *ngFor="let contact of addressList">
                                         <p>
-                                            <i class="{{contact.icon}}"></i>
-                                            <span class="title-contact">{{contact.title}}</span>
+                                            <i class="fa fa-map-marker"></i>
+                                            <span class="title-contact">{{contact.address}}</span>
                                         </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <i class="fa fa-phone"></i>
+                                            <span class="title-contact" [innerHTML]="phone" ></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-print"></i>
+                                        <span class="title-contact" [innerHTML]="fax" ></span>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope-o"></i>
+                                        <span class="title-contact"[innerHTML]="email"></span>
                                     </li>
                                 </ul>
                                 <div>

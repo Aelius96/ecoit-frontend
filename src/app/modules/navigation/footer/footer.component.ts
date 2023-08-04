@@ -5,6 +5,11 @@ import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import {Constant} from "../../../core/config/constant";
 import { Domain } from 'src/app/core/domain/domain';
+import { AddressService } from 'src/app/services/address/address.service';
+import { Address } from 'src/app/core/model/address/address';
+import { AboutUsService } from 'src/app/services/about-us/about-us.service';
+import { About } from 'src/app/core/model/about/about';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-footer',
@@ -13,6 +18,8 @@ import { Domain } from 'src/app/core/domain/domain';
 })
 export class FooterComponent implements OnInit {
   postListNews: Post[]=[];
+  addressList : Address[] = [];
+  about : About = new About();
   postURL = Domain.POST
   paging = {
     page: 1,
@@ -23,13 +30,18 @@ export class FooterComponent implements OnInit {
   category: any;
   constructor(
               private postService: PostService,
+              private  addressService: AddressService,
+              private about_usService: AboutUsService ,
+              private sanitizer: DomSanitizer,
              ) {}
 
   ngOnInit(): void {
     this.getListAllWithNews();
+    this.getListAddress();
+    this.getListAllInformation();
   }
 
-  getRequestParams(pageSize: number, category:string): any {
+  getParams(pageSize: number, category:string): any {
     let params: any = {};
     if (pageSize) {
       params[`pageSize`] = pageSize;
@@ -41,7 +53,7 @@ export class FooterComponent implements OnInit {
   }
 
   getListAllWithNews() {
-    const params = this.getRequestParams(this.paging.size,this.category);
+    const params = this.getParams(this.paging.size,this.category);
     this.postService.listAllWithPageByNews(params)
       .subscribe(
         data => {
@@ -80,38 +92,28 @@ field_activity=[
     id: 6,
     title:'Sản xuất và gia công phần mềm'
   },
-
-
 ]
 
-contact_about=[
-  // {
-  //   id:1,
-  //   icon:'fa fa-map-marker',
-  //   title:'Trụ sở chính: Tầng 3 , Khu A-B Khu văn phòng , Imperia Garde, 203 Nguyễn Huy Tưởng , Thanh Xuân , TP Hà Nội'
-  // },
-  {
-    id:2,
-    icon:'fa fa-map-marker',
-    title:'VP2: A10 – Ngõ 217 Đê La Thành – Đống Đa - Hà Nội'
-  },
-  {
-    id:3,
-    icon:'fa fa-map-marker',
-    title:' Chi nhánh Đà Nẵng: Tầng 4, tòa nhà Minh sơn, số 25 đường 2/9, P. Hòa Cường Nam, Q. Hải Châu, Tp. Đà Nẵng'
-  },
-  {
-    icon:'fa fa-phone',
-    title:'(+84) 935 772 929'
-  },
-  {
-    icon:'fa fa-print',
-    title:'(024) 62750064'
-  },
-  {
-    icon:'fa fa-envelope',
-    title:'contact@ecoit.asia'
-  },
-]
+getListAddress(){
+  this.addressService.ListAll().subscribe(res=>{
+    this.addressList= res;
+  }
+  )
+}
+
+// about
+email:any;
+phone:any;
+fax:any;
+getListAllInformation(){
+  this.about_usService.getAllInformation().subscribe(res=>{
+     this.about= res;
+     this.email = this.sanitizer.bypassSecurityTrustHtml(this.about.email);
+     this.phone = this.sanitizer.bypassSecurityTrustHtml(this.about.phone);
+     this.fax = this.sanitizer.bypassSecurityTrustHtml(this.about.fax);
+  })
+ }
+
+
 }
 

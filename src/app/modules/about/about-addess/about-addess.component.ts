@@ -22,7 +22,6 @@ export class AboutAddessComponent {
     window.history.back()
   }
 
-
   AddAddress():void{
    this.addressService.createAddress(this.address).subscribe(()=>{
     alert("Thêm thành công!");

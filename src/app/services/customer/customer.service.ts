@@ -17,17 +17,16 @@ export class CustomerService {
   listAllWithPage(params:any):Observable<any>{
     return this.http.get(`${this.baseUrl}/${this.domain}`, {params})
   }
-
   public getAllCustomer():Observable<Customer[]>{
     return this.http.get<Customer[]>(`${this.baseUrl}/${this.domain}/home`)
   }
 
   public addCustomer(formData: FormData): Observable<Object>{
-    return this.http.post(`${this.baseUrl}/${this.domain}/add`,formData);
+    return this.http.post(this.baseUrl+'/' + this.domain +'/add' , formData);
   }
 
   updateCustomer(id: number, formData: FormData):Observable<Object>{
-    return this.http.post(`${this.baseUrl}/${this.domain}/update/${id}`,formData);
+    return this.http.post( this.baseUrl + '/' + this.domain + '/update/' + id,formData);
   }
 
   deleteCustomer(id: number): Observable<Object>{
