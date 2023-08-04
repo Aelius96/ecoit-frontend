@@ -109,10 +109,13 @@ export class PostAddComponent implements OnInit{
     return this.hashtagList.filter(hashtag => hashtag.name.toLowerCase().includes(filterValue));
   }
 
-
+  currentPage:number;
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     if(this.id){
+      this.route.queryParams.subscribe(params =>{
+        this.currentPage = +params['page'] ||1;
+      })
       this.postService.getPostById(this.id).subscribe(data =>{
         this.post = data;
         this.url = this.post.image?.pathUrl;
@@ -166,13 +169,13 @@ export class PostAddComponent implements OnInit{
   }
 
   goToPostList(){
-    this.router.navigate(['/admin/bpost']);
+    this.router.navigate([`/admin/bpost`]);
   }
 
   updateDataToForm(id: any){
     const postFormData = this.prepareFormData(this.post);
     this.postService.updatePost(id, postFormData).subscribe(data =>{
-      this.goToPostList();
+      window.history.back();
     });
   }
 

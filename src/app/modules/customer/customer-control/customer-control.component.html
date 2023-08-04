@@ -3,7 +3,7 @@
     <div class="left-d-flex">
       <div class="d-flex">
         <a class="control" style="width: 80px" routerLink="../customer"  routerLinkActive="active"><span style="font-weight: bold;" class="spann">Mục tiêu /</span></a>
-        <a class="control"  style="width: 80px" routerLink="../customer/cus-typical" routerLinkActive="active"  ><span class="spann">Tiêu biểu</span></a>     
+        <a class="control"  style="width: 80px" routerLink="../customer/cus-typical" routerLinkActive="active"  ><span class="spann">Tiêu biểu</span></a>
         <form (ngSubmit)="search()" class="d-flex">
           <input style=" margin-top: 7px; width: 70%;" class="input" type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm ">
           <div class="input-group-append inputt" >
@@ -36,14 +36,14 @@
   </div>
 </div>
 
-<div class="section-space--mt_50">
+<div class="section-space--mt_100">
   <p class="text-title">KHÁCH HÀNG MỤC TIÊU</p>
   <hr class="hr">
 </div>
 
 
 <div class=" section-space--mt_100" >
-  
+
       <div class="container">
         <div class="" >
           <div class="row">
@@ -72,16 +72,16 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-12" style="margin-top: 20px; " *ngIf="paging.totalRecord>0" >
+            <div class="col-md-12" *ngIf="paging.totalRecord>0" >
               <pagination-controls
                 previousLabel="<"
                 nextLabel=">"
-              [id]="'customer'" 
-              (pageChange)="handlePageChange($event)" 
+              [id]="'customer'"
+              (pageChange)="handlePageChange($event)"
               [maxSize]="paging.totalRecord" ></pagination-controls>
             </div>
           </div>
         </div>
       </div>
-    
+
 </div>

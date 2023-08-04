@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Constant} from "../../core/config/constant";
 import {Domain} from "../../core/domain/domain";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, catchError, of, tap} from "rxjs";
 import { About } from 'src/app/core/model/about/about';
 
 @Injectable({
@@ -13,13 +13,18 @@ export class AboutUsService {
   private domain = `${Domain.ABOUT}`;
   constructor(private http:HttpClient) { }
 
-  createInformation(about: About){
-    return this.http.post( this.baseUrl +this.domain + '/create',about);
+  createInformation(aboutform: About):Observable<Object>{
+    return this.http.post( this.baseUrl +'/'+this.domain+'/create' , aboutform);
   }
 
-  getInformation():Observable<About[]>{
-    return this.http.get<About[]>(`${this.baseUrl}/`)
-  }
+ getAllInformation():Observable<About>{
+    return this.http.get<About>(this.baseUrl + '/' + this.domain )
+ }
 
-
+ getAllInforHome():Observable<About[]>{
+  return this.http.get<About[]>(`${this.baseUrl}/${this.domain}`).pipe(
+    tap(res=> console.log('about' + JSON.stringify(res) )),
+    catchError( () => of([]) )
+  )
+ }
 }

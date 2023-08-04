@@ -14,7 +14,7 @@ const routes: Routes =[
   children:[
     {path: 'dashboard' , title:'Admin-Ecoit' , loadChildren:()=>import('./number.module').then(m=>m.NumberModule)},
     {path: 'blog' , title:'Admin-Blog', loadChildren:()=> import('./blog.module').then(m=>m.BlogModule)},
-    {path: 'news' , title:'Admin-Tin tức', loadChildren:()=> import('./news.modules').then(m=>m.NewsModules)},
+    {path: 'news' , title:'Admin-Tin tức', loadChildren:()=> import('./news.module').then(m=>m.NewsModules)},
     {path: 'recruit' , title:'Admin-Tuyển dụng', loadChildren:()=> import('./recruit.module').then(m=>m.RecruitModule)},
     {path: 'customer' , title:'Admin-Khách Hàng' , loadChildren:()=>import('./customer.module').then(m=>m.CustomerModule)},
     {path: 'bpost' , title:'Admin-Bài Viết' , loadChildren:()=>import('./post.module').then(m=>m.PostModule)},

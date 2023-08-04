@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Address } from '../../../core/model/address/address';
+import { AddressService } from 'src/app/services/address/address.service';
 
 @Component({
   selector: 'app-about-addess',
@@ -8,10 +10,29 @@ import { Router } from '@angular/router';
 })
 export class AboutAddessComponent {
 
-  constructor( private router: Router) { }
+  address : Address = new Address();
+  constructor( private router: Router ,
+                private addressService : AddressService) { }
 
   rollbackToList(){
     this.router.navigate(['/admin/about']);
   }
+
+  backAbout(){
+    window.history.back()
+  }
+
+  AddAddress():void{
+   this.addressService.createAddress(this.address).subscribe(()=>{
+    alert("Thêm thành công!");
+    this.backAbout()
+   })
+  }
+
+  onSubmit(){
+   this.AddAddress()
+  }
+
+
 }
 

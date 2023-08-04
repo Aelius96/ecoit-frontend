@@ -24,7 +24,7 @@ export class AnimatedDigitComponent implements AfterViewInit {
 
   counterFunc(endValue: number, element: any) {
     const steps = 10;
-    const durationMs = Math.floor((Math.random()*1000)+2000);  //thời gian này được chọn ngẫu nhiên trong khoảng từ 2000ms đến 3000ms (2 đến 3 giây).
+    const durationMs = Math.floor((Math.random()*1000)+2500);  //thời gian này được chọn ngẫu nhiên trong khoảng từ 2000ms đến 3000ms (2 đến 3 giây).
 
     const stepCount = Math.abs(durationMs / steps); // Đây là số lượng bước thực hiện trong quá trình diễn ra của hiệu ứng số đếm. 
     const valueIncrement = (endValue - 0) / stepCount; //Đây là giá trị tăng lên của hiệu ứng số đếm sau mỗi bước
@@ -36,8 +36,7 @@ export class AnimatedDigitComponent implements AfterViewInit {
     const step = () => {
       currentSinValue += sinValueIncrement;
       currentValue += valueIncrement * Math.sin(currentSinValue) ** 2 * 2;
-
-      element.nativeElement.textContent = Math.abs(Math.floor(currentValue)); //Thiết lập nội dung của phần tử DOM (element) thành giá trị tuyệt đối và làm tròn xuống (Math.floor) của currentValue
+      element.nativeElement.textContent = Math.abs(Math.floor(currentValue)); //Thiết lập nội dung của phần tử DOM (bằng textcontent TRả về chuỗi) thành giá trị tuyệt đối và làm tròn xuống (Math.floor) của currentValue
       // Nếu giá trị  currentValue bằng với một giá trị this.digit nào đó, thì thêm dấu "+" vào trước nội dung của phần tử DOM.
       if(Math.abs(Math.floor(currentValue)) === this.digit){
         element.nativeElement.textContent = "+" + element.nativeElement.textContent;

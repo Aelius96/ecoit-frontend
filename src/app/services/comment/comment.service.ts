@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Constant } from 'src/app/core/config/constant';
 import { Comment } from 'src/app/core/model/comment/comment';
 import {Domain} from "../../core/domain/domain";
+import { ParseError } from '@angular/compiler';
+import { Params } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,10 @@ export class CommentService {
   // getCommentChildById( params: any):Observable<any>{
   //   return this.http.get(`${this.baseUrl}/comment/get` , {params})
   // }
+
+  getListCommentwithPageAdmin(paramsQuery : Params):Observable<any>{
+    return this.http.get(`${this.baseUrl}/${this.domain}/search` , {params:paramsQuery})
+  }
 
   getCommentChildByParent():Observable<any>{
     return this.http.get(`${this.baseUrl}/${this.domain}/get` )

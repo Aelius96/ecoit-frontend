@@ -24,18 +24,7 @@ export class NewsDetailComponent implements OnInit{
   ngOnInit(): void {
     this.getList();
   }
-  //news
-  // getList(){
-  //   this.url = this.route.snapshot.params['url'];
-  //   this.newsService.getNewsByUrl(this.url).subscribe(data => {
-  //     this.news = data;
-  //     document.title = this.news.title;
-  //     this.content = this.sanitizer.bypassSecurityTrustHtml(this.news.content);
-  //   })
-  // }
 
-
-  //post
   getList(){
     this.url = this.route.snapshot.params['url'];
     this.postService.getPostByUrl(this.url).subscribe(data => {

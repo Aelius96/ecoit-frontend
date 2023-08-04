@@ -1,56 +1,52 @@
 <form action="">
   <!--====================  header area ====================-->
 
-  <div class="header-area header-sticky header-area--absolute is-sticky "  >
-    <div  class="container-fluid container-fluid--cp-150" >
-        <div class="row h-100 mx-130px">
-          <div class="col-12">
-            <div class="d-flex h-100  justify-content-between ">
-              <div class=" d-flex" >
-                <a class="my-auto" href="/trang-chu" title="Ecoit">
-  
-                  <img  class="img" src="./assets/images/logoEcoit.jpg"
-                        alt="EcoIT" style="padding: 10px 5px; width: 170px !important;">
-                </a>
-              </div>
-              <div class="header-right  d-flex flex-column  ">
-                 <div class="header-right_top d-flex my-auto justify-content-end " >
-                  <ul  class="list-inline d-flex">
-                    <li class="d-flex mr-3 " >
-                        <span class="header-label mr-3 d-flex">
-                          <i class="fa fa-phone mt-1 " style="font-size: 24px;  "> </i>
-                        </span>
-                        <span class="header-phone d-flex  flex-column">
-                                <span class="text-uppercase contact-title "  >Hotline </span>
-                                  <strong>
-                                    
-                                      <a style="vertical-align: inherit;"><a class="info"  href="tel:(+84) 935 772 929">(+84) 935 772 929</a></a>
-                                    
-                                  </strong>
-                          </span>
-                    </li>
-                    <li class="d-flex" >
-                      <span class="header-label mr-3 d-flex " >
-                          <i class="fa fa-envelope " style="font-size: 24px;" ></i>
-                        </span>
-                      <span class="header-email d-flex  flex-column" >
-                          <span class="text-uppercase contact-title" >Email
-                          </span>
-                          <strong>
-                              
-                                      <a class="info"  href="mailto:contact@ecoit.com.vn">contact@ecoit.com.vn</a>
-                                    
-                            </strong>
-                        </span>
-                    </li>
+  <div class="header-area header-sticky header-area--absolute is-sticky ">
+    <div class="container-fluid container-fluid--cp-150">
+      <div class="row h-100 mx-130px">
+        <div class="col-12">
+          <div class="d-flex h-100  justify-content-between ">
+            <div class=" d-flex">
+              <a class="my-auto" href="/trang-chu" title="Ecoit">
 
-                  </ul>
-                  <a class="lh ml-3  "  routerLink="/lien-he" >
-                        <span class="mb-4" style="vertical-align: inherit; ">
-                            <span class="advise-contact">LIÊN HỆ TƯ VẤN</span>
-                        </span>
-                  </a>
-                  <!-- <div class="dropleft">
+                <img class="img" src="./assets/images/logoEcoit.jpg" alt="EcoIT"
+                  style="padding: 10px 5px; width: 170px !important;">
+              </a>
+            </div>
+            <div class="header-right  d-flex flex-column  ">
+              <div class="header-right_top d-flex my-auto justify-content-end " >
+                <ul class="list-inline d-flex">
+                  <li class="d-flex mr-3 ">
+                    <span class="header-label mr-3 d-flex">
+                      <i class="fa fa-phone mt-1 " style="font-size: 24px;  "> </i>
+                    </span>
+                    <span class="header-phone d-flex  flex-column">
+                      <span class="text-uppercase contact-title ">Hotline </span>
+                        <strong>
+                          <a style="vertical-align: inherit;"><a class="info" href="tel:(+84) 935 772 929" [innerHTML]="phone"></a></a>
+                        </strong>
+                    </span>
+                  </li>
+                  <li class="d-flex">
+                    <span class="header-label mr-3 d-flex ">
+                      <i class="fa fa-envelope " style="font-size: 24px;"></i>
+                    </span>
+                    <span class="header-email d-flex  flex-column">
+                      <span class="text-uppercase contact-title">Email
+                      </span>
+                      <strong>
+                        <a class="info" href="mailto:contact@ecoit.com.vn" [innerHTML]="email" ></a>
+                      </strong>
+                    </span>
+                  </li>
+
+                </ul>
+                <a class="lh ml-3  " routerLink="/lien-he">
+                  <span class="mb-4" style="vertical-align: inherit; ">
+                    <span class="advise-contact">LIÊN HỆ TƯ VẤN</span>
+                  </span>
+                </a>
+                <!-- <div class="dropleft">
                     <i  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="fa fa-home dropdown-toggle  "></i>
                     <div class="dropdown-menu">
                       <button *ngIf="isToken; else dangnhap" style="width: 100%;" >
@@ -73,35 +69,34 @@
                       </a>
                     </div>
                   </div> -->
-                 </div>
-                <div class="navigation-menu navigation-menu--onepage navigation-menu--text_white" >
-                  <ul class="menu-primary text-uppercase">
-                    
-                    <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu"
-                        id="child-li">
-                      <a href="{{nav.url}}" routerLinkActive="active">{{nav.name}}</a>
-                      <ul *ngIf="nav.navChild.length > 0" class="submenu" style="border-bottom: 0px solid " >
-                        <li *ngFor="let nav1 of nav.navChild">
-                          <a href="/{{nav.url}}/{{nav1.url}}" routerLinkActive="active" class="nav1" >{{nav1.name}}</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="" >
-                      <i id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="fas fa-search" style="color: #ecf9eb;" ></i>
-                      <div class="dropdown-menu dropdown-menu-right custom-input" aria-labelledby="dropdownMenuButton">
-                        <input type="text" [(ngModel)]="searchInput" name="searchInput" id = "searchInput">
-                        <input type="submit" (click)="goToSearch()" id="edit-submit">
-                      </div>
-                    </li>
-                  </ul>
-                </div>
               </div>
-              
+              <div class="navigation-menu navigation-menu--onepage navigation-menu--text_white">
+                <ul class="menu-primary text-uppercase">
+
+                  <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu" id="child-li">
+                    <a href="{{nav.url}}" routerLinkActive="active">{{nav.name}}</a>
+                    <ul *ngIf="nav.navChild.length > 0" class="submenu" style="border-bottom: 0px solid ">
+                      <li *ngFor="let nav1 of nav.navChild">
+                        <a href="/{{nav.url}}/{{nav1.url}}" routerLinkActive="active" class="nav1">{{nav1.name}}</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="">
+                    <i id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                      class="fas fa-search" style="color: #ecf9eb;"></i>
+                    <div class="dropdown-menu dropdown-menu-right custom-input" aria-labelledby="dropdownMenuButton">
+                      <input type="text" [(ngModel)]="searchInput" name="searchInput" id="searchInput">
+                      <input type="submit" (click)="goToSearch()" id="edit-submit">
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
+
           </div>
         </div>
+      </div>
     </div>
   </div>
 
 </form>
-

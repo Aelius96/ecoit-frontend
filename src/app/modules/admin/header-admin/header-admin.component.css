@@ -10,7 +10,16 @@
   font-size: 20px;
   color: black;
 }
+.header-admin{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 120px;
+  z-index: 999;
+  background-color: #fff;
 
+
+}
 .head-menu-headeradmin{
   margin-left: 10px;
   justify-content: center;

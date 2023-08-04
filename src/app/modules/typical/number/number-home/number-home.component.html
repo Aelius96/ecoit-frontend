@@ -12,14 +12,16 @@
       <div class="container">
         <div class="container">
           <div class="">
-            <div  class=" col-md-3 " *ngFor="let number of nums" >
-                  <div  class="num-counter ">
-                    <div class="box-icon"><span><i class="{{number.icon}}"></i></span></div>
-                    <div class="box-inner">
-                      <app-animated-digit [digit]="number.num" ></app-animated-digit>
-                      <h4 class="description">{{number.description}}</h4>
-                    </div>
+            <div  class=" col-md-3 " *ngFor="let number of nums ; let i = index " >
+              <div *ngIf="i<4" >
+                <div  class="num-counter ">
+                  <div class="box-icon"><span><i class="{{number.icon}}"></i></span></div>
+                  <div class="box-inner">
+                    <app-animated-digit [digit]="number.num" ></app-animated-digit>
+                    <h4 class="description">{{number.description}}</h4>
                   </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

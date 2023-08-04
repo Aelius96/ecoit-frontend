@@ -30,7 +30,7 @@ export class ListContactComponent {
     this.getAllContactPagesize();
   }
 
-  getRequestParams(page: number, pageSize: number,searchinput:string  ): any {
+  getParams(page: number, pageSize: number,searchinput:string  ): any {
     let params: any = {};
 
     if (page) {
@@ -48,15 +48,12 @@ export class ListContactComponent {
   }
 
   getAllContactPagesize(): void {
-  const params = this.getRequestParams(this.paging.page, this.paging.size , this.searchInput.input )
+  const params = this.getParams(this.paging.page, this.paging.size , this.searchInput.input )
     this.contactService.listAllsizePage(params ).subscribe(res=>{
       this.contactList=res.content;
       this.paging.totalRecord = res.totalElements;
-      console.log(res)
+      // console.log(res)
     }, 
-    error => {
-      console.log(error);
-    }
     )
   }
 

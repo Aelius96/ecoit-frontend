@@ -6,6 +6,9 @@ import {Router} from "@angular/router";
 import {PostService} from "../../../services/post/post.service";
 import {BehaviorSubject, Observable} from "rxjs";
 import {Post} from "../../../core/model/post/post";
+import { About } from 'src/app/core/model/about/about';
+import { DomSanitizer } from '@angular/platform-browser';
+import { AboutUsService } from 'src/app/services/about-us/about-us.service';
 
 @Component({
   selector: 'app-header',
@@ -19,16 +22,22 @@ export class HeaderComponent {
   roles: string[] = [];
   searchInput: string;
   postList : Post[] = [];
+  about : About = new About();
+  email:any;
+  phone:any;
+
   constructor(private navService: NavService,
               private tokenStorageService: TokenStorageService,
               private router:Router,
-              private postService: PostService) {
+              private about_usService: AboutUsService ,
+               private sanitizer: DomSanitizer) {
 
     //load lai page khi path parameter thay doi
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
+    this.getListAllInformation()
     this.getAllNav();
     // this.getAbout();
 
@@ -42,22 +51,21 @@ export class HeaderComponent {
     });
   }
 
-  // getAbout(){
-  //   this.aboutService.getInfo().subscribe(data =>{
-  //     if (data != null){
-  //       this.about = data;
-  //     }
-  //   })
-  // }
+   getListAllInformation(){
+     this.about_usService.getAllInformation().subscribe(res=>{
+        this.about= res;
+        this.email = this.sanitizer.bypassSecurityTrustHtml(this.about.email);
+        this.phone = this.sanitizer.bypassSecurityTrustHtml(this.about.phone)
+     })
+    }
 
   reloadPage(): void {
     this.router.navigate(['trang-chu']);
   }
 
-  logout() {
-    this.tokenStorageService.signOut();
-    window.location.reload();
-  }
-
+  // logout() {
+  //   this.tokenStorageService.signOut();
+  //   window.location.reload();
+  // }
 
 }
