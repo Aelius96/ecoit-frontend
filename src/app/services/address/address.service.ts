@@ -25,4 +25,13 @@ export class AddressService {
     )
   }
 
+  updateAddress(address: Address): Observable<Object>{
+    return this.http.post(`${this.baseUrl}/${this.domain}/update`, address);
+  }
+  getById(id: number): Observable<any>{
+    return this.http.get(`${this.baseUrl}/${this.domain}/${id}`);
+  }
+  delete(id:number):Observable<Object>{
+    return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}`)
+  }
 }

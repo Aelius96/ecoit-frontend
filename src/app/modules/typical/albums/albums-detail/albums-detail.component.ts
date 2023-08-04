@@ -90,7 +90,6 @@ export class AlbumsDetailComponent implements OnInit {
           this.getListWithPage();
         })
       })
-
     }
   }
   pick(e:any){

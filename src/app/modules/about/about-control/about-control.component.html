@@ -32,11 +32,20 @@
                                             <input type="text" name="videoLINK" id="videoLINK" [(ngModel)]="about.videoLINK">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <span><strong>ĐỊA CHỈ</strong></span>
                                         <div class="address my-2 p-3">
                                             <div *ngFor="let item of addressList  " >
-                                                <p>  <span><i class="fa fa-map-marker"></i></span> {{item.address}}</p>
+                                                <div class="py-2 d-flex" >
+                                                    <span class="my-auto">
+                                                        <i class="fa fa-map-marker "></i>
+                                                    </span>
+                                                    <span class="ml-2 my-auto " >{{item.address}} </span>
+                                                    <div class="ml-auto">
+                                                        <button class=" button h-100" (click)="updateAddress(item.id)" > <i class="far fa-pen"></i></button>
+                                                        <button class=" button h-100 " (click)="deleteAddress(item.id)" > <i class="far fa-times"></i></button>
+                                                    </div> 
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="contact-inner">

@@ -30,7 +30,7 @@ export class ContactService {
   AddContact(contactform : any):Observable<Object>{
     return this.http.post(`${this.baseUrl}/${this.domain}/add` , contactform)
   }
-  Delete(id:number):Observable<Object>{
+  Delete(id:number):Observable<any>{
     return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}` )
   }
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Address } from '../../../core/model/address/address';
 import { AddressService } from 'src/app/services/address/address.service';
+import { identifierName } from '@angular/compiler';
 
 @Component({
   selector: 'app-about-addess',
@@ -28,11 +29,25 @@ export class AboutAddessComponent {
     this.backAbout()
    })
   }
-
-  onSubmit(){
-   this.AddAddress()
+  updateAdress(id: number){
+    let option = confirm("Dữ liệu sẽ bị xóa. Bạn có mốn tiếp tục ");
+    if(option){
+      this.addressService.getById(id).subscribe(dt1=>{
+        this.addressService.updateAddress(dt1).subscribe(()=>{
+          this.backAbout();
+        })
+      })
+    }
   }
 
-
+  id:number;
+  onSubmit(){
+    if(this.id){
+      this.updateAdress(this.id)
+    }
+    else{
+      this.AddAddress()
+    }
+  }
 }
 

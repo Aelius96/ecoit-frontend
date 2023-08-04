@@ -1,3 +1,4 @@
+import { Address } from "../address/address";
 
 export class About {
     id: number;
@@ -7,5 +8,5 @@ export class About {
     phone: any;
     fax: any;
     email: any;
-    address: any;
+    address: Address[];
   }

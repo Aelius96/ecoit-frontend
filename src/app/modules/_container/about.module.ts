@@ -7,6 +7,7 @@ import { AboutAddessComponent } from "../about/about-addess/about-addess.compone
 const routes: Routes = [
     {path:'' , component: AboutControlComponent},
     {path:'address' , component:AboutAddessComponent},
+    {path:'address/update/:id' , component:AboutAddessComponent }
     
   ]
   
