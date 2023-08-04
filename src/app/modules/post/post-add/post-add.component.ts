@@ -17,7 +17,7 @@ import {MatChipInputEvent} from "@angular/material/chips";
 import {FileService} from "../../../services/file/file.service";
 
 import {Domain} from "../../../core/domain/domain";
-import {HttpHeaders} from "@angular/common/http";
+import {HttpHeaders, HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-post-add',
@@ -41,6 +41,9 @@ export class PostAddComponent implements OnInit{
   filteredHashtag: Observable<Hashtag[]>;
   selectedFile: File
   fileName: any;
+  isFalse = false;
+   currentPage: any;
+   pageSize: any;
   constructor(private router:Router,
               private route:ActivatedRoute,
               private postService: PostService,
@@ -109,13 +112,13 @@ export class PostAddComponent implements OnInit{
     return this.hashtagList.filter(hashtag => hashtag.name.toLowerCase().includes(filterValue));
   }
 
-  currentPage:number;
+  // currentPage:number;
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     if(this.id){
-      this.route.queryParams.subscribe(params =>{
-        this.currentPage = +params['page'] ||1;
-      })
+      // this.route.queryParams.subscribe(params =>{
+      //   this.currentPage = +params['page'] ||1;
+      // })
       this.postService.getPostById(this.id).subscribe(data =>{
         this.post = data;
         this.url = this.post.image?.pathUrl;
@@ -123,34 +126,46 @@ export class PostAddComponent implements OnInit{
         this.listAllHashTag();
       });
     }
-
+    // this.route.queryParamMap.subscribe((param) =>{
+    //   this.currentPage = param.get('pageNo');
+    //   this.pageSize = param.get('pageSize');
+    //   // console.log(this.currentPage);
+    // })
     this.listAllCategory();
 
     this.ckeConfig = {
       extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
-      uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-      filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
-      filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
-      filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
-      filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
-      // uploadUrl:`${this.baseURL}/s/file/add`,
-      // filebrowserUploadUrl:`${this.baseURL}/s/file/add`,
-      // filebrowserBrowseUrl:`${this.baseURL}/s/file/image/all`,
+      // uploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+      // Configure your file manager integration. This example uses CKFinder 3 for PHP.
+      // filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
+      // filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
+      // filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
+      // filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images'
+      // filebrowserUploadMethod: 'form',
+      uploadUrl:`${this.baseURL}/s/file/add`,
+      filebrowserUploadUrl:`${this.baseURL}/s/file/add`,
+      filebrowserBrowseUrl:`${this.baseURL}/s/file/image/all`,
     };
   }
-  onFileUploadRequest(e :any) {
-    const formData = new FormData();
-    formData.append('file', e.file);
-    this.fileService.addImage(formData).subscribe(res =>{
 
+  onFileUploadRequest(event:any) {
+    const formData = new FormData();
+    formData.append('image', event.files);
+    this.fileService.addImage(formData).subscribe(res =>{
     })
+
   }
 
+
+
+
   onSubmit(){
+
     if(this.id){
       this.updateDataToForm(this.id);
     }else{
       this.savePost();
+      debugger;
     }
   }
 
@@ -163,19 +178,33 @@ export class PostAddComponent implements OnInit{
     this.postService.createPost(postFormData).subscribe(data =>{
 
         this.goToPostList();
+        this.isFalse = false;
       },
-      error => console.log(error.error));
-      console.log(this.post);
+      error =>{
+      this.isFalse = true;
+      this.message = error.error.message;
+      console.log(error.error)}
+    );
   }
 
+
+
+
   goToPostList(){
-    this.router.navigate([`/admin/bpost`]);
+
+    // this.router.navigate([`/admin/bpost`]);
+
+    // this.router.navigate(['/admin/bpost'], { queryParams: {pageNo:`${this.currentPage}`,pageSize:`${this.pageSize}`} });
+    // console.log(this.currentPage, this.pageSize);
+    this.router.navigate(['/admin/bpost']);
+
   }
 
   updateDataToForm(id: any){
     const postFormData = this.prepareFormData(this.post);
     this.postService.updatePost(id, postFormData).subscribe(data =>{
-      window.history.back();
+      this.goToPostList();
+      // window.history.back();
     });
   }
 
