@@ -28,19 +28,28 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="contact-inner">
-                                            <span><strong>LINK VIDEO </strong></span> <span style="color: rgb(255, 72, 0);" ><em>(Lưu ý: chuyển width = "100%" và height = "100%")</em></span>
+                                            <span> <a href="https://support.google.com/youtube/answer/171780?hl=vi" target="_blank" > <strong> LINK VIDEO </strong></a></span> <span style="color: rgb(255, 72, 0);" ><em>(Lưu ý: chuyển width = "100%" và height = "100%")</em></span>
                                             <input type="text" name="videoLINK" id="videoLINK" [(ngModel)]="about.videoLINK">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <span><strong>ĐỊA CHỈ</strong></span>
                                         <div class="address my-2 p-3">
                                             <div *ngFor="let item of addressList  " >
-                                                <p>  <span><i class="fa fa-map-marker"></i></span> {{item.address}}</p>
+                                                <div class="py-2 d-flex" >
+                                                    <span class="my-auto">
+                                                        <i class="fa fa-map-marker "></i>
+                                                    </span>
+                                                    <span class="ml-2 my-auto " >{{item.address}} </span>
+                                                    <div class="ml-auto">
+                                                        <button class=" button h-100" (click)="updateAddress(item.id)" > <i class="far fa-pen"></i></button>
+                                                        <button class=" button h-100 " (click)="deleteAddress(item.id)" > <i class="far fa-times"></i></button>
+                                                    </div> 
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="contact-inner">
-                                            <button class="btn" routerLink="address">
+                                            <button class="btn" routerLink="address-add">
                                                 <i class="fa fa-plus"></i>
                                                 <span>Thêm địa chỉ</span>
                                             </button>

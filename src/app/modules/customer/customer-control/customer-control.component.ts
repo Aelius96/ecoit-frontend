@@ -23,8 +23,7 @@ export class CustomerControlComponent implements OnInit{
   }
 
   constructor(private customerService: CustomerService,
-             private router:Router,
-             private totkenstorageService: TokenStorageService ) {
+             private router:Router ) {
   }
 
   ngOnInit(): void {
@@ -32,7 +31,8 @@ export class CustomerControlComponent implements OnInit{
     this.getlistallwithPage();
   }
 
-  getRequestparams(page: number , pageSize: number, search: string):any{
+  getparams(page: number , pageSize: number, search: string):any{
+    
     let params: any = {};
 
     if (page) {
@@ -49,7 +49,7 @@ export class CustomerControlComponent implements OnInit{
     return params;
   }
   getlistallwithPage(){
-      const params= this.getRequestparams(this.paging.page , this.paging.size, this.searchInput)
+      const params= this.getparams(this.paging.page , this.paging.size, this.searchInput)
       this.customerService.listAllWithPage(params).subscribe(data=>{
         this.customer = data.content;
         this.paging.totalRecord = data.totalElements;

@@ -6,6 +6,7 @@ import { AboutUsService } from 'src/app/services/about-us/about-us.service';
 import { NgxMatIntlTelInputComponent } from 'ngx-mat-intl-tel-input';
 import { Address } from 'src/app/core/model/address/address';
 import { AddressService } from 'src/app/services/address/address.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-about-control',
   templateUrl: './about-control.component.html',
@@ -20,7 +21,8 @@ export class AboutControlComponent implements OnInit{
   Notification ="";
   Error="";
   constructor( private about_usService: AboutUsService , 
-                private addressService: AddressService){}
+                private addressService: AddressService , 
+                private router : Router,){}
   ngOnInit(): void {
     this.getistAllInformation();
     this.getListAddress();
@@ -63,6 +65,20 @@ export class AboutControlComponent implements OnInit{
     }
     )
   }
+  // xóa address
+  deleteAddress(id:number){
+     let cf = confirm("Bạn có muốn xóa địa chỉ này?")
+     if(cf){
+      this.addressService.delete(id).subscribe(()=>{
+        this.getListAddress();
+      }, error => console.log(error))
+     }
+  }
+
+  updateAddress(id:number){
+    this.router.navigate([`admin/about/address-update/${id}`])
+  }
+
 
   onSubmit(){
     this.addAbout_us()
