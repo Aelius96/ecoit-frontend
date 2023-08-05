@@ -50,13 +50,13 @@ export class PostControlComponent implements OnInit{
   }
 
   getRequestParams(page: number, pageSize: number,search:string, cate:string): any {
-
+    debugger;
     let params: any = {};
 
     if (page) {
       params[`pageNo`] = page;
     }
-
+    
     if (pageSize) {
       params[`pageSize`] = pageSize;
     }

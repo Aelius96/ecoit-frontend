@@ -76,8 +76,9 @@ export class AboutControlComponent implements OnInit{
   }
 
   updateAddress(id:number){
-    this.router.navigate([`admin/about/address/update/${id}`])
+    this.router.navigate([`admin/about/address-update/${id}`])
   }
+
 
   onSubmit(){
     this.addAbout_us()

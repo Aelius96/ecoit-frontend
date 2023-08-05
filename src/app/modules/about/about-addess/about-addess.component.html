@@ -36,13 +36,13 @@
                 <div class="col-md-8">
                     <div class="contact-inner">
                         <span><strong>Địa Chỉ</strong></span>
-                        <input type="text" name="address" [(ngModel)]="address.address"  >
+                        <input type="text" name="address" [(ngModel)]="addr.address">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="submit-button">
                         <button type="submit" class="btn btn-primary btn-lg btnn"> <i class="fa fa-save" style="margin-right: 5px;"></i>Lưu</button>
-                        <button type="button" class="btn btn-secondary btn-lg btnn cancel" routerLink="../" >Hủy</button>
+                        <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="rollbackToList()">Hủy</button>
                     </div>
                 </div>
             </div>
