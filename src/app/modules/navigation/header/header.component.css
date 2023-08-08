@@ -138,12 +138,6 @@ a:hover{
 #edit-submit {
 	display: none;
 }
+/*  */
 
-@media only screen and(max-width:786px){
-  .header-right{
-    display: none;
-    visibility: hidden;
-    opacity: 0;
-  }
-}
 

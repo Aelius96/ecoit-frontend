@@ -82,12 +82,7 @@ input:focus{
   min-height: 100px;
   object-fit: fill;
 }
-a{
-  color: black;
-}
-a:hover{
-  text-decoration: none;
-}
+
 .btn-link span {
   position: absolute;
   right: 35px;
@@ -96,23 +91,7 @@ a:hover{
 img{
   border-radius: 10px;
 }
-.btnn{
-  border: 0px;
-  width: 50%;
-  height: 50%;
-  background-color: #ffffff00;
-  color: rgb(66, 62, 94);
-  margin: auto;
-  border-radius: 5px;
-}
-.btn-link{
-  width: 100%;
-  text-align: left;
-  color: #2a2834;
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: capitalize;
-}
+
 /* scroll */
 .item-blog{
   max-height: 600px;
@@ -163,4 +142,11 @@ th{
 .dele:hover{
   background-color: rgb(240, 56, 56);
   color: white;
+}
+.drop{
+  padding: 8px 0px;
+  font-size: 14px;
+}
+.table{
+  border: 0.3px solid;
 }
