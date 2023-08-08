@@ -1,19 +1,19 @@
 <div class="toolbar">
   <div class="d-flex  justify-content-between header-menu ">
-    <div class="left-d-flex">
+    <div class="mt-3">
       <div class="d-flex">
         <a style="    margin-top: 3px;  margin-right: 10px; " routerLink="../bpost" routerLinkActive="active">
-          <span class="spann tt" style="font-weight: bold">Bài Viết</span>
+          <span class="spann" style="font-weight: bold">Bài Viết</span>
         </a>
 
-        <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
+        <form (change)="searchTitleAndDescription()" class="d-flex">
           <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm "
-            style="width: 100px; height: 30px;  " class="searchinput" >
-          <select [(ngModel)]="cate" name="cate" style="height: 30px; width: 135px;" class="ml-2 searchinput" >
+            style="width: 100px; height: 30px;  " class="searchinput">
+          <select [(ngModel)]="cate" name="cate" style="height: 30px; width: 135px;" class="ml-2 searchinput">
             <option value="" [selected]="true">Chuyên mục</option>
             <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
           </select>
-          <div class="input-group-append inputt ml-2">
+          <div class="input-group-append ml-2">
             <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
         </form>
@@ -42,7 +42,7 @@
 
 
 
-<div class="d-flex flex-column section-space--mt_100 ">
+<!-- <div class="d-flex flex-column section-space--mt_100 ">
   <div class="container">
     <div class="item-blog">
       <div class="row">
@@ -59,14 +59,14 @@
                 </div>
               </div>
               <div class="col-md-6  m-auto  ">
-                <a class="btn-link des-post" data-toggle="collapse"> <!-- href="#demo{{post.id}}"-->
+                <a class="btn-link des-post" data-toggle="collapse"> 
                   {{post.title}}
                 </a>
 
                 <p class="des-post">
                   {{post.description}}
                 </p>
-                <!--                <p *ngFor="let cate of post.category">{{cate.typeName}}</p>-->
+               
               </div>
               <div class="col-md-1 m-auto btn-link ">
                 {{post.category.typeName}}
@@ -76,7 +76,7 @@
                 {{post.date}}
               </div>
               <div class="action-box col-md-1">
-                <!--        ví dụ về button sửa-->
+               
                 <button (click)="updatePost(post.id)" class="btnn edit"><i class="far fa-pen"></i> </button>
 
                 <button (click)="deletePost(post.id)" class="btnn dele"><i class="far fa-times"></i> </button>
@@ -93,6 +93,69 @@
             <pagination-controls previousLabel="<" nextLabel=">" [id]="'post'" (pageChange)="handlePageChange($event)"
               [maxSize]="paging.totalRecord"></pagination-controls>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container  section-space--mt_100 list-table ">
+  <table class="table">
+    <thead style="position: sticky;top: 0 ; z-index: 1;" class="thead-dark">
+      <tr>
+        <th scope="col" style="width: 20%;" >Ảnh</th>
+        <th class="w-25" scope="col">Tiêu đề</th>
+        <th class="w-25" scope="col">Nội dung</th>
+        <th class="" scope="col" style="width: 15%;" >Chuyên mục</th>
+        <th class="" scope="col" style="width: 15%;" >Thời gian</th>
+        <th class="" scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of postList |  paginate: {
+        id: 'post',
+        itemsPerPage: paging.size,
+        currentPage: paging.page,
+        totalItems: paging.totalRecord  } ;  ">
+        <td style=" width:20%" >
+          <div class="product-thumb-image">
+            <img src="{{baseURL}}/{{postURL}}/image/{{post.id}}" alt="Post Image">
+          </div>
+        </td>
+        <td class="w-25" >
+          <p class=" mt-5 des-post font-weight-bold h4" >
+            {{post.title}}
+          </p>
+        </td>
+        <td class="w-25" >
+          <p class="des-post mt-5 ">
+            {{post.description}}
+          </p>
+        </td>
+        <td style="width: 15%;" class="text-center">
+          <p class="mt-5" >{{post.category.typeName}}</p>
+        </td>
+        <td style="width: 15%;" class="text-center"  >
+          <p class="mt-5" > {{post.date}}</p>
+        </td>
+        <td>
+          <div class="btn-group dropright ">
+           <i title="Thêm" class='icon-more fa fa-ellipsis-h mt-5 ' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style='font-size:24px'></i>
+            <div class="dropdown-menu text-center p-0">
+              <p class="edit icon-more py-1 mb-1 " (click)="updatePost(post.id)" >Chỉnh sửa</p>
+              <p class="dele icon-more py-1 " (click)="deletePost(post.id)" >Xóa</p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row mt-3">
+    <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-bottom: 10px;">
+      <div class="row">
+        <div class="col-md-6">
+          <pagination-controls previousLabel="<" nextLabel=">" [id]="'post'" (pageChange)="handlePageChange($event)"
+            [maxSize]="paging.totalRecord"></pagination-controls>
         </div>
       </div>
     </div>

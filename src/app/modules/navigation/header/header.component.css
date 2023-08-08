@@ -1,6 +1,6 @@
-/* .header-area.is-sticky  */
-.container-fluid{
-    position: fixed;
+
+.header{
+ 
     top: 0;
     left: 0;
     width: 100%;
@@ -8,66 +8,11 @@
     z-index: 99;
     -o-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  }
+  .header-area{
     background-color: #000000a8;
   }
-
-  /* .header-area.is-sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    -webkit-animation: .95s ease-in-out 0s normal none 1 running fadeInDown;
-            animation: .95s ease-in-out 0s normal none 1 running fadeInDown;
-    z-index: 999;
-    -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -o-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
-            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
-    background-color: #000000a8;
-  }
-
-  
-.header-area--absolute {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 5;
-}
-
-  @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .container-fluid--cp-150{
-      position: relative;
-      z-index: 99;
-    }
-  }
-
-  .header-area--absolute {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 99;
-  }
-  
-  @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .header-area--absolute {
-      position: static;
-      z-index: 99;
-    }
-  }
-  
-  
-  @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .header-style-three.header-area--absolute {
-      position: absolute;
-    }
-  }
-  
-  .header-style-three.header-area--absolute.is-sticky {
-    position: fixed;
-  } */
 
   .nav1{
     font-size: 13px;
@@ -95,7 +40,7 @@
 }
 
 .dropdown>.dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
+
     pointer-events: none;
 }
 .list-inline{
@@ -154,7 +99,7 @@ a:hover{
   background: #50B848;
   color: #fff;
 }
-/*  */
+
 .fa-home{
   color: white;
   font-size: 24px;
@@ -167,8 +112,7 @@ a:hover{
 
 .custom-input input{
   border: none;
-  /*position: absolute;*/
-  /*right: 30px;*/
+
 }
 .contact-title{
   font-size: 13px;
@@ -193,4 +137,11 @@ a:hover{
 }
 #edit-submit {
 	display: none;
+}
+
+@media only screen and(max-width:786px){
+  #navi{
+    display: none;
+    visibility: hidden;
+  }
 }

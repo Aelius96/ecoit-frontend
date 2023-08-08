@@ -2,8 +2,8 @@
   <!--====================  header area ====================-->
 
   <div class="header-area header-sticky header-area--absolute is-sticky ">
-    <div class="container-fluid container-fluid--cp-150">
-      <div class="row h-100 mx-130px">
+    <div class="container header container-fluid--cp-150">
+      <div class="row h-100 w-100">
         <div class="col-12">
           <div class="d-flex h-100  justify-content-between ">
             <div class=" d-flex">
@@ -70,8 +70,8 @@
                     </div>
                   </div> -->
               </div>
-              <div class="navigation-menu navigation-menu--onepage navigation-menu--text_white">
-                <ul class="menu-primary text-uppercase">
+              <div class="navigation-menu navigation-menu--onepage navigation-menu--text_white " >
+                <ul class="menu-primary text-uppercase" id="navi">
 
                   <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu" id="child-li">
                     <a href="{{nav.url}}" routerLinkActive="active">{{nav.name}}</a>

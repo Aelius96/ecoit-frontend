@@ -1,36 +1,30 @@
-
-<!--====================  header- area ====================-->
-
-<!---->
-<div class="header-admin">
-<div class="d-flex justify-content-between " style="padding-top: 10px">
-  <div class="" style="justify-content: center">
-    <div class="head-menu-headeradmin">
-      <div class="header-left-headeradmin">
-        <span class="text-headeradmin" >{{today}}, {{day}}/{{month}}/{{year}}</span>
-        <span > Trợ Giúp</span>
+<div class="header-admin container-xxl ">
+  <div class="d-flex justify-content-between " style="padding-top: 10px">
+    <div class="" style="justify-content: center">
+      <div class="head-menu-headeradmin">
+        <div class="header-left-headeradmin">
+          <span class="text-headeradmin">{{today}}, {{day}}/{{month}}/{{year}}</span>
+        </div>
       </div>
 
     </div>
-
+    <div class="dropdown ">
+      <button class="btn btn-primary dropdown-toggle button-headeradmin" type="button"
+        data-toggle="dropdown">Menu</button>
+      <ul class="dropdown-menu" style="position: absolute;
+                                        will-change: transform;
+                                        top: 0px;
+                                        left: -70px;
+                                        transform: translate3d(-4px, 51px, 0px);">
+        <li class="dropdown-item item-btn-headeradmin"><a class="drop" routerLink="about">Về chúng tôi</a> </li>
+        <li class="dropdown-item item-btn-headeradmin"> <a class="drop" routerLink="albums">Kho ảnh</a> </li>
+        <li class="dropdown-item item-btn-headeradmin border-top-drak"> <a class="drop" (click)="logout()"> Đăng
+            xuất</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="dropdown " >
-    <button class="btn btn-primary dropdown-toggle button-headeradmin" type="button" data-toggle="dropdown">Menu</button>
-    <ul class="dropdown-menu" style="position: absolute;
-    will-change: transform;
-    top: 0px;
-    left: -70px;
-    transform: translate3d(-4px, 51px, 0px);" >
-      <li class="dropdown-item item-btn-headeradmin" ><a class="drop"  routerLink="about">Về chúng tôi</a> </li>
-      <li class="dropdown-item item-btn-headeradmin" > <a class="drop" routerLink="albums" >Kho ảnh</a> </li>
-      <li class="dropdown-item item-btn-headeradmin border-top-drak" > <a class="drop"  (click)="logout()" > Đăng xuất</a></li>
-    </ul>
-  </div>
-</div>
 
-<hr style="margin-bottom:0px ">
+  <hr style="margin-bottom:0px ">
 
 
 </div>
-
-
