@@ -2,19 +2,19 @@
   <!--====================  header area ====================-->
 
   <div class="header-area header-sticky header-area--absolute is-sticky ">
-    <div class="container-fluid container-fluid--cp-150">
-      <div class="row h-100 mx-130px">
-        <div class="col-12">
-          <div class="d-flex h-100  justify-content-between ">
+    <div class="container header container-fluid--cp-150">
+      <div class="row h-100 w-100">
+        <div class="col-12 h-100">
+          <div class="header-main h-100 ">
             <div class=" d-flex">
               <a class="my-auto" href="/trang-chu" title="Ecoit">
-
                 <img class="img" src="./assets/images/logoEcoit.jpg" alt="EcoIT"
                   style="padding: 10px 5px; width: 170px !important;">
               </a>
             </div>
-            <div class="header-right  d-flex flex-column  ">
-              <div class="header-right_top d-flex my-auto justify-content-end " >
+
+            <div class="header-right ">
+              <div class="header-right_top d-flex my-auto justify-content-end ">
                 <ul class="list-inline d-flex">
                   <li class="d-flex mr-3 ">
                     <span class="header-label mr-3 d-flex">
@@ -22,9 +22,10 @@
                     </span>
                     <span class="header-phone d-flex  flex-column">
                       <span class="text-uppercase contact-title ">Hotline </span>
-                        <strong>
-                          <a style="vertical-align: inherit;"><a class="info" href="tel:(+84) 935 772 929" [innerHTML]="phone"></a></a>
-                        </strong>
+                      <strong>
+                        <a style="vertical-align: inherit;"><a class="info" href="tel:(+84) 935 772 929"
+                            [innerHTML]="phone"></a></a>
+                      </strong>
                     </span>
                   </li>
                   <li class="d-flex">
@@ -35,7 +36,7 @@
                       <span class="text-uppercase contact-title">Email
                       </span>
                       <strong>
-                        <a class="info" href="mailto:contact@ecoit.com.vn" [innerHTML]="email" ></a>
+                        <a class="info" href="mailto:contact@ecoit.com.vn" [innerHTML]="email"></a>
                       </strong>
                     </span>
                   </li>
@@ -46,33 +47,11 @@
                     <span class="advise-contact">LIÊN HỆ TƯ VẤN</span>
                   </span>
                 </a>
-                <!-- <div class="dropleft">
-                    <i  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="fa fa-home dropdown-toggle  "></i>
-                    <div class="dropdown-menu">
-                      <button *ngIf="isToken; else dangnhap" style="width: 100%;" >
-                                                  <span class="">
-                                                    <span class="logout" (click)="logout()">ĐĂNG XUẤT</span>
-                                                  </span>
-                      </button>
-                      <ng-template #dangnhap>
-                        <a style="width: 100%; text-align: center;" class="login" href="/login">
-                                                  <span>
-                                                    <span style="color: green;" >ĐĂNG NHẬP</span>
-                                                  </span>
-                        </a>
-                      </ng-template>
 
-                      <a style="width: 100%; text-align: center;" class="login" href="/register">
-                                                  <span >
-                                                    <span style="color: green;" >ĐĂNG KÝ</span>
-                                                  </span>
-                      </a>
-                    </div>
-                  </div> -->
+
               </div>
-              <div class="navigation-menu navigation-menu--onepage navigation-menu--text_white">
-                <ul class="menu-primary text-uppercase">
-
+              <div class="navigation-menu navigation-menu--onepage navigation-menu--text_white ">
+                <ul class="menu-primary text-uppercase" id="navi">
                   <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu" id="child-li">
                     <a href="{{nav.url}}" routerLinkActive="active">{{nav.name}}</a>
                     <ul *ngIf="nav.navChild.length > 0" class="submenu" style="border-bottom: 0px solid ">
@@ -92,11 +71,49 @@
                 </ul>
               </div>
             </div>
-
+          </div>
+          <!-- mobile nav -->
+          <div class="header-mobile h-100 ">
+            <div class="row h-100 d-flex ">
+              <div class="h-100 d-flex">
+                <a class="my-auto h-50 " href="/trang-chu" title="Ecoit">
+                  <img class="img img-mobile" src="./assets/images/logoEcoit.jpg" alt="EcoIT">
+                </a>
+              </div>
+              <div class="btn-group dropleft  ml-auto my-auto d-flex">
+                <button type="button" class="btn btn-secondary "  data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" >
+                  <svg  xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 448 512"><style>svg{fill:#ffffff}</style><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+                </button>
+              </div>
+              
+            </div>
+            <!--   -->
+            <div class="collapse navbar-collapse  w-75 mx-auto " id="navbarTogglerDemo03" style="background-color: rgb(255, 255, 255);" >
+              <ul class=" menu-mobile text-uppercase mb-0" id="navi">
+                <li *ngFor="let nav of navParent" class=" py-3 " style="border-bottom: 0.1px solid #dbdcdb ;"  id="child-li">
+                  <div  *ngIf="nav.navChild.length > 0 ;">
+                    <a href="{{nav.url}}" id="dropdownMenu" class="name-nav--mobile dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{nav.name}}</a> 
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                      <li  *ngFor="let nav1 of nav.navChild" itemscope="itemscope" id="dropdownMenu" class="menu-item menu-item-type-post_type menu-item-object-page nav-item">
+                        <a href="/{{nav.url}}/{{nav1.url}}"  class="nav1">{{nav1.name}}</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div  *ngIf="nav.navChild.length == 0 ">
+                    <a href="{{nav.url}}"  class="name-nav--mobile" >{{nav.name}}</a>
+                  </div>
+                </li>
+                <li class="py-3" style="border-bottom: 0.1px solid #dbdcdb ;">
+                  <div class="custom-input" >
+                    <input type="text" [(ngModel)]="searchInput" name="searchInput" id="searchInput" placeholder="Tìm kiếm" class="w-100" >
+                    <input type="submit" (click)="goToSearch()" id="edit-submit">
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </form>

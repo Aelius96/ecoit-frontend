@@ -1,11 +1,8 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {RouterModule, Routes} from "@angular/router";
-import {DashboardComponent} from "../admin/dashboard/dashboard.component";
 import {AdminComponent} from "../admin/admin/admin.component";
-import { UserControlComponent } from "../user/user-control/user-control.component";
 import { HistoryListComponent } from "../admin/history/history-list/history-list.component";
-import { Number } from '../typical/number/number';
 
 const routes: Routes =[
 

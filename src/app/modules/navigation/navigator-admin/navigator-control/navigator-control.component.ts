@@ -23,7 +23,6 @@ export class NavigatorControlComponent {
   navigation : Nav[] = [];
   selectNavList: Nav[] = [];
   removeSelectNav: Nav[] = [];
-  role: string;
   selects: any;
   id:any;
   currentIndex = -1;

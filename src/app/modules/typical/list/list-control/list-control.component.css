@@ -46,7 +46,7 @@
   }
   
   .album{
-    margin: 110px 50px 10px 50px;
+    margin: 110px 0px 10px 0px;
   }
   .buton{
     width: 100%;
@@ -55,17 +55,20 @@
     font-size: 20px;
     border: 0px;
     text-align: left;
-    background-color: white;
+ 
   }
 
   .buton:hover{
     margin-left: 10px;
   }
   .item{
-    width: 20%;
+    width: max-content;
     margin-right: 20px;
-    /* width: ; */
-    /* height: 100px; */
+    height: max-content;
+  }
+
+  .btn{
+    background-color: #bbbbbb;
   }
 
   a{

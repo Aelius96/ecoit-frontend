@@ -1,6 +1,7 @@
 export class Constant {
-  public static BASE_URL = "http://localhost:8080";
+  public static BASE_URL = "http://localhost:8081";
   // public static BASE_URL = "http://172.16.10.161:8080";
+  // public static BASE_URL= "https://ecoit.com.vn:8443"
   public static PAGE_SIZE_OPTION = [
     5,10,15
   ]

@@ -33,7 +33,6 @@ export class CustomerDetailComponent {
       this.customer = data;
       this.cover = this.customer.banner.pathUrl;
       this.bannerURL = `${this.baseURL}/${this.cusURL}/image/${this.customer.id}`
-      document.title = "KHỐI " + this.customer.name.toUpperCase();
       console.log(document.title);
     })
   }

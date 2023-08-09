@@ -1,6 +1,6 @@
-/* .header-area.is-sticky  */
-.container-fluid{
-    position: fixed;
+
+.header{
+ 
     top: 0;
     left: 0;
     width: 100%;
@@ -8,67 +8,15 @@
     z-index: 99;
     -o-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  }
+  .header-area{
     background-color: #000000a8;
   }
-
-  /* .header-area.is-sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    -webkit-animation: .95s ease-in-out 0s normal none 1 running fadeInDown;
-            animation: .95s ease-in-out 0s normal none 1 running fadeInDown;
-    z-index: 999;
-    -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -o-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
-            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
-    background-color: #000000a8;
-  }
-
-  
-.header-area--absolute {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 5;
+.header-right{
+  display: flex;
+  flex-direction: column;
 }
-
-  @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .container-fluid--cp-150{
-      position: relative;
-      z-index: 99;
-    }
-  }
-
-  .header-area--absolute {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 99;
-  }
-  
-  @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .header-area--absolute {
-      position: static;
-      z-index: 99;
-    }
-  }
-  
-  
-  @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-    .header-style-three.header-area--absolute {
-      position: absolute;
-    }
-  }
-  
-  .header-style-three.header-area--absolute.is-sticky {
-    position: fixed;
-  } */
-
   .nav1{
     font-size: 13px;
   }
@@ -95,7 +43,7 @@
 }
 
 .dropdown>.dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
+
     pointer-events: none;
 }
 .list-inline{
@@ -133,7 +81,7 @@ a:hover{
   right: 50%;
   opacity: 0;
   bottom: -6px;
-  border-bottom: 3px solid #50b848
+  border-bottom: 2px solid #50b848
 }
 .menu-primary > li.active > a:after,
 .menu-primary > li:hover > a:after{
@@ -154,7 +102,7 @@ a:hover{
   background: #50B848;
   color: #fff;
 }
-/*  */
+
 .fa-home{
   color: white;
   font-size: 24px;
@@ -167,8 +115,7 @@ a:hover{
 
 .custom-input input{
   border: none;
-  /*position: absolute;*/
-  /*right: 30px;*/
+
 }
 .contact-title{
   font-size: 13px;
@@ -193,4 +140,42 @@ a:hover{
 }
 #edit-submit {
 	display: none;
+}
+/*  */
+.header-main{
+  display: flex;
+  justify-content: space-between;
+}
+.btn{
+  background-color: #41414100;
+}
+.name-nav--mobile{
+  color: black; 
+  letter-spacing: .5px; 
+  font-family: 'Tahoma' ,'sans-serif';
+}
+.name-nav--mobile:hover{
+  text-decoration: none;
+}
+/* .py-3.custom-input{
+  border-bottom: 0.1px solid #dbdcdb ;
+} */
+
+@media only screen and (max-width: 767px) {
+  .header-main {
+    display: none;
+  }
+  .header-mobile{
+    display: block;
+  }
+  .img-mobile{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width:765px) and (max-width: 3800px ) {
+   .header-mobile{
+    display: none;
+  }
 }

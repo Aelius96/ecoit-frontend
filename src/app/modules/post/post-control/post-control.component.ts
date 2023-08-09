@@ -23,10 +23,7 @@ export class PostControlComponent implements OnInit{
 
   baseURL = Constant.BASE_URL;
   postURL = Domain.POST;
-  role:string;
-  Filter:false;
   searchInput= '';
-  imageUrl :any;
   paging = {
     page: 1,
     size: 5,
@@ -35,7 +32,6 @@ export class PostControlComponent implements OnInit{
   cate = '';
 
   constructor(private router:Router,
-              private route: ActivatedRoute,
               private postService: PostService ,
               private cateService: CategoryService
   ) {
@@ -50,7 +46,6 @@ export class PostControlComponent implements OnInit{
   }
 
   getRequestParams(page: number, pageSize: number,search:string, cate:string): any {
-    debugger;
     let params: any = {};
 
     if (page) {
