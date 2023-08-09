@@ -3027,7 +3027,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 .header-area.is-sticky .open-main-menu-icon i, .header-area.is-sticky .mobile-navigation-icon i {
-  background-color: #5945e6;
+  background-color: #ffffff;
 }
 
 .header-area.is-sticky .open-main-menu-icon i:before, .header-area.is-sticky .mobile-navigation-icon i:before {
