@@ -5,6 +5,7 @@ import {ActivatedRoute} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";
 import {PostService} from "../../../services/post/post.service";
 import {Post} from "../../../core/model/post/post";
+import { Constant } from 'src/app/core/config/constant';
 
 @Component({
   selector: 'app-news-detail',
@@ -12,7 +13,7 @@ import {Post} from "../../../core/model/post/post";
   styleUrls: ['./news-detail.component.css']
 })
 export class NewsDetailComponent implements OnInit{
-
+  baseURL = Constant.BASE_URL;
   url: any;
   content:any;
   roll: any;

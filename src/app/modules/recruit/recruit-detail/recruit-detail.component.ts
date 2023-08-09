@@ -5,6 +5,7 @@ import { Recruit } from 'src/app/core/model/recruit/recruit';
 import { RecruitService } from 'src/app/services/recruit/recruit.service';
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
+import { Constant } from 'src/app/core/config/constant';
 
 @Component({
   selector: 'app-recruit-detail',
@@ -12,10 +13,9 @@ import {PostService} from "../../../services/post/post.service";
   styleUrls: ['./recruit-detail.component.css']
 })
 export class RecruitDetailComponent implements OnInit {
-
+  baseURL = Constant.BASE_URL;
   url: any;
   content:any;
-  roll:any;
   recruit: Recruit= new Recruit();
   post: Post = new Post();
   constructor(private recruitService: RecruitService,
