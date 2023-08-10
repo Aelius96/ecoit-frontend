@@ -112,25 +112,26 @@
                             </div>
                             <div>
                                 <ul>
-                                    <li *ngFor="let contact of addressList">
+                                    <li *ngFor="let contact of addressList" class="mb-2">
                                         <p>
                                             <i class="fa fa-map-marker"></i>
-                                            <span class="title-contact">{{contact.address}}</span>
+                                            <span class="address">{{contact.address}}</span>
                                         </p>
                                     </li>
-                                    <li>
+
+                                    <li class="mb-2">
                                         <p>
                                             <i class="fa fa-phone"></i>
-                                            <span class="title-contact" [innerHTML]="phone"></span>
+                                            <a class="title-contact" href="tel:{{phone}}" [innerHTML]="phone"></a>
                                         </p>
                                     </li>
-                                    <li>
+                                    <li class="mb-2">
                                         <i class="fa fa-print"></i>
-                                        <span class="title-contact" [innerHTML]="fax"></span>
+                                        <a class="title-contact" href="tel:{{fax}}" [innerHTML]="fax"></a>
                                     </li>
-                                    <li>
+                                    <li class="mb-2">
                                         <i class="fa fa-envelope-o"></i>
-                                        <span class="title-contact" [innerHTML]="email"></span>
+                                        <a class="title-contact" href="mailto:{{email}}" [innerHTML]="email"></a>
                                     </li>
                                 </ul>
                                 <div>

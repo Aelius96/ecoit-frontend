@@ -14,7 +14,7 @@ export class AboutAddessComponent implements OnInit {
   addr : Address = new Address();
   id:number;
   constructor( private router: Router ,
-                private addressService : AddressService , 
+                private addressService : AddressService ,
                 private route : ActivatedRoute,) { }
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -33,8 +33,8 @@ export class AboutAddessComponent implements OnInit {
     window.history.back()
   }
 
-  AddAddress():void{
-   this.addressService.createAddress(this.addr).subscribe(()=>{
+  AddAddress(addr: Address):void{
+   this.addressService.createAddress(addr).subscribe(()=>{
     alert("Thêm thành công!");
     this.backAbout()
    })
@@ -46,11 +46,10 @@ export class AboutAddessComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.id , this.addr){
-      this.updateAdress(this.id , this.addr)
-    }
-    else{
-      this.AddAddress()
+    if(this.id){
+      this.updateAdress(this.id , this.addr);
+    }else{
+      this.AddAddress(this.addr);
     }
   }
 }
