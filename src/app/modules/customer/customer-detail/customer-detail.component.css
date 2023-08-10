@@ -27,40 +27,7 @@
 .pricing-table-one{
   margin: 0px 40px 0px 40px;
 }
-/* 
-.product-item{
-  background-color: #ffffff04; 
-  margin: 0 auto; 
-  text-align: center;
-   padding-bottom: 0px; 
- }
- .pro-list:hover{
-  background-color: #daf9dec9 ;
-}
-.pro-list{
-  background-color: rgba(189, 191, 187, 0); 
-  width: 20%;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-.post-item{
-  margin-bottom: 10px;
-  height: auto;
-} */
 
-/* .item:hover{
-  text-decoration: none;
-  }
-
-  .imgicon{
-    color: black;
-    text-align: center;
-  }
-
-  .post-image{
-    width: 70%;
-    margin-bottom: 15px;
-  } */
   .ap-xnam{
     color: black;
   }
@@ -80,7 +47,7 @@
 .text-black{
   color: black;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 767px) {
   .col2{
     flex: calc(100% / 5);
     max-width: calc(100% / 5);
@@ -93,8 +60,8 @@
   margin: 0 auto 20px;
 }
 .pro-item .image img{
-  height: 100%;
-  width: 100%;
+  height: 80%;
+  width: 80%;
   object-fit: cover;
 }
 .pro-item:hover{
@@ -109,4 +76,31 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   display: -webkit-box;
+}
+@media only screen and (min-width: 1922px) and (max-width: 3800px) {
+  .banner {
+    height: 550px;
+  }
+}
+@media only screen and (min-width: 1368px) and (max-width: 1921px) {
+  .banner {
+    height: 300px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1367px) {
+  .banner {
+    height: 250px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
+  .banner {
+    height: 220px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .banner{
+      height: 180px;
+  }
 }

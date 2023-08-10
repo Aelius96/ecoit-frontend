@@ -22,11 +22,14 @@
     display: flex;
     width: 14px;
     height: 14px;
+    fill: #50B848;
+  }
+  svg:hover{
+    fill: black;
   }
 
 a:hover{
     color: black;
-
 }
 .lh-base{
   line-height: 25px;
