@@ -165,7 +165,6 @@ export class PostAddComponent implements OnInit{
       this.updateDataToForm(this.id);
     }else{
       this.savePost();
-      debugger;
     }
   }
 
@@ -182,7 +181,7 @@ export class PostAddComponent implements OnInit{
       },
       error =>{
       this.isFalse = true;
-      this.message = error.error.message;
+      this.message = error.error;
       console.log(error.error)}
     );
   }
@@ -204,8 +203,15 @@ export class PostAddComponent implements OnInit{
     const postFormData = this.prepareFormData(this.post);
     this.postService.updatePost(id, postFormData).subscribe(data =>{
       this.goToPostList();
+        this.isFalse = false;
+
       // window.history.back();
-    });
+    },
+      error => {
+        this.isFalse = true;
+        this.message = error.error;
+        console.log(error.error)
+      });
   }
 
   listAllCategory(){
