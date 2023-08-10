@@ -5,6 +5,7 @@ import { Blog } from 'src/app/core/model/blog/blog';
 import { BlogService } from 'src/app/services/blog/blog.service';
 import {PostService} from "../../../services/post/post.service";
 import {Post} from "../../../core/model/post/post";
+import { Constant } from 'src/app/core/config/constant';
 
 @Component({
   selector: 'app-blog-detail',
@@ -12,7 +13,7 @@ import {Post} from "../../../core/model/post/post";
   styleUrls: ['./blog-detail.component.css']
 })
 export class BlogDetailComponent {
-
+  baseURL = Constant.BASE_URL
   url: any;
   content:any;
   roll:any;

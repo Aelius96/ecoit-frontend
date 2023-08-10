@@ -5,9 +5,8 @@
   font-weight: bold;
   font-family: Verdana;
 }
-.image{
+.img-slide{
   max-height: 260px;
-  min-height: 210px;
 }
 .hr-title{
   width: 100px;
@@ -57,6 +56,10 @@ svg{
   display: flex;
   width: 14px;
   height: 14px;
+  fill:#50B848;
+}
+svg:hover{
+  fill: black;
 }
 .p-title{
   display: -webkit-box;
@@ -64,4 +67,34 @@ svg{
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+
+
+@media only screen and (min-width: 1922px) and (max-width: 3800px) {
+  .banner {
+    height: 550px;
+  }
+}
+@media only screen and (min-width: 1368px) and (max-width: 1921px) {
+  .banner {
+    height: 300px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1367px) {
+  .banner {
+    height: 250px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
+  .banner {
+    height: 220px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .banner{
+      height: 180px;
+  }
 }
