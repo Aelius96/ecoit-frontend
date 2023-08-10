@@ -74,7 +74,6 @@ export class CustomerAddComponent {
   }
 
   prepareFormData(customer: Customer, products: Product[]): FormData {
-    debugger;
     const  formData = new FormData();
     formData.append(
       'customer',

@@ -42,9 +42,6 @@ export class NavigatorControlComponent {
 
   constructor(private router: Router,
               private navService:NavService,
-              private renderer: Renderer2,
-              private toast: ToastService,
-              private modalService: NgbModal
   ) {
 
   }
@@ -70,9 +67,6 @@ hasChild(_:number , node: Nav):boolean{
 
 
   ngOnInit(): void {
-
-    window.sessionStorage.removeItem("navGroup");
-    window.sessionStorage.removeItem("navId");
     this.listtree();
     this.getListAllWithPage();
     //  this.listAll();
@@ -142,7 +136,7 @@ hasChild(_:number , node: Nav):boolean{
     let params: any = {};
 
     if (page) {
-      params[`pageNo`] = page-1;
+      params[`pageNo`] = page;
     }
 
     if (pageSize) {

@@ -22,10 +22,9 @@
                     </span>
                     <span class="header-phone d-flex  flex-column">
                       <span class="text-uppercase contact-title ">Hotline </span>
-                      <strong>
-                        <a style="vertical-align: inherit;"><a class="info" href="tel:(+84) 935 772 929"
-                            [innerHTML]="phone"></a></a>
-                      </strong>
+                        <strong>
+                          <a class="info" href="tel:{{phone}}" [innerHTML]="phone"></a>
+                        </strong>
                     </span>
                   </li>
                   <li class="d-flex">
@@ -36,7 +35,9 @@
                       <span class="text-uppercase contact-title">Email
                       </span>
                       <strong>
-                        <a class="info" href="mailto:contact@ecoit.com.vn" [innerHTML]="email"></a>
+
+                        <a class="info" href="mailto:{{email}}" [innerHTML]="email" ></a>
+
                       </strong>
                     </span>
                   </li>
@@ -85,17 +86,19 @@
                   <svg  xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 448 512"><style>svg{fill:#ffffff}</style><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
                 </button>
               </div>
-              
+
             </div>
             <!--   -->
             <div class="collapse navbar-collapse  w-75 mx-auto " id="navbarTogglerDemo03" style="background-color: rgb(255, 255, 255);" >
               <ul class=" menu-mobile text-uppercase mb-0" id="navi">
                 <li *ngFor="let nav of navParent" class=" py-3 " style="border-bottom: 0.1px solid #dbdcdb ;"  id="child-li">
                   <div  *ngIf="nav.navChild.length > 0 ;">
+
                     <a href="{{nav.url}}" id="dropdownMenu" class="name-nav--mobile dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{nav.name}}</a> 
                     <ul class="dropdown-menu p-0 mt-0 " style="width: 60%;"  aria-labelledby="dropdownMenu" >
                       <li style=" word-break: break-all;  " *ngFor="let nav1 of nav.navChild" itemscope="itemscope" id="dropdownMenu" class="  menu-item ">
                         <a href="/{{nav.url}}/{{nav1.url}}" style=" word-break: break-all; white-space: normal; " class="nav1 ">{{nav1.name}}</a>
+
                       </li>
                     </ul>
                   </div>
@@ -116,4 +119,6 @@
       </div>
     </div>
   </div>
+
 </form>
+

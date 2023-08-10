@@ -20,7 +20,7 @@
     font-weight: bold;
 }
 .icon-intro{
-    font-size: 18px; 
+    font-size: 18px;
     color: #ababaa;
     margin-right: 5px;
 }
@@ -67,18 +67,28 @@
 .info-contact{
     color: #bababa;
 }
+
+.address{
+  vertical-align: inherit;
+  position: relative;
+  padding-left: 15px;
+}
 .title-contact{
-    vertical-align: inherit;
-      position: relative;
-       padding-left: 15px; 
-       margin-bottom: 7px;
+  vertical-align: inherit;
+  position: relative;
+  padding-left: 15px;
+  color: #bababa;
+}
+.title-contact:hover{
+  color: #50B848;
+  text-decoration: none;
 }
 .text-up{
     text-transform: uppercase;
 }
 .anhtintuc{
-    float: left; 
-    width: 30%; 
+    float: left;
+    width: 30%;
     height: 100%;
     margin: auto;
 }

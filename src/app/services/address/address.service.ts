@@ -4,34 +4,35 @@ import { Observable, catchError, of, tap } from 'rxjs';
 import { Constant } from 'src/app/core/config/constant';
 import { Domain } from 'src/app/core/domain/domain';
 import { Address } from 'src/app/core/model/address/address';
+import {ApiHelper} from "../../core/rest-api/api-helper";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddressService {
-
   private baseUrl = Constant.BASE_URL;
   private domain = Domain.ADDRESS;
-  constructor(  private http : HttpClient ) { }
+  constructor(  private http : HttpClient, private apiHelper: ApiHelper) { }
 
-  createAddress( address : Address  ):Observable<any>{
-    return this.http.post<any>( this.baseUrl +'/' + this.domain +'/add' , address)
+  createAddress( address : Address ):Observable<any>{
+    return this.apiHelper.post(Constant.ADDRESS.CREATE,address);
   }
 
   ListAll():Observable<Address[]>{
-    return this.http.get<Address[]>( this.baseUrl + '/' + this.domain ).pipe(
+    return this.apiHelper.get(Constant.ADDRESS.LIST).pipe(
       tap(res=> console.log('address' + JSON.stringify(res) )),
       catchError( () => of([]) )
     )
   }
 
   updateAddress( id:number,  address: Address): Observable<Object>{
-    return this.http.post(`${this.baseUrl}/${this.domain}/update/${id}`, address);
+    return this.apiHelper.post(Constant.ADDRESS.UPDATE +`/${id}`, address);
   }
   getById(id: number): Observable<any>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/${id}`);
+    return this.apiHelper.get(Constant.ADDRESS.LIST+`/${id}`)
   }
+
   delete(id:number):Observable<Object>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}`)
+    return this.apiHelper.delete(Constant.ADDRESS.DELETE+`/${id}`)
   }
 }
