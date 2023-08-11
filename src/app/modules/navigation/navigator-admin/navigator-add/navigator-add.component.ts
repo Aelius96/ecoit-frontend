@@ -41,14 +41,16 @@ export class NavigatorAddComponent implements OnInit{
       data=>{
         this.goToNavList();
       },
-      (error:HttpErrorResponse) =>{
-        alert(error.message);
+      (error) =>{
+        alert(error.error);
       }
     )
   }
   addNav(){
     this.navService.addNav(this.nav).subscribe(data =>{
       this.goToNavList();
+    },error => {
+      alert(error.error)
     })
   }
   goToNavList(){

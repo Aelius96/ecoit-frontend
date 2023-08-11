@@ -46,19 +46,44 @@ export class NavigatorControlComponent {
 
   }
 
+  ngOnInit(): void {
+    this.listtree();
+    // this.getListAllWithPage();
+
+
+  }
 // treemat
 
-treeControl = new NestedTreeControl<Nav>(node => node.navChild);
-dataSource = new MatTreeNestedDataSource<Nav>();
+  treeControl = new NestedTreeControl<Nav>(node => node.navChild);
+  dataSource = new MatTreeNestedDataSource<Nav>();
 
 
-listtree(){
-  this.navService.listAll().subscribe(data=>{
-    this.dataSource.data = data
-    console.log(data)
-  })
-}
+  listtree(){
+    const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
+    this.navService.listAllWithPage(params).subscribe(data=>{
+      this.dataSource.data = data
+      console.log(this.dataSource.data)
+    })
+  }
 
+  getListAllWithPage(): void {
+    const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
+
+    this.navService.listAllWithPage(params)
+      .subscribe(
+        response => {
+          this.navigation = response.content;
+          this.navigation=response;
+          this.paging.totalRecord = response.totalElements;
+
+          // this.totalPages = response.totalPages;
+          console.log(response);
+
+        },
+        error => {
+          console.log(error);
+        });
+  }
 hasChild(_:number , node: Nav):boolean{
   return !!node.navChild&&node.navChild.length>0
 }
@@ -66,12 +91,7 @@ hasChild(_:number , node: Nav):boolean{
 // ======
 
 
-  ngOnInit(): void {
-    this.listtree();
-    this.getListAllWithPage();
-    //  this.listAll();
 
-  }
 // ========
   onCheckChange(event: any, navigator: Nav){
     this.selectNavList.push(navigator);
@@ -103,17 +123,6 @@ hasChild(_:number , node: Nav):boolean{
     event.target.classList.toggle('target');
 
   }
-
-  listAll(){
-    this.navService.listAll().subscribe(data=>{
-      this.navigation = data;
-    })
-  }
-  // getAllNavGroup(){
-  //   this.navService.listAll().subscribe( res=>{
-  //     this.navigation = res
-  //   })
-  // }
 
   updateNavigation(id: any){
     return this.router.navigate([`/admin/nav/update/${id}`])
@@ -149,24 +158,7 @@ hasChild(_:number , node: Nav):boolean{
     return params;
   }
 
-  getListAllWithPage(): void {
-    const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
 
-    this.navService.listAllWithPage(params)
-      .subscribe(
-        response => {
-          this.navigation = response.content;
-          this.navigation=response;
-          this.paging.totalRecord = response.totalElements;
-
-          // this.totalPages = response.totalPages;
-          console.log(response);
-
-        },
-        error => {
-          console.log(error);
-        });
-  }
 
 
   searchTitleAndDescription(): void {
@@ -193,12 +185,7 @@ prepareformData(formdata: any){
   return formData;
 }
 
-getAllnav(){
-  this.navService.listAll().subscribe(res=>{
-    this.navigation=res
-    console.log(res)
-  }, error=>console.log(error))
-}
+
 
 clearnAll(){
   let cf = confirm("Dữ liệu sẽ bị xóa . Bạn có muốn tiếp tục ");

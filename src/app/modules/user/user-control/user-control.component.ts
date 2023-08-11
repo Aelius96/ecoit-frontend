@@ -1,11 +1,9 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import { User } from 'src/app/core/model/user/user';
-import { UserAddComponent } from '../user-add/user-add.component';
-import {  NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap/modal/modal-ref';
+
 import {UserService} from "../../../services/user/user.service";
 import {Router} from "@angular/router";
-import { Role } from '../../../core/model/role/role';
+
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 
 
@@ -34,7 +32,7 @@ export class UserControlComponent implements OnInit{
     private totkenstorageService : TokenStorageService ) { }
 
   ngOnInit(): void {
-   
+
   this.getAllUser();
   }
 
@@ -62,12 +60,12 @@ export class UserControlComponent implements OnInit{
     this.userService.getListAllwithpageUser(params).subscribe(data=>{
       this.users = data.content;
       this.paging.totalRecord = data.totalElements;
-      
+
       console.log(data)
-    }, 
+    },
     error=>{
       console.log(error);
-    } 
+    }
     )
   }
 

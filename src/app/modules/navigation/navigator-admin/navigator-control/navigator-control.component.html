@@ -56,11 +56,11 @@
 
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="mat-tree">
 
-      <mat-tree-node *matTreeNodeDef="let nav" matTreeNodeToggle class="matree-node"  mat-cell >
+      <mat-tree-node *matTreeNodeDef="let nav " matTreeNodeToggle class="matree-node"  mat-cell >
           <li class="mat-tree-node">
             <button mat-icon-button disabled class="" ></button>
             <input  #checkboxes type="checkbox" [value]="nav.selected" [class.selected]="nav.selected"  name="foo" (change)="onCheckChange($event, nav)">
-            <div class="col-4" >  {{ nav.name }}</div>
+            <div class="col-4" >  {{ nav.name.toUpperCase() }}</div>
             <div class="col-4" > <a href="/{{nav.url}}" target="_blank" class="url-navi">{{nav.url}}</a></div>
 
             <div class="col-3" ><i class="	fas fa-edit  icon-navi  "  (click)="updateNavigation(nav.id)" ></i>
@@ -78,7 +78,7 @@
             </button>
             <input  #checkboxes type="checkbox" name="foo" [value]="nav.selected" (change)="onCheckChange($event, nav)">
 
-            <div  class="col-4" > {{ nav.name }}</div>
+            <div  class="col-4" > {{ nav.name.toUpperCase()}}</div>
             <div class="col-4" > <a href="/{{nav.url}}" target="_blank" ></a></div>
             <div class="col-3" >
               <i class="fas fa-edit  icon-navi "  (click)="updateNavigation(nav.id)"  ></i>

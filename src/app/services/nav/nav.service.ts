@@ -41,7 +41,7 @@ export class NavService {
     return this.http.get<Object>(`${this.baseUrl}/${this.domain}/delete/${id}`);
   }
   public deleteNavAll(formData: FormData): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/${this.domain}/deleteAll` ,formData);
+    return this.http.post(`${this.baseUrl}/${this.domain}/deleteAll`,formData);
   }
 
 }

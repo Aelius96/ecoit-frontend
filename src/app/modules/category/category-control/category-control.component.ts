@@ -22,11 +22,11 @@ export class CategoryControlComponent implements OnInit {
  paging={
     page: 1,
     size: 5,
-    totalRecord: 0 
+    totalRecord: 0
  }
   constructor( private modalService: NgbModal,
          private  categoryService: CategoryService ,
-          private router: Router , 
+          private router: Router ,
           private toast: ToastService) {}
 
   ngOnInit(): void {
@@ -34,12 +34,7 @@ export class CategoryControlComponent implements OnInit {
     this.getAllCatePageSize();
   }
 
-  // modal
-  @ViewChild('modal', {static: false}) modal: CategoryAddComponent
 
-  openModal() {
-    this.modal.open();
-  }
 
 
   getPageSizeParams(page: number, pageSize: number,searchinput:string ): any{
@@ -58,14 +53,14 @@ export class CategoryControlComponent implements OnInit {
     }
     return params;
   }
-  
+
   getAllCatePageSize():void{
     const params = this.getPageSizeParams(this.paging.page , this.paging.size, this.searchInput.input )
     this.categoryService.ListPageSize(params).subscribe(res=>{
       this.category = res.content;
       this.paging.totalRecord = res.totalElements;
       console.log(res)
-    }, 
+    },
     error => {
       console.log(error);
     }
@@ -75,7 +70,7 @@ export class CategoryControlComponent implements OnInit {
   getListAll(){
     this.categoryService.listAllCategory().subscribe(res=>{
       this.category=res;
-      console.log(res);
+
     }
     ,error =>{
       console.log(error)
@@ -95,12 +90,12 @@ export class CategoryControlComponent implements OnInit {
 
   Update(id:number){
     return this.router.navigate([`/admin/category/update/${id}` ])
-   
+
   }
-  
+
     // this.openModal()
     // return this.router.navigate([`/admin/category/update/${id}` ])
-  
+
 
   search():void{
     this.paging.page = 1;

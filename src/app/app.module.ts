@@ -41,14 +41,9 @@ import {DashboardComponent} from './modules/admin/dashboard/dashboard.component'
 import {NumberControlComponent} from './modules/typical/number/number-control/number-control.component';
 
 import {NumberAddComponent} from './modules/typical/number/number-add/number-add.component';
-import {BlogControlComponent} from './modules/blog/blog-control/blog-control.component';
-import {BlogAddComponent} from './modules/blog/blog-add/blog-add.component';
-import {NewsControlComponent} from './modules/news/news-control/news-control.component';
-import {NewsAddComponent} from './modules/news/news-add/news-add.component';
+
 import {CKEditorModule} from "ng2-ckeditor";
-// import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
-import {RecruitControlComponent} from './modules/recruit/recruit-control/recruit-control.component';
-import {RecruitAddComponent} from './modules/recruit/recruit-add/recruit-add.component';
+
 import {CustomerControlComponent} from './modules/customer/customer-control/customer-control.component';
 import {GalleryControlComponent} from './modules/typical/gallery/gallery-control/gallery-control.component';
 import {GalleryAddComponent} from './modules/typical/gallery/gallery-add/gallery-add.component';
@@ -167,12 +162,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     DashboardComponent,
     NumberControlComponent,
     NumberAddComponent,
-    BlogControlComponent,
-    BlogAddComponent,
-    NewsControlComponent,
-    NewsAddComponent,
-    RecruitControlComponent,
-    RecruitAddComponent,
     CustomerControlComponent,
     GalleryControlComponent,
     GalleryAddComponent,
@@ -203,29 +192,29 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AlbumsDetailComponent,
     TagRoleComponent,
     NewsMoreComponent,
-      RecruitDetailComponent,
-      RecruitMoreComponent,
-      BlogDetailComponent,
-      BlogMoreComponent,
-      ListContactComponent,
-      ListControlComponent,
-      ListCommentComponent,
-      CommentListComponent,
-      ToastContainerComponent,
-      AppPageSizeImageComponent,
-      ProductMoreComponent,
-      PostControlComponent,
-        PostAddComponent,
-        PostListComponent,
-        PostDetailComponent,
-        CommentFormComponent,
+    RecruitDetailComponent,
+    RecruitMoreComponent,
+    BlogDetailComponent,
+    BlogMoreComponent,
+    ListContactComponent,
+    ListControlComponent,
+    ListCommentComponent,
+    CommentListComponent,
+    ToastContainerComponent,
+    AppPageSizeImageComponent,
+    ProductMoreComponent,
+    PostControlComponent,
+    PostAddComponent,
+    PostListComponent,
+    PostDetailComponent,
+    CommentFormComponent,
 
-        LoginUserComponent,
+    LoginUserComponent,
 
-        CategoryControlComponent,
-        CategoryAddComponent,
-        SearchComponent,
-        AnimatedDigitComponent,
+    CategoryControlComponent,
+    CategoryAddComponent,
+    SearchComponent,
+    AnimatedDigitComponent,
 
 
 

@@ -175,7 +175,7 @@ export class PostAddComponent implements OnInit{
   savePost(){
     const postFormData = this.prepareFormData(this.post);
     this.postService.createPost(postFormData).subscribe(data =>{
-
+        this.message = "thêm thành công";
         this.goToPostList();
         this.isFalse = false;
       },
