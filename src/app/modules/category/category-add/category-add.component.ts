@@ -13,7 +13,7 @@ import { ToastService } from '../../toast/toast.service';
 export class CategoryAddComponent implements OnInit {
 
   category: Category = new Category() ;
-
+  message="";
   id:number
 
 constructor(
@@ -22,16 +22,10 @@ constructor(
     private router:Router,
     private route: ActivatedRoute,
       ) {}
-      //modal
 
-      @ViewChild('myModal', {static: false}) modal: ElementRef;
-      open() {
-        this.modal.nativeElement.style.display = 'block';
-      }
-      close() {
-        this.modal.nativeElement.style.display = 'none';
-      }        
-      
+
+
+
 ngOnInit(): void {
   this.id = this.route.snapshot.params['id'];
   if(this.id){
@@ -46,7 +40,7 @@ onSubmit(){
     this.update(this.id,this.category);
   }else{
     this.AddCategory();
-   
+
   }
  }
 
@@ -57,7 +51,10 @@ onSubmit(){
 update(id:number,category:Category){
   this.categoryService.UpdateCate(id,category).subscribe(()=>
   {
+
     this.cancel()
+  },error => {
+    this.message = error.error;
   })
 }
 
@@ -66,6 +63,8 @@ AddCategory(){
     alert('Thêm chuyên mục thành công!')
     // this.modal.nativeElement.style.display = 'none';
     this.cancel();
+  },error => {
+    this.message = error.error;
   })
 }
 

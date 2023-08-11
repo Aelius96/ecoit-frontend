@@ -18,10 +18,10 @@ export class AboutControlComponent implements OnInit{
   about :About= new About();
   // about : About[]=[];
   ckeConfig: any;
-  Notification ="";
-  Error="";
-  constructor( private about_usService: AboutUsService , 
-                private addressService: AddressService , 
+
+   message ="";
+  constructor( private about_usService: AboutUsService ,
+                private addressService: AddressService ,
                 private router : Router,){}
   ngOnInit(): void {
     this.getistAllInformation();
@@ -40,13 +40,11 @@ export class AboutControlComponent implements OnInit{
 
   addAbout_us(){
     this.about_usService.createInformation(this.about).subscribe(()=>{
-       this.Notification="Lưu Thành Công!";
-       this.Error =""
+      this.message = "Thêm Thành công";
       },
       error=>{
-        this.Notification = "Lưu thất bại!";
-        this.Error = error.error.message;
-        console.log(error.error.message)
+        this.message = error.error;
+        console.log(error.error)
       }
       )
   }
@@ -71,7 +69,10 @@ export class AboutControlComponent implements OnInit{
      if(cf){
       this.addressService.delete(id).subscribe(()=>{
         this.getListAddress();
-      }, error => console.log(error))
+      }, error =>{
+
+        console.log(error)
+      } )
      }
   }
 
@@ -84,7 +85,7 @@ export class AboutControlComponent implements OnInit{
     this.addAbout_us()
   }
 
-  numberOnly(event:any): boolean { 
+  numberOnly(event:any): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
     if (charCode < 32 || charCode > 57) {
       return false;

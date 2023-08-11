@@ -43,11 +43,11 @@
           <div class="options">
             <div class="title">Nhóm</div>
 
-            <input *ngIf="isChild" name="parentId" [(ngModel)]="nav.parentId" [value]="nav.parentId" disabled>
-            <div *ngIf="isChild == false">
+<!--            <input *ngIf="isChild" name="parentId" [(ngModel)]="nav.parentId" [value]="nav.parentId" disabled>-->
+            <div>
               <select name="parentId" [(ngModel)]="nav.parentId">
-                <option [selected]="true" [value]="0">--Chọn--</option>
-                <option *ngFor="let opt of navGroup" [value]="opt.id">{{opt.name}}</option>
+                <option [value]="null">--Chọn--</option>
+                <option *ngFor="let opt of navGroup" [ngValue]="opt.id" selected>{{opt.name}}</option>
               </select>
             </div>
           </div>
