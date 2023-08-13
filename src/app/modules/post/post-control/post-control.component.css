@@ -111,7 +111,11 @@ img{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.table{
+  border: 0.3px solid #000000;
+  border-collapse: separate;
+  
+}
 .header {
   position: sticky;
   top:0;
@@ -146,7 +150,4 @@ th{
 .drop{
   padding: 8px 0px;
   font-size: 14px;
-}
-.table{
-  border: 0.3px solid;
 }

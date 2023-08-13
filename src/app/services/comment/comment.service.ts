@@ -1,11 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Cons } from 'rxjs';
 import { Constant } from 'src/app/core/config/constant';
 import { Comment } from 'src/app/core/model/comment/comment';
 import {Domain} from "../../core/domain/domain";
 import { ParseError } from '@angular/compiler';
 import { Params } from '@angular/router';
+import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 
 @Injectable({
   providedIn: 'root'
@@ -15,61 +16,53 @@ export class CommentService {
   private baseUrl = `${Constant.BASE_URL}`;
   private domain = `${Domain.COMMENT}`
 
-  constructor( private http: HttpClient ) { }
-
-  // getCommentChildById( params: any):Observable<any>{
-  //   return this.http.get(`${this.baseUrl}/comment/get` , {params})
-  // }
+  constructor( private apiHelper: ApiHelper ) { }
 
   getListCommentwithPageAdmin(paramsQuery : Params):Observable<any>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/search` , {params:paramsQuery})
+    return this.apiHelper.get( Constant.COMMENT.GET_LIST_COMMENT_WITH_PAGE_ADMIN , {params:paramsQuery})
   }
 
   getCommentChildByParent():Observable<any>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/get` )
+    return this.apiHelper.get(Constant.COMMENT.GET_COMMENT_CHILD_BY_PARENT)
   }
 
   getCommentChildByParentAdmin():Observable<any>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/child` )
+    return this.apiHelper.get(Constant.COMMENT.GET_COMMENT_CHILD_BY_PARENT_ADMIN)
   }
 
   getParentCommentActive():Observable<Comment[]>{
-    return this.http.get<Comment[]>(`${this.baseUrl}/${this.domain}/parent` )
+    return this.apiHelper.get(Constant.COMMENT.GET_PARENT_COMMENT_ACTIVE)
   }
   getParentCmtAdmin():Observable<Comment[]>{
-    return this.http.get<Comment[]>(`${this.baseUrl}/${this.domain}/show` )
+    return this.apiHelper.get(Constant.COMMENT.GET_PARENTCMT_ADMIN)
   }
 
   getListCommentHome():Observable<any>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/home`);
+   return this.apiHelper.get(Constant.COMMENT.GET_LIST_COMMENT_HOME)
   }
   getListAll():Observable<Comment[]>{
-    return this.http.get<Comment[]>(`${this.baseUrl}/${this.domain}/all`)
+    return this.apiHelper.get(Constant.COMMENT.GET_LIST_ALL)
   }
 
   DisableComment(id : number){
-    return this.http.get(`${this.baseUrl}/${this.domain}/disable/${id}`)
+    return this.apiHelper.get(Constant.COMMENT.DISABLE_COMMENT + `${id}`)
   }
   EnableComment(id : number){
-    return this.http.get(`${this.baseUrl}/${this.domain}/enable/${id}`)
+    return this.apiHelper.get( Constant.COMMENT.ENABLE_COMMENT + `/${id}`)
   }
   creatComment(creatcomment: any):Observable<Object>{
-    return this.http.post(`${this.baseUrl}/${this.domain}/create` , creatcomment)
+    return this.apiHelper.post( Constant.COMMENT.CREAT_COMMENT  , creatcomment)
   }
   updateComment(id:number , comment:Comment):Observable<Object>{
-    return this.http.post(`${this.baseUrl}/${this.domain}/update/${id}` , comment )
+    return this.apiHelper.post(  Constant.COMMENT.UPDATE_COMMENT + `/${id}` , comment )
   }
 
   getCommentByPostId(postId : number):Observable<any>{
-    return this.http.get<any>(`${this.baseUrl}/${this.domain}/test?postId=${postId}`)
+    return this.apiHelper.get( Constant.COMMENT.GET_COMMENT_BY_POST_ID + `/test?postId=${postId}`)
   }
 
-  //  public addNav(nav: Nav): Observable<Nav> {
-  //   return this.http.post<Nav>(`${this.baseUrl}/nav/add`,nav);
-  // }
-
   deleteComment(id:any){
-    return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}` )
+  return this.apiHelper.delete(Constant.COMMENT.DELETE_COMMENT + `${id}` )  
   }
   
 }

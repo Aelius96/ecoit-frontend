@@ -20,6 +20,7 @@ export class CusTypicalAddComponent {
   id: any;
   ckeConfig: any;
   baseURL = Constant.BASE_URL;
+  customerURL = Domain.CUSTOMER;
   cusTyoURL = Domain.CUSTYPICAL;
   message = '';
   imageURL : any;
@@ -32,7 +33,7 @@ export class CusTypicalAddComponent {
       this.cusTypicalService.getTCById(this.id).subscribe(data =>{
         this.cusTypical = data;
         this.urls = this.cusTypical.image.pathUrl;
-        this.imageURL = `${this.baseURL}/${this.cusTyoURL}/image/${this.id}`;
+        this.imageURL = `${this.baseURL}/${this.customerURL}/${this.cusTyoURL}/image/${this.id}`;
       });
     }
     this.ckeConfig = {

@@ -1,47 +1,41 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Nav} from "../../core/model/nav/nav";
+import { Nav } from '../../core/model/nav/nav';
 import {Constant} from "../../core/config/constant";
-import {Number} from "../../modules/typical/number/number";
-import {Params} from "@angular/router";
-import {Obj} from "@popperjs/core";
-import { Domain } from 'src/app/core/domain/domain';
+import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavService {
 
-  private baseUrl = `${Constant.BASE_URL}`
-  private domain = `${Domain.NAV}`
-  constructor(private http: HttpClient) { }
+  constructor(private apiHelper: ApiHelper) { }
 
   listAllWithPage(params: any): Observable<any>{
-    return this.http.get(`${this.baseUrl}/${this.domain}`,{params})
+    return this.apiHelper.get(Constant.NAV.LIST_ALL_WITH_PAGE,{params})
   }
 
-  listAll(): Observable<Nav[]>{
-    return this.http.get<Nav[]>(`${this.baseUrl}/${this.domain}`)
+  listAll(): Observable<any>{
+    return this.apiHelper.get(Constant.NAV.LIST_ALL)
   }
 
   public getNavById(id: number): Observable<Nav> {
-    return this.http.get<Nav>(`${this.baseUrl}/${this.domain}/${id}`);
+    return this.apiHelper.get(Constant.NAV.GET_NAV_BY_ID +`/${id}`);
   }
 
   public addNav(nav: Nav): Observable<Nav> {
-    return this.http.post<Nav>(`${this.baseUrl}/${this.domain}/add`,nav);
+    return this.apiHelper.post(Constant.NAV.ADD_NAV,nav);
   }
 
-  public updateNav(id: number,nav: Nav): Observable<Nav> {
-    return this.http.post<Nav>(`${this.baseUrl}/${this.domain}/update/${id}`, nav);
+  public updateNav(id: number,nav: Nav): Observable<any> {
+    return this.apiHelper.post( Constant.NAV.UPDATE_NAV + `/${id}`, nav);
   }
 
   public deleteNav(id: number): Observable<Object> {
-    return this.http.get<Object>(`${this.baseUrl}/${this.domain}/delete/${id}`);
+    return this.apiHelper.delete( Constant.NAV.DELETE_NAV + `/${id}`);
   }
   public deleteNavAll(formData: FormData): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/${this.domain}/deleteAll`,formData);
+    return this.http.post(`${this.baseUrl}/${this.domain}/deleteAll` ,formData);
   }
 
 }

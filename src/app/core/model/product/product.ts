@@ -7,6 +7,7 @@ export class Product {
   title: string;
   description: any
   content: any;
+  date: any;
   url: any;
   selected = false;
   hashtags: Hashtag[] = [];

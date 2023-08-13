@@ -7,9 +7,9 @@
         </a>
 
         <form (change)="searchTitleAndDescription()" class="d-flex">
-          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm "
-            style="width: 100px; height: 30px;  " class="searchinput">
-          <select [(ngModel)]="cate" name="cate" style="height: 30px; width: 135px;" class="ml-2 searchinput">
+          <input type="text" [(ngModel)]="searchInput"  name="searchInput" placeholder="Tìm kiếm "
+            style="width: 30%; height: 30px;  " class="searchinput">
+          <select [(ngModel)]="cate" name="cate" style="height: 30px; width: 40%;" class="ml-2 searchinput">
             <option value="" [selected]="true">Chuyên mục</option>
             <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
           </select>
@@ -44,12 +44,12 @@
   <table class="table">
     <thead style="position: sticky;top: 0 ; z-index: 1;" class="thead-dark">
       <tr>
-        <th scope="col" style="width: 20%;" >Ảnh</th>
+        <th scope="col" style="width: 15%;" >Ảnh</th>
         <th class="w-25" scope="col">Tiêu đề</th>
         <th class="w-25" scope="col">Nội dung</th>
-        <th class="" scope="col" style="width: 15%;" >Chuyên mục </th>
-        <th class="" scope="col" style="width: 15%;" >Thời gian</th>
-        <th class="" scope="col"></th>
+        <th class="" scope="col" style="" >Chuyên mục </th>
+        <th class="" scope="col" style="" >Thời gian</th>
+        <th class="" scope="col">Chức năng</th>
       </tr>
     </thead>
     <tbody>
@@ -58,7 +58,7 @@
         itemsPerPage: paging.size,
         currentPage: paging.page,
         totalItems: paging.totalRecord  } ;  ">
-        <td style=" width:20%" >
+        <td style="width:15% " >
           <div class="product-thumb-image">
             <img src="{{baseURL}}/{{postURL}}/image/{{post.id}}" alt="Post Image">
           </div>
@@ -73,13 +73,13 @@
             {{post.description}}
           </p>
         </td>
-        <td style="width: 15%;" class="text-center">
+        <td style="" class="text-center">
           <p class="mt-5" >{{post.category.typeName}}</p>
         </td>
-        <td style="width: 15%;" class="text-center"  >
+        <td style="" class="text-center"  >
           <p class="mt-5" > {{post.date}}</p>
         </td>
-        <td>
+        <td class="text-center">
           <div class="btn-group dropright ">
            <i title="Chức năng" class='icon-more fa fa-ellipsis-h mt-5 ' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style='font-size:24px'></i>
             <div class="dropdown-menu text-center p-0">

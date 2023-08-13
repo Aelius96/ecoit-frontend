@@ -1,39 +1,35 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, ObservedValueOf} from "rxjs";
+import { Observable, ObservedValueOf, Cons } from 'rxjs';
 import {User} from "../../core/model/user/user";
 import {Constant} from "../../core/config/constant";
 import {Domain} from "../../core/domain/domain";
+import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl =`${Constant.BASE_URL}`
-  private domain = `${Domain.USER}`;
-  constructor(private http:HttpClient) { }
+
+  constructor(private apiHelper:ApiHelper) { }
 
   getListAllwithpageUser(params:any):Observable<any>{
-    return this.http.get(`${this.baseUrl}/${this.domain}` , {params})
+    return this.apiHelper.get( Constant.USER.GET_LIST_ALL_WITH_PAGE_USER , {params})
   }
 
-  // public getAllUser():Observable<User[]>{
-  //   return this.http.get<User[]>(`${this.baseUrl}`);
-  // }
-
-  public getUserById(id:number):Observable<User>{
-    return this.http.get<User>(`${this.baseUrl}/${this.domain}/${id}`);
+  public getUserById(id:number):Observable<any>{
+    return this.apiHelper.get( Constant.USER.GET_USER_BY_ID +`/${id}`);
   }
 
   updateUser(id: number, formData: FormData):Observable<Object>{
-    return this.http.post(`${this.baseUrl}/${this.domain}/update/${id}`,formData);
+    return this.apiHelper.post( Constant.USER.UPDATE_USER +`/${id}`,formData);
   }
 
-  public deleteUser(id: number): Observable<void> {
-    return this.http.get<void>(`${this.baseUrl}/${this.domain}/delete/${id}`);
+  public deleteUser(id: number): Observable<any> {
+    return this.apiHelper.delete( Constant.USER.DELETE_USER +`/${id}`);
   }
 
   changePassword(id: number):Observable<any>{
-    return this.http.post(`${this.baseUrl}/${this.domain}/changePassword`,id);
+    return this.apiHelper.post( Constant.USER.CHANGE_PASSWORD ,id);
   }
 }

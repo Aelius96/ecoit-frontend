@@ -36,12 +36,11 @@ export class AlbumsDetailComponent implements OnInit {
     size: 16,
     totalRecord: 0
   }
-  fileURL = Domain.FILE;
+  fileURL = Domain.ALBUMS;
 
   constructor( private imageService: FileService  ,
                   private router: Router ,
-                  private galleryService: GalleryService ,
-                 private tokenStorageService : TokenStorageService){}
+                  private galleryService: GalleryService){}
 
 
   ngOnInit(): void {

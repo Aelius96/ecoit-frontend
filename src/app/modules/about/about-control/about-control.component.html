@@ -28,8 +28,8 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="contact-inner">
-                                            <span> <a href="https://support.google.com/youtube/answer/171780?hl=vi" target="_blank" > <strong> LINK VIDEO </strong></a></span> <span style="color: rgb(255, 72, 0);" ><em>(Lưu ý: chuyển width = "100%" và height = "100%")</em></span>
-                                            <input type="text" name="videoLINK" id="videoLINK" [(ngModel)]="about.videoLINK">
+                                            <span> <strong> LINK VIDEO </strong> <a href="https://support.google.com/youtube/answer/171780?hl=vi" target="_blank" ><span style="color: rgb(255, 72, 0);" ><em>(Hướng dẫn lấy mã nhúng)</em></span> </a></span> 
+                                            <input type="text" name="videoLINK" id="videoLINK" [(ngModel)]="about.videoLINK"  placeholder="Điền mã nhúng vào đây"  >
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -74,7 +74,7 @@
                                     <div class="col-12">
                                         <div class="my-3 "><p>{{message}}</p></div>
                                         <button type="submit" class="btn" style="width: 100px;" >Lưu</button>
-                                        <button type="button" class="btn  cancel ml-4 " style=" width:100px;" routerLink="../">Hủy</button>
+                                        <button type="button" class="btn  cancel ml-4 " style=" width:100px;" (click)="reload()">Hủy</button>
                                     </div>
                                 </div>
                             </div>

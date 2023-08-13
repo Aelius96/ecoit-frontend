@@ -40,7 +40,10 @@ export class AboutControlComponent implements OnInit{
 
   addAbout_us(){
     this.about_usService.createInformation(this.about).subscribe(()=>{
-      this.message = "Thêm Thành công";
+       this.message="Lưu Thành Công!";
+       setTimeout(() => {
+        location.reload();
+      }, 900);
       },
       error=>{
         this.message = error.error;
@@ -98,4 +101,7 @@ export class AboutControlComponent implements OnInit{
     return true;
   }
 
+  reload(){
+    location.reload()
+  }
 }

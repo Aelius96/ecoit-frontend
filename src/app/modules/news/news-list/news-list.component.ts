@@ -25,7 +25,7 @@ export class NewsListComponent implements OnInit{
 
   category = 'news';
 
-  constructor(private newsService: NewsService,private postService: PostService) {
+  constructor(private postService: PostService) {
   }
 
   ngOnInit(): void {

@@ -6,6 +6,7 @@ import {Domain} from "../../core/domain/domain";
 import { Category } from '../../core/model/category/category';
 import { Params } from '@angular/router';
 import { Obj } from '@popperjs/core';
+import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 
 @Injectable({
   providedIn: 'root'
@@ -15,39 +16,31 @@ export class CategoryService {
   private baseUrl = `${Constant.BASE_URL}`;
   private domain = `${Domain.CATEGORY}`
 
-  constructor(private http:HttpClient) { }
+  constructor(private apiHelper : ApiHelper) { }
 
   ListPageSize(params:Params):Observable<any>{
-    return this.http.get<any>(`${this.baseUrl}/${this.domain}` , {params})
+    return this.apiHelper.get( Constant.CATEGORY.LIST_PAGE_SIZE , {params})
   }
 
   public listAllCategory(): Observable<Category[]>{
-    return this.http.get<Category[]>(`${this.baseUrl}/${this.domain}/list`);
+    return this.apiHelper.get(Constant.CATEGORY.LIST);
 
   }
 
-  //  public getNumberById(id: number): Observable<Number> {
-  //   return this.httpclient.get<Number>(`${this.baseUrl}/${this.domain}/${id}`);
-  // }
-
   GetCateByid(id:number):Observable<Category>{
-    return this.http.get<Category>(`${this.baseUrl}/${this.domain}/${id}`)
+    return this.apiHelper.get( Constant.CATEGORY.GET_BY_ID + `/${id}`)
   }
 
   AddCategory( category: Category ):Observable<Object>{
-    return this.http.post(`${this.baseUrl}/${this.domain}/create` , category)
+    return this.apiHelper.post(Constant.CATEGORY.CREATE , category)
   }
 
   DeleteCate(id:number):Observable<Object>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}`)
+    return this.apiHelper.delete( Constant.CATEGORY.DELETE  +`/${id}`)
   }
 
   UpdateCate(id:number,category:Category):Observable<Object>{
-    return this.http.post(`${this.baseUrl}/${this.domain}/update/${id}`,category)
+    return this.apiHelper.post( Constant.CATEGORY.UPDATE + `/${id}`,category)
   }
  
-
-  GetCategory():Observable<any>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/get`)
-  }
 }

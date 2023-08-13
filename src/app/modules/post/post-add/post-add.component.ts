@@ -17,7 +17,6 @@ import {MatChipInputEvent} from "@angular/material/chips";
 import {FileService} from "../../../services/file/file.service";
 
 import {Domain} from "../../../core/domain/domain";
-import {HttpHeaders, HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-post-add',
