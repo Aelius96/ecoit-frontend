@@ -35,7 +35,7 @@ export class NavService {
     return this.apiHelper.delete( Constant.NAV.DELETE_NAV + `/${id}`);
   }
   public deleteNavAll(formData: FormData): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/${this.domain}/deleteAll` ,formData);
+    return this.apiHelper.delete( Constant.NAV.DELETE_NAV_ALL ,formData);
   }
 
 }
