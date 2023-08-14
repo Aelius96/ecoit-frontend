@@ -9,21 +9,14 @@ export class ToastService {
   constructor(public toast: ToastrService){}
 
   showSuccess(){
-      this.toast.success('Bạn đã lưu thành công', 'Thành Công!', {
-
-       
-    });
+      this.toast.success('Bạn đã lưu thành công', 'Thành Công!', {  });
   } 
-  showError(){
-   this.toast.error('Bạn đã lưu thất bại', 'Thất Bại', {
-
-});
+  showUpdate(){
+   this.toast.info('Cập nhật thành công', 'Thông báo!', {});
   }
-   showWarning(err:any)
+  showWarning(error:any)
    {
-   this.toast.warning(err, 'Cảnh Báo!', {
-
-});
+   this.toast.warning(error, 'Cảnh Báo!', {});
   }
 
 }

@@ -7,7 +7,6 @@ import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {Hashtag} from "../../../core/model/hashtag/hashtag";
 import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
-import {PostService} from "../../../services/post/post.service";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {FormControl} from "@angular/forms";
 import {HashtagService} from "../../../services/hashtag/hashtag.service";
@@ -146,16 +145,28 @@ export class ProductAddComponent implements OnInit{
   saveProduct(){
     const newsFormData = this.prepareFormData(this.products);
     this.productService.addNewProduct(newsFormData).subscribe(data =>{
+      this.toast.showSuccess();
+      console.log(data)
         this.backToProductList();
       },
-      error => console.log(error));
+      error => {
+        this.toast.showWarning(error.error)
+        console.log(error)
+      });
   }
 
   addDataToForm(id: any){
     const newsFormData = this.prepareFormData(this.products);
     this.productService.updateProduct(id, newsFormData).subscribe(data =>{
-      this.backToProductList();
-    });
+      this.toast.showSuccess();
+      console.log(data)
+        this.backToProductList();
+    },
+    error => {
+      this.toast.showWarning(error.error)
+      console.log(error)
+    }
+    );
   }
 
   prepareFormData(products: Product): FormData {

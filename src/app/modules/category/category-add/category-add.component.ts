@@ -51,20 +51,19 @@ onSubmit(){
 update(id:number,category:Category){
   this.categoryService.UpdateCate(id,category).subscribe(()=>
   {
-
+    this.toast.showSuccess()
     this.cancel()
   },error => {
-    this.message = error.error;
+    this.toast.showWarning(error.error)
   })
 }
 
 AddCategory(){
   this.categoryService.AddCategory(this.category).subscribe(()=>{
-    alert('Thêm chuyên mục thành công!')
-    // this.modal.nativeElement.style.display = 'none';
+    this.toast.showSuccess()
     this.cancel();
   },error => {
-    this.message = error.error;
+    this.toast.showWarning(error.error)
   })
 }
 

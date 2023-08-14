@@ -4,7 +4,7 @@ import { ErrorComponent } from "./modules/error/error.component";
 import { AuthenticateService } from './authentication/authenticate.service';
 
 const routes: Routes =[
-// mặt người dùng 
+// mặt ngoài
   { path:'',redirectTo:'/trang-chu',pathMatch:'full',}, 
   {path:'', loadChildren:()=>import('./modules/view_page_routing/view-page.module').then(m=>m.ViewPageModule)},
 // mặt admin

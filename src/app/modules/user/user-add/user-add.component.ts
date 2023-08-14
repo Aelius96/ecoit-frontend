@@ -3,10 +3,10 @@ import {AuthService} from "../../../services/auth/auth.service";
 import {User} from "../../../core/model/user/user";
 import {UserService} from "../../../services/user/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 
 import {Role} from "../../../core/model/role/role";
 import {RoleService} from "../../../services/role/role.service";
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -28,8 +28,8 @@ export class UserAddComponent implements OnInit{
   submitFail = false;
 
   constructor(private authService: AuthService,private userService: UserService, private roleService:RoleService,
-              private tokenStorageService: TokenStorageService
-              ,private router: Router,private route:ActivatedRoute) {
+              private router: Router,private route:ActivatedRoute ,
+              private toastService: ToastrService, ) {
   }
 
 
@@ -88,10 +88,17 @@ export class UserAddComponent implements OnInit{
 
   updateUser(id: number){
     let userFormData = this.prepareFormData(this.user, this.role.filter(item => item.selected));
-    this.userService.updateUser(id, userFormData).subscribe(data =>{
+    this.userService.updateUser(id, userFormData).subscribe(() =>{
+      this.toastService.info('Đã cập nhật thông tin' , 'Thông báo!')
       this.submitFail = false;
       this.goToUserList();
-    })
+    }, 
+    error=>{
+      this.toastService.error(error.error.message , 'Lỗi xảy ra!' );
+      console.log(error)
+
+    }
+    )
   }
 
   getRole(){
@@ -111,15 +118,17 @@ export class UserAddComponent implements OnInit{
     if(this.id){
       this.updateUser(this.id);
     }else{
-      this.authService.register(this.user).subscribe(data =>{
+      this.authService.register(this.user).subscribe(() =>{
 
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          this.errorMessage = "Đăng ký thành công!!"
+          this.toastService.success('Đăng kí thành công' , 'Thành công!')
+          // this.errorMessage = "Đăng ký thành công!!"
           console.log(this.user);
         },
         err =>{
-          this.errorMessage = "Đăng ký thất bại!!";
+          this.toastService.error(err.error.message , 'Lỗi xảy ra!' )
+          // this.errorMessage = "Đăng ký thất bại!!";
           this.isSignUpFailed = true;
         })
     }

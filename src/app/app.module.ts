@@ -246,7 +246,7 @@ import {ToastrModule} from 'ngx-toastr'
     MatPaginatorModule,
     ToastrModule.forRoot({
       closeButton: true,
-      progressBar: true,
+      progressBar: false,
       positionClass: 'toast-bottom-right' ,
       timeOut:5000,
     }),

@@ -45,7 +45,7 @@ export class CommentService {
   }
 
   DisableComment(id : number){
-    return this.apiHelper.get(Constant.COMMENT.DISABLE_COMMENT + `${id}`)
+    return this.apiHelper.get(Constant.COMMENT.DISABLE_COMMENT + `/${id}`)
   }
   EnableComment(id : number){
     return this.apiHelper.get( Constant.COMMENT.ENABLE_COMMENT + `/${id}`)
@@ -61,8 +61,8 @@ export class CommentService {
     return this.apiHelper.get( Constant.COMMENT.GET_COMMENT_BY_POST_ID + `/test?postId=${postId}`)
   }
 
-  deleteComment(id:any){
-  return this.apiHelper.delete(Constant.COMMENT.DELETE_COMMENT + `${id}` )  
+  deleteComment(id:number){
+  return this.apiHelper.delete(Constant.COMMENT.DELETE_COMMENT + `/${id}` )  
   }
   
 }

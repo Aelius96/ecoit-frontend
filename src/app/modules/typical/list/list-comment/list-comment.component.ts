@@ -5,6 +5,7 @@ import { CommentService } from 'src/app/services/comment/comment.service';
 import { PostService } from 'src/app/services/post/post.service';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ToastService } from 'src/app/modules/toast/toast.service';
 
 @Component({
   selector: 'app-list-comment',
@@ -31,7 +32,8 @@ export class ListCommentComponent implements OnInit {
 
 constructor(
             private commentService: CommentService,
-            private tokenStorageService: TokenStorageService){}
+            private tokenStorageService: TokenStorageService ,
+            private toast:ToastService ){}
 
   ngOnInit(): void {
     
@@ -48,7 +50,7 @@ constructor(
     getParams(page:number , pageSize : number , search:String ){
       let params:any = {}
       if(page){
-        params[`pageNo`] = page-1;
+        params[`pageNo`] = page;
       }
       if(pageSize){
         params[`pageSize`]=pageSize;
@@ -92,25 +94,31 @@ constructor(
   // chỉnh sửa
   updateComment(id:number , comment:Comment ){
     this.commentService.updateComment(id ,comment).subscribe(response=>{
-      let option = confirm('Cập nhật thành công!');
-        if(option){
-          window.location.reload();
-          console.log(response)
-        }
+      this.toast.showUpdate();
+      console.log(response)
+      setTimeout(() => {
+        location.reload()
+      }, 1500);
+      
       },
-      error=>{console.log(error)
+      error=>{
+        this.toast.showWarning(error.error)
+        console.log(error)
     })
   }
 
 
   RepComment(){
     this.commentService.creatComment(this.comment).subscribe(respon=>{
-      let cf = confirm('Trả lời thành công')
-        if(cf){
-          window.location.reload();
-          console.log(respon);
-        }
-    }, error=>{console.log(error)}
+        this.toast.showSuccess()
+        setTimeout(()=>{
+          location.reload()
+        },1500)
+        console.log(respon);
+        
+    }, error=>{
+      this.toast.showWarning(error.error)
+      console.log(error)}
     )
   }
 

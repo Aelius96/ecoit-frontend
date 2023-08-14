@@ -1,19 +1,11 @@
 .update_box{
     display: flex;
     flex-direction: column;
-    margin: 20px 0;
+    margin: 20px 0px;
   }
-  .update_box .image{
-    position: relative;
-    height: 210px;
-    width: 100%;
-  }
+
   .update_box .image img{
-    height: 100%;
-    width: 100%;
-    object-fit: fill;
-  }
-  .update_box img{
+    height: 320px;
     width: 100%;
     object-fit: fill;
   }
@@ -32,10 +24,7 @@
     background-color: rgba(43, 43, 63, 0.85);
     color: rgb(244, 246, 247);
   }
-  .btnn {
-    margin-right: 15px;
-  
-  }
+
   a:focus{
     text-decoration: none;
   }

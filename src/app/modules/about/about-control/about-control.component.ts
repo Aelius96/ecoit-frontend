@@ -21,7 +21,6 @@ export class AboutControlComponent implements OnInit{
   // about : About[]=[];
   ckeConfig: any;
 
-   message ="";
   constructor( private about_usService: AboutUsService ,
                 private addressService: AddressService ,
                 private router : Router, 

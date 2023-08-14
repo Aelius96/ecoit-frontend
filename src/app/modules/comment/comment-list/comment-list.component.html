@@ -27,7 +27,7 @@
 							<div class="" >
 								<div *ngIf="userId == cmt.user.id ">
 									<a  data-toggle="collapse" href="#{{cmt.id}}editParent" >Chỉnh sửa</a>
-									<a (click)="Delete(cmt.id)"><span class="delete-cmt">Xóa</span></a>
+									<a (click)="disable(cmt.id)"><span class="delete-cmt">Xóa</span></a>
 								</div>
 							  </div>
 						</div>
@@ -61,7 +61,7 @@
 								</div>
 								<div class="col-md-2" *ngIf="userId == cmtChild.user.id ">
 									<a  data-toggle="collapse" href="#{{cmtChild.id}}editChild" >Chỉnh sửa</a>
-									<a (click)="DeleteChild(cmtChild.id)"><span class="delete-cmt">Xóa</span></a>
+									<a (click)="disableChild(cmtChild.id)"><span class="delete-cmt">Xóa</span></a>
 								</div>
 								<form (ngSubmit)="updateComment(cmtChild.id,cmtChild)">
 									<div id="{{cmtChild.id}}editChild" class="collapse " data-parent="#accordion">

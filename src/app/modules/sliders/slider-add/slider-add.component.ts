@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Slider} from "../../../core/model/slider/slider";
 import {SliderService} from "../../../services/slider/slider.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
 import {Domain} from "../../../core/domain/domain";
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-slider-add',
   templateUrl: './slider-add.component.html',
   styleUrls: ['./slider-add.component.css']
 })
-export class SliderAddComponent {
+export class SliderAddComponent implements OnInit {
   baseURL = Constant.BASE_URL;
   id: any;
   slider: Slider = new Slider();
   url: any;
-  isUpdate= false;
   fileToUpload:string [] = [];
   action = "";
   imageURL: any;
@@ -23,12 +23,12 @@ export class SliderAddComponent {
 
   constructor(private sliderService: SliderService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute , 
+              private toast:ToastService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     if(this.id){
-      this.isUpdate = true;
       this.getById(this.id);
       this.action = "Chỉnh sửa";
     }else{
@@ -40,7 +40,6 @@ export class SliderAddComponent {
     this.sliderService.getById(id).subscribe(data => {
       this.slider = data;
       this.url = this.slider.pathUrl;
-      // this.imageURL = this.baseURL + this.url;
       this.imageURL = `${this.baseURL}/${this.sliderURL}/image/${this.slider.name}`
     });
   }
@@ -52,14 +51,27 @@ export class SliderAddComponent {
       this.fileToUpload[0]
     )
     this.sliderService.addNew(formData).subscribe(data =>{
+      this.toast.showSuccess();
+      console.log(data)
       this.goToSliderList();
-    });
+    }, 
+      error=>{
+        this.toast.showWarning(error.error)
+        console.log(error)
+      }
+    );
   }
 
   updateSlider(id: number){
     const productFormData = this.prepareFormData(this.slider);
     this.sliderService.update(id, productFormData).subscribe(data =>{
+      this.toast.showSuccess();
+      console.log(data)
       this.goToSliderList();
+    }, 
+    error=>{
+      this.toast.showWarning(error.error)
+        console.log(error)
     });
   }
 
@@ -73,10 +85,9 @@ export class SliderAddComponent {
       formData.append(
         'slide',
         this.fileToUpload[i]
-        // this.fileToUpload[i].name
       )
     }
-    // formData.append('thumb', this.fileToUpload, this.fileToUpload.name);
+   
 
     return formData;
   }

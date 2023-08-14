@@ -15,9 +15,8 @@
   margin-top: 70px;
   padding: 0px 20px 20px 20px;
 }
-.btnn {
+.btn{
   margin-right: 15px;
-  margin-top: 20px;
   width: 40%;
 }
 .cancel{
@@ -31,7 +30,6 @@
 .update_box{
   display: flex;
   flex-direction: column;
-  margin: 20px 0;
 }
 .update_box .image{
   position: relative;
@@ -41,7 +39,7 @@
 .update_box .image img{
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 .update_box img{
   width: 100%;

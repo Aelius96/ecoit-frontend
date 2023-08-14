@@ -6,6 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
+import { ToastrService } from 'ngx-toastr';
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-comment-form',
@@ -23,8 +25,8 @@ export class CommentFormComponent {
 constructor(private route:ActivatedRoute ,
             private commentService: CommentService ,
             private postService: PostService,
-            private tokenStorageService: TokenStorageService,
-            private router : Router){}
+            private tokenStorageService: TokenStorageService ,
+            private toastService: ToastrService , private  toast: ToastService ){}
 
   ngOnInit(): void {
     if(this.tokenStorageService.getToken()){
@@ -38,15 +40,15 @@ constructor(private route:ActivatedRoute ,
 
  sendComment(){
   this.commentService.creatComment(this.comment).subscribe(res=>{
-    // this.comment.userId = this.userId;
-    console.log(res);
-    let option = confirm('Bình luận thành công');
-    if(option){
-      window.location.reload();
-    }
-
+    this.toastService.success('Bình luận thành công', 'Thành Công!');
+   setTimeout(() => {
+    location.reload()
+   }, 1000);
+   console.log(res)
   },
-  error=>{console.log(error)}
+  error=>{
+    this.toast.showWarning(error.error)
+    console.log(error)}
   )
   }
   getPost(){
