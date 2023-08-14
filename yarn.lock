@@ -178,7 +178,7 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/common@^14.2.12", "@angular/common@^15.0.0", "@angular/common@^16.0.0", "@angular/common@^16.0.0 || ^17.0.0", "@angular/common@>=10.1.5", "@angular/common@>=13.0.0", "@angular/common@>=14.x", "@angular/common@>=5.0.0", "@angular/common@16.0.0", "@angular/common@8.x - 13.x":
+"@angular/common@^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/common@^14.2.12", "@angular/common@^15.0.0", "@angular/common@^16.0.0", "@angular/common@^16.0.0 || ^17.0.0", "@angular/common@>=10.1.5", "@angular/common@>=13.0.0", "@angular/common@>=14.x", "@angular/common@>=16.0.0-0", "@angular/common@>=5.0.0", "@angular/common@16.0.0", "@angular/common@8.x - 13.x":
   version "16.0.0"
   resolved "https://registry.npmjs.org/@angular/common/-/common-16.0.0.tgz"
   integrity sha512-at3/xCevf2t9swX2P7K7gaSBuQPy7ZJsf37qQkYIuczzfij69r7s9NjYeA74/q3EWG9Yl2DCrhYoCW7ViXQINQ==
@@ -206,7 +206,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/core@^14.2.12", "@angular/core@^15.0.0", "@angular/core@^16.0.0", "@angular/core@^16.0.0 || ^17.0.0", "@angular/core@>=10.1.5", "@angular/core@>=13.0.0", "@angular/core@>=14.x", "@angular/core@>=5.0.0", "@angular/core@16.0.0", "@angular/core@8.x - 13.x":
+"@angular/core@^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/core@^14.2.12", "@angular/core@^15.0.0", "@angular/core@^16.0.0", "@angular/core@^16.0.0 || ^17.0.0", "@angular/core@>=10.1.5", "@angular/core@>=13.0.0", "@angular/core@>=14.x", "@angular/core@>=16.0.0-0", "@angular/core@>=5.0.0", "@angular/core@16.0.0", "@angular/core@8.x - 13.x":
   version "16.0.0"
   resolved "https://registry.npmjs.org/@angular/core/-/core-16.0.0.tgz"
   integrity sha512-scppDxtXubum6ZiGu3ogmReBtMuA5XXk5FL3YKLb3c9O7q9Z5PC8KNQ6SsaOwEb6oW+0BWXMV698p/zmd0J4tA==
@@ -290,7 +290,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@^16.0.0", "@angular/platform-browser@^16.0.0 || ^17.0.0", "@angular/platform-browser@>=14.x", "@angular/platform-browser@16.0.0":
+"@angular/platform-browser@^16.0.0", "@angular/platform-browser@^16.0.0 || ^17.0.0", "@angular/platform-browser@>=14.x", "@angular/platform-browser@>=16.0.0-0", "@angular/platform-browser@16.0.0":
   version "16.0.0"
   resolved "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-16.0.0.tgz"
   integrity sha512-6LpgLfEnumKMKM/S9joWrVSm4MdFuIjddFmlSG7zGcRqwM0N8doH/YkuwTK8/t9q8wI/yztp6qM2pg25Pgv1XA==
@@ -5579,6 +5579,13 @@ ngx-slick-carousel@^15.0.0:
   version "15.0.0"
   resolved "https://registry.npmjs.org/ngx-slick-carousel/-/ngx-slick-carousel-15.0.0.tgz"
   integrity sha512-4di69uKcA+cDsb3w7411rmGH2cTaTCT98SFD1qqxDhIInNpV2qga7dkXLCdgxHMYraPg8JrnGZus7uHL0lj7lw==
+  dependencies:
+    tslib "^2.3.0"
+
+ngx-toastr@^17.0.2:
+  version "17.0.2"
+  resolved "https://registry.npmjs.org/ngx-toastr/-/ngx-toastr-17.0.2.tgz"
+  integrity sha512-KehiPx6bkbiUyJbabf0ZA04+ASumS8r/y4wPsUOMI9OrBvBcfq27UQmWuQKoVR8E+9y4Pq7eZkSg2kvxNvpxTA==
   dependencies:
     tslib "^2.3.0"
 

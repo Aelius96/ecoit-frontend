@@ -16,11 +16,8 @@ export class BlogDetailComponent {
   baseURL = Constant.BASE_URL
   url: any;
   content:any;
-  roll:any;
-  blogList: Blog= new Blog();
   postList: Post = new Post();
-  constructor(private blogService: BlogService,
-              private postService: PostService,
+  constructor(private postService: PostService,
               private route: ActivatedRoute,
               private sanitizer : DomSanitizer){}
 

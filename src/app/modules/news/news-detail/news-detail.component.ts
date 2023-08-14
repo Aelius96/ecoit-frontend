@@ -16,9 +16,7 @@ export class NewsDetailComponent implements OnInit{
   baseURL = Constant.BASE_URL;
   url: any;
   content:any;
-  roll: any;
   post :Post = new Post();
-
 
   constructor(private postService: PostService, private route: ActivatedRoute,private sanitizer : DomSanitizer ) {}
 

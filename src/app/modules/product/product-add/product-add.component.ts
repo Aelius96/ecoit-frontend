@@ -13,6 +13,7 @@ import {FormControl} from "@angular/forms";
 import {HashtagService} from "../../../services/hashtag/hashtag.service";
 import {Constant} from "../../../core/config/constant";
 import {Domain} from "../../../core/domain/domain";
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-product-add',
@@ -33,12 +34,12 @@ export class ProductAddComponent implements OnInit{
   hashtagCtrl = new FormControl('');
   filteredHashtag: Observable<Hashtag[]>;
   imageURL: any;
-  // imgurl_banner:any;
+
   constructor(private router:Router,
               private productService :ProductService,
               private hashtagService : HashtagService,
-              private postService :PostService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute ,
+              private toast: ToastService ) {
 
     this.filteredHashtag = this.hashtagCtrl.valueChanges.pipe(
       startWith(null),
@@ -113,9 +114,6 @@ export class ProductAddComponent implements OnInit{
       extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
       height: 330,
-      // Configure your file manager integration. This example uses CKFinder 3 for PHP.
-      // filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
-      // filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
       filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
       filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
 
@@ -134,18 +132,6 @@ export class ProductAddComponent implements OnInit{
     }
   }
 
-  // bannerChange(e:any){
-  //   const files = e.target.files;
-  //   if (files.length === 0) return;
-
-  //   const reader = new FileReader();
-  //   this.fileToUpload=files;
-  //   reader.readAsDataURL(files[0]);
-  //   reader.onload = (_event) =>{
-  //     this.imgurl_banner= reader.result;
-  //   }
-
-  // }
 
   listAllHashTag(){
     this.hashtagService.listAllHashtag().subscribe(data =>{

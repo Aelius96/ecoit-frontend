@@ -111,13 +111,10 @@ export class PostAddComponent implements OnInit{
     return this.hashtagList.filter(hashtag => hashtag.name.toLowerCase().includes(filterValue));
   }
 
-  // currentPage:number;
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     if(this.id){
-      // this.route.queryParams.subscribe(params =>{
-      //   this.currentPage = +params['page'] ||1;
-      // })
+
       this.postService.getPostById(this.id).subscribe(data =>{
         this.post = data;
         this.url = this.post.image?.pathUrl;
@@ -125,11 +122,7 @@ export class PostAddComponent implements OnInit{
         this.listAllHashTag();
       });
     }
-    // this.route.queryParamMap.subscribe((param) =>{
-    //   this.currentPage = param.get('pageNo');
-    //   this.pageSize = param.get('pageSize');
-    //   // console.log(this.currentPage);
-    // })
+
     this.listAllCategory();
 
     this.ckeConfig = {

@@ -16,7 +16,6 @@ import {TypicalCustomersComponent} from './modules/introduce/typical-customers/t
 import {ContactComponent} from './modules/contact/contact.component';
 
 import {ErrorComponent} from './modules/error/error.component';
-import { ToastContainerComponent } from './modules/toast/toast-container/toast-container.component';
 
 import {BlogListComponent} from "./modules/blog/blog-list/blog-list.component";
 import {NewsListComponent} from "./modules/news/news-list/news-list.component";
@@ -119,7 +118,6 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { LoginUserComponent } from './authentication/login-user/login-user.component';
 
-
 import { CategoryControlComponent } from './modules/category/category-control/category-control.component';
 import { CategoryAddComponent } from './modules/category/category-add/category-add.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -127,8 +125,9 @@ import { NgbTooltipModule  } from '@ng-bootstrap/ng-bootstrap';
 import {MatTreeModule} from '@angular/material/tree';
 import { SearchComponent } from './modules/search/search.component';
 import { AnimatedDigitComponent } from './_animation/animated-digit/animated-digit.component';
-
 import {MatPaginatorModule} from '@angular/material/paginator';
+
+import {ToastrModule} from 'ngx-toastr'
 
 @NgModule({
   declarations: [
@@ -200,7 +199,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ListControlComponent,
     ListCommentComponent,
     CommentListComponent,
-    ToastContainerComponent,
     AppPageSizeImageComponent,
     ProductMoreComponent,
     PostControlComponent,
@@ -217,12 +215,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AnimatedDigitComponent,
 
 
-
-
-
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -236,7 +228,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     NgxPaginationModule,
     SlickCarouselModule,
     NgxInputTagModule.forRoot(),
-
     MatSelectModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
@@ -253,7 +244,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     NgbTooltipModule,
     MatTreeModule,
     MatPaginatorModule,
-
+    ToastrModule.forRoot({
+      closeButton: true,
+      progressBar: true,
+      positionClass: 'toast-bottom-right' ,
+      timeOut:5000,
+    }),
   ],
 
 

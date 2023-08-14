@@ -7,6 +7,8 @@ import { NgxMatIntlTelInputComponent } from 'ngx-mat-intl-tel-input';
 import { Address } from 'src/app/core/model/address/address';
 import { AddressService } from 'src/app/services/address/address.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ToastService } from '../../toast/toast.service';
 @Component({
   selector: 'app-about-control',
   templateUrl: './about-control.component.html',
@@ -22,15 +24,15 @@ export class AboutControlComponent implements OnInit{
    message ="";
   constructor( private about_usService: AboutUsService ,
                 private addressService: AddressService ,
-                private router : Router,){}
+                private router : Router, 
+                public toast : ToastrService, private toastService:ToastService
+                ){}
   ngOnInit(): void {
     this.getistAllInformation();
     this.getListAddress();
     this.ckeConfig = {
       extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
       uploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-
-      // Configure your file manager integration. This example uses CKFinder 3 for PHP.
       filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
       filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
       filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
@@ -40,13 +42,10 @@ export class AboutControlComponent implements OnInit{
 
   addAbout_us(){
     this.about_usService.createInformation(this.about).subscribe(()=>{
-       this.message="Lưu Thành Công!";
-       setTimeout(() => {
-        location.reload();
-      }, 900);
+      this.toastService.showSuccess()
       },
       error=>{
-        this.message = error.error;
+        this.toastService.showWarning(error.error);
         console.log(error.error)
       }
       )
