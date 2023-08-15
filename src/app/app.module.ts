@@ -248,7 +248,7 @@ import {ToastrModule} from 'ngx-toastr'
       closeButton: true,
       progressBar: false,
       positionClass: 'toast-bottom-right' ,
-      timeOut:5000,
+      timeOut:3000,
     }),
   ],
 
