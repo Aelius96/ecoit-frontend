@@ -66,7 +66,12 @@
 a:hover{
   text-decoration: none;
 }
-
+.menu-item{
+  border-bottom:0.5px solid rgb(136, 136, 136) ;
+}
+.nav-mobi--hover:hover{
+  background-color: #c9c9c971;
+}
 .menu-primary > li > a{
   position: relative;
   color: #fff;
@@ -157,9 +162,7 @@ a:hover{
 .name-nav--mobile:hover{
   text-decoration: none;
 }
-/* .py-3.custom-input{
-  border-bottom: 0.1px solid #dbdcdb ;
-} */
+
 
 @media only screen and (max-width: 767px) {
   .header-main {
