@@ -4,49 +4,48 @@ import {Constant} from "../../core/config/constant";
 import {Observable} from "rxjs";
 import {Slider} from "../../core/model/slider/slider";
 import {Domain} from "../../core/domain/domain";
+import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SliderService {
-  private baseURL = `${Constant.BASE_URL}`;
-  private domain = `${Domain.SLIDERS}`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private apiHelper: ApiHelper) { }
 
   getListAll(): Observable<any>{
-    return this.http.get(`${this.baseURL}/${this.domain}/home`);
+    return this.apiHelper.get(Constant.SLIDERS.GET_LIST_ALL);
   }
 
   getSliders(): Observable<any>{
-    return this.http.get(`${this.baseURL}/${this.domain}`);
+    return this.apiHelper.get(Constant.SLIDERS.GET_SLIDERS);
   }
 
   addNew(slider: FormData): Observable<Object>{
-    return this.http.post(`${this.baseURL}/${this.domain}/add`, slider);
+    return this.apiHelper.post(Constant.SLIDERS.ADD, slider);
   }
 
-  getById(id: number): Observable<Slider>{
-    return this.http.get<Slider>(`${this.baseURL}/${this.domain}/${id}`);
+  getById(id: number): Observable<any>{
+    return this.apiHelper.get( Constant.SLIDERS.GET_BY_ID +`/${id}`);
   }
 
-  update(id: number, slider: FormData):Observable<Object>{
-    return this.http.post(`${this.baseURL}/${this.domain}/update/${id}`,slider);
+  update(id: number, slider: FormData):Observable<any>{
+    return this.apiHelper.post( Constant.SLIDERS.UPDATE +`/${id}`,slider);
   }
 
-  hideSlider(id: number): Observable<Object>{
-    return this.http.get(`${this.baseURL}/${this.domain}/hide/${id}`);
+  hideSlider(id: number): Observable<any>{
+    return this.apiHelper.get( Constant.SLIDERS.HIDE_SLIDER + `/${id}`);
   }
 
-  showSlider(id: number): Observable<Object>{
-    return this.http.get(`${this.baseURL}/${this.domain}/show/${id}`);
+  showSlider(id: number): Observable<any>{
+    return this.apiHelper.get( Constant.SLIDERS.SHOW_SLIDER +`/${id}`);
   }
 
-  deleteSlider(id: number): Observable<Object>{
-    return this.http.get(`${this.baseURL}/${this.domain}/status/${id}`);
+  deleteSlider(id: number): Observable<any>{
+    return this.apiHelper.delete( Constant.SLIDERS.DELETE_SLIDER +`/${id}`);
   }
 
-  getImage(name: string): Observable<Slider>{
-    return this.http.get<Slider>(`${this.baseURL}/${this.domain}/image/${name}`);
+  getImage(name: string): Observable<any>{
+    return this.apiHelper.get( Constant.SLIDERS.GET_IMAGE +`/${name}`);
   }
 }

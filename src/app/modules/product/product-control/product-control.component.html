@@ -1,95 +1,95 @@
 <div class="toolbar">
-    <div class="d-flex  justify-content-between header-menu ">
-      <div class="left-d-flex">
-        <div class="d-flex">
-          <span  class="spann tt">Sản phẩm</span>
-          <form (ngSubmit)="search()" class="d-flex">
-            <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " class="search">
-            <div class="input-group-append inputt" >
-              <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="right-d-flex">
-        <div class="d-flex  flex-wrap">
-          <div class="menu-item ">
-            <div class="d-flex">
-              <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-               <app-page-size (pageSizeChange)="handlePageSizeChange($event)"
-                            [totalRecords]="paging.totalRecord"
-                            [(pageSize)]="paging.size"
-                              ></app-page-size>
-            </div>
+  <div class="d-flex  justify-content-between header-menu ">
+    <div class="left-d-flex">
+      <div class="d-flex">
+        <span class="spann tt">Sản phẩm</span>
+        <form (ngSubmit)="search()" class="d-flex">
+          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " class="search ">
+          <div class="input-group-append inputt">
+            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
-          <div class="menu-item">
-            <!--          (click)="addTypicalNum()"-->
-            <a class="ht-btn-custom" routerLink="add" (click)="addProduct()" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
-          </div>
-
-        </div>
+        </form>
       </div>
-
     </div>
-  </div>
-
-<div class="section-space--mt_120">
-  <div *ngFor="let pro of products | paginate:{
-                                  id: 'product',
-                                  itemsPerPage:paging.size,
-                                  currentPage:paging.page,
-                                  totalItems: paging.totalRecord
-                                    }" class="d-flex flex-column  item-blog">
-  <div class="container" >
-    <!-- <div class="item-blog"> -->
-      <div class="row" style="max-width: 1000px;">
-        <div class="col-lg-12" >
-          <div class="card" >
-              <div class="row ">
-                <div class="col-md-2">
-                  <img style="width: 100%; height: 100%" src="{{baseURL}}/{{productURL}}/image/{{pro.id}}" alt="img product">
-                </div>
-                <div class="col-md-3 pro_name">
-                  <div class="title-product ">
-                    <p class="hiden" >{{pro.title}}</p>
-
-                  </div>
-                </div>
-                <div class="col-md-6 pro_description">
-                  <div style="text-align: center;" >
-                    <div class="hiden">{{pro.description}}</div>
-                  </div>
-
-                </div>
-                <div class="action-box col-md-1">
-                  <!--        ví dụ về button sửa-->
-                  <button (click)="updateProduct(pro.id)"  class="btnn edit"  ><i class="far fa-pen"></i> </button>
-
-                  <button  (click)="deleteProduct(pro.id)"   class="btnn dele" ><i class="far fa-times"></i> </button>
-                </div>
-              </div>
-              </div>
-
+    <div class="right-d-flex">
+      <div class="d-flex  flex-wrap">
+        <div class="menu-item ">
+          <div class="d-flex">
+            <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
+            <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+              [(pageSize)]="paging.size"></app-page-size>
           </div>
+        </div>
+        <div class="menu-item">
+          <!--          (click)="addTypicalNum()"-->
+          <a class="ht-btn-custom" routerLink="add" (click)="addProduct()" title="Thêm tin mới"><i
+              class="fas fa-file-plus fa-lg"></i></a>
         </div>
 
       </div>
-    <!-- </div> -->
-  </div>
-
-  <div class="row" *ngIf="paging.totalRecord >0" style="margin-top: 20px; width: 100%;" >
-    <div class="col-lg-12" >
-      <div class="container">
-      <pagination-controls  previousLabel="<"
-      nextLabel=">"
-      [id]="'product'"
-      (pageChange)="handlePageChange($event)"
-      [maxSize]=" paging.totalRecord"
-      >
-      </pagination-controls>
     </div>
-  </div>
-  </div>
 
+  </div>
 </div>
 
+<div class="container  section-space--mt_100 list-table ">
+  <table class="table mb-1 ">
+    <thead style="position: sticky;top: 0 ; z-index: 1;" class="thead-dark">
+      <tr>
+        <th scope="col" style="width: 20%;">Ảnh</th>
+        <th class="w-25" scope="col">Tiêu đề</th>
+        <th class="w-25" scope="col">Mô tả</th>
+        <th class="" scope="col" >Thời gian</th>
+        <th class="" scope="col">Chức năng</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pro of products | paginate:{
+        id: 'product',
+        itemsPerPage:paging.size,
+        currentPage:paging.page,
+        totalItems: paging.totalRecord
+          }">
+        <td style=" width:20%">
+          <div class=" text-center">
+            <img src="{{baseURL}}/{{productURL}}/image/{{pro.id}}" class="w-50" alt="img product">
+          </div>
+        </td>
+        <td class="w-25">
+          <p class=" des-post font-weight-bold " style="font-size: 18px;" >
+            {{pro.title}}
+          </p>
+        </td>
+        <td class="w-25">
+          <p class="des-post ">
+            {{pro.description}}
+          </p>
+        </td>
+        <td  class="text-center">
+          <p class="">{{pro.date}}</p>
+        </td>
+        <td class="text-center">
+          <div class="btn-group dropright ">
+            <i title="Chức năng" class='icon-more fa fa-ellipsis-h ' data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" style='font-size:24px'></i>
+            <div class="dropdown-menu text-center p-0">
+              <p class="edit icon-more mb-1 drop " (click)="updateProduct(pro.id)">Chỉnh sửa</p>
+              <p class="dele icon-more drop " (click)="deleteProduct(pro.id)">Xóa</p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-bottom: 10px;">
+      <div class="row">
+        <div class="col-md-6">
+          <pagination-controls previousLabel="<" nextLabel=">" [id]="'product'" (pageChange)="handlePageChange($event)"
+            [maxSize]=" paging.totalRecord">
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

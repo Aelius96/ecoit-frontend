@@ -2,10 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {Product} from "../../../core/model/product/product";
 import {ProductService} from "../../../services/product/product.service";
-import { Role } from '../../../core/model/role/role';
-import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
 import {Constant} from "../../../core/config/constant";
 import {Domain} from "../../../core/domain/domain";
+import { Toast, ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -16,7 +15,6 @@ import {Domain} from "../../../core/domain/domain";
 export class ProductControlComponent implements OnInit{
 
   products: Product[] = [];
-  url: string;
   currentIndex = -1;
   totalPages: number;
   searchInput= '';
@@ -29,8 +27,8 @@ export class ProductControlComponent implements OnInit{
   }
 
   constructor(private router:Router,
-    private productService : ProductService,
-    private tokenstorageService: TokenStorageService,) {
+    private productService : ProductService, 
+    private toast : ToastrService) {
   }
   ngOnInit(): void {
     this.getProductListAllwithPage();

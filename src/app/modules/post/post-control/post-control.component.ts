@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 import {ActivatedRoute, Router} from "@angular/router";
 import {Post} from "../../../core/model/post/post";
@@ -9,21 +9,21 @@ import { HttpParams } from '@angular/common/http';
 import { CategoryService } from 'src/app/services/category/category.service';
 import {DomSanitizer} from "@angular/platform-browser";
 import {Domain} from "../../../core/domain/domain";
-
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-post-control',
   templateUrl: './post-control.component.html',
   styleUrls: ['./post-control.component.css']
 })
-export class PostControlComponent implements OnInit{
+export class PostControlComponent implements OnInit , OnChanges {
 
   postList: Post[]=[];
   catelist: Category[]=[];
 
   baseURL = Constant.BASE_URL;
   postURL = Domain.POST;
-  searchInput= '';
+  searchInput='';
   paging = {
     page: 1,
     size: 5,
@@ -36,13 +36,16 @@ export class PostControlComponent implements OnInit{
               private cateService: CategoryService
   ) {
   }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("ngonchange")
+  }
+
 
 
   ngOnInit(): void {
     // this.listAll();
     this.getListAllWithPage();
     this.listAllCate();
-
   }
 
   getRequestParams(page: number, pageSize: number,search:string, cate:string): any {
@@ -61,7 +64,7 @@ export class PostControlComponent implements OnInit{
     }
 
     if(cate){
-      // params[`cate`] = cate;
+     
       params.cate=cate
     }
     return params;
@@ -70,7 +73,6 @@ export class PostControlComponent implements OnInit{
   getListAllWithPage() {
     const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput, this.cate);
 
-    // this.router.navigate(['admin/bpost'], { queryParams: params });
 
     this.postService.listAllWithPage(params)
       .subscribe(
@@ -78,7 +80,7 @@ export class PostControlComponent implements OnInit{
           this.postList = data.content;
           this.paging.totalRecord = data.totalElements;
 
-          // history.pushState(URL `admin/bpost?pageNo=${a.paging.page}&pageSize=${a.paging.size}`)
+ 
          console.log(this.postList)
 
         },
@@ -88,18 +90,7 @@ export class PostControlComponent implements OnInit{
 
   }
 
-  // getImageByPostId(){
-  //   this.postService.getImageByPostId(this.postId).subscribe(data =>{
-  //     this.image = data.id;
-  //     }
-  //   )
-  // }
 
-  listAll(){
-    this.postService.listAll().subscribe(data=>{
-      this.postList = data;
-    })
-  }
 
   listAllCate(){
     this.cateService.listAllCategory().subscribe(res=>{

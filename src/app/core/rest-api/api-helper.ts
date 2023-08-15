@@ -25,7 +25,8 @@ export class ApiHelper{
   put(endpoint: string,body: any, option?:any): Observable<any>{
     return this.http.put(this.getEndpointUrl(endpoint),body,option);
   }
+
   delete(endpoint: string, option?:any): Observable<any>{
-    return this.http.delete(this.getEndpointUrl(endpoint),option);
+    return this.http.post(this.getEndpointUrl(endpoint),option);
   }
 }

@@ -18,7 +18,6 @@ export class UserControlComponent implements OnInit{
 
   users: User[]=[];
   role : string;
-   // pageSizes = [3, 6, 9];
 
   searchInput='';
   paging={
@@ -28,8 +27,7 @@ export class UserControlComponent implements OnInit{
   }
 
   constructor(private userService: UserService,
-    private router:Router,
-    private totkenstorageService : TokenStorageService ) { }
+    private router:Router ) { }
 
   ngOnInit(): void {
 

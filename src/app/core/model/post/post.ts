@@ -14,6 +14,4 @@ export class Post {
   banner: any;
   category: Category = new Category();
   hashtags: Hashtag[] = [];
-
-
 }

@@ -7,12 +7,12 @@ import {LiveAnnouncer} from "@angular/cdk/a11y";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {Hashtag} from "../../../core/model/hashtag/hashtag";
 import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
-import {PostService} from "../../../services/post/post.service";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {FormControl} from "@angular/forms";
 import {HashtagService} from "../../../services/hashtag/hashtag.service";
 import {Constant} from "../../../core/config/constant";
 import {Domain} from "../../../core/domain/domain";
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-product-add',
@@ -33,12 +33,12 @@ export class ProductAddComponent implements OnInit{
   hashtagCtrl = new FormControl('');
   filteredHashtag: Observable<Hashtag[]>;
   imageURL: any;
-  // imgurl_banner:any;
+
   constructor(private router:Router,
               private productService :ProductService,
               private hashtagService : HashtagService,
-              private postService :PostService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute ,
+              private toast: ToastService ) {
 
     this.filteredHashtag = this.hashtagCtrl.valueChanges.pipe(
       startWith(null),
@@ -113,9 +113,6 @@ export class ProductAddComponent implements OnInit{
       extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
       height: 330,
-      // Configure your file manager integration. This example uses CKFinder 3 for PHP.
-      // filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
-      // filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
       filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
       filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
 
@@ -134,18 +131,6 @@ export class ProductAddComponent implements OnInit{
     }
   }
 
-  // bannerChange(e:any){
-  //   const files = e.target.files;
-  //   if (files.length === 0) return;
-
-  //   const reader = new FileReader();
-  //   this.fileToUpload=files;
-  //   reader.readAsDataURL(files[0]);
-  //   reader.onload = (_event) =>{
-  //     this.imgurl_banner= reader.result;
-  //   }
-
-  // }
 
   listAllHashTag(){
     this.hashtagService.listAllHashtag().subscribe(data =>{
@@ -160,16 +145,28 @@ export class ProductAddComponent implements OnInit{
   saveProduct(){
     const newsFormData = this.prepareFormData(this.products);
     this.productService.addNewProduct(newsFormData).subscribe(data =>{
+      this.toast.showSuccess();
+      console.log(data)
         this.backToProductList();
       },
-      error => console.log(error));
+      error => {
+        this.toast.showWarning(error.error)
+        console.log(error)
+      });
   }
 
   addDataToForm(id: any){
     const newsFormData = this.prepareFormData(this.products);
     this.productService.updateProduct(id, newsFormData).subscribe(data =>{
-      this.backToProductList();
-    });
+      this.toast.showSuccess();
+      console.log(data)
+        this.backToProductList();
+    },
+    error => {
+      this.toast.showWarning(error.error)
+      console.log(error)
+    }
+    );
   }
 
   prepareFormData(products: Product): FormData {

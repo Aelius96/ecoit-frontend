@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { Recruit } from 'src/app/core/model/recruit/recruit';
-import { RecruitService } from 'src/app/services/recruit/recruit.service';
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import { Constant } from 'src/app/core/config/constant';
@@ -16,13 +14,10 @@ export class RecruitDetailComponent implements OnInit {
   baseURL = Constant.BASE_URL;
   url: any;
   content:any;
-  recruit: Recruit= new Recruit();
   post: Post = new Post();
-  constructor(private recruitService: RecruitService,
-              private postService: PostService,
+  constructor(private postService: PostService,
               private route: ActivatedRoute,
               private sanitizer : DomSanitizer){}
-
 
   ngOnInit(): void {
    this.getList();

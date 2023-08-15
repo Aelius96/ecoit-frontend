@@ -7,6 +7,7 @@ import {ProductService} from "../../../services/product/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
 import { Domain } from 'src/app/core/domain/domain';
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-customer-add',
@@ -23,14 +24,12 @@ export class CustomerAddComponent {
   customer: Customer = new Customer();
   products: Product[] = [];
 
-  submitFail = false;
-  errorMessage = "";
-
   image: any;
   fileToUpload: string [] = [];
 
   constructor(private customerService: CustomerService, private productService: ProductService,
-              private route: ActivatedRoute, private router: Router) {
+              private route: ActivatedRoute, private router: Router , 
+              private toast: ToastService) {
   }
 
   ngOnInit(): void {
@@ -96,23 +95,26 @@ export class CustomerAddComponent {
   addCustomer(){
     let customerFormData = this.prepareFormData(this.customer, this.products.filter(item => item.selected));
     this.customerService.addCustomer(customerFormData).subscribe(data =>{
-      this.submitFail = false;
+      this.toast.showSuccess()
       this.goToCustomerList();
       console.log(data);
-
     },
       err =>{
-      this.submitFail = true;
-      this.errorMessage = err.error.message;
+        this.toast.showWarning(err.error)
+        console.log(err)
     })
   }
 
   updateCustomer(id: number){
     let customerFormData = this.prepareFormData(this.customer, this.products.filter(item => item.selected));
-    this.customerService.updateCustomer(id, customerFormData).subscribe(data =>{
-      this.submitFail = false;
+    this.customerService.updateCustomer(id, customerFormData).subscribe(() =>{
+     this.toast.showSuccess()
       this.goToCustomerList();
-    })
+    },
+    err=>{
+      this.toast.showWarning(err.error)
+    }
+    )
   }
 
   goToCustomerList(){

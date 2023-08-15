@@ -17,7 +17,7 @@ import {MatChipInputEvent} from "@angular/material/chips";
 import {FileService} from "../../../services/file/file.service";
 
 import {Domain} from "../../../core/domain/domain";
-import {HttpHeaders, HttpParams} from "@angular/common/http";
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-post-add',
@@ -34,14 +34,13 @@ export class PostAddComponent implements OnInit{
   ckeConfig: any;
   baseURL = Constant.BASE_URL;
   postURL = Domain.POST;
-  message = '';
   imageURL: any;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   hashtagCtrl = new FormControl('');
   filteredHashtag: Observable<Hashtag[]>;
   selectedFile: File
   fileName: any;
-  isFalse = false;
+ 
    currentPage: any;
    pageSize: any;
   constructor(private router:Router,
@@ -49,7 +48,8 @@ export class PostAddComponent implements OnInit{
               private postService: PostService,
               private categoryService:CategoryService,
               private hashtagService: HashtagService,
-              private fileService:FileService
+              private fileService:FileService , 
+              private toastService:ToastService,
   ) {
 
     this.filteredHashtag = this.hashtagCtrl.valueChanges.pipe(
@@ -112,13 +112,10 @@ export class PostAddComponent implements OnInit{
     return this.hashtagList.filter(hashtag => hashtag.name.toLowerCase().includes(filterValue));
   }
 
-  // currentPage:number;
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     if(this.id){
-      // this.route.queryParams.subscribe(params =>{
-      //   this.currentPage = +params['page'] ||1;
-      // })
+
       this.postService.getPostById(this.id).subscribe(data =>{
         this.post = data;
         this.url = this.post.image?.pathUrl;
@@ -126,11 +123,7 @@ export class PostAddComponent implements OnInit{
         this.listAllHashTag();
       });
     }
-    // this.route.queryParamMap.subscribe((param) =>{
-    //   this.currentPage = param.get('pageNo');
-    //   this.pageSize = param.get('pageSize');
-    //   // console.log(this.currentPage);
-    // })
+
     this.listAllCategory();
 
     this.ckeConfig = {
@@ -174,14 +167,13 @@ export class PostAddComponent implements OnInit{
 
   savePost(){
     const postFormData = this.prepareFormData(this.post);
-    this.postService.createPost(postFormData).subscribe(data =>{
-        this.message = "thêm thành công";
+    this.postService.createPost(postFormData).subscribe(() =>{
+        this.toastService.showSuccess()
         this.goToPostList();
-        this.isFalse = false;
+        
       },
       error =>{
-      this.isFalse = true;
-      this.message = error.error;
+        this.toastService.showWarning(error.error)
       console.log(error.error)}
     );
   }
@@ -190,11 +182,6 @@ export class PostAddComponent implements OnInit{
 
 
   goToPostList(){
-
-    // this.router.navigate([`/admin/bpost`]);
-
-    // this.router.navigate(['/admin/bpost'], { queryParams: {pageNo:`${this.currentPage}`,pageSize:`${this.pageSize}`} });
-    // console.log(this.currentPage, this.pageSize);
     this.router.navigate(['/admin/bpost']);
 
   }
@@ -202,14 +189,12 @@ export class PostAddComponent implements OnInit{
   updateDataToForm(id: any){
     const postFormData = this.prepareFormData(this.post);
     this.postService.updatePost(id, postFormData).subscribe(data =>{
+      this.toastService.showSuccess()
       this.goToPostList();
-        this.isFalse = false;
-
-      // window.history.back();
+       
     },
       error => {
-        this.isFalse = true;
-        this.message = error.error;
+        this.toastService.showWarning(error.error);
         console.log(error.error)
       });
   }

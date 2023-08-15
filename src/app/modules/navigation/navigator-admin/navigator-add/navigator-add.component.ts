@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Nav} from "../../../../core/model/nav/nav";
 import {NavService} from "../../../../services/nav/nav.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {HttpErrorResponse} from "@angular/common/http";
+import { ToastService } from 'src/app/modules/toast/toast.service';
 
 @Component({
   selector: 'app-navigator-add',
@@ -12,14 +12,9 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class NavigatorAddComponent implements OnInit{
 
   id: any
-  isSuccessful = false;
-  isSignUpFailed = false;
-  errorMessage = "";
   nav: Nav = new Nav();
-  isChild= false;
   navGroup: Nav[] = [];
-  constructor(private navService : NavService,private router:Router, private route:ActivatedRoute) {}
-
+  constructor(private navService : NavService,private router:Router, private route:ActivatedRoute , private toast:ToastService ) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -39,24 +34,29 @@ export class NavigatorAddComponent implements OnInit{
   updateNav(id: any) {
     this.navService.updateNav(id,this.nav).subscribe(
       data=>{
+        this.toast.showSuccess();
+        console.log(data)
         this.goToNavList();
       },
-      (error) =>{
-        alert(error.error);
+      error =>{
+        this.toast.showWarning(error.error)
+        console.log(error);
       }
     )
   }
   addNav(){
     this.navService.addNav(this.nav).subscribe(data =>{
+      this.toast.showSuccess();
+      console.log(data)
       this.goToNavList();
     },error => {
-      alert(error.error)
+      this.toast.showWarning(error.error)
+      console.log(error);
     })
   }
   goToNavList(){
     this.router.navigate(['/admin/nav']);
   }
-
   onSubmit(){
     if(this.id){
       this.updateNav(this.id);

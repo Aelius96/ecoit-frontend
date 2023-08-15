@@ -36,7 +36,16 @@
   <!-- <app-category-add #modal></app-category-add> -->
 
 <div class="section-space--mt_100 container ">
-  <div class="section-space--pt_60" style="max-width: 1150px;" >
+  <div class="row">
+    <div class="col-md-12">
+      <div class="title-conten">
+        <h3 class="text-title">CHUYÊN MỤC</h3>
+        <hr class="hr">
+      </div>
+    </div>
+  </div>
+
+  <div class="" >
     <div class="number-item"  *ngFor="let ct of category |  paginate:{
       id:'cate',
       itemsPerPage: paging.size,

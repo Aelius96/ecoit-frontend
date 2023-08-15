@@ -4,6 +4,7 @@ import {Domain} from "../../core/domain/domain";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Hashtag} from "../../core/model/hashtag/hashtag";
+import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 
 
 @Injectable({
@@ -11,12 +12,10 @@ import {Hashtag} from "../../core/model/hashtag/hashtag";
 })
 export class HashtagService {
 
-  private baseUrl = `${Constant.BASE_URL}`;
-  private domain = `${Domain.HASHTAG}`
-  constructor(private http:HttpClient) { }
+  constructor(private apiHelper: ApiHelper) { }
 
   listAllHashtag(): Observable<Hashtag[]>{
-    return this.http.get<Hashtag[]>(`${this.baseUrl}/${this.domain}`);
+    return this.apiHelper.get( Constant.HASHTAG.LIST_ALL );
   }
 
   // filterSuggestions(suggestions: Tag[], tags: Tag[],  filter: string): Tag[] {

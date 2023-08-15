@@ -10,9 +10,7 @@ import {ApiHelper} from "../../core/rest-api/api-helper";
   providedIn: 'root'
 })
 export class AddressService {
-  private baseUrl = Constant.BASE_URL;
-  private domain = Domain.ADDRESS;
-  constructor(  private http : HttpClient, private apiHelper: ApiHelper) { }
+  constructor(  private apiHelper: ApiHelper) { }
 
   createAddress( address : Address ):Observable<any>{
     return this.apiHelper.post(Constant.ADDRESS.CREATE,address);

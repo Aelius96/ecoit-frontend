@@ -24,18 +24,13 @@ export class CategoryControlComponent implements OnInit {
     size: 5,
     totalRecord: 0
  }
-  constructor( private modalService: NgbModal,
-         private  categoryService: CategoryService ,
-          private router: Router ,
-          private toast: ToastService) {}
+  constructor( private  categoryService: CategoryService ,
+          private router: Router) {}
 
   ngOnInit(): void {
     this.getListAll();
     this.getAllCatePageSize();
   }
-
-
-
 
   getPageSizeParams(page: number, pageSize: number,searchinput:string ): any{
     let params: any = {};
@@ -92,10 +87,6 @@ export class CategoryControlComponent implements OnInit {
     return this.router.navigate([`/admin/category/update/${id}` ])
 
   }
-
-    // this.openModal()
-    // return this.router.navigate([`/admin/category/update/${id}` ])
-
 
   search():void{
     this.paging.page = 1;

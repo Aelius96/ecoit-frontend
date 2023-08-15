@@ -1,42 +1,37 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {Constant} from "../../core/config/constant";
 import {Observable} from "rxjs";
-import {Customer} from "../../core/model/customer/customer";
-import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
-import {Domain} from "../../core/domain/domain";
+import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  private baseUrl =`${Constant.BASE_URL}`;
-  private domain = `${Domain.CUSTOMER}`;
-  constructor(private http:HttpClient) {}
+  constructor(private apiHelper : ApiHelper , ) {}
 
   listAllWithPage(params:any):Observable<any>{
-    return this.http.get(`${this.baseUrl}/${this.domain}`, {params})
+    return this.apiHelper.get( Constant.CUSTOMER.LIST_ALL_WITH_PAGE, {params})
   }
-  public getAllCustomer():Observable<Customer[]>{
-    return this.http.get<Customer[]>(`${this.baseUrl}/${this.domain}/home`)
+  public getAllCustomer():Observable<any>{
+    return this.apiHelper.get(Constant.CUSTOMER.GET_ALL_CUSTOMER)
   }
 
   public addCustomer(formData: FormData): Observable<Object>{
-    return this.http.post(this.baseUrl+'/' + this.domain +'/add' , formData);
+    return this.apiHelper.post(Constant.CUSTOMER.ADD_CUSTOMER , formData);
   }
 
   updateCustomer(id: number, formData: FormData):Observable<Object>{
-    return this.http.post( this.baseUrl + '/' + this.domain + '/update/' + id,formData);
+    return this.apiHelper.post(Constant.CUSTOMER.UPDATE_CUSTOMER+`/${id}`,formData);
   }
 
   deleteCustomer(id: number): Observable<Object>{
-    return this.http.get(`${this.baseUrl}/${this.domain}/delete/${id}`);
+    return this.apiHelper.delete( Constant.CUSTOMER.DELETE_CUSTOMER + `/${id}`);
   }
-  getCusById(id: number): Observable<Customer>{
-    return this.http.get<Customer>(`${this.baseUrl}/${this.domain}/${id}`);
+  getCusById(id: number): Observable<any>{
+    return this.apiHelper.get( Constant.CUSTOMER.GET_CUS_BY_ID +`/${id}`);
   }
-  getCusByUrl(url: string): Observable<Customer>{
-    return this.http.get<Customer>(`${this.baseUrl}/${this.domain}/home/${url}`);
+  getCusByUrl(url: string): Observable<any>{
+    return this.apiHelper.get( Constant.CUSTOMER.GET_CUS_BY_URL + `/${url}`);
   }
   
 }

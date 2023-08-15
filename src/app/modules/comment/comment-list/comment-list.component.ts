@@ -8,6 +8,8 @@ import {PostService} from "../../../services/post/post.service";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {emitDistinctChangesOnlyDefaultValue} from "@angular/compiler";
 import {HttpParams} from "@angular/common/http";
+import { ToastService } from '../../toast/toast.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-comment-list',
@@ -29,7 +31,9 @@ export class CommentListComponent implements OnInit {
 constructor(private route:ActivatedRoute,
             private commentService: CommentService,
             private postService: PostService,
-            private tokenStorageService: TokenStorageService){}
+            private tokenStorageService: TokenStorageService  ,
+            private toast : ToastService , 
+            private toastService : ToastrService){}
 
   ngOnInit(): void {
     if(this.tokenStorageService.getToken()){
@@ -45,46 +49,28 @@ constructor(private route:ActivatedRoute,
         this.getCommentChildByParent()
       })
 
-      // this.getPost();
     }
     }
-
-  // hiển thị
-  // getRequestParams(id: number):any{
-  //   let params: any = {};
-  //
-  //   if (id) {
-  //     params[`postId`] = id;
-  //   }
-  // }
-
-
 
   sendChildComment(){
     this.commentService.creatComment(this.comment).subscribe(res=>{
-      let option = confirm('Bình luận thành công!');
-        if(option){
-          window.location.reload();
-        }
-
+      this.toastService.success('Bình luận thành công!');
+      setTimeout(() => {
+        location.reload()
+      }, 1000);
+      console.log(res)
       },
-      error=>{console.log(error)}
+      error=>{
+        this.toast.showWarning(error.error)
+        console.log(error)}
     )
   }
   addParentId(id: number){
     this.comment.parentId = id;
-    // console.log(this.comment.parentId);
   }
-  // getPost(){
-  //   this.url = this.route.snapshot.params['url'];
-  //   this.postService.getPostByUrl(this.url).subscribe(data => {
-  //     this.comment.post.id = data.id;
-  //     this.id =  this.comment.post.id
-  //     console.log(this.comment.post.id);
-  //   })
-  // }
+
   getAllComment(){
-    // const params= this.getRequestParams(this.id)
+    
     this.commentService.getCommentByPostId(this.postId).subscribe(data=>{
         this.commentList = data;
 
@@ -95,7 +81,7 @@ constructor(private route:ActivatedRoute,
     );
   }
   getCommentChildByParent(){
-    // const params= this.getRequestParams(this.id)
+    
     this.commentService.getCommentChildByParent().subscribe(data=>{
         this.commentListChild = data;
       },
@@ -106,18 +92,18 @@ constructor(private route:ActivatedRoute,
   }
 
   
-  Delete(id:number){
+  disable(id:number){
     let cf = confirm("Xóa bình luận")
     if(cf){
-    this.commentService.deleteComment(id).subscribe(()=>{
+    this.commentService.DisableComment(id).subscribe(()=>{
       this.getAllComment();
     })
   }}
   
-  DeleteChild(id:number){
+  disableChild(id:number){
     let cf = confirm("Xóa bình luận")
     if(cf){
-    this.commentService.deleteComment(id).subscribe(()=>{
+    this.commentService.DisableComment(id).subscribe(()=>{
     this.getCommentChildByParent()
     })
   }}
@@ -126,11 +112,15 @@ constructor(private route:ActivatedRoute,
 
   updateComment(id:number , comment:Comment ){
     this.commentService.updateComment(id ,comment).subscribe(response=>{
-      let option = confirm('Cập nhật thành công!');
-        if(option){
-          window.location.reload();
-          console.log(response)
-        }
+      this.toastService.info('Chỉnh sửa thành công!' , 'Thông báo');
+      setTimeout(() => {
+        location.reload()
+      }, 1000);
+      // let option = confirm('Cập nhật thành công!');
+      //   if(option){
+      //     window.location.reload();
+      //     console.log(response)
+      //   }
       },
       error=>{console.log(error)
     })
