@@ -7,16 +7,21 @@
         </a>
 
         <form (change)="searchTitleAndDescription()" class="d-flex">
-          <input type="text" [(ngModel)]="searchInput"  name="searchInput" placeholder="Tìm kiếm "
+          <input type="text" [(ngModel)]="search.searchInput"  name="searchInput" placeholder="Tìm kiếm "
             style="width: 30%; height: 30px;  " class="searchinput">
-          <select [(ngModel)]="cate" name="cate" style="height: 30px; width: 40%;" class="ml-2 searchinput">
+          <select [(ngModel)]="search.cate" name="cate" style="height: 30px; width: 40%;" class="ml-2 searchinput">
             <option value="" [selected]="true">Chuyên mục</option>
             <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
           </select>
+          <div style="display: contents;">
+            <input type="date" [(ngModel)]="search.startTime" name="startTime" placeholder="Ngày bắt đầu">
+            <input type="date" [(ngModel)]="search.endTime" name="endTime" placeholder="Ngày kết thúc">
+          </div>
           <div class="input-group-append ml-2">
             <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
         </form>
+        
       </div>
     </div>
     <div class="right-d-flex">
