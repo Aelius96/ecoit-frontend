@@ -2522,7 +2522,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
   border-top: 1px solid #eff2f5;
   position: fixed;
   right: 0;
-  left: 120px;
+  left: 270px;
   z-index: 99;
 }
 
