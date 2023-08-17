@@ -2,9 +2,11 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../../services/post/post.service";
 import {Post} from "../../core/model/post/post";
+import { Category } from 'src/app/core/model/category/category';
 import search = CKEDITOR.tools.search;
 import {Constant} from "../../core/config/constant";
 import { Domain } from 'src/app/core/domain/domain';
+import { CategoryService } from 'src/app/services/category/category.service';
 
 @Component({
   selector: 'app-search',
@@ -15,7 +17,9 @@ export class SearchComponent implements OnInit
 {
   postURL = Domain.POST;
   postList :Post[] = [];
+  catelist: Category[]=[];
   searchInput = '';
+  cateName = '';
   paging = {
     page: 1,
     size: 9,
@@ -23,15 +27,18 @@ export class SearchComponent implements OnInit
   }
   baseURL = Constant.BASE_URL;
 
-  constructor(private route: ActivatedRoute, private postService: PostService) {
+  constructor(private route: ActivatedRoute,
+              private postService: PostService,
+              private cateService: CategoryService) {
   }
 
   ngOnInit(): void {
     this.searchInput =  this.route.snapshot.params['searchInput'];
     this.getListAllWithPageTest();
+    this.listAllCate()
   }
 
-  getRequestParamsTest(page: number,size: number, search: string): any {
+  getRequestParamsTest(page: number,size: number, search: string,cateName : string): any {
     let params: any = {};
     if (page) {
       params[`pageNo`] = page-1;
@@ -42,11 +49,15 @@ export class SearchComponent implements OnInit
     if(search){
       params[`search`] = search;
     }
+    if(cateName) {
+      params['cate'] = cateName
+    }
     return params;
   }
 
   getListAllWithPageTest(): void {
-    const params = this.getRequestParamsTest(this.paging.page,this.paging.size,this.searchInput);
+    const params = this.getRequestParamsTest(this.paging.page,this.paging.size,this.searchInput,this.cateName);
+    console.log(params)
     this.postService.search(params)
       .subscribe(
         response => {
@@ -66,5 +77,15 @@ export class SearchComponent implements OnInit
     this.paging.page = event;
     this.getListAllWithPageTest();
   }
+  searchPostwithCate() {
+    this.getListAllWithPageTest();
+  }
+  listAllCate(){
+    this.cateService.listAllCategory().subscribe(res=>{
+      this.catelist =res;
+
+    })
+  }
+
 
 }
