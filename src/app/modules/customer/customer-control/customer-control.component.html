@@ -1,87 +1,84 @@
 <div class="toolbar">
-  <div class="d-flex  justify-content-between header-menu ">
-    <div class="left-d-flex">
-      <div class="d-flex">
-        <a class="control" style="width: 80px" routerLink="../customer"  routerLinkActive="active"><span style="font-weight: bold;" class="spann">Mục tiêu /</span></a>
-        <a class="control"  style="width: 80px" routerLink="../customer/cus-typical" routerLinkActive="active"  ><span class="spann">Tiêu biểu</span></a>
-        <form (ngSubmit)="search()" class="d-flex">
-          <input style=" margin-top: 7px; width: 70%;" class="input" type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm ">
-          <div class="input-group-append inputt" >
-            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+  <div class="container">
+    <div class="d-flex  justify-content-between header-menu ">
+      <div class="left-d-flex">
+        <div class="d-flex">
+          <a class="control my-auto " style="width: 80px" routerLink="../customer" routerLinkActive="active"><span
+              style="font-weight: bold;" class="spann">Mục tiêu /</span></a>
+          <a class="control my-auto " style="width: 80px" routerLink="../customer/cus-typical" routerLinkActive="active"><span
+              class="spann">Tiêu biểu</span></a>
+          <form (ngSubmit)="search()" class="d-flex">
+            <input  class="searchinput mr-1 " type="text" [(ngModel)]="searchInput"
+              name="searchInput" placeholder="Tìm kiếm ">
+            <div class="input-group-append ">
+              <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="right-d-flex my-auto">
+        <div class="d-flex  flex-wrap">
+          <div class=" mr-2">
+            <div class="d-flex">
+              <span class=" mr-1 my-auto ">Số mục mỗi trang:</span>
+              <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                [(pageSize)]="paging.size">
+              </app-page-size>
+            </div>
           </div>
-        </form>
+          <div class="my-auto">
+            <!--          (click)="addTypicalNum()"-->
+            <a class="ht-btn-custom my-auto "  (click)="addCustomer()" title="Thêm tin mới"><i
+                class="fas fa-file-plus fa-lg"></i></a>
+          </div>
+
+        </div>
       </div>
     </div>
-    <div class="right-d-flex">
-      <div class="d-flex  flex-wrap">
-        <div class="menu-item ">
-          <div class="d-flex">
-            <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <app-page-size
-                (pageSizeChange)="handlePageSizeChange($event)"
-                [totalRecords]="paging.totalRecord"
-                [(pageSize)]="paging.size"
-            >
-            </app-page-size>
-          </div>
-        </div>
-        <div class="menu-item">
-          <!--          (click)="addTypicalNum()"-->
-          <a class="ht-btn-custom" (click)="addCustomer()"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
-        </div>
-
-      </div>
-    </div>
-
   </div>
+
 </div>
 
 <div class="section-space--mt_100">
   <p class="text-title">KHÁCH HÀNG MỤC TIÊU</p>
-  <hr class="hr">
 </div>
 
+<div class=" section-space--mt_100">
 
-<div class=" section-space--mt_100" >
-
-      <div class="container">
-        <div class="" >
-          <div class="row">
-            <div *ngFor="let cus of customer | paginate:{
+  <div class="container">
+    <div class="">
+      <div class="row">
+        <div *ngFor="let cus of customer | paginate:{
                                           id: 'customer',
                                           itemsPerPage: paging.size,
                                           currentPage: paging.page,
                                           totalItems: paging.totalRecord
-                                       }" class="col-md-3" style= " margin: 0px 0px  80px 0px; ">
-              <div class="box">
-                <div class="close">
-                  <button type="button" (click)="deleteCustomer(cus.id)" class="x">
-                    <i class="fa fa-times"></i>
-                  </button>
-                </div>
-                <div class="box-icon" [ngStyle]="{'background': cus.bgIColor}">
-                  <span><i class="{{cus.icon}}"></i></span>
-                </div>
-                <div class="box-content">
-                  <h5 class="__title">{{cus.name}}</h5>
-                  <div class="description" ><span class="ND">{{cus.description}}</span>
-                    </div>
-                    <div class="pricing-table__footer">
-                      <a (click)="updateCustomer(cus.id)" class="edit" style="font-size: larger;">Chỉnh Sửa　⇨</a>
-                    </div>
-                </div>
-              </div>
+                                       }" class="col-md-3" style=" margin: 0px 0px  80px 0px; ">
+          <div class="box">
+            <div class="close">
+              <button type="button" (click)="deleteCustomer(cus.id)" class="x">
+                <i class="fa fa-times"></i>
+              </button>
             </div>
-            <div class="col-md-12" *ngIf="paging.totalRecord>0" >
-              <pagination-controls
-                previousLabel="<"
-                nextLabel=">"
-              [id]="'customer'"
-              (pageChange)="handlePageChange($event)"
-              [maxSize]="paging.totalRecord" ></pagination-controls>
+            <div class="box-icon" [ngStyle]="{'background': cus.bgIColor}">
+              <span><i class="{{cus.icon}}"></i></span>
+            </div>
+            <div class="box-content">
+              <h5 class="__title">{{cus.name}}</h5>
+              <div class="description"><span class="ND">{{cus.description}}</span>
+              </div>
+              <div class="pricing-table__footer">
+                <a (click)="updateCustomer(cus.id)" class="edit" style="font-size: larger;">Chỉnh Sửa　⇨</a>
+              </div>
             </div>
           </div>
         </div>
+        <div class="col-md-12" *ngIf="paging.totalRecord>0">
+          <pagination-controls previousLabel="<" nextLabel=">" [id]="'customer'" (pageChange)="handlePageChange($event)"
+            [maxSize]="paging.totalRecord"></pagination-controls>
+        </div>
       </div>
+    </div>
+  </div>
 
 </div>

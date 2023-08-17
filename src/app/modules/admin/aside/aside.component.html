@@ -25,11 +25,13 @@
 
 </div> -->
 
+
+
 <aside class="left-sidebar">
   <!-- Sidebar scroll-->
   <div>
     <div class="brand-logo mb-0  ">
-      <a href="./index.html" class="text-nowrap logo-img">
+      <a href="#" target="_blank" class="text-nowrap logo-img">
         <img src="./assets/images/logoEcoit.jpg" width="180" alt="" />
       </a>
       <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -41,17 +43,24 @@
       <ul id="sidebarnav">
         <li class="nav-small-cap">
           <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-          <span class="hide-menu">Home</span>
+          <span class="hide-menu h5 font-weight-bold ">Admin-EcoIT</span>
         </li>
-        <li class="sidebar-item" *ngFor ="let asides of aside" >
-          <a class="sidebar-link"  routerLink="{{asides.a}}" routerLinkActive="active" aria-expanded="false">
-            <span>
+        <li class="sidebar-item mb-2 " *ngFor ="let asides of aside ;" >
+          <a class="sidebar-link" routerLink="{{asides.a}}" routerLinkActive="active"  aria-expanded="false">
+            <span class="h5" >
               <i class="icon {{asides.icon}}"></i>
             </span>
-            <span class="hide-menu">{{asides.tittle}}</span>
+            <span class="hide-menu text-capitalize h5">{{asides.tittle}}</span>
           </a>
         </li>
-        
+        <li class="sidebar-item">
+          <a class="sidebar-link" (click)="logout()" aria-expanded="false">
+            <span>
+              <i class="ti ti-logout"></i>
+            </span>
+            <span class="hide-menu h5">Đăng Xuất</span>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- End Sidebar navigation -->

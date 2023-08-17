@@ -1,30 +1,30 @@
 <div class="toolbar">
+  <div class="container">
     <div class="d-flex  justify-content-between header-menu ">
       <div class="left-d-flex">
         <div class="d-flex">
-          <h5 class="h5" style="width:auto">Tài khoản</h5>
           <form (ngSubmit)="search()" class="d-flex">
-            <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm">
-            <div class="input-group-append inputt" >
+            <input class="searchinput mr-1" type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm">
+            <div class="input-group-append " >
               <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
             </div>
           </form>
         </div>
       </div>
-      <div class="right-d-flex">
-        <div class="d-flex  flex-wrap">
-          <div class="menu-item ">
-            <div class="d-flex">
-              <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
+      <div class="right-d-flex my-auto ">
+        <div class="d-flex ">
+          <div class=" ">
+            <div class="d-flex my-auto ">
+              <span class="mr-1 my-auto">Số mục mỗi trang:</span>
               <app-page-size
                 (pageSizeChange)="handlepagesizechange($event)"
                 [totalRecords]="paging.totalRecord"
                 [(pageSize)]="paging.size "  ></app-page-size>
             </div>
           </div>
-          <div class="menu-item" style="margin-top: 10px;">
-            <a routerLink="add"  class="ht-btn-custom"   title="Thêm mới"><i class="fas fa-file-plus fa-lg"></i></a>
-            <a style="margin-left: 20px;" title="Nhật kí" routerLink="../history" routerLinkActive="active">
+          <div class="my-auto">
+            <a routerLink="add"  class="ht-btn-custom mx-3 "   title="Thêm mới"><i class="fas fa-file-plus fa-lg"></i></a>
+            <a class="ht-btn-custom "  title="Nhật kí" routerLink="../history" routerLinkActive="active">
               <i class="fas fa-history fa-lg">
               </i>
             </a>
@@ -32,6 +32,7 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
 
 <div class=" section-space--mt_120">
@@ -42,7 +43,7 @@
           <p class="user" >Người Dùng</p>
         </div>
         
-        <table class="table table-striped" id="myTable">
+        <table class="table table-striped mb-0 " id="myTable">
           <thead>
             <tr>
               <td  >Tên đăng nhập</td>

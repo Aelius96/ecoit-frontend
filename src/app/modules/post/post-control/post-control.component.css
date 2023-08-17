@@ -1,51 +1,7 @@
 
-/*
-.left-d-flex{
-  margin-top: 7px;
-}
-.product-thumb-image{
-  width: 100%;
-}
-
-
-.custom-select{
-  width: 60px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-} */
-/* scrollbar */
-/* 
- */
-
-/* .form-control{
-  height: 30px;
-  font-size: 15px;
-  margin-top:7px;
-}
-
-
-.card{
-  border-radius: 10px;
-}
-
-
-.ht-btn-custom{
-  margin-top: 2px;
-}
-
-.m-auto{
-  margin: auto;
-}
- */
-
-/*-------------------------------------------------------------*/
-/* 
-
-*/
 /* Tool bar */
 .header-menu{
-  padding: 10px 15px 0px 12px;
+
   text-align: center;
   justify-content: center;
   align-content: center;
@@ -59,8 +15,12 @@ input:focus{
   font-size: 16px;
 }
 .searchinput{
-  border-radius: 4px;
-  border: 0.1px solid;
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EAEFF4;
+  border: 1px solid #F6F9FC;
+  height: 30px;
+  width: 25%;
  } 
 .input-group-append {
   margin-left: 0px;
@@ -76,6 +36,13 @@ input:focus{
   color: #121213;
 }
 /* list */
+.text-title{
+  color: #50b848;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
 .product-thumb-image img{
   width: 100%;
   max-height: 150px;

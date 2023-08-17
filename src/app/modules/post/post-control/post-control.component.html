@@ -1,59 +1,73 @@
 <div class="toolbar">
-  <div class="d-flex  justify-content-between header-menu ">
-    <div class="mt-3">
-      <div class="d-flex">
-        <a style="    margin-top: 3px;  margin-right: 10px; " routerLink="../bpost" routerLinkActive="active">
-          <span class="spann" style="font-weight: bold">Bài Viết</span>
-        </a>
+  <div class="container">
+    <div class="d-flex  justify-content-between header-menu ">
+      <div class="">
+        <div class="d-flex">
+          <!-- <a style="    margin-top: 3px;  margin-right: 10px; " routerLink="../bpost" routerLinkActive="active">
+            <span class="spann" style="font-weight: bold">Bài Viết</span>
+          </a> -->
+          <form (change)="searchTitleAndDescription()" class="d-flex">
+            <input type="text" [(ngModel)]="search.searchInput" name="searchInput" placeholder="Tìm kiếm "
+              class="searchinput">
+            <select [(ngModel)]="search.cate" name="cate" class=" searchinput px-2 ">
+              <option value="" [selected]="true">Chuyên mục</option>
+              <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
+            </select>
+            <div style="display: contents;">
+              <input type="date" style="  border-radius: 5px;
+              align-items: center;
+              background-color: #EAEFF4;
+              border: 1px solid #F6F9FC;
+              height: 30px;
+              width: 25%; 
+              padding: 0px 5px;" [(ngModel)]="search.startTime" name="startTime">
+              <input type="date" style="  border-radius: 5px;
+              align-items: center;
+              background-color: #EAEFF4;
+              border: 1px solid #F6F9FC;
+              height: 30px;
+              width: 25%; 
+              padding: 0px 5px;" [(ngModel)]="search.endTime" name="endTime">
+            </div>
+            <div class="input-group-append ">
+              <button type="submit" class="input-group-text  "><i class="fa fa-search"></i></button>
+            </div>
+          </form>
 
-        <form (change)="searchTitleAndDescription()" class="d-flex">
-          <input type="text" [(ngModel)]="search.searchInput"  name="searchInput" placeholder="Tìm kiếm "
-            style="width: 30%; height: 30px;  " class="searchinput">
-          <select [(ngModel)]="search.cate" name="cate" style="height: 30px; width: 40%;" class="ml-2 searchinput">
-            <option value="" [selected]="true">Chuyên mục</option>
-            <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
-          </select>
-          <div style="display: contents;">
-            <input type="date" [(ngModel)]="search.startTime" name="startTime" placeholder="Ngày bắt đầu">
-            <input type="date" [(ngModel)]="search.endTime" name="endTime" placeholder="Ngày kết thúc">
-          </div>
-          <div class="input-group-append ml-2">
-            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-          </div>
-        </form>
-        
-      </div>
-    </div>
-    <div class="right-d-flex">
-      <div class="d-flex  flex-wrap">
-        <div class="menu-item ">
-          <div class="d-flex">
-            <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
-              [(pageSize)]="paging.size"></app-page-size>
-          </div>
         </div>
-        <div class="menu-item">
-          <!--          (click)="addTypicalNum()"-->
-          <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i style="font-size: 18px"
-              class="fas fa-file-plus fa-lg"></i></a>
-        </div>
-
       </div>
-    </div>
+      <div class="right-d-flex">
+        <div class="d-flex  flex-wrap">
+          <div class="menu-item ">
+            <div class="d-flex">
+              <span class=" mr-1">Số mục mỗi trang:</span>
+              <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                [(pageSize)]="paging.size"></app-page-size>
+            </div>
+          </div>
+          <div class="menu-item">
+            <!--          (click)="addTypicalNum()"-->
+            <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i style="font-size: 18px"
+                class="fas fa-file-plus fa-lg"></i></a>
+          </div>
 
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
-<div class="container  section-space--mt_100 list-table ">
+<div class="container  section-space--mt_80 list-table ">
+  <h3 class="text-title">CHUYÊN MỤC</h3>
   <table class="table">
     <thead style="position: sticky;top: 0 ; z-index: 1;" class="thead-dark">
       <tr>
-        <th scope="col" style="width: 15%;" >Ảnh</th>
+        <th scope="col" style="width: 15%;">Ảnh</th>
         <th class="w-25" scope="col">Tiêu đề</th>
-        <th class="w-25" scope="col">Nội dung</th>
-        <th class="" scope="col" style="" >Chuyên mục </th>
-        <th class="" scope="col" style="" >Thời gian</th>
+        <th class="w-25" scope="col">Mô tả</th>
+        <th class="" scope="col">Chuyên mục </th>
+        <th class="" scope="col">Thời gian</th>
         <th class="" scope="col">Chức năng</th>
       </tr>
     </thead>
@@ -63,33 +77,34 @@
         itemsPerPage: paging.size,
         currentPage: paging.page,
         totalItems: paging.totalRecord  } ;  ">
-        <td style="width:15% " >
+        <td style="width:15% ">
           <div class="product-thumb-image">
             <img src="{{baseURL}}/{{postURL}}/image/{{post.id}}" alt="Post Image">
           </div>
         </td>
-        <td class="w-25" >
-          <p class=" mt-5 des-post font-weight-bold h4" >
+        <td class="w-25">
+          <p class=" mt-5 des-post font-weight-bold h4">
             {{post.title}}
           </p>
         </td>
-        <td class="w-25" >
+        <td class="w-25">
           <p class="des-post mt-5 ">
             {{post.description}}
           </p>
         </td>
         <td style="" class="text-center">
-          <p class="mt-5" >{{post.category.typeName}}</p>
+          <p class="mt-5">{{post.category.typeName}}</p>
         </td>
-        <td style="" class="text-center"  >
-          <p class="mt-5" > {{post.date}}</p>
+        <td style="" class="text-center">
+          <p class="mt-5"> {{post.date}}</p>
         </td>
         <td class="text-center">
           <div class="btn-group dropright ">
-           <i title="Chức năng" class='icon-more fa fa-ellipsis-h mt-5 ' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style='font-size:24px'></i>
+            <i title="Chức năng" class='icon-more fa fa-ellipsis-h mt-5 ' data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" style='font-size:24px'></i>
             <div class="dropdown-menu text-center p-0">
-              <p class="edit icon-more mb-1 drop " (click)="updatePost(post.id)" >Chỉnh sửa</p>
-              <p class="dele icon-more drop " (click)="deletePost(post.id)" >Xóa</p>
+              <p class="edit icon-more mb-1 drop " (click)="updatePost(post.id)">Chỉnh sửa</p>
+              <p class="dele icon-more drop " (click)="deletePost(post.id)">Xóa</p>
             </div>
           </div>
         </td>

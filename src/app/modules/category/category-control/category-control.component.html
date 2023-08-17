@@ -1,14 +1,16 @@
 <div class="toolbar">
+  <div class="container">
     <div class="d-flex  justify-content-between header-menu ">
       <div class="left-d-flex d-flex ">
-        <h5 class="title-cate">Chuyên Mục</h5>
+        <!-- <h5 class="title-cate">Chuyên Mục</h5> -->
         <form (ngSubmit)="search()" class="d-flex">
-          <input class="search input-search" type="text" [(ngModel)]="searchInput.input" name="searchInput.input" placeholder="Tìm kiếm ">
-          <div class="input-group-append inputt" >
+          <input class="search input-search" type="text" [(ngModel)]="searchInput.input" name="searchInput.input"
+            placeholder="Tìm kiếm ">
+          <div class="input-group-append inputt">
             <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
         </form>
-        <a  (click)="getListAll()">
+        <a (click)="getListAll()" class="my-auto" >
           <img src="./assets/images/reload.png" alt="" class="img-reload">
         </a>
       </div>
@@ -18,9 +20,10 @@
           <div class="menu-item ">
             <div class="d-flex">
               <span class="mr-1">Số mục mỗi trang:</span>
-                  <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord" [(pageSize)]="paging.size">
+              <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                [(pageSize)]="paging.size">
 
-                  </app-page-size>
+              </app-page-size>
 
             </div>
           </div>
@@ -31,9 +34,10 @@
       </div>
     </div>
   </div>
+</div>
 
 
-  <!-- <app-category-add #modal></app-category-add> -->
+<!-- <app-category-add #modal></app-category-add> -->
 
 <div class="section-space--mt_100 container ">
   <div class="row">
@@ -45,24 +49,26 @@
     </div>
   </div>
 
-  <div class="" >
-    <div class="number-item"  *ngFor="let ct of category |  paginate:{
+  <div class="">
+    <div class="number-item" *ngFor="let ct of category |  paginate:{
       id:'cate',
       itemsPerPage: paging.size,
       currentPage: paging.page,
-      totalItems: paging.totalRecord } ; let total = count  " >
-      <div class="card" >
+      totalItems: paging.totalRecord } ; let total = count  ">
+      <div class="card">
         <div class="action-box">
-          <div >
+          <div>
 
-            <button (click)="Update(ct.id)"  style="background-color: #50b848" class="btnn"  ><i class="far fa-pen"></i> </button>
+            <button (click)="Update(ct.id)" style="background-color: #50b848" class="btnn"><i class="far fa-pen"></i>
+            </button>
           </div>
-          <div >
-            <button (click)="Delete(ct.id)" style="background-color: rgb(255,0,0)" class="btnn" ><i class="far fa-times"></i> </button>
+          <div>
+            <button (click)="Delete(ct.id)" style="background-color: rgb(255,0,0)" class="btnn"><i
+                class="far fa-times"></i> </button>
           </div>
         </div>
-        <div  class="content-box ">
-          <h4  class="box-icon itemm" >
+        <div class="content-box ">
+          <h4 class="box-icon itemm">
             <i class="far fa-newspaper">
             </i>
           </h4>
@@ -70,15 +76,10 @@
 
         </div>
       </div>
+    </div>
   </div>
-</div>
-<div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-top: 20px;">
-  <pagination-controls
-  [id]="'cate'"
-      previousLabel="<"
-      nextLabel=">"
-      (pageChange)="handlepagechange($event)"
-      [maxSize]="paging.totalRecord"
-  ></pagination-controls>
-</div>
+  <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-top: 20px;">
+    <pagination-controls [id]="'cate'" previousLabel="<" nextLabel=">" (pageChange)="handlepagechange($event)"
+      [maxSize]="paging.totalRecord"></pagination-controls>
+  </div>
 </div>

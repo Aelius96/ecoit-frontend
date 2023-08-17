@@ -1,6 +1,5 @@
 
 .header-menu{
-  padding: 10px 15px 0px 12px;
   text-align: center;
   justify-content: center;
   align-content: center;
@@ -12,15 +11,15 @@
 
 }
 .control{
-  margin-top:9px;
   color: black;
 }
 .control:hover{
   text-decoration: none;
 }
 .ht-btn-custom{
-  margin-top:2px;
+ 
   color: #121213;
+  font-size: 16px;
 }
 
 .menu-item{
@@ -41,25 +40,28 @@
   font-size: 15px;
   margin-top:7px;
 }
-.inputt{
-  margin-left: 0px;
-  height: 30px;
-  margin-top:7px;
-}
-.ht-btn-custom{
-  margin-top: 2px;
 
-}
+.searchinput{
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EAEFF4;
+  border: 1px solid #F6F9FC;
+  height: 30px;
+  width: 50%;
+ } 
+ .searchinput:focus{
+  border-radius: 5px;
+  border: 1px solid #202020;
+ }
+
 /* ==  tiêu đề*/
 .text-title{
   color: #50b848;
-  font-family: vi;
   font-size: 30px;
   text-align: center;
+  font-weight: bold;
 }
-.hr{
-  width: 150px;
-}
+
 /*-------------------------------------------------------------*/
 .box-icon{
   background-color: #009dff;
@@ -99,19 +101,11 @@
   border-radius: 50%;
 }
 
-.text-input{
-  border: 2px solid #50b848;
-  color: black;
-}
-.text-input:focus{
-  color: black;
-  border: 2px solid #50b848;
-}
+
 .input:focus{
   border: 1px solid rgb(108, 108, 108);
   color: black;
 }
-
 
 .iconn{
   font-size: 25px;
@@ -150,7 +144,6 @@
 .edit:hover{
   color: #212c32;
 }
-
 
 a:hover{
   text-decoration: none;

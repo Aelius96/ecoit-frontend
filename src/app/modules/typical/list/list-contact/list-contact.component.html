@@ -1,20 +1,19 @@
 <div class="toolbar">
+  <div class="container">
   <div class="d-flex  justify-content-between header-menu ">
-    <div class="left-d-flex">
+    <div class="left-d-flex my-auto">
       <div class="d-flex">
-        <h5 class="h5">Người liên hệ</h5>
-        <form (ngSubmit)="search()" class="d-flex">
-          <input class="search input-search" type="text" [(ngModel)]="searchInput.input" name="searchInput"
-            placeholder="Tìm kiếm ">
-          <div class="input-group-append inputt">
-            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-          </div>
+        <form (ngSubmit)="search()" class="my-auto" style="display: contents;" >
+          <input type="text" [(ngModel)]="searchInput.input" name="searchInput" placeholder="Tìm kiếm "
+              class="searchinput mr-1">
+            <div class="input-group-append ">
+              <button type="submit" class="input-group-text  "><i class="fa fa-search"></i></button>
+            </div>
         </form>
-
-        <div class="item-select ">
-          <button class="btn btn-success search mr-1 " (click)="Pending()">Chưa Liên Hệ</button>
+        <div class="item-select my-auto ">
+          <button class="btn btn-success search mr-1" (click)="Pending()">Chưa Liên Hệ</button>
           <button class="btn search mr-2" (click)="Process()">Đã Liên Hệ</button>
-          <a (click)="getAllContactPagesize()">
+          <a (click)="getAllContactPagesize()" class="my-auto" >
             <img src="./assets/images/reload.png" alt="" class="img-reload">
           </a>
         </div>
@@ -25,11 +24,11 @@
     <div class="right-d-flex">
       <div class="d-flex  flex-wrap">
         <div class="menu-item ">
-          <div class="d-flex">
-            <span class="fw-semibold mr-1" style="margin-top: 2px;">Số mục mỗi trang:</span>
+          <div class="d-flex my-auto">
+            <span class="my-auto mr-1" >Số mục mỗi trang:</span>
             <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
-              [(pageSize)]="paging.size"></app-page-size>
-            <a routerLink="../">
+              [(pageSize)]="paging.size" class="my-auto" ></app-page-size>
+            <a routerLink="../" class="my-auto">
               <i class="fa fa-arrow-circle-o-left" style="font-size: 24px; margin: 1px 0px 0px 8px; color: black;"></i>
             </a>
           </div>
@@ -38,11 +37,13 @@
     </div>
   </div>
 </div>
+</div>
 
 
-<div class="section-space--mt_120">
+<div class="section-space--mt_100">
   <div class="container">
-    <div class="detail w-100 ">
+    <h3 class="text-title">liên hệ</h3>
+    <div class="detail section-space--mt_40 w-100 ">
       <table class="customers">
         <thead>
           <tr>

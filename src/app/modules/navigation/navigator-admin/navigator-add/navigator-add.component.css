@@ -1,11 +1,6 @@
-.toolbar{
-    height: 65px;
-    background-color: white;
-    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-    border-top: 1px solid #eff2f5;
-  }
+
   .header-menu{
-    padding: 10px 15px 0px 12px;
+
     text-align: center;
     justify-content: center;
     align-content: center;
@@ -16,10 +11,7 @@
     color: black;
     padding-right: 10px;
   }
-  .menu-item{
-    padding-left: 20px;
-    margin-top: 8px;
-  }
+
   .custom-select{
     width: 60px;
     text-align: center;

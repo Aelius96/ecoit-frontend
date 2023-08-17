@@ -1,31 +1,15 @@
-.toolbar{
-  height: 65px;
-  background-color: white;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-  border-top: 1px solid #eff2f5;
-}
+
 .header-menu{
-  padding: 10px 15px 0px 12px;
   text-align: center;
   justify-content: center;
   align-content: center;
 }
-.h5{
-  font-weight: bolder;
-  font-size: 18px;
-  color: black;
-  padding-right: 10px;
-}
+
 .menu-item{
   padding-left: 20px;
   margin-top: 8px;
 }
-.custom-select{
-  width: 60px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
+
 .item-blog{
   margin-top: 30px;
 }
@@ -34,19 +18,25 @@
   font-size: 15px;
   margin-top:7px;
 }
-.inputt{
-  margin-left: 0px;
-  height: 30px;
-  margin-top:7px;
+input:focus{
+  border: 1px solid #111111;
+  color: black;
 }
+
+.searchinput{
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EAEFF4;
+  border: 1px solid #F6F9FC;
+  height: 30px;
+  width: 50%;
+ } 
+
 .fa-lg:hover{
   color: blue;
 
 }
-input:focus{
-  color:#000000;
-  border: 1px solid black;
-}
+
 /*  */
 .icon{
 
@@ -106,7 +96,9 @@ a{
 }
 input{
   height: 30px;
-  margin-top: 7px;
+}
+.ht-btn-custom{
+  font-size: 15px;
 }
 /* 
  */
