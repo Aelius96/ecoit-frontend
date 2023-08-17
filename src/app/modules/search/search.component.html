@@ -5,6 +5,10 @@
   <div class="my-4">
     <div class="wdc-heading style-1 text-left">
       <h2 class="font-weight-bold text-success ml-5 ">Tìm kiếm: {{searchInput}}</h2>
+      <select [(ngModel)]="cateName"  name="cate" style="height: 30px; width: 40%;" class="ml-2 searchinput" (ngModelChange)="searchPostwithCate()">
+        <option value="" [selected]="true">Chuyên mục</option>
+        <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
+      </select>
       <hr>
     </div>
   </div>
