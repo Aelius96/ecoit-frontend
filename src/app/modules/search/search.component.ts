@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit
   postList :Post[] = [];
   catelist: Category[]=[];
   searchInput = '';
+  tag = '';
   cateName = '';
   paging = {
     page: 1,
@@ -34,11 +35,12 @@ export class SearchComponent implements OnInit
 
   ngOnInit(): void {
     this.searchInput =  this.route.snapshot.params['searchInput'];
+    this.tag = this.route.snapshot.params['hashtag'];
     this.getListAllWithPageTest();
     this.listAllCate()
   }
 
-  getRequestParamsTest(page: number,size: number, search: string,cateName : string): any {
+  getRequestParamsTest(page: number,size: number, search: string,cateName : string, hashtag: string): any {
     let params: any = {};
     if (page) {
       params[`pageNo`] = page-1;
@@ -52,11 +54,15 @@ export class SearchComponent implements OnInit
     if(cateName) {
       params['cate'] = cateName
     }
+    if(hashtag) {
+      params['tag'] = hashtag
+    }
     return params;
   }
 
   getListAllWithPageTest(): void {
-    const params = this.getRequestParamsTest(this.paging.page,this.paging.size,this.searchInput,this.cateName);
+    const params = this.getRequestParamsTest(this.paging.page,this.paging.size,this.searchInput,this.cateName,this.tag);
+
     console.log(params)
     this.postService.search(params)
       .subscribe(

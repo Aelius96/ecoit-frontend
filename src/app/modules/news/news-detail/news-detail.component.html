@@ -60,7 +60,7 @@
                 <div class="content lh-base mb-5 " [innerHTML]="content"></div>
                 <strong>Thẻ tag: </strong>
                 <span *ngFor="let p of post.hashtags">
-                <a href="">{{p.name}},</a>
+                <a (click)="searchByHashtag(p.name)">{{p.name}},</a>
               </span>
                 <div class="entry-post-share-wrap  border-bottom">
                   <div class="row align-items-center">

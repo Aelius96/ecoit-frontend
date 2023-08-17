@@ -20,7 +20,7 @@ export class HeaderComponent {
   navParent: Nav[] = [];
   isToken = false;
   roles: string[] = [];
-  searchInput: string;
+  searchInput: string = '';
   postList : Post[] = [];
   about : About = new About();
   email:any;
@@ -44,6 +44,7 @@ export class HeaderComponent {
   }
   goToSearch():void{
     this.router.navigate(['/tim-kiem/'+this.searchInput]);
+    console.log(this.searchInput);
   }
   getAllNav(){
     this.navService.listAll().subscribe(data => {
