@@ -20,6 +20,8 @@ const routes: Routes=[
       {path:'admin/login', title:'Admin-Login' , component: LoginComponent },
       {path: 'login', component: LoginUserComponent},
       {path: 'register', component:RegisterComponent},
+      {path: 'tag/:hashtag', component:SearchComponent},
+      {path: 'tim-kiem', component:SearchComponent},
       {path: 'tim-kiem/:searchInput', component:SearchComponent},
       {path: 'lien-he' , component: ContactComponent},
     ]

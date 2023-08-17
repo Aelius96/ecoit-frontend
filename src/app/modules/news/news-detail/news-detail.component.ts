@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {News} from "../../../core/model/news/news";
 import {NewsService} from "../../../services/news/news.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";
 import {PostService} from "../../../services/post/post.service";
 import {Post} from "../../../core/model/post/post";
@@ -18,7 +18,10 @@ export class NewsDetailComponent implements OnInit{
   content:any;
   post :Post = new Post();
 
-  constructor(private postService: PostService, private route: ActivatedRoute,private sanitizer : DomSanitizer ) {}
+  constructor(private postService: PostService,
+              private route: ActivatedRoute,
+              private router:Router,
+              private sanitizer : DomSanitizer ) {}
 
   ngOnInit(): void {
     this.getList();
@@ -31,6 +34,9 @@ export class NewsDetailComponent implements OnInit{
       document.title = this.post.title;
       this.content = this.sanitizer.bypassSecurityTrustHtml(this.post.content);
     })
+  }
+  searchByHashtag(tag : string) {
+    this.router.navigate(["/tag/"+tag])
   }
 
 }
