@@ -1,43 +1,37 @@
-.toolbar{
-    height: 65px;
-    background-color: white;
-    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-    border-top: 1px solid #eff2f5;
-  }
+
   .header-menu{
-    padding: 10px 15px 0px 12px;
     text-align: center;
     justify-content: center;
     align-content: center;
   }
 
-  .spann{
-    color: #0d0d0d;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 5px;
-    width: 80%;
-  }
-  .search{
-    margin-left: 10px;
+
+  .searchinput{
+    border-radius: 5px;
+    align-items: center;
+    background-color: #EAEFF4;
+    border: 1px solid #F6F9FC;
     height: 30px;
-    margin-top: 7px;
-    width: 100px;
+    width: 50%;
+   }
+   input:focus{
+    border: 1px solid #111111;
+    color: black;
   }
-
-  .menu-item{
-    padding-left: 20px;
-    margin-top: 8px;
+  .text-title{
+    text-transform: uppercase;
+    color: #50b848;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
   }
-
   .input-group-append{
     margin-left: 0px;
     height: 30px;
-    margin-top:7px;
   }
   .ht-btn-custom{
-    margin-top: 3px
-    ;
+    font-size: 16px;
     color: black;
   }
   .menu-link{

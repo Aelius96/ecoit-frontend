@@ -1,11 +1,5 @@
-.toolbar{
-  height: 65px;
-  background-color: white;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-  border-top: 1px solid #eff2f5;
-}
+
 .header-menu{
-  padding: 10px 15px 0px 12px;
   text-align: center;
   justify-content: center;
   align-content: center;
@@ -17,32 +11,37 @@
 
 }
 .control{
-  margin-top:9px;
   color: black;
 }
 .control:hover{
   text-decoration: none;
 }
 .menu-item{
-  margin-left: 20px;
-  margin-top: 8px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+input:focus{
+  border: 1px solid #111111;
+  color: black;
 }
 
-
-.inputt{
-  margin-left: 0px;
+.searchinput{
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EAEFF4;
+  border: 1px solid #F6F9FC;
   height: 30px;
- 
-}
+  width: 50%;
+ } 
 a:hover{
   text-decoration: none;
 }
 /* tiêu đề */
 .text-title{
   color: #50b848;
-  font-family: vi;
   font-size: 30px;
   text-align: center;
+  font-weight: bold;
 }
 .hr{
   width: 150px;

@@ -1,11 +1,6 @@
-.toolbar{
-    height: 65px;
-    background-color: white;
-    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-    border-top: 1px solid #eff2f5;
-  }
+
   .header-menu{
-    padding: 10px 15px 0px 12px;
+
     text-align: center;
     justify-content: center;
     align-content: center;
@@ -19,52 +14,37 @@
   border: 1px solid #ced4da;
   border-radius: 3px;
 }
-  .spann{
-    color: #0d0d0d;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 7px;
-    width: 40%;
-  }
+.searchinput{
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EAEFF4;
+  border: 1px solid #F6F9FC;
+  height: 30px;
+  width: 50%;
+ } 
 
   .ht-btn-custom{
-    margin-top:2px;
+    font-size: 16px;
     color: #121213;
   }
   
-  .menu-item{
-    margin-left: 15px;
-    margin-top: 8px;
-  }
-  .custom-select{
-    width: 60px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
   
   .form-control{
     height: 30px;
     font-size: 15px;
     margin-top:7px;
   }
-  .inputt{
-    margin-left: 0px;
-    height: 30px;
-    margin-top:7px;
-    display: flex;
+  input:focus{
+    border: 1px solid #111111;
+    color: black;
   }
-  .search{
-    width: 60%;
-    height: 30px;
-    margin-top: 7px;
-    border-radius: 4px;
-    border: 0.1px solid;
+  .text-title{
+    color: #50b848;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
   }
-.search:focus{
-  border: 0.1px solid #000000;
-}
-  
 /* scroll */
 .item-blog{
   max-height: 600px;

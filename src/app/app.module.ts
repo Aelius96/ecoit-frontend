@@ -127,6 +127,23 @@ import { SearchComponent } from './modules/search/search.component';
 import { AnimatedDigitComponent } from './_animation/animated-digit/animated-digit.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+
+import {
+  GalleryModule,
+  GalleryItem,
+  ImageItem,
+  ImageSize,
+  ThumbnailsPosition,
+  Gallery,
+} from 'ng-gallery';
+import { LightboxModule, Lightbox } from 'ng-gallery/lightbox';
+
+
+import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { MatToolbarModule} from '@angular/material/toolbar';
+
 import {ToastrModule} from 'ngx-toastr'
 
 @NgModule({
@@ -248,8 +265,12 @@ import {ToastrModule} from 'ngx-toastr'
       closeButton: true,
       progressBar: false,
       positionClass: 'toast-bottom-right' ,
-      timeOut:5000,
+      timeOut:3000,
     }),
+    LightboxModule,
+    MatButtonModule,
+    MatToolbarModule,
+    GalleryModule,
   ],
 
 
