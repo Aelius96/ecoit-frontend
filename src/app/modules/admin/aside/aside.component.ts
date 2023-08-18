@@ -57,15 +57,15 @@ export class AsideComponent {
     },
     {
       id:8,
-      tittle: 'Danh sách',
-      a: 'list',
-      icon:'fas fa-clipboard-list',
-    },
-    {
-      id:9,
       tittle: 'Giới thiệu',
       a: 'about',
       icon:'fa fa-users',
+    },
+    {
+      id:9,
+      tittle: 'Danh sách',
+      a: 'list',
+      icon:'fas fa-clipboard-list',
     },
     {
       id:10,
@@ -83,8 +83,10 @@ export class AsideComponent {
   ]
 
   logout() {
-    this.tokenStorageService.signOut();
-    window.location.reload();
+    let cf=confirm("Bạn có muốn đăng xuất");
+    if(cf){
+      this.tokenStorageService.signOut();
+      window.location.reload();
+    }
   }
-
 }

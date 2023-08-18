@@ -10,7 +10,7 @@
             <input type="text" [(ngModel)]="search.searchInput" name="searchInput" placeholder="Tìm kiếm "
               class="searchinput">
             <select [(ngModel)]="search.cate" name="cate" class=" searchinput px-2 ">
-              <option value="" [selected]="true">Chuyên mục</option>
+              <option value="" [selected]="true">Tất cả</option>
               <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
             </select>
             <div style="display: contents;">
@@ -59,7 +59,7 @@
 </div>
 
 <div class="container  section-space--mt_80 list-table ">
-  <h3 class="text-title">CHUYÊN MỤC</h3>
+  <h3 class="text-title">Bài viết</h3>
   <table class="table">
     <thead style="position: sticky;top: 0 ; z-index: 1;" class="thead-dark">
       <tr>
