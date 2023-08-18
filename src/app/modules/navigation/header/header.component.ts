@@ -27,7 +27,6 @@ export class HeaderComponent {
   phone:any;
 
   constructor(private navService: NavService,
-              private tokenStorageService: TokenStorageService,
               private router:Router,
               private about_usService: AboutUsService ,
                private sanitizer: DomSanitizer) {

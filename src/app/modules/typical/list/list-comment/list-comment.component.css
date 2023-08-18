@@ -29,25 +29,24 @@
     margin-right: 10px;
 }
 
-
-.item-select{
-  margin-top: 7px;
-}
-.custom-select{
-  width: 60px;
-  text-align: center;
-  
-  font-size: 15px;
-}
   /*  */
   
    /* view mới */
+   .text-title{
+    text-transform: uppercase;
+    color: #50b848;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+  }
    .cmt-content{
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
    }
+
 
    .cmt-content:hover{
     text-decoration: none;
