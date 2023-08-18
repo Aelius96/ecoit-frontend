@@ -17,7 +17,7 @@
 
       <div class="right-d-flex">
         <div class="d-flex  flex-wrap">
-          <div class="menu-item ">
+          <div>
             <div class="d-flex">
               <span class="mr-1">Số mục mỗi trang:</span>
               <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
@@ -27,7 +27,7 @@
 
             </div>
           </div>
-          <div class="menu-item">
+          <div  class="my-auto ml-2" >
             <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
           </div>
         </div>
