@@ -21,7 +21,7 @@
                                     <div class="col-lg-6">
                                         <div class="contact-inner">
                                             <span><strong>FAX</strong></span>
-                                            <input type="tel" name="fax" id="fax" [(ngModel)]="about.fax" required>
+                                            <input type="tel" name="fax" id="fax" (keypress)="numberOnly($event)" [(ngModel)]="about.fax" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
