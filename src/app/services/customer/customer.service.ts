@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Constant} from "../../core/config/constant";
 import {Observable} from "rxjs";
 import { ApiHelper } from 'src/app/core/rest-api/api-helper';
+import {Customer} from "../../core/model/customer/customer";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class CustomerService {
     return this.apiHelper.post(Constant.CUSTOMER.ADD_CUSTOMER , formData);
   }
 
+  public addCustomerDTO(formData: FormData): Observable<Object>{
+    return this.apiHelper.post(Constant.CUSTOMER.ADDDTO_CUSTOMER , formData);
+  }
+
   updateCustomer(id: number, formData: FormData):Observable<Object>{
     return this.apiHelper.post(Constant.CUSTOMER.UPDATE_CUSTOMER+`/${id}`,formData);
   }
@@ -33,5 +38,5 @@ export class CustomerService {
   getCusByUrl(url: string): Observable<any>{
     return this.apiHelper.get( Constant.CUSTOMER.GET_CUS_BY_URL + `/${url}`);
   }
-  
+
 }
