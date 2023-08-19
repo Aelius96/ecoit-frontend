@@ -8,6 +8,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
 import { Domain } from 'src/app/core/domain/domain';
 import { ToastService } from '../../toast/toast.service';
+import {Role} from "../../../core/model/role/role";
 
 @Component({
   selector: 'app-customer-add',
@@ -28,7 +29,7 @@ export class CustomerAddComponent {
   fileToUpload: string [] = [];
 
   constructor(private customerService: CustomerService, private productService: ProductService,
-              private route: ActivatedRoute, private router: Router , 
+              private route: ActivatedRoute, private router: Router ,
               private toast: ToastService) {
   }
 
@@ -40,6 +41,7 @@ export class CustomerAddComponent {
     }else{
       this.getProducts();
     }
+
   }
 
   getCustomById(id: number) {
@@ -69,44 +71,12 @@ export class CustomerAddComponent {
   getProducts(){
     this.productService.getProductList().subscribe(data =>{
       this.products = data;
-    })
-  }
-
-  prepareFormData(customer: Customer, products: Product[]): FormData {
-    const  formData = new FormData();
-    formData.append(
-      'customer',
-      new Blob([JSON.stringify(customer)], {type: 'application/json'})
-    );
-    formData.append(
-      'products',
-      new Blob([JSON.stringify(products)], {type: 'application/json'})
-    )
-    for (let j = 0; j < this.fileToUpload.length; j++){
-      formData.append(
-        'thumb',
-        this.fileToUpload[j]
-      )
-    }
-
-    return formData;
-  }
-
-  addCustomer(){
-    let customerFormData = this.prepareFormData(this.customer, this.products.filter(item => item.selected));
-    this.customerService.addCustomer(customerFormData).subscribe(data =>{
-      this.toast.showSuccess()
-      this.goToCustomerList();
-      console.log(data);
-    },
-      err =>{
-        this.toast.showWarning(err.error)
-        console.log(err)
+      console.log(data)
     })
   }
 
   updateCustomer(id: number){
-    let customerFormData = this.prepareFormData(this.customer, this.products.filter(item => item.selected));
+    let customerFormData = this.prepareFormDataDTO(this.customer);
     this.customerService.updateCustomer(id, customerFormData).subscribe(() =>{
      this.toast.showSuccess()
       this.goToCustomerList();
@@ -117,6 +87,34 @@ export class CustomerAddComponent {
     )
   }
 
+  //Use DTO
+  prepareFormDataDTO(customer: Customer): FormData {
+    const  formData = new FormData();
+    formData.append(
+      'customer',
+      new Blob([JSON.stringify(customer)], {type: 'application/json'})
+    );
+    for (let j = 0; j < this.fileToUpload.length; j++){
+      formData.append(
+        'thumb',
+        this.fileToUpload[j]
+      )
+    }
+    return formData;
+  }
+  addCustomer(){
+    let customerFormData = this.prepareFormDataDTO(this.customer);
+    this.customerService.addCustomerDTO(customerFormData).subscribe(data=>{
+      console.log(customerFormData);
+      this.toast.showSuccess();
+      this.goToCustomerList();
+    },error => {
+      this.toast.showWarning(error.error);
+
+    })
+  }
+
+
   goToCustomerList(){
     this.router.navigate(['/admin/customer']);
   }
@@ -125,6 +123,7 @@ export class CustomerAddComponent {
     if(this.id){
       this.updateCustomer(this.id);
     }else{
+      // this.addCustomer();
       this.addCustomer();
     }
   }
@@ -142,10 +141,24 @@ export class CustomerAddComponent {
     }
   }
 
-  onCheckChange(event: any, product: Product){
-    product.selected = event.currentTarget.checked;
-  }
 
+
+  onCheckChangeProduct(event: any, product: Product){
+    product.selected = event.currentTarget.checked;
+    if(product.selected){
+        console.log(this.customer.products);
+        this.customer.products.push(product);
+    }else{
+      this.customer.products.forEach(item => {
+        if(item.id === product.id){
+          if (this.customer.products) {
+            this.customer.products = this.customer.products.filter(i => i !== item);
+          }
+        }
+      })
+    }
+
+  }
   notNeedFile(){
     // @ts-ignore
     document.getElementById("file-in").value = null;

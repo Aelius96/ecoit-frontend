@@ -78,10 +78,22 @@
             <div class="title">Vai trò</div>
             <div class="roles-box">
               <ul class="list-group">
+
+<!--                updateUser-->
+<!--                <li class="list-group-item" *ngFor="let r of role">-->
+<!--                  <div class="form-check">-->
+<!--                    <input type="checkbox" [value]="r.selected" [checked]="r.selected"-->
+<!--                           (change)="onRoleChange($event, r)" class="custom-control-input" id="customCheck{{r.id}}">-->
+<!--                    <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{r.id}}">{{r.name}}</label>-->
+
+<!--                  </div>-->
+<!--                </li>-->
+
+<!--                updateUser1-->
                 <li class="list-group-item" *ngFor="let r of role">
                   <div class="form-check">
                     <input type="checkbox" [value]="r.selected" [checked]="r.selected"
-                           (change)="onRoleChange($event, r)" class="custom-control-input" id="customCheck{{r.id}}">
+                           (change)="onRoleChange($event,r)" class="custom-control-input" id="customCheck{{r.id}}">
                     <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{r.id}}">{{r.name}}</label>
 
                   </div>

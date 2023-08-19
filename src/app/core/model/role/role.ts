@@ -1,5 +1,5 @@
 export class Role {
-  id : any;
+  id : number;
   name : string;
   selected = false;
 }
