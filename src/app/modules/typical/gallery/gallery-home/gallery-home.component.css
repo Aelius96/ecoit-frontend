@@ -15,3 +15,39 @@
 img{
   
 }
+
+@media only screen and (min-width: 2560px) and (max-width: 3840px) {
+  .item {
+    height: 700px;
+  }
+}
+
+@media only screen and (min-width: 1920px) and (max-width: 2559px) {
+  .item {
+    height: 650px;
+  }
+}
+
+
+@media only screen and (min-width: 1280px) and (max-width: 1919px) {
+  .item {
+    height: 600px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1278px) {
+  .item {
+    height: 550px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
+  .item {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .item{
+      height: 350px;
+  }
+}
