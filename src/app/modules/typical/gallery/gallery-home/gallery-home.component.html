@@ -8,7 +8,7 @@
     <div class="carousel-inner" role="listbox">
       <!--  <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let recruit of recruitList ; let s = index "> -->
       <div class="item " [class]=" i==0 ? 'active ' : '' "  *ngFor="let img of gallery ; let i = index" >
-        <img style="width: 100%; height: 100%;" src="{{baseURL}}/{{galleryURL}}/image/{{img.image.name}}"
+        <img style="width: 100%;" src="{{baseURL}}/{{galleryURL}}/image/{{img.image.name}}"
              alt="Image" loading="lazy">
       </div>
     </div>
