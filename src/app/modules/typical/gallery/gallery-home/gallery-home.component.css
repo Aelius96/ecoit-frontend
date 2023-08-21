@@ -41,13 +41,20 @@ img{
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .item {
     height: 400px;
   }
 }
+
+@media only  screen and (min-width:421px) and (max-width:767px) {
+  .item{
+    height: 350px;
+  }
+}
+
 @media screen and (max-width: 420px) {
   .item{
-      height: 350px;
+      height: 250px;
   }
 }
