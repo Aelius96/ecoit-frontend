@@ -19,6 +19,12 @@
     font-family: Verdana;
     font-weight: bold;
 }
+.a-contact{
+    color: #ababaa;
+}
+.a-contact:hover{
+    text-decoration: none;
+}
 .icon-intro{
     font-size: 18px;
     color: #ababaa;
