@@ -12,6 +12,7 @@ import {User} from "../../core/model/user/user";
 })
 export class LoginComponent {
   form: any = {};
+  
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = "";

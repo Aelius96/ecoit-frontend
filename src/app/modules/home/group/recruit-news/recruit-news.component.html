@@ -23,8 +23,11 @@
                   <div class="item " [class]="s == 0 ? 'active' : '' "
                     *ngFor="let post of postListRecruit ; let s = index ">
                     <div>
-                      <img style="font-weight: 400; width: 100%; height: 250px;"
-                      src="{{baseURL}}/{{postURL}}/image/{{post.id}}" alt="" loading="lazy">
+                      <a href="/tuyen-dung/{{post.url}}" class="w-100" >
+                        <img style="font-weight: 400; width: 100%; height: 280px;"
+                        src="{{baseURL}}/{{postURL}}/image/{{post.id}}" alt="" loading="lazy">
+                      </a>
+                   
 
                       <div class="blog-innerr" style="background-color: #ffffff; padding: 5px 5px 5px 5px;">
                         <h6 class="post-title">
