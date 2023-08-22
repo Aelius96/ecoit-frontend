@@ -16,7 +16,7 @@
 
             <div class="header-right ">
               <div class="header-right_top d-flex my-auto justify-content-end ">
-                <ul class="list-inline d-flex">
+                <ul class="list-inline d-flex my-auto">
                   <li class="d-flex mr-3 ">
                     <span class="header-label mr-3 d-flex">
                       <i class="fa fa-phone mt-1 " style="font-size: 24px;  "> </i>
@@ -49,14 +49,14 @@
                     <span class="advise-contact">LIÊN HỆ TƯ VẤN</span>
                   </span>
                 </a> -->
-                <button type="button" class=" btn btn-success h-75 ml-1 " > 
+                <button type="button" class=" btn btn-success h-100 ml-1 my-auto " > 
                   <a routerLink="/lien-he" class="lh advise-contact" >LIÊN HỆ TƯ VẤN</a>
                 </button>
 
 
               </div>
               <div class="navigation-menu navigation-menu--onepage navigation-menu--text_white ">
-                <ul class="menu-primary text-uppercase" id="navi">
+                <ul class="menu-primary text-uppercase p-0 mb-2" id="navi">
                   <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu" id="child-li">
                     <a href="{{nav.url}}" routerLinkActive="active">{{nav.name}}</a>
                     <ul *ngIf="nav.navChild.length > 0" class="submenu" style="border-bottom: 0px solid ">
@@ -79,7 +79,7 @@
           </div>
           <!-- mobile nav -->
           <div class="header-mobile h-100 ">
-            <div class="row h-100 d-flex ">
+            <div class=" h-100 d-flex ">
               <div class="h-100 d-flex">
                 <a class="my-auto h-50 " href="/trang-chu" title="Ecoit">
                   <img class="img img-mobile" src="./assets/images/logoEcoit.jpg" alt="EcoIT">
@@ -123,6 +123,6 @@
       </div>
     </div>
   </div>
-
+<!-- .collapse -->
 </form>
 
