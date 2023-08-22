@@ -1,4 +1,8 @@
 
+
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
   .header-menu{
     text-align: center;
     justify-content: center;
