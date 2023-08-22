@@ -3,7 +3,7 @@ export class Nav {
   name: string;
   url :string;
   parentId: number;
-  navChild?: any;
+  navChild: Nav[] = [];
   selected: boolean;
   active: boolean;
 }

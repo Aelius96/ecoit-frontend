@@ -46,43 +46,38 @@ export class NavigatorControlComponent {
     size: 16,
     totalRecord: 0
   }
+  constructor(private router: Router,private navService:NavService) {
 
+  }
   actionT = false;
   actionId: any;
   // modalRef?: NgbModalRef; //tùy chọn có hoặc ko
-  constructor(private router: Router,
-              private navService:NavService,
-  ) {
-
-  }
   ngOnInit(): void {
     this.listtree();
-    // this.getListAllWithPage();
   }
-  private transformer = (node: Nav, level: number) => {
+  private transformer = (nav: Nav, level: number) => {
     return {
-      expandable: !!node.navChild && node.navChild.length > 0,
-      name: node.name,
-      id: node.id,
-      url: node.url,
+      expandable: !!nav.navChild && nav.navChild.length > 0,
+      name: nav.name,
+      id: nav.id,
+      url: nav.url,
       level: level,
     };
   }
 
-treeControl = new FlatTreeControl<ExampleFlatNode>(
-  node => node.level, node => node.expandable);
+  treeControl = new FlatTreeControl<ExampleFlatNode>(
+    nav => nav.level, nav => nav.expandable);
 
-treeFlattener = new MatTreeFlattener(
-    this.transformer, node => node.level, node => node.expandable, node => node.navChild);
-dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
-  
-
+  treeFlattener = new MatTreeFlattener(
+      this.transformer, nav => nav.level, nav => nav.expandable, nav => nav.navChild);
+  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+  hasChild = (_: number, nav: ExampleFlatNode) => nav.expandable;  
   listtree(){
     const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
-    this.navService.listAllWithPage(params).subscribe(data=>{
+    this.navService.listAllWithPage(params).subscribe(res=>{
       // this.dataSource.data = data
-      this.dataSource.data = data;
+      this.dataSource.data = res
+      console.log(this.dataSource)
       // console.log(this.dataSource.data)
       // this.dataSource.data.forEach((element) => {
       //   this.navService.getChildNav(element.id).subscribe(res => {
@@ -90,11 +85,10 @@ dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
       //     console.log(res);
       //   })
       // })
-      console.log(this.dataSource.data)
-    })
-    
-  }
 
+    })
+  }
+  
   getListAllWithPage(): void {
     const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
 
@@ -113,12 +107,8 @@ dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
           console.log(error);
         });
   }
-hasChild(_:number , node: Nav):boolean{
-  return !!node.navChild&&node.navChild.length>0
-}
-hasChild1(_:number , node: ExampleFlatNode):boolean{
-  return node.expandable
-}
+
+
 // ======
 
 // ========

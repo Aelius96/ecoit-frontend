@@ -55,7 +55,7 @@
 
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="mat-tree">
 
-      <mat-tree-node *matTreeNodeDef="let nav " matTreeNodeToggle matTreeNodePadding class="matree-node"   >
+      <mat-tree-node *matTreeNodeDef="let nav"   matTreeNodePadding >
           <li class="mat-tree-node">
             <button mat-icon-button disabled></button>
             <input  #checkboxes type="checkbox" [value]="nav.selected" [class.selected]="nav.selected"  name="foo" (change)="onCheckChange($event, nav)">
@@ -84,12 +84,9 @@
               <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav.id)"  ></i>
             </div>
           </div>
-          <div [class.example-tree-invisible]="!treeControl.isExpanded(nav)">
-            <ng-container matTreeNodeOutlet></ng-container>
-          </div>
+          
       </mat-tree-node>
     </mat-tree>
-    
   </div>
 
 
