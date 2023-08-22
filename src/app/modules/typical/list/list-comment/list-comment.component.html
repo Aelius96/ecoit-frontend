@@ -1,38 +1,40 @@
 <div class="toolbar">
-  <div class="d-flex  justify-content-between header-menu ">
-    <div class="left-d-flex">
-      <div class="d-flex">
-        <h5 class="h5">Bình luận</h5>
-        <form (ngSubmit)="search()" #form="ngForm" class="d-flex">
-          <input type="text " class="form-control " [(ngModel)]="paging.search" name="paging.search"
-            placeholder="Tìm kiếm" style="height: 30px; width: 110px;">
-          <div class="input-group-append inputt">
-            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-          </div>
-        </form>
+  <div class="container">
+    <div class="d-flex  justify-content-between header-menu ">
+      <div class="left-d-flex">
+        <div class="d-flex">
+          <form (ngSubmit)="search()" #form="ngForm" class="d-flex">
+            <input type="text" class=" searchinput mr-1 " [(ngModel)]="paging.search" name="paging.search"
+              placeholder="Tìm kiếm"  >
+            <div class="input-group-append ">
+              <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-    <div class="right-d-flex">
-      <div class="d-flex  flex-wrap">
-        <div class="menu-item ">
-          <div class="d-flex">
-            <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
-              [(pageSize)]="paging.size"></app-page-size>
-            <a routerLink="../">
-              <i class="fa fa-arrow-circle-o-left" style="font-size: 26px; margin-left: 8px; color: black;"></i>
-            </a>
+      <div class="right-d-flex">
+        <div class="d-flex  flex-wrap">
+          <div class="menu-item ">
+            <div class="d-flex">
+              <span class="my-auto mr-1">Số mục mỗi trang:</span>
+              <app-page-size class="my-auto" (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                [(pageSize)]="paging.size"></app-page-size>
+              <a routerLink="../" class="my-auto ml-2" style="font-size: 26px; color: black;">
+                <i class="fa fa-arrow-circle-o-left"></i>
+              </a>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
+
 </div>
 
 
-<div class="section-space--mt_120">
+<div class="section-space--mt_80">
   <div class="container">
+    <h3 class="text-title  section-space--mb_60 ">bình luận</h3>
     <div class="row" style="font-weight: bold; color: #1076bc; font-size: 18px;">
       <div class="col-md-12">
         <div class="card " style="background-color: #eeeeee; ">

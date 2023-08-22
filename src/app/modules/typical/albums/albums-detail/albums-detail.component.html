@@ -1,20 +1,22 @@
 <div class="toolbar">
-  <div class="d-flex  justify-content-between header-menu ">
-    <div class="left-d-flex">
-      <div class="d-flex">
-        <a class="control" style="width: 80px" routerLink="../"><span style="font-weight: bold;" class="spann">Kho Ảnh
-            /</span></a>
-        <a class="control" style="width: 120px ;padding-right: 10px;" href="admin/tImage"><span class="spann">Ảnh Hoạt
-            Động</span></a>
-      </div> <!--   -->
-    </div>
-    <div class="right-d-flex">
-      <div class="d-flex  flex-wrap">
-        <div class="menu-item ">
-          <div class="d-flex">
-            <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <app-app-page-size-image (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
-              [(pageSize)]="paging.size"></app-app-page-size-image>
+  <div class="container">
+    <div class="d-flex  justify-content-between header-menu ">
+      <div class="left-d-flex">
+        <div class="d-flex">
+          <a class="control" style="width: 80px" routerLink="../"><span style="font-weight: bold;" class="spann">Kho Ảnh
+              /</span></a>
+          <a class="control" style="width: 120px ;padding-right: 10px;" href="admin/tImage"><span class="spann">Ảnh Hoạt
+              Động</span></a>
+        </div> <!--   -->
+      </div>
+      <div class="right-d-flex">
+        <div class="d-flex  flex-wrap">
+          <div class=" ">
+            <div class="d-flex">
+              <span class=" mr-1">Số mục mỗi trang:</span>
+              <app-app-page-size-image (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                [(pageSize)]="paging.size"></app-app-page-size-image>
+            </div>
           </div>
         </div>
       </div>

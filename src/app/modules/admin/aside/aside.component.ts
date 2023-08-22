@@ -1,6 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from "../../../services/user/user.service";
-import {User} from "../../../core/model/user/user";
+import {Component} from '@angular/core';
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 
 @Component({
@@ -9,37 +7,24 @@ import {TokenStorageService} from "../../../services/token-storage/token-storage
   styleUrls: ['./aside.component.css']
 })
 export class AsideComponent {
-  //  user: User[] = [];
-  //  role :any;
-  // constructor(private userService:UserService,private tokenStorageService: TokenStorageService) {
-  // }
-  //
-  // ngOnInit(): void {
-  //   this.role = this.tokenStorageService.getToken().roles;
-  //   this.getAllUser();
-  // }
-  //
-  // getAllUser(){
-  //   return this.userService.getAllUser().subscribe(data =>{
-  //     this.user = data;
-  //   })
-  // }
+  
+  constructor(private tokenStorageService: TokenStorageService) { }
 
   aside =[
     {
       id:1,
-      tittle:'Dashboard',
-      a: '/admin',
-      icon:'far fa-home'
+      tittle:'Con số tiêu biểu',
+      a: 'dashboard',
+      icon:'fa fa-line-chart'
     },
     {
-      id:9,
-      tittle:'Chuyên mục',
+      id:2,
+      tittle:'Chuyên mục bài viết',
       a:'category',
       icon:'fa fa-th-large',
     },
     {
-      id:2,
+      id:3,
 
       tittle: 'Bài viết',
       a: 'bpost',
@@ -47,37 +32,49 @@ export class AsideComponent {
     }
     ,
     {
-      id:3,
+      id:4,
       tittle:'Khách hàng',
       a: 'customer',
       icon:'far fa-handshake'
     },
     {
-      id:4,
+      id:5,
       tittle:'sản phầm',
       a: 'product',
       icon:'far fa-box'
     },
     {
-      id:5,
+      id:6,
       tittle:'Trình chiếu',
       a: 'sliders',
       icon:'far fa-columns'
     },
     {
-      id:6,
-      tittle:'Điều hướng',
+      id:7,
+      tittle:'thanh Điều hướng',
       a: 'nav',
       icon:'far fa-bars'
     },
     {
-      id:7,
+      id:8,
+      tittle: 'Giới thiệu',
+      a: 'about',
+      icon:'fa fa-users',
+    },
+    {
+      id:9,
       tittle: 'Danh sách',
       a: 'list',
       icon:'fas fa-clipboard-list',
     },
     {
-      id:8,
+      id:10,
+      tittle: 'kho ảnh',
+      a: 'albums',
+      icon:'fa fa-picture-o',
+    },
+    {
+      id:11,
       tittle: 'Tài khoản',
       a: 'user',
       icon:'far fa-user',
@@ -85,6 +82,11 @@ export class AsideComponent {
 
   ]
 
-
-
+  logout() {
+    let cf=confirm("Bạn có muốn đăng xuất");
+    if(cf){
+      this.tokenStorageService.signOut();
+      window.location.reload();
+    }
+  }
 }

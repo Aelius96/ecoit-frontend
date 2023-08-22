@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PostService} from "../../services/post/post.service";
 import {Post} from "../../core/model/post/post";
 import { Category } from 'src/app/core/model/category/category';
@@ -30,7 +30,8 @@ export class SearchComponent implements OnInit
 
   constructor(private route: ActivatedRoute,
               private postService: PostService,
-              private cateService: CategoryService) {
+              private cateService: CategoryService ,
+              private router:Router) {
   }
 
   ngOnInit(): void {
@@ -76,7 +77,7 @@ export class SearchComponent implements OnInit
         error => {
           console.log(error);
         });
-      
+
   }
 
   handlePageChangeTest(event: number): void {
@@ -92,6 +93,9 @@ export class SearchComponent implements OnInit
 
     })
   }
-
+  goToSearch():void{
+    this.router.navigate(['/tim-kiem/'+this.searchInput]);
+    console.log(this.searchInput);
+  }
 
 }

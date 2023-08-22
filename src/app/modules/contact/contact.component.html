@@ -57,7 +57,9 @@
               <input class="input-info w-100" type="email" name="email" id="email" [(ngModel)]="contact.email" required >
             </label> <br>
             <label for="content">
-              <span>Nội dung</span> <br>
+              <span>Nội dung</span>
+              <span style="color: red;">*</span>
+               <br>
               <textarea name="" id="content" class="input-info__textarea w-100" cols="30" rows="8" style="overflow: auto;
               resize: vertical;" name="content"[(ngModel)]="contact.content" required="content" ></textarea>
             </label>

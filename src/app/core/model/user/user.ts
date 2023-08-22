@@ -8,7 +8,7 @@ export class User {
   firstName:any;
   lastName:any;
   active:any;
-  role?:Role[];
+  role:Role[];
   token: string;
 
 

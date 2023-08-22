@@ -127,6 +127,7 @@ import { SearchComponent } from './modules/search/search.component';
 import { AnimatedDigitComponent } from './_animation/animated-digit/animated-digit.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+
 import {ToastrModule} from 'ngx-toastr'
 
 @NgModule({
@@ -250,6 +251,7 @@ import {ToastrModule} from 'ngx-toastr'
       positionClass: 'toast-bottom-right' ,
       timeOut:3000,
     }),
+
   ],
 
 

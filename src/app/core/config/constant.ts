@@ -18,20 +18,20 @@ export class Constant {
     UPDATE :`${Domain.ABOUT}/update`,
     GETID : `${Domain.ABOUT}`,
     LIST : `${Domain.ABOUT}`
-  } 
+  }
 
   public static ADDRESS ={
       CREATE : `${Domain.ADDRESS}/add`,
       UPDATE :`${Domain.ADDRESS}/update`,
       DELETE : `${Domain.ADDRESS}/delete`,
       LIST : `${Domain.ADDRESS}`
-  }  
+  }
   public static AUTH ={
       REGISTER : `${Domain.AUTH}/register`,
       LOGIN :`${Domain.AUTH}/admin/login`,
       LOGIN_USER : `${Domain.AUTH}/login`,
-  }  
-  
+  }
+
   public static CATEGORY ={
     CREATE : `${Domain.CATEGORY}/create`,
     UPDATE :`${Domain.CATEGORY}/update`,
@@ -39,7 +39,7 @@ export class Constant {
     LIST : `${Domain.CATEGORY}/list`,
     LIST_PAGE_SIZE : `${Domain.CATEGORY}`,
     GET_BY_ID:`${Domain.CATEGORY}`
-} 
+}
   public static COMMENT = {
     GET_LIST_COMMENT_WITH_PAGE_ADMIN: `${Domain.COMMENT}/search`,
     GET_COMMENT_CHILD_BY_PARENT : `${Domain.COMMENT}/get`,
@@ -70,6 +70,7 @@ export class Constant {
     LIST_ALL_WITH_PAGE : `${Domain.CUSTOMER}`,
     GET_ALL_CUSTOMER : `${Domain.CUSTOMER}/home`,
     ADD_CUSTOMER: `${Domain.CUSTOMER}/add`,
+    ADDDTO_CUSTOMER: `${Domain.CUSTOMER}/adddto`,
     UPDATE_CUSTOMER : `${Domain.CUSTOMER}/update`,
     DELETE_CUSTOMER: `${Domain.CUSTOMER}/delete`,
     GET_CUS_BY_ID: `${Domain.CUSTOMER}`,
@@ -130,18 +131,18 @@ export class Constant {
     DELETE_NUMBER: `${Domain.NUMBER}/delete`,
   }
   public static POST={
-    LIST_ALL_WITH_PAGE : `${Domain.POST}` , 
-    LIST_ALL_WITH_PAGE_HOME: `${Domain.POST}/filter` , 
-    LIST_ALL_WITH_PAGE_BY_NEWS: `${Domain.POST}/home/show/news` , 
-    LIST_ALL_WITH_PAGE_BY_RECRUIT: `${Domain.POST}/home/show/recruit` , 
-    LIST_ALL: `${Domain.POST}/list` , 
-    SEARCH: `${Domain.POST}/tim-kiem` , 
-    GET_POST_BY_URL: `${Domain.POST}/home` , 
-    CREATE_POST: `${Domain.POST}/add` , 
-    GET_POST_BY_ID: `${Domain.POST}` , 
-    UPDATE_POST: `${Domain.POST}/update` , 
-    DELETE_POST: `${Domain.POST}/delete` , 
-    GET_IMAGE_BY_POST_ID: `${Domain.POST}/image`, 
+    LIST_ALL_WITH_PAGE : `${Domain.POST}` ,
+    LIST_ALL_WITH_PAGE_HOME: `${Domain.POST}/filter` ,
+    LIST_ALL_WITH_PAGE_BY_NEWS: `${Domain.POST}/home/show/news` ,
+    LIST_ALL_WITH_PAGE_BY_RECRUIT: `${Domain.POST}/home/show/recruit` ,
+    LIST_ALL: `${Domain.POST}/list` ,
+    SEARCH: `${Domain.POST}/tim-kiem` ,
+    GET_POST_BY_URL: `${Domain.POST}/home` ,
+    CREATE_POST: `${Domain.POST}/add` ,
+    GET_POST_BY_ID: `${Domain.POST}` ,
+    UPDATE_POST: `${Domain.POST}/update` ,
+    DELETE_POST: `${Domain.POST}/delete` ,
+    GET_IMAGE_BY_POST_ID: `${Domain.POST}/image`,
   }
   public static  PRODUCT = {
     LIST_ALL_WITH_PAGE : `${Domain.PRODUCT}` ,
@@ -169,10 +170,11 @@ export class Constant {
     GET_IMAGE: `${Domain.SLIDERS}/images` ,
   }
   public static USER={
-    GET_LIST_ALL_WITH_PAGE_USER:`${Domain.USER}` , 
-    GET_USER_BY_ID:`${Domain.USER}` , 
-    UPDATE_USER:`${Domain.USER}/update` , 
-    DELETE_USER:`${Domain.USER}/delete` , 
-    CHANGE_PASSWORD:`${Domain.USER}/changePassword` , 
+    GET_LIST_ALL_WITH_PAGE_USER:`${Domain.USER}` ,
+    GET_USER_BY_ID:`${Domain.USER}` ,
+    UPDATE_USER:`${Domain.USER}/update` ,
+    UPDATE_USER1:`${Domain.USER}/update1` ,
+    DELETE_USER:`${Domain.USER}/delete` ,
+    CHANGE_PASSWORD:`${Domain.USER}/changePassword` ,
   }
 }

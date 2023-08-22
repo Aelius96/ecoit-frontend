@@ -8,6 +8,6 @@ export class Customer{
     bgIColor: any
     icon: any;
     url: any;
-    products?:Product[];
+    products:Product[] = [];
 
 }

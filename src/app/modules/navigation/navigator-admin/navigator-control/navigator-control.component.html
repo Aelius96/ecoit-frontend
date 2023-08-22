@@ -1,18 +1,18 @@
 
 <div class="toolbar">
+  <div class="container">
     <div class="d-flex  justify-content-between header-menu ">
       <div class="left-d-flex">
         <div class="d-flex">
-          <span  class="spann tt">Điều hướng</span>
-          <input type="text " (click)="searchTitleAndDescription()" placeholder="Tìm kiếm" class="search">
+          <input type="text " (click)="searchTitleAndDescription()" placeholder="Tìm kiếm" class="searchinput">
           <div class="input-group-append " >
             <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
         </div>
       </div>
-      <div class="right-d-flex">
+      <div class="right-d-flex my-auto">
         <div class="d-flex  flex-wrap">
-          <div class="d-flex selected menu-item " *ngIf="selects">
+          <div class="d-flex selected  my-auto " *ngIf="selects">
             <span style="margin-right: 6px; margin-top: 2px;">Đã chọn: </span>
             <div class="selected-number menu-link ">{{selects}}</div>
             <div class="menu-link">
@@ -26,28 +26,27 @@
               </a>
             </div>
           </div>
-          <div class="menu-item ">
+          <div class="mx-2">
             <div class="d-flex">
-              <!-- <div routerLink="./test">
-                test
-              </div> -->
-              <span class="mt-1 mr-1">Số mục mỗi trang:</span>
+              <span class="my-auto mr-1">Số mục mỗi trang:</span>
                  <app-app-page-size-image  (pageSizeChange)="handlePageChange($event)"
                                           [totalRecords]="paging.totalRecord"
                                           [(pageSize)]="paging.size"></app-app-page-size-image>
             </div>
           </div>
 
-          <div class="menu-item">
-            <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+          <div class="">
+            <a class="ht-btn-custom my-auto" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
           </div>
         </div>
       </div>
     </div>
   </div>
+ 
+  </div>
 
-  <div class="container  section-space--mt_120">
-
+  <div class="container  section-space--mt_80">
+    <h3 class="text-title mb-5 ">điều hướng</h3>
     <div class="row title">
       <button mat-icon-button disabled  ></button>
       <div class="col-md-4 name-navi ">Tên</div>

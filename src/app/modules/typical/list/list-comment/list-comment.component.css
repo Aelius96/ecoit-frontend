@@ -1,32 +1,20 @@
-.toolbar{
-    height: 65px;
-    background-color: white;
-    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-    border-top: 1px solid #eff2f5;
-  }
+
   .header-menu{
-    padding: 10px 15px 0px 12px;
     text-align: center;
     justify-content: center;
     align-content: center;
   }
-  .h5{
-    font-weight: bolder;
-    font-size: 18px;
-    color: black;
-    width: 100%;
-    margin-right: 10px;
-
-  }
-  .menu-item{
-    padding-left: 20px;
-    margin-top: 8px;
-  }
-  .custom-select{
-    width: 60px;
-    text-align: center;
-    justify-content: center;
+  .searchinput{
+    border-radius: 5px;
     align-items: center;
+    background-color: #EAEFF4;
+    border: 1px solid #F6F9FC;
+    height: 30px;
+    width: 50%;
+   }
+   input:focus{
+    border: 1px solid #111111;
+    color: black;
   }
   .item-blog{
     margin-top: 30px;
@@ -36,34 +24,29 @@
     font-size: 15px;
     margin-top:7px;
   }
-  .inputt{
-    margin-left: 0px;
-    height: 30px;
-    margin-top:7px;
-  }
+
 .input-group-text{
     margin-right: 10px;
 }
 
-
-.item-select{
-  margin-top: 7px;
-}
-.custom-select{
-  width: 60px;
-  text-align: center;
-  
-  font-size: 15px;
-}
   /*  */
   
    /* view mới */
+   .text-title{
+    text-transform: uppercase;
+    color: #50b848;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+  }
    .cmt-content{
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
    }
+
 
    .cmt-content:hover{
     text-decoration: none;
@@ -79,7 +62,7 @@
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  max-height: 500px;
+  max-height: 600px;
 }
 .list-cmt::-webkit-scrollbar{
   width: 0px !important;
@@ -120,7 +103,6 @@ margin-left: 10px;
 }
 
 img{
-  
   height: 100%;
   border-radius: 50%;
 }
@@ -130,7 +112,6 @@ img{
   margin: 0px 20px 0px 20px;
 }
 .tab{
-  
   padding: 5px;
 }
 .reply-content{
@@ -180,25 +161,3 @@ img{
   color: #171717;
   border: 1px solid gainsboro;
 }
-/* 
-.btn-link:hover{
-  text-decoration: none;
-
-}
-.reply-submit{
- margin-bottom: 10px;
-}
-
-.reply-content{
-  border: 0.3px solid #e8e8e8;
-  background-color: #f8f8f8;
-  padding: 5px;
-  border-radius: 5px;
-  width: 100%;
-
-}
-.child-content{
-  width: 100%;
-   word-wrap: break-word;
-} */
-

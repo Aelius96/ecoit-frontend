@@ -1,30 +1,31 @@
 <div class="toolbar">
+  <div class="container">
   <div class="d-flex  justify-content-between header-menu ">
-    <div class="left-d-flex">
+    <div class="left-d-flex my-auto ">
       <div class="d-flex">
           <a class="control" style="width: 80px" routerLink="../albums"  routerLinkActive="active"><span class="spann">Kho Ảnh /</span></a>
         <a class="control"  style="width: 120px ;padding-right: 10px;" routerLink="../tImage" routerLinkActive="active"  ><span class="spann" style="font-weight: bolder;">Ảnh Hoạt Động</span></a>
-
       </div>
     </div>
     <div class="right-d-flex">
       <div class="d-flex  flex-wrap">
-        <div class="menu-item ">
+        <div class=" mr-2 ">
           <div class="d-flex">
-            <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-              <app-app-page-size-image
+            <span class=" my-auto mr-1">Số mục mỗi trang:</span>
+              <app-app-page-size-image class=" my-auto"
               (pageSizeChange)="handlePageSizeChange($event)"
               [totalRecords]="paging.totalRecord"
               [(pageSize)]="paging.size"
                ></app-app-page-size-image>
           </div>
         </div>
-        <div class="menu-item">
+        <div class="">
           <a class="ht-btn-custom" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 

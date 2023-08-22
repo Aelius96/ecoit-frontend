@@ -1,13 +1,12 @@
 
 .text-headeradmin{
-  padding-right: 5px;
-  padding-left: 5px;
+
   border-radius: 5px ;
-  background-color: rgba(199, 200, 201, 0.82);
+
   color: #34831a;
 }
 .header-left-headeradmin{
-  font-size: 20px;
+  font-size: 24px;
   color: black;
 }
 .header-admin{
@@ -15,28 +14,8 @@
   top: 0;
   right: 0;
   left: 270px;
-  z-index: 999;
-  background-color: #fff;
-
-
-}
-.head-menu-headeradmin{
-  margin-left: 10px;
-  justify-content: center;
+  z-index: 10;
+  background-color: #ffffff;
 }
 
-.button-headeradmin{
-  padding:0px 5px ;
-  height: 40px;
-  margin-right: 80px;
-  font-size: 15px;
-}
-.item-btn-headeradmin{
-  font-size: 15px;
-}
-.item-btn-headeradmin:hover{
-  background-color: gainsboro;
-}
-.drop:hover{
-  background-color: gainsboro;
-}
+

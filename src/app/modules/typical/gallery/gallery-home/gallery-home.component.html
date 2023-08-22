@@ -1,14 +1,14 @@
 
 <div class="container" style="padding-bottom: 20px;">
   <div class=" text-center " style="margin-bottom: 30px;">
-    <h2 style="margin-top: 30px; font-size: 30px;" class="chuyenmuc" >HÌNH ẢNH HOẠT ĐỘNG</h2>
-    <hr id="gachchan" class="gioithieu">
+    <h2 style="margin-top: 30px; font-size: 30px;" class="chuyenmuc mb-5" >HÌNH ẢNH HOẠT ĐỘNG</h2>
+    
   </div>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
       <!--  <div class="item " [class]="s == 0 ? 'active' : '' " *ngFor="let recruit of recruitList ; let s = index "> -->
       <div class="item " [class]=" i==0 ? 'active ' : '' "  *ngFor="let img of gallery ; let i = index" >
-        <img style="width: 100%; height: 600px;" src="{{baseURL}}/{{galleryURL}}/image/{{img.image.name}}"
+        <img style="width: 100%;" src="{{baseURL}}/{{galleryURL}}/image/{{img.image.name}}"
              alt="Image" loading="lazy">
       </div>
     </div>

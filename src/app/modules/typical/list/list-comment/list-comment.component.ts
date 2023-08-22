@@ -36,7 +36,7 @@ constructor(
             private toast:ToastService ){}
 
   ngOnInit(): void {
-    
+
     if(this.tokenStorageService.getToken()){
       this.username = this.tokenStorageService.getUser().username;
       this.userId = this.tokenStorageService.getUser().id;
@@ -67,17 +67,17 @@ constructor(
      this.commentList = res.content;
     this.paging.totalRecord = res.totalElements;
       console.log(this.commentList)
-    }, 
+    },
     error=>{
       console.log(error)
     }
     )
   }
-    // 
+    //
   getAllCommentAdmin(){
     this.commentService.getParentCmtAdmin().subscribe(data=>{
         this.commentList = data;
-       
+
         console.log(this.postId);
       },
       error=>{
@@ -123,7 +123,7 @@ constructor(
   }
 
   getCommentChildAdmin(){
-    
+
     this.commentService.getCommentChildByParentAdmin().subscribe(data=>{
         this.commentListChild = data;
       },

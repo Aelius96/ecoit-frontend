@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CountryISO, PhoneNumberFormat,SearchCountryField } from 'ngx-intl-tel-input';
 import { Contact } from 'src/app/core/model/contact/contact';
 import { ContactService } from 'src/app/services/contact/contact.service';
+import { ToastService } from '../toast/toast.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -14,7 +16,8 @@ export class ContactComponent  implements OnInit {
   contact: Contact=new Contact();
   
   constructor( private contactService: ContactService,
-           private router: Router ){  }
+              private toastService: ToastService , 
+              private toast : ToastrService  ){  }
 
   ngOnInit(): void {
   }
@@ -25,8 +28,15 @@ export class ContactComponent  implements OnInit {
   
   SendContact(){
       this.contactService.AddContact(this.contact).subscribe(()=>{
-        location.reload()
-        alert('Gửi thành công')
+        this.toast.success('Bạn đã gửi thành công', 'Thành Công!',);
+        setTimeout(() => {
+          location.reload()
+        }, 1000);
+        
+      },
+      err=>{
+        this.toastService.showWarning( err.error);
+        console.log(err.error)
       }
       )
   }
