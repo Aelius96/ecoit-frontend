@@ -13,6 +13,17 @@ import {HttpErrorResponse} from "@angular/common/http";
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
+import {FlatTreeControl} from '@angular/cdk/tree';
+import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
+
+interface ExampleFlatNode {
+  expandable: boolean;
+  name: string;
+  level: number;
+  id: number;
+  url: string;
+}
+
 @Component({
   selector: 'app-navigator-control',
   templateUrl: './navigator-control.component.html',
@@ -39,31 +50,49 @@ export class NavigatorControlComponent {
   actionT = false;
   actionId: any;
   // modalRef?: NgbModalRef; //tùy chọn có hoặc ko
-
   constructor(private router: Router,
               private navService:NavService,
   ) {
 
   }
-
   ngOnInit(): void {
     this.listtree();
     // this.getListAllWithPage();
-
-
   }
-// treemat
+  private transformer = (node: Nav, level: number) => {
+    return {
+      expandable: !!node.navChild && node.navChild.length > 0,
+      name: node.name,
+      id: node.id,
+      url: node.url,
+      level: level,
+    };
+  }
 
-  treeControl = new NestedTreeControl<Nav>(node => node.navChild);
-  dataSource = new MatTreeNestedDataSource<Nav>();
+treeControl = new FlatTreeControl<ExampleFlatNode>(
+  node => node.level, node => node.expandable);
 
+treeFlattener = new MatTreeFlattener(
+    this.transformer, node => node.level, node => node.expandable, node => node.navChild);
+dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+
+  
 
   listtree(){
     const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
     this.navService.listAllWithPage(params).subscribe(data=>{
-      this.dataSource.data = data
+      // this.dataSource.data = data
+      this.dataSource.data = data;
+      // console.log(this.dataSource.data)
+      // this.dataSource.data.forEach((element) => {
+      //   this.navService.getChildNav(element.id).subscribe(res => {
+      //     element.navChild = res;
+      //     console.log(res);
+      //   })
+      // })
       console.log(this.dataSource.data)
     })
+    
   }
 
   getListAllWithPage(): void {
@@ -87,10 +116,10 @@ export class NavigatorControlComponent {
 hasChild(_:number , node: Nav):boolean{
   return !!node.navChild&&node.navChild.length>0
 }
-
+hasChild1(_:number , node: ExampleFlatNode):boolean{
+  return node.expandable
+}
 // ======
-
-
 
 // ========
   onCheckChange(event: any, navigator: Nav){

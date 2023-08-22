@@ -3,7 +3,8 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { NavigatorControlComponent } from "../navigation/navigator-admin/navigator-control/navigator-control.component";
 import { NavigatorAddComponent } from "../navigation/navigator-admin/navigator-add/navigator-add.component";
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -18,6 +19,8 @@ const routes: Routes = [
     declarations:[],
     imports:[
       CommonModule,
+      MatButtonModule,
+      MatIconModule,
       RouterModule.forChild(routes),
     ],
     exports: [RouterModule]
