@@ -16,10 +16,11 @@ export class ContactService {
   }
 
   listAllsizePage(params:any ):Observable<any>{
-    return this.apiHelper.get( Constant.CONTACT.LIST_ALL_SIZE_PAGE , { params  }  ).pipe(
-      tap(contact => console.log(`data_json = ${JSON.stringify(contact)}`)),
-      catchError( () => of([]) )
-       )
+    return this.apiHelper.get( Constant.CONTACT.LIST_ALL_SIZE_PAGE , { params  }  )
+    // .pipe(
+    //   tap(contact => console.log(`data_json = ${JSON.stringify(contact)}`)),
+    //   catchError( () => of([]) )
+    //    )
   }
 
   listAllContact():Observable<any>{
