@@ -14,9 +14,30 @@ export class ToastService {
   showUpdate(){
    this.toast.info('Cập nhật thành công', 'Thông báo!', {});
   }
-  showWarning(error:any)
+  showWarning(error:any,inputs?:string)
    {
-   this.toast.warning(error, 'Cảnh Báo!', {});
-  }
+    if(inputs){
+      const input = document.getElementById(inputs);
 
+        input?.addEventListener('focus', () => {
+          input.style.border = '1px solid red';
+        });
+        input?.focus();
+        this.toast.warning(error, 'Cảnh Báo!', {});
+    }
+    else{
+      this.toast.warning(error, 'Cảnh Báo!', {});
+    }
+  
+  }
+  chuyenslide(){
+    this.toast.info("bạn đã chuyển sang chế độ trình chiếu", 'thông báo', {
+      timeOut : 2000
+    });
+  }
+  chuyenchedoIMG(){
+    this.toast.info("bạn đã chuyển sang chế độ trình ảnh", 'thông báo', {
+      timeOut : 2000
+    });
+  }
 }

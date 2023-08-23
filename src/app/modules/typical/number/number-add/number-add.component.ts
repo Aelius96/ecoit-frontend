@@ -3,6 +3,8 @@ import {NumberService} from "../../../../services/number-typical/number.service"
 import {ActivatedRoute, Router} from "@angular/router";
 import {Number} from "../number";
 import { ToastService } from 'src/app/modules/toast/toast.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { parseNumber } from 'libphonenumber-js';
 
 @Component({
   selector: 'app-number-add',
@@ -12,7 +14,14 @@ import { ToastService } from 'src/app/modules/toast/toast.service';
 export class NumberAddComponent implements OnInit{
 
   tNumber: Number =new Number();
+  messageError=''
+  inputs=''
   id: any;
+  formGroup = new FormGroup({
+    numberic: new FormControl(),
+    description: new FormControl(),
+    icon: new FormControl()
+  });
 
   constructor(private numService: NumberService, private route: ActivatedRoute, private router: Router , private toast:ToastService) { }
 
@@ -23,6 +32,8 @@ export class NumberAddComponent implements OnInit{
         this.tNumber = data;
       })
     }
+    
+    
   }
 
   rollbackToList(){
@@ -30,6 +41,9 @@ export class NumberAddComponent implements OnInit{
   }
 
   onSubmit() {
+    console.log(this.formGroup.controls['numberic'])
+    console.log(this.formGroup.controls['icon'].value)
+    console.log(this.formGroup.controls['description'].value)
     if (this.id) {
       this.numService.editNumber(this.tNumber, this.id).subscribe(() =>{
           this.toast.showSuccess()
@@ -39,12 +53,15 @@ export class NumberAddComponent implements OnInit{
           console.log(error.error)
         } )
     } else {
-      this.numService.addNumber(this.tNumber).subscribe(() =>{ 
-        this.toast.showSuccess()
-         this.rollbackToList()},error => {
-          this.toast.showWarning(error.error);
-          console.log(error.error)
-        }  )
+      if(this.formGroup.controls['numberic'].value===null){
+        this.numService.addNumber(this.tNumber).subscribe(() =>{ 
+          this.toast.showSuccess()
+          this.inputs="typeNumber"
+           this.rollbackToList()},error => {
+              this.toast.showWarning(error.error,this.inputs);
+          }  )
+      }
+      
     }
 
   }

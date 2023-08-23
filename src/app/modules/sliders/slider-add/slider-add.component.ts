@@ -14,6 +14,7 @@ import { ToastService } from '../../toast/toast.service';
 export class SliderAddComponent implements OnInit {
   baseURL = Constant.BASE_URL;
   id: any;
+  disable='disabled'
   slider: Slider = new Slider();
   url: any;
   fileToUpload:string [] = [];
@@ -113,6 +114,7 @@ export class SliderAddComponent implements OnInit {
     const reader = new FileReader();
     this.fileToUpload=files;
     reader.readAsDataURL(files[0]);
+    this.disable="";
     reader.onload = (_event) =>{
       this.imageURL= reader.result;
     }
