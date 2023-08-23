@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Number} from "../number";
 import { ToastService } from 'src/app/modules/toast/toast.service';
 
+
 @Component({
   selector: 'app-number-add',
   templateUrl: './number-add.component.html',
@@ -12,12 +13,12 @@ import { ToastService } from 'src/app/modules/toast/toast.service';
 export class NumberAddComponent implements OnInit{
 
   tNumber: Number =new Number();
-  listIcon : string[] = ["fas fa-address-book","fas fa-user","fas fa-university","fas fa-video",
-                         "fab fa-product-hunt","fas fa-university","fab fa-java","fab fa-google",
-                         "fa fa-envelope-open","fa fa-handshake-o","fas fa-users"];
   icons : string = ''
   id: any;
-
+  listIcon : any
+  allIcon : any
+  
+  
   constructor(private numService: NumberService, private route: ActivatedRoute, private router: Router , private toast:ToastService) { }
 
   ngOnInit(): void {
@@ -27,8 +28,18 @@ export class NumberAddComponent implements OnInit{
         this.tNumber = data;
       })
     }
+    this.getListIcon()
   }
-
+ 
+  getListIcon() {
+    this.numService.getListIconJson('icon.json').subscribe((data) => {
+      this.allIcon = data
+      
+    })
+    this.numService.getListIconJson('listIcon.json').subscribe((data) => {
+      this.listIcon = data
+    })
+  }
   rollbackToList(){
     this.router.navigate(['/admin/dashboard']);
   }

@@ -17,7 +17,8 @@
                     <!-- <input class="text-input" type="text" [(ngModel)]="tNumber.icon" name="icon" placeholder="Nhập mã " required > -->
                     <select class="text-input" name="icon" [(ngModel)]="icons">
                       <option value="" disabled selected hidden>những icon tiêu biểu </option>
-                      <option *ngFor="let icon of listIcon" [value]="icon">{{icon}}</option>
+                      <option *ngFor="let icon of listIcon" [value]="icon.class"[innerHTML]="icon.name + ' ' + icon.code"></option>
+                      
                     </select>
                     <!-- <i class="fa fa-check text-success" ng-show="form.icon.$dirty && form.icon.$valid"></i>
                     <div ng-show="form.icon.$dirty && form.icon.$invalid" class="text-danger"><i class="fa fa-times text-danger"></i>
