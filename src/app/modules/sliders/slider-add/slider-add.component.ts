@@ -4,7 +4,8 @@ import {SliderService} from "../../../services/slider/slider.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
 import {Domain} from "../../../core/domain/domain";
-import { ToastService } from '../../../services/toast/toast.service';
+import { ToastService } from '../../toast/toast.service';
+
 
 @Component({
   selector: 'app-slider-add',

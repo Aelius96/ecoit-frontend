@@ -12,7 +12,7 @@ import {FormControl} from "@angular/forms";
 import {HashtagService} from "../../../services/hashtag/hashtag.service";
 import {Constant} from "../../../core/config/constant";
 import {Domain} from "../../../core/domain/domain";
-import { ToastService } from '../../../services/toast/toast.service';
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-product-add',

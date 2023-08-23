@@ -8,7 +8,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
 import { Domain } from 'src/app/core/domain/domain';
 import {Role} from "../../../core/model/role/role";
-import { ToastService } from 'src/app/services/toast/toast.service';
+import { ToastService } from '../../toast/toast.service';
+
 
 
 @Component({

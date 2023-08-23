@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Nav} from "../../../../core/model/nav/nav";
 import {NavService} from "../../../../services/nav/nav.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import { ToastService } from 'src/app/services/toast/toast.service';
+import { ToastService } from 'src/app/modules/toast/toast.service';
 
 @Component({
   selector: 'app-navigator-add',

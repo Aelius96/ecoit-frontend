@@ -10,7 +10,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Category } from 'src/app/core/model/category/category';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { FormControl } from '@angular/forms';
-import { ToastService } from 'src/app/services/toast/toast.service';
+import { ToastService } from '../../toast/toast.service';
 
 
 @Component({

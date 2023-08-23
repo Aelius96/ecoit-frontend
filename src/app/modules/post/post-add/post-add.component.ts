@@ -17,7 +17,7 @@ import {MatChipInputEvent} from "@angular/material/chips";
 import {FileService} from "../../../services/file/file.service";
 
 import {Domain} from "../../../core/domain/domain";
-import { ToastService } from '../../../services/toast/toast.service';
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-post-add',

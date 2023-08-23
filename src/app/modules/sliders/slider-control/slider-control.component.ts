@@ -5,9 +5,7 @@ import {TokenStorageService} from "../../../services/token-storage/token-storage
 import {Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
 import {Domain} from "../../../core/domain/domain";
-import { ToastService } from 'src/app/services/toast/toast.service';
-import { timeout } from 'rxjs';
-
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-slider-control',
@@ -15,9 +13,9 @@ import { timeout } from 'rxjs';
   styleUrls: ['./slider-control.component.css']
 })
 export class SliderControlComponent {
-
   slider:boolean=true;
   sliders: Slider[] = [];
+  sliders2: Slider[] = [];
   target = {
     url: '',
     id: 1,
@@ -25,15 +23,16 @@ export class SliderControlComponent {
     link: '',
     active: false
   };
-   preview:boolean=true;
+
   slideConfig: any;
   baseURL = Constant.BASE_URL;
   sliderURL = Domain.SLIDERS;
    imageURL: any;
-   constructor(private sliderService: SliderService, private router: Router,private slideSericeslide:SliderService,private toastslide:ToastService) { }
+  constructor(private sliderService: SliderService, private router: Router,private slideSericeslide:SliderService,private toastslide:ToastService) { }
+
   ngOnInit(): void {
     this.getSlider();
-    this.getListAll();
+
     this.slideConfig = {
       infinite: true,
       slidesToShow: 5,
@@ -42,28 +41,29 @@ export class SliderControlComponent {
     };
   }
 
-  
-
   getSlider(){
     this.sliderService.getSliders().subscribe(data => {
       this.sliders = data
+
       this.choose(this.sliders[0]);
     });
   }
   getListAll(){
     this.slideSericeslide.getListAll().subscribe(data=>{
-      this.sliders=data;
-      this.choose(this.sliders[0]);
-   })
- }
-
+       this.sliders2=data;
+       this.choose(this.sliders[0]);
+    })
+  }
+  choose2(e:any){
+    console.log(e)
+  }
   choose(e: any){
     this.target.name = e?.name;
     this.target.url = e?.pathUrl;
     this.target.link = e?.url;
     this.target.id = e?.id;
     this.target.active = e?.active;
-    console.log(this.target.id)
+
     //get image by target name
     this.imageURL = `${this.baseURL}/${this.sliderURL}/image/${this.target.name}`
   }
@@ -76,17 +76,6 @@ export class SliderControlComponent {
       this.toastslide.chuyenchedoIMG()
     }
   }
-  previewimg(){
-    this.preview=!this.preview
-    this.choose(this.sliders[0]);
-    if(this.preview){
-      this.toastslide.defaut();
-    }
-    else{
-      this.toastslide.slide();
-    }
-  }
-
   updateSlider(id: number){
     return this.router.navigate(['admin/sliders/update', id]);
   }
