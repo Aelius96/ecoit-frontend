@@ -12,7 +12,6 @@ import { CategoryService } from 'src/app/services/category/category.service';
 import { FormControl } from '@angular/forms';
 import { ToastService } from '../../toast/toast.service';
 
-
 @Component({
   selector: 'app-category-add',
   templateUrl: './category-add.component.html',
@@ -22,7 +21,7 @@ export class CategoryAddComponent implements OnInit {
   category: Category = new Category();
   message = '';
   id: number;
-  messageError='';
+  messageError = '';
   formData: any;
   catogaryControl = new FormControl();
 
@@ -48,7 +47,7 @@ export class CategoryAddComponent implements OnInit {
     if (this.id) {
       this.update(this.id, this.category);
     } else {
-      // this.AddCategory();
+      this.AddCategory();
     }
   }
 
@@ -68,16 +67,16 @@ export class CategoryAddComponent implements OnInit {
     );
   }
 
-  // AddCategory() {
-  //   this.categoryService.AddCategory(this.category).subscribe(
-  //     () => {
-  //       this.toast.showSuccess();
-  //       this.cancel();
-  //     },
-  //     (error) => {
-  //       this.toast.showWarning(error.error,'typeName')
-  //       this.messageError=error.error
-  //     }
-  //   );
-  // }
+  AddCategory() {
+    this.categoryService.AddCategory(this.category).subscribe(
+      () => {
+        this.toast.showSuccess();
+        this.cancel();
+      },
+      (error) => {
+        this.toast.showWarning(error.error, 'typeName');
+        this.messageError = error.error;
+      }
+    );
+  }
 }
