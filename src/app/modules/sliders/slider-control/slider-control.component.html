@@ -7,7 +7,7 @@
       <div class="right-d-flex">
         <div class="d-flex  flex-wrap">
           <div class="">
-            <a class="ht-btn-custom my-auto" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+            <a class="ht-btn-custom my-auto" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus" style="font-size: 1.5em;"></i></a>
           </div>
         </div>
       </div>
@@ -25,6 +25,7 @@
         <div class="hienthi-left col-8">
           <div class="col-12">
             <div class="giaodienanh">
+
               <div *ngIf="slider; then img;else slide"></div>
               <ng-template #img>
               <img src="{{imageURL}}" alt="" class="anh">
@@ -49,6 +50,7 @@
             </ng-template>
             <img class="logochuyenslide" title="slide" (click)="chuyenslide()"
              src="\assets\images\logoslide.jpg">
+
             </div>
           </div>
         </div>
@@ -118,7 +120,10 @@
 
 
       <div class="list_img">
+
         <div class="">
+
+
           <div class="card-body">
             <ul class="nav flex-column nav-pills d-flex col-md-12">
               <li class="nav-item selected " *ngFor="let slide of sliders" >

@@ -4,17 +4,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
-<div class="col-md-12">
-  <div class="my-4">
-    <div class="wdc-heading style-1 text-left">
-      <h2 class="font-weight-bold text-success ml-5 ">Tìm kiếm: {{searchInput}}</h2>
-      <select [(ngModel)]="cateName"  name="cate" style="height: 30px; width: 40%;" class="ml-2 searchinput" (ngModelChange)="searchPostwithCate()">
-        <option value="" [selected]="true">Chuyên mục</option>
-        <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
-      </select>
-      <hr>
+<div class="container">
+  <div class="col-12">
+    <div class="my-4">
+      <div class="wdc-heading style-1 text-left">
+        <h2 class="font-weight-bold text-success ">Tìm kiếm: {{searchInput}}</h2>
+        <!-- <input type="text" class="searchinput " style="padding: 3px 20px;"  [(ngModel)]="searchInput" ><br> -->
+        <div class="w-25 mb-3 " >
+          <input type="text" [(ngModel)]="searchInput" placeholder="Tìm kiếm" style="padding: 3px 20px;" class="searchinput w-80 " name="searchInput" id="searchInput">
+          <input type="submit" (click)="goToSearch() " class="searchinput w-20 "  id="edit-submit">
+        </div>
+       
+        <select [(ngModel)]="cateName"  name="cate" class="w-25  searchinput" (ngModelChange)="searchPostwithCate()">
+          <option value="" [selected]="true">Tât cả</option>
+          <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
+        </select>
+      </div>
     </div>
   </div>
+
 </div>
 <div class="site-wrapper-reveal">
 

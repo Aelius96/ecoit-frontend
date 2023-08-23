@@ -106,6 +106,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {TagInputModule} from "ngx-chips";
 
 
+
 import { NgxInputTagModule } from '@ngx-lite/input-tag';
 import {SlickCarouselModule} from "ngx-slick-carousel";
 
@@ -128,23 +129,8 @@ import { AnimatedDigitComponent } from './_animation/animated-digit/animated-dig
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 
-import {
-  GalleryModule,
-  GalleryItem,
-  ImageItem,
-  ImageSize,
-  ThumbnailsPosition,
-  Gallery,
-} from 'ng-gallery';
-import { LightboxModule, Lightbox } from 'ng-gallery/lightbox';
-
-
-import { bootstrapApplication } from '@angular/platform-browser';
-import { Component } from '@angular/core';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { MatToolbarModule} from '@angular/material/toolbar';
-
 import {ToastrModule} from 'ngx-toastr'
+
 
 @NgModule({
   declarations: [
@@ -267,10 +253,7 @@ import {ToastrModule} from 'ngx-toastr'
       positionClass: 'toast-bottom-right' ,
       timeOut:3000,
     }),
-    LightboxModule,
-    MatButtonModule,
-    MatToolbarModule,
-    GalleryModule,
+
   ],
 
 

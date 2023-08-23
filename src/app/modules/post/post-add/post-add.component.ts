@@ -40,7 +40,7 @@ export class PostAddComponent implements OnInit{
   filteredHashtag: Observable<Hashtag[]>;
   selectedFile: File
   fileName: any;
- 
+
    currentPage: any;
    pageSize: any;
   constructor(private router:Router,
@@ -48,7 +48,7 @@ export class PostAddComponent implements OnInit{
               private postService: PostService,
               private categoryService:CategoryService,
               private hashtagService: HashtagService,
-              private fileService:FileService , 
+              private fileService:FileService ,
               private toastService:ToastService,
   ) {
 
@@ -149,11 +149,7 @@ export class PostAddComponent implements OnInit{
 
   }
 
-
-
-
   onSubmit(){
-
     if(this.id){
       this.updateDataToForm(this.id);
     }else{
@@ -165,50 +161,7 @@ export class PostAddComponent implements OnInit{
     this.post.category = event;
   }
 
-  savePost(){
-    const postFormData = this.prepareFormData(this.post);
-    this.postService.createPost(postFormData).subscribe(() =>{
-        this.toastService.showSuccess()
-        this.goToPostList();
-        
-      },
-      error =>{
-        this.toastService.showWarning(error.error)
-      console.log(error.error)}
-    );
-  }
 
-
-
-
-  goToPostList(){
-    this.router.navigate(['/admin/bpost']);
-
-  }
-
-  updateDataToForm(id: any){
-    const postFormData = this.prepareFormData(this.post);
-    this.postService.updatePost(id, postFormData).subscribe(data =>{
-      this.toastService.showSuccess()
-      this.goToPostList();
-       
-    },
-      error => {
-        this.toastService.showWarning(error.error);
-        console.log(error.error)
-      });
-  }
-
-  listAllCategory(){
-    this.categoryService.listAllCategory().subscribe(data =>{
-      this.categories = data;
-    })
-  }
-  listAllHashTag(){
-    this.hashtagService.listAllHashtag().subscribe(data =>{
-      this.hashtagList = data;
-    })
-  }
   prepareFormData(post: Post): FormData {
     const formData = new FormData();
     formData.append(
@@ -226,6 +179,54 @@ export class PostAddComponent implements OnInit{
     console.log(formData)
     return formData;
   }
+
+  savePost(){
+    const postFormData = this.prepareFormData(this.post);
+    this.postService.createPost(postFormData).subscribe(() =>{
+        this.toastService.showSuccess()
+        this.goToPostList();
+
+      },
+      error =>{
+        this.toastService.showWarning(error.error)
+      console.log(error.error)}
+    );
+  }
+
+
+
+
+  goToPostList(){
+    this.router.navigate(['/admin/bpost']);
+
+  }
+
+
+  updateDataToForm(id: any){
+    const postFormData = this.prepareFormData(this.post);
+    this.postService.updatePost(id, postFormData).subscribe(data =>{
+      this.toastService.showSuccess()
+      this.goToPostList();
+
+    },
+      error => {
+        this.toastService.showWarning(error.error);
+        console.log(error.error)
+      });
+  }
+
+
+  listAllCategory(){
+    this.categoryService.listAllCategory().subscribe(data =>{
+      this.categories = data;
+    })
+  }
+  listAllHashTag(){
+    this.hashtagService.listAllHashtag().subscribe(data =>{
+      this.hashtagList = data;
+    })
+  }
+
 
   thumbnailChange(e: any){
     const files = e.target.files;

@@ -21,6 +21,38 @@
 .item{
   display:inline-block;
   width: 20%;
-  margin: 15px;
+
   height: 100%;
+}
+@media  only screen and (min-width:1024px) {
+  .item-img{
+    height: 170px
+  }
+  .item{
+    margin: 15px;
+  }
+}
+@media only screen and ( min-width:771px) and (max-width:1023px) {
+  .item-img{
+    height: 120px
+  }
+  .item{
+    margin: 10px;
+  }
+}
+@media only screen and ( min-width:545px) and (max-width:770px) {
+  .item-img{
+    height: 100px
+  }
+  .item{
+    margin: 10px;
+  }
+}
+@media only screen and (max-width:540px) {
+  .item-img{
+    height: 70px
+  }
+  .item{
+    margin: 5px;
+  }
 }

@@ -10,8 +10,8 @@ import { ApiHelper } from 'src/app/core/rest-api/api-helper';
   providedIn: 'root'
 })
 export class CustomerTypicalService {
-
-  constructor(private apiHelper:ApiHelper) { }
+  
+  constructor(private apiHelper:ApiHelper,private http : HttpClient) { }
 
   listAllWithPage(params: any): Observable<any>{
     return this.apiHelper.get(Constant.CUSTYPICAL.LIST_ALL_WITH_PAGE,{params})
@@ -43,5 +43,6 @@ export class CustomerTypicalService {
   deleteTC(id: number): Observable<Object>{
     return this.apiHelper.delete( Constant.CUSTYPICAL.DELETETC + `/${id}`);
   }
+  
 
 }

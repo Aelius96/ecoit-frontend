@@ -15,6 +15,7 @@ input:focus{
   font-size: 16px;
 }
 .searchinput{
+  text-transform: uppercase;
   border-radius: 5px;
   align-items: center;
   background-color: #EAEFF4;
@@ -32,7 +33,7 @@ input:focus{
   margin-top: 8px;
 }
 .ht-btn-custom{
-  margin-top:2px;
+  font-size: 16px;
   color: #121213;
 }
 /* list */

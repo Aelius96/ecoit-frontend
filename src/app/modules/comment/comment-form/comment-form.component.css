@@ -31,10 +31,10 @@
 
 .form-group.fl_icon .icon {
     position: absolute;
-    top: 27px;
-    left: 16px;
+    /* top: 27px;
+    left: 16px; */
     width: 48px;
-    height: 48px;
+    /* height: 48px; */
     background: #f6f6f7;
     text-align: center;
     line-height: 50px;
@@ -104,12 +104,9 @@ img{
     font-size: 13px;
     
 }
-.btn{
-margin-left: 15px;
-}
+
 .btn-link:hover{
     text-decoration: none;
-  
 }
 .reply-submit{
     border-radius: 5px;

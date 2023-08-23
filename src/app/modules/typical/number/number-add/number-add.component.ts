@@ -8,11 +8,13 @@ import { ToastService } from 'src/app/modules/toast/toast.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
 
+
 @Component({
   selector: 'app-number-add',
   templateUrl: './number-add.component.html',
   styleUrls: ['./number-add.component.css'],
 })
+
 export class NumberAddComponent implements OnInit {
   formNumber = new FormGroup({
     numberic: new FormControl(),
@@ -43,6 +45,7 @@ export class NumberAddComponent implements OnInit {
     private router: Router,
     private toast: ToastService
   ) {}
+
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
@@ -53,10 +56,19 @@ export class NumberAddComponent implements OnInit {
         this.formNumber.controls['description'].setValue(this.tNumber.description);
       });
     }
-    
-    
-  }
 
+    this.getListIcon()
+  }
+ 
+  getListIcon() {
+    this.numService.getListIconJson('icon.json').subscribe((data) => {
+      this.allIcon = data
+      
+    })
+    this.numService.getListIconJson('listIcon.json').subscribe((data) => {
+      this.listIcon = data
+    })
+  }
   rollbackToList(){
     this.router.navigate(['/admin/dashboard']);
   }

@@ -25,7 +25,7 @@ export class CategoryControlComponent implements OnInit {
     totalRecord: 0
  }
   constructor( private  categoryService: CategoryService ,
-          private router: Router) {}
+               private router: Router) {}
 
   ngOnInit(): void {
     this.getListAll();
@@ -55,6 +55,7 @@ export class CategoryControlComponent implements OnInit {
       this.category = res.content;
       this.paging.totalRecord = res.totalElements;
       console.log(res)
+
     },
     error => {
       console.log(error);

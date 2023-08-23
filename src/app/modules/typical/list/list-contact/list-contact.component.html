@@ -13,7 +13,7 @@
         <div class="item-select my-auto ">
           <button class="btn btn-success search mr-1" (click)="Pending()">Chưa Liên Hệ</button>
           <button class="btn search mr-2" (click)="Process()">Đã Liên Hệ</button>
-          <a (click)="getAllContactPagesize()" class="my-auto" >
+          <a (click)="refresh()" class="my-auto" >
             <img src="./assets/images/reload.png" alt="" class="img-reload">
           </a>
         </div>
@@ -40,7 +40,7 @@
 </div>
 
 
-<div class="section-space--mt_100">
+<div class="section-space--mt_80">
   <div class="container">
     <h3 class="text-title">liên hệ</h3>
     <div class="detail section-space--mt_40 w-100 ">

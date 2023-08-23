@@ -5,12 +5,12 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="text-center">
-            <h2 class="chuyenmuc">KHÁCH HÀNG MỤC TIÊU</h2>
-            <hr class="gachchan">
+            <h2 class="chuyenmuc section-space--mb_60">KHÁCH HÀNG MỤC TIÊU</h2>
+            
           </div>
         </div>
       </div>
-      <div class="table-content">
+      <div class="table-content container ">
         <div class="row">
           <!--     visibility: visible;
     animation-delay: 0.25s;
@@ -19,7 +19,7 @@
                      
                     </div>
 }-->
-          <div class="col-md-3 section-space--mt_50 animation item-cus  " *ngFor="let cus of customer ; let i=index " >
+          <div class="col-md-3 col-sm-6 col-12  section-space--mt_50 animation item-cus  " *ngFor="let cus of customer ; let i=index " >
             <div class="box d-flex flex-column " *ngIf="i<4">
               <div class="box-icon h-25 ">
                 <div class="box-icon_bg text-white " [ngStyle]="{'background': cus.bgIColor} ">

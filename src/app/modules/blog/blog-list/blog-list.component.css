@@ -4,9 +4,11 @@
   color: #50B848;
   font-weight: bold;
   font-family: Verdana;
+  
 }
 .img-slide{
-  max-height: 260px;
+  max-height: 270px;
+  min-height: 220px;
 }
 .hr-title{
   width: 100px;

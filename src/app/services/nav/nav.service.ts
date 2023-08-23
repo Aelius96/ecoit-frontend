@@ -38,4 +38,8 @@ export class NavService {
     return this.apiHelper.delete( Constant.NAV.DELETE_NAV_ALL ,formData);
   }
 
+  public getChildNav(id : number) {
+    return this.apiHelper.get(Constant.NAV.LIST_ALL_WITH_PAGE+ `/${id}`)
+  }
+
 }

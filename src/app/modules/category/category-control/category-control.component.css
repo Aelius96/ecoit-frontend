@@ -12,7 +12,7 @@
   }
 
   .ht-btn-custom{
-    margin-top:2px;
+    font-size: 16px;
     color: #121213;
   }
 
@@ -49,7 +49,7 @@
 
   .title-conten{
     text-align: center;
-    padding: 40px 0px 20px 0px;
+    padding: 0px 0px 40px 0px;
   }
   .text-title{
     color: #50b848;
@@ -110,3 +110,4 @@
   width: 18px;
   height: 18px;
 }
+

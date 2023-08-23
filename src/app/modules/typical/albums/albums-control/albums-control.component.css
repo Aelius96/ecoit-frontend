@@ -4,14 +4,15 @@
     justify-content: center;
     align-content: center;
   }
-  
+  .btn{
+    background-color: #bbbbbb;
+  }   
   .spann{
     height: 30px;
   font-size: 15px; 
   
   }
   .control{
- 
     color: black;
   }
   .control:hover{

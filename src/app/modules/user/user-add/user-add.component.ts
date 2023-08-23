@@ -6,7 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 import {Role} from "../../../core/model/role/role";
 import {RoleService} from "../../../services/role/role.service";
-import { ToastrService } from 'ngx-toastr';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -65,48 +65,26 @@ export class UserAddComponent implements OnInit{
 
   onRoleChange(event: any, role: Role){
     role.selected = event.currentTarget.checked;
+    if(role.selected){
+      this.user.role.push(role);
+    }else{
+      this.user.role.forEach(item => {
+        if(item.id === role.id){
+          this.user.role = this.user.role.filter(i => i !== item);
+        }
+      })
+    }
   }
-
 
   goToUserList(){
     return this.router.navigate([`admin/user`])
   }
 
-  prepareFormData(user: User, role: Role[]): FormData {
-    const  formData = new FormData();
-    formData.append(
-      'user',
-      new Blob([JSON.stringify(user)], {type: 'application/json'})
-    );
-    formData.append(
-      'role',
-      new Blob([JSON.stringify(role)], {type: 'application/json'})
-    )
-
-    return formData;
-  }
-
   updateUser(id: number){
-    let userFormData = this.prepareFormData(this.user, this.role.filter(item => item.selected));
-    this.userService.updateUser(id, userFormData).subscribe(() =>{
-      this.toastService.info('Đã cập nhật thông tin' , 'Thông báo!')
-      this.submitFail = false;
+    this.userService.updateUser(id,this.user).subscribe( data =>{
       this.goToUserList();
-    }, 
-    error=>{
-      this.toastService.error(error.error.message , 'Lỗi xảy ra!' );
-      console.log(error)
-
-    }
-    )
-  }
-
-  getRole(){
-    this.roleService.listRole().subscribe(data =>{
-      this.role = data;
     })
   }
-
 
   onCheckChange(event: any, user: User){
     user.active = event.currentTarget.checked;
@@ -124,7 +102,6 @@ export class UserAddComponent implements OnInit{
           this.isSignUpFailed = false;
           this.toastService.success('Đăng kí thành công' , 'Thành công!')
           // this.errorMessage = "Đăng ký thành công!!"
-          console.log(this.user);
         },
         err =>{
           this.toastService.error(err.error.message , 'Lỗi xảy ra!' )

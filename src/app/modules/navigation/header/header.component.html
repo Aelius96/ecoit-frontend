@@ -2,20 +2,21 @@
   <!--====================  header area ====================-->
 
   <div class="header-area header-sticky header-area--absolute is-sticky ">
-    <div class="container header container-fluid--cp-150">
+    <!-- container-fluid--cp-150 -->
+    <div class="container header justify-content-center">
       <div class="row h-100 w-100">
         <div class="col-12 h-100">
           <div class="header-main h-100 ">
             <div class=" d-flex">
               <a class="my-auto" href="/trang-chu" title="Ecoit">
                 <img class="img" src="./assets/images/logoEcoit.jpg" alt="EcoIT"
-                  style="padding: 10px 5px; width: 170px !important;">
+                  style=" width: 200px !important;">
               </a>
             </div>
 
             <div class="header-right ">
               <div class="header-right_top d-flex my-auto justify-content-end ">
-                <ul class="list-inline d-flex">
+                <ul class="list-inline d-flex my-auto">
                   <li class="d-flex mr-3 ">
                     <span class="header-label mr-3 d-flex">
                       <i class="fa fa-phone mt-1 " style="font-size: 24px;  "> </i>
@@ -43,19 +44,13 @@
                   </li>
 
                 </ul>
-                <!-- <a class="lh ml-3  " routerLink="/lien-he">
-                  <span class="mb-4" style="vertical-align: inherit; ">
-                    <span class="advise-contact">LIÊN HỆ TƯ VẤN</span>
-                  </span>
-                </a> -->
-                <button type="button" class=" btn btn-success h-75 ml-1 " > 
+                
+                <button type="button" class=" btn btn-success h-100 ml-1 my-auto " > 
                   <a routerLink="/lien-he" class="lh advise-contact" >LIÊN HỆ TƯ VẤN</a>
                 </button>
-
-
               </div>
               <div class="navigation-menu navigation-menu--onepage navigation-menu--text_white ">
-                <ul class="menu-primary text-uppercase" id="navi">
+                <ul class="menu-primary text-uppercase p-0 mb-1" id="navi">
                   <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu" id="child-li">
                     <a href="{{nav.url}}" routerLinkActive="active">{{nav.name}}</a>
                     <ul *ngIf="nav.navChild.length > 0" class="submenu" style="border-bottom: 0px solid ">
@@ -78,7 +73,7 @@
           </div>
           <!-- mobile nav -->
           <div class="header-mobile h-100 ">
-            <div class="row h-100 d-flex ">
+            <div class=" h-100 d-flex ">
               <div class="h-100 d-flex">
                 <a class="my-auto h-50 " href="/trang-chu" title="Ecoit">
                   <img class="img img-mobile" src="./assets/images/logoEcoit.jpg" alt="EcoIT">
@@ -89,7 +84,6 @@
                   <svg  xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 448 512"><style>svg{fill:#ffffff}</style><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
                 </button>
               </div>
-
             </div>
             <!--   -->
             <div class="collapse navbar-collapse nav-mobi w-75 mx-auto " id="navbarTogglerDemo03" style="background-color: rgb(255, 255, 255);" >
@@ -122,6 +116,6 @@ av.navChild.length
       </div>
     </div>
   </div>
-
+<!-- .collapse -->
 </form>
 

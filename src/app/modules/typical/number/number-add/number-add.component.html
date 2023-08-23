@@ -10,11 +10,14 @@
               <div class="col-md-4" >
                 <div class="box">
                   <div class="box-icon">
+
                     <span><i class="{{formNumber.controls['icons'].value}}"></i></span>
+
                   </div>
                   <div class="input" >
                     <label for="icon" class="form-label required" ></label>
                     <!-- <input class="text-input" type="text" [(ngModel)]="tNumber.icon" name="icon" placeholder="Nhập mã " required > -->
+
                     <select [ngClass]="{'text-input': isborderErrorIcon,'borderError': !isborderErrorIcon}" name="icon" id="icon" (change)="noidungIcon()" formControlName="icons">
                       <option value="" disabled selected hidden>những icon tiêu biểu </option>
                       
@@ -28,7 +31,7 @@
                     <span ng-show="form.icon.$error.required">Không được bỏ trống</span>
                     </div> -->
                     <p style="padding-top: 10px"><span style="color: red;">*</span> Mã bắt đầu bằng: <strong>fa</strong>, <strong>far</strong> hoặc <strong>fas</strong></p>
-                    <p><span style="color: red;">*</span> vd: <strong>fa fa-university</strong></p>
+                    <p><span style="color: red;">*</span> vd: <strong>fa fa-university</strong><i class="{{icons}}"></i></p>
                   </div>
                 </div>
               </div>

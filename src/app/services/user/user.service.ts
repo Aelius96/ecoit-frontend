@@ -11,7 +11,7 @@ import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 })
 export class UserService {
 
-  constructor(private apiHelper:ApiHelper) { }
+  constructor(private apiHelper:ApiHelper,private http:HttpClient) { }
 
   getListAllwithpageUser(params:any):Observable<any>{
     return this.apiHelper.get( Constant.USER.GET_LIST_ALL_WITH_PAGE_USER , {params})
@@ -21,12 +21,12 @@ export class UserService {
     return this.apiHelper.get( Constant.USER.GET_USER_BY_ID +`/${id}`);
   }
 
-  updateUser(id: number, formData: FormData):Observable<Object>{
-    return this.apiHelper.post( Constant.USER.UPDATE_USER +`/${id}`,formData);
-  }
 
   public deleteUser(id: number): Observable<any> {
-    return this.apiHelper.delete( Constant.USER.DELETE_USER +`/${id}`);
+    return this.apiHelper.delete(Constant.USER.DELETE_USER + `/${id}`);
+  }
+  updateUser(id: number, user:User):Observable<Object>{
+    return this.apiHelper.post(Constant.USER.UPDATE_USER+`/${id}`,user);
   }
 
   changePassword(id: number):Observable<any>{

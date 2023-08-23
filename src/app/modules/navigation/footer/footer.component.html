@@ -1,9 +1,9 @@
 <div class="footer-preview  ">
     <footer id="footer">
         <div class="footer-wrapper">
-            <div class="containerr">
+            <div class="container">
                 <div class="row footer">
-                    <div class="col-md-3 ">
+                    <div class="col-md-3 col-sm-6 col-12 ">
                         <div class="footer-container">
                             <div class="text1" style="text-align: center;">
                                 <div>
@@ -22,20 +22,16 @@
                             </div>
 
                             <div class="mt-4">
-                                <ul class="list-inline mt-3 ">
-                                    <li>
+                                <ul class="list-inline d-flex mt-3 ">
+                                    <li class="mx-1" >
                                         <a class="fa fa-facebook icon-intro " href="https://www.facebook.com/ecoitcorp/"
                                             title="Facebook" target="_blank">
-                                            <!-- <i class="fa fa-facebook"></i> -->
                                         </a>
                                     </li>
-                                    <!-- <li>
-                                            <a class="fa fa-twitter" style="color: #ababaa;"  href="https://twitter.com" title="Twitter" target="_blank"></a>
-                                        </li> -->
-                                    <li>
-                                        <a class="fa fa-envelope  icon-intro " href="contact@ecoit.asia" title="Email"
+                                    <li class="mx-1">
+                                        <a class="fa fa-envelope  icon-intro " href="contact@ecoit.com.vn" title="Email"
                                             target="_blank"></a>
-                                    <li>
+                                    <li class="mx-1">
                                         <a href="https://www.youtube.com/@ecoittvofficial3472  "
                                             class="fa fa-youtube icon-intro " title="Youtube" target="_blank">
 
@@ -48,21 +44,21 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 ">
+                    <div class="col-md-3 col-sm-6 col-12 ">
                         <div class="footer-container">
-                            <div class="text1" style="text-align: justify;">
+                            <div class="text1" >
                                 <div>
                                     <div class="">
                                         <h6 class="titlefooter">
-                                            <span class="text-up">các lĩnh vực hoạt động chính</span>
+                                            <span class="text-up ">các lĩnh vực hoạt động chính</span>
                                         </h6>
                                     </div>
                                     <div>
-                                        <ul class="footer_list">
+                                        <ul class="footer_list pl-0 ">
                                             <li class="list" *ngFor="let item of field_activity">
                                                 <i class="far fa-angle-right mr-2"></i>
-                                                <a>{{item.title}}</a>
-                                                <hr class="my-3">
+                                                <span>{{item.title}}</span>
+                                                <hr class="my-2">
                                             </li>
                                         </ul>
                                     </div>
@@ -71,7 +67,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 ">
+                    <div class="col-md-3 col-sm-6 col-12 ">
                         <div class="footer-container">
                             <div class="text1" style="text-align: justify;">
                                 <div>
@@ -91,7 +87,7 @@
                                                 <img src="{{baseURL}}/{{postURL}}/image/{{post.id}}" class="w-100 image"
                                                     alt="" loading="lazy"></a>
                                         </div>
-                                        <div class="blog-inner" style="display: inline-block;width: 70%; ">
+                                        <div class="blog-inner" >
                                             <a href="/tin-tuc/{{post.url}}" class="text-title-news">{{post.title}}</a>
                                         </div>
                                     </div>
@@ -101,7 +97,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 ">
+                    <div class="col-md-3 col-sm-6 col-12 ">
                         <div class="footer-container" style="text-align: justify;">
                             <div class="text1">
                                 <div class="">
@@ -111,27 +107,33 @@
                                 </div>
                             </div>
                             <div>
-                                <ul>
+                                <ul class="contact">
                                     <li *ngFor="let contact of addressList" class="mb-2">
-                                        <p>
+                                        
                                             <i class="fa fa-map-marker"></i>
                                             <span class="address">{{contact.address}}</span>
-                                        </p>
+                                       
                                     </li>
 
                                     <li class="mb-2">
-                                        <p>
-                                            <i class="fa fa-phone"></i>
-                                            <a class="title-contact" href="tel:{{phone}}" [innerHTML]="phone"></a>
-                                        </p>
+                                            <a class="a-contact" href="tel:{{phone}}" >
+                                                <i class="fa fa-phone"></i>
+                                                <span class="title-contact" [innerHTML]="phone" ></span>
+                                            </a>
+                                        
                                     </li>
                                     <li class="mb-2">
-                                        <i class="fa fa-print"></i>
-                                        <a class="title-contact" href="tel:{{fax}}" [innerHTML]="fax"></a>
+                                        
+                                        <a class="a-contact" href="tel:{{fax}}" >
+                                            <i class="fa fa-print"></i>
+                                            <span class="title-contact" [innerHTML]="fax" ></span>
+                                        </a>
                                     </li>
                                     <li class="mb-2">
-                                        <i class="fa fa-envelope-o"></i>
-                                        <a class="title-contact" href="mailto:{{email}}" [innerHTML]="email"></a>
+                                        <a class=" a-contact" href="mailto:{{email}}" >
+                                            <i class="fa fa-envelope-o"></i>
+                                            <span class="title-contact"  [innerHTML]="email" ></span>
+                                        </a>
                                     </li>
                                 </ul>
                                 <div>

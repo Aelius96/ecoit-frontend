@@ -13,6 +13,17 @@ import {HttpErrorResponse} from "@angular/common/http";
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
+import {FlatTreeControl} from '@angular/cdk/tree';
+import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
+
+interface ExampleFlatNode {
+  expandable: boolean;
+  name: string;
+  level: number;
+  id: number;
+  url: string;
+}
+
 @Component({
   selector: 'app-navigator-control',
   templateUrl: './navigator-control.component.html',
@@ -35,37 +46,49 @@ export class NavigatorControlComponent {
     size: 16,
     totalRecord: 0
   }
+  constructor(private router: Router,private navService:NavService) {
 
+  }
   actionT = false;
   actionId: any;
   // modalRef?: NgbModalRef; //tùy chọn có hoặc ko
-
-  constructor(private router: Router,
-              private navService:NavService,
-  ) {
-
-  }
-
   ngOnInit(): void {
     this.listtree();
-    // this.getListAllWithPage();
-
-
   }
-// treemat
+  private transformer = (nav: Nav, level: number) => {
+    return {
+      expandable: !!nav.navChild && nav.navChild.length > 0,
+      name: nav.name,
+      id: nav.id,
+      url: nav.url,
+      level: level,
+    };
+  }
 
-  treeControl = new NestedTreeControl<Nav>(node => node.navChild);
-  dataSource = new MatTreeNestedDataSource<Nav>();
+  treeControl = new FlatTreeControl<ExampleFlatNode>(
+    nav => nav.level, nav => nav.expandable);
 
-
+  treeFlattener = new MatTreeFlattener(
+      this.transformer, nav => nav.level, nav => nav.expandable, nav => nav.navChild);
+  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+  hasChild = (_: number, nav: ExampleFlatNode) => nav.expandable;  
   listtree(){
     const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
-    this.navService.listAllWithPage(params).subscribe(data=>{
-      this.dataSource.data = data
-      console.log(this.dataSource.data)
+    this.navService.listAllWithPage(params).subscribe(res=>{
+      // this.dataSource.data = data
+      this.dataSource.data = res
+      console.log(this.dataSource)
+      // console.log(this.dataSource.data)
+      // this.dataSource.data.forEach((element) => {
+      //   this.navService.getChildNav(element.id).subscribe(res => {
+      //     element.navChild = res;
+      //     console.log(res);
+      //   })
+      // })
+
     })
   }
-
+  
   getListAllWithPage(): void {
     const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput);
 
@@ -84,13 +107,9 @@ export class NavigatorControlComponent {
           console.log(error);
         });
   }
-hasChild(_:number , node: Nav):boolean{
-  return !!node.navChild&&node.navChild.length>0
-}
+
 
 // ======
-
-
 
 // ========
   onCheckChange(event: any, navigator: Nav){

@@ -227,6 +227,8 @@ a:hover{
     height: 100%;
     width: 100%;
   }
+
+
   .hienthi-right {
     margin-left: 45px;
   }
@@ -260,15 +262,16 @@ a:hover{
   .container {
     width: 1200px
   }
+
   .team-image {
     height: 120px;
   }
   .nav-item:hover{
     margin: 20px;
   }
-}
 .chuc-nang{
   margin-top: 10px;
+}
 }
 
 @media (min-width: 1200px)and (max-width:1400px) {
@@ -279,6 +282,7 @@ a:hover{
   .galley {
     margin: 80px auto 0 auto;
   }
+
   .logochuyenslide{
     max-width: 45px;
     position: absolute;
@@ -346,6 +350,7 @@ a:hover{
   .giaodienanh {
     width: 600px;
     height: 350px;
+
   }
   .galley {
     margin-top: 80px;
@@ -403,6 +408,7 @@ a:hover{
    margin-left: 10px;
   }
 
+
   .select-content-box {
     padding: 0;
   }
@@ -435,6 +441,7 @@ a:hover{
     width: 94%;
     height: 100%;
   }
+
 
   .hienthi-right h3,
   h2 {

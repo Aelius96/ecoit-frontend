@@ -4,6 +4,7 @@
 </div>
 <div class="about-page">
     <div class="container">
+        <h3 class="text-title">Trình Chiếu</h3>
         <div class="row" style="justify-content: center;">
             <div class="col-lg-9">
                         <form (ngSubmit)="onSubmit()"  enctype="multipart/form-data"  novalidate action="" >
@@ -20,7 +21,7 @@
                                     <div class="col-lg-6">
                                         <div class="contact-inner">
                                             <span><strong>FAX</strong></span>
-                                            <input type="tel" name="fax" id="fax" [(ngModel)]="about.fax" required>
+                                            <input type="tel" name="fax" id="fax" (keypress)="numberOnly($event)" [(ngModel)]="about.fax" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">

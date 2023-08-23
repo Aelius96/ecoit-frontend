@@ -22,7 +22,8 @@ export class ListContactComponent {
     page: 1,
     size: 5,
     totalRecord: 0 
-}
+  }
+  active : any
 
   constructor(private contactService: ContactService) { }
 
@@ -30,7 +31,7 @@ export class ListContactComponent {
     this.getAllContactPagesize();
   }
 
-  getParams(page: number, pageSize: number,searchinput:string  ): any {
+  getParams(page: number, pageSize: number,searchinput:string, active:boolean ): any {
     let params: any = {};
 
     if (page) {
@@ -44,19 +45,27 @@ export class ListContactComponent {
     if(searchinput){
       params[`search`] = searchinput;
     }
+    if(active != null) {
+      params['active'] = active
+    }
     return params;
   }
 
   getAllContactPagesize(): void {
-  const params = this.getParams(this.paging.page, this.paging.size , this.searchInput.input )
+  const params = this.getParams(this.paging.page, this.paging.size , this.searchInput.input,this.active)
+  console.log(this.active)
+  console.log(params['active'])
     this.contactService.listAllsizePage(params ).subscribe(res=>{
       this.contactList=res.content;
       this.paging.totalRecord = res.totalElements;
-      // console.log(res)
-    }, 
+      console.log(this.contactList)
+      }, 
     )
   }
-
+  refresh() {
+    this.active = null
+    this.getAllContactPagesize()
+  }
   Delete(id:number){
      let  cf = confirm("Xóa người liên hệ");
      if(cf){
@@ -99,19 +108,16 @@ handlePageSizeChange(event: any): void {
 
 // ======  lọc
 // chưa liên hệ
-Pending(){
-  this.contactService.getpending().subscribe(res=>{
-     this.contactList=res
-  } , error=>{
-    console.log(error)
-  })
-}
+  Pending(){
+    this.active = true
+    this.paging.page = 1
+    this.getAllContactPagesize()
+  }
 // đã liên hệ
-Process(){
-  this.contactService.getprocess().subscribe(res=>{
-    this.contactList=res
- } , error=>{
-   console.log(error)
- })
-}
+  Process(){
+    this.paging.page = 1
+    this.active = false
+    console.log(this.active)
+    this.getAllContactPagesize()
+  }
 }
