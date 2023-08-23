@@ -61,4 +61,21 @@ svg:hover{
 .item-news{
   max-height: 550px;
 }
-
+.wdc-heading{
+  display: inline-block;
+    position: relative;
+}
+.current-cate-text{
+  display: inline-block;
+    font-size: 24px;
+    font-family: "Open Sans",Arial,sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+.current-cate-total{
+  color: #999;
+}
+.header-tim-kiem{
+  margin-left: 115px;
+}

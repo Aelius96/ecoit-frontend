@@ -1,53 +1,57 @@
-.header-menu{
+.header-menu {
   text-align: center;
   justify-content: center;
   align-content: center;
 }
 
-.spann{
+.spann {
   height: 30px;
   font-size: 20px;
 
 }
-.control{
-  margin-top:7px;
+
+.control {
+  margin-top: 7px;
   color: black;
 
 }
-.ht-btn-custom{
+
+.ht-btn-custom {
   font-size: 16px;
   color: #121213;
 }
 
-.form-control{
+.form-control {
   padding-left: 20px;
   width: 100px;
   height: 30px;
   font-size: 15px;
-  margin-top:7px;
+  margin-top: 7px;
   margin-left: 10px;
 }
 
-a:hover{
+a:hover {
   text-decoration: none;
 }
 
-.item{
+.item {
   padding: 5px;
   border: 0.5px solid gainsboro;
+  width: 100%;
+  height: 100%;
 }
 
-
 /*  */
-.text-title{
+.text-title {
   color: #50b848;
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   text-align: center;
 }
-.select-content-box{
-  padding: 0px 20px 20px 20px ;
+
+.select-content-box {
+  padding: 0px 20px 20px 20px;
 }
 
 .header-menu {
@@ -188,6 +192,34 @@ a:hover{
     position: absolute;
     z-index: 3;
   }
+
+  .carousel {
+    width: 803px;
+    height: 380px;
+  }
+
+  .carousel-inner {
+    height: 100%;
+    width: 100%;
+  }
+  .fuild-img-silde {
+    width: 100%;
+    height: 100%;
+  }
+
+  .galley {
+    margin: 80px auto 0 auto;
+  }
+
+  .preview {
+    max-height: 47px;
+    max-width: 50px;
+    left: 95%;
+    position: absolute;
+    z-index: 3;
+    transform: translateY(680%);
+  }
+
   .anh {
     width: 98%;
     height: 95%;
@@ -249,6 +281,7 @@ a:hover{
     height: 170px;
     max-width: 1100px;
   }
+
   .nav-item {
     cursor: pointer;
     margin: 15px 10px;
@@ -257,25 +290,47 @@ a:hover{
     box-shadow: 0 4px 6px -6px #222;
     transition: 0.5s;
   }
+
   .container {
     width: 1200px
   }
+
   .team-image {
     height: 120px;
   }
-  .nav-item:hover{
+
+  .nav-item:hover {
     margin: 20px;
   }
 }
-.chuc-nang{
+
+.chuc-nang {
   margin-top: 10px;
 }
+.anh {
+  width: 98%;
+  height: 100%;
+}
+
 
 @media (min-width: 1200px)and (max-width:1400px) {
   .giaodienanh {
     width: 730px;
     height: 375px;
+    z-index: 1;
+    position: absolute;
   }
+
+  .preview {
+    max-height: 47px;
+    max-width: 50px;
+    left: 95%;
+    position: absolute;
+    z-index: 3;
+    transform: translateY(670%);
+    opacity: 80%;
+  }
+
   .galley {
     margin: 80px auto 0 auto;
   }
@@ -297,6 +352,7 @@ a:hover{
   .hienthi2{
       width: 93%;
   }
+
   .hienthi-right h3,
   h2 {
     font-size: 25px;
@@ -313,15 +369,18 @@ a:hover{
     width: 60px;
     white-space: nowrap;
   }
-  .chuc-nang{
+
+  .chuc-nang {
     margin-top: 7px;
   }
+
   .nav {
     overflow: auto;
     margin-left: 40px;
     height: 150px;
     max-width: 1000px;
   }
+
   .nav-item {
     cursor: pointer;
     margin: 15px 10px;
@@ -330,13 +389,15 @@ a:hover{
     box-shadow: 0 4px 6px -6px #222;
     transition: 0.5s;
   }
+
   .team-image {
     height: 100px;
   }
-  
-  .nav-item:hover{
+
+  .nav-item:hover {
     margin: 20px;
   }
+
   .hienthi-right {
     margin-left: 70px;
   }
@@ -345,8 +406,21 @@ a:hover{
 @media (min-width: 991px) and (max-width:1200px) {
   .giaodienanh {
     width: 600px;
-    height: 350px;
+    height: 325px;
+    z-index: 1;
+    position: absolute;
   }
+
+  .preview {
+    max-height: 47px;
+    max-width: 50px;
+    left: 88%;
+    position: absolute;
+    z-index: 3;
+    transform: translateY(570%);
+    opacity: 80%;
+  }
+
   .galley {
     margin-top: 80px;
     margin-left: -30px;
@@ -367,6 +441,7 @@ a:hover{
   h2 {
     font-size: 20px;
   }
+
   .select-content-item {
     display: flex;
     size: 15px;
@@ -379,15 +454,18 @@ a:hover{
     width: 80px;
     white-space: nowrap;
   }
-  .chuc-nang{
+
+  .chuc-nang {
     margin-top: 7px;
   }
+
   .nav {
     overflow: auto;
-    margin-left: 39px;
     height: 150px;
-    max-width: 842px;
+    margin-left: 20px;
+    max-width: 860px;
   }
+
   .nav-item {
     cursor: pointer;
     margin: 15px 10px;
@@ -396,27 +474,46 @@ a:hover{
     box-shadow: 0 4px 6px -6px #222;
     transition: 0.5s;
   }
-  .nav-item:hover{
+
+  .nav-item:hover {
     margin: 20px;
   }
+
   .hienthi-right {
-   margin-left: 10px;
+    margin-left: 10px;
   }
 
   .select-content-box {
     padding: 0;
   }
+
   .team-image {
     height: 90px;
   }
-  
+
+  .nav-item:nth-child(1) {
+    margin-left: 39px;
+  }
 }
 
 @media (min-width: 800px) and (max-width:991px) {
   .giaodienanh {
     width: 500px;
-    height: 320px;
+    height: 262px;
+    z-index: 1;
+    position: absolute;
   }
+
+  .preview {
+    max-height: 47px;
+    max-width: 50px;
+    left: 95%;
+    position: absolute;
+    z-index: 3;
+    transform: translateY(430%);
+    opacity: 80%;
+  }
+
   .galley {
     margin-top: 80px;
     margin-left: -20px;
@@ -431,6 +528,7 @@ a:hover{
   .hienthi2{
     margin-left: 14px;
   }
+
   .anh {
     width: 94%;
     height: 100%;
@@ -440,6 +538,7 @@ a:hover{
   h2 {
     font-size: 15px;
   }
+
   .select-content-item {
     display: flex;
     size: 10px;
@@ -452,19 +551,23 @@ a:hover{
     width: 50px;
     white-space: nowrap;
   }
-  .select-content-item strong{
+
+  .select-content-item strong {
     font-size: 10px;
   }
-  .select-content-item .span2{
+
+  .select-content-item .span2 {
     font-size: 10px;
     margin-left: 7px;
   }
+
   .nav {
     overflow: auto;
     margin-left: 39px;
     height: 130px;
     max-width: 657px;
   }
+
   .nav-item {
     cursor: pointer;
     margin: 15px 5px;
@@ -473,9 +576,11 @@ a:hover{
     box-shadow: 0 4px 6px -6px #222;
     transition: 0.5s;
   }
-  .nav-item:hover{
+
+  .nav-item:hover {
     margin: 20px;
   }
+
   .hienthi-right {
     margin-left: 50px;
   }
@@ -483,13 +588,16 @@ a:hover{
   .select-content-box {
     padding: 0;
   }
+
   .team-image {
     height: 70px;
   }
+
   .action-box {
     display: none;
-  }  
-  .chuc-nang{
+  }
+
+  .chuc-nang {
     margin-top: 7px;
   }
 }

@@ -7,7 +7,7 @@ import {TokenStorageService} from "../../../services/token-storage/token-storage
 import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import { ToastrService } from 'ngx-toastr';
-import { ToastService } from '../../toast/toast.service';
+import { ToastService } from '../../../services/toast/toast.service';
 
 @Component({
   selector: 'app-comment-form',

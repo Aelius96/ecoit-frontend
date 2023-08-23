@@ -8,7 +8,7 @@ import {PostService} from "../../../services/post/post.service";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {emitDistinctChangesOnlyDefaultValue} from "@angular/compiler";
 import {HttpParams} from "@angular/common/http";
-import { ToastService } from '../../toast/toast.service';
+import { ToastService } from '../../../services/toast/toast.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

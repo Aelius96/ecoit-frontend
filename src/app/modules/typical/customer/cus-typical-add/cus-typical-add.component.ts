@@ -7,7 +7,7 @@ import {NewsService} from "../../../../services/news/news.service";
 import {HttpClient} from "@angular/common/http";
 import {CustomerTypicalService} from "../../../../services/customer-typical/customer-typical.service";
 import {Domain} from "../../../../core/domain/domain";
-import { ToastService } from 'src/app/modules/toast/toast.service';
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Component({
   selector: 'app-cus-typical-add',

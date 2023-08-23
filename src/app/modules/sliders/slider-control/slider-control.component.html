@@ -2,12 +2,13 @@
   <div class="container">
     <div class="d-flex  justify-content-between header-menu ">
       <div class="left-d-flex">
-        
+
       </div>
       <div class="right-d-flex">
         <div class="d-flex  flex-wrap">
           <div class="">
-            <a class="ht-btn-custom my-auto" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+            <a class="ht-btn-custom my-auto" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus"
+              style="font-size: 1.5em;"></i></a>
           </div>
         </div>
       </div>
@@ -23,7 +24,7 @@
       <!--ben trai -->
       <div class="hienthi2 d-flex row">
         <div class="hienthi-left col-8">
-          <div class="col-12">
+          <div class="col-12" style="  position: absolute;z-index: 1;">
             <div class="giaodienanh">
               <div *ngIf="slider; then img;else slide"></div>
               <ng-template #img>
@@ -35,7 +36,6 @@
                   <div class="carousel-item " [class]=" i==0 ? 'active ' : '' "  *ngFor="let item of sliders ; let i = index;choose2(item)"  data-bs-interval="3000">
                     <img  src="{{baseURL}}/{{sliderURL}}/image/{{item.name}}" class="anh" alt="" (click)="choose(item)">
                   </div>
-                  
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -49,8 +49,6 @@
             </ng-template>
             <img class="logochuyenslide" title="slide" (click)="chuyenslide()"
              src="\assets\images\logoslide.jpg">
-            </div>
-          </div>
         </div>
         <!-- ben phai -->
         <div class="hienthi-right col-3">
@@ -121,7 +119,7 @@
         <div class="">
           <div class="card-body">
             <ul class="nav flex-column nav-pills d-flex col-md-12">
-              <li class="nav-item selected " *ngFor="let slide of sliders" >
+              <li class="nav-item selected " *ngFor="let slide of sliders">
                 <div class="team-image " (click)="choose(slide)">
                   <img class="img-fluid" src="{{baseURL}}/{{sliderURL}}/image/{{slide.name}}" id="{{slide.id}}"
                     alt="{{slide.name}}">
@@ -133,6 +131,5 @@
         </div>
       </div>
     </div>
-
-</div>
+  </div>
 </div>

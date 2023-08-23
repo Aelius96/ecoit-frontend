@@ -9,8 +9,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Category } from 'src/app/core/model/category/category';
 import { CategoryService } from 'src/app/services/category/category.service';
-import { ToastService } from '../../toast/toast.service';
 import { FormControl } from '@angular/forms';
+import { ToastService } from 'src/app/services/toast/toast.service';
+
 
 @Component({
   selector: 'app-category-add',
