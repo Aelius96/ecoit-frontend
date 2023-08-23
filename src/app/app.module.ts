@@ -131,6 +131,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 import {ToastrModule} from 'ngx-toastr'
 
+
 @NgModule({
   declarations: [
     AppComponent,

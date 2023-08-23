@@ -10,8 +10,8 @@ import { ApiHelper } from "src/app/core/rest-api/api-helper";
   providedIn: 'root'
 })
 export class NumberService {
-  
-  constructor(private apiHelper: ApiHelper) { }
+  JSON_PATH = '../../assets/json/'
+  constructor(private apiHelper: ApiHelper, private http : HttpClient) { }
 
   getListAllPage(params:any):Observable<any>{
     return this.apiHelper.get( Constant.NUMBER_TYPICAL.GET_LIST_ALL_PAGE , {params})
@@ -35,5 +35,8 @@ export class NumberService {
 
   public deleteNumber(id: number): Observable<any> {
     return this.apiHelper.delete(Constant.NUMBER_TYPICAL.DELETE_NUMBER +`/${id}`);
+  }
+  getListIconJson(fileName : string) : Observable<any> {
+    return this.http.get(this.JSON_PATH + fileName)
   }
 }
