@@ -29,10 +29,6 @@
   border: 2px solid #50b848;
   color: black;
 }
-.text-input:focus{
-  color: black;
-  border: 2px solid #50b848;
-}
 .input{
   margin-top: 70px;
   padding: 0px 20px 20px 20px;
@@ -72,3 +68,18 @@ option::before {
 select{
   font-family: fontAwesome
 }
+.borderError{
+  border: 1px solid red;
+  color: black;
+}
+.borderError:focus{
+  border: 1px solid red;
+  color: black;
+}
+.messageError{
+  color: red;
+  font-size: 15px;
+  margin: 15px 0;
+}
+
+

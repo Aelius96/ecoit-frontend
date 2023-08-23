@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 import {RecruitService} from "../../../../services/recruit/recruit.service";
 import {TokenStorageService} from "../../../../services/token-storage/token-storage.service";
 import {NavService} from "../../../../services/nav/nav.service";
-import {ToastService} from "../../../toast/toast.service";
+
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NavigatorAddComponent} from "../navigator-add/navigator-add.component";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";

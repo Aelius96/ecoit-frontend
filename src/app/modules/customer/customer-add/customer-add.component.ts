@@ -7,8 +7,11 @@ import {ProductService} from "../../../services/product/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
 import { Domain } from 'src/app/core/domain/domain';
+import {Role} from "../../../core/model/role/role";
 import { ToastService } from '../../toast/toast.service';
 import {Role} from "../../../core/model/role/role";
+
+
 
 @Component({
   selector: 'app-customer-add',

@@ -1,5 +1,5 @@
 <div ng-app="requried"   ng-controller="RegisterCtrl">
-<form (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="was-validated">
+<form [formGroup]="formNumber" (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="was-validated">
 <div class="number-add" >
 
     <div class="container " >
@@ -10,16 +10,22 @@
               <div class="col-md-4" >
                 <div class="box">
                   <div class="box-icon">
-                    <span><i class="{{icons}}"></i></span>
+
+                    <span><i class="{{formNumber.controls['icons'].value}}"></i></span>
+
                   </div>
                   <div class="input" >
                     <label for="icon" class="form-label required" ></label>
                     <!-- <input class="text-input" type="text" [(ngModel)]="tNumber.icon" name="icon" placeholder="Nhập mã " required > -->
-                    <select class="text-input" name="icon" [(ngModel)]="icons">
+
+                    <select [ngClass]="{'text-input': isborderErrorIcon,'borderError': !isborderErrorIcon}" name="icon" id="icon" (change)="noidungIcon()" formControlName="icons">
                       <option value="" disabled selected hidden>những icon tiêu biểu </option>
+                      
                       <option *ngFor="let icon of listIcon" [value]="icon.class"[innerHTML]="icon.name + ' ' + icon.code"></option>
                       
                     </select>
+                    <p class="messageError">{{messerrorIcon}}</p>
+
                     <!-- <i class="fa fa-check text-success" ng-show="form.icon.$dirty && form.icon.$valid"></i>
                     <div ng-show="form.icon.$dirty && form.icon.$invalid" class="text-danger"><i class="fa fa-times text-danger"></i>
                     <span ng-show="form.icon.$error.required">Không được bỏ trống</span>
@@ -31,11 +37,15 @@
               </div>
               <div class="col-md-8">
                 <div class="" >
-                  <input class="text-input" type="text" [(ngModel)]="tNumber.num" name="number" placeholder="*Số" >
+                  <input [ngClass]="{'text-input': isborderErrorNumber,'borderError': !isborderErrorNumber}" id="typeNumber" type="text" (change)="noidungNumber()" formControlName="numberic" name="number" placeholder="*Số" >
+                  <p class="messageError">{{messerrorNumber}}</p>
                 </div>
                 <p style="padding-top: 10px ; margin-bottom: 0px"> <strong>Mô tả</strong> </p>
+                
                 <div>
-                  <textarea [(ngModel)]="tNumber.description" name="description" placeholder="*viết gì đó"></textarea>
+                  <textarea [ngClass]="{'text-input': isborderErrorDes,'borderError': !isborderErrorDes}" formControlName="description" (change)="noidungDescription()" id="description" name="description" placeholder="*viết gì đó"></textarea>
+                  <p class="messageError">{{messerrorDes}}</p>
+
                 </div>
                 <div class="submit-button">
                   <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>

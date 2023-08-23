@@ -63,7 +63,7 @@
                     <i id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                       class="fas fa-search" style="color: #ecf9eb;"></i>
                     <div class="dropdown-menu dropdown-menu-right custom-input" aria-labelledby="dropdownMenuButton">
-                      <input type="text" [(ngModel)]="searchInput" name="searchInput" id="searchInput">
+                      <input type="text" [(ngModel)]="searchInput" name="searchInput" id="searchInput"placeholder="Tìm Kiếm...">
                       <input type="submit" (click)="goToSearch()" id="edit-submit">
                     </div>
                   </li>
@@ -90,7 +90,7 @@
               <ul class=" menu-mobile text-uppercase mb-0" id="navi">
                 <li *ngFor="let nav of navParent" class=" py-3 nav-mobi--hover " style="border-bottom: 0.1px solid #dbdcdb ;"  id="child-li">
                   <div  *ngIf="nav.navChild.length > 0 ;">
-
+av.navChild.length 
                     <a href="{{nav.url}}" id="dropdownMenu" class="name-nav--mobile dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{nav.name}}</a> 
                     <ul class="dropdown-menu p-0 mt-0 " style="width: 60%;"  aria-labelledby="dropdownMenu" >
                       <li style="   " *ngFor="let nav1 of nav.navChild" itemscope="itemscope" id="dropdownMenu" class=" nav-mobi--hover menu-item ">
