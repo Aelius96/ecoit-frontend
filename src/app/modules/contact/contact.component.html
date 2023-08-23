@@ -38,32 +38,32 @@
           Vui lòng điền thông tin theo mẫu form dưới đây để bộ phận Tư vấn khách hàng của EcoIT có thể hỗ trợ quý khách hàng sớm nhất.
         </div>
        
-        <div class="info">
-          <form  (ngSubmit)="onSubmit()"    enctype="multipart/form-data"  novalidate action="" >
-            <label for="name">
+        <div class="info ">
+          <form  (ngSubmit)="onSubmit()"    enctype="multipart/form-data"  novalidate action="" class="row " >
+            <label for="name" class="col-md-7 col-sm-12 col-12" >
               <span>Tên</span>
               <span style="color: red;">*</span> <br>
               <input class="input-info w-100" type="text" name="name" id="name" [(ngModel)]="contact.name" required >
             </label> <br>
-            <label for="phone">
+            <label for="phone" class="col-md-7 col-sm-12 col-12" >
               <span>Số điện thoại</span>
               <span style="color: red;">*</span> <br>
               <input  class="input-info w-100" [(ngModel)]="contact.phone"  (keypress)="numberOnly($event)" type="text" id="phone" name="phone" required>
               
             </label> <br>
-            <label for="email">
+            <label for="email" class="col-md-7 col-sm-12 col-12" >
               <span>Email</span> 
               <span style="color: red;">*</span>  <br>
               <input class="input-info w-100" type="email" name="email" id="email" [(ngModel)]="contact.email" required >
             </label> <br>
-            <label for="content">
+            <label for="content" class="col-md-7 col-sm-12 col-12" >
               <span>Nội dung</span>
               <span style="color: red;">*</span>
                <br>
               <textarea name="" id="content" class="input-info__textarea w-100" cols="30" rows="8" style="overflow: auto;
               resize: vertical;" name="content"[(ngModel)]="contact.content" required="content" ></textarea>
             </label>
-            <div style="text-align: left;" class="submit-button">
+            <div style="text-align: left;" class="submit-button col-md-6 col-sm-12 col-12 ">
               <button type="submit" class="mt-10 btn btn-success">Gửi</button>
             </div>
           </form>

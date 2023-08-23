@@ -14,16 +14,18 @@
             <div  class="col-12 "  *ngFor=" let post of postList ; let i = index" >
                 <div >
                     <div style="height: 100%;"   class="item" *ngIf="i<4">
-                        <div class="col-md-4">
-                            <div class="image">
-                                <img  src="{{baseURL}}/{{postURL}}/image/{{post.id}}" alt="image">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="image">
+                                    <img  src="{{baseURL}}/{{postURL}}/image/{{post.id}}" alt="image">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="title-content">
-                                <a class="aa" href="/tin-tuc/{{post.url}}">
-                                    <p class="title-content">{{post.title}}</p>
-                                </a>
+                            <div class="col-md-8">
+                                <div class="title-content">
+                                    <a class="aa" href="/tin-tuc/{{post.url}}">
+                                        <p class="title-content">{{post.title}}</p>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
