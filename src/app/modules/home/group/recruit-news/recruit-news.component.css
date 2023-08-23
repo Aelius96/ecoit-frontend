@@ -13,6 +13,7 @@
   
 }
 .ptdtt{
+  font-size: 13px;
   width: 100%; 
   display: block;
   display: -webkit-box;
@@ -35,7 +36,8 @@
   color: black;
 }
 .h7tttd{
-  font-size: 16px;
+
+  font-size: 14px;
   padding-top: 10px;
   padding-bottom: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -53,12 +55,11 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 14px;
 }
 .service-link{
   padding-left: 50px;
   padding-right: 50px;
-  border: 30px 30px 30px 30px;
-
   text-align: center;
 
 }
@@ -86,6 +87,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 13px;
 }
 .listnew {
   margin-bottom: 10px;

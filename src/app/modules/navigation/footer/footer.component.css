@@ -13,10 +13,13 @@
 }
 .titlefooter{
     color: white;
-    font-size: 15px;
-    margin-bottom: 30px;
-    font-family: Verdana;
-    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+
 }
 .a-contact{
     color: #ababaa;
@@ -38,10 +41,12 @@
     text-align: justify;
     position: relative;
     color: #d5cccc;
+    font-size: 15px;
 }
 .list:hover{
     margin-left: 5px;
     color: rgb(67, 192, 74);
+    cursor: pointer;
 }
 .text-title-news{
     color: #bababa;
@@ -115,4 +120,24 @@
 .footer-intro{
     text-align: justify;
     line-height: 25px;
+    color: #bcbcbc;
+    font-size: 15px;
+}
+.footer_list{
+    color: #bcbcbc;
+
+}
+.blog-inner{
+    color: #bcbcbc;
+    display: inline-block;
+    width: 70%; 
+    font-size: 15px;
+}
+.contact{
+    color: #bcbcbc;
+    padding-left: 0;
+    font-size: 15px;
+}
+.media-list{
+    padding-left: 0;
 }
