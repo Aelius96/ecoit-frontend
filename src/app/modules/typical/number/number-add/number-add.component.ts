@@ -30,13 +30,6 @@ export class NumberAddComponent implements OnInit {
   id: any;
   listIcon: any;
   allIcon: any;
-  messerrorNumber = '';
-  messerrorIcon = '';
-  messerrorDes = '';
-  textNumber = 'Những con số tiêu biểu không thể bỏ trống';
-  textNumber2 = 'Những con số tiêu biểu chỉ nhận giá trị số';
-  textIcon = 'Mã icon không thể bỏ trống';
-  textDes = 'Mô tả không thể bỏ trống';
   checkinput = true;
 
   constructor(
@@ -106,21 +99,6 @@ this.tNumber.description = this.formNumber.controls['description'].value;
             this.isborderErrorIcon = false;
             this.isborderErrorNumber = false;
             this.inputs = 'typeNumber';
-            this.messerrorNumber = this.textNumber;
-            this.messerrorIcon = this.textIcon;
-            this.messerrorDes = this.textDes;
-          } else if (
-            this.formNumber.controls['icons'].value === null &&
-            this.formNumber.controls['description'].value === null &&
-            typeof this.formNumber.controls['numberic'].value != 'number'
-          ) {
-            this.isborderErrorNumber = false;
-            this.isborderErrorIcon = false;
-            this.isborderErrorDes = false;
-            this.inputs = 'typeNumber';
-            this.messerrorIcon = this.textIcon;
-            this.messerrorDes = this.textDes;
-            this.messerrorNumber = this.textNumber2;
           } else if (
             this.formNumber.controls['icons'].value === null &&
             this.formNumber.controls['description'].value === null
@@ -128,8 +106,6 @@ this.tNumber.description = this.formNumber.controls['description'].value;
             this.isborderErrorIcon = false;
             this.isborderErrorDes = false;
             this.inputs = 'icon';
-            this.messerrorIcon = this.textIcon;
-            this.messerrorDes = this.textDes;
           } else if (
             this.formNumber.controls['numberic'].value === null &&
             this.formNumber.controls['icons'].value === null
@@ -137,8 +113,6 @@ this.tNumber.description = this.formNumber.controls['description'].value;
             this.isborderErrorIcon = false;
             this.isborderErrorNumber = false;
             this.inputs = 'typeNumber';
-            this.messerrorIcon = this.textIcon;
-            this.messerrorNumber = this.textNumber;
           } else if (
             this.formNumber.controls['numberic'].value === null &&
             this.formNumber.controls['description'].value === null
@@ -146,23 +120,18 @@ this.tNumber.description = this.formNumber.controls['description'].value;
             this.isborderErrorNumber = false;
             this.isborderErrorDes = false;
             this.inputs = 'typeNumber';
-            this.messerrorNumber = this.textNumber;
-            this.messerrorDes = this.textDes;
-          } else if (
-            this.formNumber.controls['numberic'].value === null ||
-            typeof this.formNumber.controls['numberic'].value != 'number'
-          ) {
-            this.isborderErrorNumber = false;
-            this.messerrorNumber = this.textNumber2;
-            this.inputs = 'typeNumber';
+
           } else if (this.formNumber.controls['icons'].value === null) {
             this.isborderErrorIcon = false;
-            this.messerrorIcon = this.textIcon;
             this.inputs = 'icon';
-          } else {
+          } 
+          else if (this.formNumber.controls['numberic'].value === null) {
+            this.isborderErrorNumber = false;
+            this.inputs = 'typeNumber';
+          } 
+          else {
             this.isborderErrorDes = false;
             this.inputs = 'description';
-            this.messerrorDes = this.textDes;
           }
           this.toast.showWarning(error.error, this.inputs);
           console.log(error.error);
@@ -172,14 +141,11 @@ this.tNumber.description = this.formNumber.controls['description'].value;
   }
   noidungNumber() {
     this.isborderErrorNumber = true;
-    this.messerrorNumber = '';
   }
   noidungIcon() {
     this.isborderErrorIcon = true;
-    this.messerrorIcon = '';
   }
   noidungDescription() {
     this.isborderErrorDes = true;
-    this.messerrorDes = '';
   }
 }
