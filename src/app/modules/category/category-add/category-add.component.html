@@ -4,7 +4,7 @@
             <p class="cate-name"><span _ngcontent-ng-c3074274042="" style="color: red;">*</span> Tên Chuyên Mục</p>
             <input class=" setinput" type="text" name="typeName" id="typeName" [formControl]="catogaryControl"
                 placeholder="*Nhập tên chuyên mục " required>
-                <p style="color: red;font-size: 15px;margin-top: 15px;">messageError</p>
+                <p style="color: red;font-size: 15px;margin-top: 15px;">{{messageError}}</p>
         </label>
         <!-- <label for="name" > <p class="cate-name">Đường dẫn</p>
         <input class="mt-3" type="text" name="cateUrl" id="cateUrl" [(ngModel)]="category.cateUrl" placeholder="Nhập tên đường dẫn " required>

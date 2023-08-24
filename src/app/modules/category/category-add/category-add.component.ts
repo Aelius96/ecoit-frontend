@@ -1,12 +1,8 @@
 import {
   Component,
-  ElementRef,
-  Inject,
   OnInit,
-  ViewChild,
 } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/core/model/category/category';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { FormControl } from '@angular/forms';
