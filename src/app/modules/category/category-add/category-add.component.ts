@@ -17,6 +17,7 @@ export class CategoryAddComponent implements OnInit {
   category: Category = new Category();
   message = '';
   id: number;
+  issetinput=true
   messageError = '';
   formData: any;
   catogaryControl = new FormControl();
@@ -70,9 +71,12 @@ export class CategoryAddComponent implements OnInit {
         this.cancel();
       },
       (error) => {
-        this.toast.showWarning(error.error, 'typeName');
-        this.messageError = error.error;
+        this.toast.showWarning(error.error);
+        this.issetinput=false;
       }
     );
+  }
+  thongtininput(){
+    this.issetinput=true
   }
 }

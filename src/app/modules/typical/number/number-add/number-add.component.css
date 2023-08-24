@@ -26,7 +26,7 @@
   height: 100vh;
 }
 .text-input{
-  border: 2px solid #50b848;
+  border: 1px solid #50b848;
   color: black;
 }
 .input{
@@ -76,10 +76,6 @@ select{
   border: 1px solid red;
   color: black;
 }
-.messageError{
-  color: red;
-  font-size: 15px;
-  margin: 15px 0;
-}
+
 
 

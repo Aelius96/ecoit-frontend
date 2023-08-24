@@ -8,7 +8,7 @@ export class ToastService {
   constructor(public toast: ToastrService) {}
 
   showSuccess() {
-    this.toast.success('Bạn đã lưu thành công',);
+    this.toast.success('Bạn đã lưu thành công');
   }
   showUpdate() {
     this.toast.info('Cập nhật thành công');
@@ -17,9 +17,9 @@ export class ToastService {
     if (inputs) {
       const input = document.getElementById(inputs);
       input?.focus();
-      this.toast.warning(error, );
+      this.toast.warning(error);
     } else {
-      this.toast.warning(error, );
+      this.toast.warning(error);
     }
   }
   chuyenslide() {
