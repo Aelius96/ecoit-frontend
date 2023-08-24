@@ -5,6 +5,7 @@ import { CountryISO, PhoneNumberFormat,SearchCountryField } from 'ngx-intl-tel-i
 import { Contact } from 'src/app/core/model/contact/contact';
 import { ContactService } from 'src/app/services/contact/contact.service';
 import { ToastrService } from 'ngx-toastr';
+import { ToastService } from '../toast/toast.service';
 
 @Component({
   selector: 'app-contact',

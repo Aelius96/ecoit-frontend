@@ -32,7 +32,6 @@ export class SliderControlComponent {
 
   ngOnInit(): void {
     this.getSlider();
-
     this.slideConfig = {
       infinite: true,
       slidesToShow: 5,

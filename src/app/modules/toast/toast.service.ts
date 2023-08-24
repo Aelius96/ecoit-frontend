@@ -8,18 +8,18 @@ export class ToastService {
   constructor(public toast: ToastrService) {}
 
   showSuccess() {
-    this.toast.success('Bạn đã lưu thành công', 'Thành Công!', {});
+    this.toast.success('Bạn đã lưu thành công',);
   }
   showUpdate() {
-    this.toast.info('Cập nhật thành công', 'Thông báo!', {});
+    this.toast.info('Cập nhật thành công');
   }
   showWarning(error: any, inputs?: string) {
     if (inputs) {
       const input = document.getElementById(inputs);
       input?.focus();
-      this.toast.warning(error, 'Cảnh Báo!', {});
+      this.toast.warning(error, );
     } else {
-      this.toast.warning(error, 'Cảnh Báo!', {});
+      this.toast.warning(error, );
     }
   }
   chuyenslide() {
