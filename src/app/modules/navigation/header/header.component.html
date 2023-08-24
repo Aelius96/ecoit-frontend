@@ -87,14 +87,13 @@
             </div>
             <!--   -->
             <div class="collapse navbar-collapse nav-mobi w-75 mx-auto " id="navbarTogglerDemo03" style="background-color: rgb(255, 255, 255);" >
-              <ul class=" menu-mobile text-uppercase mb-0" id="navi">
-                <li *ngFor="let nav of navParent" class=" py-3 nav-mobi--hover " style="border-bottom: 0.1px solid #dbdcdb ;"  id="child-li">
+              <ul class="ps-0 menu-mobile text-uppercase mb-0" id="navi">
+                <li *ngFor="let nav of navParent" class=" py-3 px-3 nav-mobi--hover " style="border-bottom: 0.1px solid #dbdcdb ;"  id="child-li">
                   <div  *ngIf="nav.navChild.length > 0 ;">
-av.navChild.length 
                     <a href="{{nav.url}}" id="dropdownMenu" class="name-nav--mobile dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{nav.name}}</a> 
                     <ul class="dropdown-menu p-0 mt-0 " style="width: 60%;"  aria-labelledby="dropdownMenu" >
-                      <li style="   " *ngFor="let nav1 of nav.navChild" itemscope="itemscope" id="dropdownMenu" class=" nav-mobi--hover menu-item ">
-                        <a href="/{{nav.url}}/{{nav1.url}}" style=" word-break: break-word; white-space: normal; " class="nav1 ">{{nav1.name}}</a>
+                      <li style=" " *ngFor="let nav1 of nav.navChild" itemscope="itemscope" id="dropdownMenu" class=" p-3 nav-mobi--hover menu-item ">
+                        <a href="/{{nav.url}}/{{nav1.url}}" style=" word-break: break-word; white-space: normal; font-size: 16px; " class=" text-dark  ">{{nav1.name}}</a>
 
                       </li>
                     </ul>
@@ -103,7 +102,7 @@ av.navChild.length
                     <a href="{{nav.url}}"  class="name-nav--mobile" >{{nav.name}}</a>
                   </div>
                 </li>
-                <li class="py-3" style="border-bottom: 0.1px solid #dbdcdb ;">
+                <li class="py-3 px-3" style="border-bottom: 0.1px solid #dbdcdb ;">
                   <div class="custom-input" >
                     <input type="text" [(ngModel)]="searchInput" name="searchInput" id="searchInput" placeholder="Tìm kiếm" class="w-100" >
                     <input type="submit" (click)="goToSearch()" id="edit-submit">

@@ -2,3 +2,13 @@
   padding-top: 34.2px;
   width: 100%;
 }
+@media only screen and (max-width:991px) {
+  .wrapper{
+    margin-left:0px;
+  }
+}
+@media only screen and (min-width:992px) {
+  .wrapper{
+    margin-left: 228px;
+  }
+}

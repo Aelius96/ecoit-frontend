@@ -90,7 +90,7 @@
   top: -10px;
   right: 0;
   color: #fff;
-  z-index: 10;
+  z-index: 3;
 }
 .close .x{
   border: 0;

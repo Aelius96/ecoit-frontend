@@ -6,16 +6,26 @@
   color: #34831a;
 }
 .header-left-headeradmin{
-  font-size: 24px;
+  font-size: 23px;
   color: black;
 }
 .header-admin{
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 270px;
-  z-index: 10;
-  background-color: #ffffff;
+   position: fixed;
+   top: 0;
+   right: 0;
+   z-index: 5;
+  background-color: #be9e9e;
 }
+@media only screen and (max-width:991px) {
+  .header-admin{
+   left: 0px;
+  }
+}
+@media only screen and (min-width:992px) {
+  .header-admin{
 
+    left: 228px;
+  }
+  
+}
 
