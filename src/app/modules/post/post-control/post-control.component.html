@@ -4,9 +4,9 @@
       <div class="d-flex justify-content-between header-menu ">
         <div class="">
           <div class="d-flex">
-           
+
             <form (change)="searchTitleAndDescription()" class="d-flex">
-              
+
               <input type="text" [(ngModel)]="search.searchInput" name="searchInput" placeholder="Tìm kiếm "
                 class="searchinput">
               <select [(ngModel)]="search.cate" name="cate" class=" searchinput px-2 ">
@@ -15,7 +15,7 @@
               </select>
               <div style="display: contents;">
                 <input type="date" class="searchinput w-25" [(ngModel)]="search.startTime" name="startTime">
-                <input class=" searchinput w-25 " type="date"  [(ngModel)]="search.endTime" name="endTime">
+                <input class=" searchinput w-25 " type="date" [(ngModel)]="search.endTime" name="endTime">
               </div>
               <div class="input-group-append ">
                 <button type="submit" class="input-group-text  "><i class="fa fa-search"></i></button>
@@ -87,7 +87,7 @@
       </div>
     </div>
   </div>
-
+</div>
 <div class="container  ">
   <div class="section-space--mt_100 list-table ">
     <p class="text-title">Bài viết</p>
@@ -151,6 +151,6 @@
           </div>
         </div>
       </div>
-    </div> 
+    </div>
   </div>
 </div>
