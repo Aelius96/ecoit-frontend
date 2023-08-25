@@ -18,7 +18,7 @@
         <li class="my-2" >
           <span class=" font-weight-bold ">Admin-EcoIT</span>
         </li>
-        <li class="sidebar-item mb-1 " *ngFor="let asides of aside ;">
+        <li class="sidebar-item mb-1 " *ngFor="let asides of asidess ;">
           <a class="sidebar-link " style="padding: 10px 40px 10px 10px;"  routerLink="{{asides.a}}" routerLinkActive="active" aria-expanded="false">
             <span class="">
               <i class="icon {{asides.icon}}"></i>
@@ -60,13 +60,15 @@
           <!-- <i class="ti ti-dots nav-small-cap-icon fs-4"></i> -->
           <span class="hide-menu  font-weight-bold ">Admin-EcoIT</span>
         </li>
-        <li class="sidebar-item mb-2 " *ngFor="let asides of aside ;">
-          <a class="sidebar-link" routerLink="{{asides.a}}" routerLinkActive="active" aria-expanded="false">
+        <li class="sidebar-item mb-2 " *ngFor="let aside of asidess ;">
+          <div *ngIf="aside.selected">
+          <a class="sidebar-link" routerLink="{{aside.a}}" routerLinkActive="active" aria-expanded="false">
             <span class="">
-              <i class="icon {{asides.icon}}"></i>
+              <i class="icon {{aside.icon}}"></i>
             </span>
-            <span class="hide-menu text-capitalize ">{{asides.tittle}}</span>
+            <span class="hide-menu text-capitalize ">{{aside.tittle}}</span>
           </a>
+        </div>
         </li>
         <li class="sidebar-item">
           <a class="sidebar-link" (click)="logout()" aria-expanded="false">

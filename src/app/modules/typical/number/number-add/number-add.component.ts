@@ -71,7 +71,6 @@ export class NumberAddComponent implements OnInit {
       this.update(this.id, this.tNumber);
     } else {
       this.addtNumber();
-      console.log(this.isborderErrorNumber)
     }
   }
   update(id: number, tNumber: Number) {

@@ -1,3 +1,4 @@
+import { Aside } from "../aside/aside";
 import {Role} from "../role/role";
 
 export class User {
@@ -10,5 +11,5 @@ export class User {
   active:any;
   role:Role[];
   token: string;
-
+  aside:Aside[]=[]
 }
