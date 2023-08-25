@@ -162,8 +162,8 @@ a:hover{
 }
 
 .listslide {
-  width: 209px;
-  height: 120px;
+  width: 180px;
+  height: 100px;
   text-align: center;
   object-fit: cover;
   gap: 10px;
@@ -175,12 +175,6 @@ a:hover{
   display: flex;
   margin: auto;
 }
-
-.carousel {
-  width: 100%;
-  max-width: 750px;
-  margin-left: 20px;
-}
 .nav-item.selected {
   color: #fff;
   background-color: #007bff;
@@ -190,15 +184,50 @@ a:hover{
 @media (min-width: 1400px) {
   .giaodienanh {
     width: 803px;
-    height: 400px;
-  }
-  .galley {
-    margin: 80px auto 0 auto;
+    height: 415px;
+    position: absolute;
+    z-index: 3;
   }
   .anh {
     width: 98%;
+    height: 95%;
+  }
+  .carousel{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+  }
+  .carousel-inner{
+    width: 100%;
+    height: 100%;
+   }
+  
+  
+  .galley {
+    margin: 80px auto 0 auto;
+  }
+ 
+  .logochuyenslide{
+    max-width: 45px;
+    position: absolute;
+    z-index: 4;
+    top:80%;
+    left: 90%;
+  }
+  .carousel-item {
+    width: 100%;
     height: 100%;
   }
+  .item{
+    width: 100%;
+    height: 100%;
+  }
+  .fuild-img{
+    height: 100%;
+    width: 100%;
+  }
+
 
   .hienthi-right {
     margin-left: 45px;
@@ -219,33 +248,30 @@ a:hover{
   .nav {
     overflow: auto;
     margin-left: 39px;
-    height: 182px;
+    height: 170px;
     max-width: 1100px;
   }
   .nav-item {
     cursor: pointer;
     margin: 15px 10px;
-    width: 209px;
-    height: 120px;
+    width: 180px;
+    height: 100px;
     box-shadow: 0 4px 6px -6px #222;
     transition: 0.5s;
   }
   .container {
     width: 1200px
   }
+
   .team-image {
     height: 120px;
   }
   .nav-item:hover{
     margin: 20px;
   }
-}
 .chuc-nang{
   margin-top: 10px;
 }
-.anh {
-  width: 98%;
-  height: 100%;
 }
 
 @media (min-width: 1200px)and (max-width:1400px) {
@@ -255,6 +281,22 @@ a:hover{
   }
   .galley {
     margin: 80px auto 0 auto;
+  }
+
+  .logochuyenslide{
+    max-width: 45px;
+    position: absolute;
+    z-index: 4;
+    top:80%;
+    left: 90%;
+  }
+  .carousel-inner{
+    width: 100%;
+    height: 100%;
+  }
+  .fuild-img{
+    width: 100%;
+    height: 100%;
   }
   .hienthi2{
       width: 93%;
@@ -308,10 +350,18 @@ a:hover{
   .giaodienanh {
     width: 600px;
     height: 350px;
+
   }
   .galley {
     margin-top: 80px;
     margin-left: -30px;
+  }
+  .logochuyenslide{
+    max-width: 45px;
+    position: absolute;
+    z-index: 4;
+    top:80%;
+    left: 90%;
   }
   .anh {
     width: 98%;
@@ -358,6 +408,7 @@ a:hover{
    margin-left: 10px;
   }
 
+
   .select-content-box {
     padding: 0;
   }
@@ -376,6 +427,13 @@ a:hover{
     margin-top: 80px;
     margin-left: -20px;
   }
+  .logochuyenslide{
+    max-width: 45px;
+    position: absolute;
+    z-index: 4;
+    top:80%;
+    left: 90%;
+  }
   .hienthi2{
     margin-left: 14px;
   }
@@ -383,6 +441,7 @@ a:hover{
     width: 94%;
     height: 100%;
   }
+
 
   .hienthi-right h3,
   h2 {

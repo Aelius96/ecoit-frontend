@@ -54,8 +54,8 @@ export class NewsListComponent implements OnInit{
           this.postList = response.content;
           this.paging.totalRecord = response.totalElements;
 
-          console.log(response);
-          console.log(this.category);
+          // console.log(response);
+          // console.log(this.category);
         },
         error => {
           console.log(error);

@@ -1,10 +1,10 @@
-*{
-  font-family: Verdana;
-}
+
 .post-title{
+  margin-bottom: 15px;
   font-size: 18px;
   color: #50B848;
   font-weight: bold;
+  line-height: 1.5;
 }
 
 .post-excerpt{
@@ -18,6 +18,7 @@
   -webkit-box-orient: vertical;
 }
 .chuyenmuc{
+  font-size: 30px;
   text-align: center;
   font-weight: bold;
   color: #50B848;
@@ -67,7 +68,8 @@ svg:hover{
   text-overflow: ellipsis;
 }
 .img-slide{
-  max-height: 260px;
+  max-height: 270px;
+  min-height: 220px;
 }
 .item-news{
   max-height: 550px;

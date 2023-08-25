@@ -13,7 +13,7 @@ import {Domain} from "../../../core/domain/domain";
   templateUrl: './post-control.component.html',
   styleUrls: ['./post-control.component.css'],
 })
-export class PostControlComponent implements OnInit , OnChanges {
+export class PostControlComponent implements OnInit {
 
   postList: Post[]=[];
   catelist: Category[]=[];
@@ -41,10 +41,6 @@ export class PostControlComponent implements OnInit , OnChanges {
               private cateService: CategoryService
   ) {
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("ngonchange")
-  }
-
 
   ngOnInit(): void {
     // this.listAll();
@@ -85,8 +81,7 @@ export class PostControlComponent implements OnInit , OnChanges {
         data => {
           this.postList = data.content;
           this.paging.totalRecord = data.totalElements;
-         console.log(this.postList)
-
+        //  console.log(this.postList)
         },
         error => {
           console.log(error);
@@ -122,7 +117,6 @@ export class PostControlComponent implements OnInit , OnChanges {
 
   deletePost(id: number){
     let option = confirm("Dữ liệu sẽ bị xóa . Bạn có mốn tiếp tục ");
-
     if(option){
       this.postService.deletePost(id).subscribe(()=>{
         this.getListAllWithPage();

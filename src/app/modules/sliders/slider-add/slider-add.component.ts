@@ -6,6 +6,7 @@ import {Constant} from "../../../core/config/constant";
 import {Domain} from "../../../core/domain/domain";
 import { ToastService } from '../../toast/toast.service';
 
+
 @Component({
   selector: 'app-slider-add',
   templateUrl: './slider-add.component.html',
@@ -13,7 +14,9 @@ import { ToastService } from '../../toast/toast.service';
 })
 export class SliderAddComponent implements OnInit {
   baseURL = Constant.BASE_URL;
+  disabled:string='disabled'
   id: any;
+  disable='disabled'
   slider: Slider = new Slider();
   url: any;
   fileToUpload:string [] = [];
@@ -109,10 +112,11 @@ export class SliderAddComponent implements OnInit {
   imageChange(e: any){
     const files = e.target.files;
     if (files.length === 0) return;
-
+    this.disabled=''
     const reader = new FileReader();
     this.fileToUpload=files;
     reader.readAsDataURL(files[0]);
+    this.disable="";
     reader.onload = (_event) =>{
       this.imageURL= reader.result;
     }

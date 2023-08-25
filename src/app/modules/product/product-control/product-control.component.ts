@@ -27,8 +27,7 @@ export class ProductControlComponent implements OnInit{
   }
 
   constructor(private router:Router,
-    private productService : ProductService, 
-    private toast : ToastrService) {
+    private productService : ProductService) {
   }
   ngOnInit(): void {
     this.getProductListAllwithPage();
@@ -71,14 +70,14 @@ export class ProductControlComponent implements OnInit{
     }
 
     handlePageChange(event: number): void {
-      console.log(event);
+      // console.log(event);
       this.paging.page = event;
       this.getProductListAllwithPage();
     }
     handlePageSizeChange(event: any): void {
       this.paging.size = event;
       this.paging.page = 1;
-      console.log(event, this.paging.size)
+      // console.log(event, this.paging.size)
       this.getProductListAllwithPage();
     }
 

@@ -1,4 +1,4 @@
-<form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+x<form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
   <div class="toolbar">
     <div class="container">
       <div class="d-flex  justify-content-between header-menu ">
@@ -80,6 +80,7 @@
         <div class="col-md-12">
             <div class="title">Vai trò</div>
             <div class="roles-box">
+              <div>
               <ul class="list-group">
 
 <!--                updateUser-->
@@ -102,17 +103,23 @@
                   </div>
                 </li>
               </ul>
-<!--              <label>-->
-<!--                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="admin"> Quản trị viên-->
-<!--              </label>-->
-<!--              <label>-->
-<!--                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="mod"> Điều hành-->
-<!--              </label>-->
-<!--              <label>-->
-<!--                <input type="radio" [(ngModel)]="user.roles" name="roles" > Người dùng-->
-<!--              </label>-->
+              </div>
             </div>
         </div>
+        <div class="col-md-12">
+          <ul class="list-group">
+            <h3>Quyền truy cập</h3>
+            <li class="list-group-item"  *ngFor ="let asides of asidess ;">
+              <div class="form-check">
+ 
+                <input type="checkbox" [value]="asides.selected" [checked]="asides.selected"
+                       (change)="onAsideChange($event,asides)" class="custom-control-input" id="aside{{asides.id}}">
+                <label class="cursor-pointer font-italic d-block custom-control-label" for="aside{{asides.id}}">{{asides.tittle}}</label>
+
+              </div>
+            </li>
+          </ul>
+    </div>
 
       </div>
 

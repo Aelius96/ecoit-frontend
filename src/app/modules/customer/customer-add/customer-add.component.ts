@@ -10,6 +10,8 @@ import { Domain } from 'src/app/core/domain/domain';
 import { ToastService } from '../../toast/toast.service';
 
 
+
+
 @Component({
   selector: 'app-customer-add',
   templateUrl: './customer-add.component.html',
@@ -41,14 +43,12 @@ export class CustomerAddComponent {
     }else{
       this.getProducts();
     }
-
   }
 
   getCustomById(id: number) {
     this.customerService.getCusById(id).subscribe(data => {
       this.customer = data;
       this.image = this.customer.banner?.pathUrl;
-      // this.bannerURL = this.baseURL + this.image ;
       this.bannerURL = `${this.baseURL}/${this.cusURL}/image/${this.customer.id}`
       this.getProductUpdate(this.customer);
     });
@@ -71,7 +71,7 @@ export class CustomerAddComponent {
   getProducts(){
     this.productService.getProductList().subscribe(data =>{
       this.products = data;
-      console.log(data)
+      // console.log(data)
     })
   }
 

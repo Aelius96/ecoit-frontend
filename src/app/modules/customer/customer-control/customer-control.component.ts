@@ -13,7 +13,6 @@ import { TokenStorageService } from 'src/app/services/token-storage/token-storag
 export class CustomerControlComponent implements OnInit{
 
   customer: Customer[] = [];
-  role:string;
 
   searchInput= '';
   paging={
@@ -53,7 +52,6 @@ export class CustomerControlComponent implements OnInit{
       this.customerService.listAllWithPage(params).subscribe(data=>{
         this.customer = data.content;
         this.paging.totalRecord = data.totalElements;
-
       },
       error=>{
         console.error(error)
@@ -66,14 +64,14 @@ search():void{
   this.getlistallwithPage();
 }
 handlePageChange(event:number):void{
-  console.log(event);
+  // console.log(event);
   this.paging.page = event;
   this.getlistallwithPage();
 }
 handlePageSizeChange(event: any): void {
   this.paging.size = event;
   this.paging.page = 1;
-  console.log(event, this.paging.size)
+  // console.log(event, this.paging.size)
   this.getlistallwithPage();
 }
   addCustomer(){
@@ -88,7 +86,7 @@ handlePageSizeChange(event: any): void {
     let option = confirm("Bạn có chắc chắn xóa khách hàng này?");
 
     if(option){
-      this.customerService.deleteCustomer(id).subscribe(data =>{
+      this.customerService.deleteCustomer(id).subscribe(() =>{
         this.getlistallwithPage();
       })
     }

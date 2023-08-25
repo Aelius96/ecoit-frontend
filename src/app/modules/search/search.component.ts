@@ -15,6 +15,7 @@ import { CategoryService } from 'src/app/services/category/category.service';
 })
 export class SearchComponent implements OnInit
 {
+  tongbaiviettimdc=0;
   postURL = Domain.POST;
   postList :Post[] = [];
   catelist: Category[]=[];
@@ -53,14 +54,17 @@ export class SearchComponent implements OnInit
       params[`search`] = search;
     }
     if(cateName) {
-      params['cate'] = cateName
+      params['cate'] = cateName;
     }
     if(hashtag) {
       params['tag'] = hashtag
     }
     return params;
   }
+  seach(){
 
+  }
+  
   getListAllWithPageTest(): void {
     const params = this.getRequestParamsTest(this.paging.page,this.paging.size,this.searchInput,this.cateName,this.tag);
 

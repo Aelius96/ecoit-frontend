@@ -7,6 +7,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Role} from "../../../core/model/role/role";
 import {RoleService} from "../../../services/role/role.service";
 import {ToastrService} from 'ngx-toastr';
+import { Aside } from 'src/app/core/model/aside/aside';
+import { AsideService } from 'src/app/services/aside/aside.service';
 
 
 @Component({
@@ -16,9 +18,10 @@ import {ToastrService} from 'ngx-toastr';
 })
 
 export class UserAddComponent implements OnInit{
-
+  
   user : User = new User();
   role :Role[] = [];
+  asidess: Aside[]=[]
   id: any;
   roll: any;
   isSuccessful = false;
@@ -29,7 +32,8 @@ export class UserAddComponent implements OnInit{
 
   constructor(private authService: AuthService,private userService: UserService, private roleService:RoleService,
               private router: Router,private route:ActivatedRoute ,
-              private toastService: ToastrService, ) {
+              private toastService: ToastrService,
+              private aside:AsideService ) {
   }
 
 
@@ -38,8 +42,14 @@ export class UserAddComponent implements OnInit{
     if(this.id){
       this.getUserById(this.id);
     }
+    this.getaside()
+    console.log(this.asidess)
   }
-
+  getaside() {
+    this.aside.getAside('aside.json').subscribe(data=> {
+      this.asidess = data;
+    });
+  }
 
   getUserById(id: number) {
     this.userService.getUserById(id).subscribe(data => {
@@ -71,6 +81,18 @@ export class UserAddComponent implements OnInit{
       this.user.role.forEach(item => {
         if(item.id === role.id){
           this.user.role = this.user.role.filter(i => i !== item);
+        }
+      })
+    }
+  }
+  onAsideChange(event:any,aside:Aside){
+    aside.selected=event.currentTarget.checked;
+    if(aside.selected){
+      this.user.aside.push(aside);
+    }else{
+      this.user.aside.forEach(item => {
+        if(item.id === aside.id){
+          this.user.aside = this.user.aside.filter(i => i !== item);
         }
       })
     }

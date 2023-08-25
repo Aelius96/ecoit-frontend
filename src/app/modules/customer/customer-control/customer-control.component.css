@@ -90,7 +90,7 @@
   top: -10px;
   right: 0;
   color: #fff;
-  z-index: 10;
+  z-index: 3;
 }
 .close .x{
   border: 0;
@@ -167,4 +167,9 @@ a:hover{
 }
 .ND{
   word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -1,22 +1,35 @@
-import {Injectable, TemplateRef} from '@angular/core';
-import {ToastrService} from 'ngx-toastr';
+import { Injectable, TemplateRef } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ToastService {
+  constructor(public toast: ToastrService) {}
 
-  constructor(public toast: ToastrService){}
-
-  showSuccess(){
-      this.toast.success('Bạn đã lưu thành công', 'Thành Công!', {  });
-  } 
-  showUpdate(){
-   this.toast.info('Cập nhật thành công', 'Thông báo!', {});
+  showSuccess() {
+    this.toast.success('Bạn đã lưu thành công');
   }
-  showWarning(error:any)
-   {
-   this.toast.warning(error, 'Cảnh Báo!', {});
+  showUpdate() {
+    this.toast.info('Cập nhật thành công');
   }
-
+  showWarning(error: any, inputs?: string) {
+    if (inputs) {
+      const input = document.getElementById(inputs);
+      input?.focus();
+      this.toast.warning(error);
+    } else {
+      this.toast.warning(error);
+    }
+  }
+  chuyenslide() {
+    this.toast.info('bạn đã chuyển sang chế độ trình chiếu', 'Thông báo', {
+      timeOut: 2000,
+    });
+  }
+  chuyenchedoIMG() {
+    this.toast.info('bạn đã chuyển sang chế độ trình ảnh', 'Thông báo', {
+      timeOut: 2000,
+    });
+  }
 }

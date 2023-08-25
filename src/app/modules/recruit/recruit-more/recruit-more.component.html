@@ -12,22 +12,24 @@
     <div class="content" >
         <div class="row ">
             <div  class="col-12 "   *ngFor=" let recruit of postList ; let i = index"  >
-                <div >
+                
                     <div style="height: 100%;"   class="item" *ngIf="i<4">
-                        <div class="col-md-4">
-                            <div class="image">
-                                <img src="{{baseURL}}/bpost/image/{{recruit.id}}"  alt="image">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="image">
+                                    <img src="{{baseURL}}/bpost/image/{{recruit.id}}"  alt="image">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="title-content">
-                                <a class="aa" href="/tuyen-dung/{{recruit.url}}">
-                                    <p class="title-content">{{recruit.title}}</p>
-                                </a>
+                            <div class="col-md-8">
+                                <div class="title-content">
+                                    <a class="aa" href="/tuyen-dung/{{recruit.url}}">
+                                        <p class="title-content">{{recruit.title}}</p>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                
             </div>
         </div>
     </div>

@@ -14,17 +14,18 @@
             <div  *ngFor=" let pro of productList ; let i = index" >
                 <div *ngIf="i<3" >
                     <div class="mb-3">
-                        <div class="col-md-3" >
-                            <div class="image">
-                                <img src="{{baseURL}}/{{productURL}}/image/{{pro.id}}" alt="image">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-4 " >
+                                <div class="image">
+                                    <img src="{{baseURL}}/{{productURL}}/image/{{pro.id}}" alt="image">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="title-content">
-                                <a class="aa" href="/san-pham/{{pro.url}}">
-                                    <p class="title-content">{{pro.title}}</p>
-                                    <!-- <p style="font-size: 16px; color: black;"> {{pro.description}}</p> -->
-                                </a>
+                            <div class="col-md-8  col-sm-8 col-8">
+                                <div class="title-content">
+                                    <a class="aa" href="/san-pham/{{pro.url}}">
+                                        <p class="title-content">{{pro.title}}</p>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

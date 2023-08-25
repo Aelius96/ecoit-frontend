@@ -5,6 +5,7 @@ import {TokenStorageService} from "../../../services/token-storage/token-storage
 import {Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
 import {Domain} from "../../../core/domain/domain";
+import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-slider-control',
@@ -12,8 +13,9 @@ import {Domain} from "../../../core/domain/domain";
   styleUrls: ['./slider-control.component.css']
 })
 export class SliderControlComponent {
-
+  slider:boolean=true;
   sliders: Slider[] = [];
+  sliders2: Slider[] = [];
   target = {
     url: '',
     id: 1,
@@ -26,11 +28,10 @@ export class SliderControlComponent {
   baseURL = Constant.BASE_URL;
   sliderURL = Domain.SLIDERS;
    imageURL: any;
-  constructor(private sliderService: SliderService, private router: Router) { }
+  constructor(private sliderService: SliderService, private router: Router,private slideSericeslide:SliderService,private toastslide:ToastService) { }
 
   ngOnInit(): void {
     this.getSlider();
-
     this.slideConfig = {
       infinite: true,
       slidesToShow: 5,
@@ -46,7 +47,15 @@ export class SliderControlComponent {
       this.choose(this.sliders[0]);
     });
   }
-
+  getListAll(){
+    this.slideSericeslide.getListAll().subscribe(data=>{
+       this.sliders2=data;
+       this.choose(this.sliders[0]);
+    })
+  }
+  choose2(e:any){
+    console.log(e)
+  }
   choose(e: any){
     this.target.name = e?.name;
     this.target.url = e?.pathUrl;
@@ -57,7 +66,15 @@ export class SliderControlComponent {
     //get image by target name
     this.imageURL = `${this.baseURL}/${this.sliderURL}/image/${this.target.name}`
   }
-
+  chuyenslide(){
+    this.slider=!this.slider
+    if(this.slider){
+      this.toastslide.chuyenslide()
+    }
+    else{
+      this.toastslide.chuyenchedoIMG()
+    }
+  }
   updateSlider(id: number){
     return this.router.navigate(['admin/sliders/update', id]);
   }

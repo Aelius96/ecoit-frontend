@@ -13,46 +13,55 @@
 }
 .img-fluid{
   width: 100%;
-  height: 100%;
   border: 1px solid gainsboro;
   border-radius: 5px;
 }
 
 .item{
   display:inline-block;
-  width: 20%;
+  /* width: 18%;
+  height: 100%; */
+}
 
-  height: 100%;
+
+.item-img{
+  text-align: center;
 }
-@media  only screen and (min-width:1024px) {
+@media only screen and (min-width:1400px){
   .item-img{
-    height: 170px
+    height: 100%
   }
-  .item{
-    margin: 15px;
-  }
+
 }
-@media only screen and ( min-width:771px) and (max-width:1023px) {
+
+@media only screen and (min-width:1200px) and (max-width: 1399px){
   .item-img{
-    height: 120px
+    height: 100%
   }
-  .item{
-    margin: 10px;
-  }
+
 }
-@media only screen and ( min-width:545px) and (max-width:770px) {
+
+@media  only screen and (min-width:992px) and (max-width:1199px) {
   .item-img{
-    height: 100px
+    height: 100%
   }
-  .item{
-    margin: 10px;
+
+}
+@media only screen and ( min-width:720px) and (max-width:991px) {
+  .item-img{
+    height: 100%
   }
+
+}
+@media only screen and ( min-width:545px) and (max-width:719px) {
+  .item-img{
+    height: 100%
+  }
+
 }
 @media only screen and (max-width:540px) {
   .item-img{
-    height: 70px
+    height: 100%
   }
-  .item{
-    margin: 5px;
-  }
+
 }

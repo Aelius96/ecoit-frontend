@@ -2,17 +2,14 @@
 <img width="100%" src="./assets/images/ecoit/banner-tuyen-dung-2.jpg" class="fuild-img wp-post-image banner "
   alt="" loading="lazy">
 
-
       <div class="col-md-12">
         <div class="my-4">
           <div class="wdc-heading style-1 text-left">
-            <h2 class="chuyenmuc">Blog</h2>
-            <hr class="hr-title">
+            <p class="chuyenmuc">Blog</p>
+      
           </div>
         </div>
       </div>
-
-
 
 <div class="site-wrapper-reveal">
   <!--====================  Blog Area Start ====================-->
@@ -21,46 +18,40 @@
       <div class="row w-100 ">
         <div class="mt-4 w-100 ">
           <div class="main-blog-wrap">
-            <div>
-              <div id="myCarousel" class="carousel slide " data-ride="carousel" >
+            <div class="col-md-12 section-space--mb_20 ">
+              <div id="carouselExampleInterval4" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                  <div class=" w-100  item " [class]="s == 0 ? 'active' : '' " *ngFor="let post of postList ;let s = index">
-                    <div class="col-md-6 w-100 ">
-                      <a href="/blog/{{post.url}}" class="w-100">
-                        <img class="img-fluid img-slide w-100" src="{{baseURL}}/{{postURL}}/image/{{post.id}}"
-                          alt=" Images">
-                      </a>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="post-info lg-blog-post-info">
-
-                        <h4 class="post-title font-weight--light">
-                          <a class="p-title" href="/blog/{{post.url}}">{{post.title}}</a>
-                        </h4>
-
-                        <div class="post-excerpt mt-15">
-                          <p>{{post.description}}</p>
-                        </div>
-
-                        <div class="post-read-more mt-20">
-                          <a href="/blog/{{post.url}}" class=" ht-btn-sm" style="background-color: rgb(57, 182, 61);">
-                            <span class="btn-text">Xem thêm </span>
+                  <div class="carousel-item " [class]="s == 0 ? 'active' : '' " *ngFor="let post of postList ;let s = index" data-bs-interval="3000">
+                    <div >
+                      <div class="row justify-content-center ">
+                        <div class="col-md-6 col-sm-4 col-11  first-blog">
+                          <a href="/blog/{{post.url}}" class="w-100">
+                            <img class="img-fluid img-slide w-100" src="{{baseURL}}/{{postURL}}/image/{{post.id}}"
+                              alt=" Images">
                           </a>
+                        </div>
+                        <div class="col-md-6 col-sm-5 col-11 ">
+                          <div class="post-info lg-blog-post-info">
+                            <h4 class="post-title font-weight--light">
+                              <a class="p-title" href="/blog/{{post.url}}">{{post.title}}</a>
+                            </h4>
+                            <div class="post-excerpt ">
+                              <p>{{post.description}}</p>
+                            </div>
+                            <div class="post-read-more ">
+                              <a href="/blog/{{post.url}}" class=" ht-btn-sm" style="background-color: rgb(57, 182, 61);">
+                                <span class="btn-text">Xem thêm </span>
+                              </a>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <script>
-                  $(document).ready(function () {
-                    $('.carousel').carousel({
-                      interval: 10
-                    })
-                  });
-                </script>
               </div>
+            </div>
 
-              <!--====================  Blog Area Start ====================-->
               <div class="blog-pages-wrapper section-space--ptb_100">
                 <div class="container">
                   <div class="row">
@@ -68,7 +59,7 @@
                                                       itemsPerPage: paging.size,
                                                        currentPage: paging.page,
                                                       totalItems: paging.totalRecord } ;let i = index "
-                      class="col-lg-4 mb-20">
+                      class="col-lg-4 col-11 section-space--mb_30 ">
                       <!--======= Single Blog Item Start ========-->
                       <div class="single-blog-item blog-grid">
                         <!-- Post Feature Start -->
@@ -80,10 +71,10 @@
                         </div>
 
                         <div class="post-info lg-blog-post-info">
-                          <h5 class="post-title font-weight--bold">
+                          <h5 class="post-title mb-3 font-weight--bold">
                             <a class="p-title" href="/blog/{{post.url}}">{{post.title}}</a>
                           </h5>
-                          <div class="post-excerpt mt-15">
+                          <div class="post-excerpt ">
                             <p>{{post.description}}</p>
                           </div>
                           <div class="share text-right ">
@@ -129,14 +120,10 @@
                   </div>
                 </div>
               </div>
-              <!--====================  Blog Area End  ====================-->
-            </div>
           </div>
 
         </div>
       </div>
     </div>
-    <!--====================  Blog Area End  ====================-->
-
   </div>
   <app-footer></app-footer>

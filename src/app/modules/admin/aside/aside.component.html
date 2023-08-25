@@ -1,56 +1,29 @@
-<!-- 
-<div class="aside " >
-  <div class="logo-aside"  >
-    <a href="#" target="_blank" class="align-items-center">
-      <img  alt="Logo" src="assets/images/diacau.png" class="logo" style="text-align: center">
-    </a>
-  </div>
 
-  <div class=" list-aside">
-    <ul style="margin-bottom: 0px;">
-      <li class="menu-item-aside" *ngFor ="let asides of aside">
-        
-        <div title="{{asides.tittle}}" class="title-menu-aside">
-          <a  routerLink="{{asides.a}}" routerLinkActive="active" class="a">
-          <span class="menu-iconn item-iconn">
-            <i class="icon {{asides.icon}}">
-            </i>
-          </span>
-          </a>
-        </div>
-      </li>
-    </ul>
-  </div>
+<!-- mobile -->
+<div class="d-block d-lg-none">
+<div class="px-3 py-1 icon-menu bg-info "  data-bs-toggle="collapse" href="#collapseExampleMenu"  aria-expanded="false" aria-controls="collapseExample" >
+  <i style="font-size: 22px;" class="fa fa-bars" ></i>
+</div>
 
-
-</div> -->
-
-
-
-<aside class="left-sidebar">
-  <!-- Sidebar scroll-->
-  <div>
-    <div class="brand-logo mb-0  ">
-      <a href="#" target="_blank" class="text-nowrap logo-img">
-        <img src="./assets/images/logoEcoit.jpg" width="180" alt="" />
+<aside id="collapseExampleMenu"  class=" left-sidebar collapse sidebar-mobile ">
+  <div style="height: 90%; width: min-content; " >
+    <div class="brand-logo-mobile  mb-0  ">
+      <a  href="#" target="_blank" class="text-nowrap logo-img d-flex ">
+        <img class="w-50 mx-auto " src="./assets/images/logoEcoit.jpg"  />
       </a>
-      <!-- <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-        <i class="ti ti-x fs-8"></i>
-      </div> -->
     </div>
-    <!-- Sidebar navigation-->
-    <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
-      <ul id="sidebarnav">
-        <li class="nav-small-cap">
-          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-          <span class="hide-menu h5 font-weight-bold ">Admin-EcoIT</span>
+
+    <nav class="w-auto h-100 sidebar-nav scroll-sidebar nav-mobile " data-simplebar="">
+      <ul id="sidebarnav" class="ps-0">
+        <li class="my-2" >
+          <span class=" font-weight-bold ">Admin-EcoIT</span>
         </li>
-        <li class="sidebar-item mb-2 " *ngFor ="let asides of aside ;" >
-          <a class="sidebar-link" routerLink="{{asides.a}}" routerLinkActive="active"  aria-expanded="false">
-            <span class="h5" >
+        <li class="sidebar-item mb-1 " *ngFor="let asides of asidess ;">
+          <a class="sidebar-link " style="padding: 10px 40px 10px 10px;"  routerLink="{{asides.a}}" routerLinkActive="active" aria-expanded="false">
+            <span class="">
               <i class="icon {{asides.icon}}"></i>
             </span>
-            <span class="hide-menu text-capitalize h5">{{asides.tittle}}</span>
+            <span class="hide-menu text-capitalize ">{{asides.tittle}}</span>
           </a>
         </li>
         <li class="sidebar-item">
@@ -58,14 +31,55 @@
             <span>
               <i class="ti ti-logout"></i>
             </span>
-            <span class="hide-menu h5">Đăng Xuất</span>
+            <span class="hide-menu ">Đăng Xuất</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+ 
+  </div>
+</aside>
+
+</div>
+
+
+
+<!-- side bar  -->
+<aside class="left-sidebar d-none d-lg-block ">
+  <!-- Sidebar scroll-->
+  <div>
+    <div class="brand-logo  mb-0  ">
+      <a href="#" target="_blank" class="text-nowrap logo-img">
+        <img src="./assets/images/logoEcoit.jpg" width="180" alt="" />
+      </a>
+    </div>
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+      <ul id="sidebarnav" class="ps-0">
+        <li class="nav-small-cap">
+          <!-- <i class="ti ti-dots nav-small-cap-icon fs-4"></i> -->
+          <span class="hide-menu  font-weight-bold ">Admin-EcoIT</span>
+        </li>
+        <li class="sidebar-item mb-2 " *ngFor="let aside of asidess ;">
+          <div *ngIf="aside.selected">
+          <a class="sidebar-link" routerLink="{{aside.a}}" routerLinkActive="active" aria-expanded="false">
+            <span class="">
+              <i class="icon {{aside.icon}}"></i>
+            </span>
+            <span class="hide-menu text-capitalize ">{{aside.tittle}}</span>
+          </a>
+        </div>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" (click)="logout()" aria-expanded="false">
+            <span>
+              <i class="ti ti-logout"></i>
+            </span>
+            <span class="hide-menu ">Đăng Xuất</span>
           </a>
         </li>
       </ul>
     </nav>
     <!-- End Sidebar navigation -->
   </div>
-  <!-- End Sidebar scroll-->
 </aside>
-
-
