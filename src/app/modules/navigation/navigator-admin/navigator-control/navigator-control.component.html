@@ -4,25 +4,25 @@
       <div class="d-flex  justify-content-between header-menu ">
         <div class="left-d-flex">
           <div class="d-flex">
-            <input type="text " (click)="searchTitleAndDescription()" placeholder="Tìm kiếm" class="searchinput">
+            <input type="text " class="searchinput" (click)="searchTitleAndDescription()" placeholder="Tìm kiếm" class="searchinput">
             <div class="input-group-append ">
               <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
             </div>
           </div>
         </div>
         <div class="right-d-flex my-auto">
-          <div class="d-flex  flex-wrap">
+          <div class="d-flex flex-wrap">
             <div class="d-flex selected  my-auto " *ngIf="selects">
-              <span style="margin-right: 6px; margin-top: 2px;">Đã chọn: </span>
-              <div class="selected-number menu-link ">{{selects}}</div>
-              <div class="menu-link">
+              <span class="">Đã chọn: </span>
+              <div class="selected-number menu-link ml-2 mr-1 ">{{selects}}</div>
+              <div class="menu-link mr-2 ml-1 ">
                 <a class=" " (click)="clearnAll()" title="Xóa">
-                  <i class="far fa-trash-alt fa-lg"></i>
+                  <i style="font-size: 18px;" class="far fa-trash-alt fa-lg"></i>
                 </a>
               </div>
               <div class="menu-link">
                 <a class="" title="Hủy" (click)="uncheckAll()">
-                  <i class="far fa-times fa-lg"></i>
+                  <i style="font-size: 20px;" class="far fa-times fa-lg"></i>
                 </a>
               </div>
             </div>
@@ -42,8 +42,17 @@
       </div>
     </div>
     <!-- mobile -->
-    <div class="d-md-none d-block ">
-      
+    <div class=" d-flex justify-content-end ">
+      <div class="d-md-none d-block">
+        <div class="btn-group dropstart">
+          <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-bars"></i>
+          </div>
+          <ul class="dropdown-menu p-0">
+            ffdf
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
