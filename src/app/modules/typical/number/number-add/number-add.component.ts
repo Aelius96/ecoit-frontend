@@ -80,20 +80,7 @@ export class NumberAddComponent implements OnInit {
         this.rollbackToList();
       },
       (error) => {
-        if (
-          this.formNumber.controls['numberic'].value === null &&
-          this.formNumber.controls['description']
-        ) {
-          this.isborderErrorNumber = false;
-          this.isborderErrorDes = false;
-          this.inputs = 'typeNumber';
-        } else if (this.formNumber.controls['numberic'].value === null) {
-          this.isborderErrorNumber = false;
-          this.inputs = 'typeNumber';
-        } else {
-          this.isborderErrorDes = false;
-          this.inputs = 'description';
-        }
+        this.ktradieukien()
         this.toast.showWarning(error.error, this.inputs);
         console.log(error.error);
       }
@@ -107,50 +94,53 @@ export class NumberAddComponent implements OnInit {
         this.rollbackToList();
       },
       (error) => {
-        if (
-          this.formNumber.controls['numberic'].value === null &&
-          this.formNumber.controls['icons'].value === null &&
-          this.formNumber.controls['description'].value === null
-        ) {
-          this.isborderErrorDes = false;
-          this.isborderErrorIcon = false;
-          this.isborderErrorNumber = false;
-          this.inputs = 'typeNumber';
-        } else if (
-          this.formNumber.controls['icons'].value === null &&
-          this.formNumber.controls['description'].value === null
-        ) {
-          this.isborderErrorIcon = false;
-          this.isborderErrorDes = false;
-          this.inputs = 'icon';
-        } else if (
-          this.formNumber.controls['numberic'].value === null &&
-          this.formNumber.controls['icons'].value === null
-        ) {
-          this.isborderErrorIcon = false;
-          this.isborderErrorNumber = false;
-          this.inputs = 'typeNumber';
-        } else if (
-          this.formNumber.controls['numberic'].value === null &&
-          this.formNumber.controls['description'].value === null
-        ) {
-          this.isborderErrorNumber = false;
-          this.isborderErrorDes = false;
-          this.inputs = 'typeNumber';
-        } else if (this.formNumber.controls['icons'].value === null) {
-          this.isborderErrorIcon = false;
-          this.inputs = 'icon';
-        } else if (this.formNumber.controls['numberic'].value === null) {
-          this.isborderErrorNumber = false;
-          this.inputs = 'typeNumber';
-        } else {
-          this.isborderErrorDes = false;
-          this.inputs = 'description';
-        }
+        this.ktradieukien();
         this.toast.showWarning(error.error, this.inputs);
         console.log(error.error);
       }
     );
+  }
+  ktradieukien(){
+    if (
+      this.formNumber.controls['numberic'].value === null &&
+      this.formNumber.controls['icons'].value === null &&
+      this.formNumber.controls['description'].value === null
+    ) {
+      this.isborderErrorDes = false;
+      this.isborderErrorIcon = false;
+      this.isborderErrorNumber = false;
+      this.inputs = 'typeNumber';
+    } else if (
+      this.formNumber.controls['icons'].value === null &&
+      this.formNumber.controls['description'].value === null
+    ) {
+      this.isborderErrorIcon = false;
+      this.isborderErrorDes = false;
+      this.inputs = 'icon';
+    } else if (
+      this.formNumber.controls['numberic'].value === null &&
+      this.formNumber.controls['icons'].value === null
+    ) {
+      this.isborderErrorIcon = false;
+      this.isborderErrorNumber = false;
+      this.inputs = 'typeNumber';
+    } else if (
+      this.formNumber.controls['numberic'].value === null &&
+      this.formNumber.controls['description'].value === null
+    ) {
+      this.isborderErrorNumber = false;
+      this.isborderErrorDes = false;
+      this.inputs = 'typeNumber';
+    } else if (this.formNumber.controls['icons'].value === null) {
+      this.isborderErrorIcon = false;
+      this.inputs = 'icon';
+    } else if (this.formNumber.controls['numberic'].value === null) {
+      this.isborderErrorNumber = false;
+      this.inputs = 'typeNumber';
+    } else {
+      this.isborderErrorDes = false;
+      this.inputs = 'description';
+    }
   }
   noidungNumber() {
     this.isborderErrorNumber = true;
