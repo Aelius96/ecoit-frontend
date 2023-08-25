@@ -48,10 +48,10 @@ a:hover{
 }
 /*  */
 
-
 .item-image{
-  height: 140px;
+    width: 100%;
 }
+
 
 .cus-typical{
   /* background-color: rgba(220, 220, 220, 0.485); */
@@ -77,13 +77,15 @@ a:hover{
   font-weight: bold;
   color: #FFE67C;
   background-color: #295f2de3;
-  font-size: 16px;
+  font-size: 14px;
   padding: 5px 8px;
   transition: .5s ease;
   opacity: 0;
   position: absolute;
-  bottom: 0px;
   width: 100%;
+  left:0px;
+  right:0px;
+  bottom: 0px;
   white-space: nowrap; 
   overflow: hidden; 
   text-overflow: ellipsis;
@@ -99,10 +101,10 @@ a:hover{
   opacity: 1;
 }
 
-.item-image:hover .btnn {
+.item-image:hover .btn-function {
   opacity: 1;
 }
-.btnn{
+.btn-function{
   color: white;
   font-size: 16px;
   transition: .5s ease;
