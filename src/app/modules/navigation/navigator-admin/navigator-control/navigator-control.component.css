@@ -19,6 +19,15 @@
   margin-top: 8px;
 }
 
+.name-navi{
+  color: #fff;
+  border-color: #454d55;
+  font-size: 20px
+}
+
+.icon-navi{
+  cursor: pointer;
+}
 
 .search{
   border-radius: 5px;
@@ -44,6 +53,9 @@
 }
 
 /* == */
+.table{
+  border: 0.5px  solid #454d55;
+}
 
 .title-conten{
   text-align: center;

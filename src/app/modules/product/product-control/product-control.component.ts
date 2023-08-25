@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {Product} from "../../../core/model/product/product";
-import {ProductService} from "../../../services/product/product.service";
-import {Constant} from "../../../core/config/constant";
-import {Domain} from "../../../core/domain/domain";
+import { Product } from "../../../core/model/product/product";
+import { ProductService } from "../../../services/product/product.service";
+import { Constant } from "../../../core/config/constant";
+import { Domain } from "../../../core/domain/domain";
 import { Toast, ToastrService } from 'ngx-toastr';
 
 
@@ -12,12 +12,12 @@ import { Toast, ToastrService } from 'ngx-toastr';
   templateUrl: './product-control.component.html',
   styleUrls: ['./product-control.component.css']
 })
-export class ProductControlComponent implements OnInit{
+export class ProductControlComponent implements OnInit {
 
   products: Product[] = [];
   currentIndex = -1;
   totalPages: number;
-  searchInput= '';
+  searchInput = '';
   baseURL = Constant.BASE_URL;
   productURL = Domain.PRODUCT;
   paging = {
@@ -26,75 +26,75 @@ export class ProductControlComponent implements OnInit{
     totalRecord: 0
   }
 
-  constructor(private router:Router,
-    private productService : ProductService) {
+  constructor(private router: Router,
+    private productService: ProductService) {
   }
   ngOnInit(): void {
     this.getProductListAllwithPage();
   }
 
-  getRequestParams(page: number, pageSize: number,search:string): any {
+  getRequestParams(page: number, pageSize: number, search: string): any {
     let params: any = {};
 
     if (page) {
-      params[`pageNo`] = page-1;
+      params[`pageNo`] = page - 1;
     }
 
     if (pageSize) {
       params[`pageSize`] = pageSize;
     }
 
-    if(search){
+    if (search) {
       params[`search`] = search;
     }
     return params;
   }
 
-    getProductListAllwithPage(){
-   const params = this.getRequestParams(this.paging.page , this.paging.size , this.searchInput)
-      this.productService.listAllwithpage(params).subscribe(data=>{
-        this.products = data.content;
-        this.paging.totalRecord = data.totalElements;
-        this.totalPages = data.totalPages;
-      } ,
+  getProductListAllwithPage() {
+    const params = this.getRequestParams(this.paging.page, this.paging.size, this.searchInput)
+    this.productService.listAllwithpage(params).subscribe(data => {
+      this.products = data.content;
+      this.paging.totalRecord = data.totalElements;
+      this.totalPages = data.totalPages;
+    },
       error => {
         console.log(error);
       }
-      )
+    )
 
-    }
+  }
 
-    search():void{
-      this.paging.page=1;
-      this.getProductListAllwithPage()
-    }
+  search(): void {
+    this.paging.page = 1;
+    this.getProductListAllwithPage()
+  }
 
-    handlePageChange(event: number): void {
-      // console.log(event);
-      this.paging.page = event;
-      this.getProductListAllwithPage();
-    }
-    handlePageSizeChange(event: any): void {
-      this.paging.size = event;
-      this.paging.page = 1;
-      // console.log(event, this.paging.size)
-      this.getProductListAllwithPage();
-    }
+  handlePageChange(event: number): void {
+    // console.log(event);
+    this.paging.page = event;
+    this.getProductListAllwithPage();
+  }
+  handlePageSizeChange(event: any): void {
+    this.paging.size = event;
+    this.paging.page = 1;
+    // console.log(event, this.paging.size)
+    this.getProductListAllwithPage();
+  }
 
-    updateProduct(id: number){
-      return this.router.navigate(['admin/product/update', id]);
+  updateProduct(id: number) {
+    return this.router.navigate(['admin/product/update', id]);
 
-    }
+  }
 
-    addProduct(){
+  addProduct() {
     return this.router.navigate([`admin/product/add`]);
-    }
+  }
 
-  deleteProduct(id: number){
+  deleteProduct(id: number) {
     let option = confirm("Bạn có chắc chắn xóa khách hàng này?");
 
-    if(option){
-      this.productService.deleteProduct(id).subscribe(data =>{
+    if (option) {
+      this.productService.deleteProduct(id).subscribe(data => {
         this.getProductListAllwithPage();
       })
     }

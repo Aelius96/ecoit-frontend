@@ -42,13 +42,10 @@ a:hover{
 .text-title{
   color: #50b848;
   font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   text-align: center;
 }
-.select-content-box{
-  padding: 0px 20px 20px 20px ;
-}
+
 
 .header-menu {
   padding: 10px 15px 0px 12px;
@@ -75,14 +72,15 @@ a:hover{
 
 
 .hienthi-right {
-  border: 1px solid violet;
+  border: 1px solid rgb(57, 63, 58);
 
 }
 
 .action-box {
+  flex-direction: column;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   margin: 10px 0;
   padding-top: 10px;
 }
@@ -100,13 +98,13 @@ a:hover{
 .hienthi2 {
   width: 100%;
   height: 100%;
-  margin-left: 20px;
 }
 
 .image-url-name {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: block;
   gap: 10px;
 }
 
@@ -180,7 +178,41 @@ a:hover{
   background-color: #007bff;
   margin-top: 30px;
 }
+.chuc-nang{
+  font-size: 20px;
+}
+.carousel-inner{
+  width: 100%;
+  height: 100%;
+}
+.fuild-img{
+  width: 100%;
+  height: 100%;
+}
 
+.nav {
+  overflow: auto;
+  margin-left: 40px;
+  height: 150px;
+  max-width: 1000px;
+}
+.nav-item {
+  cursor: pointer;
+  margin: 15px 10px;
+  width: 179px;
+  height: 100px;
+  box-shadow: 0 4px 6px -6px #222;
+  transition: 0.5s;
+}
+.team-image {
+  height: 100px;
+}
+
+.nav-item:hover{
+  margin: 20px;
+}
+
+/* 
 @media (min-width: 1400px) {
   .giaodienanh {
     width: 803px;
@@ -499,4 +531,4 @@ a:hover{
   .chuc-nang{
     margin-top: 7px;
   }
-}
+} */
