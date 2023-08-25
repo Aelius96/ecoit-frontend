@@ -25,7 +25,6 @@ export class AsideComponent {
     },
     {
       id:3,
-
       tittle: 'Bài viết',
       a: 'bpost',
       icon:'far fa-newspaper',
@@ -79,7 +78,6 @@ export class AsideComponent {
       a: 'user',
       icon:'far fa-user',
     },
-
   ]
 
   logout() {

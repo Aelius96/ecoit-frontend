@@ -25,7 +25,7 @@ export class NumberControlComponent implements OnInit{
  }
   ngOnInit(): void {
     const user = this.tokenStorage.getUser();
-    this.role = user.roles;
+    // this.role = user.roles;
     this.getAllNumber();
 
  }

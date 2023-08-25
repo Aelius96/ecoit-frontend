@@ -2,7 +2,7 @@
   <div class="container">
     <div class="d-flex  justify-content-between header-menu ">
       <div class="d-flex">
-        <p class="h55 my-auto"> Bảng Tiêu Biểu</p>
+        <!-- <p class="h55 my-auto"> Bảng Tiêu Biểu</p> -->
       </div>
       <div class="right-d-flex d-none d-md-block">
         <div class="d-flex flex-wrap ">
@@ -49,19 +49,19 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="text-center section-space--pt_100 ">
+        <div class="text-center section-space--mt_100 ">
           <p class="text-title"> NHỮNG CON SỐ TIÊU BIỂU</p>
         </div>
       </div>
     </div>
-    <div class="number-icon container">
+    <div class="section-space--mt_30 container">
       <div class="row">
         <div class="col-md-3 col-sm-6 col-12 " style="margin-bottom:20px" *ngFor="let num of number | paginate:{
                                                                           id:'number',
                                                                           itemsPerPage: paging.size,
                                                                           currentPage: paging.page,
                                                                           totalItems: paging.totalRecord  }">
-          <div class="card"
+          <div class="card h-100 "
             style=" border: 1px solid rgb(255, 255, 255); box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.06)">
             <div class="action-box">
               <div>

@@ -1,35 +1,70 @@
 <div class="toolbar">
   <div class="container">
-    <div class="d-flex  justify-content-between header-menu ">
-      <div class="left-d-flex d-flex ">
-        <!-- <h5 class="title-cate">Chuyên Mục</h5> -->
-        <form (ngSubmit)="search()" class="d-flex">
-          <input class="search input-search" type="text" [(ngModel)]="searchInput.input" name="searchInput.input"
-            placeholder="Tìm kiếm ">
-          <div class="input-group-append inputt">
-            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-          </div>
-        </form>
-        <a (click)="getListAll()" class="my-auto" >
-          <img src="./assets/images/reload.png" alt="" class="img-reload">
-        </a>
+    <div class="d-flex justify-content-between header-menu ">
+      <div class="d-sm-block d-none">
+        <div class="left-d-flex d-flex  ">
+          <!-- <h5 class="title-cate">Chuyên Mục</h5> -->
+          <form (ngSubmit)="search()" class="d-flex">
+            <input class="search input-search" type="text" [(ngModel)]="searchInput.input" name="searchInput.input"
+              placeholder="Tìm kiếm ">
+            <div class="input-group-append inputt">
+              <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+            </div>
+          </form>
+          <a (click)="getListAll()" class="my-auto">
+            <img src="./assets/images/reload.png" alt="" class="img-reload">
+          </a>
+        </div>
       </div>
-
-      <div class="right-d-flex">
-        <div class="d-flex  flex-wrap">
-          <div>
+      <div class="d-sm-block d-none ">
+        <div class="right-d-flex ">
+          <div class="d-flex  flex-wrap">
             <div class="d-flex">
               <span class="mr-1">Số mục mỗi trang:</span>
               <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
                 [(pageSize)]="paging.size">
-
               </app-page-size>
-
+            </div>
+            <div class="my-auto ml-2">
+              <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
             </div>
           </div>
-          <div  class="my-auto ml-2" >
-            <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- mobile -->
+    <div class="d-flex justify-content-end">
+      <div class="d-sm-none d-block">
+        <div class="btn-group dropstart">
+          <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-bars"></i>
           </div>
+          <ul class="dropdown-menu p-0">
+            <li class="border p-2">
+              <form (ngSubmit)="search()" class="d-flex">
+                <input class="search input-search" type="text" [(ngModel)]="searchInput.input" name="searchInput.input"
+                  placeholder="Tìm kiếm ">
+                <div class="input-group-append inputt">
+                  <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+                </div>
+              </form>
+            </li>
+            <li class="border p-2">
+                <p class="m-0">Số mục mỗi trang:</p>
+                <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                  [(pageSize)]="paging.size">
+                </app-page-size>
+            </li>
+            <li class="border p-2">
+              <div class="d-flex" routerLink="add">
+                <span class="mx-auto">Thêm mới </span>
+                <a class="ht-btn-custom mx-auto " title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -39,18 +74,17 @@
 
 <!-- <app-category-add #modal></app-category-add> -->
 
-<div class="section-space--mt_80 container ">
+<div class="container ">
   <div class="row">
     <div class="col-md-12">
-      <div class="title-conten">
-        <h3 class="text-title">CHUYÊN MỤC</h3>
-        <hr class="hr">
+      <div class="text-center section-space--mt_100  ">
+        <p class="text-title">CHUYÊN MỤC</p>
       </div>
     </div>
   </div>
 
-  <div class="">
-    <div class="number-item" *ngFor="let ct of category |  paginate:{
+  <div class="section-space--mt_30 text-center">
+    <div class="number-item mx-2 " *ngFor="let ct of category |  paginate:{
       id:'cate',
       itemsPerPage: paging.size,
       currentPage: paging.page,

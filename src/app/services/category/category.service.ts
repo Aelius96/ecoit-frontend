@@ -13,9 +13,6 @@ import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 })
 export class CategoryService {
 
-  private baseUrl = `${Constant.BASE_URL}`;
-  private domain = `${Domain.CATEGORY}`
-
   constructor(private apiHelper : ApiHelper) { }
 
   ListPageSize(params:Params):Observable<any>{
