@@ -55,6 +55,12 @@
     text-decoration: none;
   }
   /*  */
+  .text-title{
+    color: #50b848;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
 
 .product-thumb-image{
   height: 140px;
@@ -81,7 +87,7 @@
   
   }
   .content-box{
-   margin: 5px 0px 5px 5px;
+   margin: 10px 5px 10px 5px;
   
   }
   .content-btn{

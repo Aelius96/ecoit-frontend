@@ -1,17 +1,19 @@
 <div class="toolbar">
   <div class="container">
-    <div class="d-flex  justify-content-between header-menu ">
-      <div class="left-d-flex">
-        <div class="d-flex">
-          <a class="control" style="width: 80px" routerLink="../"><span style="font-weight: bold;" class="spann">Kho Ảnh
-              /</span></a>
-          <a class="control" style="width: 120px ;padding-right: 10px;" routerLink="../tImage"><span class="spann">Ảnh Hoạt
-              Động</span></a>
-        </div> <!--   -->
-      </div>
-      <div class="right-d-flex">
-        <div class="d-flex  flex-wrap">
-          <div class=" ">
+    <div class="d-md-block d-none ">
+      <div class="d-flex  justify-content-between header-menu ">
+        <div class="left-d-flex">
+          <div class="d-flex">
+            <a class="control" style="width: 80px" routerLink="../"><span style="font-weight: bold;" class="spann">Kho
+                Ảnh
+                /</span></a>
+            <a class="control" style="width: 120px ;" routerLink="../tImage"><span class="spann">Ảnh
+                Hoạt
+                Động</span></a>
+          </div> <!--   -->
+        </div>
+        <div class="right-d-flex">
+          <div class="d-flex  flex-wrap">
             <div class="d-flex">
               <span class=" mr-1">Số mục mỗi trang:</span>
               <app-app-page-size-image (pageSizeChange)="handlePageSizeChange($event)"
@@ -21,9 +23,33 @@
         </div>
       </div>
     </div>
+    <!-- mobile -->
+    <div class="d-block d-md-none text-end ">
+      <div class="btn-group dropstart">
+        <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa fa-bars"></i>
+        </div>
+        <ul class="dropdown-menu p-0">
+          <li class="border p-2 text-center " >
+            <a class="control" style="font-weight: 600;" routerLink="../tImage"><span class="spann">Ảnh Hoạt Động</span></a>
+          </li>
+          <li class="border p-2 text-center ">
+            <span class=" mr-1">Số mục mỗi trang:</span>
+          </li>
+          <li class="border p-2">
+            <app-app-page-size-image (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+              [(pageSize)]="paging.size"></app-app-page-size-image>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
+
+
+
 <div class="container section-space--mt_100 ">
+  <p class="text-title text-uppercase section-space--mb_30">kho ảnh</p>
   <div class="d-flex flex-column  page-albums">
     <div class="row" style="margin-left: 0px; margin-right: 0px;">
       <div class="col-lg-8 col-8 ">
@@ -57,7 +83,7 @@
           </div>
           <div class="content-box">
             <span><strong>Tên: </strong></span>
-            <span class="text-break" >{{target.name}}</span>
+            <span class="text-break">{{target.name}}</span>
 
           </div>
           <div class="content-box">
@@ -75,10 +101,11 @@
             <span> Hoạt động</span>
 
           </div>
-          <div class="content-btn row w-100 mx-auto px-1 ">
-            <button (click)="downloadimg(target.id)" class="btn btn-primary col-md-6 col-12 " >Tải xuống
+          <div class="content-btn row w-100 mx-auto px-1 mt-1 mt-md-4 ">
+            <button (click)="downloadimg(target.id)" class="btn btn-primary col-md-4 col-12 mr-0 mr-md-4  ">Tải xuống
             </button>
-            <button class="btn btn-primary  col-md-6 col-12  " (click)="deleteFile(target.id)" >Xóa </button>
+            <button class="btn btn-primary  col-md-4 col-12 mt-2 mt-md-0  " (click)="deleteFile(target.id)">Xóa
+            </button>
             <!-- <button class="btn  btn-primary col-md-4 col-12   " (click)="addimagetogallery(target.id)">Thêm ảnh </button> -->
           </div>
         </div>
