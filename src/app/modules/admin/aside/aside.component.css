@@ -62,6 +62,7 @@ margin: 5%;
   cursor: pointer;
   z-index: 6;
   position: fixed;
+  background: #ffffff;
 }
 .icon-menu:hover{
   background-color: #a2a2a2;

@@ -30,7 +30,7 @@
     background-color: #EAEFF4;
     border: 1px solid #F6F9FC;
     height: 30px;
-    width: 50%;
+    width: 25%;
    }
    input:focus{
     border: 1px solid #111111;
@@ -74,9 +74,12 @@
 /* table */
  th{
   text-align: center;
+  text-transform: capitalize;
+  background-color: #5D87FF;
+  border-color: #5D87FF; 
+  color: white;
  }
  .table{
-  border: 0.3px solid #000000;
   border-collapse: separate;
 
 }
@@ -96,31 +99,20 @@
   .btn-link:hover{
     text-decoration: none;
   }
-.table-body{
-  overflow: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.table-body::-webkit-scrollbar{
-  width: 0px !important;
-  display: none;
-}
-  .btn{
-    max-width: 112px ;
-  }
   .btn-notcontact{
-    height: 32px;
+  
     width: 100%;
     background-color: #50b848;
   }
   .btn-contacted{
-    height: 32px; 
+   
     width: 100%;
      background-color: #6e706d;
   }
   .search{
-    height: 30px;
-
+    height: 50%;
+    font-size: 11px;
+    width: max-content;
   }
 
   .input-search:focus{

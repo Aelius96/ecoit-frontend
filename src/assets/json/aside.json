@@ -30,7 +30,7 @@
       },
       {
         "id":5,
-        "tittle":"sản phầm",
+        "tittle":"sản phẩm",
         "a": "product",
         "icon":"far fa-box",
         "selected":true
