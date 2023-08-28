@@ -18,18 +18,16 @@
                     <label for="icon" class="form-label required" ></label>
                     <!-- <input class="text-input" type="text" [(ngModel)]="tNumber.icon" name="icon" placeholder="Nhập mã " required > -->
 
+
                     <select [ngClass]="{'text-input': isborderErrorIcon,'borderError': !isborderErrorIcon}" name="icon" id="icon" (change)="noidungIcon()" formControlName="icons">
                       <option value="" disabled selected hidden>những icon tiêu biểu </option>
                       <option *ngFor="let icon of listIcon" [value]="icon.class"[innerHTML]="icon.name + ' ' + icon.code"></option>
-                      
-                    </select>
 
                     <!-- <i class="fa fa-check text-success" ng-show="form.icon.$dirty && form.icon.$valid"></i>
                     <div ng-show="form.icon.$dirty && form.icon.$invalid" class="text-danger"><i class="fa fa-times text-danger"></i>
                     <span ng-show="form.icon.$error.required">Không được bỏ trống</span>
                     </div> -->
-                    <p style="padding-top: 10px"><span style="color: red;">*</span> Mã bắt đầu bằng: <strong>fa</strong>, <strong>far</strong> hoặc <strong>fas</strong></p>
-                    <p><span style="color: red;">*</span> vd: <strong>fa fa-university</strong><i class="{{icons}}"></i></p>
+                    </select>
                   </div>
                 </div>
               </div>
