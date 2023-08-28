@@ -19,6 +19,15 @@
   margin-top: 8px;
 }
 
+.name-navi{
+  color: #fff;
+  border-color: #454d55;
+  font-size: 20px
+}
+
+.icon-navi{
+  cursor: pointer;
+}
 
 .search{
   border-radius: 5px;
@@ -40,10 +49,24 @@
   
 }
 .input-group-text{
-  margin-right: 5px;
-}
 
+}
+.menu-link{
+  font-size: 1rem;
+}
+.searchinput{
+  /* text-transform: uppercase; */
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EAEFF4;
+  border: 1px solid #F6F9FC;
+  height: 30px;
+  width: 50%;
+ } 
 /* == */
+.table{
+  border: 0.5px  solid #454d55;
+}
 
 .title-conten{
   text-align: center;

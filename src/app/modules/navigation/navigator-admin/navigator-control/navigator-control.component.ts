@@ -77,7 +77,7 @@ export class NavigatorControlComponent {
     this.navService.listAllWithPage(params).subscribe(res=>{
       // this.dataSource.data = data
       this.dataSource.data = res
-      console.log(this.dataSource)
+      // console.log(this.dataSource)
       // console.log(this.dataSource.data)
       // this.dataSource.data.forEach((element) => {
       //   this.navService.getChildNav(element.id).subscribe(res => {
@@ -98,9 +98,8 @@ export class NavigatorControlComponent {
           this.navigation = response.content;
           this.navigation=response;
           this.paging.totalRecord = response.totalElements;
-
           // this.totalPages = response.totalPages;
-          console.log(response);
+          // console.log(response);
 
         },
         error => {

@@ -1,78 +1,78 @@
-<form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
+<form [formGroup]="formPost" (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
   <div class="container mt-5 ">
     <div class="row">
       <div class="col-lg-4">
         <div class="update_box">
           <span><strong>Ảnh bìa</strong></span>
-          <div class="image">
+          <div class="image borderInput p-0">
             <img src="{{imageURL}}" alt="" appHideMissing>
           </div>
-          <input type="file" value="select" (change)="thumbnailChange($event)">
+          <input style="margin-top: 10px;" type="file" value="select" (change)="thumbnailChange($event)">
         </div>
         <div class="update_box">
-          <span><strong>Mô tả</strong></span>
-          <input type="text" [(ngModel)]="post.description" name="description">
+          <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Mô tả</strong></span>
+          <input [ngClass]="{'borderInput':isMota,'inputError':!isMota}" id="moTa" type="text" formControlName="moTa"
+            name="description" (change)="thongtinMota()">
         </div>
         <div class="update_box">
-          <span><strong>Chuyên mục</strong></span>
-          <select [(ngModel)] = "post.category.typeName" name="category">
-            <option *ngFor="let cate of categories" [ngValue]= "cate.typeName">{{cate.typeName}}</option>
+          <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Chuyên mục</strong></span>
+          <select class="p-0" id="chuyenMuc" formControlName="chuyenMuc" (change)="thongtinChuyemmuc()" name="category"
+            [ngClass]="{'borderInput':isChuyenmuc,'inputError':!isChuyenmuc}">
+            <option value="" disabled selected hidden></option>
+            <option *ngFor="let icon of categories" [value]="icon.typeName"[innerHTML]="icon.typeName"></option>
           </select>
         </div>
         <div class="update_box">
           <span><strong>Thẻ tag</strong></span>
         </div>
-          <mat-form-field class="example-chip-list">
-            <mat-chip-grid  #chipGrid aria-label="Tag selection">
-              <mat-chip-row style="background-color: #b4b4b473" *ngFor="let hashtag of post.hashtags" (removed)="remove(hashtag)" >
-                {{hashtag.name}}
-                <button matChipRemove [attr.aria-label]="'remove ' + hashtag.name">
-                  <mat-icon>cancel</mat-icon>
-                </button>
-              </mat-chip-row>
-            </mat-chip-grid>
-            <input placeholder="Nhập thẻ tag..." #hashtagInput [formControl]="hashtagCtrl"
-                   [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
-                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                   (matChipInputTokenEnd)="addHashtag($event)"/>
-            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-              <mat-option  *ngFor="let hashtag of filteredHashtag | async" [value]="hashtag.name">
-                {{hashtag.name}}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-
-
-
+        <mat-form-field class="example-chip-list">
+          <mat-chip-grid #chipGrid aria-label="Tag selection">
+            <mat-chip-row style="background-color: #b4b4b473" *ngFor="let hashtag of post.hashtags"
+              (removed)="remove(hashtag)">
+              {{hashtag.name}}
+              <button matChipRemove [attr.aria-label]="'remove ' + hashtag.name">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          </mat-chip-grid>
+          <input class="borderInput" placeholder="Nhập thẻ tag..." #hashtagInput [formControl]="hashtagCtrl"
+            [matChipInputFor]="chipGrid" [matAutocomplete]="auto" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="addHashtag($event)" />
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let hashtag of filteredHashtag | async" [value]="hashtag.name">
+              {{hashtag.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
         <div class="submit-button">
           <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
-          <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToPostList()" >Hủy</button>
+          <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToPostList()">Hủy</button>
         </div>
       </div>
       <div class="col-lg-8">
         <div class="update_box">
-          <span><strong>Tiêu đề</strong></span>
-          <input type="text" name="title" [(ngModel)]="post.title" required>
+          <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Tiêu đề</strong></span>
+          <input [ngClass]="{'borderInput':isTitle,'inputError':!isTitle}" id="title" type="text" name="title"
+            formControlName="title" (change)="thongtinTitle()" required>
         </div>
         <div class="update_box">
-          <span><strong>Nội dung</strong></span>
-          <div class="ckeditorContaniner" id="editor">
-            <ckeditor [(ngModel)]="post.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig"  ></ckeditor>
+          <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Nội dung</strong></span>
+          <div class="p-0" [ngClass]="{'borderInput':isconTent,'inputError':!isconTent,'ckeditorContaniner':true}"
+            id="editor">
+            <ckeditor [(ngModel)]="a" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" (change)="thongtinContent()"></ckeditor>
           </div>
-
-
         </div>
       </div>
     </div>
   </div>
 
-<!--<script>-->
-<!--  InlineEditor-->
-<!--    .create( document.querySelector( '#editor' ) )-->
-<!--    .catch( error => {-->
-<!--      console.error( error );-->
-<!--    } );-->
-<!--</script>-->
+  <!--<script>-->
+  <!--  InlineEditor-->
+  <!--    .create( document.querySelector( '#editor' ) )-->
+  <!--    .catch( error => {-->
+  <!--      console.error( error );-->
+  <!--    } );-->
+  <!--</script>-->
 
 </form>
 <script>

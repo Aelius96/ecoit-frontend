@@ -21,7 +21,6 @@
 
                     <select [ngClass]="{'text-input': isborderErrorIcon,'borderError': !isborderErrorIcon}" name="icon" id="icon" (change)="noidungIcon()" formControlName="icons">
                       <option value="" disabled selected hidden>những icon tiêu biểu </option>
-                      
                       <option *ngFor="let icon of listIcon" [value]="icon.class"[innerHTML]="icon.name + ' ' + icon.code"></option>
 
                     <!-- <i class="fa fa-check text-success" ng-show="form.icon.$dirty && form.icon.$valid"></i>
