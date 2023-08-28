@@ -79,14 +79,14 @@ export class ListContactComponent {
 Contacted(id:number){
   this.contactService.Contacted(id).subscribe(()=>{
     this.getAllContactPagesize();
-    console.log("dalienhe" ,id)
+    
   })
 }
 
 Notcontact(id:number){
   this.contactService.NotContact(id).subscribe(()=>{
     this.getAllContactPagesize();
-    console.log("chualienhe", id)
+    
   })
 }
 

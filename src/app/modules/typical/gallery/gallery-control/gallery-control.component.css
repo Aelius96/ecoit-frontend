@@ -35,23 +35,14 @@ font-size: 15px;
 }
 
 /*  */
-.gallery{
-  margin: 120px 20px 0px 20px;
-  
-}
+
 .info-img{
   box-shadow: 5px 10px 20px 10px rgba(92, 91, 94, 0.078);
-  padding: 20px 30px;
 }
 .img-box{
   padding: 10px 10px 10px 10px;
 }
-.btn{
-  width: 30%;
-}
-.btn + .btn{
-  margin-left: 10px;
-}
+
 .content-box{
  margin: 5px 0px 5px 5px;
 

@@ -15,7 +15,7 @@ import { ToastService } from '../../toast/toast.service';
 export class SliderControlComponent {
   slider:boolean=true;
   sliders: Slider[] = [];
-  sliders2: Slider[] = [];
+
   target = {
     url: '',
     id: 1,
@@ -43,19 +43,11 @@ export class SliderControlComponent {
   getSlider(){
     this.sliderService.getSliders().subscribe(data => {
       this.sliders = data
-
       this.choose(this.sliders[0]);
     });
   }
-  getListAll(){
-    this.slideSericeslide.getListAll().subscribe(data=>{
-       this.sliders2=data;
-       this.choose(this.sliders[0]);
-    })
-  }
-  choose2(e:any){
-    console.log(e)
-  }
+
+
   choose(e: any){
     this.target.name = e?.name;
     this.target.url = e?.pathUrl;

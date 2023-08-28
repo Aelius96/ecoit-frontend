@@ -29,12 +29,12 @@
 </div>
 
 
-<div class="gallery">
+<div class="section-space--mt_100">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8" style="padding-top: 10px; padding-right: 40px;">
+      <div class="col-8" >
         <div class="row">
-          <div class="col-md-3" *ngFor="let img of galleryList | paginate:{
+          <div class="col-6 col-lg-3 col-sm-4  " *ngFor="let img of galleryList | paginate:{
                                                   id:'gallery',
                                                   itemsPerPage: paging.size,
                                                   currentPage: paging.page,
@@ -44,21 +44,21 @@
             </div>
           </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-2 mt-md-5 mt-sm-3">
           <div *ngIf="paging.totalRecord>0" class="col-md-12 text-center">
             <pagination-controls previousLabel="<" nextLabel=">" [id]="'gallery'"
               (pageChange)="handlepagechange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 info-img" >
+      <div class="col-lg-4 col-4 info-img" >
         <div class="box">
           <div class="img-box">
             <img class="img-fluid" src="{{target.url}}" alt="Images" >
           </div>
           <div class="content-box">
             <span><strong>Tên: </strong></span>
-            <span>{{target.name}} </span>
+            <span class="text-break" >{{target.name}} </span>
 
           </div>
           <div class="content-box">
@@ -84,17 +84,17 @@
               <span style="margin-left: 5px;">Tạm ẩn</span>
             </ng-template>
           </div>
-          <div class="content-btn action-box">
-            <button class="btn bg-success" (click)="hideimg(target.id)" *ngIf="target.active; else elseButton">
+          <div class="content-btn action-box row w-100 mx-auto ">
+            <button class="btn bg-success col-12 col-md-4 " (click)="hideimg(target.id)" *ngIf="target.active; else elseButton">
               <i class="far fa-eye-slash">Ẩn</i>
             </button>
             <ng-template #elseButton>
-              <button  class="btn bg-warning" (click)="showimg(target.id)">
+              <button  class="btn bg-warning col-12 col-md-4 " (click)="showimg(target.id)">
                 <i class="far fa-eye"> Hiện</i>
               </button>
             </ng-template>
-            <button class="btn" style="margin-right: 10px;" (click)="updategallery(target.id)"  >Sửa</button>
-            <button class="btn" (click)="deleteimg(target.id)">Xóa</button>
+            <button class="btn btn-primary  col-12 col-md-4 " (click)="updategallery(target.id)"  >Sửa</button>
+            <button class="btn btn-primary col-12 col-md-4 " (click)="deleteimg(target.id)">Xóa</button>
           </div>
         </div>
       </div>

@@ -15,7 +15,6 @@
       },
       {
         "id":3,
-  
         "tittle": "Bài viết",
         "a": "bpost",
         "icon":"far fa-newspaper",
@@ -59,20 +58,27 @@
       },
       {
         "id":9,
-        "tittle": "Danh sách",
-        "a": "list",
-        "icon":"fas fa-clipboard-list",
+        "tittle": "Danh sách liên hệ",
+        "a": "contact",
+        "icon":"fa fa-envelope",
         "selected":true
       },
       {
         "id":10,
+        "tittle": "Danh sách bình luận",
+        "a": "comment",
+        "icon":"fa fa-comments-o",
+        "selected":true
+      },
+      {
+        "id":11,
         "tittle": "kho ảnh",
         "a": "albums",
         "icon":"fa fa-picture-o",
         "selected":true
       },
       {
-        "id":11,
+        "id":12,
         "tittle": "Tài khoản",
         "a": "user",
         "icon":"far fa-user",
