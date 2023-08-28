@@ -182,6 +182,8 @@ export class PostAddComponent implements OnInit{
 
   savePost(){
     const postFormData = this.prepareFormData(this.post);
+
+    console.log(postFormData)
     this.postService.createPost(postFormData).subscribe(() =>{
         this.toastService.showSuccess()
         this.goToPostList();

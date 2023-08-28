@@ -5,6 +5,8 @@ import { Number } from '../number';
 import { parseNumber } from 'libphonenumber-js';
 import { ToastService } from 'src/app/modules/toast/toast.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/modules/dialog/dialog/dialog.component';
 
 @Component({
   selector: 'app-number-add',
@@ -32,7 +34,8 @@ export class NumberAddComponent implements OnInit {
     private numService: NumberService,
     private route: ActivatedRoute,
     private router: Router,
-    private toast: ToastService
+    private toast: ToastService,
+    private dialog : MatDialog
   ) {}
 
   ngOnInit(): void {
