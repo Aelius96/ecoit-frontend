@@ -1,100 +1,100 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { User } from 'src/app/core/model/user/user';
 
-import {UserService} from "../../../services/user/user.service";
-import {Router} from "@angular/router";
+import { UserService } from '../../../services/user/user.service';
+import { Router } from '@angular/router';
 
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
-
-
 
 @Component({
   selector: 'app-user-control',
   templateUrl: './user-control.component.html',
-  styleUrls: ['./user-control.component.css']
+  styleUrls: ['./user-control.component.css'],
 })
+export class UserControlComponent implements OnInit {
+  users: User[] = [];
+  role: string;
 
-export class UserControlComponent implements OnInit{
+  searchInput = '';
+  paging = {
+    page: 1,
+    size: 5,
+    totalRecord: 0,
+  };
 
-  users: User[]=[];
-  role : string;
-
-  searchInput='';
-  paging={
-    page:1,
-    size:5,
-    totalRecord:0
-  }
-
-  constructor(private userService: UserService,
-    private router:Router ) { }
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-
-  this.getAllUser();
+    this.getAllUser();
   }
 
-
-  getrequestparams(page:number , pageSize:number , search:string){
-        let params: any = {};
+  getrequestparams(page: number, pageSize: number, search: string) {
+    let params: any = {};
 
     if (page) {
-      params[`pageNo`] = page-1;
+      params[`pageNo`] = page - 1;
     }
 
     if (pageSize) {
       params[`pageSize`] = pageSize;
     }
 
-    if(search){
+    if (search) {
       params[`search`] = search;
     }
     return params;
   }
 
+  getAllUser() {
+    const params = this.getrequestparams(
+      this.paging.page,
+      this.paging.size,
+      this.searchInput
+    );
+    this.userService.getListAllwithpageUser(params).subscribe(
+      (data) => {
+        this.users = data.content;
+        this.paging.totalRecord = data.totalElements;
 
-  getAllUser(){
-    const params = this.getrequestparams(this.paging.page, this.paging.size , this.searchInput)
-    this.userService.getListAllwithpageUser(params).subscribe(data=>{
-      this.users = data.content;
-      this.paging.totalRecord = data.totalElements;
-
-      console.log(data)
-    },
-    error=>{
-      console.log(error);
-    }
-    )
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
-search():void{
-  this.paging.page =1;
-  this.getAllUser();
-}
-
-handlepagechange(event:number):void{
-  console.log(event);
-  this.paging.page = event;
-  this.getAllUser();
-}
-
-handlepagesizechange(event:any ):void{
-  this.paging.size = event;
-  this.paging.page =1 ;
-  this.getAllUser();
-  console.log(this.paging.size)
-}
-  updateUser(id:number){
-    return this.router.navigate([`admin/user/update/${id}`])
+  search(): void {
+    this.paging.page = 1;
+    this.getAllUser();
   }
 
-  deleteUser(id:number) {
-    let option = confirm("Bạn có chắc chắn xóa người dùng này?");
+  handlepagechange(event: number): void {
+    console.log(event);
+    this.paging.page = event;
+    this.getAllUser();
+  }
+
+  handlepagesizechange(event: any): void {
+    this.paging.size = event;
+    this.paging.page = 1;
+    this.getAllUser();
+    console.log(this.paging.size);
+  }
+  updateUser(id: number) {
+    return this.router.navigate([`admin/user/update/${id}`]);
+  }
+  addRoleUser(id: number) {
+    return this.router.navigate([`admin/user/role/${id}`]);
+  }
+
+  deleteUser(id: number) {
+    let option = confirm('Bạn có chắc chắn xóa người dùng này?');
 
     if (option) {
-      this.userService.deleteUser(id).subscribe(data => {
+      this.userService.deleteUser(id).subscribe((data) => {
         this.getAllUser();
-      })
+      });
     }
   }
 }
