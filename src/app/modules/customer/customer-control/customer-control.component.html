@@ -1,42 +1,79 @@
 <div class="toolbar">
   <div class="container">
-    <div class="d-flex  justify-content-between header-menu ">
-      <div class="left-d-flex">
-        <div class="d-flex">
-          <a class="control my-auto " style="width: 80px" routerLink="../customer" routerLinkActive="active"><span
-              style="font-weight: bold;" class="spann">Mục tiêu /</span></a>
-          <a class="control my-auto " style="width: 80px" routerLink="../customer/cus-typical" routerLinkActive="active"><span
-              class="spann">Tiêu biểu</span></a>
-          <form (ngSubmit)="search()" class="d-flex">
-            <input  class="searchinput mr-1 " type="text" [(ngModel)]="searchInput"
-              name="searchInput" placeholder="Tìm kiếm ">
-            <div class="input-group-append ">
-              <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-            </div>
-          </form>
+    <div class="d-lg-block d-none">
+      <div class="d-flex  justify-content-between header-menu ">
+        <div class="left-d-flex">
+          <div class="d-flex">
+            <a class="control my-auto " style="width: 85px" routerLink="../customer" routerLinkActive="active"><span
+                style="font-weight: bold;" class="spann">Mục tiêu /</span></a>
+            <a class="control my-auto " style="width: 80px" routerLink="../customer/cus-typical"
+              routerLinkActive="active"><span class="spann">Tiêu biểu</span></a>
+            <form (ngSubmit)="search()" class="d-flex">
+              <input class="searchinput mr-1 " type="text" [(ngModel)]="searchInput" name="searchInput"
+                placeholder="Tìm kiếm ">
+              <div class="input-group-append ">
+                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-      <div class="right-d-flex my-auto">
-        <div class="d-flex  flex-wrap">
-          <div class=" mr-2">
-            <div class="d-flex">
-              <span class=" mr-1 my-auto ">Số mục mỗi trang:</span>
-              <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
-                [(pageSize)]="paging.size">
-              </app-page-size>
+        <div class="right-d-flex my-auto">
+          <div class="d-flex  flex-wrap">
+            <div class=" mr-2">
+              <div class="d-flex">
+                <span class=" mr-1 my-auto ">Số mục mỗi trang:</span>
+                <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                  [(pageSize)]="paging.size">
+                </app-page-size>
+              </div>
+            </div>
+            <div class="my-auto">
+              <a class="ht-btn-custom my-auto " (click)="addCustomer()" title="Thêm tin mới"><i
+                  class="fas fa-file-plus fa-lg"></i></a>
             </div>
           </div>
-          <div class="my-auto">
-            <!--          (click)="addTypicalNum()"-->
-            <a class="ht-btn-custom my-auto "  (click)="addCustomer()" title="Thêm tin mới"><i
-                class="fas fa-file-plus fa-lg"></i></a>
-          </div>
-
         </div>
       </div>
     </div>
+    <!-- mobile -->
+    <div class="d-lg-none d-block text-end ">
+      <div class="btn-group dropstart">
+        <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa fa-bars"></i>
+        </div>
+        <ul class="dropdown-menu p-0">
+          <li class="p-2 border" >
+            <a class="control my-auto w-50 " routerLink="../customer" routerLinkActive="active"><span
+                style="font-weight: bold; font-size: 14px; ">Mục tiêu/</span></a>
+            <a class="control my-auto w-50 " style="font-size: 14px; " routerLink="../customer/cus-typical"
+              routerLinkActive="active"><span>Tiêu biểu</span></a>
+          </li>
+          <li class="p-2 border" >
+            <form (ngSubmit)="search()" class="d-flex">
+              <input class="searchinput mr-1 w-75 " type="text" [(ngModel)]="searchInput" name="searchInput"
+                placeholder="Tìm kiếm ">
+              <div class="input-group-append ">
+                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+              </div>
+            </form>
+          </li>
+          <li class="p-2 border">
+            <span class=" my-auto ">Số mục mỗi trang:</span>
+            <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+              [(pageSize)]="paging.size">
+            </app-page-size>
+          </li>
+          <li class="p-2 border">
+            <div class="d-flex" (click)="addCustomer()" >
+              <span class="mx-auto">Thêm mới </span>
+              <a class="ht-btn-custom mx-auto " title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-
 </div>
 
 <div class="section-space--mt_100">
@@ -53,7 +90,7 @@
                                           itemsPerPage: paging.size,
                                           currentPage: paging.page,
                                           totalItems: paging.totalRecord
-                                       }" class="col-md-3" style=" margin: 0px 0px  80px 0px; ">
+                                       }" class="col-md-3 col-12 " style=" margin: 0px 0px  80px 0px; ">
           <div class="box">
             <div class="close">
               <button type="button" (click)="deleteCustomer(cus.id)" class="x">

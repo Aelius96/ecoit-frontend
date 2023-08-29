@@ -1,72 +1,45 @@
 <app-header></app-header>
 
 
-  <img width="100%" height="250"
-     src="./assets/images/ecoit/banner-tuyen-dung-2.jpg"
-     class="fuild-img wp-post-image" alt="" loading="lazy" >
-
-
-  <!-- imgurl_banner:any -->
-  <!-- <img src="{{banner_path}}" style="width: 100%;" height="250" alt="image"> -->
+<img width="100%" height="250" src="./assets/images/ecoit/banner-tuyen-dung-2.jpg" class="fuild-img wp-post-image"
+  alt="" loading="lazy">
 
 <div class="site-wrapper-reveal mt-5 ">
-
-  <!--====================  Blog Area Start ====================-->
   <div class="blog-pages-wrapper section-space--ptb_20">
     <div class="container">
-
-      <div class="col-md-9">
-        <div class="main-blog-wrap">
-          <!--======= Single Blog Item Start ========-->
-          <div class="single-blog-item">
-            <!-- Post info Start -->
-            <div class="post-info ">
-              <h2 class="tieude">
-                {{product.title}}
-              </h2>
-
-              <div class="post-excerpt mt-4">
-                <div class="content lh-base mb-5 " [innerHTML]="content"></div>
-                <strong>Thẻ tag: </strong>
-                <span *ngFor="let p of product.hashtags">
-                <a href="">{{p.name}},</a>
-              </span>
-                <div class="entry-post-share-wrap  border-bottom">
-                  <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6">
-                    </div>
-                    <div class="col-xs-12 section-space--mt_20" >
-                      <div class="service-link"><a id="aa" class="color-gree" href="/lien-he">TÌM HIỂU THÊM</a></div>
+      <div class="row">
+        <div class="col-md-9 col-12 ">
+          <div class="main-blog-wrap">
+            <div class="single-blog-item">
+              <div class="post-info ">
+                <h2 class="tieude">
+                  {{product.title}}
+                </h2>
+                <div class="post-excerpt mt-4">
+                  <div class="content lh-base mb-5 " [innerHTML]="content"></div>
+                  <strong>Thẻ tag: </strong>
+                  <span *ngFor="let p of product.hashtags">
+                    <a href="">{{p.name}},</a>
+                  </span>
+                  <div class="entry-post-share-wrap  border-bottom">
+                    <div class="row align-items-center">
+                      <div class="col-lg-6 col-md-6">
+                      </div>
+                      <div class="col-xs-12 section-space--mt_20">
+                        <div class="service-link"><a id="aa" class="color-gree" href="/lien-he">TÌM HIỂU THÊM</a></div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-
-              <app-product-more></app-product-more>
-
             </div>
-            <!-- Post info End -->
           </div>
-          <!--===== Single Blog Item End =========-->
+          <app-product-more></app-product-more>
         </div>
+          <app-side-bar class="col-md-3 col-12"></app-side-bar>
       </div>
-      <div >
-      <app-side-bar></app-side-bar>
-    </div>
-
     </div>
   </div>
-  <!--====================  Blog Area End  ====================-->
-
-
 </div>
 
-
 <app-footer></app-footer>
-
-
-
-
-
-

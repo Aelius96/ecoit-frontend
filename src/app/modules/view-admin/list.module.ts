@@ -6,7 +6,7 @@ import { ListContactComponent } from "../typical/list/list-contact/list-contact.
 import { ListCommentComponent } from "../typical/list/list-comment/list-comment.component";
 
 const routes: Routes = [
-    {path:'' , component: ListControlComponent},
+  {path:'' , component: ListControlComponent},
    {path:'contact' , component: ListContactComponent},
    {path:'comment' , component:ListCommentComponent}
   ]

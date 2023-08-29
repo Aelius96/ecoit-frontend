@@ -41,13 +41,12 @@
   .text-title{
     color: #50b848;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
   }
 /* scroll */
 .item-blog{
-  max-height: 600px;
+  max-height: 620px;
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -65,7 +64,7 @@
   text-overflow: ellipsis;
 }
 .table{
-  border: 0.3px solid;
+  /* border: 0.3px solid; */
   border-collapse: separate;
 }
 .header {
@@ -77,7 +76,7 @@
 }
 
 .list-table{
-  height: 600px;
+  height: 620px;
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -85,6 +84,10 @@
 
 th{
   text-align: center;
+  text-transform: capitalize;
+  background-color: #5D87FF;
+  border-color: #5D87FF; 
+  color: #ffffff;
 }
 .icon-more:hover{
   cursor: pointer;

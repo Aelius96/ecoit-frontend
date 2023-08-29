@@ -10,9 +10,9 @@
     text-transform: uppercase;
     color: #50b848;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
+    margin: 0px;
   }
 
   .item-blog{
@@ -30,7 +30,7 @@
     background-color: #EAEFF4;
     border: 1px solid #F6F9FC;
     height: 30px;
-    width: 50%;
+    width: 25%;
    }
    input:focus{
     border: 1px solid #111111;
@@ -70,27 +70,19 @@
     display: grid;
     grid-gap: 20px;
     border: 1px rgb(146, 146, 146);
-   
    }
 /* table */
+ th{
+  text-align: center;
+  text-transform: capitalize;
+  background-color: #5D87FF;
+  border-color: #5D87FF; 
+  color: white;
+ }
+ .table{
+  border-collapse: separate;
 
-  .customers td, .customers th {
-    border: 0.8px solid #ddd;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  .customers tr:nth-child(even){background-color: #f2f2f2;}
-
-  
-  .customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background-color: #eeeeee;
-    color: black;
-  }
-  
+}
 /* .title-contact td{
   text-align: center;
 } */
@@ -107,31 +99,20 @@
   .btn-link:hover{
     text-decoration: none;
   }
-.table-body{
-  overflow: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.table-body::-webkit-scrollbar{
-  width: 0px !important;
-  display: none;
-}
-  .btn{
-    max-width: 112px ;
-  }
   .btn-notcontact{
-    height: 32px;
+  
     width: 100%;
     background-color: #50b848;
   }
   .btn-contacted{
-    height: 32px; 
+   
     width: 100%;
      background-color: #6e706d;
   }
   .search{
-    height: 30px;
-
+    height: 50%;
+    font-size: 11px;
+    width: max-content;
   }
 
   .input-search:focus{

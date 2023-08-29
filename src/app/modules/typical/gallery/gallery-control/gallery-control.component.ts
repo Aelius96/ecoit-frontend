@@ -54,7 +54,7 @@ getListAllWithpage():void{
    this.galleryService.getAllListChangePage(params).subscribe(res=>{
      this.galleryList = res.content;
      this.paging.totalRecord = res.totalElements;
-     console.log(res)
+    this.pick(this.galleryList[0])
    }, error =>{console.log(error);
    } )
 }
@@ -103,7 +103,6 @@ deleteimg(id:number){
 }
 
   tImageURL = Domain.GALLERY;
-
 
 hideimg(id: number){
   this.galleryService.hide(id).subscribe(() =>{

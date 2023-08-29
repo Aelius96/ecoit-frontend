@@ -5,6 +5,8 @@ import { Number } from '../number';
 import { parseNumber } from 'libphonenumber-js';
 import { ToastService } from 'src/app/modules/toast/toast.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/modules/dialog/dialog/dialog.component';
 
 @Component({
   selector: 'app-number-add',
@@ -17,7 +19,7 @@ export class NumberAddComponent implements OnInit {
     description: new FormControl(),
     icons: new FormControl(),
   });
-  inputs=''
+  inputs = '';
   isborderErrorDes = true;
   isborderErrorIcon = true;
   isborderErrorNumber = true;
@@ -32,7 +34,8 @@ export class NumberAddComponent implements OnInit {
     private numService: NumberService,
     private route: ActivatedRoute,
     private router: Router,
-    private toast: ToastService
+    private toast: ToastService,
+    private dialog : MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -71,7 +74,6 @@ export class NumberAddComponent implements OnInit {
       this.update(this.id, this.tNumber);
     } else {
       this.addtNumber();
-      console.log(this.isborderErrorNumber)
     }
   }
   update(id: number, tNumber: Number) {
@@ -81,7 +83,8 @@ export class NumberAddComponent implements OnInit {
         this.rollbackToList();
       },
       (error) => {
-        this.toast.showWarning(error.error);
+        this.ktradieukien()
+        this.toast.showWarning(error.error, this.inputs);
         console.log(error.error);
       }
     );
@@ -94,53 +97,53 @@ export class NumberAddComponent implements OnInit {
         this.rollbackToList();
       },
       (error) => {
-          if (
-            this.formNumber.controls['numberic'].value === null &&
-            this.formNumber.controls['icons'].value === null &&
-            this.formNumber.controls['description'].value === null
-          ) {
-            this.isborderErrorDes = false;
-            this.isborderErrorIcon = false;
-            this.isborderErrorNumber = false;
-            this.inputs = 'typeNumber';
-          } else if (
-            this.formNumber.controls['icons'].value === null &&
-            this.formNumber.controls['description'].value === null
-          ) {
-            this.isborderErrorIcon = false;
-            this.isborderErrorDes = false;
-            this.inputs = 'icon';
-          } else if (
-            this.formNumber.controls['numberic'].value === null &&
-            this.formNumber.controls['icons'].value === null
-          ) {
-            this.isborderErrorIcon = false;
-            this.isborderErrorNumber = false;
-            this.inputs = 'typeNumber';
-          } else if (
-            this.formNumber.controls['numberic'].value === null &&
-            this.formNumber.controls['description'].value === null
-          ) {
-            this.isborderErrorNumber = false;
-            this.isborderErrorDes = false;
-            this.inputs = 'typeNumber';
-
-          } else if (this.formNumber.controls['icons'].value === null) {
-            this.isborderErrorIcon = false;
-            this.inputs = 'icon';
-          }
-          else if (this.formNumber.controls['numberic'].value === null) {
-            this.isborderErrorNumber = false;
-            this.inputs = 'typeNumber';
-          }
-          else {
-            this.isborderErrorDes = false;
-            this.inputs = 'description';
-          }
-        this.toast.showWarning(error.error,this.inputs);
+        this.ktradieukien();
+        this.toast.showWarning(error.error, this.inputs);
         console.log(error.error);
       }
     );
+  }
+  ktradieukien(){
+    if (
+      this.formNumber.controls['numberic'].value === null &&
+      this.formNumber.controls['icons'].value === null &&
+      this.formNumber.controls['description'].value === null
+    ) {
+      this.isborderErrorDes = false;
+      this.isborderErrorIcon = false;
+      this.isborderErrorNumber = false;
+      this.inputs = 'typeNumber';
+    } else if (
+      this.formNumber.controls['icons'].value === null &&
+      this.formNumber.controls['description'].value === null
+    ) {
+      this.isborderErrorIcon = false;
+      this.isborderErrorDes = false;
+      this.inputs = 'icon';
+    } else if (
+      this.formNumber.controls['numberic'].value === null &&
+      this.formNumber.controls['icons'].value === null
+    ) {
+      this.isborderErrorIcon = false;
+      this.isborderErrorNumber = false;
+      this.inputs = 'typeNumber';
+    } else if (
+      this.formNumber.controls['numberic'].value === null &&
+      this.formNumber.controls['description'].value === null
+    ) {
+      this.isborderErrorNumber = false;
+      this.isborderErrorDes = false;
+      this.inputs = 'typeNumber';
+    } else if (this.formNumber.controls['icons'].value === null) {
+      this.isborderErrorIcon = false;
+      this.inputs = 'icon';
+    } else if (this.formNumber.controls['numberic'].value === null) {
+      this.isborderErrorNumber = false;
+      this.inputs = 'typeNumber';
+    } else {
+      this.isborderErrorDes = false;
+      this.inputs = 'description';
+    }
   }
   noidungNumber() {
     this.isborderErrorNumber = true;

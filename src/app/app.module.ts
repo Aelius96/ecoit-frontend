@@ -129,7 +129,8 @@ import { AnimatedDigitComponent } from './_animation/animated-digit/animated-dig
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 
-import {ToastrModule} from 'ngx-toastr'
+import {ToastrModule} from 'ngx-toastr';
+import { DialogComponent } from './modules/dialog/dialog/dialog.component'
 
 
 @NgModule({
@@ -216,6 +217,7 @@ import {ToastrModule} from 'ngx-toastr'
     CategoryAddComponent,
     SearchComponent,
     AnimatedDigitComponent,
+    DialogComponent,
 
 
   ],

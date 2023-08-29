@@ -46,26 +46,7 @@
 }
 
 
-select {
-  width: 200px; /* Thiết lập rộng của hộp chọn */
-  font-size: 16px; /* Kích thước chữ trong các mục */
-}
-
-option {
-  padding: 5px; /* Khoảng cách bên trong các mục */
-  margin: 2px; /* Khoảng cách xung quanh các mục */
-}
-
-/* Thêm biểu tượng bằng cách sử dụng pseudo-element */
-option::before {
-  content: "";
-  display: inline-block;
-  width: 16px; /* Kích thước biểu tượng */
-  height: 16px; /* Kích thước biểu tượng */
-  margin-right: 5px; /* Khoảng cách giữa biểu tượng và văn bản */
-}
-
-select{
+select,option{
   font-family: fontAwesome
 }
 .borderError{

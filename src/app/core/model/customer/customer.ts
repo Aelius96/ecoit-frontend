@@ -9,5 +9,4 @@ export class Customer{
     icon: any;
     url: any;
     products:Product[] = [];
-
 }

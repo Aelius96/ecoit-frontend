@@ -54,7 +54,7 @@ export class CategoryControlComponent implements OnInit {
     this.categoryService.ListPageSize(params).subscribe(res=>{
       this.category = res.content;
       this.paging.totalRecord = res.totalElements;
-      console.log(res)
+      // console.log(res)
 
     },
     error => {
@@ -66,7 +66,6 @@ export class CategoryControlComponent implements OnInit {
   getListAll(){
     this.categoryService.listAllCategory().subscribe(res=>{
       this.category=res;
-
     }
     ,error =>{
       console.log(error)

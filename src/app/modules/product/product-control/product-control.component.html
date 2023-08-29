@@ -1,42 +1,74 @@
 <div class="toolbar">
   <div class="container">
-    <div class="d-flex  justify-content-between header-menu ">
-      <div class="left-d-flex">
-        <div class="d-flex">
-          <form (ngSubmit)="search()" class="d-flex">
-            <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " class="searchinput ">
-            <div class="input-group-append ">
-              <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+    <div class="d-lg-block d-none ">
+      <div class="d-flex  justify-content-between header-menu ">
+        <div class="left-d-flex">
+          <div class="d-flex">
+            <form (ngSubmit)="search()" class="d-flex">
+              <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " class="searchinput mr-1 ">
+              <div class="input-group-append ">
+                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="right-d-flex my-auto">
+          <div class="d-flex  flex-wrap">
+            <div class=" mr-2">
+              <div class="d-flex">
+                <span class=" mr-1 my-auto ">Số mục mỗi trang:</span>
+                <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                  [(pageSize)]="paging.size">
+                </app-page-size>
+              </div>
             </div>
-          </form>
+            <div class="my-auto">
+              
+              <a class="ht-btn-custom my-auto "  (click)="addProduct()" title="Thêm tin mới"><i
+                  class="fas fa-file-plus fa-lg"></i></a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="right-d-flex my-auto">
-        <div class="d-flex  flex-wrap">
-          <div class=" mr-2">
-            <div class="d-flex">
-              <span class=" mr-1 my-auto ">Số mục mỗi trang:</span>
-              <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
-                [(pageSize)]="paging.size">
-              </app-page-size>
-            </div>
-          </div>
-          <div class="my-auto">
-            <!--          (click)="addTypicalNum()"-->
-            <a class="ht-btn-custom my-auto "  (click)="addProduct()" title="Thêm tin mới"><i
-                class="fas fa-file-plus fa-lg"></i></a>
-          </div>
-
+    </div>
+    <!-- mobile -->
+    <div class="d-lg-none d-block text-end ">
+      <div class="btn-group dropstart">
+        <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa fa-bars"></i>
         </div>
+        <ul class="dropdown-menu p-0">
+          <li class="border p-2" >
+            <form (ngSubmit)="search()" class="d-flex w-100 ">
+              <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Tìm kiếm " class=" w-75 searchinput mr-1 ">
+              <div class="input-group-append ">
+                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+              </div>
+            </form>
+          </li>
+          <li class="border p-2" >
+            <span class="m-auto ">Số mục mỗi trang:</span>
+                <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                  [(pageSize)]="paging.size">
+                </app-page-size>
+          </li>
+          <li class="border p-2" >
+            <div class="d-flex" (click)="addProduct()" >
+              <span class="mx-auto">Thêm mới </span>
+              <a class="ht-btn-custom mx-auto " title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i>
+              </a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container  section-space--mt_80 list-table ">
-  <h3 class="text-title">SẢN PHẨM</h3>
-  <table class="table mb-1 ">
-    <thead style="position: sticky;top: 0 ; z-index: 1;" class="thead-dark">
+<div class="container  section-space--mt_100 list-table ">
+  <p class="text-title">SẢN PHẨM</p>
+  <table class="table mb-1 section-space--mt_30 ">
+    <thead style="position: sticky;top: 0 ; z-index: 1;  " >
       <tr>
         <th scope="col" style="width: 20%;">Ảnh</th>
         <th class="w-25" scope="col">Tiêu đề</th>

@@ -3,9 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CountryISO, PhoneNumberFormat,SearchCountryField } from 'ngx-intl-tel-input';
 import { Contact } from 'src/app/core/model/contact/contact';
-import { ContactService } from 'src/app/services/contact/contact.service';
 import { ToastrService } from 'ngx-toastr';
-import {ToastService} from "../toast/toast.service";
+import { ContactService } from 'src/app/services/contact/contact.service';
+import { ToastService } from '../toast/toast.service';
 
 
 @Component({

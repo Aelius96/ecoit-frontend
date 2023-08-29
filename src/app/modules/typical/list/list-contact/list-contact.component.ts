@@ -54,7 +54,7 @@ export class ListContactComponent {
   getAllContactPagesize(): void {
   const params = this.getParams(this.paging.page, this.paging.size , this.searchInput.input,this.active)
   console.log(this.active)
-  console.log(params['active'])
+  console.log(params)
     this.contactService.listAllsizePage(params ).subscribe(res=>{
       this.contactList=res.content;
       this.paging.totalRecord = res.totalElements;
@@ -64,6 +64,7 @@ export class ListContactComponent {
   }
   refresh() {
     this.active = null
+    this.paging.page = 1
     this.getAllContactPagesize()
   }
   Delete(id:number){
@@ -78,14 +79,14 @@ export class ListContactComponent {
 Contacted(id:number){
   this.contactService.Contacted(id).subscribe(()=>{
     this.getAllContactPagesize();
-    console.log("dalienhe" ,id)
+    
   })
 }
 
 Notcontact(id:number){
   this.contactService.NotContact(id).subscribe(()=>{
     this.getAllContactPagesize();
-    console.log("chualienhe", id)
+    
   })
 }
 
