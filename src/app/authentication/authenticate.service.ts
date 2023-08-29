@@ -20,7 +20,7 @@ export class AuthenticateService implements CanActivate{
       this.username = user.username;
       this.roles = user.roles;
 
-      if(this.roles.includes("ROLE_USER")){
+      if(this.roles.includes("USER")){
         this.router.navigate(['admin/login']);
       }
       return true;

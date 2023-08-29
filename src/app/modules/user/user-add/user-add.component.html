@@ -5,22 +5,22 @@
         <div class="left-d-flex">
           <div class="d-flex">
             <h5 class="h5" style="width:auto">Thêm mới</h5>
-  
+
           </div>
         </div>
         <div class="right-d-flex">
           <div class="d-flex  flex-wrap">
-  
+
             <div class="menu-item">
               <a (click)="goToUserList()" class="ht-btn-custom"  >   <span aria-hidden="true" style="font-size: 30px; font-weight: bold; color: black; margin-right: 30px;">&times;</span>
               </a>
-  
+
             </div>
           </div>
         </div>
       </div>
     </div>
-  
+
   </div>
 
 
@@ -68,31 +68,12 @@
                 <input type="checkbox" name="active" [(ngModel)]="user.active" [checked]="user.active" (change)="onCheckChange($event, user)" >
                 <strong>   Trạng Thái hoạt động</strong>
               </div>
-<!--            </li>-->
-<!--            <li class="list-group-item" *ngFor="let u of user">-->
-<!--              <div class="form-check">-->
-<!--                <input type="checkbox" [value]="u.selected" [checked]="u.selected" (change)="onCheckChange($event, u)" class="custom-control-input" id="customCheck{{u.id}}">-->
-<!--                <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{u.id}}"></label>-->
-<!--              </div>-->
-<!--            </li>-->
           </ul>
         </div>
         <div class="col-md-12">
             <div class="title">Vai trò</div>
             <div class="roles-box">
               <ul class="list-group">
-
-<!--                updateUser-->
-<!--                <li class="list-group-item" *ngFor="let r of role">-->
-<!--                  <div class="form-check">-->
-<!--                    <input type="checkbox" [value]="r.selected" [checked]="r.selected"-->
-<!--                           (change)="onRoleChange($event, r)" class="custom-control-input" id="customCheck{{r.id}}">-->
-<!--                    <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{r.id}}">{{r.name}}</label>-->
-
-<!--                  </div>-->
-<!--                </li>-->
-
-<!--                updateUser1-->
                 <li class="list-group-item" *ngFor="let r of role">
                   <div class="form-check">
                     <input type="checkbox" [value]="r.selected" [checked]="r.selected"
@@ -102,15 +83,6 @@
                   </div>
                 </li>
               </ul>
-<!--              <label>-->
-<!--                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="admin"> Quản trị viên-->
-<!--              </label>-->
-<!--              <label>-->
-<!--                <input type="radio" [(ngModel)]="user.roles" name="roles"  value="mod"> Điều hành-->
-<!--              </label>-->
-<!--              <label>-->
-<!--                <input type="radio" [(ngModel)]="user.roles" name="roles" > Người dùng-->
-<!--              </label>-->
             </div>
         </div>
 
