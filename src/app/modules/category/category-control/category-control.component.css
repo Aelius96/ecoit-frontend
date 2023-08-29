@@ -75,7 +75,7 @@
   }
   .itemm{
     color: #50b848;
-    font-size: 25px;
+    font-size: 20px;
     text-transform: capitalize;
   }
 
@@ -85,10 +85,6 @@
   box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.06);
 }
 /* table */
-.icon-more:hover{
-  cursor: pointer;
-  color: #a1b234;
-}
 
 .list-table{
   height: 620px;

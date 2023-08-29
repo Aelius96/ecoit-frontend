@@ -65,7 +65,7 @@
 }
 .table{
   /* border: 0.3px solid; */
-  border-collapse: separate;
+  /* border-collapse: separate; */
 }
 .header {
   position: sticky;
