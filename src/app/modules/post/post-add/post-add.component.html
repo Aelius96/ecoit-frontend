@@ -25,6 +25,7 @@
         <div class="update_box">
           <span><strong>Thẻ tag</strong></span>
         </div>
+
         <mat-form-field class="example-chip-list">
           <mat-chip-grid #chipGrid aria-label="Tag selection">
             <mat-chip-row style="background-color: #b4b4b473" *ngFor="let hashtag of post.hashtags"
@@ -44,6 +45,7 @@
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
+
         <div class="submit-button">
           <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
           <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToPostList()">Hủy</button>

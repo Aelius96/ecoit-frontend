@@ -9,15 +9,18 @@ x<form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
         </div>
         <div class="right-d-flex">
           <div class="d-flex  flex-wrap">
+
             <div class="menu-item">
               <a (click)="goToUserList()" class="ht-btn-custom"> <span aria-hidden="true"
                   style="font-size: 30px; font-weight: bold; color: black; margin-right: 30px;">&times;</span>
               </a>
+
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 
   <!-- <div *ngIf="isSignUpFailed" class="error-mess mb-4">{{errorMessage}}</div>
@@ -65,13 +68,7 @@ x<form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
                   (change)="onCheckChange($event, user)">
                 <strong> Trạng Thái hoạt động</strong>
               </div>
-              <!--            </li>-->
-              <!--            <li class="list-group-item" *ngFor="let u of user">-->
-              <!--              <div class="form-check">-->
-              <!--                <input type="checkbox" [value]="u.selected" [checked]="u.selected" (change)="onCheckChange($event, u)" class="custom-control-input" id="customCheck{{u.id}}">-->
-              <!--                <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{u.id}}"></label>-->
-              <!--              </div>-->
-              <!--            </li>-->
+
           </ul>
         </div>
         <div class="col-md-12">
@@ -80,17 +77,6 @@ x<form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
               <div>
               <ul class="list-group">
 
-              <!--                updateUser-->
-              <!--                <li class="list-group-item" *ngFor="let r of role">-->
-              <!--                  <div class="form-check">-->
-              <!--                    <input type="checkbox" [value]="r.selected" [checked]="r.selected"-->
-              <!--                           (change)="onRoleChange($event, r)" class="custom-control-input" id="customCheck{{r.id}}">-->
-              <!--                    <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{r.id}}">{{r.name}}</label>-->
-
-              <!--                  </div>-->
-              <!--                </li>-->
-
-              <!--                updateUser1-->
               <li class="list-group-item" *ngFor="let r of role">
                 <div class="form-check">
                   <input type="checkbox" [value]="r.selected" [checked]="r.selected" (change)="onRoleChange($event,r)"
@@ -98,10 +84,12 @@ x<form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
                   <label class="cursor-pointer font-italic d-block custom-control-label"
                     for="customCheck{{r.id}}">{{r.name}}</label>
 
+
                   </div>
                 </li>
               </ul>
-              </div>
+
+
             </div>
         </div>
         <div class="col-md-12">

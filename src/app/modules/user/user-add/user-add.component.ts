@@ -7,8 +7,12 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Role} from "../../../core/model/role/role";
 import {RoleService} from "../../../services/role/role.service";
 import {ToastrService} from 'ngx-toastr';
+
+import {ToastService} from "../../toast/toast.service";
+
 import { Aside } from 'src/app/core/model/aside/aside';
 import { AsideService } from 'src/app/services/aside/aside.service';
+
 
 
 @Component({
@@ -32,14 +36,19 @@ export class UserAddComponent implements OnInit{
 
   constructor(private authService: AuthService,private userService: UserService, private roleService:RoleService,
               private router: Router,private route:ActivatedRoute ,
+
+              private toastService: ToastService, ) {
+
               private toastService: ToastrService,
               private aside:AsideService ) {
+
   }
 
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     if(this.id){
+
       this.getUserById(this.id);
     }
     this.getaside()
@@ -54,7 +63,7 @@ export class UserAddComponent implements OnInit{
   getUserById(id: number) {
     this.userService.getUserById(id).subscribe(data => {
       this.user = data;
-
+      console.log(this.user)
       this.getRoleUpdate(this.user);
     });
   }
@@ -104,7 +113,11 @@ export class UserAddComponent implements OnInit{
 
   updateUser(id: number){
     this.userService.updateUser(id,this.user).subscribe( data =>{
+      this.toastService.showUpdate();
       this.goToUserList();
+    },error => {
+      this.toastService.showWarning(error.error);
+      console.log(error);
     })
   }
 
@@ -122,13 +135,14 @@ export class UserAddComponent implements OnInit{
 
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          this.toastService.success('Đăng kí thành công' , 'Thành công!')
+          // this.toastService.showSuccess()
           // this.errorMessage = "Đăng ký thành công!!"
         },
-        err =>{
-          this.toastService.error(err.error.message , 'Lỗi xảy ra!' )
+        error =>{
+          // this.toastService.showWarning(error.error)
           // this.errorMessage = "Đăng ký thất bại!!";
           this.isSignUpFailed = true;
+          console.log(error.error);
         })
     }
   }
