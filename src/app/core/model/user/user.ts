@@ -11,5 +11,4 @@ export class User {
   active:any;
   role:Role[];
   token: string;
-  aside:Aside[]=[]
 }

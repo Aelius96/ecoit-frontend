@@ -1,10 +1,9 @@
-import { Component, Injectable, OnInit } from '@angular/core';
-import { User } from 'src/app/core/model/user/user';
-
-import { UserService } from '../../../services/user/user.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
+import { User } from 'src/app/core/model/user/user';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-user-control',
@@ -22,7 +21,7 @@ export class UserControlComponent implements OnInit {
     totalRecord: 0,
   };
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userS: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.getAllUser();
@@ -51,7 +50,7 @@ export class UserControlComponent implements OnInit {
       this.paging.size,
       this.searchInput
     );
-    this.userService.getListAllwithpageUser(params).subscribe(
+    this.userS.getListAllwithpageUser(params).subscribe(
       (data) => {
         this.users = data.content;
         this.paging.totalRecord = data.totalElements;
@@ -92,7 +91,7 @@ export class UserControlComponent implements OnInit {
     let option = confirm('Bạn có chắc chắn xóa người dùng này?');
 
     if (option) {
-      this.userService.deleteUser(id).subscribe((data) => {
+      this.userS.deleteUser(id).subscribe((data) => {
         this.getAllUser();
       });
     }

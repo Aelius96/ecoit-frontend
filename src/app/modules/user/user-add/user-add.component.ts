@@ -11,7 +11,8 @@ import {ToastrService} from 'ngx-toastr';
 import {ToastService} from "../../toast/toast.service";
 
 import { Aside } from 'src/app/core/model/aside/aside';
-import { AsideService } from 'src/app/services/aside/aside.service';
+import { Module } from 'src/app/core/model/module/module';
+import { ModuleService } from 'src/app/services/module/module.service';
 
 
 
@@ -24,8 +25,8 @@ import { AsideService } from 'src/app/services/aside/aside.service';
 export class UserAddComponent implements OnInit{
 
   user : User = new User();
-  role :Role[] = [];
-  asidess: Aside[]=[]
+  roles :Role[] = [];
+  modules: Module[]=[]
   id: any;
   roll: any;
   isSuccessful = false;
@@ -36,9 +37,7 @@ export class UserAddComponent implements OnInit{
 
   constructor(private authService: AuthService,private userService: UserService, private roleService:RoleService,
               private router: Router,private route:ActivatedRoute ,
-              private toastService: ToastService,
-              private toastrService: ToastrService,
-              private aside:AsideService ) {
+              private toastService: ToastService,private module:ModuleService ) {
 
   }
 
@@ -46,16 +45,24 @@ export class UserAddComponent implements OnInit{
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     if(this.id){
-
       this.getUserById(this.id);
+      this.getaside()
     }
-    this.getaside()
-    console.log(this.asidess)
+    
   }
   getaside() {
-    this.aside.getAside('aside.json').subscribe(data=> {
-      this.asidess = data;
-    });
+    this.module.getModule('aside.json').subscribe(data=> {
+      this.modules = data;
+      if(this.modules.length ){
+        const sid =this.modules.map(item => item.id);
+        for (let i=0; i<sid.length; i++){
+          this.modules.find( e => {
+            if(e.id === sid[i]) e.status = true;
+          })
+        }
+    }
+      console.log(this.modules)
+    })
   }
 
   getUserById(id: number) {
@@ -68,15 +75,16 @@ export class UserAddComponent implements OnInit{
 
   getRoleUpdate(user: User){
     this.roleService.listRole().subscribe(data => {
-      this.role = data;
+      this.roles = data;
       if(user.role != null){
         const sid = user.role.map(item => item.id);
         for (let i=0; i<sid.length; i++){
-          this.role.find( e => {
+          this.roles.find( e => {
             if(e.id === sid[i]) e.selected = true;
           })
         }
       }
+      console.log(this.roles)
     })
   }
 
@@ -92,17 +100,17 @@ export class UserAddComponent implements OnInit{
       })
     }
   }
-  onAsideChange(event:any,aside:Aside){
-    aside.selected=event.currentTarget.checked;
-    if(aside.selected){
-      this.user.aside.push(aside);
-    }else{
-      this.user.aside.forEach(item => {
-        if(item.id === aside.id){
-          this.user.aside = this.user.aside.filter(i => i !== item);
-        }
-      })
-    }
+  onModulechange(event:any,module:Module){
+    // module.status=event.currentTarget.checked;
+    // if(module.status){
+    //   this.module.push(role);
+    // }else{
+    //   this.roles.module.forEach(item => {
+    //     if(item.id === aside.id){
+    //       this.role.module = this.user.module.filter(i => i !== item);
+    //     }
+    //   })
+    // }
   }
 
   goToUserList(){

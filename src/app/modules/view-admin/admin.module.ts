@@ -5,6 +5,7 @@ import {AdminComponent} from "../admin/admin/admin.component";
 import { HistoryListComponent } from "../admin/history/history-list/history-list.component";
 import { ListContactComponent } from "../typical/list/list-contact/list-contact.component";
 import { ListCommentComponent } from "../typical/list/list-comment/list-comment.component";
+import { RoleControlComponent } from "../admin/role/role-control/role-control.component";
 
 const routes: Routes =[
 
@@ -30,7 +31,8 @@ const routes: Routes =[
     // {path:'list' , title:'Admin-Danh sách' ,  loadChildren:()=>import('./list.module').then(m=>m.ListModule)},
     {path:'category', title:'Admin-Chuyên mục' , loadChildren:()=>import('./category.module').then(m=>m.CategoryModule)},
     {path:'contact' , title:'Admin-Danh sách liên hệ' , component:ListContactComponent },
-    {path:'comment' , title:'Admin-Danh sách bình luận', component:ListCommentComponent }
+    {path:'comment' , title:'Admin-Danh sách bình luận', component:ListCommentComponent },
+    {path:'role' , title:'Phân quyền người dùng', component:RoleControlComponent}
 
   ]},
 ]

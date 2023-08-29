@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Role} from "../../core/model/role/role";
-import {User} from "../../core/model/user/user";
 import {Constant} from "../../core/config/constant";
 import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 

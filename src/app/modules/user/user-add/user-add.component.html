@@ -71,13 +71,12 @@
                     <!--                </li>-->
 
                     <!--                updateUser1-->
-                    <li class="list-group-item" *ngFor="let r of role">
+                    <li class="list-group-item" *ngFor="let r of roles">
                       <div class="form-check">
                         <input type="checkbox" [value]="r.selected" [checked]="r.selected"
                                (change)="onRoleChange($event,r)" class="custom-control-input" id="customCheck{{r.id}}">
                         <label class="cursor-pointer font-italic d-block custom-control-label"
-                               for="customCheck{{r.id}}">{{r.name}}</label>
-
+                          for="customCheck{{r.id}}">{{r.name}}</label>
                       </div>
                     </li>
                   </ul>
@@ -87,15 +86,13 @@
             <div class="col-md-12">
               <ul class="list-group">
                 <h3>Quyền truy cập</h3>
-                <li class="list-group-item" *ngFor="let asides of asidess ;">
+                <li class="list-group-item" *ngFor="let module of modules ;">
                   <div class="form-check">
 
-                    <input type="checkbox" [value]="asides.selected" [checked]="asides.selected"
-                           (change)="onAsideChange($event,asides)" class="custom-control-input" id="aside{{asides.id}}">
+                    <input type="checkbox" [value]="module.status" [checked]="module.status"
+                      (change)="onModulechange($event,module)" class="custom-control-input" id="module{{module.id}}">
                     <label class="cursor-pointer font-italic d-block custom-control-label"
-                           for="aside{{asides.id}}">{{asides.tittle}}</label>
-
-
+                      for="module{{module.id}}">{{module.tittle}}</label>
                   </div>
                 </li>
               </ul>

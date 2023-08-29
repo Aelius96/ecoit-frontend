@@ -1,7 +1,7 @@
 import {Component,OnInit} from '@angular/core';
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
-import { AsideService } from 'src/app/services/aside/aside.service';
-import { Aside } from 'src/app/core/model/aside/aside';
+import { Module } from 'src/app/core/model/module/module';
+import { ModuleService } from 'src/app/services/module/module.service';
 
 @Component({
   selector: 'app-aside',
@@ -10,14 +10,14 @@ import { Aside } from 'src/app/core/model/aside/aside';
 })
 export class AsideComponent implements OnInit {
   
-  constructor(private tokenStorageService: TokenStorageService,private asides:AsideService) { }
+  constructor(private tokenStorageService: TokenStorageService,private module: ModuleService) { }
   ngOnInit(): void {
     this.getaside()
   }
-  asidess : Aside[] =[]
+  modules: Module[]=[]
   getaside() {
-    this.asides.getAside('aside.json').subscribe(data=> {
-      this.asidess = data;
+    this.module.getModule('aside.json').subscribe(data=> {
+      this.modules = data;
     });
   }
   logout() {
