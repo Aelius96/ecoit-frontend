@@ -83,11 +83,13 @@
   border-collapse: separate;
 
 }
-/* .title-contact td{
-  text-align: center;
-} */
-   
-  /* Rounded sliders */
+.list-contact{
+  height: 620px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 
   .btn-link{
    

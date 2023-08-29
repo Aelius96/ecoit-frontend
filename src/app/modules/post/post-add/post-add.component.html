@@ -1,13 +1,15 @@
 <form [formGroup]="formPost" (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
   <div class="container mt-5 ">
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-12">
         <div class="update_box">
           <span><strong>Ảnh bìa</strong></span>
-          <div class="image borderInput p-0">
-            <img src="{{imageURL}}" alt="" appHideMissing>
+          <div class="border">
+            <div class="image borderInput p-0">
+              <img src="{{imageURL}}" alt="" appHideMissing>
+            </div>
+            <input class="p-1 p-md-2 " type="file" value="select" (change)="thumbnailChange($event)">
           </div>
-          <input style="margin-top: 10px;" type="file" value="select" (change)="thumbnailChange($event)">
         </div>
         <div class="update_box">
           <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Mô tả</strong></span>
@@ -16,7 +18,7 @@
         </div>
         <div class="update_box">
           <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Chuyên mục</strong></span>
-          <select class="p-0" id="chuyenMuc" formControlName="chuyenMuc" (change)="thongtinChuyemmuc()" name="category"
+          <select  id="chuyenMuc" formControlName="chuyenMuc" (change)="thongtinChuyemmuc()" name="category"
             [ngClass]="{'borderInput':isChuyenmuc,'inputError':!isChuyenmuc}">
             <option value="" disabled selected hidden></option>
             <option *ngFor="let icon of categories" [value]="icon.typeName"[innerHTML]="icon.typeName"></option>
@@ -45,13 +47,9 @@
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-
-        <div class="submit-button">
-          <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
-          <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToPostList()">Hủy</button>
-        </div>
+        
       </div>
-      <div class="col-lg-8">
+      <div class="col-lg-8 col-12 ">
         <div class="update_box">
           <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Tiêu đề</strong></span>
           <input [ngClass]="{'borderInput':isTitle,'inputError':!isTitle}" id="title" type="text" name="title"
@@ -65,8 +63,16 @@
           </div>
         </div>
       </div>
+      <div class="col-12 col-lg-4">
+        <div class="submit-button">
+          <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
+          <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToPostList()">Hủy</button>
+        </div>
+      </div>
     </div>
   </div>
+
+
 
   <!--<script>-->
   <!--  InlineEditor-->

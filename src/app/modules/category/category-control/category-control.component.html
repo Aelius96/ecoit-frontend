@@ -11,9 +11,7 @@
               <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
             </div>
           </form>
-          <a (click)="getListAll()" class="my-auto">
-            <img src="./assets/images/reload.png" alt="" class="img-reload">
-          </a>
+          
         </div>
       </div>
       <div class="d-sm-block d-none ">
@@ -52,10 +50,10 @@
               </form>
             </li>
             <li class="border p-2">
-                <p class="m-0">Số mục mỗi trang:</p>
-                <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
-                  [(pageSize)]="paging.size">
-                </app-page-size>
+              <p class="m-0">Số mục mỗi trang:</p>
+              <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                [(pageSize)]="paging.size">
+              </app-page-size>
             </li>
             <li class="border p-2">
               <div class="d-flex" routerLink="add">
@@ -74,45 +72,54 @@
 
 <!-- <app-category-add #modal></app-category-add> -->
 
-<div class="container ">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="text-center section-space--mt_100  ">
-        <p class="text-title">CHUYÊN MỤC</p>
-      </div>
-    </div>
+<div class="container list-table ">
+  <div class="text-center section-space--mt_100  ">
+    <p class="text-title">CHUYÊN MỤC</p>
   </div>
-
-  <div class="section-space--mt_30 text-center">
-    <div class="number-item mx-2 " *ngFor="let ct of category |  paginate:{
-      id:'cate',
-      itemsPerPage: paging.size,
-      currentPage: paging.page,
-      totalItems: paging.totalRecord } ; let total = count  ">
-      <div class="card">
-        <div class="action-box">
-          <div>
-
-            <button (click)="Update(ct.id)" style="background-color: #50b848" class="btnn"><i class="far fa-pen"></i>
-            </button>
-          </div>
-          <div>
-            <button (click)="Delete(ct.id)" style="background-color: rgb(255,0,0)" class="btnn"><i
-                class="far fa-times"></i> </button>
-          </div>
-        </div>
-        <div class="content-box ">
-          <h4 class="box-icon itemm">
-            <i class="far fa-newspaper">
-            </i>
-          </h4>
-          <div class="counter-number itemm">{{ct.typeName}}</div>
-
-        </div>
-      </div>
-    </div>
+  <div class=" container w-75 section-space--mt_30 text-center">
+    <table class="table section-space--mt_30 ">
+      <thead style="position: sticky;top: 0 ; z-index: 1;">
+        <tr>
+          <th scope="col" >STT</th>
+          <th class="w-50" scope="col">tên chuyên mục</th>
+          <th scope="col">chức năng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ct of category |  paginate:{
+          id:'cate',
+          itemsPerPage: paging.size,
+          currentPage: paging.page,
+          totalItems: paging.totalRecord } ; let total = count ; let i = index ">
+          
+          <td>
+            <span>{{i}}</span>
+          </td>
+          <td>
+            <div class="counter-number itemm">{{ct.typeName}}</div>
+          </td>
+          <td class="text-center">
+            <div class="btn-group dropright ">
+              <i title="Chức năng" class='icon-more fa fa-ellipsis-h mt-3 ' data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" style='font-size:24px'></i>
+              <div class="dropdown-menu text-center p-0">
+                <ul class="p-0 m-0 ">
+                  <li class="border p-2 text-light " style="background-color: #48a041a9" >
+                      <button (click)="Update(ct.id)"  style=" background: initial;" class=" border-0 ">Sửa
+                      </button>
+                  </li>
+                  <li class="border p-2 text-light " style="background-color: rgba(255, 0, 0, 0.589)" >
+                      <button (click)="Delete(ct.id)" style=" background: initial;"  class=" border-0 "> Xóa </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-top: 20px;">
+  <div *ngIf="paging.totalRecord>0" class=" container w-75 " >
     <pagination-controls [id]="'cate'" previousLabel="<" nextLabel=">" (pageChange)="handlepagechange($event)"
       [maxSize]="paging.totalRecord"></pagination-controls>
   </div>

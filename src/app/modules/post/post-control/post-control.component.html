@@ -95,8 +95,8 @@
           <th class="w-25" scope="col">Tiêu đề</th>
           <th class="w-25" scope="col">Mô tả</th>
           <th class="" scope="col">Chuyên mục </th>
-          <th class="" scope="col">Thời gian</th>
-          <th class="" scope="col">Chức năng</th>
+          <th class="w-10" scope="col">Thời gian</th>
+          <th class="w-10" scope="col">Chức năng</th>
         </tr>
       </thead>
       <tbody>
@@ -131,8 +131,8 @@
               <i title="Chức năng" class='icon-more fa fa-ellipsis-h mt-3 ' data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false" style='font-size:24px'></i>
               <div class="dropdown-menu text-center p-0">
-                <p class="edit icon-more mb-1 drop " (click)="updatePost(post.id)">Chỉnh sửa</p>
-                <p class="dele icon-more drop " (click)="deletePost(post.id)">Xóa</p>
+                <p class="edit icon-more mb-1 drop p-2" (click)="updatePost(post.id)">Chỉnh sửa</p>
+                <p class="dele icon-more drop p-2 " (click)="deletePost(post.id)">Xóa</p>
               </div>
             </div>
           </td>

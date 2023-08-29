@@ -68,7 +68,6 @@ img{
   text-overflow: ellipsis;
 }
 .table{
-
   border-collapse: separate;
 }
 
@@ -111,6 +110,8 @@ th{
   color: white;
 }
 .drop{
-  padding: 8px 0px;
   font-size: 14px;
+}
+.w-10{
+  width: 10%;
 }

@@ -11,8 +11,6 @@ import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 })
 export class RoleService {
 
-  private baseUrl = `${Constant.BASE_URL}`
-
   constructor(private apiHelper:ApiHelper) {}
 
   getRoleById(id:number):Observable<any>{

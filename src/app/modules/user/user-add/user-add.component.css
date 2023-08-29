@@ -102,23 +102,24 @@
   color: #f00;
 }
 
-.user-footer{
-  justify-content: flex-start;
-}
+
 .save-btn{
   border: none;
   cursor: pointer;
-  color: #51c045;
-  margin: 0 30px;
-  font-size: 20px;
-  padding: 10px 15px;
-  border-radius: 5px;
+  color: #ffffff;
 }
 
 .save-btn:hover{
-  background-color: #51c045;
+  background-color: #5545c0;
   color: #fff;
 }
 label{
   color: #1a1a1a;
+}
+.title-add{
+  text-transform: capitalize;
+  color: #50b848;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
 }
