@@ -131,6 +131,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 import {ToastrModule} from 'ngx-toastr';
 import { DialogComponent } from './modules/dialog/dialog/dialog.component'
+import { CommentViewService } from './services/comment-view/comment-view.service';
 
 
 @NgModule({
@@ -260,7 +261,7 @@ import { DialogComponent } from './modules/dialog/dialog/dialog.component'
 
 
 
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,CommentViewService],
 
   bootstrap: [AppComponent]
 })

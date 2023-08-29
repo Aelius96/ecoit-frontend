@@ -1,5 +1,48 @@
 [
     {
+        "name":"Hãy chọn biểu tượng",
+        "class":"",
+        "code":""
+    },
+    {
+        "name": "user",
+        "class": " fa fa-user",
+        "code": "&#xf007;"
+    },
+    {
+        "name": "book",
+        "class": " fa fa-book",
+        "code": "&#xf02d;"
+    },
+    {
+        "name": "product-hunt",
+        "class": " fa fa-product-hunt",
+        "code": "&#xf288;"
+    },
+    {
+        "name": "address-book",
+        "class": " fa fa-address-book",
+        "code": "&#xf2b9;"
+    },
+    {
+        "name": "khach hang",
+        "class": " fa fa-handshake-o",
+        "code": "&#xf2b5;"
+    },
+    {
+        "name": "commenting",
+        "class": " fa fa-commenting",
+        "code": "&#xf27a;"
+    },
+    {
+        "name": "amazon",
+        "class": " fa fa-amazon",
+        "code": "&#xf270;"
+    }
+
+
+    ,
+    {
         "name": "glass",
         "class": " fa fa-glass",
         "code": "&#xf000;"
@@ -33,11 +76,6 @@
         "name": "star-o",
         "class": " fa fa-star-o",
         "code": "&#xf006;"
-    },
-    {
-        "name": "user",
-        "class": " fa fa-user",
-        "code": "&#xf007;"
     },
     {
         "name": "film",
@@ -79,11 +117,7 @@
         "class": " fa fa-search-minus",
         "code": "&#xf010;"
     },
-    {
-        "name": "power-off",
-        "class": " fa fa-power-off",
-        "code": "&#xf011;"
-    },
+    
     {
         "name": "signal",
         "class": " fa fa-signal",
@@ -175,21 +209,6 @@
         "code": "&#xf025;"
     },
     {
-        "name": "volume-off",
-        "class": " fa fa-volume-off",
-        "code": "&#xf026;"
-    },
-    {
-        "name": "volume-down",
-        "class": " fa fa-volume-down",
-        "code": "&#xf027;"
-    },
-    {
-        "name": "volume-up",
-        "class": " fa fa-volume-up",
-        "code": "&#xf028;"
-    },
-    {
         "name": "qrcode",
         "class": " fa fa-qrcode",
         "code": "&#xf029;"
@@ -208,11 +227,6 @@
         "name": "tags",
         "class": " fa fa-tags",
         "code": "&#xf02c;"
-    },
-    {
-        "name": "book",
-        "class": " fa fa-book",
-        "code": "&#xf02d;"
     },
     {
         "name": "bookmark",
@@ -254,26 +268,7 @@
         "class": " fa fa-text-width",
         "code": "&#xf035;"
     },
-    {
-        "name": "align-left",
-        "class": " fa fa-align-left",
-        "code": "&#xf036;"
-    },
-    {
-        "name": "align-center",
-        "class": " fa fa-align-center",
-        "code": "&#xf037;"
-    },
-    {
-        "name": "align-right",
-        "class": " fa fa-align-right",
-        "code": "&#xf038;"
-    },
-    {
-        "name": "align-justify",
-        "class": " fa fa-align-justify",
-        "code": "&#xf039;"
-    },
+
     {
         "name": "list",
         "class": " fa fa-list",
@@ -338,21 +333,6 @@
         "name": "arrows",
         "class": " fa fa-arrows",
         "code": "&#xf047;"
-    },
-    {
-        "name": "step-backward",
-        "class": " fa fa-step-backward",
-        "code": "&#xf048;"
-    },
-    {
-        "name": "fast-backward",
-        "class": " fa fa-fast-backward",
-        "code": "&#xf049;"
-    },
-    {
-        "name": "backward",
-        "class": " fa fa-backward",
-        "code": "&#xf04a;"
     },
     {
         "name": "play",
@@ -1139,26 +1119,7 @@
         "class": " fa fa-plus-square",
         "code": "&#xf0fe;"
     },
-    {
-        "name": "angle-double-left",
-        "class": " fa fa-angle-double-left",
-        "code": "&#xf100;"
-    },
-    {
-        "name": "angle-double-right",
-        "class": " fa fa-angle-double-right",
-        "code": "&#xf101;"
-    },
-    {
-        "name": "angle-double-up",
-        "class": " fa fa-angle-double-up",
-        "code": "&#xf102;"
-    },
-    {
-        "name": "angle-double-down",
-        "class": " fa fa-angle-double-down",
-        "code": "&#xf103;"
-    },
+
     {
         "name": "angle-left",
         "class": " fa fa-angle-left",
@@ -2845,11 +2806,6 @@
         "code": "&#xf26e;"
     },
     {
-        "name": "amazon",
-        "class": " fa fa-amazon",
-        "code": "&#xf270;"
-    },
-    {
         "name": "calendar-plus-o",
         "class": " fa fa-calendar-plus-o",
         "code": "&#xf271;"
@@ -2893,11 +2849,6 @@
         "name": "map",
         "class": " fa fa-map",
         "code": "&#xf279;"
-    },
-    {
-        "name": "commenting",
-        "class": " fa fa-commenting",
-        "code": "&#xf27a;"
     },
     {
         "name": "commenting-o",
@@ -2958,11 +2909,6 @@
         "name": "usb",
         "class": " fa fa-usb",
         "code": "&#xf287;"
-    },
-    {
-        "name": "product-hunt",
-        "class": " fa fa-product-hunt",
-        "code": "&#xf288;"
     },
     {
         "name": "mixcloud",
@@ -3068,11 +3014,6 @@
         "name": "audio-description",
         "class": " fa fa-audio-description",
         "code": "&#xf29e;"
-    },
-    {
-        "name": "volume-control-phone",
-        "class": " fa fa-volume-control-phone",
-        "code": "&#xf2a0;"
     },
     {
         "name": "braille",
@@ -3188,11 +3129,6 @@
         "name": "linode",
         "class": " fa fa-linode",
         "code": "&#xf2b8;"
-    },
-    {
-        "name": "address-book",
-        "class": " fa fa-address-book",
-        "code": "&#xf2b9;"
     },
     {
         "name": "address-book-o",

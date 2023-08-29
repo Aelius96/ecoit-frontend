@@ -6,6 +6,7 @@ import {PostService} from "../../../services/post/post.service";
 import {Contact} from "../../../core/model/contact/contact";
 import {Constant} from "../../../core/config/constant";
 import { Domain } from 'src/app/core/domain/domain';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-list',
@@ -25,7 +26,8 @@ export class NewsListComponent implements OnInit{
 
   category = 'news';
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -65,5 +67,9 @@ export class NewsListComponent implements OnInit{
   handlePageChangeTest(event: number): void {
     this.paging.page = event;
     this.getListAllWithPageTest();
+  }
+  viewDetail(url : string) {
+    const queryParams  = {url : url}
+    this.router.navigate(["/tin-tuc/chi-tiet"],{queryParams})
   }
 }

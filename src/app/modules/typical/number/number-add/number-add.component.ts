@@ -24,9 +24,9 @@ export class NumberAddComponent implements OnInit {
   isborderErrorIcon = true;
   isborderErrorNumber = true;
   tNumber: Number = new Number();
-  icons: string = '';
+  // icons: string = '';
   id: any;
-  listIcon: any;
+  // listIcon: any;
   allIcon: any;
   checkinput = true;
 
@@ -50,16 +50,13 @@ export class NumberAddComponent implements OnInit {
         );
       });
     }
-
+    this.formNumber.get("icons")?.setValue("")
     this.getListIcon();
   }
 
   getListIcon() {
     this.numService.getListIconJson('icon.json').subscribe((data) => {
       this.allIcon = data;
-    });
-    this.numService.getListIconJson('listIcon.json').subscribe((data) => {
-      this.listIcon = data;
     });
   }
   rollbackToList() {
@@ -106,7 +103,7 @@ export class NumberAddComponent implements OnInit {
   ktradieukien(){
     if (
       this.formNumber.controls['numberic'].value === null &&
-      this.formNumber.controls['icons'].value === null &&
+      this.formNumber.controls['icons'].value === "" &&
       this.formNumber.controls['description'].value === null
     ) {
       this.isborderErrorDes = false;
@@ -114,7 +111,7 @@ export class NumberAddComponent implements OnInit {
       this.isborderErrorNumber = false;
       this.inputs = 'typeNumber';
     } else if (
-      this.formNumber.controls['icons'].value === null &&
+      this.formNumber.controls['icons'].value === "" &&
       this.formNumber.controls['description'].value === null
     ) {
       this.isborderErrorIcon = false;
@@ -122,7 +119,7 @@ export class NumberAddComponent implements OnInit {
       this.inputs = 'icon';
     } else if (
       this.formNumber.controls['numberic'].value === null &&
-      this.formNumber.controls['icons'].value === null
+      this.formNumber.controls['icons'].value === ""
     ) {
       this.isborderErrorIcon = false;
       this.isborderErrorNumber = false;
@@ -134,7 +131,7 @@ export class NumberAddComponent implements OnInit {
       this.isborderErrorNumber = false;
       this.isborderErrorDes = false;
       this.inputs = 'typeNumber';
-    } else if (this.formNumber.controls['icons'].value === null) {
+    } else if (this.formNumber.controls['icons'].value === "") {
       this.isborderErrorIcon = false;
       this.inputs = 'icon';
     } else if (this.formNumber.controls['numberic'].value === null) {
