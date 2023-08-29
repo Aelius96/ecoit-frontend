@@ -22,7 +22,7 @@ import { AsideService } from 'src/app/services/aside/aside.service';
 })
 
 export class UserAddComponent implements OnInit{
-  
+
   user : User = new User();
   role :Role[] = [];
   asidess: Aside[]=[]
@@ -36,9 +36,7 @@ export class UserAddComponent implements OnInit{
 
   constructor(private authService: AuthService,private userService: UserService, private roleService:RoleService,
               private router: Router,private route:ActivatedRoute ,
-
-              private toastService: ToastService, 
-
+              private toastService: ToastService,
               private toastrService: ToastrService,
               private aside:AsideService ) {
 

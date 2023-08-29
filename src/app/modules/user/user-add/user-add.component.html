@@ -34,7 +34,7 @@
               <div class="options">
                 <div class="title">Đặt lại mật khẩu</div>
                 <button type="button" (click)="changePassword(user.id)" class="btn"><i
-                    class="far fa-history"></i></button>
+                  class="far fa-history"></i></button>
               </div>
             </div>
             <div class="col-md-12">
@@ -42,7 +42,7 @@
                 <li class="list-group-item">
                   <div class="form-check">
                     <input type="checkbox" name="active" [(ngModel)]="user.active" [checked]="user.active"
-                      (change)="onCheckChange($event, user)">
+                           (change)="onCheckChange($event, user)">
                     <strong> Trạng Thái hoạt động</strong>
                   </div>
                   <!--            </li>-->
@@ -74,9 +74,9 @@
                     <li class="list-group-item" *ngFor="let r of role">
                       <div class="form-check">
                         <input type="checkbox" [value]="r.selected" [checked]="r.selected"
-                          (change)="onRoleChange($event,r)" class="custom-control-input" id="customCheck{{r.id}}">
+                               (change)="onRoleChange($event,r)" class="custom-control-input" id="customCheck{{r.id}}">
                         <label class="cursor-pointer font-italic d-block custom-control-label"
-                          for="customCheck{{r.id}}">{{r.name}}</label>
+                               for="customCheck{{r.id}}">{{r.name}}</label>
 
                       </div>
                     </li>
@@ -91,9 +91,9 @@
                   <div class="form-check">
 
                     <input type="checkbox" [value]="asides.selected" [checked]="asides.selected"
-                      (change)="onAsideChange($event,asides)" class="custom-control-input" id="aside{{asides.id}}">
+                           (change)="onAsideChange($event,asides)" class="custom-control-input" id="aside{{asides.id}}">
                     <label class="cursor-pointer font-italic d-block custom-control-label"
-                      for="aside{{asides.id}}">{{asides.tittle}}</label>
+                           for="aside{{asides.id}}">{{asides.tittle}}</label>
 
 
                   </div>
