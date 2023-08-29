@@ -1,65 +1,46 @@
-<div class="toolbar">
-  <div class="container">
-    <div class="d-flex  justify-content-between header-menu ">
-      <div class="left-d-flex my-auto">
-        <div class="d-flex">
-          <h5 class="h5" style="width:auto">Thêm mới</h5>
-
-        </div>
-      </div>
-      <div class="right-d-flex">
-        <div class="d-flex  flex-wrap">
-
-          <div class="menu-item">
-            <a (click)="goToNavList()" class="ht-btn-custom"><span aria-hidden="true"
-                style="font-size: 30px; font-weight: bold; color: black; ">&times;</span>
-            </a>
-
+<div class="container section-space--mt_100 ">
+  <form (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="user-content col-lg-12 ">
+        <div class="row " style="justify-content: center;">
+          <div class="col-md-4" style="margin-bottom: 20px;">
+            <div class="options">
+              <div class="title">Tên</div>
+              <input type="text" name="name" [(ngModel)]="nav.name" placeholder="">
+            </div>
+            <span>VD: Khách hàng Chính Phủ</span>
           </div>
+          <div class="col-md-4">
+            <div class="options">
+              <div class="title">Đường dẫn</div>
+              <input type="text" name="url" [(ngModel)]="nav.url" placeholder="">
+            </div>
+            <span>VD: /khach-hang-chinh-phu</span>
+          </div>
+          <div class="col-md-8">
+            <div class="options">
+              <div class="title">Nhóm</div>
+
+              <!--            <input *ngIf="isChild" name="parentId" [(ngModel)]="nav.parentId" [value]="nav.parentId" disabled>-->
+              <div>
+                <select name="parentId" [(ngModel)]="nav.parentId">
+                  <option [value]="null">--Chọn--</option>
+                  <option *ngFor="let opt of navGroup" [ngValue]="opt.id" selected>{{opt.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12" style="text-align: center; padding-top: 30px;">
+            <div class="submit-button">
+              <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
+              <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToNavList()">Hủy</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
+
+  </form>
 </div>
-
-<form (ngSubmit)="onSubmit()">
-  <div class="user-content col-lg-12 ">
-    <div class="row " style="justify-content: center;">
-      <div class="col-md-4" style="margin-bottom: 20px;">
-        <div class="options">
-          <div class="title">Tên</div>
-          <input type="text" name="name" [(ngModel)]="nav.name" placeholder="">
-        </div>
-        <span>VD: Khách hàng Chính Phủ</span>
-      </div>
-      <div class="col-md-4">
-        <div class="options">
-          <div class="title">Đường dẫn</div>
-          <input type="text" name="url" [(ngModel)]="nav.url" placeholder="">
-        </div>
-        <span>VD: /khach-hang-chinh-phu</span>
-      </div>
-      <div class="col-md-8">
-        <div class="options">
-          <div class="title">Nhóm</div>
-
-          <!--            <input *ngIf="isChild" name="parentId" [(ngModel)]="nav.parentId" [value]="nav.parentId" disabled>-->
-          <div>
-            <select name="parentId" [(ngModel)]="nav.parentId">
-              <option [value]="null">--Chọn--</option>
-              <option *ngFor="let opt of navGroup" [ngValue]="opt.id" selected>{{opt.name}}</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-12" style="text-align: center; padding-top: 30px;">
-        <div class="submit-button">
-          <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
-          <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToNavList()">Hủy</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</form>

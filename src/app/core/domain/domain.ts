@@ -21,7 +21,7 @@ export class Domain {
   public static USER = `user`;
   public static ALBUMS = `s/file`;
   public static ADDRESS = `address`;
-
+  public static HISTORY= `history`;
 }
 
 

@@ -143,7 +143,7 @@
       <div *ngIf="paging.totalRecord>0" class="col-sm-12" style="margin-bottom: 10px;">
         <div class="row">
           <div class="col-md-12 col-12">
-            <pagination-controls previousLabel="<" nextLabel=">" [id]="'post'" (pageChange)="handlePageChange($event)"
+            <pagination-controls previousLabel="<" nextLabel=">"  [id]="'post'" (pageChange)="handlePageChange($event)"
               [maxSize]="paging.totalRecord"></pagination-controls>
           </div>
         </div>

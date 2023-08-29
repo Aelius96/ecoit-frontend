@@ -98,15 +98,14 @@
               </a></td>
             <td>{{item.dates}}</td>
             <td>
-              <button class="btn btn-notcontact h-75 " *ngIf="item.status ; else dalienhe" (click)="Notcontact(item.id)">Chưa
+              <button class="btn btn-notcontact h-75 text-white " *ngIf="item.status ; else dalienhe" (click)="Notcontact(item.id)">Chưa
                 Liên Hệ</button>
               <ng-template #dalienhe>
-                <button class="btn btn-contacted h-75 " (click)="Contacted(item.id)">Đã Liên Hệ</button>
+                <button class="btn btn-contacted h-75 text-white " (click)="Contacted(item.id)">Đã Liên Hệ</button>
               </ng-template>
             </td>
             <td style="text-align: center;"  >
-              <!-- <i class="fa fa-remove"  style="cursor: pointer;"></i> -->
-              <div (click)="Delete(item.id)" class="w-100" ><a>Xóa</a></div>
+              <button class="bg-info btn h-75 text-white " (click)="Delete(item.id)">Xóa</button>
             </td>
           </tr>
         </tbody>
