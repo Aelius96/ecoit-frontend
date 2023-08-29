@@ -64,5 +64,4 @@ export class CommentService {
   deleteComment(id:number){
   return this.apiHelper.delete(Constant.COMMENT.DELETE_COMMENT + `/${id}` )  
   }
-
 }

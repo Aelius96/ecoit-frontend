@@ -130,9 +130,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 import {ToastrModule} from 'ngx-toastr';
+
+import { CommentViewService } from './services/comment-view/comment-view.service';
+
 import { DialogComponent } from './modules/dialog/dialog/dialog.component';
 import { RoleAddComponent } from './modules/admin/role/role-add/role-add.component';
 import { RoleControlComponent } from './modules/admin/role/role-control/role-control.component'
+
 
 
 @NgModule({
@@ -264,7 +268,7 @@ import { RoleControlComponent } from './modules/admin/role/role-control/role-con
 
 
 
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,CommentViewService],
 
   bootstrap: [AppComponent]
 })

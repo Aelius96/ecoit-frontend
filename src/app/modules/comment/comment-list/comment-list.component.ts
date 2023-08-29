@@ -11,6 +11,7 @@ import {HttpParams} from "@angular/common/http";
 
 import { ToastrService } from 'ngx-toastr';
 import { ToastService } from '../../toast/toast.service';
+import { CommentViewService } from 'src/app/services/comment-view/comment-view.service';
 
 @Component({
   selector: 'app-comment-list',
@@ -34,26 +35,37 @@ constructor(private route:ActivatedRoute,
             private postService: PostService,
             private tokenStorageService: TokenStorageService  ,
             private toast : ToastService , 
-            private toastService : ToastrService){}
+            private toastService : ToastrService,
+            private commentViewService : CommentViewService){
+              
+            }
 
   ngOnInit(): void {
     if(this.tokenStorageService.getToken()){
       this.username = this.tokenStorageService.getUser().username;
       this.userId = this.tokenStorageService.getUser().id;
       this.comment.user.id = this.userId;
-      console.log(this.userId)
-      this.url = this.route.snapshot.params['url'];
+      // console.log(this.userId)
+      this.url = this.route.snapshot.queryParams['url'];
+      // console.log(this.url)
       this.postService.getPostByUrl(this.url).subscribe(data => {
+        // console.log(data)
         this.comment.post.id = data.id;
         this.postId = data.id;
-        this.getAllComment();
+        this.commentViewService.getAllComment(this.postId)
         this.getCommentChildByParent()
+        this.commentViewService.getCommentSubject().subscribe((data) => {
+          console.log(data)
+          this.commentList = data
+        })
+        
       })
 
     }
     }
 
   sendChildComment(){
+    console.log(this.comment)
     this.commentService.creatComment(this.comment).subscribe(res=>{
       this.toastService.success('Bình luận thành công!');
       setTimeout(() => {
@@ -74,7 +86,7 @@ constructor(private route:ActivatedRoute,
     
     this.commentService.getCommentByPostId(this.postId).subscribe(data=>{
         this.commentList = data;
-
+        // console.log(data)
       },
       error=>{
         console.error(error)
