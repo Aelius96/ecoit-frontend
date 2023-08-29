@@ -1,124 +1,51 @@
-<div ng-app="requried"   ng-controller="RegisterCtrl">
-<form [formGroup]="formNumber" (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="was-validated">
-<div class="number-add" >
-
-    <div class="container " >
-      <div class="row" style="justify-content: center">
-        <div class="col-lg-9" >
-          <div class="contact-inner" >
-            <div class="row" >
-              <div class="col-md-4" >
-                <div class="box">
-                  <div class="box-icon">
-
-                    <span><i class="{{formNumber.controls['icons'].value}}"></i></span>
-
-                  </div>
-                  <div class="input" >
-                    <label for="icon" class="form-label required" ></label>
-                    <!-- <input class="text-input" type="text" [(ngModel)]="tNumber.icon" name="icon" placeholder="Nhập mã " required > -->
-
-
-                    <select [ngClass]="{'text-input': isborderErrorIcon,'borderError': !isborderErrorIcon}" name="icon" id="icon" (change)="noidungIcon()" formControlName="icons">
-                      <option value="" disabled selected hidden>những icon tiêu biểu </option>
-                      <option *ngFor="let icon of listIcon" [value]="icon.class"[innerHTML]="icon.name + ' ' + icon.code"></option>
-
-                    <!-- <i class="fa fa-check text-success" ng-show="form.icon.$dirty && form.icon.$valid"></i>
-                    <div ng-show="form.icon.$dirty && form.icon.$invalid" class="text-danger"><i class="fa fa-times text-danger"></i>
-                    <span ng-show="form.icon.$error.required">Không được bỏ trống</span>
-                    </div> -->
-                    </select>
+<div ng-app="requried" ng-controller="RegisterCtrl">
+  <form [formGroup]="formNumber" (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="was-validated">
+    <div class="number-add">
+      <div class="container ">
+        <div class="row" style="justify-content: center">
+          <div class="col-lg-9">
+            <div class="contact-inner">
+              <div class="row">
+                <div class="col-md-4 col-12">
+                  <div class="box">
+                    <div class="box-icon">
+                      <span><i class="{{formNumber.controls['icons'].value}}"></i></span>
+                    </div>
+                    <div class="input">
+                      <label for="icon" class="form-label required">Biểu tượng</label>
+                      <select [ngClass]="{'text-input': isborderErrorIcon,'borderError': !isborderErrorIcon}"
+                        name="icon" id="icon" (change)="noidungIcon()" formControlName="icons">
+                        <option  class="text-primary">Biểu tượng tiêu biểu </option>
+                        <option *ngFor="let icon of listIcon" [value]="icon.class"
+                          [innerHTML]="icon.name + ' ' + icon.code"></option>
+                      </select>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-8">
-                <div class="" >
-                  <input [ngClass]="{'text-input': isborderErrorNumber,'borderError': !isborderErrorNumber}" id="typeNumber" type="number" (change)="noidungNumber()" formControlName="numberic" name="number" placeholder="*Số" >
+                <div class="col-md-8 col-12 ">
+                  <div class="mt-3 mt-lg-0">
+                    <span><strong>Số</strong></span>
+                    <input [ngClass]="{'text-input': isborderErrorNumber,'borderError': !isborderErrorNumber}"
+                      id="typeNumber" type="number" (change)="noidungNumber()" formControlName="numberic" name="number"
+                      placeholder="*Số">
+                  </div>
+                  <div class="mt-3 mt-md-4" >
+                    <span><strong>Mô tả</strong> </span>
+                    <textarea [ngClass]="{'text-input': isborderErrorDes,'borderError': !isborderErrorDes}"
+                      formControlName="description" (change)="noidungDescription()" id="description" name="description"
+                      placeholder="*viết gì đó"></textarea>
+                  </div>
+                  <div class="submit-button mt-3 mt-lg-2 ">
+                    <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
+                    <button type="button" class="btn btn-secondary btn-lg btnn cancel"
+                      (click)="rollbackToList()">Hủy</button>
+                  </div>
                 </div>
-                <p style="padding-top: 10px ; margin-bottom: 0px"> <strong>Mô tả</strong> </p>
-                
-                <div>
-                  <textarea [ngClass]="{'text-input': isborderErrorDes,'borderError': !isborderErrorDes}" formControlName="description" (change)="noidungDescription()" id="description" name="description" placeholder="*viết gì đó"></textarea>
-
-                </div>
-                <div class="submit-button">
-                  <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
-                  <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="rollbackToList()" >Hủy</button>
-                  <!--                <button class="button" type="submit">Lưu</button>-->
-                  <!--                <button class="button" style="background: #ccc" type="button" >Hủy</button>-->
-                </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
+  </form>
 </div>
-</form>
-</div>
-<!-- 
-<form action="/action_page.php" class="was-validated">
-  <div class="mb-3 mt-3">
-    <label for="uname" class="form-label">Username:</label>
-    <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
-    <div class="valid-feedback">Valid.</div>
-    <div class="invalid-feedback">Please fill out this field.</div>
-  </div>
-  <div class="mb-3">
-    <label for="pwd" class="form-label">Password:</label>
-    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
-    <div class="valid-feedback">Valid.</div>
-    <div class="invalid-feedback">Please fill out this field.</div>
-  </div>
-  <div class="form-check mb-3">
-    <input class="form-check-input" type="checkbox" id="myCheck"  name="remember" required>
-    <label class="form-check-label" for="myCheck">I agree on blabla.</label>
-    <div class="valid-feedback">Valid.</div>
-    <div class="invalid-feedback">Check this checkbox to continue.</div>
-  </div>
-<button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
-<!--<div class="number-add" >-->
-
-<!--    <div class="container " >-->
-<!--      <div class="row" style="justify-content: center">-->
-<!--        <div class="col-lg-9" >-->
-<!--          <div class="contact-inner" >-->
-<!--            <div class="row" >-->
-<!--              <div class="col-md-4" >-->
-<!--                <div class="box">-->
-<!--                  <div class="box-icon">-->
-<!--                    <span><i class=""></i></span>-->
-<!--                  </div>-->
-<!--                  <div class="input" >-->
-<!--                    <input class="text-input" type="text"  name="icon" placeholder="Nhập mã biểu tượng ở đây" >-->
-<!--                    <p style="padding-top: 10px">*Mã bắt đầu bằng: <strong>fa</strong>, <strong>far</strong> hoặc <strong>fas</strong></p>-->
-<!--                    <p>*vd: <strong>fa fa-university</strong></p>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-md-8">-->
-<!--                <div class="" >-->
-<!--                  <input class="text-input" type="text"  name="icon" placeholder="*Số" >-->
-<!--                </div>-->
-<!--                <p style="padding-top: 10px ; margin-bottom: 0px"> <strong>Mô tả</strong> </p>-->
-<!--                <div>-->
-<!--                  <textarea  name="description" placeholder="*viết gì đó"></textarea>-->
-<!--                </div>-->
-<!--                <div class="submit-button">-->
-<!--                  <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>-->
-<!--                  <button type="button" class="btn btn-secondary btn-lg btnn cancel">Hủy</button>-->
-<!--                  &lt;!&ndash;                <button class="button" type="submit">Lưu</button>&ndash;&gt;-->
-<!--                  &lt;!&ndash;                <button class="button" style="background: #ccc" type="button" >Hủy</button>&ndash;&gt;-->
-<!--                </div>-->
-
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--</div>-->
