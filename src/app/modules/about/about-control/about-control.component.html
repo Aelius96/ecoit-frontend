@@ -1,91 +1,96 @@
-
-<div class="toolbar" >
+<div class="toolbar">
 
 </div>
-<div class="about-page">
+<div class="about-page section-space--mt_100">
     <div class="container">
-        <h3 class="text-title">Trình Chiếu</h3>
+        <p class="text-title section-space--mb_30">Giới thiệu</p>
         <div class="row" style="justify-content: center;">
             <div class="col-lg-9">
-                        <form (ngSubmit)="onSubmit()"  enctype="multipart/form-data"  novalidate action="" >
-                            <div class="contact-page-wrapper  mx-auto">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="contact-inner">
-                                            <span><strong>HOTLINE</strong></span>
-                                            <div class="d-flex" >
-                                                <input type="tel" name="phone" class="phone" (keypress)="numberOnly($event)"  [(ngModel)]="about.phone" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="contact-inner">
-                                            <span><strong>FAX</strong></span>
-                                            <input type="tel" name="fax" id="fax" (keypress)="numberOnly($event)" [(ngModel)]="about.fax" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="contact-inner">
-                                            <span><strong>EMAIL</strong></span>
-                                            <input type="email" name="email" id="email" [(ngModel)]="about.email" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="contact-inner">
-                                            <span> <strong> LINK VIDEO </strong> <a href="https://support.google.com/youtube/answer/171780?hl=vi" target="_blank" ><span style="color: rgb(255, 72, 0);" ><em>(Hướng dẫn lấy mã nhúng)</em></span> </a></span> 
-                                            <input type="text" name="videoLINK" id="videoLINK" [(ngModel)]="about.videoLINK"  placeholder="Điền mã nhúng vào đây"  >
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <span><strong>ĐỊA CHỈ</strong></span>
-                                        <div class="address my-2 p-3">
-                                            <div *ngFor="let item of addressList  " >
-                                                <div class="py-2 d-flex" >
-                                                    <span class="my-auto">
-                                                        <i class="fa fa-map-marker "></i>
-                                                    </span>
-                                                    <span class="ml-2 my-auto " >{{item.address}} </span>
-                                                    <div class="ml-auto">
-                                                        <button class=" button h-100" (click)="updateAddress(item.id)" > <i class="far fa-pen"></i></button>
-                                                        <button class=" button h-100 " (click)="deleteAddress(item.id)" > <i class="far fa-times"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="contact-inner">
-                                            <button class="btn" routerLink="address-add">
-                                                <i class="fa fa-plus"></i>
-                                                <span>Thêm địa chỉ</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="contact-inner">
-                                            <span><strong>MÔ TẢ</strong></span>
-                                            <div class="ckeditorContaniner" id="editor">
-                                                <ckeditor [(ngModel)]="about.description" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="contact-inner">
-                                            <span><strong>VÀI NÉT VỀ CHÚNG TÔI</strong></span>
-                                            <div class="ckeditorContaniner" id="editor">
-                                                <ckeditor [(ngModel)]="about.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                     
-                                        <button type="submit" class="btn" style="width: 100px;" >Lưu</button>
-                                        <button type="button" class="btn  cancel ml-4 " style=" width:100px;" (click)="reload()">Hủy</button>
+                <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate action="">
+                    <div class="contact-page-wrapper   mx-auto">
+                        <div class="row">
+                            <div class="col-md-6  ">
+                                <div class="contact-inner">
+                                    <span><strong>HOTLINE</strong></span>
+                                    <div class="d-flex">
+                                        <input type="tel" name="phone" class="phone" (keypress)="numberOnly($event)"
+                                            [(ngModel)]="about.phone" required>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                            <div class="col-md-6">
+                                <div class="contact-inner">
+                                    <span><strong>FAX</strong></span>
+                                    <input type="tel" name="fax" id="fax" (keypress)="numberOnly($event)"
+                                        [(ngModel)]="about.fax" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-inner">
+                                    <span><strong>EMAIL</strong></span>
+                                    <input type="email" name="email" id="email" [(ngModel)]="about.email" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-inner">
+                                    <span> <strong> LINK VIDEO </strong> <a
+                                            href="https://support.google.com/youtube/answer/171780?hl=vi"
+                                            target="_blank"><span style="color: rgb(255, 72, 0);"><em>(Hướng dẫn lấy mã
+                                                    nhúng)</em></span> </a></span>
+                                    <input type="text" name="videoLINK" id="videoLINK" [(ngModel)]="about.videoLINK"
+                                        placeholder="Điền mã nhúng vào đây">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <span><strong>ĐỊA CHỈ</strong></span>
+                                <div class="address my-2 p-3  ">
+                                    <div *ngFor="let item of addressList ">
+                                        <div class="py-2 row ">
+                                            <span class="my-auto col-md-10 col-12 "><i class="fa fa-map-marker "></i>
+                                                {{item.address}} </span>
+                                            <div class=" col-md-2 col-12 h6 text-center d-flex justify-content-center  ">
+                                                <button class=" button h-100 mr-md-2 mr-1 mt-md-0 mt-2 "
+                                                    (click)="updateAddress(item.id)"> Sửa </button>
+                                                <button class=" button h-100 mt-md-0 mt-2 " (click)="deleteAddress(item.id)"> Xóa
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact-inner">
+                                    <button class="btn" routerLink="address-add">
+                                        <i class="fa fa-plus"></i>
+                                        <span>Thêm địa chỉ</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="contact-inner">
+                                    <span><strong>MÔ TẢ</strong></span>
+                                    <div class="ckeditorContaniner" id="editor">
+                                        <ckeditor [(ngModel)]="about.description" [ngModelOptions]="{standalone: true}"
+                                            [config]="ckeConfig"></ckeditor>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="contact-inner">
+                                    <span><strong>VÀI NÉT VỀ CHÚNG TÔI</strong></span>
+                                    <div class="ckeditorContaniner" id="editor">
+                                        <ckeditor [(ngModel)]="about.content" [ngModelOptions]="{standalone: true}"
+                                            [config]="ckeConfig"></ckeditor>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 my-3 ">
+                                <button type="submit" class="btn btn-primary " style="width: 100px;">Lưu</button>
+                                <button type="button" class="btn  cancel ml-4 " style=" width:100px;"
+                                    (click)="reload()">Hủy</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
-
         </div>
     </div>
 </div>
-

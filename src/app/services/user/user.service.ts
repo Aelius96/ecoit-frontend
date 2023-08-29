@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { Observable, ObservedValueOf, Cons } from 'rxjs';
-import {User} from "../../core/model/user/user";
 import {Constant} from "../../core/config/constant";
-import {Domain} from "../../core/domain/domain";
 import { ApiHelper } from 'src/app/core/rest-api/api-helper';
+import { User } from 'src/app/core/model/user/user';
 
 @Injectable({
   providedIn: 'root'

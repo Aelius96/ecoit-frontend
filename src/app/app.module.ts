@@ -130,8 +130,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 import {ToastrModule} from 'ngx-toastr';
-import { DialogComponent } from './modules/dialog/dialog/dialog.component'
+
 import { CommentViewService } from './services/comment-view/comment-view.service';
+
+import { DialogComponent } from './modules/dialog/dialog/dialog.component';
+import { RoleAddComponent } from './modules/admin/role/role-add/role-add.component';
+import { RoleControlComponent } from './modules/admin/role/role-control/role-control.component'
+
 
 
 @NgModule({
@@ -171,7 +176,6 @@ import { CommentViewService } from './services/comment-view/comment-view.service
     GalleryAddComponent,
     CustomerAddComponent,
     RegisterComponent,
-    UserControlComponent,
     UserAddComponent,
     UserActiveComponent,
     HistoryListComponent,
@@ -219,6 +223,9 @@ import { CommentViewService } from './services/comment-view/comment-view.service
     SearchComponent,
     AnimatedDigitComponent,
     DialogComponent,
+    RoleAddComponent,
+    RoleControlComponent,
+    UserControlComponent
 
 
   ],

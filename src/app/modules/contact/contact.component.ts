@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ContactService } from 'src/app/services/contact/contact.service';
 import { ToastService } from '../toast/toast.service';
 
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -14,9 +15,9 @@ import { ToastService } from '../toast/toast.service';
 })
 export class ContactComponent  implements OnInit {
   contact: Contact=new Contact();
-  
+
   constructor( private contactService: ContactService,
-              private toastService: ToastService , 
+              private toastService: ToastService ,
               private toast : ToastrService  ){  }
 
   ngOnInit(): void {
@@ -25,14 +26,14 @@ export class ContactComponent  implements OnInit {
   onSubmit(){
     this.SendContact()
    }
-  
+
   SendContact(){
       this.contactService.AddContact(this.contact).subscribe(()=>{
         this.toast.success('Bạn đã gửi thành công', 'Thành Công!',);
         setTimeout(() => {
           location.reload()
         }, 1000);
-        
+
       },
       err=>{
         this.toastService.showWarning( err.error);
@@ -42,7 +43,7 @@ export class ContactComponent  implements OnInit {
   }
 
   //mã ACII
-  numberOnly(event:any): boolean { 
+  numberOnly(event:any): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       return false;

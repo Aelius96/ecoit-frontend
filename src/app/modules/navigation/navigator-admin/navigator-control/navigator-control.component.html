@@ -4,7 +4,7 @@
       <div class="d-flex  justify-content-between header-menu ">
         <div class="left-d-flex">
           <div class="d-flex">
-            <input type="text " class="searchinput" (click)="searchTitleAndDescription()" placeholder="Tìm kiếm" class="searchinput">
+            <input type="text " class="searchinput" (click)="searchTitleAndDescription()" placeholder="Tìm kiếm">
             <div class="input-group-append ">
               <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
             </div>
@@ -49,7 +49,31 @@
             <i class="fa fa-bars"></i>
           </div>
           <ul class="dropdown-menu p-0">
-            ffdf
+            <div class=" selected  " *ngIf="selects">
+              <li class="text-center  border p-2 d-flex" >
+                <span class="selected-number menu-link mx-auto ">Đã chọn: {{selects}}</span>
+                <a class="mx-auto  d-flex" (click)="clearnAll()" title="Xóa">
+                  <i style="font-size: 18px;" class=" my-auto far fa-trash-alt fa-lg"></i>
+                </a>
+                <a class=" mx-auto" title="Hủy" (click)="uncheckAll()">
+                  <i style="font-size: 20px;" class="far fa-times fa-lg"></i>
+                </a>
+              </li>
+            </div>
+            <li class="text-center border p-2 ">
+              <span class="my-auto ">Số mục mỗi trang:</span>
+            </li>
+            <li class="border p-2" >
+              <app-app-page-size-image (pageSizeChange)="handlePageChange($event)" [totalRecords]="paging.totalRecord"
+                [(pageSize)]="paging.size"></app-app-page-size-image>
+            </li>
+            <li class="border p-2" >
+              <div class="d-flex" routerLink="add">
+                <span class="mx-auto">Thêm mới </span>
+                <a class="ht-btn-custom mx-auto " title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i>
+                </a>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -60,16 +84,19 @@
 <div class="container  section-space--mt_100">
   <p class="text-title text-center text-uppercase section-space--mb_30 ">điều hướng</p>
   <div class=" w-75 m-auto ">
-    <div class="row  m-auto justify-content-center bg-dark ">
+    <div class="row  m-auto justify-content-center title-navi ">
       <button mat-icon-button disabled></button>
-      <div class="col-md-4 col-3 name-navi my-auto "><p>Tên</p></div>
-      <div class="col-md-4 col-3 name-navi my-auto "><p>Đường dẫn</p></div>
-      <div class="col-md-2 col-2" ></div>
-
+      <div class="col-md-4 col-3 name-navi my-auto ">
+        <p>Tên</p>
+      </div>
+      <div class="col-md-4 col-3 name-navi my-auto ">
+        <p>Đường dẫn</p>
+      </div>
+      <div class="col-md-2 col-2"></div>
     </div>
     <div class=" w-100  m-auto ">
       <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="mat-tree table ">
-        <mat-tree-node *matTreeNodeDef="let nav" matTreeNodePadding  >
+        <mat-tree-node *matTreeNodeDef="let nav" matTreeNodePadding matTreeNodePaddingIndent="20" >
           <li class="mat-tree-node justify-content-center ">
             <button mat-icon-button disabled></button>
             <input #checkboxes type="checkbox" [value]="nav.selected" [class.selected]="nav.selected" name="foo"
@@ -77,12 +104,12 @@
             <div class="col-md-4 col-3"> {{ nav.name.toUpperCase() }}</div>
             <div class="col-md-4 col-3"> <a href="/{{nav.url}}" target="_blank" class="url-navi">{{nav.url}}</a></div>
             <div class="col-md-2 col-2">
-              <i class="	fas fa-edit  icon-navi  " (click)="updateNavigation(nav.id)"></i>
+              <i class=" mr-0 mr-sm-1 mr-md-2	fas fa-edit  icon-navi  " (click)="updateNavigation(nav.id)"></i>
               <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav.id)"></i>
             </div>
           </li>
         </mat-tree-node>
-        <mat-tree-node *matTreeNodeDef="let nav; when: hasChild" matTreeNodePadding>
+        <mat-tree-node *matTreeNodeDef="let nav; when: hasChild" >
           <div class="mat-tree-node justify-content-center ">
             <button mat-cell mat-icon-button matTreeNodeToggle class="btn-tree"
               [attr.aria-label]="'toggle ' + nav.name">
@@ -92,10 +119,10 @@
             </button>
             <input #checkboxes type="checkbox" name="foo" [value]="nav.selected" (change)="onCheckChange($event, nav)">
 
-            <div class="col-md-4 col-3"> {{ nav.name.toUpperCase()}}</div>
+            <div class="col-md-4 col-3">{{ nav.name.toUpperCase()}}</div>
             <div class="col-md-4 col-3"> <a href="/{{nav.url}}" target="_blank"></a></div>
             <div class="col-md-2 col-2">
-              <i class="fas fa-edit  icon-navi " (click)="updateNavigation(nav.id)"></i>
+              <i class="fas fa-edit  icon-navi mr-0 mr-sm-1 mr-md-2	 " (click)="updateNavigation(nav.id)"></i>
               <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav.id)"></i>
             </div>
           </div>

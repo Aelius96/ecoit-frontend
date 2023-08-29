@@ -55,6 +55,12 @@
     text-decoration: none;
   }
   /*  */
+  .text-title{
+    color: #50b848;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
 
 .product-thumb-image{
   height: 140px;
@@ -72,17 +78,16 @@
   
 }
   .info-img{
-   
-    padding: 20px 30px;
+   padding: 20px 30px;
   }
   .img-box{
     padding: 10px 10px 10px 10px;
   }
   .btn{
-   width: 30%;
+  
   }
   .content-box{
-   margin: 5px 0px 5px 5px;
+   margin: 10px 5px 10px 5px;
   
   }
   .content-btn{
@@ -94,8 +99,6 @@
   } 
   
   .page-albums{
-
-   margin-top: 110px;
    overflow: auto;
   }
   .list-img{

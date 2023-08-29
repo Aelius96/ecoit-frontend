@@ -56,20 +56,6 @@
     font-size: 30px;
     font-weight: bold;
   }
-  .hr{
-    width: 150px;
-    background-color: #50b848;
-    font-weight: bolder;
-  }
-
-  .action-box {
-    position: absolute;
-    display: flex;
-    top: 0;
-    right: 0;
-    color: #fff;
-    font-size: 18px;
-  }
 
   .btnn{
     border: 0px ;
@@ -88,32 +74,36 @@
 
   }
   .itemm{
-    padding-bottom: 15px;
     color: #50b848;
     font-size: 25px;
     text-transform: capitalize;
   }
 
 
-.number-item{
-  display: inline-block;
-  width: 18%;
-}
-
-@media screen and (max-width:1052px) {
-  .number-item{
-    margin-bottom: 13px;
-
-  }
-}
-
 .card{
   border: 1px solid rgb(226 226 226);
   box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.06);
-
 }
-.img-reload{
-  width: 18px;
-  height: 18px;
+/* table */
+.icon-more:hover{
+  cursor: pointer;
+  color: #a1b234;
 }
 
+.list-table{
+  height: 620px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.list-table::-webkit-scrollbar{
+  display: none;
+}
+
+th{
+  text-align: center;
+  text-transform: capitalize;
+  background-color: #5D87FF;
+  border-color: #5D87FF;
+  color: white;
+}

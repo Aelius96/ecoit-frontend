@@ -4,6 +4,8 @@ import { Gallery } from '../../../../core/model/gallery/gallery';
 import { GalleryService } from 'src/app/services/gallery/gallery.service';
 import {Constant} from "../../../../core/config/constant";
 import {Domain} from "../../../../core/domain/domain";
+import {ToastService} from "../../../toast/toast.service";
+import error = CKEDITOR.error;
 
 @Component({
   selector: 'app-gallery-add',
@@ -21,7 +23,8 @@ export class GalleryAddComponent implements OnInit{
   imageURL: any;
 constructor(private router: Router ,
           private route: ActivatedRoute ,
-          private galleryService: GalleryService){}
+          private galleryService: GalleryService,
+            private toastService: ToastService){}
 
 ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -45,9 +48,11 @@ ngOnInit(): void {
 addGallery(){
   const igFormdata = this.prepareFormdata(this.gallery);
   this.galleryService.addgallery(igFormdata).subscribe(()=>{
+      this.toastService.showSuccess();
     this.gotoGalleryControl();
   },
-  er=>console.log(er))
+    error=>{this.toastService.showWarning(error.error);
+  })
 }
 
 gotoGalleryControl(){
@@ -57,7 +62,12 @@ gotoGalleryControl(){
 update(id:any){
    const galleryDataForm = this.prepareFormdata(this.gallery);
     this.galleryService.update(id, galleryDataForm).subscribe(()=>{
-      this.gotoGalleryControl()
+      this.toastService.showSuccess();
+
+      this.gotoGalleryControl();
+
+    },error=>{
+      this.toastService.showWarning(error.error);
     })
 }
 

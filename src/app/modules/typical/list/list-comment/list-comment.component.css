@@ -36,7 +36,6 @@
     text-transform: uppercase;
     color: #50b848;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
   }
@@ -46,8 +45,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
    }
-
-
    .cmt-content:hover{
     text-decoration: none;
    }
@@ -55,14 +52,14 @@
     text-align: center;
    }
    .card-list{
-    max-height: 70px;
-    height: 70px;
+    height: max-content;
+    border-radius: 0px;
    }
 .list-cmt{
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  max-height: 600px;
+  max-height: 620px;
 }
 .list-cmt::-webkit-scrollbar{
   width: 0px !important;
@@ -76,17 +73,27 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.w-20{
-  width: 20% !important;
-}
+
 .far{
   font-size:18px
 }
-.icon-item + .icon-item{
-margin-left: 10px;
+
+.title-comment{
+ color: #fff;
+ /* background: linear-gradient(90deg, rgba(0,180,219,1) 42%, rgba(0,131,176,1) 100%); */
+ background-color: #5D87FF;
+ border-color: #5D87FF;
+ border-radius: 0px;
+ font-size: 16px;
+ font-weight: 600;
+}
+.btn-link{
+  text-decoration: none;
 }
 /* trả lời */
-
+.edit-child:hover{
+  text-decoration: underline;
+}
 .delete-cmt{
   color: rgb(218, 53, 53);
 }
@@ -109,10 +116,11 @@ img{
 .img-comment{
   text-align: center;
   align-items: center;
-  margin: 0px 20px 0px 20px;
+
 }
+
 .tab{
-  padding: 5px;
+  padding: 8px;
 }
 .reply-content{
   border: 0.3px solid #e8e8e8;
@@ -129,17 +137,14 @@ img{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.btn-reply-parent{
+  height: 80px;
+}
 /* chi tieest mowsi =====*/
 
-.img-reply{
-  width: 70%;
-  height: 100%;
-  border-radius: 50%;
-}
 
 .info-comment{
-  width: 70%;
-
+  font-size: 14px;
 }
 .btn-update{
   width: 10%;
@@ -160,4 +165,16 @@ img{
 .edit-cmtchild:focus{
   color: #171717;
   border: 1px solid gainsboro;
+}
+
+.w-20{
+  width: 20% !important;
+}
+.icon-item:hover{
+  background-color: #cacaca;
+}
+@media screen and (max-width:576px)  {
+  .w-20{
+    width: 30% !important;
+  }
 }

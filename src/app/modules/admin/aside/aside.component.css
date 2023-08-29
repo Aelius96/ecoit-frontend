@@ -33,12 +33,18 @@ a{
   text-decoration: none;
 }
 .left-sidebar{
+
+  width: 228px;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   background-color: white;
 }
+.logo-sidebar{
+  width: 228px;
+}
+
 /* mobile */
 .brand-logo-mobile{
 margin: 5%;
@@ -53,6 +59,14 @@ margin: 5%;
   padding: 0 5%;
 }
 .icon-menu{
+  cursor: pointer;
   z-index: 6;
   position: fixed;
+  background: #ffffff;
+}
+.icon-menu:hover{
+  background-color: #a2a2a2;
+}
+.icon-menu:focus{
+  background-color: #a2a2a2;
 }

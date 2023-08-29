@@ -1,24 +1,21 @@
 <app-header></app-header>
-
-<div class="info">
+<app-slider-list></app-slider-list>
+<!-- <div class="info">
 
        <img width="100%" height="100%" src="./assets/images/ecoit2.png" class="fuild-img wp-post-image" alt="" loading="lazy" >
-</div>
+</div> -->
 
 
-<div class="container" style=" margin-top: 20px; " >
+<div class="container section-space--mt_60">
   <div class="row">
     <div class="col-lg-12">
-      <div class="my-4">
-        
-          <div class="color-gree" >
-              <span style=" font-size: 45px; " class="title" >Không tìm thấy trang: </span>
-              <span style="font-size: 26px; color: rgb(137, 134, 134);"> Error 404</span>
-              <hr>
-          </div>
-          <p>Xin lỗi vì sự cố này! trang bạn đang tìm kiếm không tồn tại. </p>
-          <p (click)="goback()" class="back" >Quay lại </p>
+      <div class="color-gree">
+        <span style=" font-size: 45px; " class="title">Không tìm thấy trang: </span>
+        <span style="font-size: 26px; color: rgb(137, 134, 134);"> Error 404</span>
+        <hr>
       </div>
+      <p>Xin lỗi vì sự cố này! trang bạn đang tìm kiếm không tồn tại. </p>
+      <p (click)="goback()" class="back">Quay lại </p>
     </div>
   </div>
 </div>

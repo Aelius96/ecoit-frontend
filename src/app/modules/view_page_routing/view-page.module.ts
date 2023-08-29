@@ -7,6 +7,7 @@ import { RegisterComponent } from "src/app/authentication/register/register.comp
 import { SearchComponent } from "../search/search.component";
 import { ContactComponent } from "../contact/contact.component";
 import { ErrorComponent } from "../error/error.component";
+import { RoleControlComponent } from "../admin/role/role-control/role-control.component";
 const routes: Routes=[
     {path:'' , title:'Ecoit - Công ty cổ phần EcoIT' ,
     children:[

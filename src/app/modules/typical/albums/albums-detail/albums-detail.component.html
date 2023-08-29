@@ -1,81 +1,113 @@
 <div class="toolbar">
   <div class="container">
-    <div class="d-flex  justify-content-between header-menu ">
-      <div class="left-d-flex">
-        <div class="d-flex">
-          <a class="control" style="width: 80px" routerLink="../"><span style="font-weight: bold;" class="spann">Kho Ảnh
-              /</span></a>
-          <a class="control" style="width: 120px ;padding-right: 10px;" href="admin/tImage"><span class="spann">Ảnh Hoạt
-              Động</span></a>
-        </div> <!--   -->
-      </div>
-      <div class="right-d-flex">
-        <div class="d-flex  flex-wrap">
-          <div class=" ">
+    <div class="d-md-block d-none ">
+      <div class="d-flex  justify-content-between header-menu ">
+        <div class="left-d-flex">
+          <div class="d-flex">
+            <a class="control" style="width: 80px" routerLink="../"><span style="font-weight: bold;" class="spann">Kho
+                Ảnh
+                /</span></a>
+            <a class="control" style="width: 120px ;" routerLink="../tImage"><span class="spann">Ảnh
+                Hoạt
+                Động</span></a>
+          </div> <!--   -->
+        </div>
+        <div class="right-d-flex">
+          <div class="d-flex  flex-wrap">
             <div class="d-flex">
               <span class=" mr-1">Số mục mỗi trang:</span>
-              <app-app-page-size-image (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
-                [(pageSize)]="paging.size"></app-app-page-size-image>
+              <app-app-page-size-image (pageSizeChange)="handlePageSizeChange($event)"
+                [totalRecords]="paging.totalRecord" [(pageSize)]="paging.size"></app-app-page-size-image>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- mobile -->
+    <div class="d-block d-md-none text-end ">
+      <div class="btn-group dropstart">
+        <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa fa-bars"></i>
+        </div>
+        <ul class="dropdown-menu p-0">
+          <li class="border p-2 text-center " >
+            <a class="control" style="font-weight: 600;" routerLink="../tImage"><span class="spann">Ảnh Hoạt Động</span></a>
+          </li>
+          <li class="border p-2 text-center ">
+            <span class=" mr-1">Số mục mỗi trang:</span>
+          </li>
+          <li class="border p-2">
+            <app-app-page-size-image (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+              [(pageSize)]="paging.size"></app-app-page-size-image>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
-<div class="d-flex flex-column flex-column-fluid page-albums">
-  <div class="row" style="margin-left: 0px; margin-right: 0px;">
-    <div class="col-lg-8">
-      <div class="row list-img ">
-        <div class="col-md-3" style="margin-bottom: 30px;" *ngFor="let img of image |  paginate: {
-                     id: 'album',
-                  itemsPerPage: paging.size,
-                  currentPage: paging.page,
-                  totalItems: paging.totalRecord }  ">
-          <div class="product-thumb-image" (click)="pick($event)">
-            <img class="img-fluid" src="{{baseURL}}/{{fileURL}}/image/{{img.name}}" alt="{{img.name}}" id="{{img.id}}" appHideMissing>
+
+
+
+<div class="container section-space--mt_100 ">
+  <p class="text-title text-uppercase section-space--mb_30">kho ảnh</p>
+  <div class="d-flex flex-column  page-albums">
+    <div class="row" style="margin-left: 0px; margin-right: 0px;">
+      <div class="col-lg-8 col-8 ">
+        <div class="row list-img ">
+          <div class="col-lg-3 col-md-4 col-6 mb-2 mb-sm-3 " *ngFor="let img of image |  paginate: {
+                       id: 'album',
+                    itemsPerPage: paging.size,
+                    currentPage: paging.page,
+                    totalItems: paging.totalRecord }  ">
+            <div class="product-thumb-image" (click)="pick($event)">
+              <img class="img-fluid" src="{{baseURL}}/{{fileURL}}/image/{{img.name}}" alt="{{img.name}}" id="{{img.id}}"
+                appHideMissing>
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div *ngIf="paging.totalRecord>0" class="col-md-12 text-center">
+
+            <pagination-controls previousLabel="<" nextLabel=">" [id]="'album'" (pageChange)="handlepagechange($event)"
+              [maxSize]="paging.totalRecord"></pagination-controls>
 
           </div>
         </div>
       </div>
-      <div class="row">
-        <div *ngIf="paging.totalRecord>0" class="col-md-12 text-center">
 
-          <pagination-controls previousLabel="<" nextLabel=">" [id]="'album'"
-            (pageChange)="handlepagechange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
+      <div class="col-lg-4 col-4 ">
+        <div class="box border ">
+          <div class="p-1">
+            <img class="img-fluid" src="{{target.url}}" alt="Images" appHideMissing>
+          </div>
+          <div class="content-box">
+            <span><strong>Tên: </strong></span>
+            <span class="text-break">{{target.name}}</span>
 
-        </div>
-      </div>
-    </div>
+          </div>
+          <div class="content-box">
+            <span style="width: 100%; display: inline-block; word-wrap: break-word;"><strong>Url: </strong>
+              {{target.url}}
+            </span>
 
-    <div class="col-lg-4 info-img">
-      <div class="box">
-        <div class="img-box">
-          <img class="img-fluid" src="{{target.url}}" alt="Images" appHideMissing>
-        </div>
-        <div class="content-box">
-          <span><strong>Tên: </strong></span>
-          <span>{{target.name}}</span>
+          </div>
+          <div class="content-box">
+            <span><strong>Trạng thái: </strong></span>
 
-        </div>
-        <div class="content-box">
-          <span style="width: 100%; display: inline-block; word-wrap: break-word;"><strong>Url: </strong> {{target.url}}
-          </span>
+            <span style="color: #50b848">
+              <i class="fa fa-dot-circle fa-xs"></i>
+            </span>
+            <span> Hoạt động</span>
 
-        </div>
-        <div class="content-box">
-          <span><strong>Trạng thái: </strong></span>
-
-          <span style="color: #50b848">
-            <i class="fa fa-dot-circle fa-xs"></i>
-          </span>
-          <span> Hoạt động</span>
-
-        </div>
-        <div class="content-btn">
-          <button (click)="downloadimg(target.id)" class="btn" style="margin-right: 10px;">Tải xuống </button>
-          <button class="btn" (click)="deleteFile(target.id)" style="margin-right: 10px;">Xóa {{target.id}}</button>
-          <button class="btn" (click)="addimagetogallery(target.id)">Thêm ảnh </button>
+          </div>
+          <div class="content-btn row w-100 mx-auto px-1 mt-1 mt-md-4 ">
+            <button (click)="downloadimg(target.id)" class="btn btn-primary col-md-4 col-12 mr-0 mr-md-4  ">Tải xuống
+            </button>
+            <button class="btn btn-primary  col-md-4 col-12 mt-2 mt-md-0  " (click)="deleteFile(target.id)">Xóa
+            </button>
+            <!-- <button class="btn  btn-primary col-md-4 col-12   " (click)="addimagetogallery(target.id)">Thêm ảnh </button> -->
+          </div>
         </div>
       </div>
     </div>

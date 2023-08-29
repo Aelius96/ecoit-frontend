@@ -64,7 +64,7 @@ export class AlbumsDetailComponent implements OnInit {
     this.imageService.getlistallwithpage(params).subscribe(data=>{
       this.image = data.content;
       this.paging.totalRecord = data.totalElements;
-      console.log(data)
+     this.pick(this.image[0])
     },
     error=>{console.log(error);})
   }
@@ -81,7 +81,6 @@ export class AlbumsDetailComponent implements OnInit {
   }
 
   deleteFile(id: number){
-
     let option = confirm("Dữ liệu sẽ bị xóa. Bạn có mốn tiếp tục ");
     if(option){
       this.imageService.getFileById(id).subscribe(dt1=>{
@@ -106,34 +105,33 @@ export class AlbumsDetailComponent implements OnInit {
   }
 
 
-
-  listAllimgtogallery(){
-    const params = this.getRequestParams(this.paging.page , this.paging.size)
-    this.imageService.getlistallwithpage(params).subscribe(data =>{
-      this.image = data;
-      this.target.url = this.image[0]?.pathUrl;
-      this.target.name = this.image[0]?.name;
-      this.target.target = this.image[0]?.target;
-    })
-  }
+  // listAllimgtogallery(){
+  //   const params = this.getRequestParams(this.paging.page , this.paging.size)
+  //   this.imageService.getlistallwithpage(params).subscribe(data =>{
+  //     this.image = data;
+  //     this.target.url = this.image[0]?.pathUrl;
+  //     this.target.name = this.image[0]?.name;
+  //     this.target.target = this.image[0]?.target;
+  //   })
+  // }
 
   gotogallerytList(){
     this.router.navigate(['/admin/tImage'])
   }
-  addimagetogallery(id:any){
-    this.galleryService.addimageById(id).subscribe( ()=>{
-      this.addSuccess = true;
-       this.gotogallerytList()
-      this.listAllimgtogallery()
-      console.log(this.addSuccess)
-      alert('Đã thêm ảnh ')
+  // addimagetogallery(id:any){
+  //   this.galleryService.addimageById(id).subscribe( ()=>{
+  //     this.addSuccess = true;
+  //      this.gotogallerytList()
+  //     this.listAllimgtogallery()
+  //     console.log(this.addSuccess)
+  //     alert('Đã thêm ảnh ')
 
-    } , error=>{
-      this.addSuccess = false;
-      console.log(error)
-    } )
+  //   } , error=>{
+  //     this.addSuccess = false;
+  //     console.log(error)
+  //   } )
 
-  }
+  // }
 
 
 

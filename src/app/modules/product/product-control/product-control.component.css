@@ -64,7 +64,7 @@
   text-overflow: ellipsis;
 }
 .table{
-  border: 0.3px solid;
+  /* border: 0.3px solid; */
   border-collapse: separate;
 }
 .header {
@@ -84,6 +84,10 @@
 
 th{
   text-align: center;
+  text-transform: capitalize;
+  background-color: #5D87FF;
+  border-color: #5D87FF; 
+  color: #ffffff;
 }
 .icon-more:hover{
   cursor: pointer;
