@@ -28,10 +28,6 @@ export class RecruitNewsComponent implements OnInit{
   }
   baseURL = Constant.BASE_URL;
   category: any;
-  // url: any;
-  // content:any;
-  // roll: any;
-  // NewsDetail :News = new News();
   constructor(
               private postService: PostService,
              ) {}
@@ -59,7 +55,7 @@ export class RecruitNewsComponent implements OnInit{
         data => {
           this.postListNews = data.content;
           this.paging.totalRecord = data.totalElements;
-          console.log(this.postListNews);
+          
         },
         error => {
           console.log(error);
@@ -73,24 +69,11 @@ export class RecruitNewsComponent implements OnInit{
         data => {
           this.postListRecruit = data.content;
           this.paging.totalRecord = data.totalElements;
-          console.log(this.postListRecruit);
+          
         },
         error => {
           console.log(error);
         });
   }
-
-
-  // getListNews(){
-  //   this.url = this.route.snapshot.params['url'];
-  //   this.newsService.getNewsByUrl(this.url).subscribe(data =>{
-  //     this.NewsDetail = data;
-  //     document.title = this.NewsDetail.title;
-  //     this.content = this.sanitizer.bypassSecurityTrustHtml(this.NewsDetail.content);
-  //   })
-  // }
-
-
-
 
   }

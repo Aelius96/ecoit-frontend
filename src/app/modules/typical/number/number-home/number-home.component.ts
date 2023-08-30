@@ -22,7 +22,6 @@ export class NumberHomeComponent implements OnInit{
     this.numberService.getAllNumber().subscribe(
       (response:Number[]) => {
         this.nums = response;
-        console.log(this.nums);
       }
     );
   }

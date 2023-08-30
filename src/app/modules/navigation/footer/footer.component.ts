@@ -59,7 +59,7 @@ export class FooterComponent implements OnInit {
         data => {
           this.postListNews = data.content;
           this.paging.totalRecord = data.totalElements;
-          console.log(this.postListNews);
+         
         },
         error => {
           console.log(error);
