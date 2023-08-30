@@ -60,6 +60,10 @@
     padding: 0 10px;
     height: 45px;
 }
+textarea:focus{
+  border: 1px solid #50B848;
+  color: #000000;
+}
 .cancel{
     background-color: #cccccc;
   
