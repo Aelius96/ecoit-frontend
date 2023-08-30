@@ -5,4 +5,5 @@ export class Slider {
   pathUrl: any;
   parentId: any;
   active: any;
+  status:any
 }

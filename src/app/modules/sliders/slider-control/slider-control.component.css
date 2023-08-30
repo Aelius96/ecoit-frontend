@@ -69,13 +69,19 @@ a:hover{
   margin-left: 15px;
   margin-top: 8px;
 }
+.max-h{
+  max-height: 600px;
+}
 
 
 .hienthi-right {
   border: 1px solid rgb(57, 63, 58);
-
 }
-
+.hienthi{
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
 .action-box {
   flex-direction: column;
   display: flex;
@@ -90,15 +96,11 @@ a:hover{
   height: 40px;
 }
 
-.action-box .btnthem {
+ .btnthem {
   width: 100%;
   background-color: rgb(42, 218, 42);
 }
 
-.hienthi2 {
-  width: 100%;
-  height: 100%;
-}
 
 .image-url-name {
   white-space: nowrap;
@@ -175,11 +177,11 @@ a:hover{
 }
 .nav-item.selected {
   color: #fff;
-  background-color: #007bff;
   margin-top: 30px;
 }
 .chuc-nang{
   font-size: 20px;
+  font-weight: 600;
 }
 .carousel-inner{
   width: 100%;
@@ -187,348 +189,80 @@ a:hover{
 }
 .fuild-img{
   width: 100%;
+  inline-size: cover;
   height: 100%;
 }
 
 .nav {
   overflow: auto;
-  margin-left: 40px;
-  height: 150px;
-  max-width: 1000px;
+  height: 165px;
 }
 .nav-item {
   cursor: pointer;
   margin: 15px 10px;
-  width: 179px;
+  width: 180px;
   height: 100px;
   box-shadow: 0 4px 6px -6px #222;
   transition: 0.5s;
 }
 .team-image {
-  height: 100px;
+  height: 110px;
 }
-
+.opacity{
+ opacity: 60%;
+}
 .nav-item:hover{
   margin: 20px;
 }
-
-/* 
-@media (min-width: 1400px) {
-  .giaodienanh {
-    width: 803px;
-    height: 415px;
-    position: absolute;
-    z-index: 3;
-  }
-  .anh {
-    width: 98%;
-    height: 95%;
-  }
-  .carousel{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 2;
-  }
-  .carousel-inner{
-    width: 100%;
-    height: 100%;
-   }
-  
-  
-  .galley {
-    margin: 80px auto 0 auto;
-  }
- 
-  .logochuyenslide{
-    max-width: 45px;
-    position: absolute;
-    z-index: 4;
-    top:80%;
-    left: 90%;
-  }
-  .carousel-item {
-    width: 100%;
-    height: 100%;
-  }
-  .item{
-    width: 100%;
-    height: 100%;
-  }
-  .fuild-img{
-    height: 100%;
-    width: 100%;
-  }
-
-
-  .hienthi-right {
-    margin-left: 45px;
-  }
-
-  .select-content-item {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    border-bottom: 1px dotted #000;
-  }
-
-  .select-content-item span:first-child {
-    width: 80px;
-    white-space: nowrap;
-  }
-
+.backgroud{
+  background-image: url(/assets/images/eye.png);
+  background-size: cover;
+  max-height: 110px;
+  width: 150px;
+}
+@media (max-width: 600px) {
   .nav {
     overflow: auto;
-    margin-left: 39px;
-    height: 170px;
-    max-width: 1100px;
+    height: 150px;
   }
   .nav-item {
     cursor: pointer;
     margin: 15px 10px;
-    width: 180px;
-    height: 100px;
+    width: 150px;
+    height: 80px;
     box-shadow: 0 4px 6px -6px #222;
     transition: 0.5s;
   }
-  .container {
-    width: 1200px
-  }
-
   .team-image {
+    height: 80px;
+  }
+  .backgroud{
+    background-image: url(/assets/images/eye.png);
+    background-size: cover;
+    max-height: 90px;
+    width: 100px;
+  }
+}
+@media (max-width: 350px) {
+  .nav {
+    overflow: auto;
     height: 120px;
   }
-  .nav-item:hover{
-    margin: 20px;
-  }
-.chuc-nang{
-  margin-top: 10px;
-}
-}
-
-@media (min-width: 1200px)and (max-width:1400px) {
-  .giaodienanh {
-    width: 730px;
-    height: 375px;
-  }
-  .galley {
-    margin: 80px auto 0 auto;
-  }
-
-  .logochuyenslide{
-    max-width: 45px;
-    position: absolute;
-    z-index: 4;
-    top:80%;
-    left: 90%;
-  }
-  .carousel-inner{
-    width: 100%;
-    height: 100%;
-  }
-  .fuild-img{
-    width: 100%;
-    height: 100%;
-  }
-  .hienthi2{
-      width: 93%;
-  }
-  .hienthi-right h3,
-  h2 {
-    font-size: 25px;
-  }
-
-  .select-content-item {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    border-bottom: 1px dotted #000;
-  }
-
-  .select-content-item span:first-child {
-    width: 60px;
-    white-space: nowrap;
-  }
-  .chuc-nang{
-    margin-top: 7px;
-  }
-  .nav {
-    overflow: auto;
-    margin-left: 40px;
-    height: 150px;
-    max-width: 1000px;
-  }
   .nav-item {
     cursor: pointer;
     margin: 15px 10px;
-    width: 179px;
-    height: 100px;
+    width: 70px;
+    height: 50px;
     box-shadow: 0 4px 6px -6px #222;
     transition: 0.5s;
   }
   .team-image {
-    height: 100px;
+    height: 50px;
   }
-  
-  .nav-item:hover{
-    margin: 20px;
-  }
-  .hienthi-right {
-    margin-left: 70px;
-  }
-}
-
-@media (min-width: 991px) and (max-width:1200px) {
-  .giaodienanh {
-    width: 600px;
-    height: 350px;
-
-  }
-  .galley {
-    margin-top: 80px;
-    margin-left: -30px;
-  }
-  .logochuyenslide{
-    max-width: 45px;
-    position: absolute;
-    z-index: 4;
-    top:80%;
-    left: 90%;
-  }
-  .anh {
-    width: 98%;
-    height: 100%;
-  }
-
-  .hienthi-right h3,
-  h2 {
-    font-size: 20px;
-  }
-  .select-content-item {
-    display: flex;
-    size: 15px;
-    gap: 7px;
-    align-items: center;
-    border-bottom: 1px dotted #000;
-  }
-
-  .select-content-item span:first-child {
-    width: 80px;
-    white-space: nowrap;
-  }
-  .chuc-nang{
-    margin-top: 7px;
-  }
-  .nav {
-    overflow: auto;
-    margin-left: 39px;
-    height: 150px;
-    max-width: 842px;
-  }
-  .nav-item {
-    cursor: pointer;
-    margin: 15px 10px;
-    width: 140px;
-    height: 90px;
-    box-shadow: 0 4px 6px -6px #222;
-    transition: 0.5s;
-  }
-  .nav-item:hover{
-    margin: 20px;
-  }
-  .hienthi-right {
-   margin-left: 10px;
-  }
-
-
-  .select-content-box {
-    padding: 0;
-  }
-  .team-image {
-    height: 90px;
-  }
-  
-}
-
-@media (min-width: 800px) and (max-width:991px) {
-  .giaodienanh {
-    width: 500px;
-    height: 320px;
-  }
-  .galley {
-    margin-top: 80px;
-    margin-left: -20px;
-  }
-  .logochuyenslide{
-    max-width: 45px;
-    position: absolute;
-    z-index: 4;
-    top:80%;
-    left: 90%;
-  }
-  .hienthi2{
-    margin-left: 14px;
-  }
-  .anh {
-    width: 94%;
-    height: 100%;
-  }
-
-
-  .hienthi-right h3,
-  h2 {
-    font-size: 15px;
-  }
-  .select-content-item {
-    display: flex;
-    size: 10px;
-    gap: 7px;
-    align-items: center;
-    border-bottom: 1px dotted #000;
-  }
-
-  .select-content-item span:first-child {
+  .backgroud{
+    background-image: url(/assets/images/eye.png);
+    background-size: cover;
+    max-height: 40px;
     width: 50px;
-    white-space: nowrap;
   }
-  .select-content-item strong{
-    font-size: 10px;
-  }
-  .select-content-item .span2{
-    font-size: 10px;
-    margin-left: 7px;
-  }
-  .nav {
-    overflow: auto;
-    margin-left: 39px;
-    height: 130px;
-    max-width: 657px;
-  }
-  .nav-item {
-    cursor: pointer;
-    margin: 15px 5px;
-    width: 107px;
-    height: 70px;
-    box-shadow: 0 4px 6px -6px #222;
-    transition: 0.5s;
-  }
-  .nav-item:hover{
-    margin: 20px;
-  }
-  .hienthi-right {
-    margin-left: 50px;
-  }
-
-  .select-content-box {
-    padding: 0;
-  }
-  .team-image {
-    height: 70px;
-  }
-  .action-box {
-    display: none;
-  }  
-  .chuc-nang{
-    margin-top: 7px;
-  }
-} */
+}
