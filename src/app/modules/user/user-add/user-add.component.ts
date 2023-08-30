@@ -131,6 +131,9 @@ export class UserAddComponent implements OnInit{
     user.active = event.currentTarget.checked;
   }
 
+  goToBack() {
+    this.router.navigate(['/admin/user']);
+  }
 
   onSubmit() {
 
