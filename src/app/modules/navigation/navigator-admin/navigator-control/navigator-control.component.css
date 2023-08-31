@@ -32,10 +32,9 @@
   font-size: 18px;
 }
 
-
-.input-search:focus{
+input:focus{
+  border: 1px solid #111111;
   color: black;
-  border: 1px solid black;
 }
 
 .inputt{

@@ -12,7 +12,6 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class UserControlComponent implements OnInit {
   users: User[] = [];
-  role: string;
 
   searchInput = '';
   paging = {

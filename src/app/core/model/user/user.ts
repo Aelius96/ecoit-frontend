@@ -1,4 +1,3 @@
-
 import {Role} from "../role/role";
 
 export class User {
