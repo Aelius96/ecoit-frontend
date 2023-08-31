@@ -101,5 +101,8 @@ export class SearchComponent implements OnInit
     this.router.navigate(['/tim-kiem/'+this.searchInput]);
     console.log(this.searchInput);
   }
-
+  viewDetail(url : string) {
+    const queryParams  = {url : url}
+    this.router.navigate(["/tin-tuc/chi-tiet"],{queryParams})
+  }
 }

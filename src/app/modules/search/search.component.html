@@ -53,7 +53,8 @@
 
                 <div class="post-feature blog-thumbnail">
                   <div style="width: 199px;height: 190px;">
-                  <a class="w-100" href="/tin-tuc/{{post.url}}">
+                  <!-- <a class="w-100" href="/tin-tuc/{{post.url}}"> -->
+                  <a class="w-100" (click)="viewDetail(post.url)">
                     <img class="img-fluid  w-100 image-search " src="{{baseURL}}/{{postURL}}/image/{{post.id}}"
                       alt="Blog Images">
                   </a>
@@ -62,7 +63,8 @@
 
                 <div class="post-info lg-blog-post-info">
                   <h5 class="post-title mt-2 mb-3">
-                    <a class="p-title" href="/tin-tuc/{{post.url}}">{{post.title}}</a>
+                    <!-- <a class="p-title" href="/tin-tuc/{{post.url}}">{{post.title}}</a> -->
+                  <a class="p-title" (click)="viewDetail(post.url)">{{post.title}}</a>
                   </h5>
                   <div class="post-excerpt my-4">
                     <p>{{post.description}}</p>
