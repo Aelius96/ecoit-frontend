@@ -14,7 +14,7 @@ export class AuthService {
   private baseURL =`${Constant.BASE_URL}`;
   private domain  = `${Domain.AUTH}`
   constructor(  private apiHelper: ApiHelper) { }
-  //http:172.16.10.161/auth/admin/login
+  //http:172.16.10.161/auth/admin-control/login
   login(user: User): Observable<User> {
     return this.apiHelper.post(Constant.AUTH.LOGIN, user);
   }

@@ -12,7 +12,6 @@ const routes: Routes = [
   {path:'' , component: CustomerControlComponent},
   {path:'add', component: CustomerAddComponent},
   {path:'update/:id' , component: CustomerAddComponent},
-
   {path:'cus-typical',title:'Admin-Khách Hàng Tiêu Biểu', component:CusTypicalControlComponent},
   {path:'cus-typical/add', component:CusTypicalAddComponent},
   {path:'cus-typical/update/:id' , component: CusTypicalAddComponent}

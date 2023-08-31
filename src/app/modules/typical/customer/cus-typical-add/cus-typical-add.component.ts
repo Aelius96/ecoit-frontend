@@ -68,7 +68,7 @@ export class CusTypicalAddComponent {
   }
 
   goToTCList(){
-    this.router.navigate(['/admin/customer/cus-typical']);
+    this.router.navigate(['/admin-control/customer/cus-typical']);
   }
 
   addDataToForm(id: any){
@@ -77,7 +77,7 @@ export class CusTypicalAddComponent {
       this.toast.showSuccess()
       this.goToTCList();
       console.log(data)
-    }, 
+    },
     error=>{
       this.toast.showWarning(error.error);
       console.log(error)

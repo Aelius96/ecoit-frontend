@@ -45,7 +45,7 @@ export class SearchComponent implements OnInit
   getRequestParamsTest(page: number,size: number, search: string,cateName : string, hashtag: string): any {
     let params: any = {};
     if (page) {
-      params[`pageNo`] = page-1;
+      params[`pageNo`] = page;
     }
     if (size) {
       params[`pageSize`] = size;
@@ -64,7 +64,7 @@ export class SearchComponent implements OnInit
   seach(){
 
   }
-  
+
   getListAllWithPageTest(): void {
     const params = this.getRequestParamsTest(this.paging.page,this.paging.size,this.searchInput,this.cateName,this.tag);
 

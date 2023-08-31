@@ -132,7 +132,7 @@ export class UserAddComponent implements OnInit{
   }
 
   goToBack() {
-    this.router.navigate(['/admin/user']);
+    this.router.navigate(['/admin-control/user']);
     // window.history.back();
   }
 

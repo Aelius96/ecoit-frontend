@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {RouterModule, Routes} from "@angular/router";
-import {AdminComponent} from "../admin/admin/admin.component";
+import {AdminControlComponent} from "../admin/admin-control/admin-control.component";
 import { HistoryListComponent } from "../admin/history/history-list/history-list.component";
 import { ListContactComponent } from "../typical/list/list-contact/list-contact.component";
 import { ListCommentComponent } from "../typical/list/list-comment/list-comment.component";
@@ -9,7 +9,7 @@ import { RoleControlComponent } from "../admin/role/role-control/role-control.co
 
 const routes: Routes =[
 
-  {path:'' , title:'Admin-Ecoit' , component: AdminComponent,
+  {path:'' , title:'Admin-Ecoit' , component: AdminControlComponent,
 
   children:[
     {path: 'dashboard' , title:'Admin-Ecoit' , loadChildren:()=>import('./number.module').then(m=>m.NumberModule)},
