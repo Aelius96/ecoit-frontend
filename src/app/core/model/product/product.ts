@@ -4,7 +4,7 @@ export class Product {
   id: any;
   image: any;
   banner:any;
-  title: string;
+  title: any;
   description: any
   content: any;
   date: any;

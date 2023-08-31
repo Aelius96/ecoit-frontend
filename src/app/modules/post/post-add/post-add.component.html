@@ -59,7 +59,7 @@
           <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Nội dung</strong></span>
           <div class="p-0" [ngClass]="{'borderInput':isconTent,'inputError':!isconTent,'ckeditorContaniner':true}"
             id="editor">
-            <ckeditor [(ngModel)]="a" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" (change)="thongtinContent()"></ckeditor>
+            <ckeditor [(ngModel)]="content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" (change)="thongtinContent()"></ckeditor>
           </div>
         </div>
       </div>

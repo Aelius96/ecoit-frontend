@@ -6,10 +6,10 @@ import {Image} from "../image/image";
 export class Post {
   id: any;
   image: any;
-  title: string;
+  title: any;
   content: string;
   date: any;
-  description: string;
+  description: any;
   url: string;
   banner: any;
   category: Category = new Category();
