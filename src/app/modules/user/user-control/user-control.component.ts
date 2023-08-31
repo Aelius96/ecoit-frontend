@@ -54,7 +54,6 @@ export class UserControlComponent implements OnInit {
         this.users = data.content;
         this.paging.totalRecord = data.totalElements;
 
-        console.log(data);
       },
       (error) => {
         console.log(error);
@@ -90,7 +89,7 @@ export class UserControlComponent implements OnInit {
     let option = confirm('Bạn có chắc chắn xóa người dùng này?');
 
     if (option) {
-      this.userS.deleteUser(id).subscribe((data) => {
+      this.userS.deleteUser(id).subscribe(() => {
         this.getAllUser();
       });
     }

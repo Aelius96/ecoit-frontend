@@ -44,23 +44,15 @@ constructor(private route:ActivatedRoute,
     if(this.tokenStorageService.getToken()){
       this.username = this.tokenStorageService.getUser().username;
       this.userId = this.tokenStorageService.getUser().id;
-
       this.comment.userName = this.username
 
       this.url = this.route.snapshot.queryParams['url'];
       this.postService.getPostByUrl(this.url).subscribe(data => {
         this.comment.post.id = data.id;
         this.postId = data.id;
-        console.log(this.postId)
         this.getAllComment()
         this.getCommentChildByParent()
-        // this.commentViewService.getCommentSubject().subscribe((data) => {
-        //   console.log(data)
-        //   this.commentList = data
-        // })
-        
       })
-
     }
     }
 
@@ -71,7 +63,6 @@ constructor(private route:ActivatedRoute,
       setTimeout(() => {
         location.reload()
       }, 1000);
-      console.log(res)
       },
       error=>{
         this.toast.showWarning(error.error)
@@ -86,7 +77,6 @@ constructor(private route:ActivatedRoute,
     
     this.commentService.getCommentByPostId(this.postId).subscribe(data=>{
         this.commentList = data;
-        console.log(data)
       },
       error=>{
         console.error(error)

@@ -43,9 +43,6 @@ export class NewsMoreComponent implements OnInit {
         response => {
           this.postList = response.content;
           this.paging.totalRecord = response.totalElements;
-  
-          console.log(response);
-          console.log(this.category);
         },
         error => {
           console.log(error);
