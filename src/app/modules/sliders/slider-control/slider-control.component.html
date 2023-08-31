@@ -64,7 +64,7 @@
           <div id="carouselExampleInterval" class="carousel slide col-12" data-bs-ride="carousel">
             <div class="carousel-inner row">
               <div class="carousel-item" [class]=" i==0 ? 'active ' : '' "
-                *ngFor="let item of slider2 ; let i = index;choose2(item)" data-bs-interval="3000">
+                *ngFor="let item of slider2 ; let i = index;" data-bs-interval="3000">
                 <img src="{{baseURL}}/{{sliderURL}}/image/{{item.name}}" class="h-100 w-100 max-h" alt="" (click)="choose(item)">
               </div>
             </div>
@@ -161,7 +161,7 @@
     <div class="list_img row mt-20 ">
       <div class=" col-10 mx-auto ">
         <div class="card-body">
-          <ul class="nav flex-column nav-pills d-flex col-md-12">
+          <ul class="nav nav-pills d-flex col-md-12">
             <li class="nav-item selected backgroud" *ngFor="let slide of sliders">
               <div class="team-image backgroud" [ngClass]="{'opacity':!slide.active}" (click)="choose(slide)" id="{{slide.id}}">
                 <img class="img-fluid " src="{{baseURL}}/{{sliderURL}}/image/{{slide.name}}" 
