@@ -14,7 +14,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Hashtag } from '../../../core/model/hashtag/hashtag';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HashtagService } from '../../../services/hashtag/hashtag.service';
 import { Constant } from '../../../core/config/constant';
 import { Domain } from '../../../core/domain/domain';
@@ -39,14 +39,11 @@ export class ProductAddComponent implements OnInit {
   imageURL: any;
   formProduct = new FormGroup({
     hashtagCtrl: new FormControl(''),
-    title: new FormControl(''),
-    description: new FormControl(''),
+    title: new FormControl('',[Validators.required]),
+    description: new FormControl('',[Validators.required]),
   });
   content=''
   inputs=''
-  iscontent=true
-  isDes=true
-  istitle = true
 
   constructor(
     private router: Router,
@@ -181,7 +178,6 @@ export class ProductAddComponent implements OnInit {
         this.backToProductList();
       },
       (error) => {
-        this.ktradieukien()
         this.toast.showWarning(error.error,this.inputs);
         console.log(error);
       }
@@ -197,7 +193,6 @@ export class ProductAddComponent implements OnInit {
         this.backToProductList();
       },
       (error) => {
-        this.ktradieukien()
         this.toast.showWarning(error.error,this.inputs);
         console.log(error);
       }
@@ -232,60 +227,5 @@ export class ProductAddComponent implements OnInit {
     } else {
       this.saveProduct();
     }
-  }
-  ktradieukien() {
-    if (
-      this.formProduct.controls['title'].value === "" &&
-      this.formProduct.controls['description'].value === "" &&
-      this.content.length === 0
-    ) {
-      this.istitle = false;
-      this.isDes = false;
-      this.iscontent = false;
-      this.inputs = 'title';
-    } else if (
-      this.formProduct.controls['title'].value === ""&&
-      this.formProduct.controls['description'].value === ""
-    ) {
-      this.istitle = false;
-      this.isDes=false
-      this.inputs = 'title';
-    } else if (
-      this.formProduct.controls['title'].value === "" &&
-      this.content.length === 0
-    ) {
-      this.istitle = false;
-      this.iscontent = false;
-      this.inputs = 'title';
-    } else if (
-      this.formProduct.controls['description'].value === "" &&
-      this.content.length === 0
-    ) {
-      this.isDes = false;
-      this.iscontent = false;
-      this.inputs = 'description';
-    } else if (
-      this.content.length === 0
-    ) {
-      this.inputs = 'content';
-      this.iscontent = false;
-    } else if (
-      this.formProduct.controls['title'].value === "" 
-    ) {
-      this.istitle = false;
-      this.inputs = 'title';
-    } else{
-      this.isDes = false;
-      this.inputs = 'description';
-    } 
-  }
-  changeTitle() {
-    this.istitle = true;
-  }
-  changDes() {
-    this.isDes = true;
-  }
-  changeContent() {
-    this.iscontent = true;
   }
 }

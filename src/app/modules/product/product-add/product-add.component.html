@@ -11,13 +11,17 @@
         </div>
         <div class="update_box2">
           <span><strong>Tên</strong></span>
-          <input type="text" formControlName="title" id="title" name="title" (change)="changeTitle()"
-            [ngClass]="{'text-input':istitle,'borderError':!istitle}">
+          <input type="text" formControlName="title" id="title" name="title" 
+          [class.borderError]="!formProduct.controls.title.valid&&!formProduct.controls.title.pristine"
+          [class.text-input]="formProduct.controls.title.valid||formProduct.controls.title.pristine"
+          >
         </div>
         <div class="update_box">
           <span><strong>Mô tả</strong></span>
-          <textarea style="height: 120px" id="description" formControlName="description" (change)="changDes()"
-            [ngClass]="{'text-input':isDes,'borderError':!isDes}" name="description"></textarea>
+          <textarea style="height: 120px" id="description" formControlName="description" 
+          [class.borderError]="!formProduct.controls.description.valid&&!formProduct.controls.description.pristine"
+          [class.text-input]="formProduct.controls.description.valid||formProduct.controls.description.pristine"
+             name="description"></textarea>
         </div>
         <div class="update_box">
           <span><strong>Thẻ tag</strong></span>
@@ -45,11 +49,11 @@
       <div class="col-lg-8">
         <div class="update_box" >
           <span><strong>Nội dung</strong></span>
-          <div [ngClass]="{'text-input':iscontent,'borderError':!iscontent}">
+          <div>
           <div class="ckeditorContaniner" id="editor">
             <!--            <ckeditor [editor]="Editor"  [data]="new.content"></ckeditor>-->
             <ckeditor id="content" [(ngModel)]="content"
-              [ngModelOptions]="{standalone: true}" [config]="ckeConfig" (change)="changeContent()"></ckeditor>
+              [ngModelOptions]="{standalone: true}" [config]="ckeConfig"></ckeditor>
           </div>
         </div>
         <div class="submit-button mt-2 mt-md-4">
