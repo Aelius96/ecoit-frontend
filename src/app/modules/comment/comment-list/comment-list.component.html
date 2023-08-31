@@ -7,7 +7,7 @@
 					<div class="img-comment d-flex flex-column">
 						<img src="./assets/images/avt.jpg" alt="">
 						<span>
-							{{cmt.user.username}}
+							{{cmt.userName}}
 						</span>
 						<span>{{cmt.date}}</span>
 					</div>
@@ -25,7 +25,7 @@
 						</div>
 						<div class="col-md-2 col-2 col-sm-2 ">
 							<div class="" >
-								<div class="d-flex flex-column "  *ngIf="userId == cmt.user.id ">
+								<div class="d-flex flex-column "  *ngIf="username == cmt.userName ">
 									<a  data-bs-toggle="collapse"   href="#{{cmt.id}}editParent" >Chỉnh sửa</a>
 									<a (click)="disable(cmt.id)"><span class="delete-cmt">Xóa</span></a>
 								</div>
@@ -51,7 +51,8 @@
 											<div class="img-comment d-flex flex-column" style="margin: 0px;">
 												<img src="./assets/images/avt.jpg" alt="">
 												<span>
-													{{cmtChild.user.username}}
+													<!-- {{cmtChild.user.username}} -->
+													{{cmtChild.userName}}
 												</span>
 												<span>{{cmtChild.date}}</span>
 											</div>
@@ -60,7 +61,8 @@
 									<div class="col-md-8 col-8 col-sm-8 ">
 										<p class="child-content">{{cmtChild.content}}</p>
 									</div>
-									<div class="col-md-2 col-2 col-sm-2 d-flex flex-column  "  *ngIf="userId == cmtChild.user.id ">
+									<!-- <div class="col-md-2 col-2 col-sm-2 d-flex flex-column  "  *ngIf="userId == cmtChild.user.id "> -->
+										<div class="col-md-2 col-2 col-sm-2 d-flex flex-column  "  *ngIf="username == cmtChild.userName ">
 										<a  data-bs-toggle="collapse"  href="#{{cmtChild.id}}editChild" >Chỉnh sửa</a>
 										<a (click)="disableChild(cmtChild.id)"><span class="delete-cmt">Xóa</span></a>
 									</div>

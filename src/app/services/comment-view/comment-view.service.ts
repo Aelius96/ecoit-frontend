@@ -21,6 +21,7 @@ export class CommentViewService {
     })
   }
   createComment(comment : Comment) {
+    console.log(this.commentList  )
     this.commentList.push(comment)
     this.commentSubject.next(this.commentList)
     this.commentService.creatComment(comment).subscribe(data => {
