@@ -10,7 +10,6 @@ import {ToastrService} from 'ngx-toastr';
 
 import {ToastService} from "../../toast/toast.service";
 
-import { Aside } from 'src/app/core/model/aside/aside';
 import { Module } from 'src/app/core/model/module/module';
 import { ModuleService } from 'src/app/services/module/module.service';
 
