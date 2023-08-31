@@ -1,6 +1,5 @@
 
 import { Domain } from "../domain/domain";
-import { Product } from '../model/product/product';
 
 export class Constant {
   public static BASE_URL = "http://localhost:8080";
@@ -171,10 +170,17 @@ export class Constant {
   }
   public static USER={
     GET_LIST_ALL_WITH_PAGE_USER:`${Domain.USER}` ,
+    // GET_LIST_ALL_USER:`${Domain.USER}/list`,
     GET_USER_BY_ID:`${Domain.USER}` ,
     UPDATE_USER:`${Domain.USER}/update` ,
     UPDATE_USER1:`${Domain.USER}/update1` ,
     DELETE_USER:`${Domain.USER}/delete` ,
     CHANGE_PASSWORD:`${Domain.USER}/changePassword` ,
+  }
+  public static PERMISSION = {
+    GET_LIST_ALL:`${Domain.PERMISSION}`,
+    ADD: `${Domain.PERMISSION}/add`,
+    UPDATE:`${Domain.PERMISSION}/update`,
+    DELETE:`${Domain.PERMISSION}/delete`,
   }
 }

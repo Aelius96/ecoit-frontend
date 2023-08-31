@@ -44,13 +44,11 @@ constructor(private route:ActivatedRoute,
     if(this.tokenStorageService.getToken()){
       this.username = this.tokenStorageService.getUser().username;
       this.userId = this.tokenStorageService.getUser().id;
-      // this.comment.user.id = this.userId;
+
       this.comment.userName = this.username
-      // console.log(this.userId)
+
       this.url = this.route.snapshot.queryParams['url'];
-      console.log(this.url)
       this.postService.getPostByUrl(this.url).subscribe(data => {
-        // console.log(data)
         this.comment.post.id = data.id;
         this.postId = data.id;
         console.log(this.postId)
@@ -126,16 +124,11 @@ constructor(private route:ActivatedRoute,
 
 
   updateComment(id:number , comment:Comment ){
-    this.commentService.updateComment(id ,comment).subscribe(response=>{
-      this.toastService.info('Chỉnh sửa thành công!' , 'Thông báo');
+    this.commentService.updateComment(id ,comment).subscribe(()=>{
+      this.toastService.info('Chỉnh sửa thành công!');
       setTimeout(() => {
         location.reload()
       }, 1000);
-      // let option = confirm('Cập nhật thành công!');
-      //   if(option){
-      //     window.location.reload();
-      //     console.log(response)
-      //   }
       },
       error=>{console.log(error)
     })

@@ -5,66 +5,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
 <div class="container">
-  <div class="col-12">
-    <div class="my-4">
-      <div class="wdc-heading style-1 text-left">
-        <h2 class="font-weight-bold text-success ">Tìm kiếm: {{searchInput}}</h2>
-        <!-- <input type="text" class="searchinput " style="padding: 3px 20px;"  [(ngModel)]="searchInput" ><br> -->
-        <div class="w-25 mb-3 " >
-          <input type="text" [(ngModel)]="searchInput" placeholder="Tìm kiếm" style="padding: 3px 20px;" class="searchinput w-80 " name="searchInput" id="searchInput">
-          <input type="submit" (click)="goToSearch() " class="searchinput w-20 "  id="edit-submit">
+  <div class="d-flex flex-column ">
+    <div class="row">
+      <div class="col-12">
+        <div class="my-2 my-md-4 ">
+          <div class="wdc-heading style-1 text-left">
+            <p class="font-weight-bold text-search mb-1 ">Tìm Kiếm: {{searchInput}}</p>
+            <div class=" mb-md-3 mb-2 d-flex">
+              <input type="text" [(ngModel)]="searchInput" placeholder="Tìm kiếm" style="padding: 3px 20px;"
+                class="searchinput  " name="searchInput" id="searchInput">
+              <input type="submit" (click)="goToSearch() " class="searchinput " id="edit-submit">
+            </div>
+            <p class="font-weight-bold text-search mb-1 ">Chuyên Mục:</p>
+            <select [(ngModel)]="cateName" name="cate" class=" searchinput" (ngModelChange)="searchPostwithCate()">
+              <option value="" [selected]="true">Tât cả</option>
+              <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
+            </select>
+          </div>
         </div>
-       
-        <select [(ngModel)]="cateName"  name="cate" class="w-25  searchinput" (ngModelChange)="searchPostwithCate()">
-          <option value="" [selected]="true">Tât cả</option>
-          <option *ngFor="let ct of catelist" value="{{ct.typeName}}">{{ct.typeName}}</option>
-        </select>
       </div>
     </div>
-  </div>
-
-</div>
-<div class="site-wrapper-reveal">
-
-  <!--====================  Blog Area Start ====================-->
-  <div class="blog-pages-wrapper section-space--ptb_20">
-    <div class="container" style="    width: 1200px;
-    max-width: 100%;
-    padding: 0 10px;
-    margin-right: auto;
-    margin-left: auto;">
-      <div class="col-sm-2">
-        <div class="chuyenmuc">
-          <h4>Chuyên mục</h4>
-          <ul *ngFor="let ct of catelist">
-              <li value="{{ct.typeName}}" [(ngModel)]="cateName" name="cate" (click)="seach()">{{ct.typeName}}</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-sm-8">
+    <div class="row">
+      <div class="col-md-12 col-12">
         <div>
           <div class="row">
             <div *ngFor="let post of postList | paginate: { id: 'post',
-            itemsPerPage: paging.size,
-             currentPage: paging.page,
-            totalItems: paging.totalRecord } ;let i = index" class="col-lg-4  mb-30 ">
-
+          itemsPerPage: paging.size,
+           currentPage: paging.page,
+          totalItems: paging.totalRecord } ;let i = index" class="col-lg-3 col-sm-4 col-6  md-2 mb-md-4 ">
               <div class="single-blog-item blog-grid item-news ">
-
                 <div class="post-feature blog-thumbnail">
-                  <div style="width: 199px;height: 190px;">
-                  <!-- <a class="w-100" href="/tin-tuc/{{post.url}}"> -->
                   <a class="w-100" (click)="viewDetail(post.url)">
                     <img class="img-fluid  w-100 image-search " src="{{baseURL}}/{{postURL}}/image/{{post.id}}"
                       alt="Blog Images">
                   </a>
                 </div>
-                </div>
 
-                <div class="post-info lg-blog-post-info">
+                <div class="post-info mt-2 mt-md-4 lg-blog-post-info">
                   <h5 class="post-title mt-2 mb-3">
-                    <!-- <a class="p-title" href="/tin-tuc/{{post.url}}">{{post.title}}</a> -->
-                  <a class="p-title" (click)="viewDetail(post.url)">{{post.title}}</a>
+                    <a class="p-title" (click)="viewDetail(post.url)">{{post.title}}</a>
                   </h5>
                   <div class="post-excerpt my-4">
                     <p>{{post.description}}</p>
@@ -105,9 +84,14 @@
           </div>
         </div>
       </div>
-      <app-side-bar></app-side-bar>
     </div>
   </div>
-  <!--====================  Blog Area End  ====================-->
 </div>
+<!-- <div class="site-wrapper-reveal">
+  <div class="blog-pages-wrapper section-space--ptb_20">
+    <div class="container" >
+      
+    </div>
+  </div>
+</div> -->
 <app-footer></app-footer>

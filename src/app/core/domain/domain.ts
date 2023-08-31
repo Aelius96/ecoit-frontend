@@ -1,3 +1,4 @@
+import { Permission } from '../model/permission/permission';
 
 export class Domain {
   public static ABOUT = `about`;
@@ -22,6 +23,7 @@ export class Domain {
   public static ALBUMS = `s/file`;
   public static ADDRESS = `address`;
   public static HISTORY= `history`;
+  public static PERMISSION = `permission`;
 }
 
 

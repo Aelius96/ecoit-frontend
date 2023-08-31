@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl } from '@angular/forms';
 import { Module } from 'src/app/core/model/module/module';
 import { Permission } from 'src/app/core/model/permission/permission';
 import { Role } from 'src/app/core/model/role/role';
 import { User } from 'src/app/core/model/user/user';
+import { ToastService } from 'src/app/modules/toast/toast.service';
 import { ModuleService } from 'src/app/services/module/module.service';
+import { PermissionService } from 'src/app/services/permission/permission.service';
 import { RoleService } from 'src/app/services/role/role.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-role-control',
@@ -14,67 +17,114 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./role-control.component.css']
 })
 export class RoleControlComponent {
-  users : User = new User();
-  id: any;
   roles :Role[] = [];
-  permissions = []
-  searchInput = '';
-  modules:Module[]=[]
+  users: User[] = [];
+  module:Module[]=[];
+  permissionList:Permission[]=[];
+  permission:Permission = new Permission();
+  perControl = new FormControl();
 
-  constructor(private userService: UserService,private route : ActivatedRoute, private roleService:RoleService,private module:ModuleService
-    ){}
+
+  constructor(private userService: UserService, private toast:ToastService, private toastService : ToastrService,
+    private roleService:RoleService,private moduleService:ModuleService ,
+    private permissionService:PermissionService ){
+    }
   ngOnInit(): void {
-    this.getAllUser()
-    this.getRole()
-    this.getamodule() 
+    this.getRole();
+    this.getListModule();
+    this.listPermission();
   }
 
-  getAllUser() {
-    // this.userService.getListAllUser().subscribe(
-    //   (data) => {
-    //     this.users = data.content;
-    //     console.log("user",this.users);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
-  }
   getRole(){
     this.roleService.listRole().subscribe(data => {
       this.roles = data;
-      console.log("role",this.roles)
+      console.log(data)
     });
   }
 
-  getamodule() {
-    // this.module.getModule('aside.json').subscribe(data=> {
-    //   this.modules = data;
-    //   console.log(this.modules)
-    // });
+  getListModule(){
+    this.moduleService.getModule("aside.json").subscribe(res=>{
+      this.module = res;
+      console.log(res)
+    })
   }
-  onAsidechange(event:any,module:Module){
-    // module.selected=event.currentTarget.checked;
-    // if(module.selected){
-    //   this.roles.modules.push(module);
-    // }else{
-    //   this.roles.modules.forEach(item => {
-    //     if(item.id === module.id){
-    //       this. = this.users.asides.filter(i => i !== item);
-    //     }
-    //   })
-    // }
+
+  // searchInput = '';
+  // paging = {
+  //   page: 1,
+  //   size: 5,
+  //   totalRecord: 0,
+  // };
+  
+  // getrequestparams(page: number, pageSize: number, search: string) {
+  //   let params: any = {};
+
+  //   if (page) {
+  //     params[`pageNo`] = page - 1;
+  //   }
+
+  //   if (pageSize) {
+  //     params[`pageSize`] = pageSize;
+  //   }
+
+  //   if (search) {
+  //     params[`search`] = search;
+  //   }
+  //   return params;
+  // }
+
+  // getAllUser(){
+  //   const params = this.getrequestparams(
+  //     this.paging.page,
+  //     this.paging.size,
+  //     this.searchInput
+  //   );
+  //   this.userService.getListAllwithpageUser(params).subscribe(
+  //     (data) => {
+  //       this.users = data.content;
+  //       console.log(data);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
+
+  listPermission(){
+    this.permissionService.listAll().subscribe(res=>{
+      this.permissionList=res;
+      console.log(res)
+    })
   }
-  onchangePer(event:any,per:Permission){
-    // per.status=event.currentTarget.checked;
-    // if(per.status){
-    //   // this.asidess.permission.push(per);
-    // }else{
-    //   this.users.aside.forEach(item => {
-    //     if(item.id === per.id){
-    //       this.asidess.permissison = this.users.aside.filter(i => i !== item);
-    //     }
-    //   })
-    // }
+
+  addPermision(){
+    this.permissionService.addPermission(this.permission).subscribe(data=>{
+      this.toast.showSuccess();
+      setTimeout(() => {
+        location.reload()
+      }, 1000);
+    },
+    error=>{
+      this.toast.showWarning(error.error);
+    })
+  }
+  
+  deletePermission(id:number){
+    let  cf = confirm("Xóa chức năng");
+    if(cf){
+      this.permissionService.deletePermission(id).subscribe(()=>{
+        this.listPermission()
+      })
+    }}
+
+updatePermission(id:number, permission:Permission){
+    this.permissionService.updatePermission(id , permission).subscribe(()=>{
+      this.toastService.success('Chỉnh sửa thành công!' );
+      setTimeout(() => {
+        location.reload()
+      }, 800);
+      },
+      error=>{console.log(error)
+    })
   }
 }
