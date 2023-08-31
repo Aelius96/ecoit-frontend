@@ -33,7 +33,7 @@ import {RecruitNewsComponent} from './modules/home/group/recruit-news/recruit-ne
 import {CusTypicalHomeComponent} from './modules/typical/customer/cus-typical-home/cus-typical-home.component';
 import {SliderListComponent} from './modules/sliders/slider-list/slider-list.component';
 import {CustomerProductComponent} from './modules/group/customer-product/customer-product.component';
-import {AdminComponent} from './modules/admin/admin/admin.component';
+import {AdminControlComponent} from './modules/admin/admin-control/admin-control.component';
 import {HeaderAdminComponent} from './modules/admin/header-admin/header-admin.component';
 import {AsideComponent} from './modules/admin/aside/aside.component';
 import {DashboardComponent} from './modules/admin/dashboard/dashboard.component';
@@ -165,7 +165,7 @@ import { RoleControlComponent } from './modules/admin/role/role-control/role-con
     SliderListComponent,
     CustomerProductComponent,
     LoginComponent,
-    AdminComponent,
+    AdminControlComponent,
     HeaderAdminComponent,
     AsideComponent,
     DashboardComponent,

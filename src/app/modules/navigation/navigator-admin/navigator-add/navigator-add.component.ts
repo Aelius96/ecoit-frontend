@@ -78,7 +78,7 @@ export class NavigatorAddComponent implements OnInit {
     );
   }
   goToNavList() {
-    this.router.navigate(['/admin/nav']);
+    this.router.navigate(['/admin-control/nav']);
   }
   onSubmit() {
     this.nav.name=this.formNav.controls['name'].value

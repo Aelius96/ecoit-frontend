@@ -116,7 +116,7 @@ export class AlbumsDetailComponent implements OnInit {
   // }
 
   gotogallerytList(){
-    this.router.navigate(['/admin/tImage'])
+    this.router.navigate(['/admin-control/tImage'])
   }
   // addimagetogallery(id:any){
   //   this.galleryService.addimageById(id).subscribe( ()=>{

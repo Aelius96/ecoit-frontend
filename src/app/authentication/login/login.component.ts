@@ -12,7 +12,7 @@ import {User} from "../../core/model/user/user";
 })
 export class LoginComponent {
   form: any = {};
-  
+
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = "";
@@ -46,6 +46,6 @@ export class LoginComponent {
   }
 
   reloadPage(): void {
-    this.router.navigate(['admin/dashboard']);
+    this.router.navigate(['admin-control/dashboard']);
   }
 }

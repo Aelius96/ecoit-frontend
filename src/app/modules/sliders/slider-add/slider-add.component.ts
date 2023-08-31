@@ -26,7 +26,7 @@ export class SliderAddComponent implements OnInit {
 
   constructor(private sliderService: SliderService,
               private router: Router,
-              private route: ActivatedRoute , 
+              private route: ActivatedRoute ,
               private toast:ToastService) { }
 
   ngOnInit(): void {
@@ -57,7 +57,7 @@ export class SliderAddComponent implements OnInit {
       this.toast.showSuccess();
       console.log(data)
       this.goToSliderList();
-    }, 
+    },
       error=>{
         this.toast.showWarning(error.error)
         console.log(error)
@@ -71,7 +71,7 @@ export class SliderAddComponent implements OnInit {
       this.toast.showSuccess();
       console.log(data)
       this.goToSliderList();
-    }, 
+    },
     error=>{
       this.toast.showWarning(error.error)
         console.log(error)
@@ -90,13 +90,13 @@ export class SliderAddComponent implements OnInit {
         this.fileToUpload[i]
       )
     }
-   
+
 
     return formData;
   }
 
   goToSliderList(){
-    this.router.navigate(['/admin/sliders']);
+    this.router.navigate(['/admin-control/sliders']);
   }
 
   onSubmit(){
