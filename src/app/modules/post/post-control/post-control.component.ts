@@ -54,7 +54,7 @@ export class PostControlComponent implements OnInit {
     if (page) {
       params[`pageNo`] = page;
     }
-    
+
     if (pageSize) {
       params[`pageSize`] = pageSize;
     }

@@ -11,7 +11,7 @@ import { RoleControlComponent } from "../admin/role/role-control/role-control.co
 const routes: Routes=[
     {path:'' , title:'Ecoit - Công ty cổ phần EcoIT' ,
     children:[
-      {path:'trang-chu', title:'Ecoit - Công ty cổ phần EcoIT',  loadChildren:()=>import('./home/home.module').then(m=>m.HomeModule)},  
+      {path:'trang-chu', title:'Ecoit - Công ty cổ phần EcoIT',  loadChildren:()=>import('./home/home.module').then(m=>m.HomeModule)},
       {path:'khach-hang', loadChildren:()=>import('./customer/customer.module').then(m=>m.CustomerModule)},
       {path:'san-pham' , loadChildren:()=>import ('./product/product.module').then(m=>m.ProductModule)},
       {path:'gioi-thieu' , loadChildren:()=>import('./about/about.module').then(m=>m.AboutModule)},
@@ -20,7 +20,7 @@ const routes: Routes=[
       {path:'blog', loadChildren:()=>import('./blog/blog.module').then(m=>m.BlogModule)},
       {path:'admin/login', title:'Admin-Login' , component: LoginComponent },
       // {path: 'login', component: LoginUserComponent},
-      // {path: 'register', component:RegisterComponent},
+      {path: 'register', component:RegisterComponent},
       {path: 'tag/:hashtag', component:SearchComponent},
       {path: 'tim-kiem', component:SearchComponent},
       {path: 'tim-kiem/:searchInput', component:SearchComponent},
@@ -37,5 +37,5 @@ const routes: Routes=[
     ],
     exports: [RouterModule]
   })
-  
+
 export class ViewPageModule{}

@@ -11,17 +11,17 @@ import { ContactService } from 'src/app/services/contact/contact.service';
 export class ListContactComponent {
 
   contactList: Contact[]=[]
-   
+
   searchInput= {
     input: '',
     startTime: '' ,
-    endTime:'' ,  
+    endTime:'' ,
   }
 
   paging = {
     page: 1,
     size: 5,
-    totalRecord: 0 
+    totalRecord: 0
   }
   active : any
 
@@ -35,7 +35,7 @@ export class ListContactComponent {
     let params: any = {};
 
     if (page) {
-      params[`pageNo`] = page-1;
+      params[`pageNo`] = page;
     }
 
     if (pageSize) {
@@ -45,7 +45,7 @@ export class ListContactComponent {
     if(searchinput){
       params[`search`] = searchinput;
     }
-    if(active != null) {
+    if(active!=null) {
       params['active'] = active
     }
     return params;
@@ -59,7 +59,7 @@ export class ListContactComponent {
       this.contactList=res.content;
       this.paging.totalRecord = res.totalElements;
       console.log(this.contactList)
-      }, 
+      },
     )
   }
   refresh() {
@@ -79,14 +79,14 @@ export class ListContactComponent {
 Contacted(id:number){
   this.contactService.Contacted(id).subscribe(()=>{
     this.getAllContactPagesize();
-    
+
   })
 }
 
 Notcontact(id:number){
   this.contactService.NotContact(id).subscribe(()=>{
     this.getAllContactPagesize();
-    
+
   })
 }
 

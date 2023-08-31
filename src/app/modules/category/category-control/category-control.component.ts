@@ -6,7 +6,7 @@ import { Category } from 'src/app/core/model/category/category';
 import { Params, Router } from '@angular/router';
 import { ContactComponent } from '../../contact/contact.component';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
- 
+
 
 @Component({
   selector: 'app-category-control',
@@ -36,7 +36,7 @@ export class CategoryControlComponent implements OnInit {
     let params: any = {};
 
     if (page) {
-      params[`pageNo`] = page-1;
+      params[`pageNo`] = page;
     }
 
     if (pageSize) {

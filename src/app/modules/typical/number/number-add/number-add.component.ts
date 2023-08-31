@@ -1,13 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { NumberService } from '../../../../services/number-typical/number.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Number } from '../number';
-import { parseNumber } from 'libphonenumber-js';
-import { ToastService } from 'src/app/modules/toast/toast.service';
-import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from 'src/app/modules/dialog/dialog/dialog.component';
-
+import {Component, OnInit} from '@angular/core';
+import {NumberService} from '../../../../services/number-typical/number.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Number} from '../number';
+import {ToastService} from 'src/app/modules/toast/toast.service';
+import {FormControl, FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-number-add',
   templateUrl: './number-add.component.html',
@@ -35,8 +31,8 @@ export class NumberAddComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private toast: ToastService,
-    private dialog : MatDialog
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -59,6 +55,7 @@ export class NumberAddComponent implements OnInit {
       this.allIcon = data;
     });
   }
+
   rollbackToList() {
     this.router.navigate(['/admin/dashboard']);
   }
@@ -73,6 +70,7 @@ export class NumberAddComponent implements OnInit {
       this.addtNumber();
     }
   }
+
   update(id: number, tNumber: Number) {
     this.numService.editNumber(tNumber, id).subscribe(
       () => {
@@ -100,7 +98,8 @@ export class NumberAddComponent implements OnInit {
       }
     );
   }
-  ktradieukien(){
+
+  ktradieukien() {
     if (
       this.formNumber.controls['numberic'].value === null &&
       this.formNumber.controls['icons'].value === "" &&
@@ -142,12 +141,15 @@ export class NumberAddComponent implements OnInit {
       this.inputs = 'description';
     }
   }
+
   noidungNumber() {
     this.isborderErrorNumber = true;
   }
+
   noidungIcon() {
     this.isborderErrorIcon = true;
   }
+
   noidungDescription() {
     this.isborderErrorDes = true;
   }

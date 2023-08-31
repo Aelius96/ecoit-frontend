@@ -31,11 +31,11 @@ export class CustomerControlComponent implements OnInit{
   }
 
   getparams(page: number , pageSize: number, search: string):any{
-    
+
     let params: any = {};
 
     if (page) {
-      params[`pageNo`] = page-1;
+      params[`pageNo`] = page;
     }
 
     if (pageSize) {

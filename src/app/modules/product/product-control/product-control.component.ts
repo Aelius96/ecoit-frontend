@@ -37,7 +37,7 @@ export class ProductControlComponent implements OnInit {
     let params: any = {};
 
     if (page) {
-      params[`pageNo`] = page - 1;
+      params[`pageNo`] = page;
     }
 
     if (pageSize) {

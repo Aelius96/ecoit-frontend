@@ -20,7 +20,7 @@ export class NumberControlComponent implements OnInit{
   }
 
  constructor( private numberService: NumberService,
-  private tokenStorage:TokenStorageService, 
+  private tokenStorage:TokenStorageService,
    private router:Router) {
  }
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class NumberControlComponent implements OnInit{
  getRequestParams(page:number , pageSize:number, search : string):any{
     let params:any ={};
     if (page) {
-      params[`pageNo`] = page-1;
+      params[`pageNo`] = page;
     }
 
     if (pageSize) {

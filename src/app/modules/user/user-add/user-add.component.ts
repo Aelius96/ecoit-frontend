@@ -47,7 +47,7 @@ export class UserAddComponent implements OnInit{
       this.getUserById(this.id);
       this.getaside()
     }
-    
+
   }
   getaside() {
     this.module.getModule('aside.json').subscribe(data=> {
@@ -118,6 +118,7 @@ export class UserAddComponent implements OnInit{
 
   updateUser(id: number){
     this.userService.updateUser(id,this.user).subscribe( data =>{
+      console.log(data);
       this.toastService.showSuccess();
       this.goToUserList();
     },error => {
