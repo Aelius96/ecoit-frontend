@@ -40,13 +40,15 @@
                         <div class="col-md-6 col-sm-5 col-11 ">
                           <div class="post-info lg-blog-post-info">
                             <h4 class="post-title font-weight--light">
-                              <a class="p-title" href="/tin-tuc/{{post.url}}">{{post.title}}</a>
+                              <!-- <a class="p-title" href="/tin-tuc/{{post.url}}">{{post.title}}</a> -->
+                              <a class="p-title" (click)="viewDetail(post.url)">{{post.title}}</a>
                             </h4>
                             <div class="post-excerpt section-space--mb_15 ">
                               <p>{{post.description}}</p>
                             </div>
                             <div class="post-read-more ">
-                              <a href="/tin-tuc/{{post.url}}" class=" ht-btn-sm"
+                              <!-- <a href="/tin-tuc/{{post.url}}" class=" ht-btn-sm" -->
+                              <a  (click)="viewDetail(post.url)" class=" ht-btn-sm"
                                 style="background-color: rgb(57, 182, 61);">
                                 <span class="btn-text">Xem thêm </span>
                               </a>
@@ -78,7 +80,8 @@
                         </div>
                         <div class="post-info lg-blog-post-info">
                           <h5 class="post-title mb-3 font-weight--bold">
-                            <a class="p-title" href="/tin-tuc/{{post.url}}">{{post.title}}</a>
+                            <!-- <a class="p-title" href="/tin-tuc/{{post.url}}">{{post.title}}</a> -->
+                            <a class="p-title" (click)="viewDetail(post.url)">{{post.title}}</a>
                           </h5>
                           <div class="post-excerpt ">
                             <p>{{post.description}}</p>
