@@ -1,7 +1,7 @@
 export class Nav {
   id: number;
-  name: string;
-  url :string;
+  name: any;
+  url :any;
   parentId: number;
   navChild: Nav[] = [];
   selected: boolean;

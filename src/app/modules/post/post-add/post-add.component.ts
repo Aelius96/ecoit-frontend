@@ -36,10 +36,10 @@ export class PostAddComponent implements OnInit {
   hashtagList: Hashtag[] = [];
   fileToUpload: string[] = [];
   formPost = new FormGroup({
-    moTa: new FormControl(),
-    title: new FormControl(),
-    noiDung: new FormControl(),
-    chuyenMuc: new FormControl(),
+    moTa: new FormControl(''),
+    title: new FormControl(''),
+    noiDung: new FormControl(''),
+    chuyenMuc: new FormControl(''),
   });
   url: any;
   id: any;
@@ -58,7 +58,7 @@ export class PostAddComponent implements OnInit {
   isTitle = true;
   isChuyenmuc = true;
   isconTent = true;
-  a = '';
+  content = '';
 
   currentPage: any;
   pageSize: any;
@@ -148,7 +148,7 @@ export class PostAddComponent implements OnInit {
         this.formPost.controls['chuyenMuc'].setValue(this.post.category.typeName);
         this.formPost.controls['moTa'].setValue(this.post.description);
         this.formPost.controls['title'].setValue(this.post.title);
-        this.a = this.post.content;
+        this.content = this.post.content;
       });
     }
 
@@ -173,8 +173,8 @@ export class PostAddComponent implements OnInit {
     this.post.title = this.formPost.controls['title'].value;
     this.post.category.typeName = this.formPost.controls['chuyenMuc'].value;
     this.post.description = this.formPost.controls['moTa'].value;
-    this.post.content = this.a;
-    console.log(this.a.length);
+    this.post.content = this.content;
+    console.log(this.content.length);
     console.log(this.post.content);
     if (this.id) {
       this.updateDataToForm(this.id);
@@ -265,10 +265,10 @@ export class PostAddComponent implements OnInit {
   //validate
   ktradieukien() {
     if (
-      this.formPost.controls['title'].value === null &&
-      this.formPost.controls['chuyenMuc'].value === null &&
-      this.formPost.controls['moTa'].value === null &&
-      this.a.length === 0
+      this.formPost.controls['title'].value === "" &&
+      this.formPost.controls['chuyenMuc'].value === "" &&
+      this.formPost.controls['moTa'].value === "" &&
+      this.content.length === 0
     ) {
       this.isTitle = false;
       this.isChuyenmuc = false;
@@ -276,90 +276,90 @@ export class PostAddComponent implements OnInit {
       this.isconTent = false;
       this.inputs = 'title';
     } else if (
-      this.formPost.controls['title'].value === null &&
-      this.formPost.controls['chuyenMuc'].value === null &&
-      this.formPost.controls['moTa'].value === null
+      this.formPost.controls['title'].value === "" &&
+      this.formPost.controls['chuyenMuc'].value === "" &&
+      this.formPost.controls['moTa'].value === ""
     ) {
       this.isMota = false;
       this.isChuyenmuc = false;
       this.isTitle = false;
       this.inputs = 'title';
     } else if (
-      this.formPost.controls['title'].value === null &&
-      this.formPost.controls['chuyenMuc'].value === null &&
-      this.a.length === 0
+      this.formPost.controls['title'].value === "" &&
+      this.formPost.controls['chuyenMuc'].value === "" &&
+      this.content.length === 0
     ) {
       this.isTitle = false;
       this.isChuyenmuc = false;
       this.isconTent = false;
       this.inputs = 'title';
     } else if (
-      this.formPost.controls['title'].value === null &&
-      this.formPost.controls['moTa'].value === null &&
-      this.a.length === 0
+      this.formPost.controls['title'].value === "" &&
+      this.formPost.controls['moTa'].value === "" &&
+      this.content.length === 0
     ) {
       this.isTitle = false;
       this.isconTent = false;
       this.isMota = false;
       this.inputs = 'title';
     } else if (
-      this.formPost.controls['moTa'].value === null &&
-      this.formPost.controls['chuyenMuc'].value === null &&
-      this.a.length === 0
-    ) {
-      this.isMota = false;
-      this.isChuyenmuc = false;
-      this.inputs = 'moTa';
-      this.isconTent = false;
-    } else if (
-      this.formPost.controls['title'].value === null &&
-      this.formPost.controls['chuyenMuc'].value === null
-    ) {
-      this.isTitle = false;
-      this.isChuyenmuc = false;
-      this.inputs = 'title';
-    } else if (
-      this.formPost.controls['title'].value === null &&
-      this.formPost.controls['moTa'].value === null
-    ) {
-      this.isTitle = false;
-      this.isMota = false;
-      this.inputs = 'title';
-    } else if (
-      this.formPost.controls['moTa'].value === null &&
-      this.formPost.controls['chuyenMuc'].value === null
+      this.formPost.controls['moTa'].value === "" &&
+      this.formPost.controls['chuyenMuc'].value === "" &&
+      this.content.length === 0
     ) {
       this.isMota = false;
       this.isChuyenmuc = false;
       this.inputs = 'moTa';
+      this.isconTent = false;
     } else if (
-      this.formPost.controls['title'].value === null &&
-      this.a.length === 0
+      this.formPost.controls['title'].value === "" &&
+      this.formPost.controls['chuyenMuc'].value === ""
+    ) {
+      this.isTitle = false;
+      this.isChuyenmuc = false;
+      this.inputs = 'title';
+    } else if (
+      this.formPost.controls['title'].value === "" &&
+      this.formPost.controls['moTa'].value === ""
+    ) {
+      this.isTitle = false;
+      this.isMota = false;
+      this.inputs = 'title';
+    } else if (
+      this.formPost.controls['moTa'].value === "" &&
+      this.formPost.controls['chuyenMuc'].value === ""
+    ) {
+      this.isMota = false;
+      this.isChuyenmuc = false;
+      this.inputs = 'moTa';
+    } else if (
+      this.formPost.controls['title'].value === "" &&
+      this.content.length === 0
     ) {
       this.isTitle = false;
       this.isconTent = false;
       this.inputs = 'title';
     } else if (
-      this.a.length === 0 &&
-      this.formPost.controls['moTa'].value === null
+      this.content.length === 0 &&
+      this.formPost.controls['moTa'].value === ""
     ) {
       this.isconTent = false;
       this.isMota = false;
       this.inputs = 'moTa';
     } else if (
-      this.a.length === 0 &&
-      this.formPost.controls['chuyenMuc'].value === null
+      this.content.length === 0 &&
+      this.formPost.controls['chuyenMuc'].value === ""
     ) {
       this.isconTent = false;
       this.isChuyenmuc = false;
       this.inputs = 'editor';
-    } else if (this.a.length === 0) {
+    } else if (this.content.length === 0) {
       this.isconTent = false;
       this.inputs = 'editor';
-    } else if (this.formPost.controls['title'].value === null) {
+    } else if (this.formPost.controls['title'].value === "") {
       this.isTitle = false;
       this.inputs = 'title';
-    } else if (this.formPost.controls['moTa'].value === null) {
+    } else if (this.formPost.controls['moTa'].value === "") {
       this.isChuyenmuc = false;
       this.inputs = 'moTa';
     } else {

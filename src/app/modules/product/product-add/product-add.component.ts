@@ -1,48 +1,67 @@
-import {Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
-import {Product} from "../../../core/model/product/product";
-import {ActivatedRoute, Router} from "@angular/router";
-import {ProductService} from "../../../services/product/product.service";
-import {map, Observable, startWith} from "rxjs";
-import {LiveAnnouncer} from "@angular/cdk/a11y";
-import {MatChipInputEvent} from "@angular/material/chips";
-import {Hashtag} from "../../../core/model/hashtag/hashtag";
-import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
-import {COMMA, ENTER} from "@angular/cdk/keycodes";
-import {FormControl} from "@angular/forms";
-import {HashtagService} from "../../../services/hashtag/hashtag.service";
-import {Constant} from "../../../core/config/constant";
-import {Domain} from "../../../core/domain/domain";
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { Product } from '../../../core/model/product/product';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductService } from '../../../services/product/product.service';
+import { map, Observable, startWith } from 'rxjs';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { Hashtag } from '../../../core/model/hashtag/hashtag';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { FormControl, FormGroup } from '@angular/forms';
+import { HashtagService } from '../../../services/hashtag/hashtag.service';
+import { Constant } from '../../../core/config/constant';
+import { Domain } from '../../../core/domain/domain';
 import { ToastService } from '../../toast/toast.service';
 
 @Component({
   selector: 'app-product-add',
   templateUrl: './product-add.component.html',
-  styleUrls: ['./product-add.component.css']
+  styleUrls: ['./product-add.component.css'],
 })
-export class ProductAddComponent implements OnInit{
-
-  fileToUpload:string [] = [];
+export class ProductAddComponent implements OnInit {
+  fileToUpload: string[] = [];
   url: any;
   id: any;
   products: Product = new Product();
-  hashtagList : Hashtag[] = [];
+  hashtagList: Hashtag[] = [];
   ckeConfig: any;
   baseURL = Constant.BASE_URL;
   productURL = Domain.PRODUCT;
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  hashtagCtrl = new FormControl('');
   filteredHashtag: Observable<Hashtag[]>;
   imageURL: any;
+  formProduct = new FormGroup({
+    hashtagCtrl: new FormControl(''),
+    title: new FormControl(''),
+    description: new FormControl(''),
+  });
+  content=''
+  inputs=''
+  iscontent=true
+  isDes=true
+  istitle = true
 
-  constructor(private router:Router,
-              private productService :ProductService,
-              private hashtagService : HashtagService,
-              private route: ActivatedRoute ,
-              private toast: ToastService ) {
-
-    this.filteredHashtag = this.hashtagCtrl.valueChanges.pipe(
+  constructor(
+    private router: Router,
+    private productService: ProductService,
+    private hashtagService: HashtagService,
+    private route: ActivatedRoute,
+    private toast: ToastService
+  ) {
+    this.filteredHashtag = this.formProduct.controls[
+      'hashtagCtrl'
+    ].valueChanges.pipe(
       startWith(null),
-      map((hashtag: string | null) => (hashtag ? this.filterHashtags(hashtag) : this.hashtagList.slice())),
+      map((hashtag: string | null) =>
+        hashtag ? this.filterHashtags(hashtag) : this.hashtagList.slice()
+      )
     );
   }
 
@@ -52,34 +71,35 @@ export class ProductAddComponent implements OnInit{
   announcer = inject(LiveAnnouncer);
 
   addHashtag(event: MatChipInputEvent): void {
-
     const value = (event.value || '').trim();
 
     // Add the hashtag only if it doesn't already exist in the list
     if (value) {
-      if(!this.hashtagList.map(h=>h.name).includes(value)){
+      if (!this.hashtagList.map((h) => h.name).includes(value)) {
         const hashTagNew = new Hashtag();
         hashTagNew.name = value;
         console.log(hashTagNew);
         console.log(value);
         this.products.hashtags.push(hashTagNew);
         this.hashtagList.push(hashTagNew);
-      }else{
-        this.hashtagList.forEach(existHashTag =>{
-          if(value == existHashTag.name){
-            this.products.hashtags.push(existHashTag)
+      } else {
+        this.hashtagList.forEach((existHashTag) => {
+          if (value == existHashTag.name) {
+            this.products.hashtags.push(existHashTag);
           }
-        })
+        });
       }
     }
     // Reset the input value
     event.chipInput!.clear();
 
-    this.hashtagCtrl.setValue(event.value);
+    this.formProduct.controls['hashtagCtrl'].setValue(event.value);
   }
 
   remove(hashtag: Hashtag): void {
-    const index = this.products.hashtags.map(h => h.name).indexOf(hashtag.name);
+    const index = this.products.hashtags
+      .map((h) => h.name)
+      .indexOf(hashtag.name);
 
     if (index >= 0) {
       this.products.hashtags.splice(index, 1);
@@ -89,108 +109,183 @@ export class ProductAddComponent implements OnInit{
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.hashtagList.map(hashtag => hashtag.name).push(event.option.viewValue);
+    this.hashtagList
+      .map((hashtag) => hashtag.name)
+      .push(event.option.viewValue);
     this.hashtagInput.nativeElement.value = '';
-    this.hashtagCtrl.setValue(null);
+    this.formProduct.controls['hashtagCtrl'].setValue(null);
   }
 
   filterHashtags(value: string): Hashtag[] {
     const filterValue = value.toLowerCase();
-    return this.hashtagList.filter(hashtag => hashtag.name.toLowerCase().includes(filterValue));
+    return this.hashtagList.filter((hashtag) =>
+      hashtag.name.toLowerCase().includes(filterValue)
+    );
   }
 
   ngOnInit(): void {
+    
     this.id = this.route.snapshot.params['id'];
-    if(this.id){
-      this.productService.getProductById(this.id).subscribe(data =>{
+    if (this.id) {
+      this.productService.getProductById(this.id).subscribe((data) => {
         this.products = data;
         this.url = this.products.image?.pathUrl;
         this.imageURL = `${this.baseURL}/${this.productURL}/image/${this.id}`;
         this.listAllHashTag();
-      })
+        this.formProduct.controls['description'].setValue(this.products.description)
+        this.formProduct.controls['title'].setValue(this.products.title)
+        this.content=this.products.content
+      });
     }
     this.ckeConfig = {
-      extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
-      uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+      extraPlugins:
+        'uploadimage, justify, colorbutton, colordialog, iframe, font',
+      uploadUrl:
+        'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
       height: 330,
-      filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
-      filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
-
+      filebrowserUploadUrl:
+        'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
+      filebrowserImageUploadUrl:
+        'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
     };
   }
 
-  imageChange(e: any){
+  imageChange(e: any) {
     const files = e.target.files;
     if (files.length === 0) return;
 
     const reader = new FileReader();
-    this.fileToUpload=files;
+    this.fileToUpload = files;
     reader.readAsDataURL(files[0]);
-    reader.onload = (_event) =>{
-      this.imageURL= reader.result;
-    }
+    reader.onload = (_event) => {
+      this.imageURL = reader.result;
+    };
   }
 
-
-  listAllHashTag(){
-    this.hashtagService.listAllHashtag().subscribe(data =>{
+  listAllHashTag() {
+    this.hashtagService.listAllHashtag().subscribe((data) => {
       this.hashtagList = data;
-    })
+    });
   }
 
-  backToProductList(){
+  backToProductList() {
     return this.router.navigate([`admin/product`]);
   }
 
-  saveProduct(){
+  saveProduct() {
     const newsFormData = this.prepareFormData(this.products);
-    this.productService.addNewProduct(newsFormData).subscribe(data =>{
-      this.toast.showSuccess();
-      console.log(data)
+    this.productService.addNewProduct(newsFormData).subscribe(
+      (data) => {
+        this.toast.showSuccess();
+        console.log(data);
         this.backToProductList();
       },
-      error => {
-        this.toast.showWarning(error.error)
-        console.log(error)
-      });
+      (error) => {
+        this.ktradieukien()
+        this.toast.showWarning(error.error,this.inputs);
+        console.log(error);
+      }
+    );
   }
 
-  addDataToForm(id: any){
+  updateProduct(id: any) {
     const newsFormData = this.prepareFormData(this.products);
-    this.productService.updateProduct(id, newsFormData).subscribe(data =>{
-      this.toast.showSuccess();
-      console.log(data)
+    this.productService.updateProduct(id, newsFormData).subscribe(
+      (data) => {
+        this.toast.showSuccess();
+        console.log(data);
         this.backToProductList();
-    },
-    error => {
-      this.toast.showWarning(error.error)
-      console.log(error)
-    }
+      },
+      (error) => {
+        this.ktradieukien()
+        this.toast.showWarning(error.error,this.inputs);
+        console.log(error);
+      }
     );
   }
 
   prepareFormData(products: Product): FormData {
+    console.log(products);
     const formData = new FormData();
     formData.append(
       'product',
-      new Blob([JSON.stringify(products)], {type: 'application/json'})
+      new Blob([JSON.stringify(products)], { type: 'application/json' })
     );
+
     // formData.append('imageFile', this.fileToUpload, this.fileToUpload.name);
-    for (let i = 0; i < this.fileToUpload.length; i++){
+    for (let i = 0; i < this.fileToUpload.length; i++) {
       formData.append(
         'thumb',
         this.fileToUpload[i]
         // this.fileToUpload[i].name
-      )
+      );
     }
     return formData;
   }
 
-  onSubmit(){
-    if(this.id){
-      this.addDataToForm(this.id);
-    }else{
+  onSubmit() {
+    this.products.title=this.formProduct.controls['title'].value
+    this.products.content = this.content
+    this.products.description=this.formProduct.controls['description'].value
+    if (this.id) {
+      this.updateProduct(this.id);
+    } else {
       this.saveProduct();
     }
+  }
+  ktradieukien() {
+    if (
+      this.formProduct.controls['title'].value === "" &&
+      this.formProduct.controls['description'].value === "" &&
+      this.content.length === 0
+    ) {
+      this.istitle = false;
+      this.isDes = false;
+      this.iscontent = false;
+      this.inputs = 'title';
+    } else if (
+      this.formProduct.controls['title'].value === ""&&
+      this.formProduct.controls['description'].value === ""
+    ) {
+      this.istitle = false;
+      this.isDes=false
+      this.inputs = 'title';
+    } else if (
+      this.formProduct.controls['title'].value === "" &&
+      this.content.length === 0
+    ) {
+      this.istitle = false;
+      this.iscontent = false;
+      this.inputs = 'title';
+    } else if (
+      this.formProduct.controls['description'].value === "" &&
+      this.content.length === 0
+    ) {
+      this.isDes = false;
+      this.iscontent = false;
+      this.inputs = 'description';
+    } else if (
+      this.content.length === 0
+    ) {
+      this.inputs = 'content';
+      this.iscontent = false;
+    } else if (
+      this.formProduct.controls['title'].value === "" 
+    ) {
+      this.istitle = false;
+      this.inputs = 'title';
+    } else{
+      this.isDes = false;
+      this.inputs = 'description';
+    } 
+  }
+  changeTitle() {
+    this.istitle = true;
+  }
+  changDes() {
+    this.isDes = true;
+  }
+  changeContent() {
+    this.iscontent = true;
   }
 }

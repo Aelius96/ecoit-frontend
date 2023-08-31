@@ -25,6 +25,13 @@
     width: 100%;
     border: 1px solid #50B848;
   }
+  .update_box2 span{
+    color: #50B848;
+  }
+  .update_box2 input{
+    padding: 10px;
+    width: 100%;
+  }
   .cancel{
     background-color: #cccccc;
   
@@ -39,6 +46,20 @@
   }
   input:focus{
     color: #000000;
+  }
+  .borderError {
+    border: 1px solid red;
+    color: black;
+  }
+  
+  .borderError:focus {
+    border: 1px solid red;
+    color: black;
+  }
+  
+  .text-input {
+    border: 1px solid #50b848;
+    color: black;
   }
 /* .banner{
   height: 200px;

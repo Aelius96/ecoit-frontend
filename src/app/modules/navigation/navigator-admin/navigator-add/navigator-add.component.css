@@ -66,7 +66,6 @@
   }
   .options input{
     padding: 20px 10px;
-    border: 0;
     border-radius: 6px;
     background: #f2f2f2;
     color: black;
@@ -96,4 +95,20 @@ option , select{
 }
 select:focus {
   border: 0px ;
+}
+.borderError {
+  border: 1px solid red;
+  color: black;
+}
+
+.borderError:focus {
+  border: 1px solid red;
+  color: black;
+}
+
+.text-input {
+  border: 1px solid #50b848;
+}
+.text-input:focus{
+  border: 1px solid #50b848;
 }
