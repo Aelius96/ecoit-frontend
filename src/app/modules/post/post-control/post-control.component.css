@@ -67,19 +67,8 @@ img{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.table{
-  border-collapse: separate;
-}
 
-.header {
-  position: sticky;
-  top:0;
-}
-.container::-webkit-scrollbar {
-  display: none;
-}
-
-.list-table{
+.list-table {
   height: 620px;
   overflow: auto;
   scrollbar-width: none;
@@ -96,6 +85,38 @@ th{
   border-color: #5D87FF;
   color: white;
 }
+
+/* .table{
+  border-collapse: separate;
+} */
+
+/* .header {
+  position: sticky;
+  top:0;
+} */
+/* .container::-webkit-scrollbar {
+  display: none;
+} */
+
+/* .list-table{
+  height: 620px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.list-table::-webkit-scrollbar{
+  display: none;
+} */
+
+/* th{
+  text-align: center;
+  text-transform: capitalize;
+  background-color: #5D87FF;
+  border-color: #5D87FF;
+  color: white;
+} */
+
+
 .icon-more:hover{
   cursor: pointer;
   color: #a1b234;
@@ -114,4 +135,7 @@ th{
 }
 .w-10{
   width: 10%;
+}
+.w-15{
+  width: 15%;
 }

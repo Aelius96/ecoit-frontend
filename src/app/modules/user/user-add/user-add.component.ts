@@ -119,7 +119,7 @@ export class UserAddComponent implements OnInit{
 
   updateUser(id: number){
     this.userService.updateUser(id,this.user).subscribe( data =>{
-      this.toastService.showUpdate();
+      this.toastService.showSuccess();
       this.goToUserList();
     },error => {
       this.toastService.showWarning(error.error);
@@ -131,6 +131,10 @@ export class UserAddComponent implements OnInit{
     user.active = event.currentTarget.checked;
   }
 
+  goToBack() {
+    this.router.navigate(['/admin/user']);
+    // window.history.back();
+  }
 
   onSubmit() {
 

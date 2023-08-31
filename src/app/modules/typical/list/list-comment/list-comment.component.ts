@@ -67,7 +67,7 @@ constructor(
     this.commentService.getListCommentwithPageAdmin(params).subscribe(res=>{
      this.commentList = res.content;
     this.paging.totalRecord = res.totalElements;
-      console.log(this.commentList)
+     
     },
     error=>{
       console.log(error)
@@ -78,8 +78,6 @@ constructor(
   getAllCommentAdmin(){
     this.commentService.getParentCmtAdmin().subscribe(data=>{
         this.commentList = data;
-
-        console.log(this.postId);
       },
       error=>{
         console.error(error)
@@ -110,13 +108,11 @@ constructor(
 
 
   RepComment(){
-    this.commentService.creatComment(this.comment).subscribe(respon=>{
+    this.commentService.creatComment(this.comment).subscribe(()=>{
         this.toast.showSuccess()
         setTimeout(()=>{
           location.reload()
         },1500)
-        console.log(respon);
-        
     }, error=>{
       this.toast.showWarning(error.error)
       console.log(error)}
@@ -124,7 +120,6 @@ constructor(
   }
 
   getCommentChildAdmin(){
-
     this.commentService.getCommentChildByParentAdmin().subscribe(data=>{
         this.commentListChild = data;
       },

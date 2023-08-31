@@ -67,6 +67,9 @@ svg:hover{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.p-title:hover{
+  color: black;
+}
 .img-slide{
   max-height: 270px;
   min-height: 220px;

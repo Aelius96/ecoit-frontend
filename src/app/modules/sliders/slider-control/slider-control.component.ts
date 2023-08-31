@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {Constant} from "../../../core/config/constant";
 import {Domain} from "../../../core/domain/domain";
 import { ToastService } from '../../toast/toast.service';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-slider-control',
@@ -13,8 +14,10 @@ import { ToastService } from '../../toast/toast.service';
   styleUrls: ['./slider-control.component.css']
 })
 export class SliderControlComponent {
-  slider:boolean=true;
+  isslider:boolean=true;
   sliders: Slider[] = [];
+  slider2: Slider[]=[]
+  title="TRÌNH CHIẾU"
 
   target = {
     url: '',
@@ -38,6 +41,7 @@ export class SliderControlComponent {
       prevArrow: false,
       nextArrow: true
     };
+    this.getSlider2()
   }
 
   getSlider(){
@@ -45,8 +49,14 @@ export class SliderControlComponent {
       this.sliders = data
       this.choose(this.sliders[0]);
     });
-  }
 
+  }
+  getSlider2(){
+    this.sliderService.getListAll().subscribe(data => {
+      return this.slider2=data;
+    });
+
+  }
 
   choose(e: any){
     this.target.name = e?.name;
@@ -59,12 +69,12 @@ export class SliderControlComponent {
     this.imageURL = `${this.baseURL}/${this.sliderURL}/image/${this.target.name}`
   }
   chuyenslide(){
-    this.slider=!this.slider
-    if(this.slider){
-      this.toastslide.chuyenslide()
+    this.isslider=!this.isslider
+    if(this.isslider){
+      this.toastslide.chuyenchedoIMG()
     }
     else{
-      this.toastslide.chuyenchedoIMG()
+      this.toastslide.chuyenslide()
     }
   }
   updateSlider(id: number){
@@ -93,5 +103,4 @@ export class SliderControlComponent {
       })
     }
   }
-
 }

@@ -92,7 +92,7 @@
       <div class="col-md-4 col-3 name-navi my-auto ">
         <p>Đường dẫn</p>
       </div>
-      <div class="col-md-2 col-2"></div>
+      <div class="col-md-2 col-2 name-navi my-auto text-center ">Chức năng</div>
     </div>
     <div class=" w-100  m-auto ">
       <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="mat-tree table ">
@@ -103,8 +103,8 @@
               (change)="onCheckChange($event, nav)">
             <div class="col-md-4 col-3"> {{ nav.name.toUpperCase() }}</div>
             <div class="col-md-4 col-3"> <a href="/{{nav.url}}" target="_blank" class="url-navi">{{nav.url}}</a></div>
-            <div class="col-md-2 col-2">
-              <i class=" mr-0 mr-sm-1 mr-md-2	fas fa-edit  icon-navi  " (click)="updateNavigation(nav.id)"></i>
+            <div class="col-md-2 col-2 text-center">
+              <i class=" mr-0 mr-sm-2 mr-md-3	fas fa-edit  icon-navi  " (click)="updateNavigation(nav.id)"></i>
               <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav.id)"></i>
             </div>
           </li>
@@ -121,8 +121,8 @@
 
             <div class="col-md-4 col-3">{{ nav.name.toUpperCase()}}</div>
             <div class="col-md-4 col-3"> <a href="/{{nav.url}}" target="_blank"></a></div>
-            <div class="col-md-2 col-2">
-              <i class="fas fa-edit  icon-navi mr-0 mr-sm-1 mr-md-2	 " (click)="updateNavigation(nav.id)"></i>
+            <div class="col-md-2 col-2 text-center">
+              <i class="fas fa-edit  icon-navi mr-0 mr-sm-2 mr-md-3	 " (click)="updateNavigation(nav.id)"></i>
               <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav.id)"></i>
             </div>
           </div>

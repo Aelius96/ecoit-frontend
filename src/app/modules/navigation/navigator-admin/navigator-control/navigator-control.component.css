@@ -29,16 +29,9 @@
 
 .icon-navi{
   cursor: pointer;
+  font-size: 18px;
 }
 
-.search{
-  border-radius: 5px;
-  height: 30px;
-  width: 110px;
-  align-items: center;
-  background-color: #EAEFF4;
-  border: 1px solid #F6F9FC;
-}
 
 .input-search:focus{
   color: black;
