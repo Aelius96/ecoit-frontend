@@ -36,7 +36,8 @@ constructor(private route:ActivatedRoute ,
     if(this.tokenStorageService.getToken()){
       this.username = this.tokenStorageService.getUser().username;
       this.userId = this.tokenStorageService.getUser().id;
-      this.comment.user.id = this.userId;
+      // this.comment.user.id = this.userId;
+      this.comment.userName = this.username
       console.log(this.comment)
       this.getPost();
     }
@@ -44,20 +45,20 @@ constructor(private route:ActivatedRoute ,
   }
 
  sendComment(){
-    // console.log(this.comment)
-    // this.commentService.creatComment(this.comment).subscribe(res=>{
-    //   this.toastService.success('Bình luận thành công', 'Thành Công!');
-    // //  setTimeout(() => {
-    // //   location.reload()
-    // //  }, 1000);
-    // console.log(res)
-    // },
-    // error=>{
-    //   this.toast.showWarning(error.error)
-    //   console.log(error)}
-    // )
+    console.log(this.comment)
+    this.commentService.creatComment(this.comment).subscribe(res=>{
+      this.toastService.success('Bình luận thành công', 'Thành Công!');
+     setTimeout(() => {
+      location.reload()
+     }, 1000);
+    console.log(res)
+    },
+    error=>{
+      this.toast.showWarning(error.error)
+      console.log(error)}
+    )
     this.commentViewService.createComment(this.comment)
-    this.comment.content = ""
+    // this.comment.content = ""
     setTimeout(() => {
       location.reload()
     }, 1000);

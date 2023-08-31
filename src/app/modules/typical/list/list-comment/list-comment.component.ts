@@ -40,7 +40,8 @@ constructor(
     if(this.tokenStorageService.getToken()){
       this.username = this.tokenStorageService.getUser().username;
       this.userId = this.tokenStorageService.getUser().id;
-      this.comment.user.id = this.userId;
+      // this.comment.user.id = this.userId;
+      this.comment.userName = this.username
       console.log(this.userId)
     }
       this.getAllCommentAdminWithPage()

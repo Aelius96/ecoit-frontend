@@ -100,8 +100,10 @@
                   <div class="d-flex ml-1 ml-lg-3 ml-md-2 ">
                     <img class="mr-1 mr-md-2 w-20 my-auto " src="./assets/images/avt.jpg" alt="">
                     <div class="text-left my-auto pos-title ">
-                      <span> <b> {{cmt.user.username}}</b></span>
-                      <p>{{cmt.user.email}}</p>
+                      <!-- <span> <b> {{cmt.user.username}}</b></span>
+                      <p>{{cmt.user.email}}</p> -->
+                      <span> <b> {{cmt.userName}}</b></span>
+                      <p>{{cmt.userName}}</p>
                     </div>
                   </div>
                 </div>
@@ -150,7 +152,8 @@
                       <div class="img-comment d-flex flex-column">
                         <img class=" w-50  " src="./assets/images/avt.jpg" alt="">
                         <span class="pos-title" >
-                          {{cmt.user.username}}
+                          <!-- {{cmt.user.username}} -->
+                          {{cmt.userName}}
                         </span >
                         <span class="pos-title" >{{cmt.date}}</span>
                       </div>
@@ -163,7 +166,8 @@
                         <a class="btn-link edit-child me-2 me-md-3 " (click)="addParentId(cmt.id,cmt.post.id)" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseExample"
                           href="#{{cmt.id}}parent"> Trả lời</a>
                         <a class="btn-link me-2 me-md-3 edit-child " data-bs-toggle="collapse" href="#reply{{cmt.id}}">Ẩn</a>
-                        <span *ngIf="userId == cmt.user.id ">
+                        <!-- <span *ngIf="userId == cmt.user.id "> -->
+                          <span *ngIf="username == cmt.userName ">
                           <a class="edit-child   " data-toggle="collapse" href="#{{cmt.id}}editparent">Chỉnh sửa</a>
                         </span>
                       </div>
@@ -185,7 +189,8 @@
                                   <div class="img-comment d-flex " style="margin: 0px;">
                                     <img src="./assets/images/avt.jpg" class="w-25" alt="">
                                     <div class="text-left my-auto ml-1">
-                                      <span> <b> {{cmtChild.user.username}}</b></span>
+                                      <!-- <span> <b> {{cmtChild.user.username}}</b></span> -->
+                                      <span> <b> {{cmtChild.userName}}</b></span>
                                       <p>{{cmtChild.date}}</p>
                                     </div>
                                   </div>
@@ -195,7 +200,8 @@
                                 <p class="child-content">{{cmtChild.content}}</p>
                               </div>
                               <div class="col-md-2 col-2 d-flex flex-column">
-                                <div *ngIf="userId == cmtChild.user.id ">
+                                <!-- <div *ngIf="userId == cmtChild.user.id "> -->
+                                  <div *ngIf="username == cmtChild.userName ">
                                   <a data-toggle="collapse" href="#{{cmtChild.id}}editChild"><span class="edit-child" >Chỉnh sửa</span></a>
                                 </div>
                                 <a *ngIf="cmtChild.status ; else hien" (click)="DisableChild(cmtChild.id)"><span

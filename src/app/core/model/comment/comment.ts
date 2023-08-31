@@ -9,7 +9,7 @@ export class Comment {
     date:any;
     parentId:any;
     status:any;
-    user: User = new User();
+    userName : string
     // commentChild:any;
     post: Post = new Post();
     cate: Category = new Category();
