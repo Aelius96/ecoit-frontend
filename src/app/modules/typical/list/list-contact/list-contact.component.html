@@ -26,7 +26,7 @@
             <div class="menu-item ">
               <div class="d-flex my-auto">
                 <span class="my-auto mr-1">Số mục mỗi trang:</span>
-                <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="allContact"
                   [(pageSize)]="paging.size" class="my-auto"></app-page-size>
               </div>
             </div>
@@ -59,7 +59,7 @@
               <span class="my-auto mr-1">Số mục mỗi trang:</span>
             </li>
             <li class="border p-2" >
-              <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+              <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="allContact"
                   [(pageSize)]="paging.size" class="my-auto"></app-page-size>
             </li>
           </ul>

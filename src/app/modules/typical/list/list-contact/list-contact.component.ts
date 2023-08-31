@@ -23,12 +23,20 @@ export class ListContactComponent {
     size: 5,
     totalRecord: 0
   }
+  allContact : number
   active : any
 
   constructor(private contactService: ContactService) { }
 
   ngOnInit():void {
-    this.getAllContactPagesize();
+    const params = this.getParams(this.paging.page, this.paging.size , this.searchInput.input,this.active)
+    this.contactService.listAllsizePage(params).subscribe(res=>{
+      this.contactList=res.content;
+      this.allContact = res.totalElements
+      // this.paging.totalRecord = res.totalElements;
+      console.log(this.allContact)
+      }, 
+    )
   }
 
   getParams(page: number, pageSize: number,searchinput:string, active:boolean ): any {
@@ -53,13 +61,12 @@ export class ListContactComponent {
 
   getAllContactPagesize(): void {
   const params = this.getParams(this.paging.page, this.paging.size , this.searchInput.input,this.active)
-  console.log(this.active)
+  // console.log(this.active)
   console.log(params)
     this.contactService.listAllsizePage(params ).subscribe(res=>{
       this.contactList=res.content;
       this.paging.totalRecord = res.totalElements;
-      console.log(this.contactList)
-      },
+      }, 
     )
   }
   refresh() {
