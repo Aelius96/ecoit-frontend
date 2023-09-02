@@ -12,7 +12,6 @@ import {User} from "../../core/model/user/user";
 })
 export class LoginComponent {
   form: any = {};
-
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = "";
@@ -31,12 +30,13 @@ export class LoginComponent {
 
   onSubmit(): void{
     this.authService.login(this.form).subscribe(data =>{
+
+
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
         this.isLoggedIn = true;
         this.isLoginFailed = false;
         this.roles = this.tokenStorage.getUser().roles;
-        this.errorMessage ="Đăng Nhập Thành Công"
         this.reloadPage();
       },
       err => {

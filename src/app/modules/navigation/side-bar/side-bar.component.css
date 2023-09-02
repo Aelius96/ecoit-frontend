@@ -3,14 +3,6 @@
   color: #50b848;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-.hover_style_link:hover{
- color: black;
- margin-left: 10px;
- text-decoration: none;
-}
-.list{
-  padding: 15px;
-  padding-left: 0;
-  border-bottom: 1px solid #50b848;
+.hrr{
+  background-color: #50b848;
 }

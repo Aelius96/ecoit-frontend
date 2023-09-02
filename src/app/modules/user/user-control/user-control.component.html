@@ -1,148 +1,106 @@
 <div class="toolbar">
-  <div class="container">
-    <div class="d-none d-lg-block ">
-      <div class="d-flex  justify-content-between header-menu ">
-        <div class="left-d-flex">
-          <div class="d-flex">
-            <form (ngSubmit)="search()" class="d-flex">
-              <input class="searchinput mr-1" type="text" [(ngModel)]="searchInput" name="searchInput"
-                placeholder="Tìm kiếm">
-              <div class="input-group-append ">
-                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="right-d-flex my-auto ">
-          <div class="d-flex ">
-            <div class=" ">
-              <div class="d-flex my-auto ">
-                <span class="mr-1 my-auto">Số mục mỗi trang:</span>
-                <app-page-size (pageSizeChange)="handlepagesizechange($event)" [totalRecords]="paging.totalRecord"
-                  [(pageSize)]="paging.size "></app-page-size>
-              </div>
-            </div>
-            <div class="my-auto">
-              <a routerLink="add" class="ht-btn-custom mx-3 " title="Thêm mới"><i
-                  class="fas fa-file-plus fa-lg"></i></a>
-              <a class="ht-btn-custom " title="Nhật kí" routerLink="../history" routerLinkActive="active">
-                <i class="fas fa-history fa-lg">
-                </i>
-              </a>
-            </div>
+    <div class="d-flex  justify-content-between header-menu ">
+      <div class="left-d-flex">
+        <div class="d-flex">
+          <h5 class="h5" style="width:auto">Tài khoản</h5>
+          <input type="text " class="form-control "  placeholder="Viết gì đó ...">
+          <div class="input-group-append inputt" >
+            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+
           </div>
         </div>
       </div>
-    </div>
-    <!-- mobile -->
-    <div class="d-block d-lg-none text-end ">
-      <div class="btn-group dropstart">
-        <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa fa-bars"></i>
-        </div>
-        <ul class="dropdown-menu p-0">
-          <li class="border p-2"  >
-            <form (ngSubmit)="search()" class="d-flex">
-              <input class="searchinput mr-1 w-75 " type="text" [(ngModel)]="searchInput" name="searchInput"
-                placeholder="Tìm kiếm">
-              <div class="input-group-append ">
-                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-              </div>
-            </form>
-          </li>
-          <li  class="border p-2 text-center "  >
-            <span class="my-auto">Số mục mỗi trang:</span>
-          </li>
-          <li class="border p-2"  >
-            <app-page-size (pageSizeChange)="handlepagesizechange($event)" [totalRecords]="paging.totalRecord"
-                  [(pageSize)]="paging.size "></app-page-size>
-          </li>
-          <li class="border p-2">
-            <div class="d-flex" routerLink="add">
-              <span class="mx-auto">Thêm mới </span>
-              <a class="ht-btn-custom mx-auto " title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i>
-              </a>
+      <div class="right-d-flex">
+        <div class="d-flex  flex-wrap">
+          <div class="menu-item ">
+            <div class="d-flex">
+              <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
+              <select class="custom-select">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+              </select>
             </div>
-          </li>
-          <li class="border p-2">
-            <div class="d-flex" routerLink="../history" title="Nhật kí"  >
-              <span class="mx-auto">Nhật kí</span>
-              <a class="ht-btn-custom mx-auto " title="Nhật kí"><i class="fas fa-history fa-lg">
+          </div>
+          <div class="menu-item">
+            <a routerLink="add"  class="ht-btn-custom"   title="Thêm mới"><i class="fas fa-file-plus fa-lg"></i></a>
+            <a style="margin-left: 20px;" title="Nhật kí" routerLink="../history" routerLinkActive="active">
+              <i class="fas fa-history fa-lg">
               </i>
-              </a>
-            </div>
-          </li>
-        </ul>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 </div>
 
-<div class=" section-space--mt_100">
+<div class="" style="padding: 90px;">
   <div class="container">
-    <div class="title-conten">
-      <p class="text-title">NGƯỜI DÙNG</p>
-      <table class="table section-space--mt_30 ">
-        <thead style="position: sticky;top: 0 ; z-index: 1;">
-          <tr>
-            <th scope="col" style="width: 15%;">Tên đăng nhập</th>
-            <th class="" scope="col">Tên</th>
-            <th class="" scope="col">Email </th>
-            <th class="" scope="col">Trạng thái</th>
-            <th class="" scope="col">Quyền</th>
-            <th class="" scope="col">Chức năng</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let user of users  | paginate:{
-            id:'user',
-            itemsPerPage: paging.size,
-            currentPage: paging.page,
-            totalItems: paging.totalRecord};">
-          <tr>
-            <td style="width:15% ">
-              {{user.username}}
-            </td>
-            <td class="w-25">
-              <p class="des-post ">{{user.lastName}}
-              </p>
-            </td>
-            <td class="text-center">
-              <p>{{user.email}}</p>
-            </td>
-            <td class="text-center" *ngIf="user.active; else notWorking">
-              <span style="color: #31A24C">
-                <i class="fas fa-circle fa-xs"></i>
-              </span>
-              <span class="ml-1">Hoạt động</span>
-            </td>
-            <ng-template #notWorking>
-              <td>
-                <span style="color: #d11616">
-                  <i class="fas fa-circle fa-xs"></i>
+    <div class="detail">
+      
+        <div class="header-user">
+          <!-- <span class="status status_user">User</span>
+          <span class="status status_mod">Mod</span>
+          <span class="status status_admin">Admin</span> -->
+          <p class="user" >Người Dùng</p>
+        </div>
+        <hr style="margin-top:0px;">
+
+        <table class="table table-striped" id="myTable">
+          <thead>
+            <tr>
+              <td>Tên đăng nhập</td>
+              <td>Họ</td>
+              <td>Tên</td>
+              <td>Email</td>
+              <td>Trạng thái</td>
+              <td>Quyền</td>
+
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+
+              <tr *ngFor="let user of users">
+                <th scope="row">{{user.username}}</th>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td *ngIf="user.active; else notWorking">
+                <span style="color: #31A24C">
+                    <i class="fas fa-circle fa-xs"></i>
+                  </span>
+                  <span class="ml-1">Hoạt động</span>
+                </td>
+                <ng-template #notWorking>
+                  <td>
+                  <span style="color: #d11616">
+                      <i class="fas fa-circle fa-xs"></i>
+                    </span>
+                    <span class="ml-1"> Không hoạt động</span>
+                  </td>
+                </ng-template>
+                <td>
+                  <span *ngIf="user.role">
+                    <app-tag-role *ngFor="let role of user.role" [codeRole]="role.name"></app-tag-role>
+                  </span>
+                </td>
+                <!-- chỉnh css cho list user-->
+                <td style="text-align: end;">
+                  <span  class="icon status_admin icon-edit" ><a  class="icon-item" (click)="updateUser(user.id)"><i class="fas fa-pen i"></i></a></span>
+                  <span class="icon icon-remove" >
+                  <a class="icon-item" (click)="deleteUser(user.id)" ><i class="fas fa-trash-alt remove i"></i></a>
                 </span>
-                <span class="ml-1"> Không hoạt động</span>
-              </td>
-            </ng-template>
-            <td class="text-center">
-              <span *ngIf="user.role">
-                <app-tag-role *ngFor="let role of user.role" [codeRole]="role.name"></app-tag-role>
-              </span>
-            </td>
-            <td style="text-align: center;">
-              <button class="icon status_admin icon-edit me-0 me-md-2 "><a class="icon-item" (click)="updateUser(user.id)"><i
-                    class="fas fa-pen i"></i></a></button>
-              <button class="icon icon-remove  mt-2 mt-md-0 ">
-                <a class="icon-item" (click)="deleteUser(user.id)"><i class="fas fa-trash-alt remove i"></i></a>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="row" style="margin-top: 10px;" *ngIf="paging.totalRecord>0">
-      <div class="col-md-3">
-        <pagination-controls [id]="'user'" previousLabel="<" nextLabel=">" (pageChange)="handlepagechange($event)"
-          [maxSize]="paging.totalRecord"></pagination-controls>
+                  <span class="icon icon-history"  >
+                  <a class="icon-item" > <i class="fa fa-info fas i" ></i></a>
+                </span>
+                </td>
+              </tr>
+
+          </tbody>
+        </table>
       </div>
-    </div>
+    
   </div>
+</div>

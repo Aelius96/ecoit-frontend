@@ -1,0 +1,50 @@
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="update_box">
+          <span><strong>Ảnh bìa</strong></span>
+          <div class="image">
+            <img src="{{url}}" alt="" appHideMissing>
+          </div>
+          <input type="file" value="select" (change)="thumbnailChange($event)">
+        </div>
+        <div class="update_box">
+          <span><strong>Mô tả</strong></span>
+          <input type="text" [(ngModel)]="news.description" name="description">
+        </div>
+        <div class="update_box">
+          <span><strong>Thẻ</strong></span>
+          <select >
+            <option>--Loại--</option>
+          </select>
+        </div>
+        <div class="submit-button">
+          <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
+          <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToNewsList()"  >Hủy</button>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="update_box">
+          <span><strong>Tiêu đề</strong></span>
+          <input type="text" name="title" [(ngModel)]="news.title" required>
+        </div>
+        <div class="update_box">
+          <span><strong>Nội dung</strong></span>
+          <div class="ckeditorContaniner" id="editor">
+            <ckeditor [(ngModel)]="news.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<!--<script>-->
+<!--  InlineEditor-->
+<!--    .create( document.querySelector( '#editor' ) )-->
+<!--    .catch( error => {-->
+<!--      console.error( error );-->
+<!--    } );-->
+<!--</script>-->

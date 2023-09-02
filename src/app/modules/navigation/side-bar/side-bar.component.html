@@ -1,15 +1,17 @@
-<div class="">
+<div class="col-md-3">
+  <div class="scrol_fit">
     <div class="col_right">
-      <ul style="margin-top: 30px; margin-bottom: 30px; padding: 0px; position: relative;" >
-        <li *ngFor = "let infor of informations" class="list" >
+      <ul style="margin-top: 30px; margin-bottom: 30px; position: relative;" >
+        <li *ngFor = "let infor of informations" class="list" style="padding-top: 0px ;">
           <a href="{{infor.href}}" class="hover_style_link">{{infor.title}}</a>
-          
+          <hr class="hrr" >
         </li>
       </ul>
     </div>
-    <div class="mb-5">
-      <a href="/tuyen-dung" >
-        <img src="./assets/images/recruit.jpg" alt="" style=" max-width: 100%; height: auto;">
+    <div class="image_right">
+      <a href="#">
+        <img src="https://ecoit.asia/wp-content/uploads/2019/08/tuyendung.jpg" alt="" style=" max-width: 100%; height: auto;">
       </a>
     </div>
+  </div>
 </div>

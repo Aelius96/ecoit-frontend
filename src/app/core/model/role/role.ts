@@ -1,10 +1,5 @@
-import { Module } from "../module/module";
-import { Permission } from "../permission/permission";
-import { User } from "../user/user";
-
 export class Role {
-  id : number;
+  id : any;
   name : string;
   selected = false;
-  module : Module[];
 }

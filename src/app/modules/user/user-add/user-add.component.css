@@ -1,4 +1,9 @@
-
+.toolbar{
+  height: 65px;
+  background-color: white;
+  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
+  border-top: 1px solid #eff2f5;
+}
 .header-menu{
   padding: 10px 15px 0px 12px;
   text-align: center;
@@ -56,7 +61,7 @@
 /* ------ Add-more ------------------------ */
 .user-content{
   width: 100%;
-
+  margin-top: 30px;
 }
 
 .Set-pop{
@@ -102,24 +107,23 @@
   color: #f00;
 }
 
-
+.user-footer{
+  justify-content: flex-start;
+}
 .save-btn{
   border: none;
   cursor: pointer;
-  color: #ffffff;
+  color: #51c045;
+  margin: 0 30px;
+  font-size: 20px;
+  padding: 10px 15px;
+  border-radius: 5px;
 }
 
 .save-btn:hover{
-  background-color: #5545c0;
+  background-color: #51c045;
   color: #fff;
 }
 label{
   color: #1a1a1a;
-}
-.title-add{
-  text-transform: capitalize;
-  color: #50b848;
-  font-size: 30px;
-  font-weight: bold;
-  text-align: center;
 }

@@ -7,7 +7,4 @@ import { Component } from '@angular/core';
 })
 export class ErrorComponent {
 
-  goback():void{
-    window.history.back();
-  }
 }

@@ -1,64 +1,46 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="formProduct" encformProducttype="multipart/form-data">
-  <div class="container">
-    <div class="row w-100 mx-auto ">
-      <div class="col-lg-4">
-        <div class="update_box">
-          <span><strong>Ảnh bìa</strong></span>
-          <div class="image">
-            <img src="{{imageURL}}" alt="" appHideMissing>
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="update_box">
+            <span><strong>Ảnh bìa</strong></span>
+            <div class="image">
+              <img  src="{{url}}" alt="" appHideMissing>
+            </div>
+            <input type="file" value="select" (change)="imageChange($event)">
           </div>
-          <input type="file" value="select" (change)="imageChange($event)">
-        </div>
-        <div class="update_box2">
-          <span><strong>Tên</strong></span>
-          <input type="text" formControlName="title" id="title" name="title" (change)="changeTitle()"
-            [ngClass]="{'text-input':istitle,'borderError':!istitle}">
-        </div>
-        <div class="update_box">
-          <span><strong>Mô tả</strong></span>
-          <textarea style="height: 120px" id="description" formControlName="description" (change)="changDes()"
-            [ngClass]="{'text-input':isDes,'borderError':!isDes}" name="description"></textarea>
-        </div>
-        <div class="update_box">
-          <span><strong>Thẻ tag</strong></span>
-        </div>
-        <mat-form-field class="example-chip-list w-100 ">
-          <mat-chip-grid #chipGrids aria-label="Fruit selection">
-            <mat-chip-row *ngFor="let hashtag of products.hashtags" (removed)="remove(hashtag)"
-              style="background-color: #b4b4b473">
-              {{hashtag.name}}
-              <button matChipRemove [attr.aria-label]="'remove ' + hashtag.name">
-                <mat-icon>cancel</mat-icon>
-              </button>
-            </mat-chip-row>
-          </mat-chip-grid>
-          <input placeholder="Nhập thẻ tag..." #hashtagInputP formControlName="hashtagCtrl"
-            [matChipInputFor]="chipGrids" [matAutocomplete]="auto" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            (matChipInputTokenEnd)="addHashtag($event)" />
-          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-            <mat-option *ngFor="let hashtag of filteredHashtag | async" [value]="hashtag.name">
-              {{hashtag.name}}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-      </div>
-      <div class="col-lg-8">
-        <div class="update_box" >
-          <span><strong>Nội dung</strong></span>
-          <div [ngClass]="{'text-input':iscontent,'borderError':!iscontent}">
-          <div class="ckeditorContaniner" id="editor">
-            <!--            <ckeditor [editor]="Editor"  [data]="new.content"></ckeditor>-->
-            <ckeditor id="content" [(ngModel)]="content"
-              [ngModelOptions]="{standalone: true}" [config]="ckeConfig" (change)="changeContent()"></ckeditor>
+          <div class="update_box">
+            <span><strong>Tên</strong></span>
+            <input type="text" [(ngModel)]="products.name"  name="name">
+          </div>
+          <div class="update_box">
+            <span><strong>Mô tả</strong></span>
+            <textarea style="height: 120px" [(ngModel)] = "products.description" name="description"></textarea>
+          </div>
+          <div class="submit-button">
+            <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
+            <button type="button" class="btn btn-secondary btn-lg btnn cancel"  (click)="backToProductList()">Hủy</button>
           </div>
         </div>
-        <div class="submit-button mt-2 mt-md-4">
-          <button type="submit" class="btn btn-primary btn-lg mr-4 w-25">Lưu</button>
-          <button type="button" class="btn btn-secondary btn-lg  cancel mr-2 w-25"
-            (click)="backToProductList()">Hủy</button>
+        <div class="col-lg-8">
+
+          <div class="update_box">
+            <span><strong>Nội dung</strong></span>
+            <div class="ckeditorContaniner" id="editor">
+  <!--            <ckeditor [editor]="Editor"  [data]="new.content"></ckeditor>-->
+              <ckeditor [(ngModel)]="products.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" ></ckeditor>
+            </div>
+          </div>
         </div>
-      </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
+
+
+  <!--<script>-->
+  <!--  InlineEditor-->
+  <!--    .create( document.querySelector( '#editor' ) )-->
+  <!--    .catch( error => {-->
+  <!--      console.error( error );-->
+  <!--    } );-->
+  <!--</script>-->

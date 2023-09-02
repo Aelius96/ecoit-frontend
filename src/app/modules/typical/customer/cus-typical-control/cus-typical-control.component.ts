@@ -3,8 +3,6 @@ import {TokenStorageService} from "../../../../services/token-storage/token-stor
 import {CustomerTypicalService} from "../../../../services/customer-typical/customer-typical.service";
 import {CusTypical} from "../cus-typical";
 import { Router } from '@angular/router';
-import {Constant} from "../../../../core/config/constant";
-import {Domain} from "../../../../core/domain/domain";
 
 @Component({
   selector: 'app-cus-typical-control',
@@ -15,23 +13,17 @@ export class CusTypicalControlComponent implements OnInit{
 
   cusTypical: CusTypical[] = [];
   role: string;
-  // pageSizes = [5, 10, 25];
+  pageSizes = [5, 10, 25];
   totalPages: number;
   searchInput= '';
-  baseURL=Constant.BASE_URL;
-  customerURL = Domain.CUSTOMER;
-  typCustomerURL = Domain.CUSTYPICAL;
+
   paging = {
     page: 1,
-    size: 5,
+    size: 6,
     totalRecord: 0
   }
   constructor(private cusTypicalService:CustomerTypicalService, private tokenStorageService: TokenStorageService ,
                 private router:Router,) {
-  }
-
-  ExStyle = {
-    'border-top-left-radius': '10px'
   }
 
   ngOnInit(): void {
@@ -45,7 +37,7 @@ export class CusTypicalControlComponent implements OnInit{
     let params: any = {};
 
     if (page) {
-      params[`pageNo`] = page;
+      params[`pageNo`] = page-1;
     }
 
     if (pageSize) {
@@ -103,7 +95,6 @@ export class CusTypicalControlComponent implements OnInit{
 
   // customer/cus-typical
   // customer/cus-typical/update/${id}
-
   updateTC(id : number){
       this.router.navigate([`admin/customer/cus-typical/update/${id}`]);
  }

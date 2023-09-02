@@ -1,12 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {News} from "../../../core/model/news/news";
 import {NewsService} from "../../../services/news/news.service";
-import {Post} from "../../../core/model/post/post";
-import {PostService} from "../../../services/post/post.service";
-import {Contact} from "../../../core/model/contact/contact";
-import {Constant} from "../../../core/config/constant";
-import { Domain } from 'src/app/core/domain/domain';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-list',
@@ -14,62 +8,57 @@ import { Router } from '@angular/router';
   styleUrls: ['./news-list.component.css']
 })
 export class NewsListComponent implements OnInit{
-  baseURL = Constant.BASE_URL;
-  postURL = Domain.POST;
-  postList : Post[] = [];
 
+  newsList : News[] = [];
+
+  page = 1;
+  count = 0;
+  pageSize = 9;
+  searchInput = '';
+  totalPages: number;
   paging = {
     page: 1,
     size: 9,
     totalRecord: 0
   }
 
-  category = 'news';
-
-  constructor(private postService: PostService,
-              private router: Router) {
+  constructor(private newsService: NewsService) {
   }
 
   ngOnInit(): void {
-    // this.getListAllWithPage();
-    this.getListAllWithPageTest();
-
+    this.getListAllWithPage();
   }
 
-  //post
-  getRequestParamsTest(page: number, category: string): any {
+  // public listAll(){
+  //   this.newsService.listAll().subscribe(data =>{
+  //     this.newsList = data;
+  //   })
+  // }
+
+  getRequestParams(page: number): any {
     let params: any = {};
     if (page) {
       params[`pageNo`] = page-1;
     }
-    if(category){
-      params[`category`] = category;
-    }
-    return params;
   }
 
-  getListAllWithPageTest(): void {
-    const params = this.getRequestParamsTest(this.paging.page,this.category);
-    this.postService.listAllWithPageHome(params)
+  getListAllWithPage(): void {
+    const params = this.getRequestParams(this.paging.page);
+    this.newsService.listAllWithPageHome(params)
       .subscribe(
         response => {
-          this.postList = response.content;
+          this.newsList = response.content;
           this.paging.totalRecord = response.totalElements;
 
-          // console.log(response);
-          // console.log(this.category);
+          console.log(response);
         },
         error => {
           console.log(error);
         });
   }
 
-  handlePageChangeTest(event: number): void {
-    this.paging.page = event;
-    this.getListAllWithPageTest();
-  }
-  viewDetail(url : string) {
-    const queryParams  = {url : url}
-    this.router.navigate(["/tin-tuc/chi-tiet"],{queryParams})
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.getListAllWithPage();
   }
 }

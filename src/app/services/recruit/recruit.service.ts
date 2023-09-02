@@ -17,18 +17,20 @@ export class RecruitService{
     return this.http.get(`${this.baseUrl}/recruit`,{params})
   }
   listAllWithPageHome(params: any): Observable<any>{
-    return this.http.get(`${this.baseUrl}/recruit/home`,{params})
+    return this.http.get(`${this.baseUrl}/home/recruit`,{params})
   }
   public listAll(): Observable<Recruit[]>{
-    return this.http.get<Recruit[]>(`${this.baseUrl}/recruit/home/show`)
+    return this.http.get<Recruit[]>(`${this.baseUrl}/home/recruit/show`)
   }
 
   public addRecruitNews(recruit: FormData): Observable<Object>{
     return this.http.post<Recruit>(`${this.baseUrl}/recruit/add`,recruit)
   }
-
+  // public getNewsByUrl(url: any): Observable<News>{
+  //   return this.http.get<News>(`${this.baseUrl}/home/news/${url}`);
+  // }
   public getRecruitUrl(url:any):Observable<Recruit>{
-    return this.http.get<Recruit>(`${this.baseUrl}/recruit/home/${url}`);
+    return this.http.get<Recruit>(`${this.baseUrl}/home/recruit/${url}`);
   }
   public getRecruitId(id: number): Observable<Recruit>{
     return this.http.get<Recruit>(`${this.baseUrl}/recruit/${id}`);

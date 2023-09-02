@@ -3,8 +3,6 @@ import { CusTypical } from '../cus-typical';
 import { CustomerTypicalService } from 'src/app/services/customer-typical/customer-typical.service';
 import { Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
-import {Constant} from "../../../../core/config/constant";
-import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-cus-typical-home',
@@ -14,9 +12,6 @@ import { Domain } from 'src/app/core/domain/domain';
 export class CusTypicalHomeComponent implements OnInit {
 
   cusTypical: CusTypical[] = [];
-  baseURL = Constant.BASE_URL;
-  customerURL = Domain.CUSTOMER;
-  typCustomerURL = Domain.CUSTYPICAL;
   constructor(private cusTypicalService:CustomerTypicalService, ) {
 }
   ngOnInit(): void {
@@ -29,5 +24,20 @@ getAllList():void{
   })
 }
 
+// nums: Number[] = [];
 
+// constructor(private numberService: NumberService) { }
+
+// ngOnInit() {
+//   this.getAllNumber();
+// }
+
+// public getAllNumber(): void {
+//   this.numberService.getAllNumber().subscribe(
+//     (response:Number[]) => {
+//       this.nums = response;
+//       console.log(this.nums);
+//     }
+//   );
+// }
 }

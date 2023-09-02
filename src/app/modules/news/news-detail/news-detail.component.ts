@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {News} from "../../../core/model/news/news";
 import {NewsService} from "../../../services/news/news.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";
-import {PostService} from "../../../services/post/post.service";
-import {Post} from "../../../core/model/post/post";
-import { Constant } from 'src/app/core/config/constant';
 
 @Component({
   selector: 'app-news-detail',
@@ -13,31 +10,25 @@ import { Constant } from 'src/app/core/config/constant';
   styleUrls: ['./news-detail.component.css']
 })
 export class NewsDetailComponent implements OnInit{
-  baseURL = Constant.BASE_URL;
+
   url: any;
   content:any;
-  post :Post = new Post();
+  roll: any;
+  news :News = new News();
 
-  constructor(private postService: PostService,
-              private route: ActivatedRoute,
-              private router:Router,
-              private sanitizer : DomSanitizer ) {}
+  constructor(private newsService: NewsService, private route: ActivatedRoute,private sanitizer : DomSanitizer ) {}
 
   ngOnInit(): void {
     this.getList();
   }
 
   getList(){
-    // this.url = this.route.snapshot.params['url'];
-    this.url = this.route.snapshot.queryParams['url'];
-    this.postService.getPostByUrl(this.url).subscribe(data => {
-      this.post = data;
-      // console.log(data)
-      document.title = this.post.title;
-      this.content = this.sanitizer.bypassSecurityTrustHtml(this.post.content);
+    this.url = this.route.snapshot.params['url'];
+    this.newsService.getNewsByUrl(this.url).subscribe(data => {
+      this.news = data;
+      document.title = this.news.title;
+      this.content = this.sanitizer.bypassSecurityTrustHtml(this.news.content);
     })
   }
-  searchByHashtag(tag : string) {
-    this.router.navigate(["/tag/"+tag])
-  }
+
 }

@@ -1,178 +1,108 @@
 <div class="toolbar">
-  <div class="container">
-    <!-- mobile -->
-    <div class="d-lg-none d-block text-end ">
-      <div class="btn-group dropstart">
-        <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa fa-bars"></i>
-        </div>
-        <ul class="dropdown-menu p-0">
-          <li class="border p-2 ">
-            <button routerLink="add" class="btn btnthem w-100">
-              <!-- <i class="fas fa-file-plus fa-lg"></i> -->
-              <span>Thêm</span>
-            </button>
-          </li>
-          <li class="border p-2">
-            <button class="btn bg-success w-100" *ngIf="target.active; else elseButton" (click)="hideImage(target.id)">
-              <!-- <i class="far fa-eye-slash"></i> -->
-              <span>Ẩn ảnh</span>
-            </button>
-            <ng-template #elseButton>
-              <button class="btn bg-warning w-100" (click)="show(target.id)">
-                <!-- <i class="far fa-eye"></i> -->
-                <span>Hiện ảnh</span>
-              </button>
-            </ng-template>
-          </li>
-          <li class="border p-2">
-            <button (click)="updateSlider(target.id)" class="btn btn-primary w-100">
-              <!-- <i class="far fa-pen"></i> -->
-              <span>Sửa</span>
-            </button>
-          </li>
-          <li class="border p-2">
-            <button (click)="deleteImage(target.id)" class="btn bg-danger w-100">
-              <!-- <i class="far fa-trash-alt"></i> -->
-              <span>Xóa</span>
-            </button>
-          </li>
-          <li class="border p-2">
-            <button title="slide" (click)="chuyenslide()" class="btn btn-info w-100">
-              <span>Chuyển chế độ</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="galley section-space--mt_100 ">
-  <div class="container">
-    <p class="text-title text-uppercase">{{title}}</p>
-    <div class="hienthi section-space--mt_30  d-flex">
-      <!--ben trai -->
-      <div class="hienthi-left col-lg-8 col-12 row">
-        <div *ngIf="isslider; then img;else slide"></div>
-        <ng-template #img>
-          <div class="col-12">
-            <img src="{{imageURL}}" alt=""
-              [ngClass]="{'w-100':true,'h-100':true,'max-h':true,'opacity':!target.active}">
-          </div>
-        </ng-template>
-        <ng-template #slide>
-          <div id="carouselExampleInterval" class="carousel slide col-12" data-bs-ride="carousel">
-            <div class="carousel-inner row">
-              <div class="carousel-item" [class]=" i==0 ? 'active ' : '' " *ngFor="let item of slider2 ; let i = index;"
-                data-bs-interval="3000">
-                <img src="{{baseURL}}/{{sliderURL}}/image/{{item.name}}" class="h-100 w-100 max-h" alt=""
-                  (click)="choose(item)">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-              data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-              data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </ng-template>
-      </div>
-      <!-- ben phai -->
-      <div class="hienthi-right col-md-3 col-4 d-none d-lg-block ">
-        <p class="text-center chuc-nang mt-3 mb-0">Thông tin</p>
-        <div class="select-content-box" style="line-height: 250%;">
-          <!-- <div class="select-content-item">
-              <span><strong>Id: </strong></span>
-              <span class="span2">{{target.id}}</span>
-            </div> -->
-          <div class="select-content-item">
-            <span><strong>Tên: </strong></span>
-            <span class="image-url-name span2" title="{{target.name}}">{{target.name}}</span>
-          </div>
-
-          <div class="select-content-item">
-            <span><strong>Đường dẫn: </strong></span>
-            <span class="image-url-name span2" title="{{baseURL}}{{target.url}}">{{baseURL}}{{target.url}}</span>
-          </div>
-
-          <!-- <div class="select-content-item">
-              <span><strong>Liên kết: </strong></span>
-              <span class="span2">{{target.link}}</span>
-            </div> -->
-
-          <div class="select-content-item">
-            <span><strong>Trạng thái: </strong></span>
-            <div *ngIf="target.active; else elseBlock">
-              <span style="color: #50b848">
-                <i class="fa fa-dot-circle fa-xs"></i>
-              </span>
-              <span class="ml-1 span2">Hoạt động</span>
-            </div>
-            <ng-template #elseBlock>
-              <p>
-                <span style="color: #e6c13d">
-                  <i class="fa fa-dot-circle fa-xs"></i>
-                </span>
-                <span class=" span2">Tạm ẩn</span>
-              </p>
-            </ng-template>
-          </div>
-        </div>
-        <p class="mt-0 text-center chuc-nang">Chức năng</p>
-        <div class="select-content-box">
-          <div class="action-box">
-            <button routerLink="add" class="btn btnthem">
-              <!-- <i class="fas fa-file-plus fa-lg"></i> -->
-              <span>Thêm</span>
-            </button>
-            <button class="btn bg-success" *ngIf="target.active; else elseButton" (click)="hideImage(target.id)">
-              <!-- <i class="far fa-eye-slash"></i> -->
-              <span>Ẩn ảnh</span>
-            </button>
-            <ng-template #elseButton>
-              <button class="btn bg-warning" (click)="show(target.id)">
-                <!-- <i class="far fa-eye"></i> -->
-                <span>Hiện ảnh</span>
-              </button>
-            </ng-template>
-            <button (click)="updateSlider(target.id)" class="btn btn-primary ">
-              <!-- <i class="far fa-pen"></i> -->
-              <span>Sửa</span>
-            </button>
-            <button (click)="deleteImage(target.id)" class="btn bg-danger">
-              <!-- <i class="far fa-trash-alt"></i> -->
-              <span>Xóa</span>
-            </button>
-            <button title="slide" (click)="chuyenslide()" class="btn btn-info">
-              <span>Chuyển chế độ</span>
-            </button>
-            <!-- <div class="w-100" >
-                <img class="logochuyenslide w-100 " title="slide" (click)="chuyenslide()"
-                  src="\assets\images\logoslide.jpg">
-              </div> -->
-          </div>
+    <div class="d-flex  justify-content-between header-menu ">
+      <div class="left-d-flex">
+        <div class="d-flex" >
+          <a class="control" style="width: 100px" routerLink="../slide"  routerLinkActive="active"><span style="font-weight: bolder;"  class="spann">Trình chiếu/</span></a>
+          <a class="control"   routerLink="../banner" routerLinkActive="active"  ><span class="spann">Banner</span></a>
+          
         </div>
       </div>
-    </div>
-    <div class="list_img row mt-20 ">
-      <div class=" col-10 mx-auto ">
-        <div class="card-body">
-          <ul class="nav {{flex}} nav-pills d-flex col-md-12">
-            <li class="nav-item selected backgroud" *ngFor="let slide of sliders">
-              <div class="team-image backgroud" [ngClass]="{'opacity':!slide.active}" (click)="choose(slide)"
-                id="{{slide.id}}">
-                <img class="img-fluid " src="{{baseURL}}/{{sliderURL}}/image/{{slide.name}}" alt="{{slide.name}}">
-              </div>
-            </li>
-          </ul>
+      <div class="right-d-flex">
+        <div class="d-flex  flex-wrap">
+          <div class="menu-item ">
+            
+          </div>
+          <div class="menu-item">
+            <!--  (click)="addTypicalNum()"-->
+            <a class="ht-btn-custom" routerLink="new"  title="Thêm tin mới"><i style="font-size: 25px;" class="fas fa-file-plus fa-lg"></i></a>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  
+<div class="slide d-flex">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="view-control">
+                    <div class="row" style="justify-content: center;">
+                        <div class="col-md-3">
+                            <div class="item ">
+                                <img src="./assets/images/ecoit.png" alt=""  class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="item ">
+                                <img src="./assets/images/ecoit.png" alt=""  class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="item ">
+                                <img src="./assets/images/ecoit.png" alt=""  class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-flex flex-column">
+                    <h3 style="color: #50b848; margin-top: 0px;">Thông tin</h3>
+    
+                    <div class="select-content-box">
+                      <div class="select-content-item">
+                        <span><strong>Id: </strong></span>
+                        <span>id</span>
+                      </div>
+    
+                      <div class="select-content-item">
+                        <span><strong>Tên: </strong></span>
+                        <span>name</span>
+                      </div>
+    
+                      <div class="select-content-item">
+                        <span><strong>Đường dẫn: </strong></span>
+                        <span class="image-url" title="url">url</span>
+                      </div>
+    
+                      <div class="select-content-item">
+                        <span><strong>Liên kết: </strong></span>
+                        <span>link</span>
+                      </div>
+    
+                      <div class="select-content-item">
+                        <span><strong>Trạng thái: </strong></span>
+                        <div >
+                            <span style="color: #50b848">
+                              <i class="fa fa-dot-circle fa-xs"></i>
+                            </span>
+                          <span class="ml-1">Hoạt động</span>
+                        </div>
+                        <ng-template #elseBlock>
+                            <span style="color: #e6c13d">
+                              <i class="fa fa-dot-circle fa-xs"></i>
+                            </span>
+                          <span>Tạm ẩn</span>
+                        </ng-template>
+                      </div>
+    
+                      <div class="action-box">
+                        <button class="btn bg-success" >
+                          <i class="far fa-eye-slash"></i>
+                        </button>
+                        <ng-template #elseButton>
+                          <button class="btn bg-warning" >
+                            <i class="far fa-eye"></i>
+                          </button>
+                        </ng-template>
+                        <button  class="btn">
+                          <i class="fa fa-pen"></i>
+                        </button>
+                        <button class="btn bg-danger"><i class="far fa-trash-alt"></i></button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,42 +1,35 @@
 import {Inject, Injectable} from "@angular/core";
 import {Constant} from "../../core/config/constant";
 import {HttpClient} from "@angular/common/http";
-import { Observable, Cons } from 'rxjs';
+import {Observable} from "rxjs";
 import { Number} from "../../modules/typical/number/number";
-import {Domain} from "../../core/domain/domain";
-import { ApiHelper } from "src/app/core/rest-api/api-helper";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NumberService {
-  JSON_PATH = '../../assets/json/'
-  constructor(private apiHelper: ApiHelper, private http : HttpClient) { }
+  private baseUrl = `${Constant.BASE_URL}`;
 
-  getListAllPage(params:any):Observable<any>{
-    return this.apiHelper.get( Constant.NUMBER_TYPICAL.GET_LIST_ALL_PAGE , {params})
+  constructor(private httpclient: HttpClient) {
   }
 
   getAllNumber(): Observable<Number[]>{
-    return this.apiHelper.get(Constant.NUMBER_TYPICAL.GET_ALL_NUMBER);
+    return this.httpclient.get<Number[]>(`${this.baseUrl}/number`);
   }
 
   public getNumberById(id: number): Observable<Number> {
-    return this.apiHelper.get( Constant.NUMBER_TYPICAL.GET_NUMBER_BY_ID + `/${id}`);
+    return this.httpclient.get<Number>(`${this.baseUrl}/number/${id}`);
   }
 
   public addNumber(number: Number): Observable<Object> {
-    return this.apiHelper.post( Constant.NUMBER_TYPICAL.ADD_NUMBER, number);
+    return this.httpclient.post(`${this.baseUrl}/number/add`, number);
   }
 
   public editNumber(number:Number, id:number): Observable<Object> {
-    return this.apiHelper.post(Constant.NUMBER_TYPICAL.EDIT_NUMBER +`/${id}`, number);
+    return this.httpclient.post(`${this.baseUrl}/number/edit/${id}`, number);
   }
 
-  public deleteNumber(id: number): Observable<any> {
-    return this.apiHelper.delete(Constant.NUMBER_TYPICAL.DELETE_NUMBER +`/${id}`);
-  }
-  getListIconJson(fileName : string) : Observable<any> {
-    return this.http.get(this.JSON_PATH + fileName)
+  public deleteNumber(id: number): Observable<void> {
+    return this.httpclient.get<void>(`${this.baseUrl}/number/delete/${id}`);
   }
 }

@@ -24,31 +24,3 @@ p{
     margin-bottom: 20px;
     text-align: justify;
 }
-
-@media only screen and (min-width: 1922px) and (max-width: 3800px) {
-  .banner {
-    height: 450px;
-  }
-}
-@media only screen and (min-width: 1368px) and (max-width: 1921px) {
-  .banner {
-    height: 300px;
-  }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1367px) {
-  .banner {
-    height: 250px;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-  .banner {
-    height: 220px;
-  }
-}
-@media screen and (max-width: 420px) {
-  .banner{
-      height: 180px;
-  }
-}

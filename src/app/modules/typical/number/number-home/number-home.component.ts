@@ -10,18 +10,18 @@ import {Number} from "../number";
 })
 export class NumberHomeComponent implements OnInit{
   nums: Number[] = [];
-  couter:number=0
+
   constructor(private numberService: NumberService) { }
 
   ngOnInit() {
     this.getAllNumber();
   }
 
-
   public getAllNumber(): void {
     this.numberService.getAllNumber().subscribe(
       (response:Number[]) => {
         this.nums = response;
+        console.log(this.nums);
       }
     );
   }

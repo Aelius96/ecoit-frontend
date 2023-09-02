@@ -1,61 +1,54 @@
-.formcustomeradd {
-  margin-top: 30px;
+.formcustomeradd{
+    margin-top: 30px;
 }
-
-.title-span {
-  font-size: 18px;
+.title-span{
+    font-size: 18px;
 }
-
-.image {
-  position: relative;
-  height: 210px;
-  width: 100%;
+ .image{
+    position: relative;
+    height: 210px;
+    width: 100%;
+  }
+.image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+.icon{
+    background: #f8f8f8;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    height: 200px;
 }
-
-.image img {
-  height: 100%;
-  width: 100%;
-  object-fit: fill;
+.box-icon{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    font-size: 48px;
+    line-height: 100px;
+    text-align: center;
+    background-color: #009cff;
+    color: #fff;
+    border-radius: 50%;
+    -webkit-transition: background-color 0.3s ease 0s;
+    -moz-transition: background-color 0.3s ease 0s;
+    transition: background-color 0.3s ease 0s;
 }
-
-.icon {
-  background: #f8f8f8;
-  border-radius: 5px;
-  border: 1px solid #eee;
-  height: 200px;
+.change-color{
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    width: 20px;
+    height: 22px;
+    padding: 0;
 }
-
-.box-icon {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  font-size: 48px;
-  line-height: 100px;
-  text-align: center;
-  background-color: #009cff;
-  color: #fff;
-  border-radius: 50%;
-  -webkit-transition: background-color 0.3s ease 0s;
-  -moz-transition: background-color 0.3s ease 0s;
-  transition: background-color 0.3s ease 0s;
-}
-
-.change-color {
-  cursor: pointer;
-  position: absolute;
-  bottom: 0;
-  right: 10px;
-  width: 20px;
-  height: 22px;
-  padding: 0;
-}
-
-.input-icon {
-  padding: 30px 5px 10px 0px;
+.input-icon{
+    padding: 30px 5px 10px 0px;
 
 }
 .input-text{
@@ -66,10 +59,6 @@
     border-radius: 5px;
     padding: 0 10px;
     height: 45px;
-}
-textarea:focus{
-  border: 1px solid #50B848;
-  color: #000000;
 }
 .cancel{
     background-color: #cccccc;
@@ -82,22 +71,6 @@ textarea:focus{
     margin-right: 15px;
   
   }
-.borderError {
-  border: 1px solid red;
-  color: black;
-}
+  
 
-.borderError:focus {
-  border: 1px solid red;
-  color: black;
-}
-
-.text-input {
-  border: 1px solid #50b848;
-  color: black;
-}
-
-select,
-option {
-  font-family: fontAwesome
-}
+ 

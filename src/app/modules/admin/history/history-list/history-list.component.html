@@ -3,14 +3,14 @@
     <div class="d-flex justify-content-between ">
         <div class="d-flex justify-content-start  head">
             <h5 class="h5">Nhật Ký</h5>
-            <div class="item-select" >
+            <div class="mr-1  item-select" >
                 <select class="custom-select" style="width: 120px" >
                   <option value="" [selected]="true">Phương thức</option>
                   <option>POST</option>
                   <option>GET</option>
                 </select>
               </div>
-              <div class=" item-select">
+              <div class="mx-1  item-select">
                 <select class="custom-select" style="width: 120px" >
                   <option value="" [selected]="true">Hoạt động</option>
                   <option>CREATE</option>
@@ -18,19 +18,28 @@
                   <option>DELETE</option>
                 </select>
               </div>
-              <div class=" item-select">
+              <div class="mx-1  item-select">
                 <select class="custom-select" style="width: 120px" >
                   <option value="" [selected]="true">Người thực hiện</option>
                   <option >người 1</option>
                 </select>
               </div>
-              <div class=" item-select">
+              <div class="mx-1  item-select">
                 <select class="custom-select" style="width: 120px" >
                   <option value="" [selected]="true">Trang</option>
                 </select>
               </div>
-             
-              <div  class=" item-select " >
+              <div class="ml-2  item-select icon-head" >
+                <a class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Lọc">
+                  <i class="far fa-filter fa-lg"></i>
+                </a>
+              </div>
+              <div class="ml-3  item-select icon-head" >
+                <a class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Đặt lại">
+                  <i class="far fa-undo-alt fa-lg"></i>
+                </a>
+              </div>
+              <form  class=" item-select ml-1" >
                 <select class="custom-select " style="width: 120px">
                   <option value="" [selected]="true">Sắp xếp theo</option>
                   <option value="date">Thời gian</option>
@@ -39,13 +48,13 @@
                   <option value="user">Người thực hiện</option>
                   <option value="type">Hoạt động</option>
                 </select>
-              </div>
-              <div class=" item-select " >
+              </form>
+              <div class="ml-1 item-select icon-head" >
                 <a class="ht-btn-custom">
                   <i class="far fa-sort-alpha-down fa-lg"></i>
                 </a>
               </div>
-              <div class=" item-select " >
+              <div class="ml-2 item-select icon-head" >
                 <a class="ht-btn-custom">
                   <i class="far fa-sort-alpha-up fa-lg"></i>
                 </a>
@@ -61,9 +70,6 @@
                   <option>30</option>
              
                 </select>
-                
-                  <a routerLink="../user" class="back"><i class="fa fa-arrow-circle-o-left"></i></a>
-                
               </div>
             </div>
         </div>

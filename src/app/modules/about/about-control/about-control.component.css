@@ -1,48 +1,6 @@
 .about-page{
-
-    overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.about-page::-webkit-scrollbar{
-    display: none;
+    margin: 30px 10px;
 }
 .btn{
     width: max-content;
-}
-
-.cancel{
-    background-color: #cccccc;
-  
-  }
-  /*  */
-  .text-title{
-    color: #50b848;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-  }
-.phone{
-    padding: 5px;
-    border-radius: 0px 5px 5px 0px;
-}
-.phonedefault{
-    padding: 0px;
-    text-align: center;
-    width: 50px;
-    border-right: none;
-    border-radius: 5px 0px 0px 5px;
-}
-.address{
-    background: #e9e9e9;
-    border-radius: 5px;
-}
-.button{
-    border: 0px;
-    background-color: #ffffff;
-}
-.button:hover{
- background-color: rgb(53, 149, 200);
 }

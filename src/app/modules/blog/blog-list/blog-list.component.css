@@ -4,16 +4,8 @@
   color: #50B848;
   font-weight: bold;
   font-family: Verdana;
-  
 }
-.img-slide{
-  max-height: 270px;
-  min-height: 220px;
-}
-.hr-title{
-  width: 100px;
-  border-top: 1px solid #50b848;
-}
+
 .post-excerpt{
   font-size: 14px;
   overflow: hidden;
@@ -25,12 +17,10 @@
   -webkit-box-orient: vertical;
 }
 .chuyenmuc{
-  font-size: 30px;
   text-align: center;
   font-weight: bold;
   color: #50B848;
 }
-
 
 .ht-btn-sm{
   font-size: 15px;
@@ -48,56 +38,4 @@ a{
 a:hover{
   text-decoration: none;
   color: black;
-}
-.share .icon-share {
-  font-size: 14px;
-  border: 0.5px solid;
-  padding: 3px;
-  margin: 0px 3px;
-}
-svg{
-  display: flex;
-  width: 14px;
-  height: 14px;
-  fill:#50B848;
-}
-svg:hover{
-  fill: black;
-}
-.p-title{
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-
-
-@media only screen and (min-width: 1922px) and (max-width: 3800px) {
-  .banner {
-    height: 550px;
-  }
-}
-@media only screen and (min-width: 1368px) and (max-width: 1921px) {
-  .banner {
-    height: 300px;
-  }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1367px) {
-  .banner {
-    height: 250px;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
-  .banner {
-    height: 220px;
-  }
-}
-@media screen and (max-width: 420px) {
-  .banner{
-      height: 180px;
-  }
 }

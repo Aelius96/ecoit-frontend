@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class TagRoleComponent implements OnInit {
 //Input()??
-  @Input() codeRole: any;
+  @Input() codeRole: string;
 
   ngOnInit(): void {
   }

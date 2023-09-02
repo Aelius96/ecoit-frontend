@@ -3,9 +3,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Blog } from 'src/app/core/model/blog/blog';
 import { BlogService } from 'src/app/services/blog/blog.service';
-import {PostService} from "../../../services/post/post.service";
-import {Post} from "../../../core/model/post/post";
-import { Constant } from 'src/app/core/config/constant';
 
 @Component({
   selector: 'app-blog-detail',
@@ -13,11 +10,13 @@ import { Constant } from 'src/app/core/config/constant';
   styleUrls: ['./blog-detail.component.css']
 })
 export class BlogDetailComponent {
-  baseURL = Constant.BASE_URL
+
   url: any;
   content:any;
-  postList: Post = new Post();
-  constructor(private postService: PostService,
+  roll:any;
+  blogList: Blog= new Blog();
+
+  constructor(private blogService: BlogService,
               private route: ActivatedRoute,
               private sanitizer : DomSanitizer){}
 
@@ -28,10 +27,10 @@ export class BlogDetailComponent {
 
   getList(){
    this.url = this.route.snapshot.params['url'];
-   this.postService.getPostByUrl(this.url).subscribe(data=>{
-    this.postList = data;
-    document.title  = this.postList.title;
-    this.content = this.sanitizer.bypassSecurityTrustHtml(this.postList.content)
+   this.blogService.getBlogbyUrl(this.url).subscribe(data=>{
+    this.blogList = data;
+    document.title  = this.blogList.title;
+    this.content = this.sanitizer.bypassSecurityTrustHtml(this.blogList.content)
    })
   }
 }

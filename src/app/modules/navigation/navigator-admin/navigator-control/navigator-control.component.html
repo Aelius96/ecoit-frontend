@@ -1,133 +1,79 @@
+
 <div class="toolbar">
-  <div class="container">
-    <div class="d-md-block d-none">
-      <div class="d-flex  justify-content-between header-menu ">
-        <div class="left-d-flex">
-          <div class="d-flex">
-            <input type="text " class="searchinput" (click)="searchTitleAndDescription()" placeholder="Tìm kiếm">
-            <div class="input-group-append ">
-              <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-            </div>
-          </div>
-        </div>
-        <div class="right-d-flex my-auto">
-          <div class="d-flex flex-wrap">
-            <div class="d-flex selected  my-auto " *ngIf="selects">
-              <span class="">Đã chọn: </span>
-              <div class="selected-number menu-link ml-2 mr-1 ">{{selects}}</div>
-              <div class="menu-link mr-2 ml-1 ">
-                <a class=" " (click)="clearnAll()" title="Xóa">
-                  <i style="font-size: 18px;" class="far fa-trash-alt fa-lg"></i>
-                </a>
-              </div>
-              <div class="menu-link">
-                <a class="" title="Hủy" (click)="uncheckAll()">
-                  <i style="font-size: 20px;" class="far fa-times fa-lg"></i>
-                </a>
-              </div>
-            </div>
-            <div class="mx-2">
-              <div class="d-flex">
-                <span class="my-auto mr-1">Số mục mỗi trang:</span>
-                <app-app-page-size-image (pageSizeChange)="handlePageChange($event)" [totalRecords]="paging.totalRecord"
-                  [(pageSize)]="paging.size"></app-app-page-size-image>
-              </div>
-            </div>
-            <div class="">
-              <a class="ht-btn-custom my-auto" routerLink="add" title="Thêm tin mới"><i
-                  class="fas fa-file-plus fa-lg"></i></a>
-            </div>
+    <div class="d-flex  justify-content-between header-menu ">
+      <div class="left-d-flex">
+        <div class="d-flex">
+          <span  class="spann tt">Điều hướng</span>
+          <input type="text " class="form-control "  placeholder="Viết gì đó ...">
+          <div class="input-group-append inputt" >
+            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
           </div>
         </div>
       </div>
-    </div>
-    <!-- mobile -->
-    <div class=" d-flex justify-content-end ">
-      <div class="d-md-none d-block">
-        <div class="btn-group dropstart">
-          <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-bars"></i>
-          </div>
-          <ul class="dropdown-menu p-0">
-            <div class=" selected  " *ngIf="selects">
-              <li class="text-center  border p-2 d-flex" >
-                <span class="selected-number menu-link mx-auto ">Đã chọn: {{selects}}</span>
-                <a class="mx-auto  d-flex" (click)="clearnAll()" title="Xóa">
-                  <i style="font-size: 18px;" class=" my-auto far fa-trash-alt fa-lg"></i>
-                </a>
-                <a class=" mx-auto" title="Hủy" (click)="uncheckAll()">
-                  <i style="font-size: 20px;" class="far fa-times fa-lg"></i>
-                </a>
-              </li>
+      <div class="right-d-flex">
+        <div class="d-flex  flex-wrap">
+          <div class="menu-item ">
+            <div class="d-flex">
+              <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
+              <select class="custom-select">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+              </select>
             </div>
-            <li class="text-center border p-2 ">
-              <span class="my-auto ">Số mục mỗi trang:</span>
-            </li>
-            <li class="border p-2" >
-              <app-app-page-size-image (pageSizeChange)="handlePageChange($event)" [totalRecords]="paging.totalRecord"
-                [(pageSize)]="paging.size"></app-app-page-size-image>
-            </li>
-            <li class="border p-2" >
-              <div class="d-flex" routerLink="add">
-                <span class="mx-auto">Thêm mới </span>
-                <a class="ht-btn-custom mx-auto " title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i>
-                </a>
-              </div>
-            </li>
-          </ul>
+          </div>
+          <div class="menu-item">
+            <a class="ht-btn-custom" routerLink="new"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+          </div>
+  
         </div>
       </div>
+  
     </div>
   </div>
-</div>
+  
+  
 
-<div class="container  section-space--mt_100">
-  <p class="text-title text-center text-uppercase section-space--mb_30 ">điều hướng</p>
-  <div class=" w-75 m-auto ">
-    <div class="row  m-auto justify-content-center title-navi ">
-      <button mat-icon-button disabled></button>
-      <div class="col-md-4 col-3 name-navi my-auto ">
-        <p>Tên</p>
-      </div>
-      <div class="col-md-4 col-3 name-navi my-auto ">
-        <p>Đường dẫn</p>
-      </div>
-      <div class="col-md-2 col-2 name-navi my-auto text-center ">Chức năng</div>
-    </div>
-    <div class=" w-100  m-auto ">
-      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="mat-tree table ">
-        <mat-tree-node *matTreeNodeDef="let nav" matTreeNodePadding matTreeNodePaddingIndent="20" >
-          <li class="mat-tree-node justify-content-center ">
-            <button mat-icon-button disabled></button>
-            <input #checkboxes type="checkbox" [value]="nav.selected" [class.selected]="nav.selected" name="foo"
-              (change)="onCheckChange($event, nav)">
-            <div class="col-md-4 col-3"> {{ nav.name.toUpperCase() }}</div>
-            <div class="col-md-4 col-3"> <a href="/{{nav.url}}" target="_blank" class="url-navi">{{nav.url}}</a></div>
-            <div class="col-md-2 col-2 text-center">
-              <i class=" mr-0 mr-sm-2 mr-md-3	fas fa-edit  icon-navi  " (click)="updateNavigation(nav.id)"></i>
-              <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav.id)"></i>
-            </div>
-          </li>
-        </mat-tree-node>
-        <mat-tree-node *matTreeNodeDef="let nav; when: hasChild" >
-          <div class="mat-tree-node justify-content-center ">
-            <button mat-cell mat-icon-button matTreeNodeToggle class="btn-tree"
-              [attr.aria-label]="'toggle ' + nav.name">
-              <mat-icon class="mat-icon-rtl-mirror  ">
-                {{treeControl.isExpanded(nav) ? 'expand_more' : 'chevron_right'}}
-              </mat-icon>
-            </button>
-            <input #checkboxes type="checkbox" name="foo" [value]="nav.selected" (change)="onCheckChange($event, nav)">
 
-            <div class="col-md-4 col-3">{{ nav.name.toUpperCase()}}</div>
-            <div class="col-md-4 col-3"> <a href="/{{nav.url}}" target="_blank"></a></div>
-            <div class="col-md-2 col-2 text-center">
-              <i class="fas fa-edit  icon-navi mr-0 mr-sm-2 mr-md-3	 " (click)="updateNavigation(nav.id)"></i>
-              <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav.id)"></i>
+  <!--  -->
+  <div class="d-flex flex-column flex-column-fluid">
+  
+      <div class="navi-page">
+        <div class="container">
+            <div id="accordion">
+              <ul>
+                <li >
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <a class="has-child collapsed " data-toggle="collapse" href="#collapse"></a>
+                      <input #checkboxes type="checkbox" >
+                      <span class="slacttar px-2 ml-2" >navi.name</span>
+                    </div>
+                    <a href="./admin/navigator" >nav1.url</a>
+                  </div>
+                  <div id="collapse" class="link-child collapse" data-parent="#accordion">
+                    <ul class="ml-4">
+                      <li  class="d-flex justify-content-between align-items-center">
+                        <div style="width: 500px">
+                          <input #checkboxes type="checkbox" >
+                          <span class="slacttar ml-2" >nav2.name</span>
+                        </div>
+                        <span style="width: 400px">nav2.url</span>
+                      </li>
+                      <li>
+                        <a type="button" class="ht-btn-custom" >
+                          <i class="far fa-plus-circle mr-1"></i>
+                          <span >Thêm...</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
-        </mat-tree-node>
-      </mat-tree>
-    </div>
+        </div>
   </div>
-</div>

@@ -1,14 +1,14 @@
-<div class=" d-flex">
-
-      <div class="contentt w-50"  style="padding: 5px 20px 0px 20px;">
+<div class="container_lien_he">
+    <div class="col-lg-6 ">
+      <div class="contentt" style="padding: 5px 20px 20px 20px;">
         <div class="dau" style="margin: 10px 0px 0px 0px; padding-bottom: 10px;">
-                <div class="header position-relative" >
+                <div class="header position-relative" style="height: 100px;">
                     <!-- brand logo -->
-                    <div class="header__logo" >
+                    <div class="header__logo" style="">
                         <a class="wdc-logo" href="/trang-chu" title="Ecoit">
       
-                            <img  class="img" src="./assets/images/logoEcoit.jpg" 
-                            alt="EcoIT" style="width: 130px ; height: 50px;">
+                            <img  class="img" src="https://ecoit.asia/wp-content/themes/ecoitTheme/image/logoEcoit.jpg" 
+                            alt="EcoIT" style="width: 100px ; height: 50px;">
                         </a>
                     </div>
                     <!-- phần liên hệ -->
@@ -18,10 +18,16 @@
                                 <div class="header__actions">
                                     <div class="header__icons-wrapper" id="hidden-icon-wrapper">
                                         <div class="header-button button-white">
-                                            <a routerLink="/trang-chu">
+                                             <!-- <a onclick="quay_lai_trang_truoc()" href="#">
+                                                <span style="vertical-align: inherit;position: absolute; right: 50px; top: 5px;padding-top: 18px; ">
+                                                    <span style="vertical-align: inherit; color: rgb(59, 178, 93) " onclick="quay_lai_trang_truoc()">Quay lại</span>
+                                                </span>
+                                            </a>  -->
+                                            <a href="/trang-chu">
                                                 <button type="button"  style="background-color: rgba(242, 242, 242, 0); color:rgb(59, 178, 93); vertical-align: inherit;position: absolute; right: 50px; top: 5px;padding-top: 18px;border: 1px rgba(163, 219, 168, 0.438) ;">Quay lại</button>
                                               
                                             </a>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -34,45 +40,52 @@
         <div class="than">
           <h5 class="text"> Chào Quý Khách Hàng! </h5>
         </div>
-        <div style="font-size:15px; " class="mt-4 text-left " >
+        <div style="font-size:17px; text-align: left; margin-top: 10px;">
           Vui lòng điền thông tin theo mẫu form dưới đây để bộ phận Tư vấn khách hàng của EcoIT có thể hỗ trợ quý khách hàng sớm nhất.
+          
         </div>
-       
-        <div class="info ">
-          <form  (ngSubmit)="onSubmit()"    enctype="multipart/form-data"  novalidate action="" class="row " >
-            <label for="name" class="col-md-7 col-sm-12 col-12" >
+        <div class="info">
+          <form action="">
+            <label for="">
               <span>Tên</span>
               <span style="color: red;">*</span> <br>
-              <input class="input-info w-100" type="text" name="name" id="name" [(ngModel)]="contact.name" required >
+              <input class="input" type="text" required style="width: 100%; color: black;" >
             </label> <br>
-            <label for="phone" class="col-md-7 col-sm-12 col-12" >
+            <label for="">
               <span>Số điện thoại</span>
               <span style="color: red;">*</span> <br>
-              <input  class="input-info w-100" [(ngModel)]="contact.phone"  (keypress)="numberOnly($event)" type="text" id="phone" name="phone" required>
-              
+              <input class="input" type="text" required style="width: 100%; color: black;">
             </label> <br>
-            <label for="email" class="col-md-7 col-sm-12 col-12" >
-              <span>Email</span> 
-              <span style="color: red;">*</span>  <br>
-              <input class="input-info w-100" type="email" name="email" id="email" [(ngModel)]="contact.email" required >
+            <label for="">
+              <span>Email</span> <br>
+              <input class="input" type="text" style="width: 100%; color: black;">
             </label> <br>
-            <label for="content" class="col-md-7 col-sm-12 col-12" >
-              <span>Nội dung</span>
-              <span style="color: red;">*</span>
-               <br>
-              <textarea name="" id="content" class="input-info__textarea w-100" cols="30" rows="8" style="overflow: auto;
-              resize: vertical;" name="content"[(ngModel)]="contact.content" required="content" ></textarea>
+            <label for="">
+              <span>Nội dung</span> <br>
+              <!-- <textarea class="input" type="text" required  style="width: 100%; height: 8em;overflow: auto;
+              resize: vertical;"> -->
+              <textarea name="" id="" class="input" cols="30" rows="10" style="width: 100%; height: 8em;overflow: auto;
+              resize: vertical;"></textarea>
             </label>
-            <div style="text-align: left;" class="submit-button col-md-6 col-sm-12 col-12 ">
-              <button type="submit" class="mt-10 btn btn-success">Gửi</button>
-            </div>
+            
           </form>
+        </div>
+        <div style="text-align: left;">
+          <button  >Gửi</button>
         </div>
         
       </div>
-
-      <div class="img w-50  ">
-        <img  src="./assets/images/bglogin.jpg" alt="liên hệ" style=" height: 100%; width: 100%; object-fit: fill; ">
-      </div>
+     
+    </div>
+    
+    <div class="col-lg-6">
+      <img  src="https://ecoit.asia/wp-content/uploads/2019/10/Li%C3%AAn-h%E1%BB%87-Web-2.jpg" alt="liên hệ" style="height: 100%; width: 100%;">
   </div>
- 
+  
+  
+  
+  
+  
+    
+  
+  
