@@ -62,7 +62,7 @@
             <!-- <img class=" avt-accout rounded-circle me-1 me-md-2 " src="./assets/images/avt.jpg" alt=""> -->
             <div class="d-flex name-accout ">
               <span class=" me-1 me-md-2"><strong>Tài Khoản:</strong></span>
-              <span>{{userName}} </span>
+              <span class="text-uppercase" >{{userName}} </span>
             </div>
             <div class="d-flex name-accout ">
               <span class=" me-1 me-md-2 "><strong>Quyền:</strong></span>
@@ -79,14 +79,33 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" (click)="logout()" aria-expanded="false">
+          <a class="sidebar-link"  data-bs-toggle="modal" data-bs-target="#logout" >
             <span>
               <i style="font-size: 18px;" class="fa fa-sign-out"></i>
             </span>
-            <span class="hide-menu ">Đăng Xuất</span>
+            <span class="hide-menu">Đăng Xuất</span>
           </a>
         </li>
       </ul>
     </nav>
   </div>
 </aside>
+
+
+<div class="modal fade " id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Thông báo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn đăng xuất không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button type="button" (click)="logout()" class="btn btn-primary">Đăng xuất</button>
+      </div>
+    </div>
+  </div>
+</div>
