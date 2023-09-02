@@ -39,35 +39,52 @@
 </div>
 
 
-<div class="section-space--ptb_90">
-    <div class="container">
-      <div class="detail">
-          <table class="table table-striped" id="myTable">
-            <thead>
-              <tr style="font-weight: bold;">
-                  <td>Tên</td>
-                  <td>Nội Dung</td>
-                  <td>Thời gian</td>
-                  <td>Lọc</td>
-                  <td> </td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr >
-                <td scope="row">ten</td>
-                  <td><a class="btn-link" data-toggle="collapse"  href="#demo" style="width: 80px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> 
-                    Đây là một đoạn văn quá dài để hiển thị nội dung.
-                  </a></td>
-                  <td>thoigian</td>
-                  <td>lọc</td>
-                  <td> <span class="icon icon-remove" >
-                    <a class="icon-item"  ><i class="fas fa-trash-alt remove i"></i></a> </span></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td style="display: flex; justify-content: center;">
-                  <div id="demo" class="collapse" data-parent="#accordion"  style=" word-wrap: break-word; width: 180px;">
-                    <div  [innerHTML]="" style=""> Đây là một đoạn văn quá dài để hiển thị nội dung  Đây là một đoạn văn quá dài để hiển thị nội dung  Đây là một đoạn văn quá dài để hiển thị nội dung
+
+<div class="">
+  <div class="container-xl   section-space--mt_100  ">
+    <p class="text-title   ">bình luận</p>
+    <div class="table-cmt section-space--mt_30 ">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card title-comment py-2 "   >
+            <div class="row">
+              <div class="col-md-3 col-3">
+                <p>Tên tác giả</p>
+              </div>
+              <div class="col-md-3 col-3">
+                <p>Nội dung bình luận</p>
+              </div>
+              <div class="col-md-2 col-2">
+                <p>Tên bài viết</p>
+              </div>
+              <div class="col-md-2 col-2">
+                <p>Thời gian đăng</p>
+              </div>
+              <div class="col-md-2 col-2">
+                <p>Chức năng</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- bodytable -->
+      <div class=" list-cmt ">
+        <div class="row">
+          <div class="col-md-12" *ngFor="let cmt of commentList | paginate:{
+                                    id:'cmt',
+                                    itemsPerPage: paging.size,
+                                    currentPage: paging.page,
+                                    totalItems: paging.totalRecord  } ">
+            <div class="card card-list py-md-2 py-1 ">
+              <div class="row h-100">
+                <div class="col-md-3  col-3 m-auto">
+                  <div class="d-flex ml-1 ml-lg-3 ml-md-2 ">
+                    <img class="mr-1 mr-md-2 w-20 my-auto " src="./assets/images/avt.jpg" alt="">
+                    <div class="text-left my-auto pos-title ">
+                      <!-- <span> <b> {{cmt.user.username}}</b></span>
+                      <p>{{cmt.user.email}}</p> -->
+                      <span> <b> {{cmt.userName}}</b></span>
+
                     </div>
                   </div>
                 </td>
