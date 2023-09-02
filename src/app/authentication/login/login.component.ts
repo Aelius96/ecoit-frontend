@@ -46,6 +46,6 @@ export class LoginComponent {
   }
 
   reloadPage(): void {
-    this.router.navigate(['admin-control/dashboard']);
+    this.router.navigate(['admin/dashboard']);
   }
 }

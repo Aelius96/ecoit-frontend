@@ -21,12 +21,12 @@ export class AuthenticateService implements CanActivate{
       this.roles = user.roles;
 
       if(this.roles.includes("USER")){
-        this.router.navigate(['admin-control/login']);
+        this.router.navigate(['admin/login']);
       }
       return true;
 
     }else {
-      this.router.navigate(['admin-control/login']);
+      this.router.navigate(['admin/login']);
 
     }
   }

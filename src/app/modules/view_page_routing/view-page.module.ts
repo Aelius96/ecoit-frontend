@@ -18,7 +18,7 @@ const routes: Routes=[
       {path:'tin-tuc', loadChildren:()=>import('./news/news.module').then(m=>m.NewsModule) },
       {path:'tuyen-dung',loadChildren:()=>import('./recruit/recruit.module').then(m=>m.RecruitModule)},
       {path:'blog', loadChildren:()=>import('./blog/blog.module').then(m=>m.BlogModule)},
-      {path:'admin-control/login', title:'Admin-Login' , component: LoginComponent },
+      {path:'admin/login', title:'Admin-Login' , component: LoginComponent },
       // {path: 'login', component: LoginUserComponent},
       {path: 'register', component:RegisterComponent},
       {path: 'tag/:hashtag', component:SearchComponent},

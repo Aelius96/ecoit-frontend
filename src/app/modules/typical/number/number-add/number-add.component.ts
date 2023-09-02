@@ -57,7 +57,7 @@ export class NumberAddComponent implements OnInit {
   }
 
   rollbackToList() {
-    this.router.navigate(['/admin-control/dashboard']);
+    this.router.navigate(['/admin/dashboard']);
   }
 
   onSubmit() {

@@ -84,7 +84,7 @@ export class SliderControlComponent {
     }
   }
   updateSlider(id: number) {
-    return this.router.navigate(['admin-control/sliders/update', id]);
+    return this.router.navigate(['admin/sliders/update', id]);
   }
 
   hideImage(id: number) {

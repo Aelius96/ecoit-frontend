@@ -9,6 +9,12 @@
 .scroll-sidebar::-webkit-scrollbar {
   width: 6px;
 }
+.name-accout{
+  font-size: 14px;
+}
+.avt-accout{
+  width: 18%;
+}
 
 .scroll-sidebar::-webkit-scrollbar-track {
   background-color: #ffffff;

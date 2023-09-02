@@ -26,7 +26,7 @@ export class AboutAddessComponent implements OnInit {
   }
 
   rollbackToList(){
-    this.router.navigate(['/admin-control/about']);
+    this.router.navigate(['/admin/about']);
   }
 
   backAbout(){
