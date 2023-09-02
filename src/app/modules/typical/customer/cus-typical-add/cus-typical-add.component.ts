@@ -6,6 +6,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {NewsService} from "../../../../services/news/news.service";
 import {HttpClient} from "@angular/common/http";
 import {CustomerTypicalService} from "../../../../services/customer-typical/customer-typical.service";
+import {Domain} from "../../../../core/domain/domain";
+import { ToastService } from 'src/app/modules/toast/toast.service';
 
 @Component({
   selector: 'app-cus-typical-add',
@@ -15,13 +17,15 @@ import {CustomerTypicalService} from "../../../../services/customer-typical/cust
 export class CusTypicalAddComponent {
   cusTypical: CusTypical= new CusTypical();
   fileToUpload:string [] = [];
-  url: any;
+  urls: any;
   id: any;
   ckeConfig: any;
-  baseUrl = `${Constant.BASE_URL}`;
-  message = '';
+  baseURL = Constant.BASE_URL;
+  customerURL = Domain.CUSTOMER;
+  cusTyoURL = Domain.CUSTYPICAL;
 
-  constructor(private router:Router, private route:ActivatedRoute, private cusTypicalService: CustomerTypicalService) {
+  imageURL : any;
+  constructor(private router:Router, private route:ActivatedRoute, private cusTypicalService: CustomerTypicalService , private toast:ToastService) {
   }
 
   ngOnInit() {
@@ -29,16 +33,14 @@ export class CusTypicalAddComponent {
     if(this.id){
       this.cusTypicalService.getTCById(this.id).subscribe(data =>{
         this.cusTypical = data;
-        this.url = this.cusTypical.image.pathUrl;
+        this.urls = this.cusTypical.image.pathUrl;
+        this.imageURL = `${this.baseURL}/${this.customerURL}/${this.cusTyoURL}/image/${this.id}`;
       });
     }
     this.ckeConfig = {
       extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
       height: 330,
-      // Configure your file manager integration. This example uses CKFinder 3 for PHP.
-      // filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
-      // filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
       filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
       filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
 
@@ -55,9 +57,14 @@ export class CusTypicalAddComponent {
   saveTC(){
     const newsFormData = this.prepareFormData(this.cusTypical);
     this.cusTypicalService.addTC(newsFormData).subscribe(data =>{
+      this.toast.showSuccess()
+      console.log(data)
         this.goToTCList();
+
       },
-      error => console.log(error));
+      error =>{
+        this.toast.showWarning(error.error)
+      });
   }
 
   goToTCList(){
@@ -67,8 +74,15 @@ export class CusTypicalAddComponent {
   addDataToForm(id: any){
     const newsFormData = this.prepareFormData(this.cusTypical);
     this.cusTypicalService.updateTC(id, newsFormData).subscribe(data =>{
+      this.toast.showSuccess()
       this.goToTCList();
-    });
+      console.log(data)
+    },
+    error=>{
+      this.toast.showWarning(error.error);
+      console.log(error)
+    }
+    );
   }
 
   prepareFormData(cusTypical: CusTypical): FormData {
@@ -77,12 +91,10 @@ export class CusTypicalAddComponent {
       'typicalCustomer',
       new Blob([JSON.stringify(cusTypical)], {type: 'application/json'})
     );
-    // formData.append('imageFile', this.fileToUpload, this.fileToUpload.name);
     for (let i = 0; i < this.fileToUpload.length; i++){
       formData.append(
         'imageFile',
         this.fileToUpload[i]
-        // this.fileToUpload[i].name
       )
     }
 
@@ -99,7 +111,7 @@ export class CusTypicalAddComponent {
     this.fileToUpload=files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) =>{
-      this.url= reader.result;
+      this.imageURL= reader.result;
     }
   }
 }

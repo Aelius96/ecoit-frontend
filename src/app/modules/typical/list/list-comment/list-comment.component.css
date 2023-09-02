@@ -1,32 +1,20 @@
-.toolbar{
-    height: 65px;
-    background-color: white;
-    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-    border-top: 1px solid #eff2f5;
-  }
+
   .header-menu{
-    padding: 10px 15px 0px 12px;
     text-align: center;
     justify-content: center;
     align-content: center;
   }
-  .h5{
-    font-weight: bolder;
-    font-size: 18px;
-    color: black;
-    width: 100%;
-    margin-right: 10px;
-
-  }
-  .menu-item{
-    padding-left: 20px;
-    margin-top: 8px;
-  }
-  .custom-select{
-    width: 60px;
-    text-align: center;
-    justify-content: center;
+  .searchinput{
+    border-radius: 5px;
     align-items: center;
+    background-color: #EAEFF4;
+    border: 1px solid #F6F9FC;
+    height: 30px;
+    width: 50%;
+   }
+   input:focus{
+    border: 1px solid #111111;
+    color: black;
   }
   .item-blog{
     margin-top: 30px;
@@ -36,64 +24,157 @@
     font-size: 15px;
     margin-top:7px;
   }
-  .inputt{
-    margin-left: 0px;
-    height: 30px;
-    margin-top:7px;
-  }
+
 .input-group-text{
     margin-right: 10px;
 }
 
-
-.item-select{
-  margin-top: 7px;
-}
-.custom-select{
-  width: 60px;
-  text-align: center;
-  
-  font-size: 15px;
-}
   /*  */
   
-.icon{
-    position: static;
-     
-     margin-left: 10px;
-     padding: 5px 10px 5px 10px;
-     font-size: 15px;
-     border-radius: 10px;
-   }
-  
-   .icon-item{
-     color: #eff2f5;
-   }
-   .icon-item:hover{
-     color: black;
-   }
-  
-  
-   .detail{
-    display: grid;
-    grid-gap: 20px;
-    border: 1px rgb(146, 146, 146);
-   
-   }
-   .table{
-    box-shadow: 1px 1px 30px 5px rgba(82, 63, 105, 0.132);
-    border: 1px solid #84848486;
-   }
-   td{
+   /* view mới */
+   .text-title{
+    text-transform: uppercase;
+    color: #50b848;
+    font-size: 30px;
+    font-weight: bold;
     text-align: center;
+  }
+   .cmt-content{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
    }
-   .checkbox{
-    right: 350px;
-    position: absolute;
-   }
-   .btn-link{
-    color: black;
-   }
-   .btn-link:hover{
+   .cmt-content:hover{
     text-decoration: none;
    }
+   .col-md-2 , .col-md-3, .col-md-4{
+    text-align: center;
+   }
+   .card-list{
+    height: max-content;
+    border-radius: 0px;
+   }
+.list-cmt{
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  max-height: 620px;
+}
+.list-cmt::-webkit-scrollbar{
+  width: 0px !important;
+  display: none;
+}
+.pos-title{
+  display: block; /* Fallback trong trường hợp trình duyệt không hỗ trợ display dạng box */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  /* xác định hướng của bố cục : dọc*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.far{
+  font-size:18px
+}
+
+.title-comment{
+ color: #fff;
+ /* background: linear-gradient(90deg, rgba(0,180,219,1) 42%, rgba(0,131,176,1) 100%); */
+ background-color: #5D87FF;
+ border-color: #5D87FF;
+ border-radius: 0px;
+ font-size: 16px;
+ font-weight: 600;
+}
+.btn-link{
+  text-decoration: none;
+}
+/* trả lời */
+.edit-child:hover{
+  text-decoration: underline;
+}
+.delete-cmt{
+  color: rgb(218, 53, 53);
+}
+.delete-cmt:hover{
+  color: #772d2d;
+  text-decoration: underline;
+}
+.dis-enable{
+ color: #3781c2;
+}
+.dis-enable:hover{
+  color: #35638c;
+  text-decoration: underline;
+}
+
+img{
+  height: 100%;
+  border-radius: 50%;
+}
+.img-comment{
+  text-align: center;
+  align-items: center;
+
+}
+
+.tab{
+  padding: 8px;
+}
+.reply-content{
+  border: 0.3px solid #e8e8e8;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  max-width: fit-content;
+}
+.child-content{
+  width: 100%;
+  display: block; /* Fallback trong trường hợp trình duyệt không hỗ trợ display dạng box */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  /* xác định hướng của bố cục : dọc*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn-reply-parent{
+  height: 80px;
+}
+/* chi tieest mowsi =====*/
+
+
+.info-comment{
+  font-size: 14px;
+}
+.btn-update{
+  width: 10%;
+}
+.btn-edit{
+  border-radius: 5px;
+  border: none;
+}
+
+.edit-cmtchild{
+  width: 90%;
+  height: 8em;
+  overflow: auto;
+   resize: vertical;
+   border: 1px solid gainsboro;
+   font-family: "Open Sans",Arial,sans-serif;
+}
+.edit-cmtchild:focus{
+  color: #171717;
+  border: 1px solid gainsboro;
+}
+
+.w-20{
+  width: 20% !important;
+}
+.icon-item:hover{
+  background-color: #cacaca;
+}
+@media screen and (max-width:576px)  {
+  .w-20{
+    width: 30% !important;
+  }
+}

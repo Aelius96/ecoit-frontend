@@ -16,6 +16,7 @@
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
+  text-transform: capitalize;
 }
 .counter-number{
   text-align: center;
@@ -24,6 +25,12 @@
 .fa{
   font-size: 30px;
 }
+
 .num-counter{
   font-weight: bolder;
+}
+
+.preview-item-area{
+  background: #50b848 url(/assets/images/bg_tieubieu.png);
+  padding-bottom: 30px;
 }

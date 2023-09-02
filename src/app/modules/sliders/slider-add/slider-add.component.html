@@ -1,26 +1,26 @@
-<div class="container">
-    <div class="">
+<div class="container section-space--mt_60">
+    <form (submit)="onSubmit()">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="update_box">
                     <span><strong>Ảnh bìa</strong></span>
                     <div class="image">
-                      <img  src="{{url}}" alt="" appHideMissing>
+                      <img  src="{{imageURL}}" alt="" appHideMissing>
                     </div>
                     <input type="file" value="select" (change)="imageChange($event)">
                   </div>
             </div>
             <div class="col-lg-4">
-                <div class="update_box">
+                <!-- <div class="update_box">
                     <h3 style="color: #37bd3e; margin-top: 0px;">Thông tin</h3>
-                    <input type="text"  name="" placeholder="liên kết">
+                    <input type="text"  name="url" [(ngModel)]="slider.url" placeholder="liên kết">
 
-                </div>
-                <div class="submit-button">
-                    <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
-                    <a href="admin/slide" ><button type="button" class="btn btn-secondary btn-lg btnn cancel"  >Hủy</button></a>
+                </div> -->
+                <div class="submit-button my-4">
+                    <button type="submit" class="btn btn-primary btn-lg mr-4 w-25 {{disabled}}">Lưu</button>
+                  <button type="button" class="btn btn-secondary btn-lg  cancel w-25 " (click)="goToSliderList()" >Hủy</button>
                   </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>

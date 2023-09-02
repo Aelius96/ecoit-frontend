@@ -1,0 +1,95 @@
+
+	<p><strong>Bình Luận</strong></p>
+	<div class="row comment" *ngFor="let cmt of commentList ; let total = count  ">
+		<div class="row" >
+			<div class="col-md-2 col-2 col-sm-2 " >
+				<div class="info-comment">
+					<div class="img-comment d-flex flex-column">
+						<img src="./assets/images/avt.jpg" alt="">
+						<span>
+							{{cmt.userName}}
+						</span>
+						<span>{{cmt.date}}</span>
+					</div>
+				</div>
+			</div>
+			<!-- ====== -->
+			<div class="col-md-10 col-10 col-sm-10 ">
+				<div class="content-comment">
+					<div class="row" >
+						<div class="col-md-10 col-10 col-sm-10 ">
+							<span>{{cmt.content}}</span>
+							<p>
+								<a class="btn-link" (click)="addParentId(cmt.id)" data-bs-toggle="collapse"   href="#{{cmt.id}}parent"> Trả lời</a>
+							</p>
+						</div>
+						<div class="col-md-2 col-2 col-sm-2 ">
+							<div class="" >
+								<div class="d-flex flex-column "  *ngIf="username == cmt.userName ">
+									<a  data-bs-toggle="collapse"   href="#{{cmt.id}}editParent" >Chỉnh sửa</a>
+									<a (click)="disable(cmt.id)"><span class="delete-cmt">Xóa</span></a>
+								</div>
+							  </div>
+						</div>
+					</div>
+					<form (ngSubmit)="updateComment(cmt.id,cmt)">
+						<div id="{{cmt.id}}editParent" class="collapse " data-parent="#accordion">
+							<div class="reply-submit">
+								<textarea  name="content" id="" [(ngModel)]="cmt.content"
+									placeholder="Bạn nhập bình luận tại đây"></textarea>
+								<button class="btn-success btn" type="submit">Cập nhật </button>
+							</div>
+						</div>
+					</form>
+					
+					<div *ngFor="let cmtChild of commentListChild">
+						<div style="margin-bottom: 10px;">
+							<div class="reply-content container" *ngIf="cmt.id == cmtChild.parentId">
+								<div class="row">
+									<div class="col-md-2 col-2 col-sm-2 ">
+										<div class="info-comment">
+											<div class="img-comment d-flex flex-column" style="margin: 0px;">
+												<img src="./assets/images/avt.jpg" alt="">
+												<span>
+													<!-- {{cmtChild.user.username}} -->
+													{{cmtChild.userName}}
+												</span>
+												<span>{{cmtChild.date}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8 col-8 col-sm-8 ">
+										<p class="child-content">{{cmtChild.content}}</p>
+									</div>
+									<!-- <div class="col-md-2 col-2 col-sm-2 d-flex flex-column  "  *ngIf="userId == cmtChild.user.id "> -->
+										<div class="col-md-2 col-2 col-sm-2 d-flex flex-column  "  *ngIf="username == cmtChild.userName ">
+										<a  data-bs-toggle="collapse"  href="#{{cmtChild.id}}editChild" >Chỉnh sửa</a>
+										<a (click)="disableChild(cmtChild.id)"><span class="delete-cmt">Xóa</span></a>
+									</div>
+									<form (ngSubmit)="updateComment(cmtChild.id,cmtChild)">
+										<div id="{{cmtChild.id}}editChild" class="collapse " data-parent="#accordion">
+											<div class="reply-submit">
+												<textarea  name="contentChild" id="" [(ngModel)]="cmtChild.content"
+													placeholder="Bạn nhập bình luận tại đây"></textarea>
+												<button class="btn-success btn" type="submit">Cập nhật </button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<form (ngSubmit)="sendChildComment()">
+						<div id="{{cmt.id}}parent" class="collapse " data-parent="#accordion">
+							<div class="reply-submit">
+								<textarea name="content" id="" [(ngModel)]="comment.content"
+									placeholder="Bạn nhập bình luận tại đây"></textarea>
+								<button class="btn-success btn" type="submit">Bình luận</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<hr class="hr">
+	</div>

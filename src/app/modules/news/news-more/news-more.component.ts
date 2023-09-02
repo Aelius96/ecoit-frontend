@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { News } from 'src/app/core/model/news/news';
 import { NewsService } from 'src/app/services/news/news.service';
+import {PostService} from "../../../services/post/post.service";
+import {Post} from "../../../core/model/post/post";
+import {Constant} from "../../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-news-more',
@@ -8,20 +12,40 @@ import { NewsService } from 'src/app/services/news/news.service';
   styleUrls: ['./news-more.component.css']
 })
 export class NewsMoreComponent implements OnInit {
-
-  newsList : News[]=[]
+  postURL = Domain.POST;
+  baseURL = Constant.BASE_URL;
+  postList: Post[]=[];
   
-  constructor ( private newsService: NewsService){}
+  paging={page:1 , size:4, totalRecord:0}
+  
+  category= 'news';
+  
+  constructor(private postService:PostService) {}
+  
   ngOnInit(): void {
-    this.getListAll()
+    this.getListAllnewsMore()
   }
-
- getListAll(){
-  this.newsService.listAll().subscribe(data=>{
-    return this.newsList=data;
-  })
- }
-
- 
-
+  
+  getRequestParamsTest(page: number, category: string): any {
+    let params: any = {};
+    if (page) {
+      params[`pageNo`] = page-1;
+    }
+    if(category){
+      params[`category`] = category;
+    }
+    return params;
+  }
+  getListAllnewsMore(): void {
+    const params = this.getRequestParamsTest(this.paging.page,this.category);
+    this.postService.listAllWithPageHome(params)
+      .subscribe(
+        response => {
+          this.postList = response.content;
+          this.paging.totalRecord = response.totalElements;
+        },
+        error => {
+          console.log(error);
+        });
+  }
 }

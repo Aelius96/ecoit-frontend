@@ -1,27 +1,31 @@
 
 .text-headeradmin{
-  padding-right: 5px;
-  padding-left: 5px;
+
   border-radius: 5px ;
-  background-color: rgba(199, 200, 201, 0.82);
+
   color: #34831a;
 }
 .header-left-headeradmin{
-  font-size: 20px;
+  font-size: 23px;
   color: black;
 }
+.header-admin{
+   position: fixed;
+   top: 0;
+   right: 0;
+   z-index: 5;
+  background: white;
+}
+@media only screen and (max-width:991px) {
+  .header-admin{
+   left: 50px;
+  }
+}
+@media only screen and (min-width:992px) {
+  .header-admin{
 
-.head-menu-headeradmin{
-  margin-left: 10px;
-  justify-content: center;
+    left: 228px;
+  }
+  
 }
 
-.button-headeradmin{
-  padding:0px 15px ;
-;
-  margin-right: 80px;
-  font-size: 15px;
-}
-.item-btn-headeradmin{
-  font-size: 15px;
-}

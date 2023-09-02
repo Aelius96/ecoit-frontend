@@ -6,6 +6,6 @@ export class Blog{
   description: any;
   content: any;
   cdate: any;
-  thumb: any;
-  link: any;
+  image: any;
+  url: any;
 }

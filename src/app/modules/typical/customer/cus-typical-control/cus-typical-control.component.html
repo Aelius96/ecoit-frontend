@@ -1,69 +1,94 @@
 <div class="toolbar">
-  <div class="d-flex  justify-content-between header-menu ">
-    <div class="left-d-flex">
-      <div class="d-flex">
-        <a class="control" style="width: 80px" routerLink="../"  routerLinkActive="active"><span  class="spann">Mục tiêu /</span></a>
-        <a class="control"  style="width: 80px" routerLink="../cus-typical" routerLinkActive="active"  ><span style="font-weight: bold;" class="spann">Tiêu biểu</span></a>
-
-        <form (ngSubmit)="searchTitleAndDescription()" class="d-flex" style="margin:  7px;">
-          <input type="text" [(ngModel)]="searchInput" name="searchInput" placeholder="Viết gì đó ...">
-          <div class="input-group-append inputt" >
-            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="right-d-flex">
-      <div class="d-flex  flex-wrap">
-        <div class="menu-item ">
-          <div class="d-flex">
-            <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <app-page-size
-              (pageSizeChange)="handlePageSizeChange($event)"
-              [totalRecords]="paging.totalRecord"
-              [(pageSize)]="paging.size"></app-page-size>
-          </div>
-        </div>
-        <div class="menu-item">
-          <!--          (click)="addTypicalNum()"-->
-          <a style="margin-top: 3px;" routerLink="add"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="cus-typical" >
   <div class="container">
-  <div class="row " style=" padding: 30px; margin-bottom: 50px; ">
-     <div   class="item col-md-2 " *ngFor="let cusTyp of cusTypical|  paginate: { id: 'cusTypical',
-                                                      itemsPerPage: paging.size,
-                                                      currentPage: paging.page,
-                                                      totalItems: paging.totalRecord } ;let i = index">
-      <div class="item-image">
-          <img class="img" src="{{cusTyp.image.pathUrl}}" alt="" id="{{cusTyp.id}}"/>
-          <div class="d-flex btnn" >
-            <!--ví dụ về button sửa-->
-            <button (click)="updateTC(cusTyp.id)"  style="background-color: #50b848" class="button"   ><i class="far fa-pen"></i> </button>
-            <button (click)="deleteTC(cusTyp.id)" style="background-color: rgb(255,0,0)" class="button" ><i class="far fa-times"></i> </button>
+    <div class="d-lg-block d-none">
+      <div class="d-flex  justify-content-between header-menu ">
+        <div class="left-d-flex">
+          <div class="d-flex">
+            <a class="control my-auto" style="width: 80px" routerLink="../" routerLinkActive="active"><span
+                class="spann">Mục tiêu /</span></a>
+            <a class="control my-auto" style="width: 80px" routerLink="../cus-typical" routerLinkActive="active"><span
+                style="font-weight: bold;" class="spann">Tiêu biểu</span></a>
+            <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
+              <input type="text" [(ngModel)]="searchInput" name="searchInput" class="searchinput mr-1 "
+                placeholder="Tìm kiếm">
+              <div class="input-group-append ">
+                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+              </div>
+            </form>
           </div>
-          <div class="text">{{cusTyp.name}}</div>
-
+        </div>
+        <div class="right-d-flex my-auto">
+          <div class="d-flex  flex-wrap">
+            <div class="menu-item mr-2 my-auto">
+              <div class="d-flex">
+                <span class=" mr-1 my-auto">Số mục mỗi trang:</span>
+                <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="paging.totalRecord"
+                  [(pageSize)]="paging.size"></app-page-size>
+              </div>
+            </div>
+            <div class="menu-item ">
+              <a style=" font-size: 16px ; color: black;" routerLink="add" title="Thêm tin mới"><i
+                  class="fas fa-file-plus fa-lg"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  </div>  
 
-  <div *ngIf="paging.totalRecord>0" class="col-md-12">
-    <div class="row">
-      <div class="col-md-6">
-        <pagination-controls
-          previousLabel="<"
-          nextLabel=">"
-          [id]="'cusTypical'" (pageChange)="handlePageChange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
+    <!-- mobile -->
+    <div class="d-block d-lg-none text-end ">
+      <div class="btn-group dropstart">
+        <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa fa-bars"></i>
+        </div>
+        <ul class="dropdown-menu p-0">
+          <li class="p-2 border">
+            <a class="control my-auto w-50 " routerLink="../customer" routerLinkActive="active"><span
+                style="font-weight: bold; font-size: 14px; ">Mục tiêu/</span></a>
+            <a class="control my-auto w-50 " style="font-size: 14px; " routerLink="../customer/cus-typical"
+              routerLinkActive="active"><span>Tiêu biểu</span></a>
+          </li>
+          <li>
+            <form (ngSubmit)="searchTitleAndDescription()" class="d-flex">
+              <input type="text" [(ngModel)]="searchInput" name="searchInput" class="searchinput w-75 "
+                placeholder="Tìm kiếm">
+              <div class="input-group-append ">
+                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+              </div>
+            </form>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
 
-
+<div class="section-space--mt_100">
+  <p class="text-title">KHÁCH HÀNG TIÊU BIỂU</p>
+  <div class="section-space--mt_20">
+    <div class="container">
+      <div class="row justify-content-center ">
+        <div class="col-md-2 col-sm-3 col-6 p-0 mx-3 mb-3  " *ngFor="let cusTyp of cusTypical|  paginate: { id: 'cusTypical',
+                                                        itemsPerPage: paging.size,
+                                                        currentPage: paging.page,
+                                                        totalItems: paging.totalRecord } ;let i = index">
+          <div class="item-image">
+            <img class="img" src="{{baseURL}}/{{customerURL}}/{{typCustomerURL}}/image/{{cusTyp.id}}" alt=""
+              id="{{cusTyp.id}}" />
+            <div class="d-flex btn-function">
+              <button (click)="updateTC(cusTyp.id)" style="background-color: #50b848 ; " class="button"
+                [ngStyle]="ExStyle"><i class="far fa-pen"></i> </button>
+              <button (click)="deleteTC(cusTyp.id)" style="background-color: rgb(255,0,0)" class="button"><i
+                  class="far fa-times"></i> </button>
+            </div>
+            <div class="text text-capitalize ">{{cusTyp.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="paging.totalRecord>0" class="col-md-4 text-center mt-4 ">
+      <pagination-controls previousLabel="<" nextLabel=">" [id]="'cusTypical'" (pageChange)="handlePageChange($event)"
+        [maxSize]="paging.totalRecord"></pagination-controls>
+    </div>
+  </div>
+</div>

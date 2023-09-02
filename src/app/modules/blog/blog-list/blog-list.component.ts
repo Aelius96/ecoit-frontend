@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Blog } from 'src/app/core/model/blog/blog';
 import { BlogService } from 'src/app/services/blog/blog.service';
+import {PostService} from "../../../services/post/post.service";
+import {Post} from "../../../core/model/post/post";
+import {Constant} from "../../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-blog-list',
@@ -8,42 +12,49 @@ import { BlogService } from 'src/app/services/blog/blog.service';
   styleUrls: ['./blog-list.component.css']
 })
 export class BlogListComponent implements OnInit {
- 
-  blogList: Blog[]=[]
-  page =1;
-  count=0;
-  pageSize= 9;
-  searchInput = '';
-  private totalPages: number;
+  postURL = Domain.POST;
+  baseURL = Constant.BASE_URL;
+  postList: Post[]=[];
+
   paging={page:1 , size:9 , totalRecord:0}
 
-  constructor(private blogService: BlogService) {}
-  
+  category= 'blog';
+
+  constructor(private postService:PostService) {}
+
   ngOnInit(): void {
-    this.getlistAllwithpage()
+    this.getListAllWithPageTest()
   }
-  getRequestParam(page:number){
-    let params: any={};
-    if (page){
-      params[`pageNo`]=page-1;
+
+  getRequestParamsTest(page: number, category: string): any {
+    let params: any = {};
+    if (page) {
+      params[`pageNo`] = page-1;
     }
+    if(category){
+      params[`category`] = category;
+    }
+    return params;
   }
 
-  getlistAllwithpage():void{
-    const param = this.getRequestParam(this.paging.page);
-    this.blogService.listAllWithPageHome(param).subscribe(response=>{
-        this.blogList = response.content;
-        this.paging.totalRecord=response.totalElements;
-        console.log(response)
-    },
-    error=>{
-      console.log(error)
-    } )
+  getListAllWithPageTest(): void {
+    const params = this.getRequestParamsTest(this.paging.page,this.category);
+    this.postService.listAllWithPageHome(params)
+      .subscribe(
+        response => {
+          this.postList = response.content;
+          this.paging.totalRecord = response.totalElements;
 
+          console.log(response);
+          console.log(this.category);
+        },
+        error => {
+          console.log(error);
+        });
   }
-  handlePagechange(event:number){
-    this.page= event;
-    this.getlistAllwithpage();
-   }
 
+  handlePageChangeTest(event: number): void {
+    this.paging.page = event;
+    this.getListAllWithPageTest();
+  }
 }

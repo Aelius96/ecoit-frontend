@@ -5,24 +5,24 @@
         <div class="col-lg-9" >
           <div class="contact-inner" >
             <div class="row" >
-              <div class="col-md-4" >
-                <div class="update_box">
+              <div class="col-md-12" >
+                <div class="update_box mt-5">
                   <div class="image">
-                    <img  src="{{url}}" alt="" appHideMissing>
+                    <img  src="{{imageURL}}" alt="" appHideMissing>
                   </div>
                   <input type="file" value="select" (change)="imageChange($event)">
                 </div>
               </div>
-              <div class="col-md-8">
-                <div class="" style="margin-bottom: 20px;" >
-                  <input class="text-input" type="text" [(ngModel)] = "cusTypical.name" name="name" placeholder="*Tên" >
+              <div class="col-md-6">
+                <div class="my-5">
+                  <input class="text-input" type="text" [(ngModel)] = "cusTypical.name" name="name" placeholder="*Tên"  required="">
                 </div>
-                <div>
+                <!-- <div>
                   <textarea  name="description" placeholder="*Chi tiết" ></textarea>
-                </div>
+                </div> -->
                 <div class="submit-button">
-                  <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
-                  <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToTCList()">Hủy</button>
+                  <button type="submit" class="btn btn-primary btn-lg ">Lưu</button>
+                  <button type="button" class="btn btn-secondary btn-lg  cancel" (click)="goToTCList()">Hủy</button>
 
                 </div>
               </div>

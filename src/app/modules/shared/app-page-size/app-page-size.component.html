@@ -6,7 +6,8 @@
     <select class="form-control  " name="pageSize" (change)="changePageSize()"
             #pageSizeModel="ngModel" [(ngModel)]="pageSize">
       <option *ngFor="let item of pageSizeOptions" [value]="item">{{item}}</option>
-      <option *ngIf="totalRecords" [value]="totalRecords">Tất cả</option>
+      <!-- <option *ngIf="totalRecords" [value]="totalRecords">Tất cả</option> -->
+      <option [value]="totalRecords">{{totalRecords}}</option>
     </select>
   </div>
 <!--  <div class="row-md-3" style="margin: auto; text-align: left; padding: 0;">-->

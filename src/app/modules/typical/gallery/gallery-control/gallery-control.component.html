@@ -1,96 +1,132 @@
 <div class="toolbar">
-  <div class="d-flex  justify-content-between header-menu ">
-    <div class="left-d-flex">
-      <div class="d-flex">
-          <a class="control" style="width: 80px" routerLink="../albums"  routerLinkActive="active"><span class="spann">Kho Ảnh /</span></a>
-        <a class="control"  style="width: 120px ;padding-right: 10px;" routerLink="../image-gallery" routerLinkActive="active"  ><span class="spann" style="font-weight: bolder;">Ảnh Hoạt Động</span></a>
-       
-      </div>
-    </div>
-    <div class="right-d-flex">
-      <div class="d-flex  flex-wrap">
-        <div class="menu-item ">
+  <div class="container">
+    <div class="d-md-block d-none ">
+      <div class="d-flex  justify-content-between header-menu ">
+        <div class="left-d-flex my-auto ">
           <div class="d-flex">
-            <span class="fw-semibold mr-1">Số mục mỗi trang:</span>
-            <select class="custom-select">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+            <a class="control" style="width: 80px" routerLink="../albums" routerLinkActive="active"><span
+                class="spann">Kho Ảnh /</span></a>
+            <a class="control" style="width: 130px ;" routerLink="../tImage" routerLinkActive="active"><span class="spann"
+                style="font-weight: bolder;">Ảnh Hoạt Động</span></a>
           </div>
         </div>
-        <div class="menu-item">
-          <a class="ht-btn-custom" routerLink="new"  title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+        <div class="right-d-flex">
+          <div class="d-flex  flex-wrap">
+            <div class=" mr-2 ">
+              <div class="d-flex">
+                <span class=" my-auto mr-1">Số mục mỗi trang:</span>
+                <app-app-page-size-image class=" my-auto" (pageSizeChange)="handlePageSizeChange($event)"
+                  [totalRecords]="paging.totalRecord" [(pageSize)]="paging.size"></app-app-page-size-image>
+              </div>
+            </div>
+            <div class="">
+              <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+            </div>
+          </div>
         </div>
-
+      </div>
+    </div>
+    <!-- mobile -->
+    <div class="d-md-none d-block text-end ">
+      <div class="btn-group dropstart">
+        <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <ul class="dropdown-menu p-0">
+          <li class="border p-2 text-center ">
+            <a class="control" style="font-weight: 600;" routerLink="../albums"><span class="spann">Kho Ảnh</span></a>
+          </li>
+          <li class="p-2 border text-center ">
+            <span class=" my-auto ">Số mục mỗi trang:</span>
+          </li>
+          <li class="border p-2 ">
+            <app-app-page-size-image class=" my-auto" (pageSizeChange)="handlePageSizeChange($event)"
+                  [totalRecords]="paging.totalRecord" [(pageSize)]="paging.size"></app-app-page-size-image>
+          </li>
+          <li class="p-2 border">
+            <div class="d-flex" routerLink="add">
+              <span class="mx-auto">Thêm mới </span>
+              <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
 
 
-<div class="gallery">
+<div class="section-space--mt_100">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8" style="padding-top: 10px;">
+      <div class="col-8">
         <div class="row">
-          <div class="col-md-3">
-            <div class="item-image">
-              <img src="./assets/images/placeholder.png" alt="" style="height: 100%; width: 100%;">
+          <div class="col-6 col-lg-3 col-sm-4  " *ngFor="let img of galleryList | paginate:{
+                                                  id:'gallery',
+                                                  itemsPerPage: paging.size,
+                                                  currentPage: paging.page,
+                                                  totalItems: paging.totalRecord }">
+            <div class="item-image" (click)="pick(img)">
+              <img src="{{baseURL}}/{{tImageURL}}/image/{{img.image.name}}" alt=""
+                style="height: 100%; width: 100%; border-radius: inherit;">
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="item-image">
-              <img src="./assets/images/placeholder.png" alt="" style="height: 100%; width: 100%;">
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="item-image">
-              <img src="./assets/images/placeholder.png" alt="" style="height: 100%; width: 100%;">
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="item-image">
-              <img src="./assets/images/placeholder.png" alt="" style="height: 100%; width: 100%;">
-            </div>
+        </div>
+        <div class="row mt-2 mt-md-5 mt-sm-3">
+          <div *ngIf="paging.totalRecord>0" class="col-md-12 text-center">
+            <pagination-controls previousLabel="<" nextLabel=">" [id]="'gallery'"
+              (pageChange)="handlepagechange($event)" [maxSize]="paging.totalRecord"></pagination-controls>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 info-img" >
+      <div class="col-lg-4 col-4 info-img">
         <div class="box">
           <div class="img-box">
-            <img class="img-fluid" src="./assets/images/imgex.png" alt="Images" >
+            <img class="img-fluid" src="{{target.url}}" alt="Images">
           </div>
           <div class="content-box">
             <span><strong>Tên: </strong></span>
-            <span> ... </span>
-            
+            <span class="text-break">{{target.name}} </span>
+
           </div>
           <div class="content-box">
             <span><strong>Đầu đề: </strong></span>
-            <span>... </span>
+            <span>{{target.caption}} </span>
           </div>
           <div class="content-box">
-            <span><strong>Mô tả: </strong></span>
-            <span>... </span>
+            <span><strong>Url: </strong></span>
+            <span style="word-break: break-all;">{{target.url}}</span>
           </div>
           <div class="content-box">
-            <span><strong>Trạng thái:  </strong></span>
-            
+            <span><strong>Trạng thái: </strong></span>
+            <span *ngIf="target.active ; else hide ">
               <span style="color: #50b848">
                 <i class="fa fa-dot-circle fa-xs"></i>
               </span>
-               <!-- hoạt động và ẩn  -->
-            
+              <span style="margin-left: 5px;">Hoạt động</span>
+            </span>
+            <ng-template #hide>
+              <span style="color: #adb848">
+                <i class="fa fa-dot-circle fa-xs"></i>
+              </span>
+              <span style="margin-left: 5px;">Tạm ẩn</span>
+            </ng-template>
           </div>
-          <div class="content-btn" >
-            <button class="btn"  style="margin-right: 10px;">Ẩn/Hiển</button>
-            <button class="btn" style="margin-right: 10px;">Sửa</button> 
-            <button class="btn">Xóa</button>
+          <div class="content-btn action-box row w-100 mx-auto mt-3 mt-md-5 ">
+            <button class="btn bg-success col-12 col-md-3 mr-0 mr-md-2 " (click)="hideimg(target.id)"
+              *ngIf="target.active; else elseButton">
+              Ẩn
+            </button>
+            <ng-template #elseButton>
+              <button class="btn bg-warning col-12 col-md-3 mr-0 mr-md-2 " (click)="showimg(target.id)">
+                Hiện
+              </button>
+            </ng-template>
+            <button class="btn btn-primary col-12 col-md-3 mr-0 mr-md-2 mt-2 mt-md-0 "
+              (click)="updategallery(target.id)">Sửa</button>
+            <button class="btn btn-primary col-12 col-md-3 mt-2 mt-md-0 " (click)="deleteimg(target.id)">Xóa</button>
           </div>
-
         </div>
-        
       </div>
     </div>
   </div>

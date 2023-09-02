@@ -1,21 +1,13 @@
 .update_box{
     display: flex;
     flex-direction: column;
-    margin: 20px 0;
+    margin: 20px 0px;
   }
-  .update_box .image{
-    position: relative;
-    height: 210px;
-    width: 100%;
-  }
+
   .update_box .image img{
-    height: 100%;
+    height: 320px;
     width: 100%;
-    object-fit: cover;
-  }
-  .update_box img{
-    width: 100%;
-    object-fit: cover;
+    object-fit: fill;
   }
   .update_box input{
     padding: 10px;
@@ -25,18 +17,21 @@
 
   .cancel{
     background-color: #d2d3d4;
-    color: #dff0f5;
+    color: #000000;
   
   }
   .cancel:hover{
     background-color: rgba(43, 43, 63, 0.85);
     color: rgb(244, 246, 247);
   }
-  .btnn {
-    margin-right: 15px;
-  
-  }
+
   a:focus{
     text-decoration: none;
   }
   
+  btnluu:disabled,
+  btnluu[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }

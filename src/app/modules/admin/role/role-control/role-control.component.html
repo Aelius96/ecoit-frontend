@@ -1,0 +1,78 @@
+<div class="toolbar">
+
+</div>
+
+<div class="container list-table section-space--mt_100">
+  <p class="text-title">phân quyền người dùng</p>
+
+  <div class="section-space--mt_60">
+    <div class="container">
+      <div class="row ms-1 ms-md-5 ms-sm-3 ">
+        <div class="col-md-6">
+          <div class="d-flex flex-column  ">
+            <span class="role-title mb-1 mb-md-2 ">phân quyền</span>
+            <select name="" id="" class="w-25 border mb-5 ">
+              <option *ngFor="let r of roles" value="{{r.name}}">{{r.name}}</option>
+            </select>
+          </div>
+          <div *ngFor="let item of module">
+            <input type="checkbox" name="{{item.tittle}}" id="{{item.id}}" [value]="item.status"
+              [checked]="item.status"><span>{{item.tittle}}</span>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <button type="button" class="btn btn-add-per mb-5 " data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Thêm Chức Năng</button>
+          <div class="row  mb-4" *ngFor="let per of permissionList">
+            <div class="col-md-6 border ">
+              {{per.name}}{{per.id}}
+            </div>
+            <div class="col-md-4 border ">
+              <button (click)=" deletePermission(per.id) " class=" me-4 btn btn-primary border-0 ">Xóa
+              </button>
+              <a class=" btn btn-primary border-0" data-bs-toggle="collapse" href="#{{per.id}}per">Sửa
+              </a>
+            </div>
+            <form (ngSubmit)="updatePermission(per.id , per)" >
+              <div id="{{per.id}}per" class="collapse " data-parent="#accordion">
+                <div class="reply-submit">
+                  <input type="text" [(ngModel)]="per.name" name="permission" class="form-control">
+                  <div class="mt-4">
+                    <button class="btn-success btn me-3 " type="submit">Cập nhật </button>
+                    <a class="btn btn-secondary" data-bs-toggle="collapse" href="#{{per.id}}per">Hủy</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- thêm -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form (ngSubmit)="addPermision()">
+        <div class="modal-header">
+          <p class="modal-title text-center " id="exampleModalLabel">Thêm Mới Chức Năng</p>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="col-form-label">Chức Năng:</label>
+            <input type="text" [(ngModel)]="permission.name" name="permission" class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button type="submit" class="btn btn-primary">Lưu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

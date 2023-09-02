@@ -1,76 +1,78 @@
-.logo{
-  background-color: black ;
 
-  width: 150px;
-  max-width: 100%;
-  text-align: center;
-  justify-content: center;
-  vertical-align: middle;
-  border: 0;
-  padding: 5px 5px 5px 10px;
+.scroll-sidebar{
+  /* overflow: hidden; */
 }
-.title-menu-aside{
-  padding-top: 15px;
-  text-align: center;
-  margin-bottom: 5px;
+.scroll-sidebar:hover {
+  overflow:auto;
 }
 
-.item-iconn{
-  height: 50px;
-  padding: 13px 20px 0px 20px;
-  text-align: center;
-
-  border-radius: 15px;
+.scroll-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.name-accout{
+  font-size: 14px;
+}
+.avt-accout{
+  width: 18%;
 }
 
-.item-iconn:hover {
+.scroll-sidebar::-webkit-scrollbar-track {
   background-color: #ffffff;
+  border-radius: 10px;
 }
 
-.item-iconn:active {
-  transform: translateY(4px);
+.scroll-sidebar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #8d8d8d5c;
 }
-.menu-iconn{
+.brand-logo{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid #b4b4b4;
   display: flex;
-  text-align: center;
-  font-size: 24px;
-
-}
-.logo-aside{
-  padding-bottom: 20px;
-  background-color: #50b848;
-}
-.item-aside{
-  bottom: 0px;
-
-  background-color: #50b848;
-}
-.aside-more{
   justify-content: center;
-  background-color: #50b848;
-  text-align: center;
-  font-size: 24px;
-  bottom: 2% ; position: fixed ;
 }
-
-.aside{
-  background-color: #50b848;
-  height: 200%;
-  /* position: fixed;
-  left: 0; */
-
-}
-.far{
-  color: black;
-
-}
-.fas{
-  color: black;
-  font-size: 28px;
+.sidebar-link:hover{
+ text-decoration: none;
 }
 a{
   text-decoration: none;
 }
-a:hover{
-  text-decoration: none;
+.left-sidebar{
+
+  width: 228px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+}
+.logo-sidebar{
+  width: 228px;
+}
+
+/* mobile */
+.brand-logo-mobile{
+margin: 5%;
+}
+.sidebar-mobile{
+  margin-top: 34px;
+}
+.img-mobile{
+  width: 50%;
+}
+.nav-mobile{
+  padding: 0 5%;
+}
+.icon-menu{
+  cursor: pointer;
+  z-index: 6;
+  position: fixed;
+  background: #ffffff;
+}
+.icon-menu:hover{
+  background-color: #a2a2a2;
+}
+.icon-menu:focus{
+  background-color: #a2a2a2;
 }

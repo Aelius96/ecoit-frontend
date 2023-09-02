@@ -1,23 +1,18 @@
-.toolbar{
-    height: 65px;
-    background-color: white;
-    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-    border-top: 1px solid #eff2f5;
-  }
+
   .header-menu{
-    padding: 10px 15px 0px 12px;
     text-align: center;
     justify-content: center;
     align-content: center;
   }
-  
+  .btn{
+    background-color: #bbbbbb;
+  }   
   .spann{
     height: 30px;
   font-size: 15px; 
   
   }
   .control{
-    margin-top:7px;
     color: black;
   }
   .control:hover{
@@ -46,7 +41,7 @@
   }
   
   .album{
-    margin: 30px 50px 10px 50px;
+    margin: 110px 50px 10px 50px;
   }
   .buton{
     width: 100%;
@@ -55,7 +50,10 @@
     font-size: 20px;
     border: 0px;
     text-align: left;
-    color: rgb(96, 96, 96);
+    /* color: rgb(0, 0, 0); */
+    background: gainsboro;
+    border-radius: 5px;
+
   }
   .item{
     width: 20%;

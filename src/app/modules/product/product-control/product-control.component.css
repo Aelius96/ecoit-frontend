@@ -1,11 +1,6 @@
-.toolbar{
-    height: 65px;
-    background-color: white;
-    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-    border-top: 1px solid #eff2f5;
-  }
+
   .header-menu{
-    padding: 10px 15px 0px 12px;
+
     text-align: center;
     justify-content: center;
     align-content: center;
@@ -19,112 +14,95 @@
   border: 1px solid #ced4da;
   border-radius: 3px;
 }
-  .spann{
-    color: #0d0d0d;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 5px;
-    width: 80%;
-  }
+.searchinput{
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EAEFF4;
+  border: 1px solid #F6F9FC;
+  height: 30px;
+  width: 50%;
+ } 
 
-  .menu-item{
-    padding-left: 20px;
-    margin-top: 8px;
+  .ht-btn-custom{
+    font-size: 16px;
+    color: #121213;
   }
-  .custom-select{
-    width: 60px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-  .item-blog{
-    margin-top: 30px;
-  }
+  
+  
   .form-control{
     height: 30px;
     font-size: 15px;
     margin-top:7px;
   }
-  .inputt{
-    margin-left: 0px;
-    height: 30px;
-    margin-top:7px;
-    display: flex;
+  input:focus{
+    border: 1px solid #111111;
+    color: black;
   }
-  
-.action-box {
-  padding-left: 0px;
-  display: flex;
-  right: 0;
-  color: #fff;
-}
-  .card{
-    border-radius: 10px;
-  }
-  img{
-    border-radius: 10px;
-  }
-  .btnn{
-    border: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff00;
-    color: rgb(66, 62, 94);
-  }
-  .edit{
-   
-    border-radius: 10px;
-  }
-  .dele{
-    border-radius: 10px;
-  }
-  .edit:hover{
-    background-color: rgb(103, 190, 74);
-    color: white;
-  }
-  .dele:hover{
-    background-color: rgb(240, 56, 56);
-    color: white;
-  }
-  .tittle-blog{
-    font-family: Rubik;
-  }
-  .title-product {
-    font-size: 25px;
-    font-weight: bolder;
-    color: #5bb342;
+  .text-title{
+    color: #50b848;
+    font-size: 30px;
+    font-weight: bold;
     text-align: center;
-    margin-top: 20px;
+  }
+/* scroll */
+.item-blog{
+  max-height: 620px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.item-blog::-webkit-scrollbar {
+  display: none;
+}
+/* table */
 
-  }
-  .description{
-  margin-top: 20px;
-  }
-  .ht-btn-custom{
-    margin-top: 2px;
-  }
-  /*-------------------------------------------------------------*/
-  a.btn-link{
-    width: 100%;
-    text-align: left;
-    color: #6d70a6;
-    padding: 20px 30px;
-    position: relative;
-    overflow-wrap: break-word;
-    white-space: normal;
-    font-size: 18px;
-    line-height: 1.2;
-    font-weight: 600;
-  }
-  a.btn-link span {
-    position: absolute;
-    right: 35px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+.des-post{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table{
+  /* border: 0.3px solid; */
+  /* border-collapse: separate; */
+}
+.header {
+  position: sticky;
+  top:0;
+}
+.container::-webkit-scrollbar {
+  display: none;
+}
 
-  a.btn-link span:hover, a.btn-link span:focus{
-    text-decoration: none;
-    color: #5945e6;
-  }
+.list-table{
+  height: 620px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 
+th{
+  text-align: center;
+  text-transform: capitalize;
+  background-color: #5D87FF;
+  border-color: #5D87FF; 
+  color: #ffffff;
+}
+.icon-more:hover{
+  cursor: pointer;
+  color: #a1b234;
+}
+
+.edit:hover{
+  background-color: rgb(103, 190, 74);
+  color: white;
+}
+.dele:hover{
+  background-color: rgb(240, 56, 56);
+  color: white;
+}
+.drop{
+  padding: 8px 0px;
+  font-size: 14px;
+}

@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Comment } from 'src/app/core/model/comment/comment';
+import { CommentService } from 'src/app/services/comment/comment.service';
+import { PostService } from 'src/app/services/post/post.service';
+import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ToastService } from 'src/app/modules/toast/toast.service';
 
 @Component({
   selector: 'app-list-comment',
   templateUrl: './list-comment.component.html',
   styleUrls: ['./list-comment.component.css']
 })
-export class ListCommentComponent {
+export class ListCommentComponent implements OnInit {
 
   commentList: Comment[]=[];
   commentListChild :Comment[]=[];
@@ -57,7 +64,9 @@ constructor(
     this.commentService.getListCommentwithPageAdmin(params).subscribe(res=>{
      this.commentList = res.content;
     this.paging.totalRecord = res.totalElements;
+
      console.log(this.commentList)
+
     },
     error=>{
       console.log(error)

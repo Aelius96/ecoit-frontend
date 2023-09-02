@@ -1,119 +1,157 @@
 import { Component } from '@angular/core';
 import { News } from 'src/app/core/model/news/news';
 import { Customer } from '../../../core/model/customer/customer';
-import {CustomerService} from "../../../services/customer/customer.service";
-import {Product} from "../../../core/model/product/product";
-import {ProductService} from "../../../services/product/product.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import { CustomerService } from '../../../services/customer/customer.service';
+import { Product } from '../../../core/model/product/product';
+import { ProductService } from '../../../services/product/product.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Constant } from '../../../core/config/constant';
+import { Domain } from 'src/app/core/domain/domain';
+import { ToastService } from '../../toast/toast.service';
+import { NumberService } from 'src/app/services/number-typical/number.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-add',
   templateUrl: './customer-add.component.html',
-  styleUrls: ['./customer-add.component.css']
+  styleUrls: ['./customer-add.component.css'],
 })
 export class CustomerAddComponent {
   ckeConfig: any;
-
+  baseURL = Constant.BASE_URL;
+  cusURL = Domain.CUSTOMER;
+  bannerURL: any;
   url: any;
   id: any;
   customer: Customer = new Customer();
   products: Product[] = [];
 
-  submitFail = false;
-  errorMessage = "";
-
+  allIcon: any;
+  inputs = '';
+  formCus = new FormGroup({
+    name: new FormControl(''),
+    description: new FormControl(''),
+    icons: new FormControl(''),
+    bgIColor: new FormControl(),
+  });
+  isborderErrorIcon = true;
+  isborderErrorName = true;
+  isborderErrorDes = true;
   image: any;
-  fileToUpload: string [] = [];
+  fileToUpload: string[] = [];
 
-  constructor(private customerService: CustomerService, private productService: ProductService,
-              private route: ActivatedRoute, private router: Router) {
-  }
+  constructor(
+    private customerService: CustomerService,
+    private productService: ProductService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private numService: NumberService,
+    private toast: ToastService
+  ) {}
 
   ngOnInit(): void {
-    window.sessionStorage.removeItem("redirect");
+    window.sessionStorage.removeItem('redirect');
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
       this.getCustomById(this.id);
-    }else{
+    } else {
       this.getProducts();
     }
+    this.getListIcon();
   }
-
-  getCustomById(id: number) {
-    this.customerService.getCusById(id).subscribe(data => {
-      this.customer = data;
-      this.image = this.customer.thumb.pathUrl;
-      this.getProductUpdate(this.customer);
+  getListIcon() {
+    this.numService.getListIconJson('icon.json').subscribe((data) => {
+      this.allIcon = data;
     });
   }
 
-  getProductUpdate(customer: Customer){
-    this.productService.getProductList().subscribe(data => {
+  getCustomById(id: number) {
+    this.customerService.getCusById(id).subscribe((data) => {
+      this.customer = data;
+      this.image = this.customer.banner?.pathUrl;
+      this.bannerURL = `${this.baseURL}/${this.cusURL}/image/${this.customer.id}`;
+      this.getProductUpdate(this.customer);
+      this.formCus.controls['name'].setValue(this.customer.name);
+      this.formCus.controls['icons'].setValue(this.customer.icon);
+      this.formCus.controls['description'].setValue(this.customer.description);
+    });
+  }
+
+  getProductUpdate(customer: Customer) {
+    this.productService.getProductList().subscribe((data) => {
       this.products = data;
-      if(customer.products != null){
-        const sid = customer.products.map(item => item.id);
-        for (let i=0; i<sid.length; i++){
-          this.products.find( e => {
-            if(e.id === sid[i]) e.selected = true;
-          })
+      if (customer.products != null) {
+        const sid = customer.products.map((item) => item.id);
+        for (let i = 0; i < sid.length; i++) {
+          this.products.find((e) => {
+            if (e.id === sid[i]) e.selected = true;
+          });
         }
       }
-    })
+    });
   }
 
-  getProducts(){
-    this.productService.getProductList().subscribe(data =>{
+  getProducts() {
+    this.productService.getProductList().subscribe((data) => {
       this.products = data;
-    })
+      // console.log(data)
+    });
   }
 
-  prepareFormData(customer: Customer, products: Product[]): FormData {
-    const  formData = new FormData();
+  updateCustomer(id: number) {
+    let customerFormData = this.prepareFormDataDTO(this.customer);
+    this.customerService.updateCustomer(id, customerFormData).subscribe(
+      () => {
+        this.toast.showSuccess();
+        this.goToCustomerList();
+      },
+      (err) => {
+        this.ktradieukien();
+        this.toast.showWarning(err.error, this.inputs);
+      }
+    );
+  }
+
+  //Use DTO
+  prepareFormDataDTO(customer: Customer): FormData {
+    const formData = new FormData();
     formData.append(
       'customer',
-      new Blob([JSON.stringify(customer)], {type: 'application/json'})
+      new Blob([JSON.stringify(customer)], { type: 'application/json' })
     );
-    formData.append(
-      'products',
-      new Blob([JSON.stringify(products)], {type: 'application/json'})
-    )
-    for (let j = 0; j < this.fileToUpload.length; j++){
-      formData.append(
-        'thumb',
-        this.fileToUpload[j]
-      )
+    for (let j = 0; j < this.fileToUpload.length; j++) {
+      formData.append('thumb', this.fileToUpload[j]);
     }
-
     return formData;
   }
-
-  addCustomer(){
-    let customerFormData = this.prepareFormData(this.customer, this.products.filter(item => item.selected));
-    this.customerService.addCustomer(customerFormData).subscribe(data =>{
-      this.submitFail = false;
-      this.goToCustomerList();
-    },err =>{
-      this.submitFail = true;
-      this.errorMessage = err.error.message;
-    })
+  addCustomer() {
+    let customerFormData = this.prepareFormDataDTO(this.customer);
+    this.customerService.addCustomerDTO(customerFormData).subscribe(
+      (data) => {
+        console.log(customerFormData);
+        this.toast.showSuccess();
+        this.goToCustomerList();
+      },
+      (error) => {
+        this.ktradieukien();
+        this.toast.showWarning(error.error, this.inputs);
+      }
+    );
   }
 
-  updateCustomer(id: number){
-    let customerFormData = this.prepareFormData(this.customer, this.products.filter(item => item.selected));
-    this.customerService.updateCustomer(id, customerFormData).subscribe(data =>{
-      this.submitFail = false;
-      this.goToCustomerList();
-    })
-  }
-
-  goToCustomerList(){
+  goToCustomerList() {
     this.router.navigate(['/admin/customer']);
   }
 
-  onSubmit(){
-    if(this.id){
+  onSubmit() {
+    this.customer.name = this.formCus.controls['name'].value;
+    this.customer.icon = this.formCus.controls['icons'].value;
+    this.customer.description = this.formCus.controls['description'].value;
+    this.customer.bgIColor = this.formCus.controls['bgIColor'].value;
+    console.log(this.customer.name);
+    if (this.id) {
       this.updateCustomer(this.id);
-    }else{
+    } else {
       this.addCustomer();
     }
   }
@@ -127,38 +165,102 @@ export class CustomerAddComponent {
 
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
-      this.image = reader.result;
+      this.bannerURL = reader.result;
+    };
+  }
+
+  onCheckChangeProduct(event: any, product: Product) {
+    product.selected = event.currentTarget.checked;
+    if (product.selected) {
+      console.log(this.customer.products);
+      this.customer.products.push(product);
+    } else {
+      this.customer.products.forEach((item) => {
+        if (item.id === product.id) {
+          if (this.customer.products) {
+            this.customer.products = this.customer.products.filter(
+              (i) => i !== item
+            );
+          }
+        }
+      });
     }
   }
-
-  onCheckChange(event: any, product: Product){
-    product.selected = event.currentTarget.checked;
-  }
-
-  notNeedFile(){
+  notNeedFile() {
     // @ts-ignore
-    document.getElementById("file-in").value = null;
+    document.getElementById('file-in').value = null;
     this.image = null;
     // this.onChange(this.fileToUpload);
   }
 
-  addMoreProduct(){
-    window.sessionStorage.setItem("redirect", "/admin/customer/add");
+  addMoreProduct() {
+    window.sessionStorage.setItem('redirect', '/admin/customer/add');
     this.router.navigate(['/admin/product/add']);
   }
 
+  // imageChange(e: any){
+  //   const files = e.target.files;
+  //   if (files.length === 0) return;
 
-  imageChange(e: any){
-    const files = e.target.files;
-    if (files.length === 0) return;
-
-    const reader = new FileReader();
-    this.fileToUpload=files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = (_event) =>{
-      this.url= reader.result;
+  //   const reader = new FileReader();
+  //   this.fileToUpload=files;
+  //   reader.readAsDataURL(files[0]);
+  //   reader.onload = (_event) =>{
+  //     this.imageURL= reader.result;
+  //   }
+  // }
+  ktradieukien() {
+    if (
+      this.formCus.controls['name'].value === '' &&
+      this.formCus.controls['icons'].value === '' &&
+      this.formCus.controls['description'].value === ''
+    ) {
+      this.isborderErrorDes = false;
+      this.isborderErrorIcon = false;
+      this.isborderErrorName = false;
+      this.inputs = 'name';
+    } else if (
+      this.formCus.controls['icons'].value === '' &&
+      this.formCus.controls['description'].value === ''
+    ) {
+      this.isborderErrorIcon = false;
+      this.isborderErrorDes = false;
+      this.inputs = 'icon';
+    } else if (
+      this.formCus.controls['name'].value === '' &&
+      this.formCus.controls['icons'].value === ''
+    ) {
+      this.isborderErrorIcon = false;
+      this.isborderErrorName = false;
+      this.inputs = 'name';
+    } else if (
+      this.formCus.controls['name'].value === '' &&
+      this.formCus.controls['description'].value === ''
+    ) {
+      this.isborderErrorName = false;
+      this.isborderErrorDes = false;
+      this.inputs = 'name';
+    } else if (this.formCus.controls['icons'].value === '') {
+      this.isborderErrorIcon = false;
+      this.inputs = 'icon';
+    } else if (this.formCus.controls['name'].value === '') {
+      this.isborderErrorName = false;
+      this.inputs = 'name';
+    } else {
+      this.isborderErrorDes = false;
+      this.inputs = 'description';
     }
   }
-
-
+  changeName() {
+    this.isborderErrorName = true;
+  }
+  changeIcon() {
+    this.isborderErrorIcon = true;
+  }
+  changeDes() {
+    this.isborderErrorDes = true;
+  }
+  changeColor() {
+    this.customer.bgIColor = this.formCus.controls['bgIColor'].value;
+  }
 }

@@ -1,0 +1,21 @@
+.text-title{
+    color: #50b848;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .header {
+    position: sticky;
+    top:0;
+  }
+  .role-title{
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #50b848;
+  }
+.btn-add-per{
+  color: linear-gradient(100deg, rgba(93,135,255,1) 100%, rgba(97,215,174,1) 0%) ;
+  background: linear-gradient(100deg, rgba(97,215,174,1) 0%, rgba(93,135,255,1) 100%);
+}

@@ -1,49 +1,53 @@
 <div class="about-adress">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="contact-inner">
-                    <select name="" id="">
-                        <option value="">Tỉnh / Thành phố</option>
-                        <option value="">name</option>
-                    </select>
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="contact-inner">
+                        <select name="" id="">
+                            <option value="">Tỉnh / Thành phố</option>
+                            <option value="">tên</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-inner">
+                        <select name="" id="">
+                            <option value="">Quận / Huyện / Thị xã</option>
+                            <option value="">tên</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-inner">
+                        <select name="" id="">
+                            <option value="">Xã / Phường / Thị trấn</option>
+                            <option value="">tên</option>
+
+                        </select>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4">
+                    <div class="contact-inner">
+                        <span><strong>Khu Vực</strong></span>
+                        <input type="text" name="" id="" required>
+                    </div>
+                </div> -->
+                <div class="col-md-8">
+                    <div class="contact-inner">
+                        <span><strong>Địa Chỉ</strong></span>
+                        <input type="text" name="address" [(ngModel)]="addr.address">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="submit-button">
+                        <button type="submit" class="btn btn-primary btn-lg btnn"> <i class="fa fa-save" style="margin-right: 5px;"></i>Lưu</button>
+                        <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="rollbackToList()">Hủy</button>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="contact-inner">
-                    <select name="" id="">
-                        <option value="">Quận / Huyện / Thị xã</option>
-                        <option value="">name</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="contact-inner">
-                    <select name="" id="">
-                        <option value="">Xã / Phường / Thị trấn</option>
-                        <option value="">name</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="contact-inner">
-                    <span><strong>Khu Vực</strong></span>
-                    <input type="text" name="" id="" required>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="contact-inner">
-                    <span><strong>Địa Chỉ</strong></span>
-                    <input type="text" name="" id="">
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="submit-button">
-                    <button type="submit" class="btn btn-primary btn-lg btnn"> <i class="fa fa-save" style="margin-right: 5px;"></i>Lưu</button>
-                    <button type="button" class="btn btn-secondary btn-lg btnn cancel" (onClick)="rollbackToList()" >Hủy</button>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
+
 </div>
 

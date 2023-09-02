@@ -3,10 +3,16 @@ import {AuthService} from "../../../services/auth/auth.service";
 import {User} from "../../../core/model/user/user";
 import {UserService} from "../../../services/user/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 
 import {Role} from "../../../core/model/role/role";
 import {RoleService} from "../../../services/role/role.service";
+import {ToastrService} from 'ngx-toastr';
+
+import {ToastService} from "../../toast/toast.service";
+
+import { Module } from 'src/app/core/model/module/module';
+import { ModuleService } from 'src/app/services/module/module.service';
+
 
 
 @Component({
@@ -18,7 +24,8 @@ import {RoleService} from "../../../services/role/role.service";
 export class UserAddComponent implements OnInit{
 
   user : User = new User();
-  role :Role[] = [];
+  roles :Role[] = [];
+  modules: Module[]=[]
   id: any;
   roll: any;
   isSuccessful = false;
@@ -28,8 +35,9 @@ export class UserAddComponent implements OnInit{
   submitFail = false;
 
   constructor(private authService: AuthService,private userService: UserService, private roleService:RoleService,
-              private tokenStorageService: TokenStorageService
-              ,private router: Router,private route:ActivatedRoute) {
+              private router: Router,private route:ActivatedRoute ,
+              private toastService: ToastService,private module:ModuleService ) {
+
   }
 
 
@@ -37,96 +45,121 @@ export class UserAddComponent implements OnInit{
     this.id = this.route.snapshot.params['id'];
     if(this.id){
       this.getUserById(this.id);
+      this.getaside()
     }
-  }
 
+  }
+  getaside() {
+    this.module.getModule('aside.json').subscribe(data=> {
+      this.modules = data;
+      if(this.modules.length ){
+        const sid =this.modules.map(item => item.id);
+        for (let i=0; i<sid.length; i++){
+          this.modules.find( e => {
+            if(e.id === sid[i]) e.status = true;
+          })
+        }
+    }
+      console.log(this.modules)
+    })
+  }
 
   getUserById(id: number) {
     this.userService.getUserById(id).subscribe(data => {
       this.user = data;
-
+      console.log(this.user)
       this.getRoleUpdate(this.user);
     });
   }
 
   getRoleUpdate(user: User){
     this.roleService.listRole().subscribe(data => {
-      this.role = data;
+      this.roles = data;
       if(user.role != null){
         const sid = user.role.map(item => item.id);
         for (let i=0; i<sid.length; i++){
-          this.role.find( e => {
+          this.roles.find( e => {
             if(e.id === sid[i]) e.selected = true;
           })
         }
       }
+      console.log(this.roles)
     })
   }
 
   onRoleChange(event: any, role: Role){
     role.selected = event.currentTarget.checked;
+    if(role.selected){
+      this.user.role.push(role);
+    }else{
+      this.user.role.forEach(item => {
+        if(item.id === role.id){
+          this.user.role = this.user.role.filter(i => i !== item);
+        }
+      })
+    }
   }
-
+  onModulechange(event:any,module:Module){
+    // module.status=event.currentTarget.checked;
+    // if(module.status){
+    //   this.module.push(role);
+    // }else{
+    //   this.roles.module.forEach(item => {
+    //     if(item.id === aside.id){
+    //       this.role.module = this.user.module.filter(i => i !== item);
+    //     }
+    //   })
+    // }
+  }
 
   goToUserList(){
     return this.router.navigate([`admin/user`])
   }
 
-  prepareFormData(user: User, role: Role[]): FormData {
-    const  formData = new FormData();
-    formData.append(
-      'user',
-      new Blob([JSON.stringify(user)], {type: 'application/json'})
-    );
-    formData.append(
-      'role',
-      new Blob([JSON.stringify(role)], {type: 'application/json'})
-    )
-
-    return formData;
-  }
-
   updateUser(id: number){
-    let userFormData = this.prepareFormData(this.user, this.role.filter(item => item.selected));
-    this.userService.updateUser(id, userFormData).subscribe(data =>{
-      this.submitFail = false;
+    this.userService.updateUser(id,this.user).subscribe( data =>{
+      console.log(data);
+      this.toastService.showSuccess();
       this.goToUserList();
+    },error => {
+      this.toastService.showWarning(error.error);
+      console.log(error);
     })
   }
-
-  getRole(){
-    this.roleService.listRole().subscribe(data =>{
-      this.role = data;
-    })
-  }
-
 
   onCheckChange(event: any, user: User){
     user.active = event.currentTarget.checked;
   }
 
+  goToBack() {
+    this.router.navigate(['/admin/user']);
+    // window.history.back();
+  }
 
   onSubmit() {
 
     if(this.id){
       this.updateUser(this.id);
     }else{
-      this.authService.register(this.user).subscribe(data =>{
+      this.authService.register(this.user).subscribe(() =>{
 
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          this.errorMessage = "Đăng ký thành công!!"
-          console.log(this.user);
+          this.goToBack()
+          // this.toastService.showSuccess()
+          // this.errorMessage = "Đăng ký thành công!!"
         },
-        err =>{
-          this.errorMessage = "Đăng ký thất bại!!";
+        error =>{
+          // this.toastService.showWarning(error.error)
+          // this.errorMessage = "Đăng ký thất bại!!";
           this.isSignUpFailed = true;
+          console.log(error.error);
         })
     }
   }
 
   changePassword(id:number) {
-    return this.router.navigate([`admin/user/changePassword`])
+    this.userService.changePassword(id);
   }
 
 }

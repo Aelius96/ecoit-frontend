@@ -16,14 +16,23 @@
   background-color:  #50b848;
   color: white;
 }
+
+.color-gree:hover{
+  text-decoration: none;
+  color: black;
+}
+
 .service-link{
-  padding-left: 50px;
-  padding-right: 50px;
-  border: 30px 30px 30px 30px;
-
   text-align: center;
-
 }
 .box-content{
   padding-bottom: 20px;
+  line-height: 35px;
+}
+
+
+@media only screen and (max-width:992px)  {
+  .service-link{
+    margin-bottom:2%
+  }
 }

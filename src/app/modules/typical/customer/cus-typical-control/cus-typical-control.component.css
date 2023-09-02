@@ -1,11 +1,5 @@
-.toolbar{
-  height: 65px;
-  background-color: white;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-  border-top: 1px solid #eff2f5;
-}
+
 .header-menu{
-  padding: 10px 15px 0px 12px;
   text-align: center;
   justify-content: center;
   align-content: center;
@@ -17,65 +11,87 @@
 
 }
 .control{
-  margin-top:7px;
   color: black;
 }
 .control:hover{
   text-decoration: none;
 }
 .menu-item{
-  margin-left: 20px;
-  margin-top: 8px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+input:focus{
+  border: 1px solid #111111;
+  color: black;
 }
 
-
-.inputt{
-  margin-left: 0px;
+.searchinput{
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EAEFF4;
+  border: 1px solid #F6F9FC;
   height: 30px;
- 
-}
+  width: 50%;
+ } 
 a:hover{
   text-decoration: none;
 }
-
+/* tiêu đề */
+.text-title{
+  color: #50b848;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+.hr{
+  width: 150px;
+}
 /*  */
 
-
 .item-image{
-  height: 100%;
- 
+    width: 100%;
 }
 
+
 .cus-typical{
-  height: 179vh;
-  background-color: rgba(220, 220, 220, 0.485);
+  /* background-color: rgba(220, 220, 220, 0.485); */
   padding: 120px 80px 30px 80px; 
 }
 .item{
   margin-bottom: 20px ;
+  padding: 0px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .img {
   opacity: 1;
   display: block;
   width: 100%;
-  height: 100%;
   transition: .5s ease;
   backface-visibility: hidden;
+  border-radius: 10px;
+  border: 0.5px solid #275e1a;
 }
 
 .text {
-  background-color: #2ccb3781;
-  color: white;
-  font-size: 16px;
+  font-weight: bold;
+  color: #FFE67C;
+  background-color: #295f2de3;
+  font-size: 14px;
   padding: 5px 8px;
-  text-align: center;
   transition: .5s ease;
   opacity: 0;
   position: absolute;
+  width: 100%;
+  left:0px;
+  right:0px;
   bottom: 0px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  
+  border-radius: 0px 0px 10px 10px;
 
-  text-align: center;
-  width: max-content;
 }
 .item-image:hover .image {
   opacity: 0.3;
@@ -85,10 +101,10 @@ a:hover{
   opacity: 1;
 }
 
-.item-image:hover .btnn {
+.item-image:hover .btn-function {
   opacity: 1;
 }
-.btnn{
+.btn-function{
   color: white;
   font-size: 16px;
   transition: .5s ease;

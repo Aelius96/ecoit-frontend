@@ -1,73 +1,25 @@
 
 <div class="container" style="padding-bottom: 20px;">
   <div class=" text-center " style="margin-bottom: 30px;">
-    <h2 style="margin-top: 30px; font-size: 30px;" class="chuyenmuc" >HÌNH ẢNH HOẠT ĐỘNG</h2>
-    <hr id="gachchan" class="gioithieu">
+    <h2 style="margin-top: 30px; font-size: 30px;" class="chuyenmuc mb-5" >HÌNH ẢNH HOẠT ĐỘNG</h2>
   </div>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li> -->
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-
-      <!-- <div class="item " [ngClass]="key == 0 ? 'active' : '' " *ngFor="let s of spcl ; let key = index">
-        <img width="1163" height="774" src="{{s}}"
-         class="fuild-img wp-post-image" alt="" loading="lazy" sizes="(max-width: 1276px) 100vw, 1276px">
-      </div> -->
-
-      <!-- 1 -->
-      <div class="item active">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2020/06/ac94e72749ffb4a1edee.jpg"
-             alt="" loading="lazy">
-        
+  <div id="carouselExampleInterval1" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item " [class]=" i==0 ? 'active ' : '' "  *ngFor="let img of gallery ; let i = index" data-bs-interval="3000">
+        <img  src="{{baseURL}}/{{galleryURL}}/image/{{img.image.name}}" class=" w-100" alt="ecoit_image">
       </div>
-      <!-- 2 -->
-      <div class="item">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2020/06/65e6aa534a29b777ee38.jpg"
-              alt="" loading="lazy"  >
-       
-      </div>
-      <!-- 3 -->
-      <div class="item">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2020/06/9de89d7f7d05805bd9142-1.jpg"
-              alt="" loading="lazy"  >
-        
-      </div>
-      <!-- 4 -->
-      <div class="item">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2019/08/D09_9989-min-min.jpg"
-              alt="" loading="lazy"
-             >
-      </div>
-      <!-- 5 -->
-      <div class="item">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2019/08/5D3_7794-min.jpg"
-              alt="" loading="lazy" >
-      </div>
-      <!-- 6 -->
-      <div class="item">
-        <img width="1100" height="750" src="https://ecoit.asia/wp-content/uploads/2019/08/D09_9935-min.jpg"
-             alt="" loading="lazy"  >
-      
-      </div>
-      <!-- 7 -->
       
     </div>
-
-    <!-- trái phải -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval1" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval1" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
+
 </div>
+
+

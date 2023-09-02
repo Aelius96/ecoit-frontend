@@ -10,14 +10,11 @@ export class HeaderAdminComponent implements OnInit{
   ngOnInit(): void {
     this.week();
   }
-
+  constructor(private tokenStorageService: TokenStorageService) { }
   today: any;
   day: any;
   month: any;
   year: any ;
-
-  constructor(private tokenStorageService: TokenStorageService) { }
-
 
   week() {
     const weekday=[

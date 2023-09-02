@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { News } from 'src/app/core/model/news/news';
 import { NewsService } from 'src/app/services/news/news.service';
+import {Post} from "../../../core/model/post/post";
+import {PostService} from "../../../services/post/post.service";
+import {Constant} from "../../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
+import { AddressService } from 'src/app/services/address/address.service';
+import { Address } from 'src/app/core/model/address/address';
+import { AboutUsService } from 'src/app/services/about-us/about-us.service';
+import { About } from 'src/app/core/model/about/about';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-footer',
@@ -8,19 +17,103 @@ import { NewsService } from 'src/app/services/news/news.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
-newList: News[]=[]
-constructor(private newService: NewsService) {
-  
-}
-  ngOnInit(): void {
-    this.getListNews()
+  postListNews: Post[]=[];
+  addressList : Address[] = [];
+  about : About = new About();
+  postURL = Domain.POST
+  paging = {
+    page: 1,
+    size: 4,
+    totalRecord: 0
   }
-getListNews():void{
-  this.newService.listAll().subscribe(data=>{
-    return this.newList =data
-  })
+  baseURL = Constant.BASE_URL;
+  category: any;
+  constructor(
+              private postService: PostService,
+              private  addressService: AddressService,
+              private about_usService: AboutUsService ,
+              private sanitizer: DomSanitizer,
+             ) {}
+
+  ngOnInit(): void {
+    this.getListAllWithNews();
+    this.getListAddress();
+    this.getListAllInformation();
+  }
+
+  getParams(pageSize: number, category:string): any {
+    let params: any = {};
+    if (pageSize) {
+      params[`pageSize`] = pageSize;
+    }
+    if(category){
+      params[`category`] = category;
+    }
+    return params;
+  }
+
+  getListAllWithNews() {
+    const params = this.getParams(this.paging.size,this.category);
+    this.postService.listAllWithPageByNews(params)
+      .subscribe(
+        data => {
+          this.postListNews = data.content;
+          this.paging.totalRecord = data.totalElements;
+         
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+
+field_activity=[
+  {
+    id: 1,
+    title:'Số hóa và chuyển đổi'
+  },
+  {
+    id: 2,
+    title:'Tích hợp hệ thống công nghệ thông tin'
+  },
+  {
+    id: 3,
+    title:'Tư vấn dự án công nghệ thông tin'
+  },
+  {
+    id: 4,
+    title:'Cung ứng dịch vụ công nghệ thông tin'
+  },
+  {
+    id: 5,
+    title:'Tư vấn dự án công nghệ thông tin'
+  },
+  {
+    id: 6,
+    title:'Sản xuất và gia công phần mềm'
+  },
+]
+
+getListAddress(){
+  this.addressService.ListAll().subscribe(res=>{
+    this.addressList= res;
+  }
+  )
 }
+
+// about
+email:any;
+phone:any;
+fax:any;
+getListAllInformation(){
+  this.about_usService.getAllInformation().subscribe(res=>{
+     this.about= res;
+     this.email = this.sanitizer.bypassSecurityTrustHtml(this.about.email);
+     this.phone = this.sanitizer.bypassSecurityTrustHtml(this.about.phone);
+     this.fax = this.sanitizer.bypassSecurityTrustHtml(this.about.fax);
+  })
+ }
+
 
 }
 

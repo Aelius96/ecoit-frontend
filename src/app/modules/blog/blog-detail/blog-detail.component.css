@@ -4,9 +4,32 @@
     font-size: 25px;
     
 }
-.tieude:hover{
- text-decoration: none;
-}
 .tieude{
-    color: rgb(77, 199, 55);
+  color:  #50b848 !important;
+  letter-spacing: -.4px;
+  line-height: 1.2;
+  font-weight: 600;
 }
+.share .icon-share {
+    font-size: 14px;
+    border: 0.5px solid;
+    padding: 3px;
+    margin: 0px 3px;
+    color: rgb(77, 199, 55);
+  }
+  
+ a:hover{
+    color: black;
+  }
+  svg{
+    display: flex;
+    width: 14px;
+    height: 14px;
+    fill:#50B848;
+  }
+  svg:hover{
+    fill: black;
+  }
+  .lh-base{
+    line-height: 25px;
+  }

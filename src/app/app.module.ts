@@ -9,9 +9,6 @@ import {HomeMainComponent} from './modules/home/home-main/home-main.component';
 import {LoginComponent} from "./authentication/login/login.component";
 import {FooterComponent} from './modules/navigation/footer/footer.component';
 import {HeaderComponent} from './modules/navigation/header/header.component';
-import {BankingComponent} from './modules/product/banking/banking.component';
-import {BusinessComponent} from './modules/product/business/business.component';
-import {GovernmentComponent} from './modules/product/government/government.component';
 import {SecurityDefenseComponent} from './modules/product/security-defense/security-defense.component';
 import {AboutUsComponent} from './modules/introduce/about-us/about-us.component';
 import {CapacityProfileComponent} from './modules/introduce/capacity-profile/capacity-profile.component';
@@ -20,11 +17,10 @@ import {ContactComponent} from './modules/contact/contact.component';
 
 import {ErrorComponent} from './modules/error/error.component';
 
-
 import {BlogListComponent} from "./modules/blog/blog-list/blog-list.component";
 import {NewsListComponent} from "./modules/news/news-list/news-list.component";
 import {RecruitListComponent} from "./modules/recruit/recruit-list/recruit-list.component";
-import {PostListComponent} from "./modules/post/post-list/post-list.component";
+
 import {SideBarComponent} from './modules/navigation/side-bar/side-bar.component';
 import {CustomerListComponent} from './modules/customer/customer-list/customer-list.component';
 import {AboutHomeComponent} from './modules/about/about-home/about-home.component';
@@ -37,21 +33,16 @@ import {RecruitNewsComponent} from './modules/home/group/recruit-news/recruit-ne
 import {CusTypicalHomeComponent} from './modules/typical/customer/cus-typical-home/cus-typical-home.component';
 import {SliderListComponent} from './modules/sliders/slider-list/slider-list.component';
 import {CustomerProductComponent} from './modules/group/customer-product/customer-product.component';
-import {AdminComponent} from './modules/admin/admin/admin.component';
+import {AdminControlComponent} from './modules/admin/admin-control/admin-control.component';
 import {HeaderAdminComponent} from './modules/admin/header-admin/header-admin.component';
 import {AsideComponent} from './modules/admin/aside/aside.component';
 import {DashboardComponent} from './modules/admin/dashboard/dashboard.component';
 import {NumberControlComponent} from './modules/typical/number/number-control/number-control.component';
-import {PostControlComponent} from './modules/post/post-control/post-control.component';
+
 import {NumberAddComponent} from './modules/typical/number/number-add/number-add.component';
-import {BlogControlComponent} from './modules/blog/blog-control/blog-control.component';
-import {BlogAddComponent} from './modules/blog/blog-add/blog-add.component';
-import {NewsControlComponent} from './modules/news/news-control/news-control.component';
-import {NewsAddComponent} from './modules/news/news-add/news-add.component';
+
 import {CKEditorModule} from "ng2-ckeditor";
-// import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
-import {RecruitControlComponent} from './modules/recruit/recruit-control/recruit-control.component';
-import {RecruitAddComponent} from './modules/recruit/recruit-add/recruit-add.component';
+
 import {CustomerControlComponent} from './modules/customer/customer-control/customer-control.component';
 import {GalleryControlComponent} from './modules/typical/gallery/gallery-control/gallery-control.component';
 import {GalleryAddComponent} from './modules/typical/gallery/gallery-add/gallery-add.component';
@@ -64,7 +55,7 @@ import {HistoryListComponent} from './modules/admin/history/history-list/history
 import {HttpClientModule} from "@angular/common/http";
 import {RegisterComponent} from './authentication/register/register.component';
 import {authInterceptorProviders} from "./authentication/helper/auth.interceptor";
-import {CommonModule, NgOptimizedImage} from "@angular/common";
+import {AsyncPipe, CommonModule, NgOptimizedImage} from "@angular/common";
 import { NavigatorControlComponent } from './modules/navigation/navigator-admin/navigator-control/navigator-control.component';
 import { NavigatorAddComponent } from './modules/navigation/navigator-admin/navigator-add/navigator-add.component';
 import { ProductControlComponent } from './modules/product/product-control/product-control.component';
@@ -96,6 +87,55 @@ import { BlogMoreComponent } from './modules/blog/blog-more/blog-more.component'
 import { ListContactComponent } from './modules/typical/list/list-contact/list-contact.component';
 import { ListControlComponent } from './modules/typical/list/list-control/list-control.component';
 import { ListCommentComponent } from './modules/typical/list/list-comment/list-comment.component';
+import { AppPageSizeImageComponent } from './modules/shared/app-page-size-image/app-page-size-image.component';
+import { CommentListComponent } from './modules/comment/comment-list/comment-list.component';
+import { ProductMoreComponent } from './modules/product/product-more/product-more.component';
+
+import { PostControlComponent } from './modules/post/post-control/post-control.component';
+import { PostAddComponent } from './modules/post/post-add/post-add.component';
+import { PostListComponent } from './modules/post/post-list/post-list.component';
+import { PostDetailComponent } from './modules/post/post-detail/post-detail.component';
+
+import {MatSelectModule} from "@angular/material/select";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {MatListModule} from "@angular/material/list";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatIconModule} from "@angular/material/icon";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {TagInputModule} from "ngx-chips";
+
+
+
+import { NgxInputTagModule } from '@ngx-lite/input-tag';
+import {SlickCarouselModule} from "ngx-slick-carousel";
+
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+
+
+import { CommentFormComponent } from './modules/comment/comment-form/comment-form.component';
+
+import {MatButtonModule} from '@angular/material/button';
+
+import { LoginUserComponent } from './authentication/login-user/login-user.component';
+
+import { CategoryControlComponent } from './modules/category/category-control/category-control.component';
+import { CategoryAddComponent } from './modules/category/category-add/category-add.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { NgbTooltipModule  } from '@ng-bootstrap/ng-bootstrap';
+import {MatTreeModule} from '@angular/material/tree';
+import { SearchComponent } from './modules/search/search.component';
+import { AnimatedDigitComponent } from './_animation/animated-digit/animated-digit.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
+import {ToastrModule} from 'ngx-toastr';
+
+import { CommentViewService } from './services/comment-view/comment-view.service';
+
+import { DialogComponent } from './modules/dialog/dialog/dialog.component';
+import { RoleAddComponent } from './modules/admin/role/role-add/role-add.component';
+import { RoleControlComponent } from './modules/admin/role/role-control/role-control.component'
 
 
 
@@ -105,9 +145,6 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
     HomeMainComponent,
     FooterComponent,
     HeaderComponent,
-    BankingComponent,
-    BusinessComponent,
-    GovernmentComponent,
     SecurityDefenseComponent,
     AboutUsComponent,
     CapacityProfileComponent,
@@ -117,7 +154,6 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
     BlogListComponent,
     NewsListComponent,
     RecruitListComponent,
-    PostListComponent,
     SideBarComponent,
     CustomerListComponent,
     AboutHomeComponent,
@@ -129,25 +165,17 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
     SliderListComponent,
     CustomerProductComponent,
     LoginComponent,
-    AdminComponent,
+    AdminControlComponent,
     HeaderAdminComponent,
     AsideComponent,
     DashboardComponent,
     NumberControlComponent,
-    PostControlComponent,
     NumberAddComponent,
-    BlogControlComponent,
-    BlogAddComponent,
-    NewsControlComponent,
-    NewsAddComponent,
-    RecruitControlComponent,
-    RecruitAddComponent,
     CustomerControlComponent,
     GalleryControlComponent,
     GalleryAddComponent,
     CustomerAddComponent,
     RegisterComponent,
-    UserControlComponent,
     UserAddComponent,
     UserActiveComponent,
     HistoryListComponent,
@@ -172,14 +200,34 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
     AlbumsDetailComponent,
     TagRoleComponent,
     NewsMoreComponent,
-      RecruitDetailComponent,
-      RecruitMoreComponent,
-      BlogDetailComponent,
-      BlogMoreComponent,
-      ListContactComponent,
-      ListControlComponent,
-      ListCommentComponent,
- 
+    RecruitDetailComponent,
+    RecruitMoreComponent,
+    BlogDetailComponent,
+    BlogMoreComponent,
+    ListContactComponent,
+    ListControlComponent,
+    ListCommentComponent,
+    CommentListComponent,
+    AppPageSizeImageComponent,
+    ProductMoreComponent,
+    PostControlComponent,
+    PostAddComponent,
+    PostListComponent,
+    PostDetailComponent,
+    CommentFormComponent,
+
+    LoginUserComponent,
+
+    CategoryControlComponent,
+    CategoryAddComponent,
+    SearchComponent,
+    AnimatedDigitComponent,
+    DialogComponent,
+    RoleAddComponent,
+    RoleControlComponent,
+    UserControlComponent
+
+
   ],
   imports: [
     BrowserModule,
@@ -191,9 +239,36 @@ import { ListCommentComponent } from './modules/typical/list/list-comment/list-c
     ReactiveFormsModule,
     NgOptimizedImage,
     NgxPaginationModule,
-    
+    SlickCarouselModule,
+    NgxInputTagModule.forRoot(),
+    MatSelectModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatListModule,
+    MatChipsModule,
+    MatIconModule,
+    AsyncPipe,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    TagInputModule,
+    NgxIntlTelInputModule,
+    MatButtonModule,
+    MatDialogModule,
+    NgbTooltipModule,
+    MatTreeModule,
+    MatPaginatorModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      progressBar: false,
+      positionClass: 'toast-bottom-right' ,
+      timeOut:3000,
+    }),
+
   ],
-  providers: [authInterceptorProviders],
+
+
+
+  providers: [authInterceptorProviders,CommentViewService],
 
   bootstrap: [AppComponent]
 })

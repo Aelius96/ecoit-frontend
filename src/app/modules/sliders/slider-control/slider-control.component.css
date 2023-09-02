@@ -1,97 +1,268 @@
-.toolbar{
-    height: 65px;
-    background-color: white;
-    box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-    border-top: 1px solid #eff2f5;
+.header-menu{
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.spann{
+  height: 30px;
+  font-size: 20px;
+
+}
+.control{
+  margin-top:7px;
+  color: black;
+
+}
+.ht-btn-custom{
+  font-size: 16px;
+  color: #121213;
+}
+
+.form-control{
+  padding-left: 20px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  margin-top:7px;
+  margin-left: 10px;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.item{
+  padding: 5px;
+  border: 0.5px solid gainsboro;
+}
+
+
+/*  */
+.text-title{
+  color: #50b848;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.header-menu {
+  padding: 10px 15px 0px 12px;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.spann {
+  height: 30px;
+  font-size: 20px;
+
+}
+
+.ht-btn-custom {
+  margin-top: 2px;
+  color: #1a1a1a;
+}
+
+.menu-item {
+  margin-left: 15px;
+  margin-top: 8px;
+}
+.max-h{
+  max-height: 600px;
+}
+
+
+.hienthi-right {
+  border: 1px solid rgb(57, 63, 58);
+}
+.hienthi{
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+.action-box {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  padding-top: 10px;
+}
+
+.action-box .btn {
+  width: 100%;
+  height: 40px;
+}
+
+ .btnthem {
+  width: 100%;
+  background-color: rgb(42, 218, 42);
+}
+
+
+.image-url-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  gap: 10px;
+}
+
+.viewimg {
+  height: 260px;
+  display: flex;
+  justify-content: center;
+}
+
+.img-target-box {
+  height: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid gainsboro;
+}
+
+.control {
+  margin-top: 7px;
+  color: black;
+
+}
+
+.custom-select {
+  width: 60px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control {
+  padding-left: 20px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  margin-top: 7px;
+  margin-left: 10px;
+}
+
+.inputt {
+  margin-left: 0px;
+  height: 30px;
+  margin-top: 7px;
+}
+
+.slideitem {
+  max-height: 190px;
+  display: flex;
+  position: absolute;
+}
+
+.slideitem::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+
+.listslide {
+  width: 180px;
+  height: 100px;
+  text-align: center;
+  object-fit: cover;
+  gap: 10px;
+}
+
+
+.img-fluid {
+  height: 100%;
+  display: flex;
+  margin: auto;
+}
+.nav-item.selected {
+  color: #fff;
+  margin-top: 30px;
+}
+.chuc-nang{
+  font-size: 20px;
+  font-weight: 600;
+}
+.carousel-inner{
+  width: 100%;
+  height: 100%;
+}
+.fuild-img{
+  width: 100%;
+  inline-size: cover;
+  height: 100%;
+}
+
+.nav {
+  overflow: auto;
+  height: 165px;
+}
+.nav-item {
+  cursor: pointer;
+  margin: 15px 10px;
+  width: 180px;
+  height: 100px;
+  box-shadow: 0 4px 6px -6px #222;
+  transition: 0.5s;
+}
+.team-image {
+  height: 110px;
+}
+.opacity{
+ opacity: 60%;
+}
+.nav-item:hover{
+  margin: 20px;
+}
+.backgroud{
+  background-image: url(/assets/images/eye.png);
+  background-size: cover;
+  max-height: 110px;
+  width: 150px;
+}
+@media (max-width: 600px) {
+  .nav {
+    overflow: auto;
+    height: 150px;
   }
-  .header-menu{
-    padding: 10px 15px 0px 12px;
-    text-align: center;
-    justify-content: center;
-    align-content: center;
+  .nav-item {
+    cursor: pointer;
+    margin: 15px 10px;
+    width: 150px;
+    height: 80px;
+    box-shadow: 0 4px 6px -6px #222;
+    transition: 0.5s;
   }
-  
-  .spann{
-    height: 30px;
-    font-size: 16px;
-  
+  .team-image {
+    height: 80px;
   }
-  .control{
-    margin-top:7px;
-    color: black;
-    
-  }
-  .menu-item{
-    padding-left: 20px;
-    margin-top: 8px;
-  }
-  .custom-select{
-    width: 60px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .form-control{
-    padding-left: 20px;
+  .backgroud{
+    background-image: url(/assets/images/eye.png);
+    background-size: cover;
+    max-height: 90px;
     width: 100px;
-    height: 30px;
-    font-size: 15px;
-    margin-top:7px;
-    margin-left: 10px;
   }
-  .inputt{
-    margin-left: 0px;
-    height: 30px;
-    margin-top:7px;
+}
+@media (max-width: 350px) {
+  .nav {
+    overflow: auto;
+    height: 120px;
   }
-  a:hover{
-    text-decoration: none;
+  .nav-item {
+    cursor: pointer;
+    margin: 15px 10px;
+    width: 70px;
+    height: 50px;
+    box-shadow: 0 4px 6px -6px #222;
+    transition: 0.5s;
   }
-
-  .slide{
-    margin-top: 50px;
+  .team-image {
+    height: 50px;
   }
-
-  .view-control{
-    background-color: #45b741c7;
+  .backgroud{
+    background-image: url(/assets/images/eye.png);
+    background-size: cover;
+    max-height: 40px;
+    width: 50px;
   }
-
-  .item{
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
-
-  /*  */
-  .select-content-box{
-    padding: 20px;
-  }
-  .select-content-item{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    border-bottom: 1px dotted #000;
-  }
-  .select-content-item span:first-child{
-    width: 80px;
-    white-space: nowrap;
-  }
-
-  .action-box{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 10px 0;
-  }
-  .action-box .btn{
-    width: 100%;
-  }
-  
-  .image-url{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-left: 4px;
-  }
-  
+}

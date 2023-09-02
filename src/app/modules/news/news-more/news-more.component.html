@@ -10,19 +10,23 @@
         </div>
     </div>
     <div class="content" >
-        <div class="row" > 
-            <div class="item" *ngFor=" let news of newsList ; let i = index" >
-                <div *ngIf="i<3">
-                    <div class="col-md-4" >
-                        <div class="image">
-                            <img src="{{news.newsImage.pathUrl}}" alt="image">
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="title-content">
-                            <a class="aa" href="#">
-                                <p class="title-content">{{news.title}}</p>
-                            </a>
+        <div class="row ">
+            <div  class="col-12 "  *ngFor=" let post of postList ; let i = index" >
+                <div >
+                    <div style="height: 100%;"   class="item" *ngIf="i<4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="image">
+                                    <img  src="{{baseURL}}/{{postURL}}/image/{{post.id}}" alt="image">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="title-content">
+                                    <a class="aa" href="/tin-tuc/{{post.url}}">
+                                        <p class="title-content">{{post.title}}</p>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

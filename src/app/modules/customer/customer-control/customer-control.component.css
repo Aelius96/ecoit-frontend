@@ -1,11 +1,5 @@
-.toolbar{
-  height: 65px;
-  background-color: white;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-  border-top: 1px solid #eff2f5;
-}
+
 .header-menu{
-  padding: 10px 15px 0px 12px;
   text-align: center;
   justify-content: center;
   align-content: center;
@@ -17,14 +11,19 @@
 
 }
 .control{
-  margin-top:7px;
   color: black;
 }
 .control:hover{
   text-decoration: none;
 }
+.ht-btn-custom{
+ 
+  color: #121213;
+  font-size: 16px;
+}
+
 .menu-item{
-  padding-left: 20px;
+  margin-left: 15px;
   margin-top: 8px;
 }
 .custom-select{
@@ -41,14 +40,28 @@
   font-size: 15px;
   margin-top:7px;
 }
-.inputt{
-  margin-left: 0px;
+
+.searchinput{
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EAEFF4;
+  border: 1px solid #F6F9FC;
   height: 30px;
-  margin-top:7px;
+  width: 50%;
+ } 
+ .searchinput:focus{
+  border-radius: 5px;
+  border: 1px solid #202020;
+ }
+
+/* ==  tiêu đề*/
+.text-title{
+  color: #50b848;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
 }
-.ht-btn-custom{
-  margin-top: 2px;
-}
+
 /*-------------------------------------------------------------*/
 .box-icon{
   background-color: #009dff;
@@ -70,13 +83,14 @@
   background: #f8f8f8;
   border-radius: 5px;
   border: 1px solid #eee;
+  height: 280px;
 }
 .close{
   position: absolute;
   top: -10px;
   right: 0;
   color: #fff;
-  z-index: 1000;
+  z-index: 3;
 }
 .close .x{
   border: 0;
@@ -86,24 +100,12 @@
   background: #f00;
   border-radius: 50%;
 }
-.customer-control{
-  padding-bottom: 10px;
-  padding-top: 120px;
-  height: 100vh;
-}
-.text-input{
-  border: 2px solid #50b848;
-  color: black;
-}
-.text-input:focus{
-  color: black;
-  border: 2px solid #50b848;
-}
-.input{
-  margin-top: 70px;
-  padding: 0px 20px 20px 20px;
-}
 
+
+.input:focus{
+  border: 1px solid rgb(108, 108, 108);
+  color: black;
+}
 
 .iconn{
   font-size: 25px;
@@ -129,6 +131,7 @@
 .pricing-table__footer{
   padding-top: 50px;
   bottom: 10px;
+  position: absolute;
   text-align: center;
   width: 100%;
 }
@@ -141,7 +144,6 @@
 .edit:hover{
   color: #212c32;
 }
-
 
 a:hover{
   text-decoration: none;
@@ -157,4 +159,17 @@ a:hover{
   width: 100%;
   height: 100%;
   object-fit: fill;
+}
+.description{
+  vertical-align: inherit;
+ padding-top: 10px;
+  text-align: center;
+}
+.ND{
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

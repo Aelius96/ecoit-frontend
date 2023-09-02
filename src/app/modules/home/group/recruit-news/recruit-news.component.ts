@@ -6,6 +6,10 @@ import {TokenStorageService} from "../../../../services/token-storage/token-stor
 import { Recruit } from 'src/app/core/model/recruit/recruit';
 import { RecruitService } from 'src/app/services/recruit/recruit.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import {PostService} from "../../../../services/post/post.service";
+import {Post} from "../../../../core/model/post/post";
+import {Constant} from "../../../../core/config/constant";
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-recruit-news',
@@ -14,44 +18,62 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class RecruitNewsComponent implements OnInit{
   recruitList: Recruit[]=[];
-  newsList: News[]=[];
-
-  // url: any;
-  // content:any;
-  // roll: any;
-  // NewsDetail :News = new News();
-  constructor( private newsService: NewsService,
-            
-              private RecruitService: RecruitService,
-              private route : ActivatedRoute,
-              private sanitizer: DomSanitizer) {}
+  postListNews: Post[]=[];
+  postListRecruit: Post[]=[];
+  postURL = Domain.POST
+  paging = {
+    page: 1,
+    size: 3,
+    totalRecord: 0
+  }
+  baseURL = Constant.BASE_URL;
+  category: any;
+  constructor(
+              private postService: PostService,
+             ) {}
 
   ngOnInit(): void {
-    this.getListAllWithPage();
-    this.getListAllWithPageRecruit();
-   
+    this.getListAllWithNews();
+    this.getListAllWithRecruit();
   }
 
-  getListAllWithPage(): void {
-
-    this.newsService.listAll().subscribe(data=>
-    {return this.newsList =data})
+  getRequestParams(pageSize: number, category:string): any {
+    let params: any = {};
+    if (pageSize) {
+      params[`pageSize`] = pageSize;
+    }
+    if(category){
+      params[`category`] = category;
+    }
+    return params;
   }
-  getListAllWithPageRecruit():void{
-    this.RecruitService.listAll().subscribe(data=>
-      {return this.recruitList=data})
+
+  getListAllWithNews() {
+    const params = this.getRequestParams(this.paging.size,this.category);
+    this.postService.listAllWithPageByNews(params)
+      .subscribe(
+        data => {
+          this.postListNews = data.content;
+          this.paging.totalRecord = data.totalElements;
+          
+        },
+        error => {
+          console.log(error);
+        });
   }
 
-
-  // getListNews(){
-  //   this.url = this.route.snapshot.params['url'];
-  //   this.newsService.getNewsByUrl(this.url).subscribe(data => {
-  //     this.NewsDetail = data;
-  //     document.title = this.NewsDetail.title;
-  //     this.content = this.sanitizer.bypassSecurityTrustHtml(this.NewsDetail.content);
-  //   })
-  // }
-
-
+  getListAllWithRecruit() {
+    const params = this.getRequestParams(this.paging.size,this.category);
+    this.postService.listAllWithPageByRecruit(params)
+      .subscribe(
+        data => {
+          this.postListRecruit = data.content;
+          this.paging.totalRecord = data.totalElements;
+          
+        },
+        error => {
+          console.log(error);
+        });
+  }
 
   }

@@ -1,11 +1,5 @@
-.toolbar{
-  height: 65px;
-  background-color: white;
-  box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.13);
-  border-top: 1px solid #eff2f5;
-}
+
 .header-menu{
-  padding: 10px 15px 0px 12px;
   text-align: center;
   justify-content: center;
   align-content: center;
@@ -17,7 +11,7 @@ font-size: 15px;
 
 }
 .control{
-  margin-top:7px;
+
   color: black;
 }
 .control:hover{
@@ -35,29 +29,35 @@ font-size: 15px;
   align-items: center;
 }
 .ht-btn-custom{
-  margin-top: 3px;
+  font-size:16px;
+  color:black;
+
 }
 
 /*  */
-.gallery{
-  margin: 50px 20px 0px 20px;
-  
-}
+
 .info-img{
   box-shadow: 5px 10px 20px 10px rgba(92, 91, 94, 0.078);
-  padding: 20px 30px;
 }
 .img-box{
   padding: 10px 10px 10px 10px;
 }
-.btn{
- width: 30%;
-}
+
 .content-box{
- margin: 5px 0px 5px 5px;
+ margin: 10px 0px 10px 5px;
 
 }
 .content-btn{
   display: flex; 
     justify-content: center;
+
 } 
+.item-image{
+  height: 120px;
+  margin-bottom: 20px;
+  border: 2px solid #1c5a24;
+  border-radius: 10px;
+}
+.img-fluid{
+  border-radius: inherit;
+}

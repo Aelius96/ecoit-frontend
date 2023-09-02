@@ -1,35 +1,35 @@
-<div  style="padding-bottom: 60px;">
-  <div style="padding: 0px 20px 0px 20px ; margin: auto;">
+<div  style="padding-bottom: 60px; margin-bottom: 30px;">
+  <div style="padding: 0px 20px 0px 20px ; " class="container mx-auto " >
     <div class="row">
       <div class="col-lg-12">
-        <div class="text-center section-space--mb30">
-          <h2 style="margin-top: 10px; font-size: 30px;" class="title">SẢN PHẨM CHIẾN LƯỢC</h2>
-          <hr id="gachchan" class="gioithieu">
+        <div class="text-center section-space--mb_60">
+          <h2  class="title  ">SẢN PHẨM CHIẾN LƯỢC</h2>
+          
         </div>
       </div>
     </div>
-    <div  class="product-item">
-      <div class="container" style="padding-left: 100px; padding-right: 100px; padding-bottom: 30px;">
-        <div  class="row ">
-          <div *ngFor="let p of productList ; let i =index" class="col-xl-3 pricing-table " style="background-color: rgba(189, 191, 187, 0);">
-            <div *ngIf = "i <7">
-              <div class="pricing-table__innerrr">
-                <div class="post-item" >
-                  <a href="/eco-ecm/" style="text-align: center;" class="item">
-                    <div class="imgicon">
-                      <img  src="{{p.thumb.pathUrl}}" class="post-image" alt="" loading="lazy" ><br><b>{{p.name}}</b>
-                      <span class="ap-xnam"><p>{{p.description}}</p></span>
-                    </div>
-                  </a>
-                </div>
-              </div>
+
+
+  <div class="row mx-auto">
+    <div class="col2 wow move-up " style="padding: 10px" *ngFor="let p of productList ; let i =index" >
+      <div class=" m-0" *ngIf = "i <7">
+        <div class="pro-item text-center">
+          <a href="/san-pham/{{p.url}}"  style="padding: 10px 20px" class="pro">
+            <div class="image">
+              <img src="{{baseURL}}/{{productURL}}/image/{{p.id}}" class="img-fluid" alt="image-product" appHideMissing>
             </div>
-          </div>
+            <div class="content">
+                <h6 class=" text-black title" style="font-size: 16px "> {{p.title}}</h6>
+
+              <div class="p-des "  title="{{p.description}}">{{p.description}}</div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
-    <div class="col-xs-12" >
-      <div class="service-link"><a id="aa" class="color-gree" href="#">ĐĂNG KÝ TƯ VẤN</a></div>
-    </div>
+  </div>
+  <div class="col-xs-12 text-center" >
+    <div class="service-link"><a id="aa" class="color-gree" href="lien-he">ĐĂNG KÝ TƯ VẤN</a></div>
+  </div>
   </div>
 </div>

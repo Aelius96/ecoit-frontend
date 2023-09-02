@@ -1,0 +1,141 @@
+
+/* Tool bar */
+.header-menu{
+
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+input:focus{
+  border: 1px solid #111111;
+  color: black;
+}
+.spann{
+  color: #333333;
+  font-size: 16px;
+}
+.searchinput{
+  /* text-transform: uppercase; */
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EAEFF4;
+  border: 1px solid #F6F9FC;
+  height: 30px;
+  width: 25%;
+ } 
+.input-group-append {
+  margin-left: 0px;
+  height: 30px;
+  margin-top:0px;
+}
+.menu-item{
+  margin-left: 15px;
+  margin-top: 8px;
+}
+.ht-btn-custom{
+  font-size: 16px;
+  color: #121213;
+}
+/* list */
+.text-title{
+  color: #50b848;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+.product-thumb-image img{
+  width: 100%;
+  max-height: 150px;
+  min-height: 100px;
+  object-fit: fill;
+}
+
+.btn-link span {
+  position: absolute;
+  right: 35px;
+}
+
+img{
+  border-radius: 10px;
+}
+/* table */
+
+.des-post{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-table {
+  height: 620px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.list-table::-webkit-scrollbar{
+  display: none;
+}
+
+th{
+  text-align: center;
+  text-transform: capitalize;
+  background-color: #5D87FF;
+  border-color: #5D87FF;
+  color: white;
+}
+
+/* .table{
+  border-collapse: separate;
+} */
+
+/* .header {
+  position: sticky;
+  top:0;
+} */
+/* .container::-webkit-scrollbar {
+  display: none;
+} */
+
+/* .list-table{
+  height: 620px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.list-table::-webkit-scrollbar{
+  display: none;
+} */
+
+/* th{
+  text-align: center;
+  text-transform: capitalize;
+  background-color: #5D87FF;
+  border-color: #5D87FF;
+  color: white;
+} */
+
+
+.icon-more:hover{
+  cursor: pointer;
+  color: #a1b234;
+}
+
+.edit:hover{
+  background-color: rgb(103, 190, 74);
+  color: white;
+}
+.dele:hover{
+  background-color: rgb(240, 56, 56);
+  color: white;
+}
+.drop{
+  font-size: 14px;
+}
+.w-10{
+  width: 10%;
+}
+.w-15{
+  width: 15%;
+}

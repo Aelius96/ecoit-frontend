@@ -345,7 +345,7 @@ select {
   outline: none;
   border: 1px solid #f8f8f8;
   border-radius: 5px;
-  background: #f8f8f8 url("../images/icons/selector-icon.png") no-repeat center right 20px;
+  background: #f8f8f8 url("../images/icons/selector-icon.png") no-repeat center right 10px;
   background-color: #f8f8f8;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -539,15 +539,15 @@ select {
     transform: scale(1);
   }
 }
-
+/* trình duyệt Firefox  */
 ::-moz-selection {
   color: #ffffff;
-  background-color: #5945e6;
+  background-color: #50b848 ;
 }
 
 ::selection {
   color: #ffffff;
-  background-color: #5945e6;
+  background-color: #50b848 ;
 }
 
 .faq-banner-area, .saas-feature {
@@ -713,8 +713,8 @@ form input::placeholder, form textarea::placeholder {
 }
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="range"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="time"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="color"]:focus, textarea:focus, select:focus, select:focus, textarea:focus {
-  color: #5945e6;
-  border-color: #5945e6;
+  color: #000000 ;
+  border-color: #50b848 ;
 }
 
 /* swiper default styles */
@@ -1162,7 +1162,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 .preloader-active .preloader-area-wrap .spinner div {
-  background-color: #5945e6;
+  background-color: #50B848;
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -2514,6 +2514,29 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 /* ====================
     Toolbar Area
 ========================*/
+
+.toolbar{
+  height: 53px;
+  background-color: white;
+  box-shadow: 0px 20px 30px 0px rgba(82, 63, 105, 0.13);
+  position: fixed;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+@media only screen and (max-width:991px) {
+.toolbar{
+  left: 0px;
+}
+}
+@media only screen and (min-width:992px) {
+.toolbar{
+  left: 228px;
+}
+}
+
 .aeroland__toolbar .inner {
   position: absolute;
   top: 200px;
@@ -3014,7 +3037,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 .header-area.is-sticky .open-main-menu-icon i, .header-area.is-sticky .mobile-navigation-icon i {
-  background-color: #5945e6;
+  background-color: #ffffff;
 }
 
 .header-area.is-sticky .open-main-menu-icon i:before, .header-area.is-sticky .mobile-navigation-icon i:before {
