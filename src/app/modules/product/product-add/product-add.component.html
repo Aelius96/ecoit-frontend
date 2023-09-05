@@ -14,7 +14,7 @@
           <input type="text" formControlName="title" id="title" name="title" 
             [class.borderError]="!formProduct.controls.title.valid&&!formProduct.controls.title.untouched"
             [class.text-input]="formProduct.controls.title.valid||formProduct.controls.title.untouched">
-            <p *ngIf="!formProduct.controls.title.valid&&!formProduct.controls.title.untouched" class="validateText">Tiêu đề không thể bỏ trống</p>
+            <p *ngIf="!formProduct.controls.title.valid&&!formProduct.controls.title.untouched" class="validateText">Tên không thể bỏ trống</p>
         </div>
         <div class="update_box">
           <span><strong><span class="validateText">*</span>Mô tả</strong></span>
@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="submit-button mt-2 mt-md-4">
-          <button type="submit" class="btn btn-primary btn-lg mr-4 w-25">Lưu</button>
+          <button type="submit" class="btn btn-primary btn-lg mr-4 w-25" [disabled]="!formProduct.valid">Lưu</button>
           <button type="button" class="btn btn-secondary btn-lg  cancel mr-2 w-25"
             (click)="backToProductList()">Hủy</button>
         </div>
