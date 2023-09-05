@@ -140,7 +140,7 @@ export class CustomerAddComponent {
   }
 
   goToCustomerList() {
-    this.router.navigate(['/admin-control/customer']);
+    this.router.navigate(['/admin/customer']);
   }
 
   onSubmit() {
@@ -194,8 +194,8 @@ export class CustomerAddComponent {
   }
 
   addMoreProduct() {
-    window.sessionStorage.setItem('redirect', '/admin-control/customer/add');
-    this.router.navigate(['/admin-control/product/add']);
+    window.sessionStorage.setItem('redirect', '/admin/customer/add');
+    this.router.navigate(['/admin/product/add']);
   }
 
   // imageChange(e: any){

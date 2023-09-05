@@ -96,7 +96,7 @@ export class SliderAddComponent implements OnInit {
   }
 
   goToSliderList(){
-    this.router.navigate(['/admin-control/sliders']);
+    this.router.navigate(['/admin/sliders']);
   }
 
   onSubmit(){

@@ -26,3 +26,7 @@ img{
   background-image: url(/assets/images/bglogin.jpg);
   opacity: 0.8;
 }
+input:focus{
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  box-shadow: none;
+}

@@ -50,7 +50,7 @@ export class CategoryAddComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/admin-control/category']);
+    this.router.navigate(['/admin/category']);
   }
 
   update(id: number, category: Category) {

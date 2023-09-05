@@ -3,7 +3,8 @@
     <div class="row w-100 mx-auto ">
       <div class="col-lg-12 col-12 ">
         <div class="login">
-          <img class="w-75 mb-2 mb-md-4 mt-2 mt-md-4"  src="./assets/images/logoEcoit.jpg" alt="ecoit" style=" height: auto;">
+          <img class="w-75 mb-2 mb-md-4 mt-2 mt-md-4" src="./assets/images/logoEcoit.jpg" alt="ecoit"
+            style=" height: auto;">
           <p class="text"> Đăng nhập </p>
           <form (ngSubmit)="onSubmit()" ngNativeValidate>
             <div *ngIf="isLoginFailed" class="error-mess mb-4">{{errorMessage}}</div>
@@ -11,10 +12,18 @@
               <input type="text" name="username" autocomplete="username" [(ngModel)]="form.username"
                 class="form-control" placeholder="Tên đăng nhập" required>
             </div>
-            <div class="form-outline mb-4">
+            <div class="form-outline mb-4 form-control d-flex ">
               <input type="password" name="password" autocomplete="current-password" [(ngModel)]="form.password"
-                class="form-control" placeholder="Mật khẩu" required>
+                class="w-100 border-0 " placeholder="Mật khẩu" id="password" required>
+              <label class="input-group-addon  ">
+                <a onclick="password_show_hide()">
+                  <i style="font-size: 20px;" class="fa fa-eye-slash d-none"  id="hide_eye"></i>
+                  <i style="font-size: 20px;" class="fa fa-eye  " id="show_eye" ></i>
+                </a>
+                
+              </label>
             </div>
+
             <div class="save-pass">
               <label class="save-pass-container">Nhớ mật khẩu?
                 <input type="checkbox" name="remember-me" [(ngModel)]="form.remember">
@@ -33,4 +42,6 @@
     <img src="./assets/images/bglogin.jpg" alt="liên hệ">
   </div>
 </div>
+
+
 

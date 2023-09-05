@@ -22,6 +22,7 @@ export class SliderControlComponent {
 
   target = {
     url: '',
+    originalFileName:'',
     id: 1,
     name: '',
     link: '',
@@ -67,6 +68,7 @@ export class SliderControlComponent {
 
   choose(e: any) {
     this.target.name = e?.name;
+    this.target.originalFileName =  e?.originalFileName;
     this.target.url = e?.pathUrl;
     this.target.link = e?.url;
     this.target.id = e?.id;
@@ -84,7 +86,7 @@ export class SliderControlComponent {
     }
   }
   updateSlider(id: number) {
-    return this.router.navigate(['admin-control/sliders/update', id]);
+    return this.router.navigate(['admin/sliders/update', id]);
   }
 
   hideImage(id: number) {

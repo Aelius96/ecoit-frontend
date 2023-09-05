@@ -132,7 +132,7 @@ export class UserAddComponent implements OnInit{
   }
 
   goToBack() {
-    this.router.navigate(['/admin-control/user']);
+    this.router.navigate(['/admin/user']);
     // window.history.back();
   }
 
@@ -145,6 +145,7 @@ export class UserAddComponent implements OnInit{
 
           this.isSuccessful = true;
           this.isSignUpFailed = false;
+          this.goToBack()
           // this.toastService.showSuccess()
           // this.errorMessage = "Đăng ký thành công!!"
         },

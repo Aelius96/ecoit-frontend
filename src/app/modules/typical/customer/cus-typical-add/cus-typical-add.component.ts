@@ -68,7 +68,7 @@ export class CusTypicalAddComponent {
   }
 
   goToTCList(){
-    this.router.navigate(['/admin-control/customer/cus-typical']);
+    this.router.navigate(['/admin/customer/cus-typical']);
   }
 
   addDataToForm(id: any){

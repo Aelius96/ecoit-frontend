@@ -56,7 +56,7 @@ addGallery(){
 }
 
 gotoGalleryControl(){
-  this.router.navigate(['/admin-control/tImage'])
+  this.router.navigate(['/admin/tImage'])
 }
 
 update(id:any){

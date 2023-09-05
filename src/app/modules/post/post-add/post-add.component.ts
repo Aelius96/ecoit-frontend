@@ -222,7 +222,7 @@ export class PostAddComponent implements OnInit {
   }
 
   goToPostList() {
-    this.router.navigate(['/admin-control/bpost']);
+    this.router.navigate(['/admin/bpost']);
   }
 
   updateDataToForm(id: any) {
