@@ -10,18 +10,18 @@
           <input type="file" value="select" (change)="imageChange($event)">
         </div>
         <div class="update_box2">
-          <span><strong>Tên</strong></span>
+          <span><strong><span class="validateText">*</span>Tên</strong></span>
           <input type="text" formControlName="title" id="title" name="title" 
-          [class.borderError]="!formProduct.controls.title.valid&&!formProduct.controls.title.pristine"
-          [class.text-input]="formProduct.controls.title.valid||formProduct.controls.title.pristine"
-          >
+            [class.borderError]="!formProduct.controls.title.valid&&!formProduct.controls.title.untouched"
+            [class.text-input]="formProduct.controls.title.valid||formProduct.controls.title.untouched">
+            <p *ngIf="!formProduct.controls.title.valid&&!formProduct.controls.title.untouched" class="validateText">Tiêu đề không thể bỏ trống</p>
         </div>
         <div class="update_box">
-          <span><strong>Mô tả</strong></span>
-          <textarea style="height: 120px" id="description" formControlName="description" 
-          [class.borderError]="!formProduct.controls.description.valid&&!formProduct.controls.description.pristine"
-          [class.text-input]="formProduct.controls.description.valid||formProduct.controls.description.pristine"
-             name="description"></textarea>
+          <span><strong><span class="validateText">*</span>Mô tả</strong></span>
+          <textarea style="height: 120px" id="description" formControlName="description"
+          [class.borderError]="!formProduct.controls.description.valid&&!formProduct.controls.description.untouched"
+          [class.text-input]="formProduct.controls.description.valid||formProduct.controls.description.untouched"></textarea>
+          <p *ngIf="!formProduct.controls.description.valid&&!formProduct.controls.description.untouched"  class="validateText">Mô tả không thể bỏ trống</p>
         </div>
         <div class="update_box">
           <span><strong>Thẻ tag</strong></span>
@@ -48,11 +48,11 @@
       </div>
       <div class="col-lg-8">
         <div class="update_box" >
-          <span><strong>Nội dung</strong></span>
-          <div>
+          <span><strong><span class="validateText">*</span>Nội dung</strong></span>
+          <div >
           <div class="ckeditorContaniner" id="editor">
             <!--            <ckeditor [editor]="Editor"  [data]="new.content"></ckeditor>-->
-            <ckeditor id="content" [(ngModel)]="content"
+            <ckeditor id="content" [(ngModel)]="products.content" #content="ngModel" 
               [ngModelOptions]="{standalone: true}" [config]="ckeConfig"></ckeditor>
           </div>
         </div>

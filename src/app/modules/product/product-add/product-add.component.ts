@@ -39,11 +39,9 @@ export class ProductAddComponent implements OnInit {
   imageURL: any;
   formProduct = new FormGroup({
     hashtagCtrl: new FormControl(''),
-    title: new FormControl('',[Validators.required]),
-    description: new FormControl('',[Validators.required]),
+    title: new FormControl('',Validators.required),
+    description: new FormControl('',Validators.required),
   });
-  content=''
-  inputs=''
 
   constructor(
     private router: Router,
@@ -131,7 +129,6 @@ export class ProductAddComponent implements OnInit {
         this.listAllHashTag();
         this.formProduct.controls['description'].setValue(this.products.description)
         this.formProduct.controls['title'].setValue(this.products.title)
-        this.content=this.products.content
       });
     }
     this.ckeConfig = {
@@ -178,7 +175,7 @@ export class ProductAddComponent implements OnInit {
         this.backToProductList();
       },
       (error) => {
-        this.toast.showWarning(error.error,this.inputs);
+        this.toast.showWarning(error.error);
         console.log(error);
       }
     );
@@ -193,7 +190,7 @@ export class ProductAddComponent implements OnInit {
         this.backToProductList();
       },
       (error) => {
-        this.toast.showWarning(error.error,this.inputs);
+        this.toast.showWarning(error.error);
         console.log(error);
       }
     );
@@ -220,7 +217,6 @@ export class ProductAddComponent implements OnInit {
 
   onSubmit() {
     this.products.title=this.formProduct.controls['title'].value
-    this.products.content = this.content
     this.products.description=this.formProduct.controls['description'].value
     if (this.id) {
       this.updateProduct(this.id);

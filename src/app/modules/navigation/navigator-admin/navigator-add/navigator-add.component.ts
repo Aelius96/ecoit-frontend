@@ -3,7 +3,7 @@ import { Nav } from '../../../../core/model/nav/nav';
 import { NavService } from '../../../../services/nav/nav.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastService } from 'src/app/modules/toast/toast.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-navigator-add',
@@ -15,13 +15,10 @@ export class NavigatorAddComponent implements OnInit {
   nav: Nav = new Nav();
   navGroup: Nav[] = [];
   formNav = new FormGroup({
-    name: new FormControl(''),
-    url: new FormControl(''),
+    name: new FormControl('',[Validators.required]),
+    url: new FormControl('',[Validators.required]),
     parentId:new FormControl()
   });
-  isName=true
-  isUrl = true
-  inputs=''
   parentId:number
 
   constructor(
@@ -57,8 +54,7 @@ export class NavigatorAddComponent implements OnInit {
         this.goToNavList();
       },
       (error) => {
-        this.ktradieukien()
-        this.toast.showWarning(error.error,this.inputs);
+        this.toast.showWarning(error.error);
         console.log(error);
       }
     );
@@ -71,8 +67,7 @@ export class NavigatorAddComponent implements OnInit {
         this.goToNavList();
       },
       (error) => {
-        this.ktradieukien()
-        this.toast.showWarning(error.error,this.inputs);
+        this.toast.showWarning(error.error);
         console.log(error);
       }
     );
@@ -90,27 +85,5 @@ export class NavigatorAddComponent implements OnInit {
       this.addNav();
     }
   }
-  ktradieukien(){
-    if(this.formNav.controls['name'].value===""&&
-    this.formNav.controls['url'].value==="")
-    {
-      this.isName=false
-      this.isUrl=false
-      this.inputs="name"
-    }
-    else if(this.formNav.controls['name'].value===""){
-      this.isName=false
-      this.inputs="name"
-    }
-    else{
-      this.isUrl=false
-      this.inputs="url"
-    }
-  }
-  changeName(){
-    this.isName=true
-  }
-  changeUrl(){
-    this.isUrl=true
-  }
+
 }

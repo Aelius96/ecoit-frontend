@@ -9,7 +9,7 @@ import { Constant } from '../../../core/config/constant';
 import { Domain } from 'src/app/core/domain/domain';
 import { ToastService } from '../../toast/toast.service';
 import { NumberService } from 'src/app/services/number-typical/number.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-add',
@@ -27,16 +27,12 @@ export class CustomerAddComponent {
   products: Product[] = [];
 
   allIcon: any;
-  inputs = '';
   formCus = new FormGroup({
-    name: new FormControl(''),
-    description: new FormControl(''),
-    icons: new FormControl(''),
+    name: new FormControl('',[Validators.required]),
+    description: new FormControl('',[Validators.required]),
+    icons: new FormControl('',[Validators.required] ),
     bgIColor: new FormControl(),
   });
-  isborderErrorIcon = true;
-  isborderErrorName = true;
-  isborderErrorDes = true;
   image: any;
   fileToUpload: string[] = [];
 
@@ -106,8 +102,7 @@ export class CustomerAddComponent {
         this.goToCustomerList();
       },
       (err) => {
-        this.ktradieukien();
-        this.toast.showWarning(err.error, this.inputs);
+        this.toast.showWarning(err.error);
       }
     );
   }
@@ -133,8 +128,7 @@ export class CustomerAddComponent {
         this.goToCustomerList();
       },
       (error) => {
-        this.ktradieukien();
-        this.toast.showWarning(error.error, this.inputs);
+        this.toast.showWarning(error.error);
       }
     );
   }
@@ -209,57 +203,6 @@ export class CustomerAddComponent {
   //     this.imageURL= reader.result;
   //   }
   // }
-  ktradieukien() {
-    if (
-      this.formCus.controls['name'].value === '' &&
-      this.formCus.controls['icons'].value === '' &&
-      this.formCus.controls['description'].value === ''
-    ) {
-      this.isborderErrorDes = false;
-      this.isborderErrorIcon = false;
-      this.isborderErrorName = false;
-      this.inputs = 'name';
-    } else if (
-      this.formCus.controls['icons'].value === '' &&
-      this.formCus.controls['description'].value === ''
-    ) {
-      this.isborderErrorIcon = false;
-      this.isborderErrorDes = false;
-      this.inputs = 'icon';
-    } else if (
-      this.formCus.controls['name'].value === '' &&
-      this.formCus.controls['icons'].value === ''
-    ) {
-      this.isborderErrorIcon = false;
-      this.isborderErrorName = false;
-      this.inputs = 'name';
-    } else if (
-      this.formCus.controls['name'].value === '' &&
-      this.formCus.controls['description'].value === ''
-    ) {
-      this.isborderErrorName = false;
-      this.isborderErrorDes = false;
-      this.inputs = 'name';
-    } else if (this.formCus.controls['icons'].value === '') {
-      this.isborderErrorIcon = false;
-      this.inputs = 'icon';
-    } else if (this.formCus.controls['name'].value === '') {
-      this.isborderErrorName = false;
-      this.inputs = 'name';
-    } else {
-      this.isborderErrorDes = false;
-      this.inputs = 'description';
-    }
-  }
-  changeName() {
-    this.isborderErrorName = true;
-  }
-  changeIcon() {
-    this.isborderErrorIcon = true;
-  }
-  changeDes() {
-    this.isborderErrorDes = true;
-  }
   changeColor() {
     this.customer.bgIColor = this.formCus.controls['bgIColor'].value;
   }

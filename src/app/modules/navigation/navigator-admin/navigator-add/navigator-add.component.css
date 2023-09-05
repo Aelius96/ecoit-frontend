@@ -70,6 +70,10 @@
     background: #f2f2f2;
     color: black;
   }
+  .options span{
+    font-size: 13px;
+    font-weight: 300;
+  }
 
   .user-footer{
     justify-content: flex-start;
@@ -111,4 +115,8 @@ select:focus {
 }
 .text-input:focus{
   border: 1px solid #50b848;
+}
+.validateText{
+  margin-top: 15px;
+  color:red;
 }

@@ -25,19 +25,19 @@ input {
   text-align: center;
 }
 
-.setinput {
+.text-input {
   color: black;
   border: 1px solid #50b848;
   margin-top: 15px;
 }
 
-.setinputError {
+.borderError {
   color: black;
   margin-top: 15px;
   border: 1px solid red;
 }
 
-.setinputError:focus {
+.borderError:focus {
   color: black;
   margin-top: 15px;
   border: 1px solid red;
@@ -60,4 +60,8 @@ input {
   /* border: 1px solid #888; */
   width: 30%;
   border-radius: 15px;
+}
+.validateText{
+  margin-top: 15px;
+  color:red;
 }

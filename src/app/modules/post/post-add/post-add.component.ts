@@ -11,7 +11,7 @@ import { Post } from '../../../core/model/post/post';
 import { PostService } from '../../../services/post/post.service';
 import { Category } from '../../../core/model/category/category';
 import { CategoryService } from '../../../services/category/category.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
 import { Hashtag } from '../../../core/model/hashtag/hashtag';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -36,10 +36,9 @@ export class PostAddComponent implements OnInit {
   hashtagList: Hashtag[] = [];
   fileToUpload: string[] = [];
   formPost = new FormGroup({
-    moTa: new FormControl(''),
-    title: new FormControl(''),
-    noiDung: new FormControl(''),
-    chuyenMuc: new FormControl(''),
+    moTa: new FormControl('',Validators.required),
+    title: new FormControl('',Validators.required),
+    chuyenMuc: new FormControl('',Validators.required),
   });
   url: any;
   id: any;
@@ -53,12 +52,6 @@ export class PostAddComponent implements OnInit {
   selectedFile: File;
   fileName: any;
 
-  inputs = '';
-  isMota = true;
-  isTitle = true;
-  isChuyenmuc = true;
-  isconTent = true;
-  content = '';
 
   currentPage: any;
   pageSize: any;
@@ -148,7 +141,6 @@ export class PostAddComponent implements OnInit {
         this.formPost.controls['chuyenMuc'].setValue(this.post.category.typeName);
         this.formPost.controls['moTa'].setValue(this.post.description);
         this.formPost.controls['title'].setValue(this.post.title);
-        this.content = this.post.content;
       });
     }
 
@@ -173,9 +165,6 @@ export class PostAddComponent implements OnInit {
     this.post.title = this.formPost.controls['title'].value;
     this.post.category.typeName = this.formPost.controls['chuyenMuc'].value;
     this.post.description = this.formPost.controls['moTa'].value;
-    this.post.content = this.content;
-    console.log(this.content.length);
-    console.log(this.post.content);
     if (this.id) {
       this.updateDataToForm(this.id);
     } else {
@@ -214,8 +203,7 @@ export class PostAddComponent implements OnInit {
         this.goToPostList();
       },
       (error) => {
-        this.ktradieukien();
-        this.toastService.showWarning(error.error, this.inputs);
+        this.toastService.showWarning(error.error);
         console.log(error.error);
       }
     );
@@ -233,8 +221,7 @@ export class PostAddComponent implements OnInit {
         this.goToPostList();
       },
       (error) => {
-        this.ktradieukien();
-        this.toastService.showWarning(error.error, this.inputs);
+        this.toastService.showWarning(error.error);
         console.log(error.error);
       }
     );
@@ -261,122 +248,5 @@ export class PostAddComponent implements OnInit {
     reader.onload = (_event) => {
       this.imageURL = reader.result;
     };
-  }
-  //validate
-  ktradieukien() {
-    if (
-      this.formPost.controls['title'].value === "" &&
-      this.formPost.controls['chuyenMuc'].value === "" &&
-      this.formPost.controls['moTa'].value === "" &&
-      this.content.length === 0
-    ) {
-      this.isTitle = false;
-      this.isChuyenmuc = false;
-      this.isMota = false;
-      this.isconTent = false;
-      this.inputs = 'title';
-    } else if (
-      this.formPost.controls['title'].value === "" &&
-      this.formPost.controls['chuyenMuc'].value === "" &&
-      this.formPost.controls['moTa'].value === ""
-    ) {
-      this.isMota = false;
-      this.isChuyenmuc = false;
-      this.isTitle = false;
-      this.inputs = 'title';
-    } else if (
-      this.formPost.controls['title'].value === "" &&
-      this.formPost.controls['chuyenMuc'].value === "" &&
-      this.content.length === 0
-    ) {
-      this.isTitle = false;
-      this.isChuyenmuc = false;
-      this.isconTent = false;
-      this.inputs = 'title';
-    } else if (
-      this.formPost.controls['title'].value === "" &&
-      this.formPost.controls['moTa'].value === "" &&
-      this.content.length === 0
-    ) {
-      this.isTitle = false;
-      this.isconTent = false;
-      this.isMota = false;
-      this.inputs = 'title';
-    } else if (
-      this.formPost.controls['moTa'].value === "" &&
-      this.formPost.controls['chuyenMuc'].value === "" &&
-      this.content.length === 0
-    ) {
-      this.isMota = false;
-      this.isChuyenmuc = false;
-      this.inputs = 'moTa';
-      this.isconTent = false;
-    } else if (
-      this.formPost.controls['title'].value === "" &&
-      this.formPost.controls['chuyenMuc'].value === ""
-    ) {
-      this.isTitle = false;
-      this.isChuyenmuc = false;
-      this.inputs = 'title';
-    } else if (
-      this.formPost.controls['title'].value === "" &&
-      this.formPost.controls['moTa'].value === ""
-    ) {
-      this.isTitle = false;
-      this.isMota = false;
-      this.inputs = 'title';
-    } else if (
-      this.formPost.controls['moTa'].value === "" &&
-      this.formPost.controls['chuyenMuc'].value === ""
-    ) {
-      this.isMota = false;
-      this.isChuyenmuc = false;
-      this.inputs = 'moTa';
-    } else if (
-      this.formPost.controls['title'].value === "" &&
-      this.content.length === 0
-    ) {
-      this.isTitle = false;
-      this.isconTent = false;
-      this.inputs = 'title';
-    } else if (
-      this.content.length === 0 &&
-      this.formPost.controls['moTa'].value === ""
-    ) {
-      this.isconTent = false;
-      this.isMota = false;
-      this.inputs = 'moTa';
-    } else if (
-      this.content.length === 0 &&
-      this.formPost.controls['chuyenMuc'].value === ""
-    ) {
-      this.isconTent = false;
-      this.isChuyenmuc = false;
-      this.inputs = 'editor';
-    } else if (this.content.length === 0) {
-      this.isconTent = false;
-      this.inputs = 'editor';
-    } else if (this.formPost.controls['title'].value === "") {
-      this.isTitle = false;
-      this.inputs = 'title';
-    } else if (this.formPost.controls['moTa'].value === "") {
-      this.isChuyenmuc = false;
-      this.inputs = 'moTa';
-    } else {
-      this.isChuyenmuc = false;
-      this.inputs = 'chuyenmuc';
-    }
-  }
-  thongtinMota() {
-    this.isMota = true;
-  }
-  thongtinChuyemmuc() {
-    this.isChuyenmuc = true;
-  }
-  thongtinTitle() {
-    this.isTitle = true;
-  }
-  thongtinContent() {
-    this.isconTent = true;
   }
 }

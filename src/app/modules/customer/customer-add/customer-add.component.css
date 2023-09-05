@@ -101,3 +101,7 @@ select,
 option {
   font-family: fontAwesome
 }
+.validateText{
+  color: red;
+  margin-top: 15px;
+}

@@ -13,15 +13,17 @@
         </div>
         <div class="update_box">
           <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Mô tả</strong></span>
-          <input [ngClass]="{'borderInput':isMota,'inputError':!isMota}" id="moTa" type="text" formControlName="moTa"
-            name="description" (change)="thongtinMota()">
+          <input [class.borderError]="!formPost.controls.moTa.valid&&!formPost.controls.moTa.untouched"
+            [class.text-input]="formPost.controls.moTa.valid||formPost.controls.moTa.untouched" id="moTa" type="text"
+            formControlName="moTa" name="description">
         </div>
         <div class="update_box">
           <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Chuyên mục</strong></span>
-          <select  id="chuyenMuc" formControlName="chuyenMuc" (change)="thongtinChuyemmuc()" name="category"
-            [ngClass]="{'borderInput':isChuyenmuc,'inputError':!isChuyenmuc}">
+          <select id="chuyenMuc" formControlName="chuyenMuc" name="category"
+            [class.borderError]="!formPost.controls.chuyenMuc.valid&&!formPost.controls.chuyenMuc.untouched"
+            [class.text-input]="formPost.controls.chuyenMuc.valid||formPost.controls.chuyenMuc.untouched">
             <option value="" disabled selected hidden></option>
-            <option *ngFor="let icon of categories" [value]="icon.typeName"[innerHTML]="icon.typeName"></option>
+            <option *ngFor="let icon of categories" [value]="icon.typeName" [innerHTML]="icon.typeName"></option>
           </select>
         </div>
         <div class="update_box">
@@ -47,25 +49,25 @@
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-        
+
       </div>
       <div class="col-lg-8 col-12 ">
         <div class="update_box">
           <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Tiêu đề</strong></span>
-          <input [ngClass]="{'borderInput':isTitle,'inputError':!isTitle}" id="title" type="text" name="title"
-            formControlName="title" (change)="thongtinTitle()" required>
+          <input [class.borderError]="!formPost.controls.title.valid&&!formPost.controls.title.untouched"
+            [class.text-input]="formPost.controls.title.valid||formPost.controls.title.untouched"
+            formControlName="title" required>
         </div>
         <div class="update_box">
           <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Nội dung</strong></span>
-          <div class="p-0" [ngClass]="{'borderInput':isconTent,'inputError':!isconTent,'ckeditorContaniner':true}"
-            id="editor">
-            <ckeditor [(ngModel)]="content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" (change)="thongtinContent()"></ckeditor>
+          <div class="p-0" class="ckeditorContaniner" id="editor">
+            <ckeditor [(ngModel)]="post.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig"></ckeditor>
           </div>
         </div>
       </div>
       <div class="col-12 col-lg-4">
         <div class="submit-button">
-          <button type="submit" class="btn btn-primary btn-lg btnn">Lưu</button>
+          <button type="submit" class="btn btn-primary btn-lg btnn" [disabled]="!formPost.valid">Lưu</button>
           <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToPostList()">Hủy</button>
         </div>
       </div>

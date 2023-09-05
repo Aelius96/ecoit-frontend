@@ -57,6 +57,9 @@ select,option{
   border: 1px solid red;
   color: black;
 }
-
+.validateText{
+  margin-top: 15px;
+  color:red;
+}
 
 

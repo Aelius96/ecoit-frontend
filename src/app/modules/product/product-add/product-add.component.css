@@ -17,7 +17,7 @@
     width: 100%;
     object-fit: fill;
   }
-  .update_box span{
+  .update_box strong{
     color: #50B848;
   }
   .update_box input{
@@ -25,7 +25,7 @@
     width: 100%;
     border: 1px solid #50B848;
   }
-  .update_box2 span{
+  .update_box2 strong{
     color: #50B848;
   }
   .update_box2 input{
@@ -60,6 +60,10 @@
   .text-input {
     border: 1px solid #50b848;
     color: black;
+  }
+  .validateText{
+    margin-top: 15px;
+    color:red;
   }
 /* .banner{
   height: 200px;

@@ -3,7 +3,7 @@ import {NumberService} from '../../../../services/number-typical/number.service'
 import {ActivatedRoute, Router} from '@angular/router';
 import {Number} from '../number';
 import {ToastService} from 'src/app/modules/toast/toast.service';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-number-add',
   templateUrl: './number-add.component.html',
@@ -11,9 +11,9 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class NumberAddComponent implements OnInit {
   formNumber = new FormGroup({
-    numberic: new FormControl(),
-    description: new FormControl(),
-    icons: new FormControl(),
+    numberic: new FormControl('',Validators.required),
+    description: new FormControl('',Validators.required),
+    icons: new FormControl('',Validators.required),
   });
   inputs = '';
   isborderErrorDes = true;
@@ -78,8 +78,7 @@ export class NumberAddComponent implements OnInit {
         this.rollbackToList();
       },
       (error) => {
-        this.ktradieukien()
-        this.toast.showWarning(error.error, this.inputs);
+        this.toast.showWarning(error.error);
         console.log(error.error);
       }
     );
@@ -92,65 +91,9 @@ export class NumberAddComponent implements OnInit {
         this.rollbackToList();
       },
       (error) => {
-        this.ktradieukien();
-        this.toast.showWarning(error.error, this.inputs);
+        this.toast.showWarning(error.error);
         console.log(error.error);
       }
     );
-  }
-
-  ktradieukien() {
-    if (
-      this.formNumber.controls['numberic'].value === null &&
-      this.formNumber.controls['icons'].value === "" &&
-      this.formNumber.controls['description'].value === null
-    ) {
-      this.isborderErrorDes = false;
-      this.isborderErrorIcon = false;
-      this.isborderErrorNumber = false;
-      this.inputs = 'typeNumber';
-    } else if (
-      this.formNumber.controls['icons'].value === "" &&
-      this.formNumber.controls['description'].value === null
-    ) {
-      this.isborderErrorIcon = false;
-      this.isborderErrorDes = false;
-      this.inputs = 'icon';
-    } else if (
-      this.formNumber.controls['numberic'].value === null &&
-      this.formNumber.controls['icons'].value === ""
-    ) {
-      this.isborderErrorIcon = false;
-      this.isborderErrorNumber = false;
-      this.inputs = 'typeNumber';
-    } else if (
-      this.formNumber.controls['numberic'].value === null &&
-      this.formNumber.controls['description'].value === null
-    ) {
-      this.isborderErrorNumber = false;
-      this.isborderErrorDes = false;
-      this.inputs = 'typeNumber';
-    } else if (this.formNumber.controls['icons'].value === "") {
-      this.isborderErrorIcon = false;
-      this.inputs = 'icon';
-    } else if (this.formNumber.controls['numberic'].value === null) {
-      this.isborderErrorNumber = false;
-      this.inputs = 'typeNumber';
-    } else {
-      this.isborderErrorDes = false;
-      this.inputs = 'description';
-    }
-  }
-
-  noidungNumber() {
-    this.isborderErrorNumber = true;
-  }
-
-  noidungIcon() {
-    this.isborderErrorIcon = true;
-  }
-
-  noidungDescription() {
-    this.isborderErrorDes = true;
   }
 }

@@ -43,7 +43,7 @@
   background-color: deepskyblue;
 }
 
-.borderInput{
+.text-input{
   padding: 10px;
   width: 100%;
   border: 1px solid #50B848;
@@ -56,13 +56,17 @@ select:focus{
 option{
   color: black;
 }
-.inputError{
+.borderError{
   padding: 10px;
   width: 100%;
   border: 1px solid red;
 }
-.inputError:focus{
+.borderError:focus{
   padding: 10px;
   width: 100%;
   border: 1px solid red;
+}
+.validateText{
+  margin-top: 15px;
+  color:red;
 }

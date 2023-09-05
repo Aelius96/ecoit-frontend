@@ -52,6 +52,7 @@ export class CustomerControlComponent implements OnInit{
       this.customerService.listAllWithPage(params).subscribe(data=>{
         this.customer = data.content;
         this.paging.totalRecord = data.totalElements;
+        console.log(data)
       },
       error=>{
         console.error(error)

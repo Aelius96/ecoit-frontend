@@ -5,7 +5,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/core/model/category/category';
 import { CategoryService } from 'src/app/services/category/category.service';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { ToastService } from '../../toast/toast.service';
 
 @Component({
@@ -17,11 +17,8 @@ export class CategoryAddComponent implements OnInit {
   category: Category = new Category();
   message = '';
   id: number;
-  issetinput=true
-  messageError = '';
   formData: any;
-  input='typeName'
-  catogaryControl = new FormControl();
+  catogaryControl = new FormControl('',Validators.required);
 
   constructor(
     private toast: ToastService,
@@ -60,7 +57,7 @@ export class CategoryAddComponent implements OnInit {
         this.cancel();
       },
       (error) => {
-        this.toast.showWarning(error.error,this.input);
+        this.toast.showWarning(error.error);
       }
     );
   }
@@ -72,12 +69,8 @@ export class CategoryAddComponent implements OnInit {
         this.cancel();
       },
       (error) => {
-        this.toast.showWarning(error.error,this.input);
-        this.issetinput=false;
+        this.toast.showWarning(error.error);
       }
     );
-  }
-  thongtininput(){
-    this.issetinput=true
   }
 }
