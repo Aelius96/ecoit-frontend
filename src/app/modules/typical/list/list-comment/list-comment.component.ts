@@ -17,6 +17,7 @@ export class ListCommentComponent implements OnInit {
   commentList: Comment[]=[];
   commentListChild :Comment[]=[];
   comment: Comment = new Comment();
+  commentAdminView : any
   username:string;
   userId: number;
   parentId: number;
@@ -64,9 +65,7 @@ constructor(
     this.commentService.getListCommentwithPageAdmin(params).subscribe(res=>{
      this.commentList = res.content;
     this.paging.totalRecord = res.totalElements;
-
-     console.log(this.commentList)
-
+     
     },
     error=>{
       console.log(error)
@@ -189,5 +188,4 @@ constructor(
     this.paging.page = 1;
     this.getAllCommentAdminWithPage()
   }
-
 }
