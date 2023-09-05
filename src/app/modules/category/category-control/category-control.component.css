@@ -47,6 +47,15 @@
 
   /* == */
 
+  .edit:hover{
+    background-color: rgb(103, 190, 74);
+    color: white;
+  }
+  .dele:hover{
+    background-color: rgb(240, 56, 56);
+    color: white;
+  }
+
   .title-conten{
     text-align: center;
     padding: 0px 0px 40px 0px;
@@ -106,5 +115,13 @@ th{
   text-transform: capitalize;
   background-color: #5D87FF;
   border-color: #5D87FF;
+  color: white;
+}
+.edit:hover{
+  background-color: rgb(103, 190, 74);
+  color: white;
+}
+.dele:hover{
+  background-color: rgb(240, 56, 56);
   color: white;
 }

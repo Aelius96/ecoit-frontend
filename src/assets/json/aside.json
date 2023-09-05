@@ -3,7 +3,7 @@
         "id":1,
         "tittle":"Con số tiêu biểu",
         "a": "dashboard",
-        "icon":"fa fa-line-chart",
+        "icon":"fa fa-bar-chart",
         "selected":true
       },
       {

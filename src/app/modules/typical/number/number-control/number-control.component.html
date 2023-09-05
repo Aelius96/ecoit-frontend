@@ -1,7 +1,7 @@
 <div class="toolbar">
   <div class="container">
     <div class="d-flex  justify-content-between header-menu ">
-      <div class="d-flex">
+      <div class="">
         <!-- <p class="h55 my-auto"> Bảng Tiêu Biểu</p> -->
       </div>
       <div class="right-d-flex d-none d-md-block">
@@ -54,40 +54,58 @@
         </div>
       </div>
     </div>
-    <div class="section-space--mt_30 container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6 col-12 " style="margin-bottom:20px" *ngFor="let num of number | paginate:{
-                                                                          id:'number',
-                                                                          itemsPerPage: paging.size,
-                                                                          currentPage: paging.page,
-                                                                          totalItems: paging.totalRecord  }">
-          <div class="card h-100 "
-            style=" border: 1px solid rgb(255, 255, 255); box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.06)">
-            <div class="action-box">
-              <div>
-                <!--ví dụ về button sửa-->
-                <button (click)="updateTypicalNum(num.id)" style="background-color: #50b848" class="btnn"><i
-                    class="far fa-pen"></i> </button>
+    <div class="section-space--mt_30 w-50 mx-auto">
+      <table class="table section-space--mt_30 ">
+        <thead style="position: sticky;top: 0 ; z-index: 1;">
+          <tr>
+            <th class="w-25" scope="col" >Biểu tượng</th>
+            <th class="w-25" scope="col">Con số</th>
+            <th class="w-25" scope="col" class="text-center" >Mô tả</th>
+            <th class="w-25" scope="col">Chức năng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let num of number | paginate:{
+            id:'number',
+            itemsPerPage: paging.size,
+            currentPage: paging.page,
+            totalItems: paging.totalRecord  } , let i = index">
+            <td class="text-center " >
+              <span><i style="font-size: 28px;" class="{{num.icon}}"></i></span>
+            </td>
+            <td class=" text-center " >
+              <div class="counter-number text-capitalize h6 ">+{{num.num}}</div>
+            </td>
+            <td class="text-center">
+              <div class="des">
+                {{num.description}}
               </div>
-              <div>
-                <button (click)="deleteTypicalNum(num.id)" style="background-color: rgb(255,0,0)" class="btnn"><i
-                    class="far fa-times"></i> </button>
+            </td>
+            <td class="text-center" >
+              <div class="dropstart ">
+                <button  type="button" class="btn btn-secondary h-50 rounded-circle "
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i title="Chức năng" class='icon-more fa fa-expand ' style='font-size:14px'></i>
+                  </button>
+                <div class="dropdown-menu text-center p-0">
+                  <ul class="p-0 m-0 ">
+                    <li class="border p-2 edit " (click)="updateTypicalNum(num.id)" >
+                        <button   style=" background: initial;" class=" border-0  ">Chỉnh sửa
+                        </button>
+                    </li>
+                    <li class="border p-2 dele " (click)="deleteTypicalNum(num.id)">
+                        <button style=" background: initial;"  class=" border-0 "> Xóa </button>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
-            <div class="content-box ">
-              <h4 class="box-icon itemm">
-                <i class="{{num.icon}}">
-                </i>
-              </h4>
-              <div class="counter-number itemm">+{{num.num}}</div>
-              <h5 class="itemm">{{num.description}}</h5>
-            </div>
-          </div>
-        </div>
-        <div *ngIf="paging.totalRecord>0" class="col-md-12" style="margin-top: 20px;">
-          <pagination-controls [id]="'number'" previousLabel="<" nextLabel=">" (pageChange)="handlePageChange($event)"
-            [maxSize]="paging.totalRecord"></pagination-controls>
-        </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="paging.totalRecord>0" class="col-12 mt-1 mt-sm-2 mt-md-3 " >
+        <pagination-controls [id]="'number'" previousLabel="<" nextLabel=">" (pageChange)="handlePageChange($event)"
+          [maxSize]="paging.totalRecord"></pagination-controls>
       </div>
     </div>
   </div>

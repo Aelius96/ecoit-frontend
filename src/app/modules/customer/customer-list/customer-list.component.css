@@ -147,6 +147,9 @@
   .box-footer{
     width: 80%;
   }
+  .table-content{
+    margin: 0px;
+  }
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px){
@@ -161,6 +164,9 @@
   }
   .box-content{
     padding-bottom: 20px
+  }
+  .table-content{
+    margin: 0px;
   }
 }
 
@@ -177,6 +183,9 @@
   }
   .box-content{
     padding-bottom: 20px
+  }
+  .table-content{
+    margin: 0px;
   }
 }
 
