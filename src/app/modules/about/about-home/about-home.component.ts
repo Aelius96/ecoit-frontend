@@ -9,8 +9,6 @@ import { AboutUsService } from 'src/app/services/about-us/about-us.service';
   styleUrls: ['./about-home.component.css']
 })
 export class AboutHomeComponent implements OnInit {
-
-  src="http://localhost:8080/s/file/image/1693381530364_gym.mp4";
    about : About = new About();
   des:any;
   linkvideo:any;
