@@ -46,7 +46,8 @@ constructor(private route:ActivatedRoute,
       this.userId = this.tokenStorageService.getUser().id;
       this.comment.userName = this.username
 
-      this.url = this.route.snapshot.queryParams['url'];
+      // this.url = this.route.snapshot.queryParams['url'];
+      this.url = this.route.snapshot.params['url'];
       this.postService.getPostByUrl(this.url).subscribe(data => {
         this.comment.post.id = data.id;
         this.postId = data.id;
@@ -77,6 +78,7 @@ constructor(private route:ActivatedRoute,
     
     this.commentService.getCommentByPostId(this.postId).subscribe(data=>{
         this.commentList = data;
+        console.log(data)
       },
       error=>{
         console.error(error)

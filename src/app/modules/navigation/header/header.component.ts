@@ -32,7 +32,7 @@ export class HeaderComponent {
                private sanitizer: DomSanitizer) {
 
     //load lai page khi path parameter thay doi
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
@@ -41,8 +41,9 @@ export class HeaderComponent {
     // this.getAbout();
 
   }
-  goToSearch():void{
-    this.router.navigate(['/tim-kiem/'+this.searchInput]);
+  goToSearch(input : string):void{
+    const queryParams  = {input : input}
+    this.router.navigate(['/tim-kiem'],{queryParams});
     console.log(this.searchInput);
   }
   getAllNav(){

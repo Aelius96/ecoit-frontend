@@ -64,7 +64,7 @@
                       class="fas fa-search" style="color: #ecf9eb;"></i>
                     <div class="dropdown-menu dropdown-menu-right custom-input" aria-labelledby="dropdownMenuButton">
                       <input type="text" [(ngModel)]="searchInput" name="searchInput" id="searchInput"placeholder="Tìm Kiếm...">
-                      <input type="submit" (click)="goToSearch()" id="edit-submit">
+                      <input type="submit" (click)="goToSearch(searchInput)" id="edit-submit">
                     </div>
                   </li>
                 </ul>
@@ -105,7 +105,7 @@
                 <li class="py-3 px-3" style="border-bottom: 0.1px solid #dbdcdb ;">
                   <div class="custom-input" >
                     <input type="text" [(ngModel)]="searchInput" name="searchInput" id="searchInput" placeholder="Tìm kiếm" class="w-100" >
-                    <input type="submit" (click)="goToSearch()" id="edit-submit">
+                    <input type="submit" (click)="goToSearch(searchInput)" id="edit-submit">
                   </div>
                 </li>
               </ul>
