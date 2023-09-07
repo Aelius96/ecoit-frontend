@@ -28,8 +28,8 @@ export class NewsDetailComponent implements OnInit{
   }
 
   getList(){
-    // this.url = this.route.snapshot.params['url'];
-    this.url = this.route.snapshot.queryParams['url'];
+    this.url = this.route.snapshot.params['url'];
+    // this.url = this.route.snapshot.queryParams['url'];
     this.postService.getPostByUrl(this.url).subscribe(data => {
       this.post = data;
       // console.log(data)

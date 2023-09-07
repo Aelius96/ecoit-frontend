@@ -53,15 +53,15 @@ constructor(private route:ActivatedRoute ,
       this.toast.showWarning(error.error)
       console.log(error)}
     )
-    this.commentViewService.createComment(this.comment)
-    // this.comment.content = ""
-    setTimeout(() => {
-      location.reload()
-    }, 1000);
+    // this.commentViewService.createComment(this.comment)
+    // // this.comment.content = ""
+    // setTimeout(() => {
+    //   location.reload()
+    // }, 1000);
   }
   getPost(){
-    // this.url = this.route.snapshot.params['url'];
-    this.url = this.route.snapshot.queryParams['url'];
+    this.url = this.route.snapshot.params['url'];
+    // this.url = this.route.snapshot.queryParams['url'];
     this.postService.getPostByUrl(this.url).subscribe(data => {
       this.comment.post.id = data.id;
       // console.log(this.comment.post.id);

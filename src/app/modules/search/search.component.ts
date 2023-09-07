@@ -36,7 +36,7 @@ export class SearchComponent implements OnInit
   }
 
   ngOnInit(): void {
-    this.searchInput =  this.route.snapshot.params['searchInput'];
+    this.searchInput =  this.route.snapshot.queryParams['input'];
     this.tag = this.route.snapshot.params['hashtag'];
     this.getListAllWithPageTest();
     this.listAllCate()
@@ -97,12 +97,13 @@ export class SearchComponent implements OnInit
 
     })
   }
-  goToSearch():void{
-    this.router.navigate(['/tim-kiem/'+this.searchInput]);
+  goToSearch(input : string):void{
+    const queryParams  = {input : input}
+    this.router.navigate(['/tim-kiem'],{queryParams});
     console.log(this.searchInput);
   }
-  viewDetail(url : string) {
-    const queryParams  = {url : url}
-    this.router.navigate(["/tin-tuc/chi-tiet"],{queryParams})
-  }
+  // viewDetail(url : string) {
+  //   const queryParams  = {url : url}
+  //   this.router.navigate(["/tin-tuc/chi-tiet"],{queryParams})
+  // }
 }

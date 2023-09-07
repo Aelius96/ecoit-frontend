@@ -68,8 +68,8 @@ export class NewsListComponent implements OnInit{
     this.paging.page = event;
     this.getListAllWithPageTest();
   }
-  viewDetail(url : string) {
-    const queryParams  = {url : url}
-    this.router.navigate(["/tin-tuc/chi-tiet"],{queryParams})
-  }
+  // viewDetail(url : string) {
+  //   const queryParams  = {url : url}
+  //   this.router.navigate(["/tin-tuc/chi-tiet"],{queryParams})
+  // }
 }

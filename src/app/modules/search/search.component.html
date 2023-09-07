@@ -14,7 +14,7 @@
             <div class=" mb-md-3 mb-2 d-flex">
               <input type="text" [(ngModel)]="searchInput" placeholder="Tìm kiếm" style="padding: 3px 20px;"
                 class="searchinput  " name="searchInput" id="searchInput">
-              <input type="submit" (click)="goToSearch() " class="searchinput " id="edit-submit">
+              <input type="submit" (click)="goToSearch(searchInput) " class="searchinput " id="edit-submit">
             </div>
             <p class="font-weight-bold text-search mb-1 ">Chuyên Mục:</p>
             <select [(ngModel)]="cateName" name="cate" class=" searchinput" (ngModelChange)="searchPostwithCate()">
@@ -35,7 +35,7 @@
           totalItems: paging.totalRecord } ;let i = index" class="col-lg-3 col-sm-4 col-6  md-2 mb-md-4 ">
               <div class="single-blog-item blog-grid item-news ">
                 <div class="post-feature blog-thumbnail">
-                  <a class="w-100" (click)="viewDetail(post.url)">
+                  <a class="w-100" href="/tin-tuc/{{post.url}}">
                     <img class="img-fluid  w-100 image-search " src="{{baseURL}}/{{postURL}}/image/{{post.id}}"
                       alt="Blog Images">
                   </a>
@@ -43,7 +43,7 @@
 
                 <div class="post-info mt-2 mt-md-4 lg-blog-post-info">
                   <h5 class="post-title mt-2 mb-3">
-                    <a class="p-title" (click)="viewDetail(post.url)">{{post.title}}</a>
+                    <a class="p-title" href="/tin-tuc/{{post.url}}">{{post.title}}</a>
                   </h5>
                   <div class="post-excerpt my-4">
                     <p>{{post.description}}</p>
