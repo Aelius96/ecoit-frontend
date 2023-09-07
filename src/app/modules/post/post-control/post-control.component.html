@@ -96,7 +96,7 @@
           <th class="w-25" scope="col">Mô tả</th>
           <th class="w-15" scope="col">Chuyên mục </th>
           <th class="w-10" scope="col">Thời gian</th>
-          <th class="w-10" scope="col">Chức năng</th>
+          <th class="w-10" scope="col">Thao tác</th>
         </tr>
       </thead>
       <tbody>
@@ -126,7 +126,7 @@
           <td class="text-center">
             <p class="mt-3"> {{post.date}}</p>
           </td>
-          <td class="text-center">
+          <!-- <td class="text-center">
             <div class="btn-group dropright ">
               <i title="Chức năng" class='icon-more fa fa-ellipsis-h mt-3 ' data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false" style='font-size:24px'></i>
@@ -135,6 +135,13 @@
                 <p class="dele icon-more drop p-2 " (click)="deletePost(post.id)">Xóa</p>
               </div>
             </div>
+          </td> -->
+          <td style="text-align: center;">
+            <button class="icon status_admin icon-edit me-0 me-xl-2 mt-2 mt-md-2"><a class="icon-item" (click)="updatePost(post.id)"><i
+                  class="fas fa-pen i"></i></a></button>
+            <button class="icon icon-remove  mt-2 mt-lg-2 ">
+              <a class="icon-item" (click)="deletePost(post.id)"><i class="fas fa-trash-alt remove i"></i></a>
+            </button>
           </td>
         </tr>
       </tbody>

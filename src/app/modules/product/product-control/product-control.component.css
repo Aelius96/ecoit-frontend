@@ -63,10 +63,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.table{
-  /* border: 0.3px solid; */
-  /* border-collapse: separate; */
-}
 .header {
   position: sticky;
   top:0;
@@ -93,6 +89,28 @@ th{
   cursor: pointer;
   color: #a1b234;
 }
+.icon{
+  padding: 5px 10px 5px 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: #fff;
+}
+.icon-edit{
+  background-color: #3366FF;
+}
+.icon-remove{
+  background-color: rgb(93 95 97);
+}
+.icon-add{
+ background-color: rgb(54, 219, 25);
+ color: #eff2f5;
+}
+.icon-item{
+  color: #eff2f5;
+}
+.icon-item:hover{
+  color: black;
+}
 
 .edit:hover{
   background-color: rgb(103, 190, 74);
@@ -105,4 +123,7 @@ th{
 .drop{
   padding: 8px 0px;
   font-size: 14px;
+}
+.table{
+  border-collapse: separate;
 }

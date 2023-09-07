@@ -74,7 +74,7 @@
         <th class="w-25" scope="col">Tiêu đề</th>
         <th class="w-25" scope="col">Mô tả</th>
         <th class="" scope="col">Thời gian</th>
-        <th class="" scope="col">Chức năng</th>
+        <th class="" scope="col">Thao tác</th>
       </tr>
     </thead>
     <tbody>
@@ -102,15 +102,22 @@
         <td class="text-center">
           <p class="">{{pro.date}}</p>
         </td>
-        <td class="text-center">
+        <!-- <td class="text-center">
           <div class="btn-group dropright ">
-            <i title="Chức năng" class='icon-more fa fa-ellipsis-h ' data-toggle="dropdown" aria-haspopup="true"
+            <i title="Thao tác" class='icon-more fa fa-ellipsis-h ' data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false" style='font-size:24px'></i>
             <div class="dropdown-menu text-center p-0">
               <p class="edit icon-more mb-1 drop " (click)="updateProduct(pro.id)">Chỉnh sửa</p>
               <p class="dele icon-more drop " (click)="deleteProduct(pro.id)">Xóa</p>
             </div>
           </div>
+        </td> -->
+        <td style="text-align: center;">
+          <button class="icon status_admin icon-edit me-0 me-md-2 "><a class="icon-item" (click)="updateProduct(pro.id)"><i
+                class="fas fa-pen i"></i></a></button>
+          <button class="icon icon-remove  mt-2 mt-md-0 ">
+            <a class="icon-item" (click)="deleteProduct(pro.id)"><i class="fas fa-trash-alt remove i"></i></a>
+          </button>
         </td>
       </tr>
     </tbody>

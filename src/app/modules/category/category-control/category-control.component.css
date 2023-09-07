@@ -125,3 +125,28 @@ th{
   background-color: rgb(240, 56, 56);
   color: white;
 }
+.icon{
+  padding: 5px 10px 5px 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: #eff2f5;
+}
+.icon-edit{
+  background-color: #3366FF;
+}
+.icon-remove{
+  background-color: rgb(93 95 97);
+}
+.icon-add{
+ background-color: rgb(54, 219, 25);
+ color: #eff2f5;
+}
+.icon-item{
+  color: #eff2f5;
+}
+.icon-item:hover{
+  color: black;
+}
+.table{
+  border-collapse: separate;
+}

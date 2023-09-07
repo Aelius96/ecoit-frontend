@@ -42,6 +42,7 @@ export class SliderAddComponent implements OnInit {
   getById(id: any) {
     this.sliderService.getById(id).subscribe(data => {
       this.slider = data;
+      console.log(data)
       this.url = this.slider.pathUrl;
       this.imageURL = `${this.baseURL}/${this.sliderURL}/image/${this.slider.name}`
     });
@@ -112,11 +113,9 @@ export class SliderAddComponent implements OnInit {
   imageChange(e: any){
     const files = e.target.files;
     if (files.length === 0) return;
-    this.disabled=''
     const reader = new FileReader();
     this.fileToUpload=files;
     reader.readAsDataURL(files[0]);
-    this.disable="";
     reader.onload = (_event) =>{
       this.imageURL= reader.result;
     }

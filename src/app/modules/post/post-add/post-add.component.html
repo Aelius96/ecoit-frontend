@@ -8,7 +8,7 @@
             <div class="image borderInput p-0">
               <img src="{{imageURL}}" alt="" appHideMissing>
             </div>
-            <input class="p-1 p-md-2 " type="file" value="select" (change)="thumbnailChange($event)">
+            <input class="p-1 p-md-2 " accept="image/png, image/jpeg" type="file" value="select" (change)="thumbnailChange($event)">
           </div>
         </div>
         <div class="update_box">

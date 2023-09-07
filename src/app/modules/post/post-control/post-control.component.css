@@ -14,6 +14,28 @@ input:focus{
   color: #333333;
   font-size: 16px;
 }
+.icon{
+  padding: 5px 10px 5px 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: #fff;
+}
+.icon-edit{
+  background-color: #3366FF;
+}
+.icon-remove{
+  background-color: rgb(93 95 97);
+}
+.icon-add{
+ background-color: rgb(54, 219, 25);
+ color: #eff2f5;
+}
+.icon-item{
+  color: #eff2f5;
+}
+.icon-item:hover{
+  color: black;
+}
 .searchinput{
   /* text-transform: uppercase; */
   border-radius: 5px;
@@ -85,7 +107,6 @@ th{
   border-color: #5D87FF;
   color: white;
 }
-
 /* .table{
   border-collapse: separate;
 } */
@@ -138,4 +159,7 @@ th{
 }
 .w-15{
   width: 15%;
+}
+.table{
+  border-collapse: separate;
 }
