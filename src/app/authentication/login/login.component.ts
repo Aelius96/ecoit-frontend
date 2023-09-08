@@ -30,7 +30,9 @@ export class LoginComponent {
   }
 
   onSubmit(): void{
+    console.log(this.form)
     this.authService.login(this.form).subscribe(data =>{
+        console.log(data.token)
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
         this.isLoggedIn = true;
