@@ -7,4 +7,7 @@ export class Role {
   description:string;
   selected = false;
   moduleList : Module[];
+  constructor() {
+    this.moduleList = []
+  }
 }

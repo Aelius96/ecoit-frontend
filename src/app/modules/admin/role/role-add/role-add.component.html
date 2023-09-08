@@ -36,7 +36,7 @@
                                             for="module{{item.id}}">{{item.name}}</label>
                                         </td>
                                         <td class="d-flex">
-                                          <div  *ngFor=" let per of  item.permissionList" class="p-1">
+                                          <div  *ngFor=" let per of  permissionlist" class="p-1">
                                             <input type="checkbox" [value]="per.status" [checked]="per.status"
                                            class="custom-control-input" id="per{{item.id}}{{per.id}}">
                                           <label class="cursor-pointer font-italic d-block custom-control-label mx-3"
