@@ -25,6 +25,7 @@ export class NumberAddComponent implements OnInit {
   // listIcon: any;
   allIcon: any;
   checkinput = true;
+  title='Thêm Con Số Tiêu Biểu'
 
   constructor(
     private numService: NumberService,
@@ -35,6 +36,9 @@ export class NumberAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(history.state.data){
+      this.title=history.state.data
+    }
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
       this.numService.getNumberById(this.id).subscribe((data) => {

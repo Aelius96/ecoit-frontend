@@ -88,31 +88,10 @@
             </div>
             <div class="col-md-12">
               <div class="title">Vai trò</div>
-              <div class="roles-box">
-                <div>
-                  <ul class="list-group">
-
-                    <!--                updateUser-->
-                    <!--                <li class="list-group-item" *ngFor="let r of role">-->
-                    <!--                  <div class="form-check">-->
-                    <!--                    <input type="checkbox" [value]="r.selected" [checked]="r.selected"-->
-                    <!--                           (change)="onRoleChange($event, r)" class="custom-control-input" id="customCheck{{r.id}}">-->
-                    <!--                    <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{r.id}}">{{r.name}}</label>-->
-
-                    <!--                  </div>-->
-                    <!--                </li>-->
-
-                    <!--                updateUser1-->
-                    <li class="list-group-item" *ngFor="let r of roles">
-                      <div class="form-check">
-                        <input type="checkbox" [value]="r.selected" [checked]="r.selected"
-                          (change)="onRoleChange($event,r)" class="custom-control-input" id="customCheck{{r.id}}">
-                        <label class="cursor-pointer font-italic d-block custom-control-label"
-                          for="customCheck{{r.id}}">{{r.name}}</label>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+              <div class="d-flex flex-column  ">
+                <select name="" id="" class="w-25 border mb-5 ">
+                  <option *ngFor="let r of roles" value="{{r.name}}">{{r.name}}</option>
+                </select>
               </div>
             </div>
             <div class="col-md-12">
@@ -120,11 +99,10 @@
                 <h3>Quyền truy cập</h3>
                 <li class="list-group-item" *ngFor="let module of modules ;">
                   <div class="form-check">
-
                     <input type="checkbox" [value]="module.status" [checked]="module.status"
                       (change)="onModulechange($event,module)" class="custom-control-input" id="module{{module.id}}">
                     <label class="cursor-pointer font-italic d-block custom-control-label"
-                      for="module{{module.id}}">{{module.tittle}}</label>
+                      for="module{{module.id}}">{{module.name}}</label>
                   </div>
                 </li>
               </ul>

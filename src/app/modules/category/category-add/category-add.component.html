@@ -1,8 +1,7 @@
 <div class="category-add contact-inner ">
     <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate class="form-cate-add">
         <label for="name">
-            <p class="cate-name"> Tên Chuyên Mục</p>
-
+            <p class="cate-name">{{title}}</p>
             <input type="text" name="typeName"id="typeName" [formControl]="catogaryControl" placeholder="Nhập tên chuyên mục "
             [class.borderError]="!catogaryControl.valid&&!catogaryControl.untouched"
             [class.text-input]="catogaryControl.valid||catogaryControl.untouched"
@@ -15,7 +14,6 @@
     </label> -->
 
         <div class="submit-button" class="section-space--mt_15">
-
             <button type="submit" class="btn btn-primary btn-lg btnn" [disabled]="!catogaryControl.valid">Lưu</button>
             <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="cancel()">Hủy</button>
         </div>

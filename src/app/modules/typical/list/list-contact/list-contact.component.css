@@ -79,10 +79,6 @@
   border-color: #5D87FF; 
   color: white;
  }
- .table{
-  /* border-collapse: separate; */
-
-}
 .list-contact{
   height: 620px;
   overflow: auto;
@@ -124,4 +120,7 @@
   .img-reload{
     width: 18px;
     height: 18px;
+}
+.table{
+  border-collapse: separate;
 }

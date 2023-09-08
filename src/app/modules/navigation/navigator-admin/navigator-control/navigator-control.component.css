@@ -21,12 +21,13 @@
 
 .name-navi{
   color: #fff;
-  border-color: #454d55;
   font-size: 18px;
   text-transform: capitalize;
   font-weight: 600;
 }
-
+.boderNav{
+  border-right: 1px solid #fff;
+}
 .icon-navi{
   cursor: pointer;
   font-size: 18px;
@@ -41,9 +42,6 @@ input:focus{
   margin-left: 0px;
   height: 30px;
   
-}
-.input-group-text{
-
 }
 .menu-link{
   font-size: 1rem;
@@ -127,4 +125,26 @@ box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.06);
 .img-reload{
 width: 18px;
 height: 18px;
+}
+.icon{
+  padding: 5px 10px 5px 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: #EAEFF4;
+}
+.icon-edit{
+  background-color: #3366FF;
+}
+.icon-remove{
+  background-color: rgb(93 95 97);
+}
+.icon-add{
+ background-color: rgb(54, 219, 25);
+ color: #eff2f5;
+}
+.icon-item{
+  color: #eff2f5;
+}
+.icon-item:hover{
+  color: black;
 }

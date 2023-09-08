@@ -61,7 +61,7 @@
             <th class="w-25" scope="col" >Biểu tượng</th>
             <th class="w-25" scope="col">Con số</th>
             <th class="w-25" scope="col" class="text-center" >Mô tả</th>
-            <th class="w-25" scope="col">Chức năng</th>
+            <th class="w-25" scope="col">Thao tác</th>
           </tr>
         </thead>
         <tbody>
@@ -81,11 +81,11 @@
                 {{num.description}}
               </div>
             </td>
-            <td class="text-center" >
+            <!-- <td class="text-center" >
               <div class="dropstart ">
                 <button  type="button" class="btn btn-secondary h-50 rounded-circle "
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i title="Chức năng" class='icon-more fa fa-expand ' style='font-size:14px'></i>
+                        <i title="Thao tác" class='icon-more fa fa-expand ' style='font-size:14px'></i>
                   </button>
                 <div class="dropdown-menu text-center p-0">
                   <ul class="p-0 m-0 ">
@@ -99,6 +99,13 @@
                   </ul>
                 </div>
               </div>
+            </td> -->
+            <td style="text-align: center;">
+              <button class="icon status_admin icon-edit me-0 me-md-2 "><a class="icon-item" (click)="updateTypicalNum(num.id)">
+                <i class="fas fa-pen i"></i></a></button>
+              <button class="icon icon-remove  mt-2 mt-md-0 ">
+                <a class="icon-item" (click)="deleteTypicalNum(num.id)"><i class="fas fa-trash-alt remove i"></i></a>
+              </button>
             </td>
           </tr>
         </tbody>

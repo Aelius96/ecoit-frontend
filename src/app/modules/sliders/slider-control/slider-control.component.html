@@ -93,13 +93,14 @@
             </div> -->
           <div class="select-content-item">
             <span><strong>Tên: </strong></span>
-            <span class="image-url-name span2" title="{{target.originalFileName}}">{{target.originalFileName}}</span>
+            <span [ngClass]="{'image-url-name': ishienthiten,'span2':!ishienthiten}" title="{{target.name}}"
+              (click)="hienThiten()">{{target.name}}</span>
           </div>
-
+          <!-- 
           <div class="select-content-item">
             <span><strong>Đường dẫn: </strong></span>
             <span class="image-url-name span2" title="{{baseURL}}{{target.url}}">{{baseURL}}{{target.url}}</span>
-          </div>
+          </div> -->
 
           <!-- <div class="select-content-item">
               <span><strong>Liên kết: </strong></span>
@@ -112,14 +113,14 @@
               <span style="color: #50b848">
                 <i class="fa fa-dot-circle fa-xs"></i>
               </span>
-              <span class="ml-1 span2">Hoạt động</span>
+              <span class="ml-1">Hoạt động</span>
             </div>
             <ng-template #elseBlock>
               <p>
                 <span style="color: #e6c13d">
                   <i class="fa fa-dot-circle fa-xs"></i>
                 </span>
-                <span class=" span2">Tạm ẩn</span>
+                <span class="">Tạm ẩn</span>
               </p>
             </ng-template>
           </div>
@@ -127,30 +128,30 @@
         <p class="mt-0 text-center chuc-nang">Chức năng</p>
         <div class="select-content-box">
           <div class="action-box">
-            <button routerLink="add" class="btn btnthem">
+            <button routerLink="add" class="btn bg-success">
               <!-- <i class="fas fa-file-plus fa-lg"></i> -->
-              <span>Thêm</span>
+              <span class="color">Thêm</span>
             </button>
-            <button class="btn bg-success" *ngIf="target.active; else elseButton" (click)="hideImage(target.id)">
+            <button class="btn btnsua" *ngIf="target.active; else elseButton" (click)="hideImage(target.id)">
               <!-- <i class="far fa-eye-slash"></i> -->
-              <span>Ẩn ảnh</span>
+              <span class="color">Ẩn ảnh</span>
             </button>
             <ng-template #elseButton>
-              <button class="btn bg-warning" (click)="show(target.id)">
+              <button class="btn bg-warning color" (click)="show(target.id)">
                 <!-- <i class="far fa-eye"></i> -->
-                <span>Hiện ảnh</span>
+                <span style="color: black;">Hiện ảnh</span>
               </button>
             </ng-template>
             <button (click)="updateSlider(target.id)" class="btn btn-primary ">
               <!-- <i class="far fa-pen"></i> -->
-              <span>Sửa</span>
+              <span class="color">Sửa</span>
             </button>
             <button (click)="deleteImage(target.id)" class="btn bg-danger">
               <!-- <i class="far fa-trash-alt"></i> -->
-              <span>Xóa</span>
+              <span class="color">Xóa</span>
             </button>
             <button title="slide" (click)="chuyenslide()" class="btn btn-info">
-              <span>Chuyển chế độ</span>
+              <span style="color: black;">Chuyển chế độ</span>
             </button>
             <!-- <div class="w-100" >
                 <img class="logochuyenslide w-100 " title="slide" (click)="chuyenslide()"
@@ -171,6 +172,35 @@
               </div>
             </li>
           </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-lg-none container">
+      <div class="hienthi-right text-center">
+        <p class="text-center chuc-nang mt-3 mb-0">Thông tin</p>
+        <div class="select-content-box" style="line-height: 250%;">
+          <div class="select-content-item">
+            <span><strong>Tên: </strong></span>
+            <span class="span3" title="{{target.name}}">{{target.name}}</span>
+          </div>
+          <div class="select-content-item">
+            <span><strong>Trạng thái: </strong></span>
+            <div *ngIf="target.active; else elseBlock">
+              <span style="color: #50b848">
+                <i class="fa fa-dot-circle fa-xs"></i>
+              </span>
+              <span class="">Hoạt động</span>
+            </div>
+            <ng-template #elseBlock>
+              <p>
+                <span style="color: #e6c13d">
+                  <i class="fa fa-dot-circle fa-xs"></i>
+                </span>
+                <span class="">Tạm ẩn</span>
+              </p>
+            </ng-template>
+          </div>
         </div>
       </div>
     </div>

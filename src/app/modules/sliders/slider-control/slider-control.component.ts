@@ -19,6 +19,7 @@ export class SliderControlComponent {
   slider2: Slider[] = [];
   title = 'TRÌNH CHIẾU';
   flex = '';
+  ishienthiten=true
 
   target = {
     url: '',
@@ -109,5 +110,8 @@ export class SliderControlComponent {
         this.getSlider();
       });
     }
+  }
+  hienThiten(){
+    this.ishienthiten=!this.ishienthiten
   }
 }

@@ -50,7 +50,7 @@
           </div>
           <ul class="dropdown-menu p-0">
             <div class=" selected  " *ngIf="selects">
-              <li class="text-center  border p-2 d-flex" >
+              <li class="text-center  border p-2 d-flex">
                 <span class="selected-number menu-link mx-auto ">Đã chọn: {{selects}}</span>
                 <a class="mx-auto  d-flex" (click)="clearnAll()" title="Xóa">
                   <i style="font-size: 18px;" class=" my-auto far fa-trash-alt fa-lg"></i>
@@ -63,11 +63,11 @@
             <li class="text-center border p-2 ">
               <span class="my-auto ">Số mục mỗi trang:</span>
             </li>
-            <li class="border p-2" >
+            <li class="border p-2">
               <app-app-page-size-image (pageSizeChange)="handlePageChange($event)" [totalRecords]="paging.totalRecord"
                 [(pageSize)]="paging.size"></app-app-page-size-image>
             </li>
-            <li class="border p-2" >
+            <li class="border p-2">
               <div class="d-flex" routerLink="add">
                 <span class="mx-auto">Thêm mới </span>
                 <a class="ht-btn-custom mx-auto " title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i>
@@ -86,30 +86,31 @@
   <div class=" w-75 m-auto ">
     <div class="row  m-auto justify-content-center title-navi ">
       <button mat-icon-button disabled></button>
-      <div class="col-md-4 col-3 name-navi my-auto ">
+      <div class="col-md-4 col-3 name-navi mt-2 boderNav ">
         <p>Tên</p>
       </div>
-      <div class="col-md-4 col-3 name-navi my-auto ">
+      <div class="col-md-4 col-3 name-navi mt-2 boderNav">
         <p>Đường dẫn</p>
       </div>
       <div class="col-md-2 col-2 name-navi my-auto text-center ">Chức năng</div>
     </div>
     <div class=" w-100  m-auto ">
       <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="mat-tree table ">
-        <mat-tree-node *matTreeNodeDef="let nav" matTreeNodePadding matTreeNodePaddingIndent="20" >
+        <mat-tree-node *matTreeNodeDef="let nav" matTreeNodePadding matTreeNodePaddingIndent="20">
           <li class="mat-tree-node justify-content-center ">
             <button mat-icon-button disabled></button>
             <input #checkboxes type="checkbox" [value]="nav.selected" [class.selected]="nav.selected" name="foo"
               (change)="onCheckChange($event, nav)">
             <div class="col-md-4 col-3"> {{ nav.name.toUpperCase() }}</div>
             <div class="col-md-4 col-3"> <a href="/{{nav.url}}" target="_blank" class="url-navi">{{nav.url}}</a></div>
-            <div class="col-md-2 col-2 text-center">
-              <i class=" mr-0 mr-sm-2 mr-md-3	fas fa-edit  icon-navi  " (click)="updateNavigation(nav.id)"></i>
-              <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav.id)"></i>
-            </div>
+            <button class="icon status_admin icon-edit  me-0 me-xl-2 mt-2 mt-md-2 "><a class="icon-item"
+                (click)="updateNavigation(nav.id)"><i class="fas fa-pen i"></i></a></button>
+            <button class="icon icon-remove  mt-2 mt-lg-2 ">
+              <a class="icon-item" (click)="deleteNavigation(nav.id)"><i class="fas fa-trash-alt remove i"></i></a>
+            </button>
           </li>
         </mat-tree-node>
-        <mat-tree-node *matTreeNodeDef="let nav; when: hasChild" >
+        <mat-tree-node *matTreeNodeDef="let nav; when: hasChild">
           <div class="mat-tree-node justify-content-center ">
             <button mat-cell mat-icon-button matTreeNodeToggle class="btn-tree"
               [attr.aria-label]="'toggle ' + nav.name">
@@ -121,11 +122,16 @@
 
             <div class="col-md-4 col-3">{{ nav.name.toUpperCase()}}</div>
             <div class="col-md-4 col-3"> <a href="/{{nav.url}}" target="_blank"></a></div>
-            <div class="col-md-2 col-2 text-center">
+            <!-- <div class="col-md-2 col-2 text-center">
               <i class="fas fa-edit  icon-navi mr-0 mr-sm-2 mr-md-3	 " (click)="updateNavigation(nav.id)"></i>
               <i class="fas fa-trash-alt icon-navi " (click)="deleteNavigation(nav.id)"></i>
+            </div> -->
+            <button class="icon status_admin icon-edit  me-0 me-xl-2 mt-2 mt-md-2 "><a class="icon-item"
+                (click)="updateNavigation(nav.id)"><i class="fas fa-pen i"></i></a></button>
+            <button class="icon icon-remove   mt-2 mt-lg-2 ">
+              <a class="icon-item" (click)="deleteNavigation(nav.id)"><i class="fas fa-trash-alt remove i"></i></a>
+            </button>
             </div>
-          </div>
         </mat-tree-node>
       </mat-tree>
     </div>

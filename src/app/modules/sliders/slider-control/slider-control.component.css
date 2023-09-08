@@ -96,12 +96,6 @@ a:hover{
   height: 40px;
 }
 
- .btnthem {
-  width: 100%;
-  background-color: rgb(42, 218, 42);
-}
-
-
 .image-url-name {
   white-space: nowrap;
   overflow: hidden;
@@ -109,7 +103,19 @@ a:hover{
   display: block;
   gap: 10px;
 }
-
+.span3{
+  word-wrap: break-word;
+}
+.span2{
+  display: block;
+  word-wrap: break-word;
+}
+.btnsua{
+  background-color: rgb(116, 21, 204);
+}
+.color{
+  color: #fff;
+}
 .viewimg {
   height: 260px;
   display: flex;
@@ -241,6 +247,9 @@ a:hover{
     background-size: cover;
     max-height: 90px;
     width: 100px;
+  }
+  .max-h{
+    max-height: 240px;
   }
 }
 @media (max-width: 350px) {

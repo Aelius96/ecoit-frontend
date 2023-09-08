@@ -50,7 +50,7 @@ export class UserAddComponent implements OnInit{
 
   }
   getaside() {
-    this.module.getModule('aside.json').subscribe(data=> {
+    this.module.getaside('aside.json').subscribe(data=> {
       this.modules = data;
       if(this.modules.length ){
         const sid =this.modules.map(item => item.id);

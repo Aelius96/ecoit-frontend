@@ -21,8 +21,6 @@
 }
 .number-add{
   padding-bottom: 120px;
-  padding-top: 120px;
-  
   height: 100vh;
 }
 .text-input{
@@ -61,5 +59,8 @@ select,option{
   margin-top: 15px;
   color:red;
 }
-
-
+.text-title{
+  color: #50b848;
+  font-size: 30px;
+  font-weight: bold;
+}

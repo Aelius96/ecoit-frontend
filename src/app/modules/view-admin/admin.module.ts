@@ -32,7 +32,7 @@ const routes: Routes =[
     {path:'category', title:'Admin-Chuyên mục' , loadChildren:()=>import('./category.module').then(m=>m.CategoryModule)},
     {path:'contact' , title:'Admin-Danh sách liên hệ' , component:ListContactComponent },
     {path:'comment' , title:'Admin-Danh sách bình luận', component:ListCommentComponent },
-    {path:'role' , title:'Admin-Phân quyền người dùng', component:RoleControlComponent}
+    {path:'role' , title:'Admin-Phân quyền người dùng',   loadChildren:()=>import('./role.module').then(m=>m.RoleModule) }
 
   ]},
 ]

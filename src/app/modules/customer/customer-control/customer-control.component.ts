@@ -4,6 +4,8 @@ import {Customer} from "../../../core/model/customer/customer";
 import {Router} from "@angular/router";
 import { Role } from '../../../core/model/role/role';
 import { TokenStorageService } from 'src/app/services/token-storage/token-storage.service';
+import { Constant } from 'src/app/core/config/constant';
+import { Domain } from 'src/app/core/domain/domain';
 
 @Component({
   selector: 'app-customer-control',
@@ -15,6 +17,9 @@ export class CustomerControlComponent implements OnInit{
   customer: Customer[] = [];
 
   searchInput= '';
+  baseURL = Constant.BASE_URL;
+  CusURL = Domain.CUSTOMER;
+
   paging={
     page: 1,
     size:5,

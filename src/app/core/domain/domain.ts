@@ -24,6 +24,8 @@ export class Domain {
   public static ADDRESS = `address`;
   public static HISTORY= `history`;
   public static PERMISSION = `permission`;
+  public static ROLE = `role`;
+  public static MODULE = `module`
 }
 
 
