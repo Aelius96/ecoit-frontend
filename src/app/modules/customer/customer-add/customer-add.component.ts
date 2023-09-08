@@ -166,14 +166,13 @@ export class CustomerAddComponent {
   onCheckChangeProduct(event: any, product: Product) {
     product.selected = event.currentTarget.checked;
     if (product.selected) {
-      console.log(this.customer.products);
       this.customer.products.push(product);
     } else {
       this.customer.products.forEach((item) => {
         if (item.id === product.id) {
           if (this.customer.products) {
             this.customer.products = this.customer.products.filter(
-              (i) => i !== item
+              (i) => i !== item 
             );
           }
         }

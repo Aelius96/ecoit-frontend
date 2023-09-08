@@ -143,7 +143,7 @@ export class NavigatorControlComponent {
   }
 
   updateNavigation(id: any){
-    return this.router.navigate([`/admin/nav/update/${id}`])
+    return this.router.navigate([`/admin/nav/update/${id}`],{state:{data:'Sửa Điều Hướng'}})
   }
 
   deleteNavigation(id: number){

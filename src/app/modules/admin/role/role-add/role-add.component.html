@@ -1,1 +1,69 @@
-<p>role-add works!</p>
+<form (ngSubmit)="onSubmit()">
+    <div class="container section-space--mt_100">
+        <p class="title-add">THÊM MỚI VAI TRÒ</p>
+        <div class="row">
+            <div class="user-content col-lg-12 col-12 ">
+                <div class="row" style="justify-content: center;">
+                    <div class="col-12">
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-md-4">
+                                <div class="options">
+                                    <div class="title mb-2">Tên vai trò</div>
+                                    <input type="text" name="lastName" class="text-input ">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="options">
+                                    <div class="title mb-2">Mô tả vai trò</div>
+                                    <input type="text" name="lastName" class="text-input ">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <table class="table section-space--mt_30 ">
+                                    <thead style="position: sticky;top: 0 ; z-index: 1;">
+                                      <tr>
+                                        <th class="" scope="col">Quyền truy cập</th>
+                                        <th class="" scope="col">Chức năng</th>
+                                        <!-- <th class="" scope="col">Thao tác</th> -->
+                                      </tr>
+                                    </thead>
+                                    <tbody *ngFor="let item of modulelist">
+                                      <tr>
+                                        <td class="">
+                                            <input type="checkbox" [value]="item.status" [checked]="item.status"
+                                            (change)="onModulechange($event,item)" class="custom-control-input" id="module{{item.id}}">
+                                          <label class="cursor-pointer font-italic d-block custom-control-label ml-3"
+                                            for="module{{item.id}}">{{item.name}}</label>
+                                        </td>
+                                        <td class="d-flex">
+                                          <div  *ngFor=" let per of  item.permissionList" class="p-1">
+                                            <input type="checkbox" [value]="per.status" [checked]="per.status"
+                                           class="custom-control-input" id="per{{item.id}}{{per.id}}">
+                                          <label class="cursor-pointer font-italic d-block custom-control-label mx-3"
+                                            for="per{{item.id}}{{per.id}}">{{per.name}}</label>
+                                          </div>
+                                        </td>
+                                        <!-- <td style="text-align: center;">
+                                          <button class="icon status_admin icon-edit me-0 me-md-2 "><a class="icon-item"><i
+                                                class="fas fa-pen i"></i></a></button>
+                                          <button class="icon icon-remove  mt-2 mt-md-0 ">
+                                            <a class="icon-item" (click)="deleteModule(item.id)"><i class="fas fa-trash-alt remove i"></i></a>
+                                          </button>
+                                        </td> -->
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-8  text-center pt-3 mb-3">
+                    <button class="save-btn me-3 btn btn-primary btn-lg " type="submit"><i
+                            class="fas fa-save"></i>Lưu</button>
+                    <button class="btn btn-secondary btn-lg ">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

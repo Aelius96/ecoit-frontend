@@ -26,7 +26,7 @@ export class AsideComponent implements OnInit {
   }
 
   getaside() {
-    this.module.getModule('aside.json').subscribe(data=> {
+    this.module.getaside('aside.json').subscribe(data=> {
       this.modules = data;
     });
   }

@@ -20,7 +20,7 @@ export class NavigatorAddComponent implements OnInit {
     parentId:new FormControl()
   });
   parentId:number
-
+  title="Thêm Điều Hướng"
   constructor(
     private navService: NavService,
     private router: Router,
@@ -29,6 +29,9 @@ export class NavigatorAddComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if(history.state.data){
+      this.title=history.state.data
+    }
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
       this.navService.getNavById(this.id).subscribe((data) => {

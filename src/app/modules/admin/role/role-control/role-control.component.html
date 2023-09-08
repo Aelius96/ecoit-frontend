@@ -8,71 +8,100 @@
   <div class="section-space--mt_60">
     <div class="container">
       <div class="row ms-1 ms-md-5 ms-sm-3 ">
-        <div class="col-md-6">
-          <div class="d-flex flex-column  ">
-            <span class="role-title mb-1 mb-md-2 ">phân quyền</span>
-            <select name="" id="" class="w-25 border mb-5 ">
-              <option *ngFor="let r of roles" value="{{r.name}}">{{r.name}}</option>
-            </select>
+        <div class="col-md-12">
+          <div class="d-flex flex-column col-6 ">
+            <span class="role-title mb-1 mb-md-2">phân quyền</span>
+            <div class="d-flex">
+              <div class="col-5">
+                <select name="" id="" class=" border mb-5 " [(ngModel)]="roleid" (change)="selectRole()">
+                  <option *ngFor="let r of rolelist" value="{{r.id}}">{{r.name}}</option>
+                </select>
+              </div>
+              <div class="col-5">
+                <img style="max-width: 50px;" routerLink="add"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEvUlEQVR4nO2dy49VRRDGfxlnkP+B4SGPsBFYsNFEojxC2CNEJYGwFYzGGDAgMJF3iAtXmPAITMC/wOBCEhaAPMICNYAsIOgWmAgyM1xGpkgnTTK5BqbPuX1PVz++5NvcmTtT3d85Xd3V1dVQUFBQUFCQLqYCi4C1wDfAaeAS8DtwBxgCWpZD9jPzs1+BU/Y7a+zfeDN0Y2JEL7AY2Ar8AowC4oljwDXgALCiCPRq9ADLgZPAY48CTEbzv04Ay6wN2WM6sA/4u0ER5BU0NuwF+nNU5S3ge8/DkXjiM2AQmE8mQhin/J+CjhcHf2MmBbNIEH3A58C/CjpaKnIEGEhpAmBmM7cVdKx0yD+t8496+mqerOcKOlM8cdz6vilEOHu6qKADpUu8av1hFFhlV8ySOB8CK1GOdXbaKJlwDNiIUnyWmL+QCn7lK5ThWwUdI4FpJjAqsElBZ4gSfhlajE8yHabkNcPXhpCzqZwcuDiyFWL2ZdYZDxQ0XpRyqMkYWF/iiz7xxMtNrei/U9BYiYQHmwgUjitoqERC01dLuyWGef1uKWikRMbb3Qrd71DQOImUX/sWYybwREHDJFIO+44O/6igURI5zT69F8yxUc3QDZLIafII5voQ5KiCxkgi/MHHiryloCGSCE2oaUYnguxT0AhJjHvqitGjJKNQEuO9ummryxUYLw78CZhmU0DPKLDHhbVW7ycVGC4O7G/zeRIBj9cJkzSZhd4J2yER8JGNmjtjiQKjJWFBDN+tIshOBQZL4oJsryLIOQUGS+KCnK1ypu+pAoMlcUFGXcPyixQYKxkIYvi2iyBrFRgqmQiyOjWHLpEL4uTYTyswVDIRxGmPJLYUn3ZIRDyPA/5QYKhkIshvLoLcU2CoZCLIXRdBHgSO2jaNkFHi+y4Ghtoh7CccQkWJzQJ8UhRB0CVIqCHrTKC3xLwdP2sesopTR5dTL9NedE17LwR6faUm2yGpLQxPKTBUMhHE5C0kl+XeDomI23BACb+jK/xeNqjQtUE1VWnpPUlsyBqpcrKqJDnQdUFMCVxnxLRr2A5JyaG/xHsKDJbEBXmniiAmzbGkktI1Mf6xJRAr4YSCp0gSTbY+Rg0sU2C4VIgSh4zaVuX7dQQpB3bQdWDHoBxpw7sgu+kAZigohz7xukPYcd7AEQVjriTCw3jA7FI4AF9Hor2V14htj0QU0iwjvMEcdi/FZ+io+Iz3kn/bFTxlEim30AWYk7k3FTROIuONqiduq67eS4k/nMUwNY0/oMs4pOCpk0i4nwbQG2GqkATgpW4OVe0ohZSZtJCyKYvYKEw57VJqnP+J0bLldIPgo1KMn4limAnPegLjUwXjtSjhFyjBgILOkMDchTJsznT4Gtd45dHEC16eZebAP0Y5VmZyt8j9kLOpOuuUlBePV2K6WDKHq1f7iBhLE7nm4kYTgcKmEPP13cOpXd89ETNtBZwYivuP2W1X4w+Txyw7Fo8qncoOAvPIEP22FvpfSjIKdweqt6IOPdZhHrdFhpvMQj9mc21rp3emjjeAxcBWe8poxLNfuAYcsIu6Ru4ZTA1TgIXAhzbzZdAuOq8Dd+xF8y3Lh/az6/Z3Bu1JJfPdBUWAgoKCggISxgvS8+wqOb8XFQAAAABJRU5ErkJggg==">
+              </div>
+            </div>
           </div>
-          <div *ngFor="let item of module">
+          <table class="table section-space--mt_30 ">
+            <thead style="position: sticky;top: 0 ; z-index: 1;">
+              <tr>
+                <th class="" scope="col">Quyền truy cập</th>
+                <th class="" scope="col">Chức năng</th>
+                <th class="" scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of role.moduleList">
+              <tr>
+                <td class="col-4">
+                  <input type="checkbox" name="{{item.name}}" id="{{item.id}}" [value]="item.status"
+                    [checked]="item.status"><span class="des-post ">{{item.name}}</span>
+                </td>
+                <td class="d-flex col-12">
+                  <div *ngFor=" let per of  item.permissionList" class="p-1">
+                    <input class="p-1" type="checkbox" name="{{per.name}}" id="{{per.id}}" [value]="per.status"
+                      [checked]="per.status"><span class="des-post mx-2">{{per.name}}</span>
+                  </div>
+                </td>
+                <td style="text-align: center;">
+                  <button class="icon status_admin icon-edit me-0 me-md-2 "><a class="icon-item"><i
+                        class="fas fa-pen i"></i></a></button>
+                  <button class="icon icon-remove  mt-2 mt-md-0 ">
+                    <a class="icon-item" (click)="deleteModule(item.id)"><i class="fas fa-trash-alt remove i"></i></a>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            <tr>
+              <td class="text-center">
+                <img style="max-width: 50px;" data-toggle="modal" data-target="#modalAddRole"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEvUlEQVR4nO2dy49VRRDGfxlnkP+B4SGPsBFYsNFEojxC2CNEJYGwFYzGGDAgMJF3iAtXmPAITMC/wOBCEhaAPMICNYAsIOgWmAgyM1xGpkgnTTK5BqbPuX1PVz++5NvcmTtT3d85Xd3V1dVQUFBQUFCQLqYCi4C1wDfAaeAS8DtwBxgCWpZD9jPzs1+BU/Y7a+zfeDN0Y2JEL7AY2Ar8AowC4oljwDXgALCiCPRq9ADLgZPAY48CTEbzv04Ay6wN2WM6sA/4u0ER5BU0NuwF+nNU5S3ge8/DkXjiM2AQmE8mQhin/J+CjhcHf2MmBbNIEH3A58C/CjpaKnIEGEhpAmBmM7cVdKx0yD+t8496+mqerOcKOlM8cdz6vilEOHu6qKADpUu8av1hFFhlV8ySOB8CK1GOdXbaKJlwDNiIUnyWmL+QCn7lK5ThWwUdI4FpJjAqsElBZ4gSfhlajE8yHabkNcPXhpCzqZwcuDiyFWL2ZdYZDxQ0XpRyqMkYWF/iiz7xxMtNrei/U9BYiYQHmwgUjitoqERC01dLuyWGef1uKWikRMbb3Qrd71DQOImUX/sWYybwREHDJFIO+44O/6igURI5zT69F8yxUc3QDZLIafII5voQ5KiCxkgi/MHHiryloCGSCE2oaUYnguxT0AhJjHvqitGjJKNQEuO9ummryxUYLw78CZhmU0DPKLDHhbVW7ycVGC4O7G/zeRIBj9cJkzSZhd4J2yER8JGNmjtjiQKjJWFBDN+tIshOBQZL4oJsryLIOQUGS+KCnK1ypu+pAoMlcUFGXcPyixQYKxkIYvi2iyBrFRgqmQiyOjWHLpEL4uTYTyswVDIRxGmPJLYUn3ZIRDyPA/5QYKhkIshvLoLcU2CoZCLIXRdBHgSO2jaNkFHi+y4Ghtoh7CccQkWJzQJ8UhRB0CVIqCHrTKC3xLwdP2sesopTR5dTL9NedE17LwR6faUm2yGpLQxPKTBUMhHE5C0kl+XeDomI23BACb+jK/xeNqjQtUE1VWnpPUlsyBqpcrKqJDnQdUFMCVxnxLRr2A5JyaG/xHsKDJbEBXmniiAmzbGkktI1Mf6xJRAr4YSCp0gSTbY+Rg0sU2C4VIgSh4zaVuX7dQQpB3bQdWDHoBxpw7sgu+kAZigohz7xukPYcd7AEQVjriTCw3jA7FI4AF9Hor2V14htj0QU0iwjvMEcdi/FZ+io+Iz3kn/bFTxlEim30AWYk7k3FTROIuONqiduq67eS4k/nMUwNY0/oMs4pOCpk0i4nwbQG2GqkATgpW4OVe0ohZSZtJCyKYvYKEw57VJqnP+J0bLldIPgo1KMn4limAnPegLjUwXjtSjhFyjBgILOkMDchTJsznT4Gtd45dHEC16eZebAP0Y5VmZyt8j9kLOpOuuUlBePV2K6WDKHq1f7iBhLE7nm4kYTgcKmEPP13cOpXd89ETNtBZwYivuP2W1X4w+Txyw7Fo8qncoOAvPIEP22FvpfSjIKdweqt6IOPdZhHrdFhpvMQj9mc21rp3emjjeAxcBWe8poxLNfuAYcsIu6Ru4ZTA1TgIXAhzbzZdAuOq8Dd+xF8y3Lh/az6/Z3Bu1JJfPdBUWAgoKCggISxgvS8+wqOb8XFQAAAABJRU5ErkJggg==">
+              </td>
+              <td class="text-center">
+                <img style="max-width: 50px;"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEvUlEQVR4nO2dy49VRRDGfxlnkP+B4SGPsBFYsNFEojxC2CNEJYGwFYzGGDAgMJF3iAtXmPAITMC/wOBCEhaAPMICNYAsIOgWmAgyM1xGpkgnTTK5BqbPuX1PVz++5NvcmTtT3d85Xd3V1dVQUFBQUFCQLqYCi4C1wDfAaeAS8DtwBxgCWpZD9jPzs1+BU/Y7a+zfeDN0Y2JEL7AY2Ar8AowC4oljwDXgALCiCPRq9ADLgZPAY48CTEbzv04Ay6wN2WM6sA/4u0ER5BU0NuwF+nNU5S3ge8/DkXjiM2AQmE8mQhin/J+CjhcHf2MmBbNIEH3A58C/CjpaKnIEGEhpAmBmM7cVdKx0yD+t8496+mqerOcKOlM8cdz6vilEOHu6qKADpUu8av1hFFhlV8ySOB8CK1GOdXbaKJlwDNiIUnyWmL+QCn7lK5ThWwUdI4FpJjAqsElBZ4gSfhlajE8yHabkNcPXhpCzqZwcuDiyFWL2ZdYZDxQ0XpRyqMkYWF/iiz7xxMtNrei/U9BYiYQHmwgUjitoqERC01dLuyWGef1uKWikRMbb3Qrd71DQOImUX/sWYybwREHDJFIO+44O/6igURI5zT69F8yxUc3QDZLIafII5voQ5KiCxkgi/MHHiryloCGSCE2oaUYnguxT0AhJjHvqitGjJKNQEuO9ummryxUYLw78CZhmU0DPKLDHhbVW7ycVGC4O7G/zeRIBj9cJkzSZhd4J2yER8JGNmjtjiQKjJWFBDN+tIshOBQZL4oJsryLIOQUGS+KCnK1ypu+pAoMlcUFGXcPyixQYKxkIYvi2iyBrFRgqmQiyOjWHLpEL4uTYTyswVDIRxGmPJLYUn3ZIRDyPA/5QYKhkIshvLoLcU2CoZCLIXRdBHgSO2jaNkFHi+y4Ghtoh7CccQkWJzQJ8UhRB0CVIqCHrTKC3xLwdP2sesopTR5dTL9NedE17LwR6faUm2yGpLQxPKTBUMhHE5C0kl+XeDomI23BACb+jK/xeNqjQtUE1VWnpPUlsyBqpcrKqJDnQdUFMCVxnxLRr2A5JyaG/xHsKDJbEBXmniiAmzbGkktI1Mf6xJRAr4YSCp0gSTbY+Rg0sU2C4VIgSh4zaVuX7dQQpB3bQdWDHoBxpw7sgu+kAZigohz7xukPYcd7AEQVjriTCw3jA7FI4AF9Hor2V14htj0QU0iwjvMEcdi/FZ+io+Iz3kn/bFTxlEim30AWYk7k3FTROIuONqiduq67eS4k/nMUwNY0/oMs4pOCpk0i4nwbQG2GqkATgpW4OVe0ohZSZtJCyKYvYKEw57VJqnP+J0bLldIPgo1KMn4limAnPegLjUwXjtSjhFyjBgILOkMDchTJsznT4Gtd45dHEC16eZebAP0Y5VmZyt8j9kLOpOuuUlBePV2K6WDKHq1f7iBhLE7nm4kYTgcKmEPP13cOpXd89ETNtBZwYivuP2W1X4w+Txyw7Fo8qncoOAvPIEP22FvpfSjIKdweqt6IOPdZhHrdFhpvMQj9mc21rp3emjjeAxcBWe8poxLNfuAYcsIu6Ru4ZTA1TgIXAhzbzZdAuOq8Dd+xF8y3Lh/az6/Z3Bu1JJfPdBUWAgoKCggISxgvS8+wqOb8XFQAAAABJRU5ErkJggg==">
+              </td>
+            </tr>
+          </table>
+          <!-- <div *ngFor="let item of module">
             <input type="checkbox" name="{{item.tittle}}" id="{{item.id}}" [value]="item.status"
               [checked]="item.status"><span>{{item.tittle}}</span>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <button type="button" class="btn btn-add-per mb-5 " data-bs-toggle="modal"
-            data-bs-target="#exampleModal">Thêm Chức Năng</button>
-          <div class="row  mb-4" *ngFor="let per of permissionList">
-            <div class="col-md-6 border ">
-              {{per.name}}{{per.id}}
-            </div>
-            <div class="col-md-4 border ">
-              <button (click)=" deletePermission(per.id) " class=" me-4 btn btn-primary border-0 ">Xóa
-              </button>
-              <a class=" btn btn-primary border-0" data-bs-toggle="collapse" href="#{{per.id}}per">Sửa
-              </a>
-            </div>
-            <form (ngSubmit)="updatePermission(per.id , per)" >
-              <div id="{{per.id}}per" class="collapse " data-parent="#accordion">
-                <div class="reply-submit">
-                  <input type="text" [(ngModel)]="per.name" name="permission" class="form-control">
-                  <div class="mt-4">
-                    <button class="btn-success btn me-3 " type="submit">Cập nhật </button>
-                    <a class="btn btn-secondary" data-bs-toggle="collapse" href="#{{per.id}}per">Hủy</a>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- thêm -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form (ngSubmit)="addPermision()">
+
+<!-- modal them module -->
+<div class="modal fade" id="modalAddRole" tabindex="-1" role="dialog" aria-labelledby="modalModule" aria-hidden="true">
+  <form [formGroup]="formaddrole">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
         <div class="modal-header">
-          <p class="modal-title text-center " id="exampleModalLabel">Thêm Mới Chức Năng</p>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title" id="exampleModalLabel">Thêm Role</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <div class="modal-body">
           <div class="mb-3">
-            <label class="col-form-label">Chức Năng:</label>
-            <input type="text" [(ngModel)]="permission.name" name="permission" class="form-control">
+            <label class="col-form-label">Tên:</label>
+            <input type="text" formControlName="name" name="permission" class="form-control">
+            {{formaddrole.controls.name.value}}
+          </div>
+          <div class="mb-3">
+            <label class="col-form-label">Mô tả:</label>
+            <input type="text" formControlName="des" name="permission" class="form-control">
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-          <button type="submit" class="btn btn-primary">Lưu</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" (click)="addRole()">Save Role</button>
         </div>
-      </form>
+      </div>
     </div>
-  </div>
+  </form>
 </div>

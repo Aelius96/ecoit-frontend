@@ -19,6 +19,7 @@ export class CategoryAddComponent implements OnInit {
   id: number;
   formData: any;
   catogaryControl = new FormControl('',Validators.required);
+  title= 'Thêm Chuyên Mục'
 
   constructor(
     private toast: ToastService,
@@ -28,6 +29,9 @@ export class CategoryAddComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if(history.state.data){
+      this.title=history.state.data
+    }
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
       this.categoryService.GetCateByid(this.id).subscribe((res) => {

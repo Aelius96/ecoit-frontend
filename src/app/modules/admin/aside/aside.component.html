@@ -19,12 +19,12 @@
             <span class=" font-weight-bold ">Admin-EcoIT</span>
           </li>
           <li class="sidebar-item mb-1 " *ngFor="let module of modules ;">
-            <a class="sidebar-link " style="padding: 10px 40px 10px 10px;" routerLink="{{module.a}}"
+            <a class="sidebar-link " style="padding: 10px 40px 10px 10px;" routerLink="{{module.url}}"
               routerLinkActive="active" aria-expanded="false">
               <span class="">
                 <i class="icon {{module.icon}}"></i>
               </span>
-              <span class="hide-menu text-capitalize ">{{module.tittle}}</span>
+              <span class="hide-menu text-capitalize ">{{module.name}}</span>
             </a>
           </li>
           <li class="sidebar-item">
@@ -71,11 +71,11 @@
           </div>
         </li>
         <li class="sidebar-item mb-1 " *ngFor="let module of modules ;">
-          <a class="sidebar-link " routerLink="{{module.a}}" routerLinkActive="active" aria-expanded="false">
+          <a class="sidebar-link " routerLink="{{module.url}}" routerLinkActive="active" aria-expanded="false">
             <span class="">
               <i class="icon {{module.icon}}"></i>
             </span>
-            <span class="hide-menu text-capitalize ">{{module.tittle}}</span>
+            <span class="hide-menu text-capitalize ">{{module.name}}</span>
           </a>
         </li>
         <li class="sidebar-item">

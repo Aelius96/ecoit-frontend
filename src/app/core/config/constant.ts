@@ -155,7 +155,10 @@ export class Constant {
   }
   public static ROLE ={
     GET_ROLE_BY_ID:`role`,
-    LIST_ROLE:`role`
+    LIST_ROLE:`role`,
+    ADD_ROLE:`${Domain.ROLE}/addRole`,
+    DELETE_ROLE:`${Domain.ROLE}/delete`,
+    UPDATE_ROLE:`${Domain.ROLE}/updaterole`
   }
   public static SLIDERS ={
     GET_LIST_ALL : `${Domain.SLIDERS}/home` ,
@@ -182,5 +185,11 @@ export class Constant {
     ADD: `${Domain.PERMISSION}/add`,
     UPDATE:`${Domain.PERMISSION}/update`,
     DELETE:`${Domain.PERMISSION}/delete`,
+  }
+  public static MODULE={
+    ADD_MODULE:`${Domain.MODULE}/add`,
+    UPDATE_MODULE:`${Domain.MODULE}/update`,
+    GET_LIST_MODULE:`${Domain.MODULE}/list`,
+    DELETE_MODLUE:`${Domain.MODULE}/delete`
   }
 }
