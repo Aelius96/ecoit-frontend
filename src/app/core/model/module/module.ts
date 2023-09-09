@@ -5,6 +5,7 @@ export class Module {
     name : string
     url : string
     icon : string
-    status : boolean
-    permissionList: Permission[]
+    status : boolean = false
+    permissionList: Permission[] = []
+    
 }

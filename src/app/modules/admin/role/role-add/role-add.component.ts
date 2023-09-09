@@ -4,6 +4,7 @@ import { Permission } from 'src/app/core/model/permission/permission';
 import { Role } from 'src/app/core/model/role/role';
 import { ModuleService } from 'src/app/services/module/module.service';
 import { PermissionService } from 'src/app/services/permission/permission.service';
+import { RoleService } from 'src/app/services/role/role.service';
 
 @Component({
   selector: 'app-role-add',
@@ -12,21 +13,26 @@ import { PermissionService } from 'src/app/services/permission/permission.servic
 })
 export class RoleAddComponent {
 
-  modulelist: Module[] = []
+  modulelist: Module[] 
   permissionlist: Permission[] = []
-  moduleClass = new Module()
-  isEvent = true
+  module : Module = new Module()
   role: Role = new Role()
-  constructor(private moduleService: ModuleService, private perService: PermissionService) { }
+  constructor(private roleService : RoleService,
+              private moduleService: ModuleService,
+              private perService: PermissionService) { }
   ngOnInit() {
     this.getModuleList()
     this.getPermissionlist()
   }
   onSubmit() {
+    this.roleService.addRole(this.role).subscribe((data) => {
+      console.log(data)
+    })
   }
   getModuleList() {
     this.moduleService.getModule().subscribe(data => {
       this.modulelist = data;
+      console.log(this.modulelist)
     })
   }
   getPermissionlist() {
@@ -34,23 +40,11 @@ export class RoleAddComponent {
       this.permissionlist = data
     })
   }
+ 
   onModulechange(event: any, module: Module) {
-    // module.status=event.currentTarget.checked;
-    // if(module.status){
-    // this.modulelist.push(module)
-    // }
-    // }else{
-    //   this.modulelist.forEach(item => {
-    //     if(item.id === module.id){
-    //       this.modulelist = this.modulelist.filter(i => i !== item);
-    //     }
-    //   })
-    // }
-    
     module.status = event.currentTarget.checked
     if(module.status) {
       this.role.moduleList.push(module)
-      console.log(this.role.moduleList)
     }else {
       this.role.moduleList.forEach(item => {
         if(item.id === module.id) {
@@ -59,5 +53,19 @@ export class RoleAddComponent {
       })
     }
     
+  }
+  onPerModuleChange(event:any,module:Module, permission : Permission) {
+    const isChecked = event.target.checked;
+    if(module.status) {
+      if(isChecked) {
+        module.permissionList.push(permission)
+      }else {
+        module.permissionList.forEach(per => {
+          if(per.id === permission.id) {
+            module.permissionList = module.permissionList.filter(i => i !== per)
+          }
+        })
+      }
+    }
   }
 }

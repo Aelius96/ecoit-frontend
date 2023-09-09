@@ -9,13 +9,13 @@
                             <div class="col-md-4">
                                 <div class="options">
                                     <div class="title mb-2">Tên vai trò</div>
-                                    <input type="text" name="lastName" class="text-input ">
+                                    <input type="text" name="lastName" [(ngModel)]="role.name" class="text-input ">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="options">
                                     <div class="title mb-2">Mô tả vai trò</div>
-                                    <input type="text" name="lastName" class="text-input ">
+                                    <input type="text" name="lastName" [(ngModel)]="role.description" class="text-input ">
                                 </div>
                             </div>
                             <div class="col-md-8">
@@ -38,7 +38,8 @@
                                         <td class="d-flex">
                                           <div  *ngFor=" let per of  permissionlist" class="p-1">
                                             <input type="checkbox" [value]="per.status" [checked]="per.status"
-                                           class="custom-control-input" id="per{{item.id}}{{per.id}}">
+                                           class="custom-control-input" id="per{{item.id}}{{per.id}}"
+                                           (change)="onPerModuleChange($event,item,per)">
                                           <label class="cursor-pointer font-italic d-block custom-control-label mx-3"
                                             for="per{{item.id}}{{per.id}}">{{per.name}}</label>
                                           </div>
