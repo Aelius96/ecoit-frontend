@@ -42,6 +42,7 @@ export class ProductAddComponent implements OnInit {
     title: new FormControl('',Validators.required),
     description: new FormControl('',Validators.required),
   });
+  title="THÊM MỚI SẢN PHẨM"
 
   constructor(
     private router: Router,
@@ -119,7 +120,9 @@ export class ProductAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    if(history.state.data){
+      this.title=history.state.data
+    }
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
       this.productService.getProductById(this.id).subscribe((data) => {

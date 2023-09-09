@@ -105,3 +105,9 @@ option {
   color: red;
   margin-top: 15px;
 }
+.text-title{
+  color: #50b848;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}

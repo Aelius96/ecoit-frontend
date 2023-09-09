@@ -1,6 +1,23 @@
-<form class="formcustomeradd" (ngSubmit)="onSubmit()" [formGroup]="formCus">
+<div class="toolbar">
     <div class="container">
-        <div class="row">
+        <div class="d-lg-block d-none ">
+            <div class="d-flex  justify-content-between header-menu ">
+                <div class="right-d-flex my-auto">
+                    <div class="d-flex  flex-wrap">
+                        <div class=" mr-2">
+                            <div class="d-flex">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+<div class="container section-space--mt_100 list-table">
+    <form class="formcustomeradd" (ngSubmit)="onSubmit()" [formGroup]="formCus">
+        <p class="text-title">{{title}}</p>
+        <div class="row mt-3">
             <div class="col-lg-4">
                 <div class="contact-inner">
                     <span class="title-span"><strong><span class="validateText">*</span>Khách Hàng</strong></span>
@@ -60,13 +77,13 @@
                             <div class="col-lg-8 my-auto">
                                 <div class="input">
                                     <select name="icon" id="icon" formControlName="icons"
-                                    [class.borderError]="!formCus.controls.icons.valid&&!formCus.controls.icons.untouched"
-                                    [class.text-input]="formCus.controls.icons.valid||formCus.controls.icons.untouched"
-                                    >
+                                        [class.borderError]="!formCus.controls.icons.valid&&!formCus.controls.icons.untouched"
+                                        [class.text-input]="formCus.controls.icons.valid||formCus.controls.icons.untouched">
                                         <option *ngFor="let icon of allIcon" [value]="icon.class"
                                             [innerHTML]="icon.name + ' ' + icon.code"></option>
                                     </select>
-                                    <p *ngIf="!formCus.controls.icons.valid&&!formCus.controls.icons.untouched" class="validateText">Biểu tượng không thể bỏ trống</p>
+                                    <p *ngIf="!formCus.controls.icons.valid&&!formCus.controls.icons.untouched"
+                                        class="validateText">Biểu tượng không thể bỏ trống</p>
                                 </div>
 
                             </div>
@@ -80,5 +97,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>

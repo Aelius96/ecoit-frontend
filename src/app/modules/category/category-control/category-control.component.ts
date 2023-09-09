@@ -84,7 +84,7 @@ export class CategoryControlComponent implements OnInit {
   modalRef?: NgbModalRef;
 
   Update(id:number){
-    return this.router.navigate([`/admin/category/update/${id}`],{state:{data:"Sửa Chuyên Mục"}})
+    return this.router.navigate([`/admin/category/update/${id}`],{state:{data:"CHỈNH SỬA CHUYÊN MỤC"}})
   }
 
   search():void{

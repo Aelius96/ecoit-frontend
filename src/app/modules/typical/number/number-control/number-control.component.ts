@@ -73,7 +73,7 @@ handlePageSizeChange(event: any): void {
     this.router.navigate(['/dashboard/add']);
   }
   updateTypicalNum(id : number){
-   this.router.navigate([`admin/dashboard/edit/${id}`],{state:{data:'Sửa Con Số Tiêu Biểu'}});
+   this.router.navigate([`admin/dashboard/edit/${id}`],{state:{data:'CHỈNH SỬA CON SỐ TIÊU BIỂU'}});
 }
  deleteTypicalNum(id: number){
    let cf = confirm("Dữ liệu sẽ bị xóa . Bạn có mốn tiếp tục ");

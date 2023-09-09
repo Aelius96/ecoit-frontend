@@ -86,7 +86,7 @@
         <thead style="position: sticky;top: 0 ; z-index: 1;">
           <tr>
             <th scope="col" style="width: 15%;">Tên đăng nhập</th>
-            <th class="" scope="col">Tên</th>
+            <th class="" scope="col">Họ và Tên</th>
             <th class="" scope="col">Email </th>
             <th class="" scope="col">Trạng thái</th>
             <th class="" scope="col">Quyền</th>
@@ -125,7 +125,9 @@
             </ng-template>
             <td class="text-center">
               <span *ngIf="user.role">
-                <app-tag-role *ngFor="let role of user.role" [codeRole]="role.name"></app-tag-role>
+                <div *ngFor="let role of user.role">
+                  {{role.name}}
+                </div>
               </span>
             </td>
             <td style="text-align: center;">

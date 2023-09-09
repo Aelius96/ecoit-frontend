@@ -85,7 +85,7 @@ handlePageSizeChange(event: any): void {
   }
 
   updateCustomer(id:number){
-    this.router.navigate([`/admin/customer/update/${id}`])
+    this.router.navigate([`/admin/customer/update/${id}`],{state:{data:"CHỈNH SỬA THÔNG TIN KHÁCH HÀNG"}})
   }
 
   deleteCustomer(id: number){
