@@ -50,28 +50,45 @@ export class UserAddComponent implements OnInit{
       this.getUserById(this.id);
       this.getRoleUpdate(this.user);
     }
+
+  }
+  getaside() {
+    this.module.getaside('aside.json').subscribe(data=> {
+      this.modules = data;
+      if(this.modules.length ){
+        const sid =this.modules.map(item => item.id);
+        for (let i=0; i<sid.length; i++){
+          this.modules.find( e => {
+            if(e.id === sid[i]) e.status = true;
+          })
+        }
+    }
+    })
   }
 
   getUserById(id: number) {
     this.userService.getUserById(id).subscribe(data => {
       this.user = data;
-      this.roleId.setValue(this.user.role[0].id)
-      console.log(this.user)
+
+      this.getRoleUpdate(this.user);
+
     });
   }
 
   getRoleUpdate(user: User){
     this.roleService.listRole().subscribe(data => {
       this.roles = data;
-      if(user.role != null){
-        const sid = user.role.map(item => item.id);
-        for (let i=0; i<sid.length; i++){
-          this.roles.find( e => {
-            if(e.id === sid[i]) e.selected = true;
-          })
-        }
-      }
-    })
+      })
+
+      // if(user.role != null){
+      //   const sid = user.role.map(item => item.id);
+      //   for (let i=0; i<sid.length; i++){
+      //     this.roles.find( e => {
+      //       if(e.id === sid[i]) e.selected = true;
+      //     })
+      //   }
+      // }
+      // console.log(this.roles)
   }
   getRolebyId(id:number){
     this.roleService.getModulebyId(id).subscribe(data=>{
@@ -79,18 +96,18 @@ export class UserAddComponent implements OnInit{
     })
     }
 
-  onRoleChange(event: any, role: Role){
-    role.selected = event.currentTarget.checked;
-    if(role.selected){
-      this.user.role.push(role);
-    }else{
-      this.user.role.forEach(item => {
-        if(item.id === role.id){
-          this.user.role = this.user.role.filter(i => i !== item);
-        }
-      })
-    }
-  }
+  // onRoleChange(event: any, role: Role){
+  //   role.selected = event.currentTarget.checked;
+  //   if(role.selected){
+  //     this.user.role.push(role);
+  //   }else{
+  //     this.user.role.forEach(item => {
+  //       if(item.id === role.id){
+  //         this.user.role = this.user.role.filter(i => i !== item);
+  //       }
+  //     })
+  //   }
+  // }
   onModulechange(event:any,module:Module){
     // module.status=event.currentTarget.checked;
     // if(module.status){
@@ -109,15 +126,15 @@ export class UserAddComponent implements OnInit{
   }
 
   updateUser(id: number){
-    this.user.role[0]=this.roles[this.roleId.value]
-    this.userService.updateUser(id,this.user).subscribe( data =>{
-      console.log(data);
-      this.toastService.showSuccess();
-      this.goToUserList();
-    },error => {
-      this.toastService.showWarning(error.error);
-      console.log(error);
-    })
+    // this.user.role[0]=this.roles[this.roleId.value]
+    // this.userService.updateUser(id,this.user).subscribe( data =>{
+    //   console.log(data);
+    //   this.toastService.showSuccess();
+    //   this.goToUserList();
+    // },error => {
+    //   this.toastService.showWarning(error.error);
+    //   console.log(error);
+    // })
   }
 
   onCheckChange(event: any, user: User){
