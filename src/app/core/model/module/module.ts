@@ -7,5 +7,4 @@ export class Module {
     icon : string
     status : boolean = false
     permissionList: Permission[] = []
-    
 }

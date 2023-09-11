@@ -4,5 +4,5 @@ export class Permission {
     description:string;
     url:any;
     active:any;
-    status:any;
+    status:boolean = false;
 }

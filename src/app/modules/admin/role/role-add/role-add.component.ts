@@ -64,24 +64,37 @@ formAddPermission = new FormGroup({
       this.modulelist = data;
      if(roles){
       if (roles.moduleList != null) {
-        const sid = roles.moduleList.map((item) => item.id);
+        const sid = roles.moduleList.map((item) => item);
         for (let i = 0; i < sid.length; i++) {
-           const sid2 = this.modulelist.find((e) => {
-            if (e.id === sid[i]) e.status = true;
-          });
+           this.modulelist.find((e) => {
+            if (e.id === sid[i].id) e.status = true;
+            this.getPermissionlist(sid[i])
+          }
+          );
         }
       }
      }
     })
   }
-  getPermissionlist(roles?:Role) {
+  getPermissionlist(module?:Module) {
     this.perService.listAll().subscribe(data => {
       this.permissionlist = data
+      if(module){
+        if(module.permissionList!=null){
+          const sid2= module.permissionList.map((item2)=> item2.id);
+            for(let j=0; j < sid2.length ; j++){
+              this.permissionlist.find((p)=>{
+                if(p.id === sid2[j]) p.status =true
+              })
+            }
+        }
+      }
     })
   }
   getRoleById(id:number){
     this.roleService.getModulebyId(id).subscribe(data=>{
       this.role=data
+      console.log(data)
       this.getModuleList(this.role)
       this.formRole.controls['nameRole'].setValue(this.role.name)
       this.formRole.controls['desRole'].setValue(this.role.description)
