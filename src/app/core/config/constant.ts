@@ -158,7 +158,7 @@ export class Constant {
     LIST_ROLE:`role`,
     ADD_ROLE:`${Domain.ROLE}/addRole`,
     DELETE_ROLE:`${Domain.ROLE}/delete`,
-    UPDATE_ROLE:`${Domain.ROLE}/updaterole`
+    UPDATE_ROLE:`${Domain.ROLE}/updateRole`
   }
   public static SLIDERS ={
     GET_LIST_ALL : `${Domain.SLIDERS}/home` ,

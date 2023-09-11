@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="formRole">
     <div class="container section-space--mt_100">
         <p class="title-add">THÊM MỚI VAI TRÒ</p>
         <div class="row">
@@ -9,13 +9,13 @@
                             <div class="col-md-4">
                                 <div class="options">
                                     <div class="title mb-2">Tên vai trò</div>
-                                    <input type="text" name="lastName" [(ngModel)]="role.name" class="text-input ">
+                                    <input type="text" name="lastName" formControlName="nameRole" class="text-input ">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="options">
                                     <div class="title mb-2">Mô tả vai trò</div>
-                                    <input type="text" name="lastName" [(ngModel)]="role.description" class="text-input ">
+                                    <input type="text" name="lastName" formControlName="desRole" class="text-input ">
                                 </div>
                             </div>
                             <div class="col-md-8">
@@ -24,7 +24,7 @@
                                       <tr>
                                         <th class="" scope="col">Quyền truy cập</th>
                                         <th class="" scope="col">Chức năng</th>
-                                        <!-- <th class="" scope="col">Thao tác</th> -->
+                                        <th class="" scope="col">Thao tác</th>
                                       </tr>
                                     </thead>
                                     <tbody *ngFor="let item of modulelist">
@@ -32,7 +32,7 @@
                                         <td class="">
                                             <input type="checkbox" [value]="item.status" [checked]="item.status"
                                             (change)="onModulechange($event,item)" class="custom-control-input" id="module{{item.id}}">
-                                          <label class="cursor-pointer font-italic d-block custom-control-label ml-3"
+                                          <label class="cursor-pointer d-block custom-control-label ml-3"
                                             for="module{{item.id}}">{{item.name}}</label>
                                         </td>
                                         <td class="d-flex">
@@ -40,31 +40,139 @@
                                             <input type="checkbox" [value]="per.status" [checked]="per.status"
                                            class="custom-control-input" id="per{{item.id}}{{per.id}}"
                                            (change)="onPerModuleChange($event,item,per)">
-                                          <label class="cursor-pointer font-italic d-block custom-control-label mx-3"
+                                          <label class="cursor-pointer  d-block custom-control-label mx-3"
                                             for="per{{item.id}}{{per.id}}">{{per.name}}</label>
                                           </div>
                                         </td>
-                                        <!-- <td style="text-align: center;">
-                                          <button class="icon status_admin icon-edit me-0 me-md-2 "><a class="icon-item"><i
+                                        <td style="text-align: center;">
+                                          <button type="button" class="icon icon-edit me-0 me-md-2 " data-toggle="modal" 
+                                          data-target="#modalUpdate"><a class="icon-item"><i
                                                 class="fas fa-pen i"></i></a></button>
-                                          <button class="icon icon-remove  mt-2 mt-md-0 ">
-                                            <a class="icon-item" (click)="deleteModule(item.id)"><i class="fas fa-trash-alt remove i"></i></a>
+                                          <button type="button" class="icon icon-remove  mt-2 mt-md-0 ">
+                                            <a class="icon-item"><i class="fas fa-trash-alt remove i"></i></a>
                                           </button>
-                                        </td> -->
+                                        </td>
                                       </tr>
                                     </tbody>
+                                    <tr>
+                                      <td class="text-center">
+                                        <img style="max-width: 50px;" data-toggle="modal" data-target="#modalAddModule"
+                                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEvUlEQVR4nO2dy49VRRDGfxlnkP+B4SGPsBFYsNFEojxC2CNEJYGwFYzGGDAgMJF3iAtXmPAITMC/wOBCEhaAPMICNYAsIOgWmAgyM1xGpkgnTTK5BqbPuX1PVz++5NvcmTtT3d85Xd3V1dVQUFBQUFCQLqYCi4C1wDfAaeAS8DtwBxgCWpZD9jPzs1+BU/Y7a+zfeDN0Y2JEL7AY2Ar8AowC4oljwDXgALCiCPRq9ADLgZPAY48CTEbzv04Ay6wN2WM6sA/4u0ER5BU0NuwF+nNU5S3ge8/DkXjiM2AQmE8mQhin/J+CjhcHf2MmBbNIEH3A58C/CjpaKnIEGEhpAmBmM7cVdKx0yD+t8496+mqerOcKOlM8cdz6vilEOHu6qKADpUu8av1hFFhlV8ySOB8CK1GOdXbaKJlwDNiIUnyWmL+QCn7lK5ThWwUdI4FpJjAqsElBZ4gSfhlajE8yHabkNcPXhpCzqZwcuDiyFWL2ZdYZDxQ0XpRyqMkYWF/iiz7xxMtNrei/U9BYiYQHmwgUjitoqERC01dLuyWGef1uKWikRMbb3Qrd71DQOImUX/sWYybwREHDJFIO+44O/6igURI5zT69F8yxUc3QDZLIafII5voQ5KiCxkgi/MHHiryloCGSCE2oaUYnguxT0AhJjHvqitGjJKNQEuO9ummryxUYLw78CZhmU0DPKLDHhbVW7ycVGC4O7G/zeRIBj9cJkzSZhd4J2yER8JGNmjtjiQKjJWFBDN+tIshOBQZL4oJsryLIOQUGS+KCnK1ypu+pAoMlcUFGXcPyixQYKxkIYvi2iyBrFRgqmQiyOjWHLpEL4uTYTyswVDIRxGmPJLYUn3ZIRDyPA/5QYKhkIshvLoLcU2CoZCLIXRdBHgSO2jaNkFHi+y4Ghtoh7CccQkWJzQJ8UhRB0CVIqCHrTKC3xLwdP2sesopTR5dTL9NedE17LwR6faUm2yGpLQxPKTBUMhHE5C0kl+XeDomI23BACb+jK/xeNqjQtUE1VWnpPUlsyBqpcrKqJDnQdUFMCVxnxLRr2A5JyaG/xHsKDJbEBXmniiAmzbGkktI1Mf6xJRAr4YSCp0gSTbY+Rg0sU2C4VIgSh4zaVuX7dQQpB3bQdWDHoBxpw7sgu+kAZigohz7xukPYcd7AEQVjriTCw3jA7FI4AF9Hor2V14htj0QU0iwjvMEcdi/FZ+io+Iz3kn/bFTxlEim30AWYk7k3FTROIuONqiduq67eS4k/nMUwNY0/oMs4pOCpk0i4nwbQG2GqkATgpW4OVe0ohZSZtJCyKYvYKEw57VJqnP+J0bLldIPgo1KMn4limAnPegLjUwXjtSjhFyjBgILOkMDchTJsznT4Gtd45dHEC16eZebAP0Y5VmZyt8j9kLOpOuuUlBePV2K6WDKHq1f7iBhLE7nm4kYTgcKmEPP13cOpXd89ETNtBZwYivuP2W1X4w+Txyw7Fo8qncoOAvPIEP22FvpfSjIKdweqt6IOPdZhHrdFhpvMQj9mc21rp3emjjeAxcBWe8poxLNfuAYcsIu6Ru4ZTA1TgIXAhzbzZdAuOq8Dd+xF8y3Lh/az6/Z3Bu1JJfPdBUWAgoKCggISxgvS8+wqOb8XFQAAAABJRU5ErkJggg==">
+                                      </td>
+                                      <td class="text-center">
+                                        <img style="max-width: 50px;" data-toggle="modal" data-target="#modalAddPermission"
+                                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEvUlEQVR4nO2dy49VRRDGfxlnkP+B4SGPsBFYsNFEojxC2CNEJYGwFYzGGDAgMJF3iAtXmPAITMC/wOBCEhaAPMICNYAsIOgWmAgyM1xGpkgnTTK5BqbPuX1PVz++5NvcmTtT3d85Xd3V1dVQUFBQUFCQLqYCi4C1wDfAaeAS8DtwBxgCWpZD9jPzs1+BU/Y7a+zfeDN0Y2JEL7AY2Ar8AowC4oljwDXgALCiCPRq9ADLgZPAY48CTEbzv04Ay6wN2WM6sA/4u0ER5BU0NuwF+nNU5S3ge8/DkXjiM2AQmE8mQhin/J+CjhcHf2MmBbNIEH3A58C/CjpaKnIEGEhpAmBmM7cVdKx0yD+t8496+mqerOcKOlM8cdz6vilEOHu6qKADpUu8av1hFFhlV8ySOB8CK1GOdXbaKJlwDNiIUnyWmL+QCn7lK5ThWwUdI4FpJjAqsElBZ4gSfhlajE8yHabkNcPXhpCzqZwcuDiyFWL2ZdYZDxQ0XpRyqMkYWF/iiz7xxMtNrei/U9BYiYQHmwgUjitoqERC01dLuyWGef1uKWikRMbb3Qrd71DQOImUX/sWYybwREHDJFIO+44O/6igURI5zT69F8yxUc3QDZLIafII5voQ5KiCxkgi/MHHiryloCGSCE2oaUYnguxT0AhJjHvqitGjJKNQEuO9ummryxUYLw78CZhmU0DPKLDHhbVW7ycVGC4O7G/zeRIBj9cJkzSZhd4J2yER8JGNmjtjiQKjJWFBDN+tIshOBQZL4oJsryLIOQUGS+KCnK1ypu+pAoMlcUFGXcPyixQYKxkIYvi2iyBrFRgqmQiyOjWHLpEL4uTYTyswVDIRxGmPJLYUn3ZIRDyPA/5QYKhkIshvLoLcU2CoZCLIXRdBHgSO2jaNkFHi+y4Ghtoh7CccQkWJzQJ8UhRB0CVIqCHrTKC3xLwdP2sesopTR5dTL9NedE17LwR6faUm2yGpLQxPKTBUMhHE5C0kl+XeDomI23BACb+jK/xeNqjQtUE1VWnpPUlsyBqpcrKqJDnQdUFMCVxnxLRr2A5JyaG/xHsKDJbEBXmniiAmzbGkktI1Mf6xJRAr4YSCp0gSTbY+Rg0sU2C4VIgSh4zaVuX7dQQpB3bQdWDHoBxpw7sgu+kAZigohz7xukPYcd7AEQVjriTCw3jA7FI4AF9Hor2V14htj0QU0iwjvMEcdi/FZ+io+Iz3kn/bFTxlEim30AWYk7k3FTROIuONqiduq67eS4k/nMUwNY0/oMs4pOCpk0i4nwbQG2GqkATgpW4OVe0ohZSZtJCyKYvYKEw57VJqnP+J0bLldIPgo1KMn4limAnPegLjUwXjtSjhFyjBgILOkMDchTJsznT4Gtd45dHEC16eZebAP0Y5VmZyt8j9kLOpOuuUlBePV2K6WDKHq1f7iBhLE7nm4kYTgcKmEPP13cOpXd89ETNtBZwYivuP2W1X4w+Txyw7Fo8qncoOAvPIEP22FvpfSjIKdweqt6IOPdZhHrdFhpvMQj9mc21rp3emjjeAxcBWe8poxLNfuAYcsIu6Ru4ZTA1TgIXAhzbzZdAuOq8Dd+xF8y3Lh/az6/Z3Bu1JJfPdBUWAgoKCggISxgvS8+wqOb8XFQAAAABJRU5ErkJggg==">
+                                      </td>
+                                    </tr>
                                   </table>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <div class="col-md-8  text-center pt-3 mb-3">
+                <div class="col-md-8  text-center mt-2 mb-3 mx-auto">
                     <button class="save-btn me-3 btn btn-primary btn-lg " type="submit"><i
                             class="fas fa-save"></i>Lưu</button>
-                    <button class="btn btn-secondary btn-lg ">Hủy</button>
+                    <button class="btn btn-secondary btn-lg " (click)="backToRole()">Hủy</button>
                 </div>
             </div>
         </div>
     </div>
 </form>
+
+
+
+<!-- Modal ADD MODULE-->
+<div class="modal fade" id="modalAddModule" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <form [formGroup]="formAddModule" (ngSubmit)="onSubmit()">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Thêm Quyền Truy Cập</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="col-form-label">Tên truy cập:</label>
+            <input type="text" formControlName="nameModule" name="permission" class="form-control" placeholder="Nhập tên truy cập">
+            {{formAddModule.controls.nameModule.value}}
+          </div>
+          <div class="mb-3">
+            <label class="col-form-label">URL truy cập:</label>
+            <input type="text" formControlName="urlModule" name="permission" class="form-control" placeholder="Nhập địa chỉ url">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" (click)="addModule()" class="btn btn-primary">Lưu Quyền</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+<!-- Modal Add permission-->
+<div class="modal fade" id="modalAddPermission" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <form [formGroup]="formAddPermission" (ngSubmit)="onSubmit()">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="font-family: Tahoma, Geneva, Verdana, sans-serif;">
+          <h5 class="modal-title" id="exampleModalLabel">Thêm Mới Chức Năng</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="col-form-label">Tên chức năng:</label>
+            <input type="text" formControlName="namePer" name="permission" class="form-control" placeholder="Nhập tên chức năng">
+            <!-- {{formAddModule.controls.name.value}} -->
+          </div>
+          <div class="mb-3">
+            <label class="col-form-label">URL chức năng:</label>
+            <input type="text" formControlName="urlPer" name="permission" class="form-control" placeholder="Nhập địa chỉ url">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" (click)="addper()" class="btn btn-primary">Lưu chức năng</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Modal update MODULE permission-->
+<div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- <form [formGroup]="formAddModule" (ngSubmit)="onSubmit()">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Thêm Quyền Truy Cập</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="col-form-label">Tên truy cập:</label>
+            <input type="text" formControlName="nameModule" name="permission" class="form-control" placeholder="Nhập tên truy cập">
+            {{formAddModule.controls.nameModule.value}}
+          </div>
+          <div class="mb-3">
+            <label class="col-form-label">URL:</label>
+            <input type="text" formControlName="urlModule" name="permission" class="form-control" placeholder="Nhập địa chỉ url">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="submit" class="btn btn-primary">Lưu Quyền</button>
+        </div>
+      </div>
+    </div>
+  </form> -->
+</div>

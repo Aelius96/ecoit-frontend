@@ -89,7 +89,7 @@
             <div class="col-md-12">
               <div class="title">Vai trò</div>
               <div class="d-flex flex-column  ">
-                <select  id="" class="w-25 border mb-5" [formControl]="roleId"  (change)="selectRole()">
+                <select  id="" class="w-25 border mb-5" [formControl]="roleId" (change)="selectRole()">
                   <option *ngFor="let r of roles" value="{{r.id}}">{{r.name}}</option>
                 </select>
               </div>

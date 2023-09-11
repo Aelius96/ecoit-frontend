@@ -47,13 +47,12 @@ export class CustomerAddComponent {
   ) {}
 
   ngOnInit(): void {
-    if(history.state.data){
-      this.title=history.state.data
-    }
+   
     window.sessionStorage.removeItem('redirect');
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
       this.getCustomById(this.id);
+      this.title="CHỈNH SỬA KHÁCH HÀNG"
     } else {
       this.getProducts();
     }
