@@ -125,9 +125,11 @@
             </ng-template>
             <td class="text-center">
               <span *ngIf="user.role">
-                <div *ngFor="let role of user.role">
+                <!-- <div *ngFor="let role of user.role">
                   {{role.name}}
-                </div>
+                </div> -->
+                <!-- <app-tag-role *ngFor="let role of user.role" [codeRole]="role.name"></app-tag-role> -->
+                <app-tag-role [codeRole]="user.role.name"></app-tag-role>
               </span>
             </td>
             <td style="text-align: center;">
