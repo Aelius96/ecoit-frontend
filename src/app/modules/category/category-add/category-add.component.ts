@@ -19,7 +19,7 @@ export class CategoryAddComponent implements OnInit {
   id: number;
   formData: any;
   catogaryControl = new FormControl('',Validators.required);
-  title= 'Thêm Chuyên Mục'
+  title= 'THÊM MỚI CHUYÊN MỤC'
 
   constructor(
     private toast: ToastService,

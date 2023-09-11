@@ -65,6 +65,12 @@
     margin-top: 15px;
     color:red;
   }
+  .text-title{
+    color: #50b848;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
 /* .banner{
   height: 200px;
 } */

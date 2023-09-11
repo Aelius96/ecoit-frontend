@@ -25,7 +25,7 @@ export class NumberAddComponent implements OnInit {
   // listIcon: any;
   allIcon: any;
   checkinput = true;
-  title='Thêm Con Số Tiêu Biểu'
+  title='THÊM CON SỐ TIÊU BIỂU'
 
   constructor(
     private numService: NumberService,

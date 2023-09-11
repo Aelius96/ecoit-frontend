@@ -12,6 +12,7 @@ import {ToastService} from "../../toast/toast.service";
 
 import { Module } from 'src/app/core/model/module/module';
 import { ModuleService } from 'src/app/services/module/module.service';
+import { FormControl } from '@angular/forms';
 
 
 
@@ -25,6 +26,7 @@ export class UserAddComponent implements OnInit{
 
   user : User = new User();
   roles :Role[] = [];
+  roleById = new Role()
   modules: Module[]=[]
   id: any;
   roll: any;
@@ -33,6 +35,7 @@ export class UserAddComponent implements OnInit{
   errorMessage = "";
   type: any;
   submitFail = false;
+  roleId= new FormControl()
 
   constructor(private authService: AuthService,private userService: UserService, private roleService:RoleService,
               private router: Router,private route:ActivatedRoute ,
@@ -45,30 +48,15 @@ export class UserAddComponent implements OnInit{
     this.id = this.route.snapshot.params['id'];
     if(this.id){
       this.getUserById(this.id);
-      this.getaside()
+      this.getRoleUpdate(this.user);
     }
-
-  }
-  getaside() {
-    this.module.getaside('aside.json').subscribe(data=> {
-      this.modules = data;
-      if(this.modules.length ){
-        const sid =this.modules.map(item => item.id);
-        for (let i=0; i<sid.length; i++){
-          this.modules.find( e => {
-            if(e.id === sid[i]) e.status = true;
-          })
-        }
-    }
-      console.log(this.modules)
-    })
   }
 
   getUserById(id: number) {
     this.userService.getUserById(id).subscribe(data => {
       this.user = data;
+      this.roleId.setValue(this.user.role[0].id)
       console.log(this.user)
-      this.getRoleUpdate(this.user);
     });
   }
 
@@ -83,9 +71,13 @@ export class UserAddComponent implements OnInit{
           })
         }
       }
-      console.log(this.roles)
     })
   }
+  getRolebyId(id:number){
+    this.roleService.getModulebyId(id).subscribe(data=>{
+      this.roleById = data
+    })
+    }
 
   onRoleChange(event: any, role: Role){
     role.selected = event.currentTarget.checked;
@@ -117,6 +109,7 @@ export class UserAddComponent implements OnInit{
   }
 
   updateUser(id: number){
+    this.user.role[0]=this.roles[this.roleId.value]
     this.userService.updateUser(id,this.user).subscribe( data =>{
       console.log(data);
       this.toastService.showSuccess();
@@ -137,7 +130,6 @@ export class UserAddComponent implements OnInit{
   }
 
   onSubmit() {
-
     if(this.id){
       this.updateUser(this.id);
     }else{
@@ -160,6 +152,9 @@ export class UserAddComponent implements OnInit{
 
   changePassword(id:number) {
     this.userService.changePassword(id);
+  }
+  selectRole(){
+    this.getRolebyId(this.roleId.value);
   }
 
 }

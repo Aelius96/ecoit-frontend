@@ -1,5 +1,22 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="formProduct" encformProducttype="multipart/form-data">
+<div class="toolbar">
   <div class="container">
+    <div class="d-lg-block d-none ">
+      <div class="d-flex  justify-content-between header-menu ">
+        <div class="right-d-flex my-auto">
+          <div class="d-flex  flex-wrap">
+            <div class=" mr-2">
+              <div class="d-flex">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container section-space--mt_100 list-table">
+  <form (ngSubmit)="onSubmit()" [formGroup]="formProduct" encformProducttype="multipart/form-data">
+    <p class="text-title">{{title}}</p>
     <div class="row w-100 mx-auto ">
       <div class="col-lg-4">
         <div class="update_box">
@@ -11,17 +28,19 @@
         </div>
         <div class="update_box2">
           <span><strong><span class="validateText">*</span>Tên</strong></span>
-          <input type="text" formControlName="title" id="title" name="title" 
+          <input type="text" formControlName="title" id="title" name="title"
             [class.borderError]="!formProduct.controls.title.valid&&!formProduct.controls.title.untouched"
             [class.text-input]="formProduct.controls.title.valid||formProduct.controls.title.untouched">
-            <p *ngIf="!formProduct.controls.title.valid&&!formProduct.controls.title.untouched" class="validateText">Tên không thể bỏ trống</p>
+          <p *ngIf="!formProduct.controls.title.valid&&!formProduct.controls.title.untouched" class="validateText">
+            Tên không thể bỏ trống</p>
         </div>
         <div class="update_box">
           <span><strong><span class="validateText">*</span>Mô tả</strong></span>
           <textarea style="height: 120px" id="description" formControlName="description"
-          [class.borderError]="!formProduct.controls.description.valid&&!formProduct.controls.description.untouched"
-          [class.text-input]="formProduct.controls.description.valid||formProduct.controls.description.untouched"></textarea>
-          <p *ngIf="!formProduct.controls.description.valid&&!formProduct.controls.description.untouched"  class="validateText">Mô tả không thể bỏ trống</p>
+            [class.borderError]="!formProduct.controls.description.valid&&!formProduct.controls.description.untouched"
+            [class.text-input]="formProduct.controls.description.valid||formProduct.controls.description.untouched"></textarea>
+          <p *ngIf="!formProduct.controls.description.valid&&!formProduct.controls.description.untouched"
+            class="validateText">Mô tả không thể bỏ trống</p>
         </div>
         <div class="update_box">
           <span><strong>Thẻ tag</strong></span>
@@ -47,22 +66,22 @@
         </mat-form-field>
       </div>
       <div class="col-lg-8">
-        <div class="update_box" >
+        <div class="update_box">
           <span><strong><span class="validateText">*</span>Nội dung</strong></span>
-          <div >
-          <div class="ckeditorContaniner" id="editor">
-            <!--            <ckeditor [editor]="Editor"  [data]="new.content"></ckeditor>-->
-            <ckeditor id="content" [(ngModel)]="products.content" #content="ngModel" 
-              [ngModelOptions]="{standalone: true}" [config]="ckeConfig"></ckeditor>
+          <div>
+            <div class="ckeditorContaniner" id="editor">
+              <!--            <ckeditor [editor]="Editor"  [data]="new.content"></ckeditor>-->
+              <ckeditor id="content" [(ngModel)]="products.content" #content="ngModel"
+                [ngModelOptions]="{standalone: true}" [config]="ckeConfig"></ckeditor>
+            </div>
+          </div>
+          <div class="submit-button mt-2 mt-md-4">
+            <button type="submit" class="btn btn-primary btn-lg mr-4 w-25" [disabled]="!formProduct.valid">Lưu</button>
+            <button type="button" class="btn btn-secondary btn-lg  cancel mr-2 w-25"
+              (click)="backToProductList()">Hủy</button>
           </div>
         </div>
-        <div class="submit-button mt-2 mt-md-4">
-          <button type="submit" class="btn btn-primary btn-lg mr-4 w-25" [disabled]="!formProduct.valid">Lưu</button>
-          <button type="button" class="btn btn-secondary btn-lg  cancel mr-2 w-25"
-            (click)="backToProductList()">Hủy</button>
-        </div>
-      </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>

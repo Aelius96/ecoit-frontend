@@ -35,6 +35,7 @@ export class CustomerAddComponent {
   });
   image: any;
   fileToUpload: string[] = [];
+  title = "THÊM MỚI KHÁCH HÀNG"
 
   constructor(
     private customerService: CustomerService,
@@ -46,6 +47,9 @@ export class CustomerAddComponent {
   ) {}
 
   ngOnInit(): void {
+    if(history.state.data){
+      this.title=history.state.data
+    }
     window.sessionStorage.removeItem('redirect');
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
