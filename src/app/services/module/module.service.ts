@@ -18,8 +18,8 @@ export class ModuleService {
   getModule():Observable<any>{
     return this.apiHelper.get(Constant.MODULE.GET_LIST_MODULE)
   }
-  addModule():Observable<any>{
-   return this.apiHelper.get(Constant.MODULE.ADD_MODULE);
+  addModule(module:Module):Observable<any>{
+   return this.apiHelper.post(Constant.MODULE.ADD_MODULE,module);
   }
   updateModule(id:number,module:Module):Observable<any>{
     return this.apiHelper.post(Constant.MODULE.UPDATE_MODULE+`/${id}`, module)

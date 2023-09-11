@@ -3,13 +3,9 @@ import {AuthService} from "../../../services/auth/auth.service";
 import {User} from "../../../core/model/user/user";
 import {UserService} from "../../../services/user/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
-
 import {Role} from "../../../core/model/role/role";
 import {RoleService} from "../../../services/role/role.service";
-import {ToastrService} from 'ngx-toastr';
-
 import {ToastService} from "../../toast/toast.service";
-
 import { Module } from 'src/app/core/model/module/module';
 import { ModuleService } from 'src/app/services/module/module.service';
 import { FormControl } from '@angular/forms';
@@ -126,15 +122,15 @@ export class UserAddComponent implements OnInit{
   }
 
   updateUser(id: number){
-    // this.user.role[0]=this.roles[this.roleId.value]
-    // this.userService.updateUser(id,this.user).subscribe( data =>{
-    //   console.log(data);
-    //   this.toastService.showSuccess();
-    //   this.goToUserList();
-    // },error => {
-    //   this.toastService.showWarning(error.error);
-    //   console.log(error);
-    // })
+    this.user.role=this.roles[this.roleId.value]
+    this.userService.updateUser(id,this.user).subscribe( data =>{
+      console.log(data);
+      this.toastService.showSuccess();
+      this.goToUserList();
+    },error => {
+      this.toastService.showWarning(error.error);
+      console.log(error);
+    })
   }
 
   onCheckChange(event: any, user: User){
@@ -151,7 +147,6 @@ export class UserAddComponent implements OnInit{
       this.updateUser(this.id);
     }else{
       this.authService.register(this.user).subscribe(() =>{
-
           this.isSuccessful = true;
           this.isSignUpFailed = false;
           this.goToBack()
@@ -173,5 +168,5 @@ export class UserAddComponent implements OnInit{
   selectRole(){
     this.getRolebyId(this.roleId.value);
   }
-
+  
 }
