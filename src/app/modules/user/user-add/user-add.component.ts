@@ -8,7 +8,7 @@ import {RoleService} from "../../../services/role/role.service";
 import {ToastService} from "../../toast/toast.service";
 import { Module } from 'src/app/core/model/module/module';
 import { ModuleService } from 'src/app/services/module/module.service';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 
@@ -32,6 +32,15 @@ export class UserAddComponent implements OnInit{
   type: any;
   submitFail = false;
   roleId= new FormControl()
+  userForm = new FormGroup({
+    firstName : new FormControl(''),
+    lastName : new FormControl(''),
+    userName : new FormControl(''),
+    email : new FormControl(''),
+    active : new FormControl(''),
+    role : new FormControl(0),
+
+  })
 
   constructor(private authService: AuthService,private userService: UserService, private roleService:RoleService,
               private router: Router,private route:ActivatedRoute ,
@@ -44,9 +53,19 @@ export class UserAddComponent implements OnInit{
     this.id = this.route.snapshot.params['id'];
     if(this.id){
       this.getUserById(this.id);
-      this.getRoleUpdate(this.user);
+      // this.getRoleUpdate(this.user);
     }
 
+  }
+  setValueForm() {
+    this.userForm.setValue({
+      firstName : this.user.firstName,
+      lastName : this.user.lastName,
+      userName : this.user.username,
+      email : this.user.email,
+      active : this.user.active,
+      role : this.user.role.id,
+    })
   }
   getaside() {
     this.module.getaside('aside.json').subscribe(data=> {
@@ -65,8 +84,8 @@ export class UserAddComponent implements OnInit{
   getUserById(id: number) {
     this.userService.getUserById(id).subscribe(data => {
       this.user = data;
-
       this.getRoleUpdate(this.user);
+      this.setValueForm()
 
     });
   }
@@ -87,7 +106,7 @@ export class UserAddComponent implements OnInit{
       // console.log(this.roles)
   }
   getRolebyId(id:number){
-    this.roleService.getModulebyId(id).subscribe(data=>{
+    this.roleService.getRolebyId(id).subscribe(data=>{
       this.roleById = data
     })
     }

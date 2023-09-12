@@ -17,11 +17,11 @@ import { RoleService } from 'src/app/services/role/role.service';
 })
 export class RoleAddComponent {
 
-  modulelist: Module[] =[]
+  modulelistAll: Module[] =[]
   permissionlist: Permission[] = []
   module : Module = new Module()
   role: Role = new Role()
-  perMisstion: Permission = new Permission()
+  permisstion: Permission = new Permission()
   id:number
   formRole= new FormGroup({
     nameRole : new FormControl(),
@@ -48,10 +48,12 @@ formAddPermission = new FormGroup({
       this.getRoleById(this.id)
     }
       this.getModuleList()
-      this.getPermissionlist()
+      // this.getPermissionlist()
 
   }
   onSubmit() {
+    this.role.name = this.formRole.controls['nameRole'].value
+    this.role.description = this.formRole.controls['desRole'].value
     if(this.id){
       this.updateRole()
     }
@@ -61,40 +63,54 @@ formAddPermission = new FormGroup({
   }
   getModuleList(roles?:Role) {
     this.moduleService.getModule().subscribe(data => {
-      this.modulelist = data;
+      this.modulelistAll = data;
      if(roles){
       if (roles.moduleList != null) {
-        const sid = roles.moduleList.map((item) => item);
-        for (let i = 0; i < sid.length; i++) {
-           this.modulelist.find((e) => {
-            if (e.id === sid[i].id) e.status = true;
-            this.getPermissionlist(sid[i])
-          }
-          );
+        // const sid = roles.moduleList.map((item) => item);
+        // for (let i = 0; i < sid.length; i++) {
+        //    this.modulelistAll.find((e) => {
+        //     if (e.id === sid[i].id) e.status = true;
+        //   }
+
+        //   );
+        // }
+        for(let i = 0;i < this.role.moduleList.length;i++) {
+          this.modulelistAll.find(mod => {
+            if(mod.id === this.role.moduleList[i].id) {
+              mod.status = true
+            }
+            for(let j = 0;j < this.role.moduleList[i].permissionList.length;j++) {
+              this.modulelistAll[i].permissionList.find(per => {
+                if(per.id === this.role.moduleList[i].permissionList[j].id) per.status = true
+              })
+            }
+          })
         }
       }
      }
     })
   }
-  getPermissionlist(module?:Module) {
-    this.perService.listAll().subscribe(data => {
-      this.permissionlist = data
-      if(module){
-        if(module.permissionList!=null){
-          const sid2= module.permissionList.map((item2)=> item2.id);
-            for(let j=0; j < sid2.length ; j++){
-              this.permissionlist.find((p)=>{
-                if(p.id === sid2[j]) p.status =true
-              })
-            }
-        }
-      }
-    })
-  }
+  // getPermissionlist(module?:Module) {
+  //   this.perService.listAll().subscribe(data => {
+  //     this.permissionlist = data
+  //     // if(module){
+  //     //   if(module.permissionList!=null){
+  //     //     const sid2= module.permissionList.map((item2)=> item2.id);
+  //     //       for(let j=0; j < sid2.length ; j++){
+  //     //         this.permissionlist.find((p)=>{
+  //     //           if(p.id === sid2[j]) {
+  //     //             p.status =true
+
+  //     //           }
+  //     //         })
+  //     //       }
+  //     //   }
+  //     // }
+  //   })
+  // }
   getRoleById(id:number){
-    this.roleService.getModulebyId(id).subscribe(data=>{
+    this.roleService.getRolebyId(id).subscribe(data=>{
       this.role=data
-      console.log(data)
       this.getModuleList(this.role)
       this.formRole.controls['nameRole'].setValue(this.role.name)
       this.formRole.controls['desRole'].setValue(this.role.description)
@@ -103,8 +119,11 @@ formAddPermission = new FormGroup({
  
   onModulechange(event: any, module: Module) {
     module.status = event.currentTarget.checked
+    let moduleNew = new Module()
     if(module.status) {
-      this.role.moduleList.push(module)
+      moduleNew.id = module.id
+      moduleNew.status = module.status
+      this.role.moduleList.push(moduleNew)
     }else {
       this.role.moduleList.forEach(item => {
         if(item.id === module.id) {
@@ -112,22 +131,31 @@ formAddPermission = new FormGroup({
         }
       })
     }
+    console.log(this.role)
   }
   onPerModuleChange(event:any,module:Module, permission : Permission) {
     const isChecked = event.target.checked;
     if(module.status) {
       if(isChecked) {
-        module.permissionList.push(permission)
-      }else {
-        module.permissionList.forEach(per => {
-          if(per.id === permission.id) {
-            module.permissionList = module.permissionList.filter(i => i !== per)
-          }
+        this.role.moduleList.forEach(mod => {
+          if(mod.id === module.id) mod.permissionList.push(permission)
         })
+      }else {
+        this.role.moduleList.forEach(mod =>{
+          mod.permissionList.forEach(per => {
+            if(per.id === permission.id) {
+              mod.permissionList = mod.permissionList.filter(i => i !== per)
+            }
+          })
+        })
+
       }
     }
+    console.log(this.role)
   }
   addRole(){
+    this.role.name = this.formRole.controls['nameRole'].value
+    this.role.description = this.formRole.controls['desRole'].value
     this.roleService.addRole(this.role).subscribe((data) => {
       console.log(data)
     })
@@ -161,9 +189,9 @@ formAddPermission = new FormGroup({
     );
   }
   addper(){
-    this.perMisstion.name = this.formAddPermission.controls['namePer'].value
-    this.perMisstion.url = this.formAddPermission.controls['urlPer'].value
-    this.permissionService.addPermission(this.perMisstion).subscribe(data =>{
+    this.permisstion.name = this.formAddPermission.controls['namePer'].value
+    this.permisstion.url = this.formAddPermission.controls['urlPer'].value
+    this.permissionService.addPermission(this.permisstion).subscribe(data =>{
       this.toast.showSuccess();
       setTimeout(() => {
                 location.reload();

@@ -5,4 +5,5 @@ export class Permission {
     url:any;
     active:any;
     status:boolean = false;
+    moduleId : number
 }
