@@ -29,7 +29,7 @@ export class RoleControlComponent {
     });
   }
   getModulebyId(id: number) {
-    this.roleService.getModulebyId(id).subscribe((data) => {
+    this.roleService.getRolebyId(id).subscribe((data) => {
       this.role = data;
       this.roleId=this.role.id
     });

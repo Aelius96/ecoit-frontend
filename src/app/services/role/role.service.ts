@@ -12,7 +12,7 @@ export class RoleService {
 
   constructor(private apiHelper:ApiHelper) {}
 
-  getModulebyId(id:number):Observable<any>{
+  getRolebyId(id:number):Observable<any>{
     return this.apiHelper.get(Constant.ROLE.GET_ROLE_BY_ID + `/${id}`);
   }
 

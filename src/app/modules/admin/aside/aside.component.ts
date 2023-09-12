@@ -18,9 +18,7 @@ export class AsideComponent implements OnInit {
     
       this.userName= this.tokenStorageService.getUser().username;
       this.roleName = this.tokenStorageService.getUser().roles[0]
-      console.log(this.roleName);
-      console.log(this.userName);
-      console.log(this.tokenStorageService.getUser());
+ 
     
     this.getaside()
   }
