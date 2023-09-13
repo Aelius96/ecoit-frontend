@@ -31,7 +31,7 @@ getfindbyId(id:number):Observable<Gallery>{
 }
 
 delete(id:number):Observable<any>{
-  return this.apiHelper.delete( Constant.GALLERY.DELETE + `/${id}`)
+  return this.apiHelper.post( Constant.GALLERY.DELETE + `/${id}`)
 }
 
 update(id:number , gallery: FormData):Observable<Object>{

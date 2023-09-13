@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Module } from 'src/app/core/model/module/module';
 import { ModuleService } from 'src/app/services/module/module.service';
 
@@ -10,7 +11,7 @@ import { ModuleService } from 'src/app/services/module/module.service';
 export class ModuleControlComponent {
 
   moduleList : Module[]=[]
-  constructor(private moduleService : ModuleService){}
+  constructor(private moduleService : ModuleService,private router: Router){}
   ngOnInit():void{
    this.getModuleList()
   }
@@ -18,5 +19,16 @@ export class ModuleControlComponent {
     this.moduleService.getModule().subscribe(data=>{
       this.moduleList=data
     })
+  }
+  updateModule(id:number){
+    this.router.navigate([`admin/module/update/${id}`])
+  }
+  deleteModule(id:number){
+    const cf = confirm('Xác nhận xóa đề mục?')
+    if(cf){
+      this.moduleService.deleteModule(id).subscribe(data=>{
+        this.getModuleList()
+      })
+    }
   }
 }

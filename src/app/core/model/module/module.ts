@@ -2,9 +2,9 @@ import { Permission } from "../permission/permission"
 
 export class Module {
     id:number
-    name : string
+    name : any
     url : any
-    icon : string
+    icon : any
     status : boolean = false
     permissionList: Permission[] = []
 }

@@ -22,7 +22,7 @@ export class UserService {
 
 
   public deleteUser(id: number): Observable<any> {
-    return this.apiHelper.delete(Constant.USER.DELETE_USER + `/${id}`);
+    return this.apiHelper.post(Constant.USER.DELETE_USER + `/${id}`);
   }
   updateUser(id: number, user:User):Observable<Object>{
     return this.apiHelper.post(Constant.USER.UPDATE_USER+`/${id}`,user);

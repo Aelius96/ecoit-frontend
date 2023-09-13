@@ -1,1 +1,40 @@
-<p>permission-add works!</p>
+<div class="toolbar">
+
+</div>
+<div class="container section-space--mt_100 ">
+  <p class="text-title text-center text-uppercase section-space--mb_30 ">Chức năng</p>
+  <form (ngSubmit)="onSubmit()" [formGroup]="formPer">
+    <div class="row">
+      <div class="user-content col-lg-12 ">
+        <div class="row " style="justify-content: center;">
+          <div class="col-md-4" style="margin-bottom: 20px;">
+            <div class="options">
+              <div class="title mb-3"><strong class="validateText ">*</strong>Tên chức năng</div>
+              <input type="text" id="name" name="name" formControlName="name" placeholder="Nhập tên chức năng"
+                [class.borderError]="!formPer.controls.name.valid&&!formPer.controls.name.untouched"
+                [class.text-input]="formPer.controls.name.valid||formPer.controls.name.untouched">
+              <p *ngIf="!formPer.controls.name.valid&&!formPer.controls.name.untouched" class="validateText">Tên không
+                thể bỏ trống</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="options">
+              <div class="title mb-3"><strong class="validateText">*</strong>Đường dẫn</div>
+              <input type="text" id="url" name="url" formControlName="url" placeholder="Nhập địa chỉ url"
+                [class.borderError]="!formPer.controls.url.valid&&!formPer.controls.url.untouched"
+                [class.text-input]="formPer.controls.url.valid||formPer.controls.url.untouched">
+              <p *ngIf="!formPer.controls.url.valid&&!formPer.controls.url.untouched" class="validateText">Đường dẫn
+                không thể bỏ trống</p>
+            </div>
+          </div>
+          <div class="col-md-12" style="text-align: center; padding-top: 30px;">
+            <div class="submit-button">
+              <button type="submit" class="btn btn-primary btn-lg btnn"[disabled]="!formPer.valid">Lưu</button>
+              <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToPerList()">Hủy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -47,7 +47,6 @@ export class CustomerAddComponent {
   ) {}
 
   ngOnInit(): void {
-   
     window.sessionStorage.removeItem('redirect');
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
