@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {News} from "../../../../core/model/news/news";
-import {ActivatedRoute, Router} from "@angular/router";
-import {NewsService} from "../../../../services/news/news.service";
-import {TokenStorageService} from "../../../../services/token-storage/token-storage.service";
 import { Recruit } from 'src/app/core/model/recruit/recruit';
-import { RecruitService } from 'src/app/services/recruit/recruit.service';
-import { DomSanitizer } from '@angular/platform-browser';
 import {PostService} from "../../../../services/post/post.service";
 import {Post} from "../../../../core/model/post/post";
 import {Constant} from "../../../../core/config/constant";
@@ -33,8 +27,8 @@ export class RecruitNewsComponent implements OnInit{
              ) {}
 
   ngOnInit(): void {
-    this.getListAllWithNews();
-    this.getListAllWithRecruit();
+    this.getListAllNews();
+    this.getListAllRecruit();
   }
 
   getRequestParams(pageSize: number, category:string): any {
@@ -48,32 +42,25 @@ export class RecruitNewsComponent implements OnInit{
     return params;
   }
 
-  getListAllWithNews() {
+  getListAllRecruit(){
+    this.category = "tuyển dụng";
     const params = this.getRequestParams(this.paging.size,this.category);
-    this.postService.listAllWithPageByNews(params)
-      .subscribe(
-        data => {
-          this.postListNews = data.content;
-          this.paging.totalRecord = data.totalElements;
-          
-        },
-        error => {
-          console.log(error);
-        });
+    this.postService.listAllWithPageHome(params).subscribe(data=>{
+      this.postListRecruit = data.content;
+      this.paging.totalRecord = data.totalElements;
+      console.log(this.postListRecruit)
+    })
   }
 
-  getListAllWithRecruit() {
+  getListAllNews(){
+    this.category = "Tin Tức";
     const params = this.getRequestParams(this.paging.size,this.category);
-    this.postService.listAllWithPageByRecruit(params)
-      .subscribe(
-        data => {
-          this.postListRecruit = data.content;
-          this.paging.totalRecord = data.totalElements;
-          
-        },
-        error => {
-          console.log(error);
-        });
+    this.postService.listAllWithPageHome(params).subscribe(data=>{
+      this.postListNews = data.content;
+      this.paging.totalRecord = data.totalElements;
+      console.log(this.postListNews)
+    })
   }
+
 
   }

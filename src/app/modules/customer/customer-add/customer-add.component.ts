@@ -85,6 +85,7 @@ export class CustomerAddComponent {
           this.products.find((e) => {
             if (e.id === sid[i]) e.selected = true;
           });
+
         }
       }
     });

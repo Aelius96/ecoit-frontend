@@ -24,7 +24,7 @@ export class NewsListComponent implements OnInit{
     totalRecord: 0
   }
 
-  category = 'news';
+  category = 'tin tức';
 
   constructor(private postService: PostService,
               private router: Router) {
@@ -32,15 +32,15 @@ export class NewsListComponent implements OnInit{
 
   ngOnInit(): void {
     // this.getListAllWithPage();
-    this.getListAllWithPageTest();
+    this.getListAllWithPage();
 
   }
 
   //post
-  getRequestParamsTest(page: number, category: string): any {
+  getRequestParams(page: number, category: string): any {
     let params: any = {};
     if (page) {
-      params[`pageNo`] = page-1;
+      params[`pageNo`] = page;
     }
     if(category){
       params[`category`] = category;
@@ -48,8 +48,9 @@ export class NewsListComponent implements OnInit{
     return params;
   }
 
-  getListAllWithPageTest(): void {
-    const params = this.getRequestParamsTest(this.paging.page,this.category);
+  getListAllWithPage(): void {
+
+    const params = this.getRequestParams(this.paging.page,this.category);
     this.postService.listAllWithPageHome(params)
       .subscribe(
         response => {
@@ -64,9 +65,9 @@ export class NewsListComponent implements OnInit{
         });
   }
 
-  handlePageChangeTest(event: number): void {
+  handlePageChange(event: number): void {
     this.paging.page = event;
-    this.getListAllWithPageTest();
+    this.getListAllWithPage();
   }
   // viewDetail(url : string) {
   //   const queryParams  = {url : url}
