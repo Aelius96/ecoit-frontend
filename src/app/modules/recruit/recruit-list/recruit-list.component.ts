@@ -20,7 +20,7 @@ export class RecruitListComponent implements OnInit {
  paging={page:1, size:9, totalRecord:0}
 
 
- category='recruit';
+ category='tuyển dụng';
   constructor(private recruitService:RecruitService,
               private postService:PostService
   ) {  }
@@ -32,7 +32,7 @@ export class RecruitListComponent implements OnInit {
   getRequestParamsTest(page: number, category: string): any {
     let params: any = {};
     if (page) {
-      params[`pageNo`] = page-1;
+      params[`pageNo`] = page;
     }
     if(category){
       params[`category`] = category;
