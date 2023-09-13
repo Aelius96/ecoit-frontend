@@ -34,7 +34,7 @@ export class NumberService {
   }
 
   public deleteNumber(id: number): Observable<any> {
-    return this.apiHelper.delete(Constant.NUMBER_TYPICAL.DELETE_NUMBER +`/${id}`);
+    return this.apiHelper.post(Constant.NUMBER_TYPICAL.DELETE_NUMBER +`/${id}`);
   }
   getListIconJson(fileName : string) : Observable<any> {
     return this.http.get(this.JSON_PATH + fileName)

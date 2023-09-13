@@ -1,0 +1,126 @@
+
+.header-menu{
+
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+.h5{
+  font-weight: bolder;
+  font-size: 18px;
+  color: black;
+  padding-right: 10px;
+}
+
+.custom-select{
+  width: 60px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.item-blog{
+  margin-top: 30px;
+}
+.form-control{
+  height: 30px;
+  font-size: 15px;
+  margin-top:7px;
+}
+.inputt{
+  margin-left: 0px;
+  height: 30px;
+  margin-top:7px;
+}
+.fa-lg:hover{
+  color: blue;
+
+}
+
+/* The Close Button */
+.close-btn {
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 0 20px;
+  background-color: rgba(130, 66, 179, 0.797);
+}
+
+.close-btn:hover, .close-btn:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+/* ------ Add-more ------------------------ */
+.user-content{
+  width: 100%;
+  margin-top:30px;
+}
+.text-title{
+  color: #50b848;
+  font-size: 30px;
+  font-weight: bold;
+}
+.options{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+}
+.options .title{
+  color: #1a1a1a;
+  font-weight: 600;
+}
+.options input{
+  padding: 20px 10px;
+  border-radius: 6px;
+  background: #f2f2f2;
+  color: black;
+}
+.options span{
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.user-footer{
+  justify-content: flex-start;
+}
+
+.cancel{
+  background-color: #cccccc;
+
+}
+.cancel:hover{
+  background-color: rgba(43, 43, 63, 0.85);
+  color: #eff2f5;
+}
+.btnn {
+  margin-right: 15px;
+}
+.form-control:focus{
+color: black;
+}
+
+option , select{
+color: black;
+}
+select:focus {
+border: 0px ;
+}
+.borderError {
+border: 1px solid red;
+color: black;
+}
+
+.borderError:focus {
+border: 1px solid red;
+color: black;
+}
+
+.text-input {
+border: 1px solid #50b848;
+}
+.text-input:focus{
+border: 1px solid #50b848;
+}
+.validateText{
+margin-top: 15px;
+color:red;
+}

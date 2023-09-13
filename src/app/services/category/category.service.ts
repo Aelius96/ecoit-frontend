@@ -33,7 +33,7 @@ export class CategoryService {
   }
 
   DeleteCate(id:number):Observable<Object>{
-    return this.apiHelper.delete( Constant.CATEGORY.DELETE  +`/${id}`)
+    return this.apiHelper.post( Constant.CATEGORY.DELETE  +`/${id}`)
   }
 
   UpdateCate(id:number,category:Category):Observable<Object>{

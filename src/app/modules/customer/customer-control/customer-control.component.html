@@ -83,7 +83,6 @@
     <table class="table section-space--mt_30 ">
       <thead style="position: sticky;top: 0 ; z-index: 1;">
         <tr class="text-center ">
-          <th scope="col" class="w-20">Ảnh</th>
           <th class="w-15" scope="col">Icon</th>
           <th class="w-30" scope="col">Tiêu đề</th>
           <th class="w-25" scope="col">Mô tả</th>
@@ -96,11 +95,6 @@
             itemsPerPage: paging.size,
             currentPage: paging.page,
             totalItems: paging.totalRecord  } ;  ">
-          <td style="width:15% ">
-            <div class="customer-thumb-image">
-              <img src="{{baseURL}}/{{CusURL}}/image/{{cus.id}}" alt="Post Image">
-            </div>
-          </td>
           <td class="text-center">
           <div class="box-icon" [ngStyle]="{'background': cus.bgIColor}">
             <span><i class="{{cus.icon}}"></i></span>

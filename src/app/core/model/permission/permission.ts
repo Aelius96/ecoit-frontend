@@ -1,6 +1,6 @@
 export class Permission {
     id:number;
-    name:string;
+    name:any;
     description:string;
     url:any;
     active:any;

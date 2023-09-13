@@ -23,7 +23,7 @@ export class FileService {
   }
 
   deleteFile(file:File ){
-    return this.apiHelper.delete( Constant.ALBUMS.DELETE_FILE , file);
+    return this.apiHelper.post( Constant.ALBUMS.DELETE_FILE , file);
   }
 
   getFileById(id: number): Observable<any>{

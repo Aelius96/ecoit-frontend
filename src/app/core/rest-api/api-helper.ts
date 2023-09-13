@@ -18,15 +18,7 @@ export class ApiHelper{
     return this.http.get(this.getEndpointUrl(endpoint),option);
   }
 
-  post(endpoint: string,body: any, option?:any): Observable<any>{
+  post(endpoint: string,body?: any, option?:any): Observable<any>{
     return this.http.post(this.getEndpointUrl(endpoint),body,option);
-  }
-
-  put(endpoint: string,body: any, option?:any): Observable<any>{
-    return this.http.put(this.getEndpointUrl(endpoint),body,option);
-  }
-
-  delete(endpoint: string, option?:any): Observable<any>{
-    return this.http.post(this.getEndpointUrl(endpoint),option);
   }
 }

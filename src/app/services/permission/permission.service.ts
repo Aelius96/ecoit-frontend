@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { Constant } from 'src/app/core/config/constant';
 import { ApiHelper } from 'src/app/core/rest-api/api-helper';
 import { Permission } from '../../core/model/permission/permission';
-import { P } from '@angular/cdk/keycodes';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +15,15 @@ export class PermissionService {
    return this.apiHelper.get(Constant.PERMISSION.GET_LIST_ALL)
   }
   deletePermission(id:number ):Observable<any>{
-    return this.apiHelper.delete(Constant.PERMISSION.DELETE+`/${id}` )
+    return this.apiHelper.post(Constant.PERMISSION.DELETE+`/${id}` )
   }
-  updatePermission(id:number , permission:Permission):Observable<any>{
-    return this.apiHelper.post(Constant.PERMISSION.UPDATE+`/${id}` , permission)
+  updatePermission( permission:Permission):Observable<any>{
+    return this.apiHelper.post(Constant.PERMISSION.UPDATE, permission)
   }
   addPermission(permission:Permission):Observable<any>{
     return this.apiHelper.post(Constant.PERMISSION.ADD, permission)
+  }
+  getPerById(id:number):Observable<any>{
+    return this.apiHelper.get(Constant.PERMISSION.GET_PER_BY_ID+`/${id}`)
   }
 }

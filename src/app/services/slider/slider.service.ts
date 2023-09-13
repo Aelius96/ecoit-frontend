@@ -42,7 +42,7 @@ export class SliderService {
   }
 
   deleteSlider(id: number): Observable<any>{
-    return this.apiHelper.delete( Constant.SLIDERS.DELETE_SLIDER +`/${id}`);
+    return this.apiHelper.post( Constant.SLIDERS.DELETE_SLIDER +`/${id}`);
   }
 
   getImage(name: string): Observable<any>{

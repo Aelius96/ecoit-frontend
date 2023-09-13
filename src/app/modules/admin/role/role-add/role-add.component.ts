@@ -4,7 +4,6 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Module } from 'src/app/core/model/module/module';
 import { Permission } from 'src/app/core/model/permission/permission';
 import { Role } from 'src/app/core/model/role/role';
-import { User } from 'src/app/core/model/user/user';
 import { ToastService } from 'src/app/modules/toast/toast.service';
 import { ModuleService } from 'src/app/services/module/module.service';
 import { PermissionService } from 'src/app/services/permission/permission.service';
@@ -27,14 +26,6 @@ export class RoleAddComponent {
     nameRole : new FormControl(),
     desRole : new FormControl()
   })
-  formAddModule = new FormGroup({
-    nameModule : new FormControl(),
-    urlModule : new FormControl('')
-})
-formAddPermission = new FormGroup({
-  namePer : new FormControl(),
-  urlPer : new FormControl('')
-})
   constructor(private roleService : RoleService,
               private moduleService: ModuleService,
               private permissionService : PermissionService,
@@ -47,9 +38,6 @@ formAddPermission = new FormGroup({
     if(this.id){
       this.getRoleById(this.id)
     }
-      this.getModuleList()
-      this.getPermissionlist()
-
   }
   onSubmit() {
     this.role.name = this.formRole.controls['nameRole'].value
@@ -159,96 +147,6 @@ formAddPermission = new FormGroup({
       })
       
   }
-
-  addModule(){
-    this.module.name = this.formAddModule.controls['nameModule'].value
-    this.module.url = this.formAddModule.controls['urlModule'].value
-    this.moduleService.addModule(this.module).subscribe(data=>{
-      this.toast.showSuccess();
-      setTimeout(() => {
-                location.reload();
-              }, 1000);
-            },
-      (error)=>{
-        this.toast.showWarning(error.error)
-      }
-    );
-  }
-  addper(){
-    this.permisstion.name = this.formAddPermission.controls['namePer'].value
-    this.permisstion.url = this.formAddPermission.controls['urlPer'].value
-    this.permissionService.addPermission(this.permisstion).subscribe(data =>{
-      this.toast.showSuccess();
-      setTimeout(() => {
-                location.reload();
-              }, 1000);
-            },
-      (error)=>{
-        this.toast.showWarning(error.error)
-      }
-    );
-  }
-  addUpdateModule(){
-    if(this.module.id){
-    }
-  }
-  deleteModule(id : number){
-    let cf = confirm('Xóa quyền truy cập')
-    if(cf){
-      this.moduleService.deleteModule(id).subscribe(data=>{
-        this.toast.showSuccess();
-        setTimeout(() => {
-                  location.reload();
-                }, 1000);
-              },
-        (error)=>{
-          this.toast.showWarning(error.error)
-        }
-      );
-    }
-    }
-  // addPermision() {
-  //   this.permissionService.addPermission(this.permission).subscribe(
-  //     (data) => {
-  //       this.toast.showSuccess();
-  //       setTimeout(() => {
-  //         location.reload();
-  //       }, 1000);
-  //     },
-  //     (error) => {
-  //       this.toast.showWarning(error.error);
-  //     }
-  //   );
-  // }
-
-  // deletePermission(id: number) {
-  //   let cf = confirm('Xóa chức năng');
-  //   if (cf) {
-  //     this.permissionService.deletePermission(id).subscribe(() => {
-  //       this.listPermission();
-  //     });
-  //   }
-  // }
-
-  // updatePermission(id: number, permission: Permission) {
-  //   this.permissionService.updatePermission(id, permission).subscribe(
-  //     () => {
-  //       this.toastService.success('Chỉnh sửa thành công!');
-  //       setTimeout(() => {
-  //         location.reload();
-  //       }, 800);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
-  // listPermission() {
-  //   this.permissionService.listAll().subscribe((res) => {
-  //     this.permissionList = res;
-  //     console.log(res);
-  //   });
-  // }
 
   backToRole() {
     return this.router.navigate([`admin/role`]);

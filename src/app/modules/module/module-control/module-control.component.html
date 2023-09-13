@@ -58,7 +58,7 @@
   
   <div class="container list-table ">
     <div class="text-center section-space--mt_100  ">
-      <p class="text-title">CÁC ĐỀ MỤC</p>
+      <p class="text-title">DANH SÁCH CÁC ĐỀ MỤC</p>
     </div>
     <div class=" container w-50 section-space--mt_30 text-center">
       <table class="table section-space--mt_30 ">
@@ -78,10 +78,10 @@
               <div class="counter-number text-capitalize ">{{item.name}}</div>
             </td>
             <td style="text-align: center;">
-              <button class="icon status_admin icon-edit me-0 me-md-2 "><a class="icon-item"><i
+              <button class="icon status_admin icon-edit me-0 me-md-2 "(click)="updateModule(item.id)"><a class="icon-item"><i
                     class="fas fa-pen i"></i></a></button>
               <button class="icon icon-remove  mt-2 mt-md-0 ">
-                <a class="icon-item"><i class="fas fa-trash-alt remove i"></i></a>
+                <a class="icon-item"><i class="fas fa-trash-alt remove i" (click)="deleteModule(item.id)"></i></a>
               </button>
             </td>
           </tr>

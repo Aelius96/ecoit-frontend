@@ -40,6 +40,6 @@ export class ProductService {
   }
 
   deleteProduct(id: number): Observable<any>{
-    return this.apiHelper.delete( Constant.PRODUCT.DELETE_PRODUCT +`/${id}`);
+    return this.apiHelper.post( Constant.PRODUCT.DELETE_PRODUCT +`/${id}`);
   }
 }
