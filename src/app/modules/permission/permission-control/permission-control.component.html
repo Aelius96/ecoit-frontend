@@ -11,7 +11,7 @@
                 <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
               </div>
             </form>
-            
+
           </div>
         </div>
         <div class="d-sm-block d-none ">
@@ -19,7 +19,7 @@
             <div class="d-flex  flex-wrap">
               <div class="d-flex">
                 <span class="mr-1">Số mục mỗi trang:</span>
-               
+
               </div>
               <div class="my-auto ml-2">
                 <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
@@ -38,7 +38,7 @@
             <ul class="dropdown-menu p-0">
               <li class="border p-2">
               </li>
-          
+
               <li class="border p-2">
                 <div class="d-flex" routerLink="add">
                   <span class="mx-auto">Thêm mới </span>
@@ -52,10 +52,10 @@
       </div>
     </div>
   </div>
-  
-  
+
+
   <!-- <app-category-add #modal></app-category-add> -->
-  
+
   <div class="container list-table ">
     <div class="text-center section-space--mt_100  ">
       <p class="text-title">DANH SÁCH CÁC CHỨC NĂNG</p>
@@ -80,13 +80,13 @@
             <td style="text-align: center;">
               <button class="icon status_admin icon-edit me-0 me-md-2 "(click)="updatePer(item.id)"><a class="icon-item"><i
                     class="fas fa-pen i"></i></a></button>
-              <button class="icon icon-remove  mt-2 mt-md-0 ">
-                <a class="icon-item"><i class="fas fa-trash-alt remove i" (click)="deletePer(item.id)"></i></a>
+              <button class="icon icon-remove  mt-2 mt-md-0 " (click)="deletePer(item.id)">
+                <a class="icon-item"><i class="fas fa-trash-alt remove i" ></i></a>
               </button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-  
+
   </div>
