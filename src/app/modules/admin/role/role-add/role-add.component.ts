@@ -48,7 +48,7 @@ formAddPermission = new FormGroup({
       this.getRoleById(this.id)
     }
       this.getModuleList()
-      // this.getPermissionlist()
+      this.getPermissionlist()
 
   }
   onSubmit() {
@@ -90,24 +90,11 @@ formAddPermission = new FormGroup({
      }
     })
   }
-  // getPermissionlist(module?:Module) {
-  //   this.perService.listAll().subscribe(data => {
-  //     this.permissionlist = data
-  //     // if(module){
-  //     //   if(module.permissionList!=null){
-  //     //     const sid2= module.permissionList.map((item2)=> item2.id);
-  //     //       for(let j=0; j < sid2.length ; j++){
-  //     //         this.permissionlist.find((p)=>{
-  //     //           if(p.id === sid2[j]) {
-  //     //             p.status =true
-
-  //     //           }
-  //     //         })
-  //     //       }
-  //     //   }
-  //     // }
-  //   })
-  // }
+  getPermissionlist() {
+    this.perService.listAll().subscribe(data => {
+      this.permissionlist = data
+    })
+  }
   getRoleById(id:number){
     this.roleService.getRolebyId(id).subscribe(data=>{
       this.role=data
@@ -204,9 +191,23 @@ formAddPermission = new FormGroup({
   }
   addUpdateModule(){
     if(this.module.id){
-      
     }
   }
+  deleteModule(id : number){
+    let cf = confirm('Xóa quyền truy cập')
+    if(cf){
+      this.moduleService.deleteModule(id).subscribe(data=>{
+        this.toast.showSuccess();
+        setTimeout(() => {
+                  location.reload();
+                }, 1000);
+              },
+        (error)=>{
+          this.toast.showWarning(error.error)
+        }
+      );
+    }
+    }
   // addPermision() {
   //   this.permissionService.addPermission(this.permission).subscribe(
   //     (data) => {

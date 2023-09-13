@@ -32,8 +32,9 @@ const routes: Routes =[
     {path:'category', title:'Admin-Chuyên mục' , loadChildren:()=>import('./category.module').then(m=>m.CategoryModule)},
     {path:'contact' , title:'Admin-Danh sách liên hệ' , component:ListContactComponent },
     {path:'comment' , title:'Admin-Danh sách bình luận', component:ListCommentComponent },
-    {path:'role' , title:'Admin-Phân quyền người dùng',   loadChildren:()=>import('./role.module').then(m=>m.RoleModule) }
-
+    {path:'role' , title:'Admin-Phân quyền người dùng',   loadChildren:()=>import('./role.module').then(m=>m.RoleModule) },
+    {path:'module' , title:'Admin-Quản lý đề mục',   loadChildren:()=>import('./module.modules').then(m=>m.ModuleModule) },
+    {path:'permission' , title:'Admin-Quản lý chức năng',   loadChildren:()=>import('./permission.module').then(m=>m.PermissionModule) },
   ]},
 ]
 

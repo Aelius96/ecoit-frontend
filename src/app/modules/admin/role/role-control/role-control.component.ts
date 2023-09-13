@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Role } from 'src/app/core/model/role/role';
 import { RoleService } from 'src/app/services/role/role.service';
 import { Router } from '@angular/router';
+import { ToastService } from 'src/app/modules/toast/toast.service';
 
 @Component({
   selector: 'app-role-control',
@@ -15,7 +16,8 @@ export class RoleControlComponent {
   roleId :number = 1
   constructor(
     private roleService: RoleService,
-    private router : Router
+    private router : Router,
+    private toast : ToastService
   ) {}
   ngOnInit(): void {
    this.getRole()
@@ -65,4 +67,22 @@ export class RoleControlComponent {
   updateRole(id:number){
     return this.router.navigate([`/admin/role/update/${id}`])
   }
+  deleteRole(id:number){
+    const cf = confirm('Xác nhận xóa quyền')
+    if(cf){
+    this.roleService.deleteRole(id).subscribe(data=>{
+      this.toast.showSuccess();
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
+    },
+      (error)=>{
+        this.toast.showWarning(error.error)
+      })
+      this.backToRole()
+  }
+}
+backToRole() {
+  return this.router.navigate([`admin/role`]);
+}
 }

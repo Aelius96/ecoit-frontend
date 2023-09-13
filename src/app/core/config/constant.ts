@@ -192,4 +192,8 @@ export class Constant {
     GET_LIST_MODULE:`${Domain.MODULE}/list_all`,
     DELETE_MODLUE:`${Domain.MODULE}/delete`
   }
+  public static HISTORY={
+    GET_LIST_HISTORY:`${Domain.HISTORY}`,
+    SEACH_HISTORY:`${Domain.HISTORY}/search`
+  }
 }

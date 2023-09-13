@@ -1,13 +1,10 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { LoginUserComponent } from "src/app/authentication/login-user/login-user.component";
 import { LoginComponent } from "src/app/authentication/login/login.component";
 import { RegisterComponent } from "src/app/authentication/register/register.component";
 import { SearchComponent } from "../search/search.component";
 import { ContactComponent } from "../contact/contact.component";
-import { ErrorComponent } from "../error/error.component";
-import { RoleControlComponent } from "../admin/role/role-control/role-control.component";
 const routes: Routes=[
     {path:'' , title:'Ecoit - Công ty cổ phần EcoIT' ,
     children:[

@@ -90,5 +90,19 @@
         "url": "role",
         "icon":"far fa-user",
         "selected":true
+      },
+      {
+        "id":14,
+        "name": "Quản lý đề mục",
+        "url": "module",
+        "icon":"far fa-user",
+        "selected":true
+      },
+      {
+        "id":15,
+        "name": "Quản lý chức năng",
+        "url": "permission",
+        "icon":"far fa-user",
+        "selected":true
       }
 ]

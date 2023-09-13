@@ -17,18 +17,30 @@
                   <option *ngFor="let r of rolelist" value="{{r.id}}">{{r.name}}</option>
                 </select>
               </div>
-              <div class="col-5">
+              <div class="col-6">
+                <button class="btn btn-success" routerLink="add">                   
+                  <i class="fas fa-file-plus fa-lg"></i>
+                </button>
+                <button class="btn btn-primary" (click)="updateRole(roleId)">
+                  <i class="far fa-pen"></i>
+                </button>
+                <button class="btn btn-danger" (click)="deleteRole(roleId)">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+              <!-- <div class="col-5">
+                  <i class="fas fa-file-plus fa-lg"></i>
                 <img style="max-width: 50px;" routerLink="add"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEvUlEQVR4nO2dy49VRRDGfxlnkP+B4SGPsBFYsNFEojxC2CNEJYGwFYzGGDAgMJF3iAtXmPAITMC/wOBCEhaAPMICNYAsIOgWmAgyM1xGpkgnTTK5BqbPuX1PVz++5NvcmTtT3d85Xd3V1dVQUFBQUFCQLqYCi4C1wDfAaeAS8DtwBxgCWpZD9jPzs1+BU/Y7a+zfeDN0Y2JEL7AY2Ar8AowC4oljwDXgALCiCPRq9ADLgZPAY48CTEbzv04Ay6wN2WM6sA/4u0ER5BU0NuwF+nNU5S3ge8/DkXjiM2AQmE8mQhin/J+CjhcHf2MmBbNIEH3A58C/CjpaKnIEGEhpAmBmM7cVdKx0yD+t8496+mqerOcKOlM8cdz6vilEOHu6qKADpUu8av1hFFhlV8ySOB8CK1GOdXbaKJlwDNiIUnyWmL+QCn7lK5ThWwUdI4FpJjAqsElBZ4gSfhlajE8yHabkNcPXhpCzqZwcuDiyFWL2ZdYZDxQ0XpRyqMkYWF/iiz7xxMtNrei/U9BYiYQHmwgUjitoqERC01dLuyWGef1uKWikRMbb3Qrd71DQOImUX/sWYybwREHDJFIO+44O/6igURI5zT69F8yxUc3QDZLIafII5voQ5KiCxkgi/MHHiryloCGSCE2oaUYnguxT0AhJjHvqitGjJKNQEuO9ummryxUYLw78CZhmU0DPKLDHhbVW7ycVGC4O7G/zeRIBj9cJkzSZhd4J2yER8JGNmjtjiQKjJWFBDN+tIshOBQZL4oJsryLIOQUGS+KCnK1ypu+pAoMlcUFGXcPyixQYKxkIYvi2iyBrFRgqmQiyOjWHLpEL4uTYTyswVDIRxGmPJLYUn3ZIRDyPA/5QYKhkIshvLoLcU2CoZCLIXRdBHgSO2jaNkFHi+y4Ghtoh7CccQkWJzQJ8UhRB0CVIqCHrTKC3xLwdP2sesopTR5dTL9NedE17LwR6faUm2yGpLQxPKTBUMhHE5C0kl+XeDomI23BACb+jK/xeNqjQtUE1VWnpPUlsyBqpcrKqJDnQdUFMCVxnxLRr2A5JyaG/xHsKDJbEBXmniiAmzbGkktI1Mf6xJRAr4YSCp0gSTbY+Rg0sU2C4VIgSh4zaVuX7dQQpB3bQdWDHoBxpw7sgu+kAZigohz7xukPYcd7AEQVjriTCw3jA7FI4AF9Hor2V14htj0QU0iwjvMEcdi/FZ+io+Iz3kn/bFTxlEim30AWYk7k3FTROIuONqiduq67eS4k/nMUwNY0/oMs4pOCpk0i4nwbQG2GqkATgpW4OVe0ohZSZtJCyKYvYKEw57VJqnP+J0bLldIPgo1KMn4limAnPegLjUwXjtSjhFyjBgILOkMDchTJsznT4Gtd45dHEC16eZebAP0Y5VmZyt8j9kLOpOuuUlBePV2K6WDKHq1f7iBhLE7nm4kYTgcKmEPP13cOpXd89ETNtBZwYivuP2W1X4w+Txyw7Fo8qncoOAvPIEP22FvpfSjIKdweqt6IOPdZhHrdFhpvMQj9mc21rp3emjjeAxcBWe8poxLNfuAYcsIu6Ru4ZTA1TgIXAhzbzZdAuOq8Dd+xF8y3Lh/az6/Z3Bu1JJfPdBUWAgoKCggISxgvS8+wqOb8XFQAAAABJRU5ErkJggg==">
               </div>
               <div class="col-5">
-                <img style="max-width: 50px;" (click)="updateRole(roleId)"
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEvUlEQVR4nO2dy49VRRDGfxlnkP+B4SGPsBFYsNFEojxC2CNEJYGwFYzGGDAgMJF3iAtXmPAITMC/wOBCEhaAPMICNYAsIOgWmAgyM1xGpkgnTTK5BqbPuX1PVz++5NvcmTtT3d85Xd3V1dVQUFBQUFCQLqYCi4C1wDfAaeAS8DtwBxgCWpZD9jPzs1+BU/Y7a+zfeDN0Y2JEL7AY2Ar8AowC4oljwDXgALCiCPRq9ADLgZPAY48CTEbzv04Ay6wN2WM6sA/4u0ER5BU0NuwF+nNU5S3ge8/DkXjiM2AQmE8mQhin/J+CjhcHf2MmBbNIEH3A58C/CjpaKnIEGEhpAmBmM7cVdKx0yD+t8496+mqerOcKOlM8cdz6vilEOHu6qKADpUu8av1hFFhlV8ySOB8CK1GOdXbaKJlwDNiIUnyWmL+QCn7lK5ThWwUdI4FpJjAqsElBZ4gSfhlajE8yHabkNcPXhpCzqZwcuDiyFWL2ZdYZDxQ0XpRyqMkYWF/iiz7xxMtNrei/U9BYiYQHmwgUjitoqERC01dLuyWGef1uKWikRMbb3Qrd71DQOImUX/sWYybwREHDJFIO+44O/6igURI5zT69F8yxUc3QDZLIafII5voQ5KiCxkgi/MHHiryloCGSCE2oaUYnguxT0AhJjHvqitGjJKNQEuO9ummryxUYLw78CZhmU0DPKLDHhbVW7ycVGC4O7G/zeRIBj9cJkzSZhd4J2yER8JGNmjtjiQKjJWFBDN+tIshOBQZL4oJsryLIOQUGS+KCnK1ypu+pAoMlcUFGXcPyixQYKxkIYvi2iyBrFRgqmQiyOjWHLpEL4uTYTyswVDIRxGmPJLYUn3ZIRDyPA/5QYKhkIshvLoLcU2CoZCLIXRdBHgSO2jaNkFHi+y4Ghtoh7CccQkWJzQJ8UhRB0CVIqCHrTKC3xLwdP2sesopTR5dTL9NedE17LwR6faUm2yGpLQxPKTBUMhHE5C0kl+XeDomI23BACb+jK/xeNqjQtUE1VWnpPUlsyBqpcrKqJDnQdUFMCVxnxLRr2A5JyaG/xHsKDJbEBXmniiAmzbGkktI1Mf6xJRAr4YSCp0gSTbY+Rg0sU2C4VIgSh4zaVuX7dQQpB3bQdWDHoBxpw7sgu+kAZigohz7xukPYcd7AEQVjriTCw3jA7FI4AF9Hor2V14htj0QU0iwjvMEcdi/FZ+io+Iz3kn/bFTxlEim30AWYk7k3FTROIuONqiduq67eS4k/nMUwNY0/oMs4pOCpk0i4nwbQG2GqkATgpW4OVe0ohZSZtJCyKYvYKEw57VJqnP+J0bLldIPgo1KMn4limAnPegLjUwXjtSjhFyjBgILOkMDchTJsznT4Gtd45dHEC16eZebAP0Y5VmZyt8j9kLOpOuuUlBePV2K6WDKHq1f7iBhLE7nm4kYTgcKmEPP13cOpXd89ETNtBZwYivuP2W1X4w+Txyw7Fo8qncoOAvPIEP22FvpfSjIKdweqt6IOPdZhHrdFhpvMQj9mc21rp3emjjeAxcBWe8poxLNfuAYcsIu6Ru4ZTA1TgIXAhzbzZdAuOq8Dd+xF8y3Lh/az6/Z3Bu1JJfPdBUWAgoKCggISxgvS8+wqOb8XFQAAAABJRU5ErkJggg==">
+                <button type="button" class="icon icon-edit" >
+                  <a class="icon-item"><i class="fas fa-pen i"></i></a></button>
               </div>
               <div class="col-5">
                 <img style="max-width: 50px;" routerLink="add"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEvUlEQVR4nO2dy49VRRDGfxlnkP+B4SGPsBFYsNFEojxC2CNEJYGwFYzGGDAgMJF3iAtXmPAITMC/wOBCEhaAPMICNYAsIOgWmAgyM1xGpkgnTTK5BqbPuX1PVz++5NvcmTtT3d85Xd3V1dVQUFBQUFCQLqYCi4C1wDfAaeAS8DtwBxgCWpZD9jPzs1+BU/Y7a+zfeDN0Y2JEL7AY2Ar8AowC4oljwDXgALCiCPRq9ADLgZPAY48CTEbzv04Ay6wN2WM6sA/4u0ER5BU0NuwF+nNU5S3ge8/DkXjiM2AQmE8mQhin/J+CjhcHf2MmBbNIEH3A58C/CjpaKnIEGEhpAmBmM7cVdKx0yD+t8496+mqerOcKOlM8cdz6vilEOHu6qKADpUu8av1hFFhlV8ySOB8CK1GOdXbaKJlwDNiIUnyWmL+QCn7lK5ThWwUdI4FpJjAqsElBZ4gSfhlajE8yHabkNcPXhpCzqZwcuDiyFWL2ZdYZDxQ0XpRyqMkYWF/iiz7xxMtNrei/U9BYiYQHmwgUjitoqERC01dLuyWGef1uKWikRMbb3Qrd71DQOImUX/sWYybwREHDJFIO+44O/6igURI5zT69F8yxUc3QDZLIafII5voQ5KiCxkgi/MHHiryloCGSCE2oaUYnguxT0AhJjHvqitGjJKNQEuO9ummryxUYLw78CZhmU0DPKLDHhbVW7ycVGC4O7G/zeRIBj9cJkzSZhd4J2yER8JGNmjtjiQKjJWFBDN+tIshOBQZL4oJsryLIOQUGS+KCnK1ypu+pAoMlcUFGXcPyixQYKxkIYvi2iyBrFRgqmQiyOjWHLpEL4uTYTyswVDIRxGmPJLYUn3ZIRDyPA/5QYKhkIshvLoLcU2CoZCLIXRdBHgSO2jaNkFHi+y4Ghtoh7CccQkWJzQJ8UhRB0CVIqCHrTKC3xLwdP2sesopTR5dTL9NedE17LwR6faUm2yGpLQxPKTBUMhHE5C0kl+XeDomI23BACb+jK/xeNqjQtUE1VWnpPUlsyBqpcrKqJDnQdUFMCVxnxLRr2A5JyaG/xHsKDJbEBXmniiAmzbGkktI1Mf6xJRAr4YSCp0gSTbY+Rg0sU2C4VIgSh4zaVuX7dQQpB3bQdWDHoBxpw7sgu+kAZigohz7xukPYcd7AEQVjriTCw3jA7FI4AF9Hor2V14htj0QU0iwjvMEcdi/FZ+io+Iz3kn/bFTxlEim30AWYk7k3FTROIuONqiduq67eS4k/nMUwNY0/oMs4pOCpk0i4nwbQG2GqkATgpW4OVe0ohZSZtJCyKYvYKEw57VJqnP+J0bLldIPgo1KMn4limAnPegLjUwXjtSjhFyjBgILOkMDchTJsznT4Gtd45dHEC16eZebAP0Y5VmZyt8j9kLOpOuuUlBePV2K6WDKHq1f7iBhLE7nm4kYTgcKmEPP13cOpXd89ETNtBZwYivuP2W1X4w+Txyw7Fo8qncoOAvPIEP22FvpfSjIKdweqt6IOPdZhHrdFhpvMQj9mc21rp3emjjeAxcBWe8poxLNfuAYcsIu6Ru4ZTA1TgIXAhzbzZdAuOq8Dd+xF8y3Lh/az6/Z3Bu1JJfPdBUWAgoKCggISxgvS8+wqOb8XFQAAAABJRU5ErkJggg==">
-              </div>
+              </div> -->
             </div>
           </div>
           <table class="table col-8 mx-auto">
@@ -36,7 +48,7 @@
               <tr>
                 <th class="col-4" scope="col">Quyền truy cập</th>
                 <th class="col-6" scope="col">Chức năng</th>
-                <th class="" scope="col">Thao tác</th>
+                <!-- <th class="" scope="col">Thao tác</th> -->
               </tr>
             </thead>
             <tbody *ngFor="let item of role.moduleList">
@@ -49,13 +61,13 @@
                    <span class="des-post mx-2">{{per.name}}</span>
                   </div>
                 </td>
-                <td style="text-align: center;">
+                <!-- <td style="text-align: center;">
                   <button class="icon status_admin icon-edit me-0 me-md-2 "><a class="icon-item"><i
                         class="fas fa-pen i"></i></a></button>
                   <button class="icon icon-remove  mt-2 mt-md-0 ">
                     <a class="icon-item"><i class="fas fa-trash-alt remove i"></i></a>
                   </button>
-                </td>
+                </td> -->
               </tr>
             </tbody>
             <!-- <tr>
