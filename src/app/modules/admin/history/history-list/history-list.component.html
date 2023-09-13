@@ -87,16 +87,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr >
-            <td scope="row">date</td>
-              <td>method</td>
-              <td>page</td>
-              <td>executor</td>
-              <td>queryString</td>
-              <td>type</td>
-            <td>
-
-            </td>
+          <tr *ngFor="let item of historyList">
+            <td scope="row">{{item.date}}</td>
+              <td>{{item.method}}</td>
+              <td>{{item.page}}</td>
+              <td>{{item.executor}}</td>
+              <td>{{item.queryString}}</td>
+              <td>{{item.type}}</td>
           </tr>
         </tbody>
       </table>

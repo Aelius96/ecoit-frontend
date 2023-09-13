@@ -135,7 +135,11 @@ import { CommentViewService } from './services/comment-view/comment-view.service
 
 import { DialogComponent } from './modules/dialog/dialog/dialog.component';
 import { RoleAddComponent } from './modules/admin/role/role-add/role-add.component';
-import { RoleControlComponent } from './modules/admin/role/role-control/role-control.component'
+import { RoleControlComponent } from './modules/admin/role/role-control/role-control.component';
+import { ModuleAddComponent } from './modules/module/module-add/module-add.component';
+import { ModuleControlComponent } from './modules/module/module-control/module-control.component';
+import { PermissionAddComponent } from './modules/permission/permission-add/permission-add.component';
+import { PermissionControlComponent } from './modules/permission/permission-control/permission-control.component';
 
 
 
@@ -225,8 +229,11 @@ import { RoleControlComponent } from './modules/admin/role/role-control/role-con
     DialogComponent,
     RoleAddComponent,
     RoleControlComponent,
-    UserControlComponent
-
+    UserControlComponent,
+    ModuleAddComponent,
+    ModuleControlComponent,
+    PermissionAddComponent,
+    PermissionControlComponent,
 
   ],
   imports: [

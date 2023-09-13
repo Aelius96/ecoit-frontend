@@ -25,7 +25,7 @@ export class RoleService {
   updateRole(role:Role):Observable<any>{
     return this.apiHelper.put(Constant.ROLE.UPDATE_ROLE,role)
   }
-  deleteRole(id:number,role:Role):Observable<any>{
-    return this.apiHelper.delete(Constant.ROLE.DELETE_ROLE+`${id}`,role)
+  deleteRole(id:number):Observable<any>{
+    return this.apiHelper.delete(Constant.ROLE.DELETE_ROLE+`/${id}`)
   }
 }
