@@ -30,7 +30,7 @@ export class ContactService {
     return this.apiHelper.post(Constant.CONTACT.ADD_CONTACT, contactform)
   }
   Delete(id:number):Observable<any>{
-    return this.apiHelper.delete( Constant.CONTACT.DELETE + `/${id}` )
+    return this.apiHelper.post( Constant.CONTACT.DELETE + `/${id}` )
   }
 
   Contacted(id:number):Observable<Object>{

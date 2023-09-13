@@ -30,7 +30,7 @@ export class CustomerService {
   }
 
   deleteCustomer(id: number): Observable<Object>{
-    return this.apiHelper.delete( Constant.CUSTOMER.DELETE_CUSTOMER + `/${id}`);
+    return this.apiHelper.post( Constant.CUSTOMER.DELETE_CUSTOMER + `/${id}`);
   }
   getCusById(id: number): Observable<any>{
     return this.apiHelper.get( Constant.CUSTOMER.GET_CUS_BY_ID +`/${id}`);

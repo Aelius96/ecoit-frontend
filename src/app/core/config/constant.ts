@@ -185,12 +185,14 @@ export class Constant {
     ADD: `${Domain.PERMISSION}/add`,
     UPDATE:`${Domain.PERMISSION}/update`,
     DELETE:`${Domain.PERMISSION}/delete`,
+    GET_PER_BY_ID:`${Domain.PERMISSION}`
   }
   public static MODULE={
     ADD_MODULE:`${Domain.MODULE}/add`,
     UPDATE_MODULE:`${Domain.MODULE}/update`,
     GET_LIST_MODULE:`${Domain.MODULE}/list_all`,
-    DELETE_MODLUE:`${Domain.MODULE}/delete`
+    DELETE_MODLUE:`${Domain.MODULE}/delete`,
+    GET_MODULE_BY_ID:`${Domain.MODULE}`
   }
   public static HISTORY={
     GET_LIST_HISTORY:`${Domain.HISTORY}`,

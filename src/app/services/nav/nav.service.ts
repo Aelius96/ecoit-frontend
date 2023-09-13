@@ -32,10 +32,10 @@ export class NavService {
   }
 
   public deleteNav(id: number): Observable<Object> {
-    return this.apiHelper.delete( Constant.NAV.DELETE_NAV + `/${id}`);
+    return this.apiHelper.post( Constant.NAV.DELETE_NAV + `/${id}`);
   }
   public deleteNavAll(formData: FormData): Observable<Object> {
-    return this.apiHelper.delete( Constant.NAV.DELETE_NAV_ALL ,formData);
+    return this.apiHelper.post( Constant.NAV.DELETE_NAV_ALL ,formData);
   }
 
   public getChildNav(id : number) {

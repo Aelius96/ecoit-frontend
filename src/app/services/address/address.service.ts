@@ -29,6 +29,6 @@ export class AddressService {
   }
 
   delete(id:number):Observable<Object>{
-    return this.apiHelper.delete(Constant.ADDRESS.DELETE+`/${id}`)
+    return this.apiHelper.post(Constant.ADDRESS.DELETE+`/${id}`)
   }
 }

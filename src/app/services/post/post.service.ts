@@ -50,7 +50,7 @@ export class PostService {
   }
 
   deletePost(id: number): Observable<Object>{
-    return this.apiHelper.delete( Constant.POST.DELETE_POST + `/${id}`);
+    return this.apiHelper.post( Constant.POST.DELETE_POST + `/${id}`);
   }
 
   getImageByPostId(id: number):Observable<Post>{

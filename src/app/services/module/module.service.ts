@@ -21,10 +21,13 @@ export class ModuleService {
   addModule(module:Module):Observable<any>{
    return this.apiHelper.post(Constant.MODULE.ADD_MODULE,module);
   }
-  updateModule(id:number,module:Module):Observable<any>{
-    return this.apiHelper.post(Constant.MODULE.UPDATE_MODULE+`/${id}`, module)
+  updateModule(module:Module):Observable<any>{
+    return this.apiHelper.post(Constant.MODULE.UPDATE_MODULE, module)
   }
   deleteModule(id:number):Observable<any>{
-    return this.apiHelper.delete(Constant.MODULE.DELETE_MODLUE+`/${id}`)
+    return this.apiHelper.post(Constant.MODULE.DELETE_MODLUE+`/${id}`)
+  }
+  getModuleById(id:number):Observable<any>{
+    return this.apiHelper.get(Constant.MODULE.GET_MODULE_BY_ID+`/${id}`)
   }
   }

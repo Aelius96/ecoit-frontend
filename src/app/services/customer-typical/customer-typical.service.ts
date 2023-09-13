@@ -41,7 +41,7 @@ export class CustomerTypicalService {
   }
 
   deleteTC(id: number): Observable<Object>{
-    return this.apiHelper.delete( Constant.CUSTYPICAL.DELETETC + `/${id}`);
+    return this.apiHelper.post( Constant.CUSTYPICAL.DELETETC + `/${id}`);
   }
   
 

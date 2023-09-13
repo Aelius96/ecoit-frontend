@@ -1,1 +1,92 @@
-<p>permission-control works!</p>
+<div class="toolbar">
+    <div class="container">
+      <div class="d-flex justify-content-between header-menu ">
+        <div class="d-sm-block d-none">
+          <div class="left-d-flex d-flex  ">
+            <!-- <h5 class="title-cate">Chuyên Mục</h5> -->
+            <form class="d-flex">
+              <input class="search input-search" type="text"  name="searchInput.input"
+                placeholder="Tìm kiếm ">
+              <div class="input-group-append inputt">
+                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+        <div class="d-sm-block d-none ">
+          <div class="right-d-flex ">
+            <div class="d-flex  flex-wrap">
+              <div class="d-flex">
+                <span class="mr-1">Số mục mỗi trang:</span>
+               
+              </div>
+              <div class="my-auto ml-2">
+                <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- mobile -->
+      <div class="d-flex justify-content-end">
+        <div class="d-sm-none d-block">
+          <div class="btn-group dropstart">
+            <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-bars"></i>
+            </div>
+            <ul class="dropdown-menu p-0">
+              <li class="border p-2">
+              </li>
+          
+              <li class="border p-2">
+                <div class="d-flex" routerLink="add">
+                  <span class="mx-auto">Thêm mới </span>
+                  <a class="ht-btn-custom mx-auto " title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- <app-category-add #modal></app-category-add> -->
+  
+  <div class="container list-table ">
+    <div class="text-center section-space--mt_100  ">
+      <p class="text-title">DANH SÁCH CÁC CHỨC NĂNG</p>
+    </div>
+    <div class=" container w-50 section-space--mt_30 text-center">
+      <table class="table section-space--mt_30 ">
+        <thead style="position: sticky;top: 0 ; z-index: 1;">
+          <tr>
+            <th scope="col" >STT</th>
+            <th class="w-50" scope="col">tên các đề mục</th>
+            <th scope="col">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of permisstionList; let i=index">
+            <td>
+              <span>{{i+1}}</span>
+            </td>
+            <td>
+              <div class="counter-number text-capitalize ">{{item.name}}</div>
+            </td>
+            <td style="text-align: center;">
+              <button class="icon status_admin icon-edit me-0 me-md-2 "(click)="updatePer(item.id)"><a class="icon-item"><i
+                    class="fas fa-pen i"></i></a></button>
+              <button class="icon icon-remove  mt-2 mt-md-0 ">
+                <a class="icon-item"><i class="fas fa-trash-alt remove i" (click)="deletePer(item.id)"></i></a>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
