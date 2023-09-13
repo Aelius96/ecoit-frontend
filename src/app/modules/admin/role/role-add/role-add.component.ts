@@ -145,20 +145,19 @@ formAddPermission = new FormGroup({
     this.role.description = this.formRole.controls['desRole'].value
     this.roleService.addRole(this.role).subscribe((data) => {
       console.log(data)
+      this.backToRole()
     })
-    this.backToRole()
+    
   }
   updateRole(){
     this.roleService.updateRole(this.role).subscribe(data=>{
       this.toast.showSuccess();
-      setTimeout(() => {
-        location.reload();
-      }, 1000);
+      this.backToRole()
     },
       (error)=>{
         this.toast.showWarning(error.error)
       })
-      this.backToRole()
+      
   }
 
   addModule(){

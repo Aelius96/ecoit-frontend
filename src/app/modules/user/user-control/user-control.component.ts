@@ -53,7 +53,6 @@ export class UserControlComponent implements OnInit {
       (data) => {
         this.users = data.content;
         this.paging.totalRecord = data.totalElements;
-        console.log(this.users)
       },
       (error) => {
         console.log(error);

@@ -37,6 +37,7 @@ export class UserAddComponent implements OnInit{
     lastName : new FormControl(''),
     userName : new FormControl(''),
     email : new FormControl(''),
+    password : new FormControl(''),
     active : new FormControl(''),
     role : new FormControl(0),
 
@@ -63,9 +64,18 @@ export class UserAddComponent implements OnInit{
       lastName : this.user.lastName,
       userName : this.user.username,
       email : this.user.email,
+      password : '',
       active : this.user.active,
       role : this.user.role.id,
     })
+  }
+  getValueForm() {
+    this.user.firstName = this.userForm.controls['firstName'].value
+    this.user.lastName = this.userForm.controls['lastName'].value
+    this.user.username = this.userForm.controls['userName'].value
+    this.user.email = this.userForm.controls['email'].value
+    this.user.active = this.userForm.controls['active'].value
+    this.user.password = this.userForm.controls['password'].value
   }
   getaside() {
     this.module.getaside('aside.json').subscribe(data=> {
@@ -84,13 +94,13 @@ export class UserAddComponent implements OnInit{
   getUserById(id: number) {
     this.userService.getUserById(id).subscribe(data => {
       this.user = data;
-      this.getRoleUpdate(this.user);
+      this.getRoleUpdate();
       this.setValueForm()
 
     });
   }
 
-  getRoleUpdate(user: User){
+  getRoleUpdate(){
     this.roleService.listRole().subscribe(data => {
       this.roles = data;
       })
@@ -105,9 +115,9 @@ export class UserAddComponent implements OnInit{
       // }
       // console.log(this.roles)
   }
-  getRolebyId(id:number){
+  getRolebyId(id:any){
     this.roleService.getRolebyId(id).subscribe(data=>{
-      this.roleById = data
+      this.user.role = data
     })
     }
 
@@ -141,9 +151,9 @@ export class UserAddComponent implements OnInit{
   }
 
   updateUser(id: number){
-    this.user.role=this.roles[this.roleId.value]
+    this.getValueForm()
+    console.log(this.user)
     this.userService.updateUser(id,this.user).subscribe( data =>{
-      console.log(data);
       this.toastService.showSuccess();
       this.goToUserList();
     },error => {
@@ -165,7 +175,10 @@ export class UserAddComponent implements OnInit{
     if(this.id){
       this.updateUser(this.id);
     }else{
-      this.authService.register(this.user).subscribe(() =>{
+      this.getValueForm()
+      console.log(this.user)
+      this.authService.register(this.user).subscribe(data =>{
+          console.log(data)
           this.isSuccessful = true;
           this.isSignUpFailed = false;
           this.goToBack()
@@ -185,7 +198,7 @@ export class UserAddComponent implements OnInit{
     this.userService.changePassword(id);
   }
   selectRole(){
-    this.getRolebyId(this.roleId.value);
+    this.getRolebyId(this.userForm.controls['role'].value);
   }
   
 }
