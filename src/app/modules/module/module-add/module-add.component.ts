@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, getNgModuleById } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Module } from 'src/app/core/model/module/module';
@@ -15,6 +15,7 @@ export class ModuleAddComponent {
   allIcon: any;
   id:number
   module : Module = new Module()
+  moduleById : Module = new Module()
   formModule = new FormGroup({
     name: new FormControl('', Validators.required),
     url: new FormControl('', Validators.required),
@@ -29,7 +30,9 @@ export class ModuleAddComponent {
   ) {}
   ngOnInit() {
     this.id=this.route.snapshot.params['id']
+    this.getNgModuleById(this.id)
     if(this.id){
+      this.getNgModuleById(this.id)
     }
     this.getIcon();
   }
@@ -37,6 +40,7 @@ export class ModuleAddComponent {
     this.module.name = this.formModule.controls['name'].value;
     this.module.url = this.formModule.controls['url'].value;
     this.module.icon = this.formModule.controls['icons'].value;
+    this.module.id = this.id
     if(this.id){
       this.updateModule(this.module)
     }
@@ -68,6 +72,15 @@ export class ModuleAddComponent {
     this.numberService.getListIconJson('icon.json').subscribe((data) => {
       this.allIcon = data;
     });
+  }
+  getNgModuleById(id:number){
+    this.moduleService.getModuleById(id).subscribe(data=>{
+      this.moduleById=data
+      console.log(data)
+      this.formModule.controls['name'].setValue(this.moduleById.name)
+      this.formModule.controls['url'].setValue(this.moduleById.url)
+      this.formModule.controls['icons'].setValue(this.moduleById.icon)
+    })
   }
   rollbackToList() {
     this.router.navigate(['/admin/module']);

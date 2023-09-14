@@ -23,9 +23,9 @@
                          <select
                            [class.borderError]="!formModule.controls.icons.valid&&!formModule.controls.icons.untouched"
                            [class.text-input]="formModule.controls.icons.valid||formModule.controls.icons.untouched"
-                           name="icon" id="icon" formControlName="icons" mat-chip-option>
+                           name="icon" id="icon" formControlName="icons">
                            <option *ngFor="let icon of allIcon" [value]="icon.class"
-                             [innerHTML]="icon.name + ' ' + icon.code"></option>
+                           [innerHTML]="icon.name + ' ' + icon.code"></option>
                          </select>
                          <p *ngIf="!formModule.controls.icons.valid&&!formModule.controls.icons.untouched"
                            class="validateText">Biểu tượng không thể bỏ trống</p>

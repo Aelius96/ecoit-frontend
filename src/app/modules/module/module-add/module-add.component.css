@@ -29,7 +29,7 @@
   }
   .input{
     margin-top: 70px;
-    padding: 20px
+    padding: 20px;
   }
   .btnn {
     margin-right: 15px;
@@ -45,7 +45,7 @@
   
   
   select,option{
-    font-family: fontAwesome
+    font-family: fontAwesome;
   }
   .borderError{
     border: 1px solid red;
