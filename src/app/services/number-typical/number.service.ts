@@ -3,7 +3,6 @@ import {Constant} from "../../core/config/constant";
 import {HttpClient} from "@angular/common/http";
 import { Observable, Cons } from 'rxjs';
 import { Number} from "../../modules/typical/number/number";
-import {Domain} from "../../core/domain/domain";
 import { ApiHelper } from "src/app/core/rest-api/api-helper";
 
 @Injectable({

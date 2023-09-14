@@ -56,7 +56,6 @@
 
 .input-icon {
   padding: 30px 5px 10px 0px;
-
 }
 .input-text{
     background: #fff;
@@ -99,7 +98,8 @@ textarea:focus{
 
 select,
 option {
-  font-family: fontAwesome
+  font-family: fontAwesome;
+
 }
 .validateText{
   color: red;

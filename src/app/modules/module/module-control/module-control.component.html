@@ -65,6 +65,7 @@
         <thead style="position: sticky;top: 0 ; z-index: 1;">
           <tr>
             <th scope="col" >STT</th>
+            <th class="w-15" scope="col">Icon</th>
             <th class="w-50" scope="col">tên các đề mục</th>
             <th scope="col">Thao tác</th>
           </tr>
@@ -74,6 +75,11 @@
             <td>
               <span>{{i+1}}</span>
             </td>
+            <td class="text-center">
+              <div class="box-icon" style="background-color: aquamarine;">
+                <span><i class="{{item.icon}}"></i></span>
+              </div>
+              </td>
             <td>
               <div class="counter-number text-capitalize ">{{item.name}}</div>
             </td>
