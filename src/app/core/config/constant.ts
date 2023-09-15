@@ -197,6 +197,6 @@ export class Constant {
   }
   public static HISTORY={
     GET_LIST_HISTORY:`${Domain.HISTORY}`,
-    SEACH_HISTORY:`${Domain.HISTORY}/search`
+    SEACH_HISTORY:`${Domain.HISTORY}/search`,
   }
 }

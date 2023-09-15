@@ -20,6 +20,4 @@ export class AppPageSizeComponent {
   changePageSize() {
     this.pageSizeChange.emit(this.pageSize);
   }
-
-  
 }

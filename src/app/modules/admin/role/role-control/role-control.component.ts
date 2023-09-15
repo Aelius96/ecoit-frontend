@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Role } from 'src/app/core/model/role/role';
 import { RoleService } from 'src/app/services/role/role.service';
 import { Router } from '@angular/router';
 import { ToastService } from 'src/app/modules/toast/toast.service';
+import { Module } from 'src/app/core/model/module/module';
 
 @Component({
   selector: 'app-role-control',
@@ -13,7 +13,9 @@ import { ToastService } from 'src/app/modules/toast/toast.service';
 export class RoleControlComponent {
   rolelist: Role[] = [];
   role: Role = new Role();
+  module:Module = new Module()
   roleId :number = 1
+  perLength:number
   constructor(
     private roleService: RoleService,
     private router : Router,
