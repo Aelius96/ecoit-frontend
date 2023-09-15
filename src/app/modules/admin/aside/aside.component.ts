@@ -22,17 +22,15 @@ export class AsideComponent implements OnInit {
   constructor(private tokenStorageService: TokenStorageService, private userService:UserService,private moduleService : ModuleService) { }
   ngOnInit(): void {
     
-      this.userName= this.tokenStorageService.getUser().username;
-      this.roleName = this.tokenStorageService.getUser().roles[0]
       this.id=this.tokenStorageService.getUser().id
       this.getUserByid(this.id)
       // this.getModlue()
   }
   getUserByid(id:number){
     this.userService.getUserById(id).subscribe(data=>{
+      this.userById= data
       this.roleByUser=data.role
       this.modules=this.roleByUser.moduleList
-      console.log(this.modules)
     })
   }
   getModlue(){

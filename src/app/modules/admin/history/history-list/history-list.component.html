@@ -4,14 +4,14 @@
         <div class="d-flex justify-content-start  head">
             <h5 class="h5">Nhật Ký</h5>
             <div class="item-select" >
-                <select class="custom-select" style="width: 120px" >
-                  <option value="" [selected]="true">Phương thức</option>
+                <select class="custom-select" [(ngModel)]="searchField.method"  (change)="changeMethod($event)" style="width: 120px" >
+                  <option value="" [selected]="true" >Phương thức</option>
                   <option>POST</option>
                   <option>GET</option>
                 </select>
               </div>
               <div class=" item-select">
-                <select class="custom-select" style="width: 120px" >
+                <select class="custom-select"  [(ngModel)]="searchField.type" (change)="changeType($event)"  style="width: 120px" >
                   <option value="" [selected]="true">Hoạt động</option>
                   <option>CREATE</option>
                   <option>UPDATE</option>
@@ -19,14 +19,15 @@
                 </select>
               </div>
               <div class=" item-select">
-                <select class="custom-select" style="width: 120px" >
-                  <option value="" [selected]="true">Người thực hiện</option>
+                <!-- <select class="custom-select" [(ngModel)]="searchField.executor" (change)="changExecutor($event)" style="width: 120px" >
+                  <option value="" [selected]="true" >Người thực hiện</option>
                   <option >người 1</option>
-                </select>
+                </select> -->
+                <input [(ngModel)]="searchField.executor" (change)="changExecutor($event)" placeholder="Tìm theo tên người dùng">
               </div>
               <div class=" item-select">
                 <select class="custom-select" style="width: 120px" >
-                  <option value="" [selected]="true">Trang</option>
+                  <option value=""  [selected]="true">Trang</option>
                 </select>
               </div>
              
@@ -54,14 +55,12 @@
         <div class="d-flex  flex-wrap head">
             <div class="menu-item ">
               <div class="d-flex">
-                <span class="mr-1 " style="text-align: center; display: flex; margin-top: 5px; margin-bottom: 5px;">Số mục mỗi trang:</span>
-                <select class="custom-select">
-                  <option>10</option>
-                  <option>20</option>
-                  <option>30</option>
-             
-                </select>
-                
+                <div class="d-flex">
+                  <span class="mr-1">Số mục mỗi trang:</span>
+                  <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="searchField.totalElements"
+                    [(pageSize)]="searchField.pageSize">
+                  </app-page-size>
+                </div>
                   <a routerLink="../user" class="back"><i class="fa fa-arrow-circle-o-left"></i></a>
                 
               </div>

@@ -18,7 +18,7 @@
                 </select>
               </div>
               <div class="col-6">
-                <button class="btn btn-success" routerLink="add">                   
+                <button class="btn btn-success" routerLink="add">
                   <i class="fas fa-file-plus fa-lg"></i>
                 </button>
                 <button class="btn btn-primary" (click)="updateRole(roleId)">
@@ -56,11 +56,20 @@
                 <td class="col-4">
                   <span class="des-post ">{{item.name}}</span>
                 </td>
-                <td class="d-flex col-12">
-                  <div *ngFor=" let per of  item.permissionList" class="p-1">
-                   <span class="des-post mx-2">{{per.name}}</span>
-                  </div>
-                </td>
+                <ng-template *ngIf="item.permissionList.length>0;then per;else none">
+                </ng-template>
+                <ng-template #per>
+                  <td class="d-flex col-12">
+                    <div *ngFor=" let per of  item.permissionList" class="p-1">
+                      <span class="des-post mx-2">{{per.name}}</span>
+                    </div>
+                  </td>
+                </ng-template>
+                <ng-template #none>
+                  <td>
+                    <div class="col"><span class="des-post mx-2"></span></div>
+                  </td>
+                </ng-template>
                 <!-- <td style="text-align: center;">
                   <button class="icon status_admin icon-edit me-0 me-md-2 "><a class="icon-item"><i
                         class="fas fa-pen i"></i></a></button>
@@ -90,6 +99,3 @@
     </div>
   </div>
 </div>
-
-
-
