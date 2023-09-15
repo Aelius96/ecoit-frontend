@@ -3,106 +3,91 @@
         "id":1,
         "name":"Con số tiêu biểu",
         "url": "dashboard",
-        "icon":"fa fa-bar-chart",
-        "selected":true
+        "icon":"fa fa-bar-chart"
       },
       {
         "id":2,
         "name":"Chuyên mục bài viết",
         "url":"category",
-        "icon":"fa fa-th-large",
-        "selected":true
+        "icon":"fa fa-th-large"
       },
       {
         "id":3,
         "name": "Bài viết",
         "url": "bpost",
-        "icon":"far fa-newspaper",
-        "selected":true
+        "icon":"far fa-newspaper"
       }
       ,
       {
         "id":4,
         "name":"Khách hàng",
         "url": "customer",
-        "icon":"far fa-handshake",
-        "selected":true
+        "icon":"far fa-handshake"
       },
       {
         "id":5,
         "name":"sản phẩm",
         "url": "product",
-        "icon":"far fa-box",
-        "selected":true
+        "icon":"far fa-box"
       },
       {
         "id":6,
         "name":"Trình chiếu",
         "url": "sliders",
-        "icon":"far fa-columns",
-        "selected":true
+        "icon":"far fa-columns"
       },
       {
         "id":7,
         "name":"thanh Điều hướng",
         "url": "nav",
-        "icon":"far fa-bars",
-        "selected":true
+        "icon":"far fa-bars"
       },
       {
         "id":8,
         "name": "Giới thiệu",
         "url": "about",
-        "icon":"fa fa-users",
-        "selected":true
+        "icon":"fa fa-users"
       },
       {
         "id":9,
         "name": "Danh sách liên hệ",
         "url": "contact",
-        "icon":"fa fa-envelope",
-        "selected":true
+        "icon":"fa fa-envelope"
       },
       {
         "id":10,
         "name": "Danh sách bình luận",
         "url": "comment",
-        "icon":"fa fa-comments-o",
-        "selected":true
+        "icon":"fa fa-comments-o"
       },
       {
         "id":11,
         "name": "kho ảnh",
         "url": "albums",
-        "icon":"fa fa-picture-o",
-        "selected":true
+        "icon":"fa fa-picture-o"
       },
       {
         "id":12,
         "name": "Tài khoản",
         "url": "user",
-        "icon":"far fa-user",
-        "selected":true
+        "icon":"far fa-user"
       },
       {
         "id":13,
         "name": "Phân loại người dùng",
         "url": "role",
-        "icon":"far fa-user",
-        "selected":true
+        "icon":"far fa-user"
       },
       {
         "id":14,
         "name": "Quản lý đề mục",
         "url": "module",
-        "icon":"far fa-user",
-        "selected":true
+        "icon":"far fa-user"
       },
       {
         "id":15,
         "name": "Quản lý chức năng",
         "url": "permission",
-        "icon":"far fa-user",
-        "selected":true
+        "icon":"far fa-user"
       }
 ]
