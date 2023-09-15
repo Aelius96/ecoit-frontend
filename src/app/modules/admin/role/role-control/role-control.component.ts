@@ -68,18 +68,19 @@ export class RoleControlComponent {
     return this.router.navigate([`/admin/role/update/${id}`])
   }
   deleteRole(id:number){
+    console.log(id)
     const cf = confirm('Xác nhận xóa quyền')
     if(cf){
-    this.roleService.deleteRole(id).subscribe(data=>{
+    this.roleService.deleteRole(id).subscribe(()=>{
       this.toast.showSuccess();
-      setTimeout(() => {
-        location.reload();
-      }, 1000);
+      console.log("thành công")
+      this.getRole()
     },
-      (error)=>{
-        this.toast.showWarning(error.error)
-      })
-      this.backToRole()
+    (error)=>{
+      console.log("thất bại")
+      this.toast.showWarning(error.error)
+    })
+    this.backToRole()
   }
 }
 backToRole() {
