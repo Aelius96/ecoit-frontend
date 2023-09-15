@@ -190,7 +190,8 @@ export class Constant {
   public static MODULE={
     ADD_MODULE:`${Domain.MODULE}/add`,
     UPDATE_MODULE:`${Domain.MODULE}/update`,
-    GET_LIST_MODULE:`${Domain.MODULE}/list_all`,
+    GET_LIST_MODULE:`${Domain.MODULE}/list`,
+    GET_LIST_MODULE_PER:`${Domain.MODULE}/list_all`,
     DELETE_MODLUE:`${Domain.MODULE}/delete`,
     GET_MODULE_BY_ID:`${Domain.MODULE}`
   }

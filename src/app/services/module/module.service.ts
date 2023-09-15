@@ -15,8 +15,11 @@ export class ModuleService {
   getaside(fileName : string) : Observable<any> {
     return this.http.get(this.JSON_PATH + fileName)
   }
-  getModule():Observable<any>{
+  getListModule():Observable<any>{
     return this.apiHelper.get(Constant.MODULE.GET_LIST_MODULE)
+  }
+  getModule():Observable<any>{
+    return this.apiHelper.get(Constant.MODULE.GET_LIST_MODULE_PER)
   }
   addModule(module:Module):Observable<any>{
    return this.apiHelper.post(Constant.MODULE.ADD_MODULE,module);
