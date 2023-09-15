@@ -93,10 +93,10 @@
             </div> -->
           <div class="select-content-item">
             <span><strong>Tên: </strong></span>
-            <span [ngClass]="{'image-url-name': ishienthiten,'span2':!ishienthiten}" title="{{target.name}}"
-              (click)="hienThiten()">{{target.name}}</span>
+            <span [ngClass]="{'image-url-name': ishienthiten,'span2':!ishienthiten}" title="{{target.originalFileName}}"
+              (click)="hienThiten()">{{target.originalFileName}}</span>
           </div>
-          <!-- 
+          <!--
           <div class="select-content-item">
             <span><strong>Đường dẫn: </strong></span>
             <span class="image-url-name span2" title="{{baseURL}}{{target.url}}">{{baseURL}}{{target.url}}</span>
