@@ -16,8 +16,9 @@ export class ModuleControlComponent {
    this.getModuleList()
   }
   getModuleList(){
-    this.moduleService.getModule().subscribe(data=>{
+    this.moduleService.getListModule().subscribe(data=>{
       this.moduleList=data
+      console.log(data)
     })
   }
   updateModule(id:number){
