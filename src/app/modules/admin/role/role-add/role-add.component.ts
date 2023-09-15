@@ -38,6 +38,7 @@ export class RoleAddComponent {
     if(this.id){
       this.getRoleById(this.id)
     }
+    this.getModuleList(this.role)
   }
   onSubmit() {
     this.role.name = this.formRole.controls['nameRole'].value

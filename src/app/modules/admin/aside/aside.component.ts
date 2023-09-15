@@ -25,15 +25,16 @@ export class AsideComponent implements OnInit {
       this.userName= this.tokenStorageService.getUser().username;
       this.roleName = this.tokenStorageService.getUser().roles[0]
       this.id=this.tokenStorageService.getUser().id
-      // this.getUserByid(this.id)
-      this.getModlue()
+      this.getUserByid(this.id)
+      // this.getModlue()
   }
-  // getUserByid(id:number){
-  //   this.userService.getUserById(id).subscribe(data=>{
-  //     this.roleByUser=data.role
-  //     this.modules=this.roleByUser.moduleList
-  //   })
-  // }
+  getUserByid(id:number){
+    this.userService.getUserById(id).subscribe(data=>{
+      this.roleByUser=data.role
+      this.modules=this.roleByUser.moduleList
+      console.log(this.modules)
+    })
+  }
   getModlue(){
     this.moduleService.getaside('aside.json').subscribe(data=>{
       this.modules=data
