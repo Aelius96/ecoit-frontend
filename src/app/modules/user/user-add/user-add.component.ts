@@ -94,7 +94,6 @@ export class UserAddComponent implements OnInit{
   getUserById(id: number) {
     this.userService.getUserById(id).subscribe(data => {
       this.user = data;
-      console.log(data)
       this.getRoleUpdate();
       this.setValueForm()
 
