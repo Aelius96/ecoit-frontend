@@ -77,13 +77,15 @@ export class RoleAddComponent {
         }
       }
      }
+     console.log(this.modulelistAll)
     })
+    
   }
-  getPermissionlist() {
-    this.perService.listAll().subscribe(data => {
-      this.permissionlist = data
-    })
-  }
+  // getPermissionlist() {
+  //   this.perService.listAll().subscribe(data => {
+  //     this.permissionlist = data
+  //   })
+  // }
   getRoleById(id:number){
     this.roleService.getRolebyId(id).subscribe(data=>{
       this.role=data
@@ -107,7 +109,6 @@ export class RoleAddComponent {
         }
       })
     }
-    console.log(this.role)
   }
   onPerModuleChange(event:any,module:Module, permission : Permission) {
     const isChecked = event.target.checked;
@@ -127,7 +128,6 @@ export class RoleAddComponent {
 
       }
     }
-    console.log(this.role)
   }
   addRole(){
     this.role.name = this.formRole.controls['nameRole'].value
@@ -150,6 +150,6 @@ export class RoleAddComponent {
   }
 
   backToRole() {
-    return this.router.navigate([`admin/role`]);
+    return this.router.navigate([`admin/role`],{state : {data : this.id}});
   }
 }
