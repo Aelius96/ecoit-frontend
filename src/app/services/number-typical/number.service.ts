@@ -2,8 +2,8 @@ import {Inject, Injectable} from "@angular/core";
 import {Constant} from "../../core/config/constant";
 import {HttpClient} from "@angular/common/http";
 import { Observable, Cons } from 'rxjs';
-import { Number} from "../../modules/typical/number/number";
 import { ApiHelper } from "src/app/core/rest-api/api-helper";
+import { Numberix } from "src/app/core/model/number/numberix";
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +16,19 @@ export class NumberService {
     return this.apiHelper.get( Constant.NUMBER_TYPICAL.GET_LIST_ALL_PAGE , {params})
   }
 
-  getAllNumber(): Observable<Number[]>{
+  getAllNumber(): Observable<any[]>{
     return this.apiHelper.get(Constant.NUMBER_TYPICAL.GET_ALL_NUMBER);
   }
 
-  public getNumberById(id: number): Observable<Number> {
+  public getNumberById(id: number): Observable<any> {
     return this.apiHelper.get( Constant.NUMBER_TYPICAL.GET_NUMBER_BY_ID + `/${id}`);
   }
 
-  public addNumber(number: Number): Observable<Object> {
+  public addNumber(number: Numberix): Observable<Object> {
     return this.apiHelper.post( Constant.NUMBER_TYPICAL.ADD_NUMBER, number);
   }
 
-  public editNumber(number:Number, id:number): Observable<Object> {
+  public editNumber(number:Numberix, id:number): Observable<Object> {
     return this.apiHelper.post(Constant.NUMBER_TYPICAL.EDIT_NUMBER +`/${id}`, number);
   }
 

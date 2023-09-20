@@ -1,0 +1,86 @@
+<div class="toolbar">
+  <div class="container">
+    <div class="d-lg-block d-none ">
+      <div class="d-flex  justify-content-between header-menu ">
+        <div class="right-d-flex my-auto">
+          <div class="d-flex  flex-wrap">
+            <div class=" mr-2">
+              <div class="d-flex">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container section-space--mt_100 list-table">
+  <form (ngSubmit)="onSubmit()" [formGroup]="formProduct" encformProducttype="multipart/form-data">
+    <div class="row w-100 mx-auto ">
+      <div class="col-lg-4">
+        <div class="update_box">
+          <span><strong>Ảnh bìa</strong></span>
+          <div class="image">
+            <img src="{{imageURL}}" alt="" appHideMissing>
+          </div>
+          <input type="file" accept="image/png, image/jpeg" value="select" (change)="imageChange($event)">
+        </div>
+        <div class="update_box2">
+          <span><strong><span class="validateText">*</span>Tên</strong></span>
+          <input type="text" formControlName="title" id="title" name="title"
+            [class.borderError]="!formProduct.controls.title.valid&&!formProduct.controls.title.untouched"
+            [class.text-input]="formProduct.controls.title.valid||formProduct.controls.title.untouched">
+          <p *ngIf="!formProduct.controls.title.valid&&!formProduct.controls.title.untouched" class="validateText">
+            Tên không thể bỏ trống</p>
+        </div>
+        <div class="update_box">
+          <span><strong><span class="validateText">*</span>Mô tả</strong></span>
+          <textarea style="height: 120px" id="description" formControlName="description"
+            [class.borderError]="!formProduct.controls.description.valid&&!formProduct.controls.description.untouched"
+            [class.text-input]="formProduct.controls.description.valid||formProduct.controls.description.untouched"></textarea>
+          <p *ngIf="!formProduct.controls.description.valid&&!formProduct.controls.description.untouched"
+            class="validateText">Mô tả không thể bỏ trống</p>
+        </div>
+        <div class="update_box">
+          <span><strong>Thẻ tag</strong></span>
+        </div>
+        <mat-form-field class="example-chip-list w-100 ">
+          <mat-chip-grid #chipGrids aria-label="Fruit selection">
+            <mat-chip-row *ngFor="let hashtag of products.hashtags" (removed)="remove(hashtag)"
+              style="background-color: #b4b4b473">
+              {{hashtag.name}}
+              <button matChipRemove [attr.aria-label]="'remove ' + hashtag.name">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          </mat-chip-grid>
+          <input placeholder="Nhập thẻ tag..." #hashtagInputP formControlName="hashtagCtrl"
+            [matChipInputFor]="chipGrids" [matAutocomplete]="auto" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="addHashtag($event)" />
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let hashtag of filteredHashtag | async" [value]="hashtag.name">
+              {{hashtag.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-8">
+        <div class="update_box">
+          <span><strong><span class="validateText">*</span>Nội dung</strong></span>
+          <div>
+            <div class="ckeditorContaniner" id="editor">
+              <!--            <ckeditor [editor]="Editor"  [data]="new.content"></ckeditor>-->
+              <ckeditor id="content" [(ngModel)]="products.content" #content="ngModel"
+                [ngModelOptions]="{standalone: true}" [config]="ckeConfig"></ckeditor>
+            </div>
+          </div>
+          <div class="submit-button mt-2 mt-md-4">
+            <button type="submit" class="btn btn-primary btn-lg mr-4 w-25" [disabled]="!formProduct.valid">Lưu</button>
+            <button type="button" class="btn btn-secondary btn-lg  cancel mr-2 w-25"
+              (click)="backToProductList()">Hủy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

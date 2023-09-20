@@ -8,6 +8,9 @@ export class Constant {
   public static PAGE_SIZE_OPTION = [
     5,10,15
   ]
+  public static PAGE_SIZE_HISTORY = [
+    10,20,30
+  ]
   public static PAGE_SIZE_IMAGE =[
     16,32,48
   ]

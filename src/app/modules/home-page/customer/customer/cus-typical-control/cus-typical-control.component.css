@@ -1,0 +1,124 @@
+
+.header-menu{
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.spann{
+  height: 30px;
+  font-size: 16px;
+
+}
+.control{
+  color: black;
+}
+.control:hover{
+  text-decoration: none;
+}
+.menu-item{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+input:focus{
+  border: 1px solid #111111;
+  color: black;
+}
+
+.searchinput{
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EAEFF4;
+  border: 1px solid #F6F9FC;
+  height: 30px;
+  width: 50%;
+ } 
+a:hover{
+  text-decoration: none;
+}
+/* tiêu đề */
+.text-title{
+  color: #50b848;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+.hr{
+  width: 150px;
+}
+/*  */
+
+.item-image{
+    width: 100%;
+}
+
+
+.cus-typical{
+  /* background-color: rgba(220, 220, 220, 0.485); */
+  padding: 120px 80px 30px 80px; 
+}
+.item{
+  margin-bottom: 20px ;
+  padding: 0px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.img {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  border: 0.5px solid #275e1a;
+}
+
+.text {
+  font-weight: bold;
+  color: #FFE67C;
+  background-color: #295f2de3;
+  font-size: 14px;
+  padding: 5px 8px;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  left:0px;
+  right:0px;
+  bottom: 0px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  
+  border-radius: 0px 0px 10px 10px;
+
+}
+.item-image:hover .image {
+  opacity: 0.3;
+}
+
+.item-image:hover .text {
+  opacity: 1;
+}
+
+.item-image:hover .btn-function {
+  opacity: 1;
+}
+.btn-function{
+  color: white;
+  font-size: 16px;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  /* right: px; */
+  top: 0px;
+  text-align: center;
+}
+
+.button{
+  border: 0px;
+
+}
+.button:hover{
+  color: #000;
+}

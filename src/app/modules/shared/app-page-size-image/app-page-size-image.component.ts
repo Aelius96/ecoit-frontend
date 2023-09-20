@@ -17,6 +17,7 @@ export class AppPageSizeImageComponent {
   @Output() pageSizeChange = new EventEmitter<number>();
 
   pageSizeOptions = Constant.PAGE_SIZE_IMAGE;
+  pageSizeHistoryOptions = Constant.PAGE_SIZE_HISTORY;
 
   changePageSize() {
     this.pageSizeChange.emit(this.pageSize);

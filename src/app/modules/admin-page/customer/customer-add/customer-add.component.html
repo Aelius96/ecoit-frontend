@@ -1,0 +1,100 @@
+<div class="toolbar">
+    <div class="container">
+        <div class="d-lg-block d-none ">
+            <div class="d-flex  justify-content-between header-menu ">
+                <div class="right-d-flex my-auto">
+                    <div class="d-flex  flex-wrap">
+                        <div class=" mr-2">
+                            <div class="d-flex">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+<div class="container section-space--mt_100 list-table">
+    <form class="formcustomeradd" (ngSubmit)="onSubmit()" [formGroup]="formCus">
+        <div class="row mt-3">
+            <div class="col-lg-4">
+                <div class="contact-inner">
+                    <span class="title-span"><strong><span class="validateText">*</span>Khách Hàng</strong></span>
+                    <input type="text" formControlName="name" name="name" id="name"
+                        [class.borderError]="!formCus.controls.name.valid&&!formCus.controls.name.untouched"
+                        [class.text-input]="formCus.controls.name.valid||formCus.controls.name.untouched">
+                    <p *ngIf="!formCus.controls.name.valid&&!formCus.controls.name.untouched" class="validateText">Tên
+                        không thể bỏ trống</p>
+                </div>
+                <div class="contact-inner ">
+                    <span class="title-span"><strong><span class="validateText">*</span>Mô Tả</strong></span>
+                    <textarea id="description" cols="30" rows="10" formControlName="description" name="description"
+                        [class.borderError]="!formCus.controls.description.valid&&!formCus.controls.description.untouched"
+                        [class.text-input]="formCus.controls.description.valid||formCus.controls.description.untouched"></textarea>
+                    <p *ngIf="!formCus.controls.description.valid&&!formCus.controls.description.untouched"
+                        class="validateText">Mô tả không thể bỏ trống</p>
+                </div>
+                <div class="contact-inner">
+                    <span class="title-span"><strong>Sản Phẩm</strong></span>
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let pro of products">
+                            <div class="form-check">
+                                <input type="checkbox" [value]="pro.selected" [checked]="pro.selected"
+                                    (change)="onCheckChangeProduct($event, pro)" class="custom-control-input"
+                                    id="customCheck{{pro.id}}">
+                                <label class="cursor-pointer font-italic d-block custom-control-label"
+                                    for="customCheck{{pro.id}}">{{pro.title}}</label>
+                            </div>
+                        </li>
+                    </ul>
+                    <span>Không tìm thấy sản phẩm mong muốn ?</span><a target="_blank" href="admin/product/add"><span
+                            style="color: #3cb638;">Thêm mới</span></a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="contact-inner ">
+                    <span class="title-span"><strong>Ảnh bìa</strong></span>
+                    <div class="text-input">
+                        <div class="image">
+                            <img src="{{bannerURL}}" alt="" appHideMissing>
+                        </div>
+                        <input type="file" accept="image/png, image/jpeg" value="select" (change)="onChange($event)">
+                    </div>
+                </div>
+                <div class="contact-inner">
+                    <span class="title-span"><strong><span class="validateText">*</span>Biểu tượng</strong></span>
+                    <div class="container-fluid">
+                        <div class="row icon">
+                            <div class="col-md-4">
+                                <div class="box-icon" [ngStyle]="{'background': customer.bgIColor}">
+                                    <span>
+                                        <i class="{{formCus.controls['icons'].value}}"></i></span>
+                                    <input type="color" formControlName="bgIColor" name="bgIColor" class="change-color"
+                                        value="#009cff" (change)="changeColor()">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 my-auto">
+                                <div class="input">
+                                    <select name="icon" id="icon" formControlName="icons"
+                                        [class.borderError]="!formCus.controls.icons.valid&&!formCus.controls.icons.untouched"
+                                        [class.text-input]="formCus.controls.icons.valid||formCus.controls.icons.untouched">
+                                        <option *ngFor="let icon of allIcon" [value]="icon.class"
+                                            [innerHTML]="icon.name + ' ' + icon.code"></option>
+                                    </select>
+                                    <p *ngIf="!formCus.controls.icons.valid&&!formCus.controls.icons.untouched"
+                                        class="validateText">Biểu tượng không thể bỏ trống</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit-button">
+                    <button type="submit" class="btn btn-primary btn-lg btnn" [disabled]="!formCus.valid">Lưu</button>
+                    <button type="button" class="btn btn-secondary btn-lg btnn cancel"
+                        (click)="goToCustomerList()">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -27,7 +27,6 @@ export class AuthenticateService implements CanActivate{
 
     }else {
       this.router.navigate(['admin/login']);
-
     }
   }
 }

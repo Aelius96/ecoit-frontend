@@ -1,0 +1,35 @@
+<div class="galley-add">
+  <form  (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
+    <div class="container" >
+      <div class="row" style="justify-content: center">
+        <div class="col-lg-9" >
+          <div class="contact-inner" >
+            <div class="row" >
+              <div class="col-md-12" >
+                <div class="update_box mt-5">
+                  <div class="image">
+                    <img  src="{{imageURL}}" alt="" appHideMissing>
+                  </div>
+                  <input type="file" accept="image/png, image/jpeg" value="select" (change)="imageChange($event)">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="my-5">
+                  <input class="text-input" type="text" [(ngModel)] = "cusTypical.name" name="name" placeholder="*Tên"  required="">
+                </div>
+                <!-- <div>
+                  <textarea  name="description" placeholder="*Chi tiết" ></textarea>
+                </div> -->
+                <div class="submit-button">
+                  <button type="submit" class="btn btn-primary btn-lg ">Lưu</button>
+                  <button type="button" class="btn btn-secondary btn-lg  cancel" (click)="goToTCList()">Hủy</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
