@@ -1,0 +1,113 @@
+.text-title{
+    color: #50b848;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .header {
+    position: sticky;
+    top:0;
+  }
+  .role-title{
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #50b848;
+  }
+.btn-add-per{
+  color: linear-gradient(100deg, rgba(93,135,255,1) 100%, rgba(97,215,174,1) 0%) ;
+  background: linear-gradient(100deg, rgba(97,215,174,1) 0%, rgba(93,135,255,1) 100%);
+}
+th{
+  text-align: center;
+  text-transform: capitalize;
+  background-color: #5D87FF;
+  border-color: #5D87FF;
+  color: #ffffff;
+}
+.table{
+  border-collapse: separate;
+}
+.icon{
+  padding: 5px 10px 5px 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: #eff2f5;
+}
+.icon-edit{
+  background-color: #3366FF;
+}
+.icon-remove{
+  background-color: rgb(93 95 97);
+}
+.icon-add{
+ background-color: rgb(54, 219, 25);
+ color: #eff2f5;
+}
+.icon-item:hover{
+  color: black;
+}
+.btn-show{
+  background-color: #5d87ff;
+  color: #fff;
+}
+.btn{
+  width: 60px;
+  margin: 0 5px;
+}
+.far{
+  font-size: 20px;
+}
+.role{
+  margin-left: 185px;
+}
+
+@media (max-width:1400px) {
+  .role{
+    margin-left: 185px;
+  }
+}
+@media (max-width:1200px) {
+  .role{
+    margin-left: 130px;
+  }
+}
+  @media (max-width:1000px) {
+    .role{
+      margin-left: 95px;
+    }
+}
+@media (max-width:800px) {
+  .role{
+    margin-left: -8px;
+  }
+}
+@media (max-width:600px) {
+  .role{
+    margin-left: -8px;
+  }
+    .btn{
+      width: 47px;
+      margin: 0 5px;
+    }
+}
+@media (max-width:400px) {
+  .role{
+    margin-left: -45px;
+  }
+  .btn{
+    width: 39px;
+  }
+  .far{
+    font-size: 15px;
+  }
+  .chucnang{
+    margin-left: -30px;
+  }
+}
+@media (max-width:200px) {
+  .role{
+    margin-left: 0px;
+  }
+}

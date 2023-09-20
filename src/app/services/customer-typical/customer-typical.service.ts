@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Constant} from "../../core/config/constant";
 import {Observable} from "rxjs";
-import {CusTypical} from "../../modules/typical/customer/cus-typical";
-import {Domain} from "../../core/domain/domain";
 import { ApiHelper } from 'src/app/core/rest-api/api-helper';
+import { CusTypical } from 'src/app/core/model/cus-type/cus-typical';
 
 @Injectable({
   providedIn: 'root'

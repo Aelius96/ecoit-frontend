@@ -1,0 +1,101 @@
+
+<div class="toolbar">
+    <div class="d-flex justify-content-between ">
+        <div class="d-flex justify-content-start  head">
+            <h5 class="h5">Nhật Ký</h5>
+            <div class="item-select" >
+                <select class="custom-select" [(ngModel)]="searchField.method"  (change)="changeMethod($event)" style="width: 120px" >
+                  <option value="" [selected]="true" >Phương thức</option>
+                  <option>POST</option>
+                  <option>GET</option>
+                </select>
+              </div>
+              <div class=" item-select">
+                <select class="custom-select"  [(ngModel)]="searchField.type" (change)="changeType($event)"  style="width: 120px" >
+                  <option value="" [selected]="true">Hoạt động</option>
+                  <option>CREATE</option>
+                  <option>UPDATE</option>
+                  <option>DELETE</option>
+                </select>
+              </div>
+              <div class=" item-select">
+                <!-- <select class="custom-select" [(ngModel)]="searchField.executor" (change)="changExecutor($event)" style="width: 120px" >
+                  <option value="" [selected]="true" >Người thực hiện</option>
+                  <option >người 1</option>
+                </select> -->
+                <input [(ngModel)]="searchField.executor" (change)="changExecutor($event)" placeholder="Tìm theo tên người dùng">
+              </div>
+              <div class=" item-select">
+                <select class="custom-select" style="width: 120px" >
+                  <option value=""  [selected]="true">Trang</option>
+                </select>
+              </div>
+             
+              <div  class=" item-select " >
+                <select class="custom-select " style="width: 120px">
+                  <option value="" [selected]="true">Sắp xếp theo</option>
+                  <option value="date">Thời gian</option>
+                  <option value="method">Phương thức</option>
+                  <option value="page">Trang</option>
+                  <option value="user">Người thực hiện</option>
+                  <option value="type">Hoạt động</option>
+                </select>
+              </div>
+              <div class=" item-select " >
+                <a class="ht-btn-custom">
+                  <i class="far fa-sort-alpha-down fa-lg"></i>
+                </a>
+              </div>
+              <div class=" item-select " >
+                <a class="ht-btn-custom">
+                  <i class="far fa-sort-alpha-up fa-lg"></i>
+                </a>
+              </div>
+        </div>
+        <div class="d-flex  flex-wrap head">
+            <div class="menu-item ">
+              <div class="d-flex">
+                <div class="d-flex">
+                  <span class="mr-1">Số mục mỗi trang:</span>
+                  <app-page-size (pageSizeChange)="handlePageSizeChange($event)" [totalRecords]="searchField.totalElements"
+                    [(pageSize)]="searchField.pageSize">
+                  </app-page-size>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="section-space--ptb_90">
+<div class="container">
+  <div class="detail">
+      <table class="table table-striped" id="myTable">
+        <thead>
+          <tr style="font-weight: bold;">
+            <td>Thời gian</td>
+              <td>Phương thức</td>
+              <td>Trang</td>
+              <td>Người thực hiện</td>
+              <td>Tham số</td>
+              <td>Hoạt động</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of historyList">
+            <td scope="row">{{item.date}}</td>
+              <td>{{item.method}}</td>
+              <td>{{item.page}}</td>
+              <td>{{item.executor}}</td>
+              <td>{{item.queryString}}</td>
+              <td>{{item.type}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+</div>
+

@@ -10,5 +10,6 @@ export class Product {
   date: any;
   url: any;
   selected = false;
+  active:boolean;
   hashtags: Hashtag[] = [];
 }

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {TokenStorageService} from "../../services/token-storage/token-storage.service";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../core/model/user/user";
+import { Module } from 'src/app/core/model/module/module';
+import { UserService } from 'src/app/services/user/user.service';
+import { Role } from 'src/app/core/model/role/role';
 
 @Component({
   selector: 'app-login',
@@ -11,43 +13,56 @@ import {User} from "../../core/model/user/user";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  url: string;
   form: any = {};
-
+  id:number=0
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = "";
   roles: string[] = [];
+  role:Role = new Role()
+  moduleList: Module[]=[]
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router:Router) { }
+  constructor(private authService: AuthService,private userService : UserService,
+     private tokenStorage: TokenStorageService, private router:Router) { }
 
   ngOnInit(): void {
     if(this.tokenStorage.getToken()) {
-
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getToken().roles;
-      this.reloadPage();
     }
   }
 
   onSubmit(): void{
-    console.log(this.form)
+
     this.authService.login(this.form).subscribe(data =>{
-        console.log(data.token)
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
         this.isLoggedIn = true;
         this.isLoginFailed = false;
         this.roles = this.tokenStorage.getUser().roles;
+        this.id = this.tokenStorage.getUser().id
         this.errorMessage ="Đăng Nhập Thành Công"
-        this.reloadPage();
+        this.getUserByid(this.id)
+
       },
       err => {
         this.errorMessage = "Đăng Nhập Thất Bại";
         this.isLoginFailed = true;
       });
   }
+  getUserByid(id:number){
+    this.userService.getUserById(id).subscribe(data=>{
+      this.role=data.role
+      this.moduleList = this.role.moduleList
+      this.url=this.moduleList[0].url
+      console.log(this.url)
+      this.reloadPage(this.url);
+    }
+    )
+  }
 
-  reloadPage(): void {
-    this.router.navigate(['admin/dashboard']);
+  reloadPage(url:string): void {
+    this.router.navigate(['admin'+`/${url}`]);
   }
 }
