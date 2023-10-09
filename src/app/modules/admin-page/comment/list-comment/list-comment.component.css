@@ -34,8 +34,7 @@
    /* view mới */
    .text-title{
     text-transform: uppercase;
-    color: #50b848;
-    font-size: 30px;
+    color: #212529;
     font-weight: bold;
     text-align: center;
   }
@@ -79,11 +78,8 @@
 }
 
 .title-comment{
- color: #fff;
- /* background: linear-gradient(90deg, rgba(0,180,219,1) 42%, rgba(0,131,176,1) 100%); */
- background-color: #5D87FF;
- border-color: #5D87FF;
  border-radius: 0px;
+ border-bottom: 2px solid #E4E6EF;
  font-size: 16px;
  font-weight: 600;
 }
@@ -172,6 +168,17 @@ img{
 }
 .icon-item:hover{
   background-color: #cacaca;
+}
+.table-cmt{
+  width: 98%;
+  margin: 0 auto;
+}
+.card{
+  border: 1px solid rgb(226 226 226);
+  box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.06);
+}
+.boder{
+  border-bottom: 1px solid #E4E6EF;
 }
 @media screen and (max-width:576px)  {
   .w-20{

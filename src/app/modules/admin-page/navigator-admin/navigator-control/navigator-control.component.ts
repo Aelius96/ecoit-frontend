@@ -98,9 +98,8 @@ export class NavigatorControlComponent {
           this.navigation = response.content;
           this.navigation=response;
           this.paging.totalRecord = response.totalElements;
-          // this.totalPages = response.totalPages;
+          this.totalPages = response.totalPages;
           // console.log(response);
-
         },
         error => {
           console.log(error);
@@ -152,8 +151,7 @@ export class NavigatorControlComponent {
     if(option){
       this.navService.deleteNav(id).subscribe(()=>{
         this.listtree();
-        // this.getListAllWithPage();
-
+        this.getListAllWithPage();
       })
     }
   }
@@ -184,7 +182,7 @@ export class NavigatorControlComponent {
     this.getListAllWithPage();
   }
   handlePageChange(event: number): void {
-    console.log(event);
+    // console.log(event);
     this.paging.page = event;
     this.getListAllWithPage();
   }
@@ -192,7 +190,7 @@ export class NavigatorControlComponent {
   handlePageSizeChange(event: any): void {
     this.paging.size = event;
     this.paging.page = 1;
-    console.log(event, this.paging.size)
+    // console.log(event, this.paging.size)
     this.getListAllWithPage();
   }
 
@@ -202,7 +200,6 @@ prepareformData(formdata: any){
   new Blob ([JSON.stringify(formdata)], {type:'application/json'}))
   return formData;
 }
-
 
 
 clearnAll(){
@@ -217,5 +214,4 @@ clearnAll(){
     })
   }
 }
-
 }

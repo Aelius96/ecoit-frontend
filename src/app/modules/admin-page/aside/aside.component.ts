@@ -1,4 +1,4 @@
-import {Component,OnInit} from '@angular/core';
+import {Component,EventEmitter,Input,OnInit, Output} from '@angular/core';
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import { Module } from 'src/app/core/model/module/module';
 import { ModuleService } from 'src/app/services/module/module.service';
@@ -19,6 +19,8 @@ export class AsideComponent implements OnInit {
   userName:string;
   roleName:string;
   id:number
+  @Input() isTouch =true;
+  @Output() isTouch2 = new EventEmitter<boolean>()
   constructor(private tokenStorageService: TokenStorageService, private userService:UserService,private moduleService : ModuleService) { }
   ngOnInit(): void {
     
@@ -42,5 +44,9 @@ export class AsideComponent implements OnInit {
       this.tokenStorageService.signOut();
       window.location.reload();
     
+  }
+  changeisTouch(){
+    this.isTouch2.emit(this.isTouch)
+    this.isTouch =! this.isTouch
   }
 }

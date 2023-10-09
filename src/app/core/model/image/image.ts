@@ -6,5 +6,5 @@ export class Image {
     type:any;
     active:any;
     target: any;
-
+    originalFileName:any;
 }

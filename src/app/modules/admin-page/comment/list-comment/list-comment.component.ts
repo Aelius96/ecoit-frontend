@@ -67,6 +67,7 @@ export class ListCommentComponent implements OnInit {
       (res) => {
         this.commentList = res.content;
         this.paging.totalRecord = res.totalElements;
+        console.log(this.commentList)
       },
       (error) => {
         console.log(error);

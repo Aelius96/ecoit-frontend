@@ -2510,6 +2510,33 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
     transform: scale(1);
   }
 }
+/* ====================
+    carb area
+========================*/
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 0px 0.75px;
+  background-color: transparent;
+}
+.card-title{
+  padding: 0 2.25rem;
+}
+.align-middle {
+  vertical-align: middle;
+}
+.table th{
+  border: none;
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
+  color: #A1A5B7;
+}
+.table tr {
+  border-bottom: 1px dashed #E4E6EF
+}
 
 /* ====================
     Toolbar Area
@@ -2519,23 +2546,21 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
   height: 53px;
   background-color: white;
   box-shadow: 0px 20px 30px 0px rgba(82, 63, 105, 0.13);
-  position: fixed;
-  right: 0;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
 }
-@media only screen and (max-width:991px) {
+/* @media only screen and (max-width:991px) {
 .toolbar{
   left: 0px;
 }
 }
 @media only screen and (min-width:992px) {
 .toolbar{
-  left: 228px;
+  left: 0;
 }
-}
+} */
 
 .aeroland__toolbar .inner {
   position: absolute;

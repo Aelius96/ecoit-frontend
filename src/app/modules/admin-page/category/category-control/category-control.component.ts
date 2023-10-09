@@ -51,7 +51,6 @@ export class CategoryControlComponent implements OnInit {
     this.categoryService.ListPageSize(params).subscribe(res=>{
       this.category = res.content;
       this.paging.totalRecord = res.totalElements;
-      console.log(res)
     },
     error => {
       console.log(error);
@@ -62,7 +61,6 @@ export class CategoryControlComponent implements OnInit {
   getListAll(){
     this.categoryService.listAllCategory().subscribe(res=>{
       this.category=res;
-      console.log(res)
     }
     ,error =>{
       console.log(error)
@@ -90,16 +88,15 @@ export class CategoryControlComponent implements OnInit {
   }
 
   handlepagechange(event : number):void{
-    console.log(event);
+    // console.log(event);
     this.paging.page =event;
     this.getAllCatePageSize();
   }
   handlePageSizeChange(event: any): void {
     this.paging.size = event;
     this.paging.page = 1;
-    console.log(event, this.paging.size)
+    // console.log(event, this.paging.size)
     this.getAllCatePageSize();
   }
-
 }
 

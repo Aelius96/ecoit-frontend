@@ -19,8 +19,7 @@ input {
 
 .cate-name {
   color: #50b848;
-  font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
   font-weight: bold;
   text-align: center;
 }
@@ -57,11 +56,28 @@ input {
   background-color: #fefefe;
   margin: auto;
   padding-top: 20px;
-  /* border: 1px solid #888; */
-  width: 30%;
+  width: 38%;
+  height: 250px;
   border-radius: 15px;
+  border: 1px solid rgb(226 226 226);
+  box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.06);
 }
 .validateText{
   margin-top: 15px;
   color:red;
+}
+@media screen and (max-width:1200px) {
+  .form-cate-add {
+    width: 50%;
+  }
+  }
+@media only screen and (max-width:768px) {
+  .form-cate-add {
+    width: 50%;
+  }
+  }
+@media only screen and (max-width:675px) {
+.form-cate-add {
+  width: 90%;
+}
 }

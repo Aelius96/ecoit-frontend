@@ -27,10 +27,10 @@
                 </app-page-size>
               </div>
             </div>
-            <div class="my-auto">
+            <!-- <div class="my-auto">
               <a class="ht-btn-custom my-auto " routerLink="add" title="Thêm tin mới"><i
                   class="fas fa-file-plus fa-lg"></i></a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -63,13 +63,13 @@
               [(pageSize)]="paging.size">
             </app-page-size>
           </li>
-          <li class="p-2 border">
+          <!-- <li class="p-2 border">
             <div class="d-flex" (click)="addCustomer()">
               <span class="mx-auto">Thêm mới </span>
               <a class="ht-btn-custom mx-auto " title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i>
               </a>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -77,16 +77,15 @@
 </div>
 
 
-<div class="container">
-  <div class="section-space--mt_100">
+<!-- <div class="container">
+  <div class="section-space--mt_60">
     <p class="text-title">KHÁCH HÀNG MỤC TIÊU</p>
-    <table class="table section-space--mt_30 col-10 mx-auto">
+    <table class="table section-space--mt_30 col-12 mx-auto">
       <thead style="position: sticky;top: 0 ; z-index: 1;">
         <tr class="text-center ">
           <th class="col-2" scope="col">Icon</th>
           <th class="col-4" scope="col">Tiêu đề</th>
           <th class="col-4" scope="col">Mô tả</th>
-          <!-- <th  class="w-25" scope="col">San pham</th> -->
           <th class="w-5" scope="col">Thao tác</th>
         </tr>
       </thead>
@@ -111,13 +110,13 @@
               {{cus.description}}
             </p>
           </td>
-          <!-- <td>
+          <td>
             <div *ngFor="let item of cus.products;let i = index">
                 <div *ngIf="item.active">
                     <span>{{item.title}}</span>
                 </div>
           </div>
-          </td> -->
+          </td>
           <td style="text-align: center;">
             <button class="icon status_admin icon-edit me-0 me-xl-2 mt-2 mt-md-2" (click)="updateCustomer(cus.id)"><a class="icon-item"
                 ><i class="fas fa-pen i"></i></a></button>
@@ -128,36 +127,82 @@
         </tr>
       </tbody>
     </table>
-    <!-- <div class="row">
-        <div *ngFor="let cus of customer | paginate:{
-                                          id: 'customer',
-                                          itemsPerPage: paging.size,
-                                          currentPage: paging.page,
-                                          totalItems: paging.totalRecord
-                                       }" class="col-md-3 col-12 " style=" margin: 0px 0px  80px 0px; ">
-          <div class="box">
-            <div class="close">
-              <button type="button" (click)="deleteCustomer(cus.id)" class="x">
-                <i class="fa fa-times"></i>
-              </button>
-            </div>
-            <div class="box-icon" [ngStyle]="{'background': cus.bgIColor}">
-              <span><i class="{{cus.icon}}"></i></span>
-            </div>
-            <div class="box-content">
-              <h5 class="__title">{{cus.name}}</h5>
-              <div class="description"><span class="ND">{{cus.description}}</span>
-              </div>
-              <div class="pricing-table__footer">
-                <a (click)="updateCustomer(cus.id)" class="edit" style="font-size: larger;">Chỉnh Sửa　⇨</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12" *ngIf="paging.totalRecord>0">
-          <pagination-controls previousLabel="<" nextLabel=">" [id]="'customer'" (pageChange)="handlePageChange($event)"
-            [maxSize]="paging.totalRecord"></pagination-controls>
-        </div>
-      </div>-->
   </div>
-</div>
+</div> -->
+<div class="card mb-5 mb-xl-8 section-space--mt_30 mx-4">
+  <div class="card-header border-0 pt-3">
+    <h3 class="card-title align-items-start flex-column">
+      <span class="card-label fw-bolder fs-6 mb-1">KHÁCH HÀNG MỤC TIÊU</span>
+    </h3>
+    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a user"
+      class="card-toolbar">
+      <a routerLink="add" class="btn2 btn-sm btn-light-primary">
+        <span class="svg-icon2 svg-icon-3 " ng-reflect-inline-s-v-g="./assets/media/icons/duotune/a">
+          <span>&#43;</span>
+        </span>" Thêm Khách Hàng "</a>
+    </div>
+  </div>
+  <div class="card-body py-3">
+  <table class="table align-middle gs-0 gy-4">
+    <thead style="position: sticky;top: 0 ; z-index: 1;">
+      <tr class="text-center ">
+        <th class="col-2" scope="col">Icon</th>
+        <th class="col-3" scope="col">Tiêu đề</th>
+        <th class="col-3" scope="col">Mô tả</th>
+        <th class="col-2" scope="col">Sản phẩm</th>
+        <th class="col-2" scope="col">Thao tác</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cus of customer |  paginate: {
+        id: 'post',
+        itemsPerPage: paging.size,
+        currentPage: paging.page,
+        totalItems: paging.totalRecord} ;  ">
+      <td class="text-center">
+      <div class="box-icon" [ngStyle]="{'background': cus.bgIColor}">
+        <span><i class="{{cus.icon}}"></i></span>
+      </div>
+      </td>
+      <td>
+        <p class=" mt-3 des-post font-weight-bold ">
+          {{cus.name}}
+        </p>
+      </td>
+      <td>
+        <p class="des-post mt-3 ">
+          {{cus.description}}
+        </p>
+      </td>
+      <td class="text-center">
+        <div *ngFor="let item of cus.products;let i = index">
+            <div *ngIf="item.active">
+                <span>{{item.title}}</span>
+            </div>
+      </div>
+        <td class="text-center">
+        <a class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" (click)="updateCustomer(cus.id)">
+          <span class="svg-icon svg-icon-3" ng-reflect-inline-s-v-g="./assets/media/icons/duotune/a">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="black"></path>
+              <path d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z" fill="black"></path>
+            </svg>
+          </span>
+        </a>
+        <a class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm" (click)="deleteCustomer(cus.id)" >
+          <span class="svg-icon svg-icon-3" ng-reflect-inline-s-v-g="./assets/media/icons/duotune/g">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="black"></path>
+              <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="black"></path>
+              <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="black"></path>
+            </svg>
+            </span>
+        </a></td>
+    </tbody>
+  </table>
+  </div>
+  <div *ngIf="paging.totalRecord>0" class=" container w-50 " >
+    <pagination-controls [id]="'post'" previousLabel="<" nextLabel=">" (pageChange)="handlePageChange($event)"
+      [maxSize]="paging.totalRecord"></pagination-controls>
+  </div>
+  </div>

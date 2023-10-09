@@ -17,6 +17,7 @@ import { Post } from 'src/app/core/model/post/post';
 export class FooterComponent implements OnInit {
   postListNews: Post[]=[];
   addressList : Address[] = [];
+
   about : About = new About();
   postURL = Domain.POST
   paging = {
@@ -51,8 +52,9 @@ export class FooterComponent implements OnInit {
   }
 
   getListAllWithNews() {
+    this.category = "Tin Tức";
     const params = this.getParams(this.paging.size,this.category);
-    this.postService.listAllWithPageByNews(params)
+    this.postService.listAllWithPageHome(params)
       .subscribe(
         data => {
           this.postListNews = data.content;

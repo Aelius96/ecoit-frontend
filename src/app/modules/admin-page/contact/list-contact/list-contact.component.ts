@@ -33,8 +33,8 @@ export class ListContactComponent {
     this.contactService.listAllsizePage(params).subscribe(res=>{
       this.contactList=res.content;
       this.allContact = res.totalElements
-      // this.paging.totalRecord = res.totalElements;
-      console.log(this.allContact)
+      this.paging.totalRecord = res.totalElements;
+      // console.log(this.allContact)
       }, 
     )
   }
@@ -62,7 +62,7 @@ export class ListContactComponent {
   getAllContactPagesize(): void {
   const params = this.getParams(this.paging.page, this.paging.size , this.searchInput.input,this.active)
   // console.log(this.active)
-  console.log(params)
+  // console.log(params)
     this.contactService.listAllsizePage(params ).subscribe(res=>{
       this.contactList=res.content;
       this.paging.totalRecord = res.totalElements;
@@ -103,14 +103,14 @@ search():void{
 }
 
 handlepagechange(event : number):void{
-  console.log(event);
+  // console.log(event);
   this.paging.page =event;
   this.getAllContactPagesize();
 }
 handlePageSizeChange(event: any): void {
   this.paging.size = event;
-  this.paging.page = 1;
-  console.log(event, this.paging.size)
+  this.paging.page =1;
+  // console.log(event, this.paging.size)
   this.getAllContactPagesize();
 }
 
@@ -125,7 +125,7 @@ handlePageSizeChange(event: any): void {
   Process(){
     this.paging.page = 1
     this.active = false
-    console.log(this.active)
+    // console.log(this.active)
     this.getAllContactPagesize()
   }
 }

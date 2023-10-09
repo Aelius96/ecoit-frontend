@@ -38,6 +38,10 @@ font-size: 15px;
 
 .info-img{
   box-shadow: 5px 10px 20px 10px rgba(92, 91, 94, 0.078);
+  padding: 20px;
+}
+.border{
+  padding: 15px;
 }
 .img-box{
   padding: 10px 10px 10px 10px;
@@ -60,4 +64,49 @@ font-size: 15px;
 }
 .img-fluid{
   border-radius: inherit;
+}
+.card{
+  border: 1px solid rgb(226 226 226);
+  box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.06);
+}
+.btn2{
+  border-color: #F5F8FA;
+  background-color: #F5F8FA;
+}
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn2:hover{
+  color: #FFFFFF;
+  border-color: #009EF7;
+  background-color: #009EF7;
+  .svg-icon2 [fill]{
+    fill: #ffffff;
+  }
+} 
+
+.btn-light-primary {
+  color: #009EF7;
+  border-color: #F1FAFF;
+  background-color: #F1FAFF;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+svg {
+  height: 1.2rem;
+  width: 1.2rem;
+}
+ .svg-icon2 [fill]{
+  fill: #009EF7;
+}
+.svg-icon [fill]{
+  fill: #181c32;
+}
+span {
+  content: "\002B";
 }

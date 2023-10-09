@@ -1,6 +1,5 @@
 import { Category } from "../category/category";
 import {Post} from "../post/post";
-import {User} from "../user/user";
 
 export class Comment {
 

@@ -84,9 +84,9 @@ import { RecruitDetailComponent } from './modules/home-page/recruit/recruit-deta
 import { RecruitMoreComponent } from './modules/home-page/recruit/recruit-more/recruit-more.component';
 import { BlogDetailComponent } from './modules/home-page/blog/blog-detail/blog-detail.component';
 import { BlogMoreComponent } from './modules/home-page/blog/blog-more/blog-more.component';
-import { ListContactComponent } from './modules/home-page/list/list-contact/list-contact.component';
+import { ListContactComponent } from './modules/admin-page/contact/list-contact/list-contact.component';
 import { ListControlComponent } from './modules/home-page/list/list-control/list-control.component';
-import { ListCommentComponent } from './modules/home-page/list/list-comment/list-comment.component';
+import { ListCommentComponent } from './modules/admin-page/comment/list-comment/list-comment.component';
 import { AppPageSizeImageComponent } from './modules/shared/app-page-size-image/app-page-size-image.component';
 import { CommentListComponent } from './modules/home-page/comment/comment-list/comment-list.component';
 import { ProductMoreComponent } from './modules/home-page/product/product-more/product-more.component';
