@@ -15,10 +15,6 @@ export class NumberAddComponent implements OnInit {
     description: new FormControl('',Validators.required),
     icons: new FormControl('',Validators.required),
   });
-  inputs = '';
-  isborderErrorDes = true;
-  isborderErrorIcon = true;
-  isborderErrorNumber = true;
   tNumber: Numberix =new Numberix()
   id: any;
   allIcon: any;

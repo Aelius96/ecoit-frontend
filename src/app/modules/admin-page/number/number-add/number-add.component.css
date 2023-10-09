@@ -61,6 +61,31 @@ select,option{
 }
 .text-title{
   color: #50b848;
-  font-size: 30px;
+  color: #212529;
+  font-size: 25px;
   font-weight: bold;
+  text-align: center;
+}
+.boder{
+  margin: auto;
+  width: 79%;
+  padding-top: 30px;
+  border-radius: 15px;
+  border: 1px px solid rgb(226 226 226);
+  box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.06);
+}
+@media (max-width:1200px) {
+  .boder{
+    width: 90%;
+  }
+}
+@media (max-width:1000px) {
+  .boder{
+    width: 100%;
+  }
+}
+@media (max-width:768px) {
+  .box{
+    margin-top: 30px;
+  }
 }

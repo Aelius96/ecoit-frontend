@@ -1,9 +1,12 @@
 
 .scroll-sidebar{
-  /* overflow: hidden; */
+  overflow-y: hidden;
+  padding: 0 24px;
+  height: calc(100vh - 80px);
+  border-radius: 7px;
 }
 .scroll-sidebar:hover {
-  overflow:auto;
+  overflow-y:auto;
 }
 
 .scroll-sidebar::-webkit-scrollbar {
@@ -15,7 +18,6 @@
 .avt-accout{
   width: 18%;
 }
-
 .scroll-sidebar::-webkit-scrollbar-track {
   background-color: #ffffff;
   border-radius: 10px;
@@ -28,9 +30,10 @@
 .brand-logo{
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 0.5px solid #b4b4b4;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 .sidebar-link:hover{
  text-decoration: none;
@@ -38,18 +41,61 @@
 a{
   text-decoration: none;
 }
-.left-sidebar{
-
+.sidebar2{
   width: 228px;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   background-color: white;
+  border: 1px solid #cba9a9;
+  z-index: 90;
+  .logo-sidebar{
+    width: 228px;
+    transition: width 3s ease;
+  }
+  
 }
-.logo-sidebar{
+.left-sidebar{
+  width: 65px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transition: width 1s ease;
+  .aside_hide{
+    display:none;
+    transition: 1s;
+  }
+  .logo-img{
+    display: none;
+    transition: width 1s ease;
+  }
+  .logo-sidebar{
+    width: 65px;
+    transition: 1s;
+  }
+  .rotate-180{
+    transform: rotateZ(180deg);
+    transition: transform 0.3s;
+  }
+}
+
+.left-sidebar:hover{
   width: 228px;
+  .aside_hide{
+    display:block;
+  }
+  .logo-sidebar{
+    width: 228px;
+  }
+  .logo-img{
+    display: block;
+    transition: width 1s ease;
+  }
 }
+
 
 /* mobile */
 .brand-logo-mobile{

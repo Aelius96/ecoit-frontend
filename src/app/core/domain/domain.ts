@@ -1,4 +1,3 @@
-import { Permission } from '../model/permission/permission';
 
 export class Domain {
   public static ABOUT = `about`;

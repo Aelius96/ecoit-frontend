@@ -3,8 +3,8 @@ import {CommonModule} from "@angular/common";
 import {RouterModule, Routes} from "@angular/router";
 import { AdminControlComponent } from "../admin-control/admin-control.component";
 import { HistoryListComponent } from "../history/history-list/history-list.component";
-import { ListContactComponent } from "../../home-page/list/list-contact/list-contact.component";
-import { ListCommentComponent } from "../../home-page/list/list-comment/list-comment.component";
+import { ListContactComponent } from "../../admin-page/contact/list-contact/list-contact.component";
+import { ListCommentComponent } from "../../admin-page/comment/list-comment/list-comment.component";
 
 const routes: Routes =[
 

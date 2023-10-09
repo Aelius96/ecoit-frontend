@@ -1,10 +1,10 @@
 
 <div class="d-flex flex-column flex-root ">
   <div class="d-flex flex-row ">
-    <app-aside></app-aside>
-    <app-header-admin></app-header-admin>
-    <div class="wrapper ">
-      <router-outlet></router-outlet>
+    <app-aside (isTouch2)="onchangeisTouch($event)"></app-aside>
+    <app-header-admin  [ngClass]="{'header-admin':!isTouch,'header-admin2':isTouch,'header':true}"></app-header-admin>
+    <div [ngClass]="{'wrapper':!isTouch,'wrapper-admin':isTouch,'wrapper2':true}">
+      <router-outlet ></router-outlet>
     </div>
   </div>
 </div>

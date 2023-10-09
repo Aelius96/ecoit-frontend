@@ -135,8 +135,8 @@ export class Constant {
   public static POST={
     LIST_ALL_WITH_PAGE : `${Domain.POST}` ,
     LIST_ALL_WITH_PAGE_HOME: `${Domain.POST}/filter` ,
-    LIST_ALL_WITH_PAGE_BY_NEWS: `${Domain.POST}/home/show/news` ,
-    LIST_ALL_WITH_PAGE_BY_RECRUIT: `${Domain.POST}/home/show/recruit` ,
+    // LIST_ALL_WITH_PAGE_BY_NEWS: `${Domain.POST}/home/show/news` ,
+    // LIST_ALL_WITH_PAGE_BY_RECRUIT: `${Domain.POST}/home/show/recruit` ,
     LIST_ALL: `${Domain.POST}/list` ,
     SEARCH: `${Domain.POST}/tim-kiem` ,
     GET_POST_BY_URL: `${Domain.POST}/home` ,

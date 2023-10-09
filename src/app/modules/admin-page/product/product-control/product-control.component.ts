@@ -84,16 +84,9 @@ export class ProductControlComponent implements OnInit {
 
   updateProduct(id: number) {
     return this.router.navigate(['admin/product/update', id]);
-
   }
-
-  addProduct() {
-    return this.router.navigate([`admin/product/add`]);
-  }
-
   deleteProduct(id: number) {
     let option = confirm("Bạn có chắc chắn xóa khách hàng này?");
-
     if (option) {
       this.productService.deleteProduct(id).subscribe(data => {
         this.getProductListAllwithPage();

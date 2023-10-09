@@ -64,7 +64,7 @@ export class CustomerControlComponent implements OnInit{
   }
 
 search():void{
-  this.paging.page =1 ;
+  this.paging.page = 1;
   this.getlistallwithPage();
 }
 handlePageChange(event:number):void{

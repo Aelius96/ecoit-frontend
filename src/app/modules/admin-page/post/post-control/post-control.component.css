@@ -61,7 +61,7 @@ input:focus{
 /* list */
 .text-title{
   color: #50b848;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
   text-align: center;
 }
@@ -100,13 +100,13 @@ img{
   display: none;
 }
 
-th{
+/* th{
   text-align: center;
   text-transform: capitalize;
   background-color: #5D87FF;
   border-color: #5D87FF;
   color: white;
-}
+} */
 /* .table{
   border-collapse: separate;
 } */
@@ -160,6 +160,85 @@ th{
 .w-15{
   width: 15%;
 }
-.table{
+/* .table{
   border-collapse: separate;
+  box-shadow: 9px 9px gainsboro
+}
+table tr:nth-child(1) 
+{
+    background: #09f634;
+    color:black;
+}
+table tr:nth-child(1) td 
+{
+    color:black;
+}
+table 
+{
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    border-spacing: 0;
+}
+table td 
+{
+  border: 1px solid #ccc;
+}
+
+th{
+  text-align: center;
+  text-transform: capitalize;
+  background-color: #10793194;
+  border-color: #0b8a3c;
+  color: white;
+  border: 1px solid black;
+} */
+.card{
+  border: 1px solid rgb(226 226 226);
+  box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.06);
+}
+.btn{
+  border-color: #F5F8FA;
+  background-color: #F5F8FA;
+  width: 45px;
+}
+.btn2{
+  border-color: #F5F8FA;
+  background-color: #F5F8FA;
+}
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn2:hover{
+  color: #FFFFFF;
+  border-color: #009EF7;
+  background-color: #009EF7;
+  .svg-icon2 [fill]{
+    fill: #ffffff;
+  }
+} 
+
+.btn-light-primary {
+  color: #009EF7;
+  border-color: #F1FAFF;
+  background-color: #F1FAFF;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+svg {
+  height: 1.2rem;
+  width: 1.2rem;
+}
+ .svg-icon2 [fill]{
+  fill: #009EF7;
+}
+.svg-icon [fill]{
+  fill: #181c32;
+}
+span {
+  content: "\002B";
 }

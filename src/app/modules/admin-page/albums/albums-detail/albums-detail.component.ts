@@ -64,7 +64,7 @@ export class AlbumsDetailComponent implements OnInit {
     this.imageService.getlistallwithpage(params).subscribe(data=>{
       this.image = data.content;
       this.paging.totalRecord = data.totalElements;
-     this.pick(this.image[0])
+     this.pick2(this.image[0])
     },
     error=>{console.log(error);})
   }
@@ -90,11 +90,17 @@ export class AlbumsDetailComponent implements OnInit {
       })
     }
   }
-  pick(e:any){
-    this.target.url = e.target.src;
-    this.target.id= e.target.id;
-    this.target.name=e.target.alt;
+  pick2(image:Image){
+    this.url= this.baseURL+'/'+this.fileURL+'/image/'+image.name;
+    this.target.url = this.url
+    this.target.id= image.id;
+    this.target.name=image.originalFileName;
   }
+  // pick(e?:any){
+  //   this.target.url = e.target.src;
+  //   this.target.id= e.target.id;
+  //   this.target.name=e.target.alt;
+  // }
   downloadimg(e:any){
     this.imageService.getFileById(e).subscribe(data =>{
       this.imageService.downloadFile(data).subscribe((data2:any) =>{

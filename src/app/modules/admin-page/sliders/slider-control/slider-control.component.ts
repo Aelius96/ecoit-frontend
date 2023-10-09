@@ -15,7 +15,6 @@ export class SliderControlComponent {
   isslider: boolean = true;
   sliders: Slider[] = [];
   slider2: Slider[] = [];
-  title = 'TRÌNH CHIẾU';
   flex = '';
   ishienthiten=true
 

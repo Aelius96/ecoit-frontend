@@ -129,12 +129,12 @@ export class RoleAddComponent {
     }
   }
   addRole(){
-    this.role.name = this.formRole.controls['nameRole'].value
-    this.role.description = this.formRole.controls['desRole'].value
     this.roleService.addRole(this.role).subscribe((data) => {
       this.backToRole()
+    },
+    (error)=>{
+      this.toast.showWarning(error.error)
     })
-    
   }
   updateRole(){
     this.roleService.updateRole(this.role).subscribe(data=>{

@@ -21,13 +21,13 @@ export class PostService {
     return this.apiHelper.get(Constant.POST.LIST_ALL_WITH_PAGE_HOME,{params})
   }
 
-  listAllWithPageByNews(params: HttpParams): Observable<any>{
-    return this.apiHelper.get( Constant.POST.LIST_ALL_WITH_PAGE_BY_NEWS ,{params})
-  }
+  // listAllWithPageByNews(params: HttpParams): Observable<any>{
+  //   return this.apiHelper.get( Constant.POST.LIST_ALL_WITH_PAGE_BY_NEWS ,{params})
+  // }
 
-  listAllWithPageByRecruit(params: HttpParams): Observable<any>{
-    return this.apiHelper.get( Constant.POST.LIST_ALL_WITH_PAGE_BY_RECRUIT ,{params})
-  }
+  // listAllWithPageByRecruit(params: HttpParams): Observable<any>{
+  //   return this.apiHelper.get( Constant.POST.LIST_ALL_WITH_PAGE_BY_RECRUIT ,{params})
+  // }
 
   public search(params: HttpParams): Observable<any>{
     return this.apiHelper.get( Constant.POST.SEARCH ,{params})

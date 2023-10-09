@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-admin-control',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-control.component.css']
 })
 export class AdminControlComponent {
-
+  isTouch:boolean
+  onchangeisTouch(isTouch:boolean){
+    this.isTouch = isTouch
+  }
 }

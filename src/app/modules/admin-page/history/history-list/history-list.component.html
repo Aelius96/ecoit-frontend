@@ -1,8 +1,8 @@
 
 <div class="toolbar">
+  <div class="container">
     <div class="d-flex justify-content-between ">
         <div class="d-flex justify-content-start  head">
-            <h5 class="h5">Nhật Ký</h5>
             <div class="item-select" >
                 <select class="custom-select" [(ngModel)]="searchField.method"  (change)="changeMethod($event)" style="width: 120px" >
                   <option value="" [selected]="true" >Phương thức</option>
@@ -65,37 +65,34 @@
             </div>
         </div>
     </div>
-
+  </div>
 </div>
 
-
-<div class="section-space--ptb_90">
-<div class="container">
-  <div class="detail">
-      <table class="table table-striped" id="myTable">
-        <thead>
-          <tr style="font-weight: bold;">
-            <td>Thời gian</td>
-              <td>Phương thức</td>
-              <td>Trang</td>
-              <td>Người thực hiện</td>
-              <td>Tham số</td>
-              <td>Hoạt động</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of historyList">
-            <td scope="row">{{item.date}}</td>
-              <td>{{item.method}}</td>
-              <td>{{item.page}}</td>
-              <td>{{item.executor}}</td>
-              <td>{{item.queryString}}</td>
-              <td>{{item.type}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  
-</div>
-</div>
-
+<div class="card mb-5 mb-xl-8 section-space--mt_30 mx-4">
+  <div class="card-header border-0 pt-3">
+    <h3 class="card-title align-items-start flex-column">
+      <span class="card-label fw-bolder fs-6 mb-1">NHẬT KÝ</span>
+    </h3>
+  </div>
+  <div class="card-body py-3">
+  <table class="table align-middle gs-0 gy-4">
+    <thead>
+      <tr style="font-weight: bold;" class="text-center">
+        <th>Thời gian</th>
+          <th>Phương thức</th>
+          <th>Trang</th>
+          <th>Người thực hiện</th>
+          <th>Hoạt động</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let item of historyList">
+        <td scope="row">{{item.date}}</td>
+        <td>{{item.method}}</td>
+        <td>{{item.page}}</td>
+        <td>{{item.executor}}</td>
+        <td>{{item.type}}</td>
+    </tbody>
+  </table>
+  </div>
+  </div>

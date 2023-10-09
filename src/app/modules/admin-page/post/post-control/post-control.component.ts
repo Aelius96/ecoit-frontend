@@ -81,7 +81,6 @@ export class PostControlComponent implements OnInit {
         data => {
           this.postList = data.content;
           this.paging.totalRecord = data.totalElements;
-        //  console.log(this.postList)
         },
         error => {
           console.log(error);

@@ -19,9 +19,9 @@
                   [totalRecords]="paging.totalRecord" [(pageSize)]="paging.size"></app-app-page-size-image>
               </div>
             </div>
-            <div class="">
+            <!-- <div class="">
               <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -43,12 +43,12 @@
             <app-app-page-size-image class=" my-auto" (pageSizeChange)="handlePageSizeChange($event)"
                   [totalRecords]="paging.totalRecord" [(pageSize)]="paging.size"></app-app-page-size-image>
           </li>
-          <li class="p-2 border">
+          <!-- <li class="p-2 border">
             <div class="d-flex" routerLink="add">
               <span class="mx-auto">Thêm mới </span>
               <a class="ht-btn-custom" routerLink="add" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -56,9 +56,22 @@
 </div>
 
 
-<div class="section-space--mt_100">
-  <div class="container">
-    <div class="row">
+<div class="section-space--mt_30">
+  <div class="card mb-5 mb-xl-8 section-space--mt_30 mx-4">
+    <div class="card-header border-0 pt-3">
+      <h3 class="card-title align-items-start flex-column">
+        <span class="card-label fw-bolder fs-6 mb-1">ẢNH HOẠT ĐỘNG</span>
+      </h3>
+      <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a user"
+      class="card-toolbar">
+      <a routerLink="add" class="btn2 btn-sm btn-light-primary">
+        <span class="svg-icon2 svg-icon-3 " ng-reflect-inline-s-v-g="./assets/media/icons/duotune/a">
+          <span>&#43;</span>
+        </span>" Thêm Ảnh Hoạt Động "</a>
+    </div>
+      </div>
+      <div class="d-flex flex-column my-3 page-albums">
+    <div class="row" style="margin-left: 0px; margin-right: 0px;">
       <div class="col-8">
         <div class="row">
           <div class="col-6 col-lg-3 col-sm-4  " *ngFor="let img of galleryList | paginate:{
@@ -80,7 +93,7 @@
         </div>
       </div>
       <div class="col-lg-4 col-4 info-img">
-        <div class="box">
+        <div class="box border">
           <div class="img-box">
             <img class="img-fluid" src="{{target.url}}" alt="Images">
           </div>
@@ -127,6 +140,7 @@
             <button class="btn btn-primary col-12 col-md-3 mt-2 mt-md-0 " (click)="deleteimg(target.id)">Xóa</button>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
