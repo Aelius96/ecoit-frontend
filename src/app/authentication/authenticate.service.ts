@@ -14,17 +14,14 @@ export class AuthenticateService implements CanActivate{
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
     const isLogIn = !!this.tokenStorageService.getToken();
-
     if(isLogIn){
       const user = this.tokenStorageService.getUser();
       this.username = user.username;
       this.roles = user.roles;
-
       if(this.roles.includes("USER")){
         this.router.navigate(['admin/login']);
       }
       return true;
-
     }else {
       this.router.navigate(['admin/login']);
     }

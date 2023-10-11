@@ -1,55 +1,61 @@
 <div class="toolbar">
 
 </div>
-<div class="container section-space--mt_30 ">
-  <p class="text-title text-center text-uppercase section-space--mb_30 ">ĐIỀU HƯỚNG</p>
-  <form (ngSubmit)="onSubmit()" [formGroup]="formNav">
-    <div class="row">
-      <div class="user-content col-lg-12 ">
-        <div class="row " style="justify-content: center;">
-          <div class="col-md-4" style="margin-bottom: 20px;">
-            <div class="options">
-              <div class="title"><strong class="validateText">*</strong>Tên <span>(VD: Khách hàng Chính Phủ)</span> </div>
-              <input type="text" id="name" name="name" formControlName="name" placeholder=""
-                [class.borderError]="!formNav.controls.name.valid&&!formNav.controls.name.untouched"
-                [class.text-input]="formNav.controls.name.valid||formNav.controls.name.untouched">
-              <p *ngIf="!formNav.controls.name.valid&&!formNav.controls.name.untouched" class="validateText">Tên không
-                thể bỏ trống</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="options">
-              <div class="title"><strong class="validateText">*</strong>Đường dẫn <span>(VD: /khach-hang-chinh-phu)</span></div>
-              <input type="text" id="url" name="url" formControlName="url" placeholder=""
-                [class.borderError]="!formNav.controls.url.valid&&!formNav.controls.url.untouched"
-                [class.text-input]="formNav.controls.url.valid||formNav.controls.url.untouched">
-              <p *ngIf="!formNav.controls.url.valid&&!formNav.controls.url.untouched" class="validateText">Đường dẫn
-                không thể bỏ trống</p>
-
-            </div>
-          </div>
-          <div class="col-md-8">
-            <div class="options">
-              <div class="title">Nhóm</div>
-
-              <!--            <input *ngIf="isChild" name="parentId" [(ngModel)]="nav.parentId" [value]="nav.parentId" disabled>-->
-              <div>
-                <select name="parentId" formControlName="parentId" class="text-input">
-                  <option [value]="null">--Chọn--</option>
-                  <option *ngFor="let opt of navGroup" [ngValue]="opt.id" selected>{{opt.name}}</option>
-                </select>
+<form (ngSubmit)="onSubmit()" [formGroup]="formNav" class="section-space--mt_30">
+  <div class="boder">
+    <div class="title2">
+      <p class="text-title text-center text-uppercase section-space--mb_30 fs-5 ">ĐIỀU HƯỚNG</p>
+    </div>
+    <div class="container ">
+      <div class="row">
+        <div class="user-content col-lg-12 ">
+          <div class="row mt-2" style="justify-content: center;">
+            <div class="col-md-4" style="margin-bottom: 20px;">
+              <div class="options">
+                <div class="title"><strong class="validateText">*</strong>Tên <span>(VD: Khách hàng Chính Phủ)</span>
+                </div>
+                <input type="text" id="name" name="name" formControlName="name" placeholder=""
+                  [class.borderError]="!formNav.controls.name.valid&&!formNav.controls.name.untouched"
+                  [class.text-input]="formNav.controls.name.valid||formNav.controls.name.untouched">
+                <p *ngIf="!formNav.controls.name.valid&&!formNav.controls.name.untouched" class="validateText">Tên không
+                  thể bỏ trống</p>
               </div>
             </div>
-          </div>
+            <div class="col-md-4">
+              <div class="options">
+                <div class="title"><strong class="validateText">*</strong>Đường dẫn <span>(VD:
+                    /khach-hang-chinh-phu)</span></div>
+                <input type="text" id="url" name="url" formControlName="url" placeholder=""
+                  [class.borderError]="!formNav.controls.url.valid&&!formNav.controls.url.untouched"
+                  [class.text-input]="formNav.controls.url.valid||formNav.controls.url.untouched">
+                <p *ngIf="!formNav.controls.url.valid&&!formNav.controls.url.untouched" class="validateText">Đường dẫn
+                  không thể bỏ trống</p>
 
-          <div class="col-md-12" style="text-align: center; padding-top: 30px;">
-            <div class="submit-button">
-              <button type="submit" class="btn btn-primary btn-lg btnn"[disabled]="!formNav.valid">Lưu</button>
-              <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToNavList()">Hủy</button>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="options">
+                <div class="title">Nhóm</div>
+
+                <!--            <input *ngIf="isChild" name="parentId" [(ngModel)]="nav.parentId" [value]="nav.parentId" disabled>-->
+                <div>
+                  <select name="parentId" formControlName="parentId" class="text-input">
+                    <option [value]="null">--Chọn--</option>
+                    <option *ngFor="let opt of navGroup" [ngValue]="opt.id" selected>{{opt.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 mb-4" style="text-align: center; padding-top: 30px;">
+              <div class="submit-button">
+                <button type="submit" class="btn btn-primary btn-lg btnn" [disabled]="!formNav.valid">Lưu</button>
+                <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToNavList()">Hủy</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </form>
-</div>
+  </div>
+</form>
