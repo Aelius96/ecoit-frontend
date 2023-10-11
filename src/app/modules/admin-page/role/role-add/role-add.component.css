@@ -71,7 +71,7 @@
   .options{
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    margin: 15px 0;
   }
   .options .title{
     color: #1a1a1a;
@@ -118,12 +118,11 @@
     color: #1a1a1a;
   }
   .title-add{
-    color: #50b848;
-    font-size: 30px;
+    color: #212529;
     font-weight: bold;
     text-align: center;
   }
-  .table{
+  /* .table{
     border-collapse: separate;
   }
   th{
@@ -132,11 +131,11 @@
     background-color: #5D87FF;
     border-color: #5D87FF;
     color: #ffffff;
-}
+} */
 .text-input {
   color: black;
   border: 1px solid #50b848;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 .icon{
   padding: 5px 10px 5px 10px;
@@ -156,4 +155,22 @@
 }
 .icon-item:hover{
   color: black;
+}
+.boder{
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid rgb(226 226 226);
+  box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.06);
+}
+.card{
+  border: 1px solid rgb(226 226 226);
+  box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.06);
+}
+.title2{
+  padding: 20px 0;
+  background-color: rgb(33,37,41,0.03);
+}
+.role-add{
+  max-height: 280px;
+  min-height: 250px;
 }

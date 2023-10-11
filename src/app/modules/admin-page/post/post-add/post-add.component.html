@@ -1,83 +1,91 @@
 <div class="toolbar">
 
 </div>
-<div class="container section-space--mt_100">
-  <form [formGroup]="formPost" (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
-  <div class="row">
-    <div class="col-lg-4 col-12">
-      <div class="update_box">
-        <span><strong>Ảnh bìa</strong></span>
-        <div class="border">
-          <div class="image borderInput p-0">
-            <img src="{{imageURL}}" alt="" appHideMissing>
+
+<form [formGroup]="formPost" (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate class="section-space--mt_30">
+  <div class="container section-space--mb_60">
+    <div class="boder">
+      <div class="title">
+        <p class="text-title fs-5">BÀI VIẾT</p>
+      </div>
+      <div class="row mx-auto">
+        <div class="col-lg-4 col-12">
+          <div class="update_box">
+            <span><strong>Ảnh bìa</strong></span>
+            <div class="text-input">
+              <div class="image borderInput p-0">
+                <img src="{{imageURL}}" alt="" appHideMissing>
+              </div>
+              <input class="p-1 p-md-2 " accept="image/png, image/jpeg" type="file" value="select"
+                (change)="thumbnailChange($event)">
+            </div>
           </div>
-          <input class="p-1 p-md-2 " accept="image/png, image/jpeg" type="file" value="select"
-            (change)="thumbnailChange($event)">
-        </div>
-      </div>
-      <div class="update_box">
-        <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Mô tả</strong></span>
-        <input [class.borderError]="!formPost.controls.moTa.valid&&!formPost.controls.moTa.untouched"
-          [class.text-input]="formPost.controls.moTa.valid||formPost.controls.moTa.untouched" id="moTa" type="text"
-          formControlName="moTa" name="description">
-      </div>
-      <div class="update_box">
-        <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Chuyên mục</strong></span>
-        <select id="chuyenMuc" formControlName="chuyenMuc" name="category"
-          [class.borderError]="!formPost.controls.chuyenMuc.valid&&!formPost.controls.chuyenMuc.untouched"
-          [class.text-input]="formPost.controls.chuyenMuc.valid||formPost.controls.chuyenMuc.untouched">
-          <option value="" disabled selected hidden></option>
-          <option *ngFor="let icon of categories" [value]="icon.typeName" [innerHTML]="icon.typeName"></option>
-        </select>
-      </div>
-      <div class="update_box">
-        <span><strong>Thẻ tag</strong></span>
-      </div>
+          <div class="update_box">
+            <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Mô tả</strong></span>
+            <input [class.borderError]="!formPost.controls.moTa.valid&&!formPost.controls.moTa.untouched"
+              [class.text-input]="formPost.controls.moTa.valid||formPost.controls.moTa.untouched" id="moTa" type="text"
+              formControlName="moTa" name="description">
+          </div>
+          <div class="update_box">
+            <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Chuyên mục</strong></span>
+            <select id="chuyenMuc" formControlName="chuyenMuc" name="category"
+              [class.borderError]="!formPost.controls.chuyenMuc.valid&&!formPost.controls.chuyenMuc.untouched"
+              [class.text-input]="formPost.controls.chuyenMuc.valid||formPost.controls.chuyenMuc.untouched">
+              <option value="" disabled selected hidden></option>
+              <option *ngFor="let icon of categories" [value]="icon.typeName" [innerHTML]="icon.typeName"></option>
+            </select>
+          </div>
+          <div class="update_box">
+            <span><strong>Thẻ tag</strong></span>
+          </div>
 
-      <mat-form-field class="example-chip-list">
-        <mat-chip-grid #chipGrid aria-label="Tag selection">
-          <mat-chip-row style="background-color: #b4b4b473" *ngFor="let hashtag of post.hashtags"
-            (removed)="remove(hashtag)">
-            {{hashtag.name}}
-            <button matChipRemove [attr.aria-label]="'remove ' + hashtag.name">
-              <mat-icon>cancel</mat-icon>
-            </button>
-          </mat-chip-row>
-        </mat-chip-grid>
-        <input class="borderInput" placeholder="Nhập thẻ tag..." #hashtagInput [formControl]="hashtagCtrl"
-          [matChipInputFor]="chipGrid" [matAutocomplete]="auto" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-          (matChipInputTokenEnd)="addHashtag($event)" />
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-          <mat-option *ngFor="let hashtag of filteredHashtag | async" [value]="hashtag.name">
-            {{hashtag.name}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
+          <mat-form-field class="example-chip-list">
+            <mat-chip-grid #chipGrid aria-label="Tag selection">
+              <mat-chip-row style="background-color: #b4b4b473" *ngFor="let hashtag of post.hashtags"
+                (removed)="remove(hashtag)">
+                {{hashtag.name}}
+                <button matChipRemove [attr.aria-label]="'remove ' + hashtag.name">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            </mat-chip-grid>
+            <input class="borderInput" placeholder="Nhập thẻ tag..." #hashtagInput [formControl]="hashtagCtrl"
+              [matChipInputFor]="chipGrid" [matAutocomplete]="auto" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="addHashtag($event)" />
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+              <mat-option *ngFor="let hashtag of filteredHashtag | async" [value]="hashtag.name">
+                {{hashtag.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
 
-    </div>
-    <div class="col-lg-8 col-12 ">
-      <div class="update_box">
-        <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Tiêu đề</strong></span>
-        <input [class.borderError]="!formPost.controls.title.valid&&!formPost.controls.title.untouched"
-          [class.text-input]="formPost.controls.title.valid||formPost.controls.title.untouched" formControlName="title"
-          required>
-      </div>
-      <div class="update_box">
-        <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Nội dung</strong></span>
-        <div class="p-0" class="ckeditorContaniner" id="editor">
-          <ckeditor [(ngModel)]="post.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig"></ckeditor>
         </div>
-      </div>
-    </div>
-    <div class="col-12 col-lg-4 mx-auto">
-      <div class="submit-button">
-        <button type="submit" class="btn btn-primary btn-lg btnn" [disabled]="!formPost.valid">Lưu</button>
-        <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToPostList()">Hủy</button>
+        <div class="col-lg-8 col-12 ">
+          <div class="update_box">
+            <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Tiêu đề</strong></span>
+            <input [class.borderError]="!formPost.controls.title.valid&&!formPost.controls.title.untouched"
+              [class.text-input]="formPost.controls.title.valid||formPost.controls.title.untouched"
+              formControlName="title" required>
+          </div>
+          <div class="update_box">
+            <span><strong><span _ngcontent-ng-c3074274042="" style="color: red;">*</span>Nội dung</strong></span>
+            <div class="p-0" class="ckeditorContaniner text-input" id="editor">
+              <ckeditor [(ngModel)]="post.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig">
+              </ckeditor>
+            </div>
+          </div>
+        </div>
+        <div class="col-8 col-sm-6 col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+          <div class="submit-button">
+            <button type="submit" class="btn btn-primary btn-lg btnn" [disabled]="!formPost.valid">Lưu</button>
+            <button type="button" class="btn btn-secondary btn-lg btnn cancel" (click)="goToPostList()">Hủy</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  </form>
-</div>
+</form>
+
 
 
 <script>

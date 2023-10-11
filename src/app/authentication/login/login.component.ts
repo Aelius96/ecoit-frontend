@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {TokenStorageService} from "../../services/token-storage/token-storage.service";
 import {Router} from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { Module } from 'src/app/core/model/module/module';
 import { UserService } from 'src/app/services/user/user.service';
 import { Role } from 'src/app/core/model/role/role';
@@ -56,12 +55,10 @@ export class LoginComponent {
       this.role=data.role
       this.moduleList = this.role.moduleList
       this.url=this.moduleList[0].url
-      console.log(this.url)
       this.reloadPage(this.url);
     }
     )
   }
-
   reloadPage(url:string): void {
     this.router.navigate(['admin'+`/${url}`]);
   }

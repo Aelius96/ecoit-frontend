@@ -18,7 +18,7 @@
   object-fit: fill;
 }
 .update_box span{
-  color: #50B848;
+  color: #212529;
 }
 
 .cancel{
@@ -46,9 +46,14 @@
 .text-input{
   padding: 10px;
   width: 100%;
-  border: 1px solid #50B848;
+  border: 1pt solid #50B848;
+  margin-top: 10px;
 }   
-
+.text-title{
+  color: #212529;
+  font-weight: bold;
+  text-align: center;
+}
 select:focus{
   border: 1px solid #50B848;
  color: black;
@@ -58,6 +63,7 @@ option{
 }
 .borderError{
   padding: 10px;
+  margin-top: 10px;
   width: 100%;
   border: 1px solid red;
 }
@@ -69,4 +75,15 @@ option{
 .validateText{
   margin-top: 15px;
   color:red;
+}
+.boder{
+  margin: auto;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgb(226 226 226);
+  box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.06);
+}
+.title{
+  padding: 20px 0;
+  background-color: rgb(33,37,41,0.03);
 }

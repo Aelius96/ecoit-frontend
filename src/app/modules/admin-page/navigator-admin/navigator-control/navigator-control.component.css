@@ -24,12 +24,8 @@
   text-transform: capitalize;
   font-weight: 600;
 }
-.boderNav{
-  border-right: 1px solid #fff;
-}
 .icon-navi{
   cursor: pointer;
-  font-size: 18px;
 }
 
 input:focus{
