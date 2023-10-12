@@ -67,18 +67,18 @@
     <!-- Sidebar navigation-->
     <nav class="sidebar-nav scroll-sidebar px-2 " data-simplebar="">
       <ul id="sidebarnav" class="ps-0">
-        <!-- <li class="my-2 text-center ">
+        <li class="my-2 text-center accout">
           <div class="d-flex w-100 flex-column">
             <div class="d-flex name-accout ">
               <span class=" me-1 me-md-2"><strong>Tài Khoản:</strong></span>
-              <span class="text-uppercase" >{{userById.username}} </span>
+              <span class="text-uppercase accout-item" >{{userById.username}} </span>
             </div>
             <div class="d-flex name-accout ">
               <span class=" me-1 me-md-2 "><strong>Quyền:</strong></span>
-              <span>{{roleByUser.name}}</span>
+              <span class="accout-item">{{roleByUser.name}}</span>
             </div>
           </div>
-        </li> -->
+        </li>
         <li class="sidebar-item mb-1 " *ngFor="let module of modules ;">
           <a class="sidebar-link " routerLink="{{module.url}}" routerLinkActive="active" aria-expanded="false">
             <span class="">

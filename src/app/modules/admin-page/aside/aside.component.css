@@ -8,7 +8,9 @@
 .scroll-sidebar:hover {
   overflow-y:auto;
 }
-
+.sidebar-nav{
+  margin-top: -23px;
+}
 .scroll-sidebar::-webkit-scrollbar {
   width: 6px;
 }
@@ -80,6 +82,10 @@ a{
     transform: rotateZ(180deg);
     transition: transform 0.3s;
   }
+  .accout-item{
+    visibility: hidden;
+    transition: width 1s ease;
+  }
 }
 
 .left-sidebar:hover{
@@ -93,6 +99,11 @@ a{
   .logo-img{
     display: block;
     transition: width 1s ease;
+  }
+  .accout-item{
+    visibility: initial;
+    transition: width 1s ease;
+    
   }
 }
 
